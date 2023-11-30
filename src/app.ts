@@ -2,6 +2,7 @@ import sortObject from 'deep-sort-object';
 import {ProxySetting} from 'get-proxy-settings';
 import _ from 'lodash';
 import fs from 'node:fs';
+import {copyFile} from 'node:fs/promises';
 import path, {basename, join} from 'node:path';
 import {
   fallbackDocumentationLinks,
@@ -14,7 +15,6 @@ import {
   getRestDescriptionsForService,
 } from './discovery';
 import {Template, TemplateData} from './template/index';
-import {hasPrefixI} from './tslint';
 import {
   checkExists,
   ensureDirectoryExists,
@@ -116,13 +116,6 @@ class IndentedTextWriter {
   }
 }
 
-interface TypescriptTextWriter {
-  namespace(
-    name: string,
-    context: (writer: TypescriptTextWriter) => void
-  ): void;
-}
-
 type TypescriptWriterCallback = (writer: TypescriptTextWriter) => void;
 
 function formatPropertyName(name: string) {
@@ -133,11 +126,11 @@ function formatPropertyName(name: string) {
 }
 
 class TypescriptTextWriter implements TypescriptTextWriter {
-  private readonly ignoreBannedType = '// tslint:disable-next-line:ban-types';
+  private readonly ignoreBannedType =
+    '// eslint-disable-next-line @typescript-eslint/ban-types';
 
   constructor(
     private readonly writer: IndentedTextWriter,
-    private readonly maxLineLength: number,
     private readonly bannedTypes: string[]
   ) {}
 
@@ -171,24 +164,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     this.braces(`declare namespace ${name}`, context);
   }
 
-  interface(
-    name: string,
-    context: TypescriptWriterCallback,
-    emptyInterface = false
-  ) {
-    const ignoreRules: string[] = [];
-    if (hasPrefixI(name)) {
-      // workaround for cases like `IPAllocationPolicy`
-      ignoreRules.push('interface-name');
-    }
-    if (emptyInterface) {
-      ignoreRules.push('no-empty-interface');
-    }
-    if (ignoreRules.length > 0) {
-      this.writer.writeLine(
-        `// tslint:disable-next-line:${ignoreRules.join(' ')}`
-      );
-    }
+  interface(name: string, context: TypescriptWriterCallback) {
     this.braces(`interface ${name}`, context);
   }
 
@@ -229,12 +205,12 @@ class TypescriptTextWriter implements TypescriptTextWriter {
     this.writer.write(this.writer.newLine);
     this.writer.indent++;
     this.writer.startIndentedLine();
-    // need to writ it on second line to avoid dtslint max-line-length error in cases such as this: https://github.com/prettier/prettier/issues/14776
+
     if (typeof type === 'function') {
       type(this);
     } else if (typeof type === 'string') {
       if (type.match(/\b(Function|Object|Symbol)\b/)) {
-        this.write('// tslint:disable-next-line:ban-types');
+        this.write(this.ignoreBannedType);
         this.writer.write(this.writer.newLine);
         this.writer.startIndentedLine();
       }
@@ -258,33 +234,10 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       `@${zeroWidthJoinerCharacter}$1`
     );
 
-    const maxLineLength =
-      this.maxLineLength -
-      this.writer.indent * this.writer.tabString.length -
-      `${jsdocComment.start}  ${jsdocComment.end}`.length;
-
     let lines: string[] = [];
 
     for (const line of text.trim().split(/\r?\n/g)) {
-      if (line.length > maxLineLength) {
-        const words = line.split(' ');
-        let newLine = '';
-
-        for (const word of words) {
-          if (newLine.length + ' '.length + word.length > maxLineLength) {
-            lines.push(newLine);
-            newLine = word;
-          } else if (newLine === '') {
-            newLine = word;
-          } else {
-            newLine += ' ' + word;
-          }
-        }
-
-        lines.push(newLine);
-      } else {
-        lines.push(line);
-      }
+      lines.push(line);
     }
 
     lines = lines.map(x => x.trim());
@@ -293,15 +246,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
       lines = lines.map(line => line.replace(irregularSpace, ' '));
     }
 
-    const longestLineLength = Math.max(...lines.map(x => x.length));
-
     const extraLines: {prepend?: string; append?: string} = {};
-
-    if (longestLineLength > maxLineLength) {
-      // it's most likely has a URL that we shouldn't break
-      extraLines.prepend = '// tslint:disable:max-line-length';
-      extraLines.append = '// tslint:enable:max-line-length';
-    }
 
     extraLines.prepend && this.writer.writeLine(extraLines.prepend);
     if (lines.length === 1) {
@@ -510,8 +455,6 @@ function getMethodReturn(
 }
 
 const readmeTpl = new Template('readme.dot');
-const tsconfigTpl = new Template('tsconfig.dot');
-const tslintTpl = new Template('tslint.dot');
 const packageJsonTpl = new Template('package-json.dot');
 
 function isEmptySchema(schema: JsonSchema) {
@@ -522,7 +465,6 @@ export interface Configuration {
   discoveryJsonDirectory?: string; // temporary directory to cache discovery service JSON
   proxy?: ProxySetting;
   typesDirectory: string;
-  maxLineLength: number;
   bannedTypes: string[];
   owners: string[];
 }
@@ -710,7 +652,6 @@ export class App {
     );
     const writer = new TypescriptTextWriter(
       new IndentedTextWriter(new StreamWriter(stream)),
-      this.config.maxLineLength,
       this.config.bannedTypes
     );
 
@@ -810,31 +751,27 @@ export class App {
         writer.namespace(namespace, () => {
           const schemas = checkExists(restDescription.schemas);
           _.forEach(schemas, schema => {
-            writer.interface(
-              checkExists(schema.id),
-              () => {
-                if (schema.properties) {
-                  _.forEach(schema.properties, (data, key) => {
-                    if (data.description) {
-                      writer.comment(formatComment(data.description));
-                    }
-                    writer.property(
-                      key,
-                      getType(data, schemas),
-                      data.required || false
-                    );
-                  });
-                }
-
-                if (schema.additionalProperties) {
+            writer.interface(checkExists(schema.id), () => {
+              if (schema.properties) {
+                _.forEach(schema.properties, (data, key) => {
+                  if (data.description) {
+                    writer.comment(formatComment(data.description));
+                  }
                   writer.property(
-                    '[key: string]',
-                    getType(schema.additionalProperties, schemas)
+                    key,
+                    getType(data, schemas),
+                    data.required || false
                   );
-                }
-              },
-              isEmptySchema(schema)
-            );
+                });
+              }
+
+              if (schema.additionalProperties) {
+                writer.property(
+                  '[key: string]',
+                  getType(schema.additionalProperties, schemas)
+                );
+              }
+            });
           });
 
           if (restDescription.resources) {
@@ -943,21 +880,28 @@ export class App {
       path.join(destinationDirectory, 'readme.md'),
       templateData
     );
-    await tsconfigTpl.write(
-      path.join(destinationDirectory, 'tsconfig.json'),
-      templateData
-    );
-    await tslintTpl.write(
-      path.join(destinationDirectory, 'tslint.json'),
-      templateData
-    );
     await packageJsonTpl.write(
       path.join(destinationDirectory, 'package.json'),
       templateData
     );
-    fs.copyFileSync(
-      path.join(__dirname, 'template', '.npmrc'),
-      path.join(destinationDirectory, '.npmrc')
+
+    await Promise.all(
+      [
+        '.npmrc',
+        '.npmIgnore'.toLowerCase(),
+        '.eslintrc.json',
+        'tslint.json',
+        'tsconfig.json',
+      ].map(fileName =>
+        copyFile(
+          path.join(
+            __dirname,
+            'template',
+            `template.${fileName}` // can't use just fileName, because tsconfig.json will act like a real config for the index.ts inside of template folder
+          ),
+          path.join(destinationDirectory, fileName)
+        )
+      )
     );
 
     await this.writeTests(
@@ -1175,7 +1119,6 @@ export class App {
       ),
       writer = new TypescriptTextWriter(
         new IndentedTextWriter(new StreamWriter(stream)),
-        this.config.maxLineLength,
         this.config.bannedTypes
       );
 
@@ -1227,7 +1170,7 @@ export class App {
           writer3.newLine('if (authResult && !authResult.error) ');
           scope.scope(a => {
             a.comment('handle successful authorization');
-            a.writeLine('run();');
+            a.writeLine('void run();');
           });
           scope.write(' else ');
           scope.scope(() => {
@@ -1238,7 +1181,7 @@ export class App {
 
         writer3.endLine(');');
       } else {
-        writer3.writeLine('run();');
+        writer3.writeLine('void run();');
       }
 
       writer3.endLine();

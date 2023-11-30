@@ -13,7 +13,6 @@ let dtApp: DtApp;
 beforeAll(() => {
   app = new App({
     typesDirectory: join(__dirname, 'results'),
-    maxLineLength: 200,
     bannedTypes: [],
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
@@ -24,7 +23,6 @@ beforeAll(() => {
 
   dtApp = new DtApp({
     dtTypesDirectory: join(__dirname, 'results', 'dt'),
-    maxLineLength: 200,
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
       'Nick Amoscato <https://github.com/namoscato>',

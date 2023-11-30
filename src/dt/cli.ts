@@ -2,7 +2,7 @@
 
 import {Option, program} from 'commander';
 import {App} from './app';
-import {getMaxLineLength, getProxy} from '../utils';
+import {getProxy} from '../utils';
 import {getRestDescription} from '../discovery';
 
 process.on('unhandledRejection', reason => {
@@ -36,7 +36,6 @@ void (async () => {
   const app = new App({
     proxy,
     dtTypesDirectory: options.out,
-    maxLineLength: await getMaxLineLength(),
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
       'Nick Amoscato <https://github.com/namoscato>',

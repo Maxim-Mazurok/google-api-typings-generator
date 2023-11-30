@@ -91,9 +91,9 @@ export const getRestDescriptionsOfDiscoveryItems = async (
 };
 
 export const getExtraRestDescriptions = async (
-  generatorFunctions: Array<
-    (proxy?: ProxySetting) => AsyncGenerator<RestDescriptionExtended>
-  >,
+  generatorFunctions: ((
+    proxy?: ProxySetting
+  ) => AsyncGenerator<RestDescriptionExtended>)[],
   proxy?: ProxySetting
 ): Promise<RestDescriptionExtended[]> => {
   const extraRestDescriptionsExtended: RestDescriptionExtended[] = [];

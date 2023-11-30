@@ -4,7 +4,6 @@ import _ from 'lodash';
 import LineByLine from 'n-readlines';
 import fs, {appendFileSync, PathLike} from 'node:fs';
 import {EOL} from 'node:os';
-import path from 'node:path';
 import {pathToFileURL, URL} from 'node:url';
 import semverPatch from 'semver/functions/patch';
 import validateNpmPackageName from 'validate-npm-package-name';
@@ -26,7 +25,16 @@ export function getResourceTypeName(resourceName: string) {
     .map(x => `${x[0].toUpperCase()}${x.substring(1)}`)
     .join('');
 
-  return `${resourceName[0].toUpperCase()}${resourceName.substring(1)}Resource`;
+  const resourceTypeName = `${resourceName[0].toUpperCase()}${resourceName.substring(
+    1
+  )}Resource`;
+
+  if (resourceTypeName === 'JwtResource') {
+    // TODO: get rid of this hack in https://github.com/Maxim-Mazurok/google-api-typings-generator/issues/976
+    return 'JWTResource'; // hack to avoid collision with the actual `JwtResource` interface vs `jwt` key in the `resources` object for https://walletobjects.googleapis.com/$discovery/rest?version=v1
+  }
+
+  return resourceTypeName;
 }
 
 /**
@@ -36,25 +44,6 @@ export function ensureDirectoryExists(directory: string) {
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory, {recursive: true});
   }
-}
-
-/**
- * Reads and parses `dtslint.json` to get `max-line-length` value
- */
-export async function getMaxLineLength(): Promise<number> {
-  const dtslintJson = fs.readFileSync(
-    path.join(__dirname, '../node_modules/dtslint/dtslint.json'),
-    'utf-8'
-  );
-  const stripJsonComments = (await import('strip-json-comments')).default;
-  const dtslintConfig = JSON.parse(stripJsonComments(dtslintJson)) as {
-    rules: {
-      'max-line-length': [boolean, number] | [boolean, {limit: number}];
-    };
-  };
-  return typeof dtslintConfig.rules['max-line-length'][1] === 'number'
-    ? dtslintConfig.rules['max-line-length'][1]
-    : dtslintConfig.rules['max-line-length'][1].limit;
 }
 
 /**

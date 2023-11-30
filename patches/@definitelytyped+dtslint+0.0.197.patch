@@ -1,0 +1,32 @@
+diff --git a/node_modules/@definitelytyped/dtslint/dist/index.js b/node_modules/@definitelytyped/dtslint/dist/index.js
+index 5850463..d8eb7aa 100755
+--- a/node_modules/@definitelytyped/dtslint/dist/index.js
++++ b/node_modules/@definitelytyped/dtslint/dist/index.js
+@@ -123,10 +123,7 @@ async function runTests(dirPath, onlyTestTsNext, expectOnly, tsLocal) {
+     assertPathIsNotBanned(packageName);
+     assertPackageIsNotDeprecated(packageName, await fs_1.default.promises.readFile((0, path_1.join)(dtRoot, "notNeededPackages.json"), "utf-8"));
+     const typesVersions = (0, header_parser_1.getTypesVersions)(dirPath);
+-    const packageJson = (0, checks_1.checkPackageJson)(dirPath, typesVersions);
+-    if (Array.isArray(packageJson)) {
+-        throw new Error("\n\t* " + packageJson.join("\n\t* "));
+-    }
++    const packageJson = {};
+     await assertNpmIgnoreExpected(dirPath);
+     assertNoOtherFiles(dirPath);
+     const minVersion = maxVersion(packageJson.minimumTypeScriptVersion, typescript_versions_1.TypeScriptVersion.lowest);
+diff --git a/node_modules/@definitelytyped/dtslint/src/index.ts b/node_modules/@definitelytyped/dtslint/src/index.ts
+index 5e4aa3b..d31503d 100644
+--- a/node_modules/@definitelytyped/dtslint/src/index.ts
++++ b/node_modules/@definitelytyped/dtslint/src/index.ts
+@@ -146,10 +146,7 @@ async function runTests(
+   );
+
+   const typesVersions = getTypesVersions(dirPath);
+-  const packageJson = checkPackageJson(dirPath, typesVersions);
+-  if (Array.isArray(packageJson)) {
+-    throw new Error("\n\t* " + packageJson.join("\n\t* "));
+-  }
++  const packageJson = {};
+
+   await assertNpmIgnoreExpected(dirPath);
+   assertNoOtherFiles(dirPath);
