@@ -22,7 +22,6 @@
     "dtslint": "node node_modules/@definitelytyped/dtslint/",
     "prefix": "prettier --write .",
     "fix": "gts fix && npm run sort",
-    "get-latest-types": "npm run ts-node-tool -- bin/get-latest-types.ts ./types",
     "postinstall": "patch-package",
     "lint": "npm run ts-node-tool -- bin/lint.ts ./types",
     "ncu": "npx -y npm-check-updates -u --doctor",
