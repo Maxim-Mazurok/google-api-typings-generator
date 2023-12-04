@@ -22,10 +22,8 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Get latest types
-        run: npm run get-latest-types
-        env:
-          GH_AUTH_TOKEN: ${{ secrets.GH_AUTH_TOKEN }}
+
+      # we used to download `types` branch here, but looks like we don't need that anymore, and can skip linting old types
 
       # generate and lint types
       - name: Generate types
