@@ -1024,40 +1024,6 @@ Retrieves merchant performance mertrics matching the search query and optionally
 await gapi.client.content.reports.search({merchantId: 'merchantId'});
 
 /*
-Creates a repricing rule for your Merchant Center account.
-*/
-await gapi.client.content.repricingrules.create({merchantId: 'merchantId'});
-
-/*
-Deletes a repricing rule in your Merchant Center account.
-*/
-await gapi.client.content.repricingrules.delete({
-  merchantId: 'merchantId',
-  ruleId: 'ruleId',
-});
-
-/*
-Retrieves a repricing rule from your Merchant Center account.
-*/
-await gapi.client.content.repricingrules.get({
-  merchantId: 'merchantId',
-  ruleId: 'ruleId',
-});
-
-/*
-Lists the repricing rules in your Merchant Center account.
-*/
-await gapi.client.content.repricingrules.list({merchantId: 'merchantId'});
-
-/*
-Updates a repricing rule in your Merchant Center account. All mutable fields will be overwritten in each update request. In each update, you must provide all required mutable fields, or an error will be thrown. If you do not provide an optional field in the update request, if that field currently exists, it will be deleted from the rule.
-*/
-await gapi.client.content.repricingrules.patch({
-  merchantId: 'merchantId',
-  ruleId: 'ruleId',
-});
-
-/*
 Batches multiple return address related calls in a single request.
 */
 await gapi.client.content.returnaddress.custombatch({});
