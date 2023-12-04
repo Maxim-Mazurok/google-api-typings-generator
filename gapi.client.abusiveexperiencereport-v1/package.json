@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.abusiveexperiencereport-v1",
-  "version": "0.0.20231106",
+  "version": "0.0.20231204",
   "description": "TypeScript typings for Abusive Experience Report API v1",
   "repository": {
     "type": "git",
