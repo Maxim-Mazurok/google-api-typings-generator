@@ -1,6 +1,5 @@
 # TypeScript typings for Document AI Warehouse API v1
 
-
 For detailed description please check [documentation](https://cloud.google.com/document-warehouse).
 
 ## Installing
@@ -25,10 +24,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://contentwarehouse.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.contentwarehouse
-});
+gapi.client.load(
+  'https://contentwarehouse.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.contentwarehouse
+  }
+);
 ```
 
 ```typescript
@@ -45,34 +47,34 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Document AI Warehouse API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Gets the access control policy for a resource. Returns NOT_FOUND error if the resource does not exist. Returns an empty policy if the resource exists but does not have a policy set.
 */
-await gapi.client.contentwarehouse.projects.fetchAcl({ resource: "resource",  });
+await gapi.client.contentwarehouse.projects.fetchAcl({resource: 'resource'});
 
 /*
 Sets the access control policy for a resource. Replaces any existing policy.
 */
-await gapi.client.contentwarehouse.projects.setAcl({ resource: "resource",  });
+await gapi.client.contentwarehouse.projects.setAcl({resource: 'resource'});
 ```

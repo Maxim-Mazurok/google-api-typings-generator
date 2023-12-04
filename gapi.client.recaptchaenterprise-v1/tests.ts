@@ -6,451 +6,439 @@
 // Revision: 20231112
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://recaptchaenterprise.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.recaptchaenterprise */
+  await gapi.client.load(
+    'https://recaptchaenterprise.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.recaptchaenterprise */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent. */
-        await gapi.client.recaptchaenterprise.projects.assessments.annotate({
-            name: "Test string",
-        }, {
-            accountId: "Test string",
-            annotation: "Test string",
-            hashedAccountId: "Test string",
-            reasons: [
-                "Test string"
-            ],
-            transactionEvent: {
-                eventTime: "Test string",
-                eventType: "Test string",
-                reason: "Test string",
-                value: 42,
-            },
-        });
-        /** Creates an Assessment of the likelihood an event is legitimate. */
-        await gapi.client.recaptchaenterprise.projects.assessments.create({
-            parent: "Test string",
-        }, {
-            accountDefenderAssessment: {
-                labels: [
-                    "Test string"
-                ],
-            },
-            accountVerification: {
-                endpoints: [
-                    {
-                        emailAddress: "Test string",
-                        lastVerificationTime: "Test string",
-                        phoneNumber: "Test string",
-                        requestToken: "Test string",
-                    }
-                ],
-                languageCode: "Test string",
-                latestVerificationResult: "Test string",
-                username: "Test string",
-            },
-            event: {
-                expectedAction: "Test string",
-                express: true,
-                firewallPolicyEvaluation: true,
-                hashedAccountId: "Test string",
-                headers: [
-                    "Test string"
-                ],
-                ja3: "Test string",
-                requestedUri: "Test string",
-                siteKey: "Test string",
-                token: "Test string",
-                transactionData: {
-                    billingAddress: {
-                        address: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        locality: "Test string",
-                        postalCode: "Test string",
-                        recipient: "Test string",
-                        regionCode: "Test string",
-                    },
-                    cardBin: "Test string",
-                    cardLastFour: "Test string",
-                    currencyCode: "Test string",
-                    gatewayInfo: {
-                        avsResponseCode: "Test string",
-                        cvvResponseCode: "Test string",
-                        gatewayResponseCode: "Test string",
-                        name: "Test string",
-                    },
-                    items: [
-                        {
-                            merchantAccountId: "Test string",
-                            name: "Test string",
-                            quantity: "Test string",
-                            value: 42,
-                        }
-                    ],
-                    merchants: [
-                        {
-                            accountId: "Test string",
-                            creationMs: "Test string",
-                            email: "Test string",
-                            emailVerified: true,
-                            phoneNumber: "Test string",
-                            phoneVerified: true,
-                        }
-                    ],
-                    paymentMethod: "Test string",
-                    shippingAddress: {
-                        address: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        locality: "Test string",
-                        postalCode: "Test string",
-                        recipient: "Test string",
-                        regionCode: "Test string",
-                    },
-                    shippingValue: 42,
-                    transactionId: "Test string",
-                    user: {
-                        accountId: "Test string",
-                        creationMs: "Test string",
-                        email: "Test string",
-                        emailVerified: true,
-                        phoneNumber: "Test string",
-                        phoneVerified: true,
-                    },
-                    value: 42,
-                },
-                userAgent: "Test string",
-                userInfo: {
-                    accountId: "Test string",
-                    createAccountTime: "Test string",
-                    userIds: [
-                        {
-                            email: "Test string",
-                            phoneNumber: "Test string",
-                            username: "Test string",
-                        }
-                    ],
-                },
-                userIpAddress: "Test string",
-                wafTokenAssessment: true,
-            },
-            firewallPolicyAssessment: {
-                error: {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                },
-                firewallPolicy: {
-                    actions: [
-                        {
-                            allow: {
-                            },
-                            block: {
-                            },
-                            redirect: {
-                            },
-                            setHeader: {
-                                key: "Test string",
-                                value: "Test string",
-                            },
-                            substitute: {
-                                path: "Test string",
-                            },
-                        }
-                    ],
-                    condition: "Test string",
-                    description: "Test string",
-                    name: "Test string",
-                    path: "Test string",
-                },
-            },
-            fraudPreventionAssessment: {
-                behavioralTrustVerdict: {
-                    trust: 42,
-                },
-                cardTestingVerdict: {
-                    risk: 42,
-                },
-                stolenInstrumentVerdict: {
-                    risk: 42,
-                },
-                transactionRisk: 42,
-            },
-            fraudSignals: {
-                cardSignals: {
-                    cardLabels: [
-                        "Test string"
-                    ],
-                },
-                userSignals: {
-                    activeDaysLowerBound: 42,
-                    syntheticRisk: 42,
-                },
-            },
-            name: "Test string",
-            privatePasswordLeakVerification: {
-                encryptedLeakMatchPrefixes: [
-                    "Test string"
-                ],
-                encryptedUserCredentialsHash: "Test string",
-                lookupHashPrefix: "Test string",
-                reencryptedUserCredentialsHash: "Test string",
-            },
-            riskAnalysis: {
-                extendedVerdictReasons: [
-                    "Test string"
-                ],
-                reasons: [
-                    "Test string"
-                ],
-                score: 42,
-            },
-            tokenProperties: {
-                action: "Test string",
-                androidPackageName: "Test string",
-                createTime: "Test string",
-                hostname: "Test string",
-                invalidReason: "Test string",
-                iosBundleId: "Test string",
-                valid: true,
-            },
-        });
-        /** Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies. */
-        await gapi.client.recaptchaenterprise.projects.firewallpolicies.create({
-            parent: "Test string",
-        }, {
-            actions: [
-                {
-                    allow: {
-                    },
-                    block: {
-                    },
-                    redirect: {
-                    },
-                    setHeader: {
-                        key: "Test string",
-                        value: "Test string",
-                    },
-                    substitute: {
-                        path: "Test string",
-                    },
-                }
-            ],
-            condition: "Test string",
-            description: "Test string",
-            name: "Test string",
-            path: "Test string",
-        });
-        /** Deletes the specified firewall policy. */
-        await gapi.client.recaptchaenterprise.projects.firewallpolicies.delete({
-            name: "Test string",
-        });
-        /** Returns the specified firewall policy. */
-        await gapi.client.recaptchaenterprise.projects.firewallpolicies.get({
-            name: "Test string",
-        });
-        /** Returns the list of all firewall policies that belong to a project. */
-        await gapi.client.recaptchaenterprise.projects.firewallpolicies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the specified firewall policy. */
-        await gapi.client.recaptchaenterprise.projects.firewallpolicies.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            actions: [
-                {
-                    allow: {
-                    },
-                    block: {
-                    },
-                    redirect: {
-                    },
-                    setHeader: {
-                        key: "Test string",
-                        value: "Test string",
-                    },
-                    substitute: {
-                        path: "Test string",
-                    },
-                }
-            ],
-            condition: "Test string",
-            description: "Test string",
-            name: "Test string",
-            path: "Test string",
-        });
-        /** Creates a new reCAPTCHA Enterprise key. */
-        await gapi.client.recaptchaenterprise.projects.keys.create({
-            parent: "Test string",
-        }, {
-            androidSettings: {
-                allowAllPackageNames: true,
-                allowedPackageNames: [
-                    "Test string"
-                ],
-                supportNonGoogleAppStoreDistribution: true,
-            },
-            createTime: "Test string",
-            displayName: "Test string",
-            iosSettings: {
-                allowAllBundleIds: true,
-                allowedBundleIds: [
-                    "Test string"
-                ],
-                appleDeveloperId: {
-                    keyId: "Test string",
-                    privateKey: "Test string",
-                    teamId: "Test string",
-                },
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            testingOptions: {
-                testingChallenge: "Test string",
-                testingScore: 42,
-            },
-            wafSettings: {
-                wafFeature: "Test string",
-                wafService: "Test string",
-            },
-            webSettings: {
-                allowAllDomains: true,
-                allowAmpTraffic: true,
-                allowedDomains: [
-                    "Test string"
-                ],
-                challengeSecurityPreference: "Test string",
-                integrationType: "Test string",
-            },
-        });
-        /** Deletes the specified key. */
-        await gapi.client.recaptchaenterprise.projects.keys.delete({
-            name: "Test string",
-        });
-        /** Returns the specified key. */
-        await gapi.client.recaptchaenterprise.projects.keys.get({
-            name: "Test string",
-        });
-        /** Get some aggregated metrics for a Key. This data can be used to build dashboards. */
-        await gapi.client.recaptchaenterprise.projects.keys.getMetrics({
-            name: "Test string",
-        });
-        /** Returns the list of all keys that belong to a project. */
-        await gapi.client.recaptchaenterprise.projects.keys.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls.
-         * You must be authenticated as one of the current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project.
-         */
-        await gapi.client.recaptchaenterprise.projects.keys.migrate({
-            name: "Test string",
-        }, {
-            skipBillingCheck: true,
-        });
-        /** Updates the specified key. */
-        await gapi.client.recaptchaenterprise.projects.keys.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            androidSettings: {
-                allowAllPackageNames: true,
-                allowedPackageNames: [
-                    "Test string"
-                ],
-                supportNonGoogleAppStoreDistribution: true,
-            },
-            createTime: "Test string",
-            displayName: "Test string",
-            iosSettings: {
-                allowAllBundleIds: true,
-                allowedBundleIds: [
-                    "Test string"
-                ],
-                appleDeveloperId: {
-                    keyId: "Test string",
-                    privateKey: "Test string",
-                    teamId: "Test string",
-                },
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            testingOptions: {
-                testingChallenge: "Test string",
-                testingScore: 42,
-            },
-            wafSettings: {
-                wafFeature: "Test string",
-                wafService: "Test string",
-            },
-            webSettings: {
-                allowAllDomains: true,
-                allowAmpTraffic: true,
-                allowedDomains: [
-                    "Test string"
-                ],
-                challengeSecurityPreference: "Test string",
-                integrationType: "Test string",
-            },
-        });
-        /** Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA. */
-        await gapi.client.recaptchaenterprise.projects.keys.retrieveLegacySecretKey({
-            key: "Test string",
-        });
-        /** Search group memberships related to a given account. */
-        await gapi.client.recaptchaenterprise.projects.relatedaccountgroupmemberships.search({
-            project: "Test string",
-        }, {
-            hashedAccountId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** List groups of related accounts. */
-        await gapi.client.recaptchaenterprise.projects.relatedaccountgroups.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Get memberships in a group of related accounts. */
-        await gapi.client.recaptchaenterprise.projects.relatedaccountgroups.memberships.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent. */
+    await gapi.client.recaptchaenterprise.projects.assessments.annotate(
+      {
+        name: 'Test string',
+      },
+      {
+        accountId: 'Test string',
+        annotation: 'Test string',
+        hashedAccountId: 'Test string',
+        reasons: ['Test string'],
+        transactionEvent: {
+          eventTime: 'Test string',
+          eventType: 'Test string',
+          reason: 'Test string',
+          value: 42,
+        },
+      }
+    );
+    /** Creates an Assessment of the likelihood an event is legitimate. */
+    await gapi.client.recaptchaenterprise.projects.assessments.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        accountDefenderAssessment: {
+          labels: ['Test string'],
+        },
+        accountVerification: {
+          endpoints: [
+            {
+              emailAddress: 'Test string',
+              lastVerificationTime: 'Test string',
+              phoneNumber: 'Test string',
+              requestToken: 'Test string',
+            },
+          ],
+          languageCode: 'Test string',
+          latestVerificationResult: 'Test string',
+          username: 'Test string',
+        },
+        event: {
+          expectedAction: 'Test string',
+          express: true,
+          firewallPolicyEvaluation: true,
+          hashedAccountId: 'Test string',
+          headers: ['Test string'],
+          ja3: 'Test string',
+          requestedUri: 'Test string',
+          siteKey: 'Test string',
+          token: 'Test string',
+          transactionData: {
+            billingAddress: {
+              address: ['Test string'],
+              administrativeArea: 'Test string',
+              locality: 'Test string',
+              postalCode: 'Test string',
+              recipient: 'Test string',
+              regionCode: 'Test string',
+            },
+            cardBin: 'Test string',
+            cardLastFour: 'Test string',
+            currencyCode: 'Test string',
+            gatewayInfo: {
+              avsResponseCode: 'Test string',
+              cvvResponseCode: 'Test string',
+              gatewayResponseCode: 'Test string',
+              name: 'Test string',
+            },
+            items: [
+              {
+                merchantAccountId: 'Test string',
+                name: 'Test string',
+                quantity: 'Test string',
+                value: 42,
+              },
+            ],
+            merchants: [
+              {
+                accountId: 'Test string',
+                creationMs: 'Test string',
+                email: 'Test string',
+                emailVerified: true,
+                phoneNumber: 'Test string',
+                phoneVerified: true,
+              },
+            ],
+            paymentMethod: 'Test string',
+            shippingAddress: {
+              address: ['Test string'],
+              administrativeArea: 'Test string',
+              locality: 'Test string',
+              postalCode: 'Test string',
+              recipient: 'Test string',
+              regionCode: 'Test string',
+            },
+            shippingValue: 42,
+            transactionId: 'Test string',
+            user: {
+              accountId: 'Test string',
+              creationMs: 'Test string',
+              email: 'Test string',
+              emailVerified: true,
+              phoneNumber: 'Test string',
+              phoneVerified: true,
+            },
+            value: 42,
+          },
+          userAgent: 'Test string',
+          userInfo: {
+            accountId: 'Test string',
+            createAccountTime: 'Test string',
+            userIds: [
+              {
+                email: 'Test string',
+                phoneNumber: 'Test string',
+                username: 'Test string',
+              },
+            ],
+          },
+          userIpAddress: 'Test string',
+          wafTokenAssessment: true,
+        },
+        firewallPolicyAssessment: {
+          error: {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+          firewallPolicy: {
+            actions: [
+              {
+                allow: {},
+                block: {},
+                redirect: {},
+                setHeader: {
+                  key: 'Test string',
+                  value: 'Test string',
+                },
+                substitute: {
+                  path: 'Test string',
+                },
+              },
+            ],
+            condition: 'Test string',
+            description: 'Test string',
+            name: 'Test string',
+            path: 'Test string',
+          },
+        },
+        fraudPreventionAssessment: {
+          behavioralTrustVerdict: {
+            trust: 42,
+          },
+          cardTestingVerdict: {
+            risk: 42,
+          },
+          stolenInstrumentVerdict: {
+            risk: 42,
+          },
+          transactionRisk: 42,
+        },
+        fraudSignals: {
+          cardSignals: {
+            cardLabels: ['Test string'],
+          },
+          userSignals: {
+            activeDaysLowerBound: 42,
+            syntheticRisk: 42,
+          },
+        },
+        name: 'Test string',
+        privatePasswordLeakVerification: {
+          encryptedLeakMatchPrefixes: ['Test string'],
+          encryptedUserCredentialsHash: 'Test string',
+          lookupHashPrefix: 'Test string',
+          reencryptedUserCredentialsHash: 'Test string',
+        },
+        riskAnalysis: {
+          extendedVerdictReasons: ['Test string'],
+          reasons: ['Test string'],
+          score: 42,
+        },
+        tokenProperties: {
+          action: 'Test string',
+          androidPackageName: 'Test string',
+          createTime: 'Test string',
+          hostname: 'Test string',
+          invalidReason: 'Test string',
+          iosBundleId: 'Test string',
+          valid: true,
+        },
+      }
+    );
+    /** Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies. */
+    await gapi.client.recaptchaenterprise.projects.firewallpolicies.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        actions: [
+          {
+            allow: {},
+            block: {},
+            redirect: {},
+            setHeader: {
+              key: 'Test string',
+              value: 'Test string',
+            },
+            substitute: {
+              path: 'Test string',
+            },
+          },
+        ],
+        condition: 'Test string',
+        description: 'Test string',
+        name: 'Test string',
+        path: 'Test string',
+      }
+    );
+    /** Deletes the specified firewall policy. */
+    await gapi.client.recaptchaenterprise.projects.firewallpolicies.delete({
+      name: 'Test string',
+    });
+    /** Returns the specified firewall policy. */
+    await gapi.client.recaptchaenterprise.projects.firewallpolicies.get({
+      name: 'Test string',
+    });
+    /** Returns the list of all firewall policies that belong to a project. */
+    await gapi.client.recaptchaenterprise.projects.firewallpolicies.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the specified firewall policy. */
+    await gapi.client.recaptchaenterprise.projects.firewallpolicies.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        actions: [
+          {
+            allow: {},
+            block: {},
+            redirect: {},
+            setHeader: {
+              key: 'Test string',
+              value: 'Test string',
+            },
+            substitute: {
+              path: 'Test string',
+            },
+          },
+        ],
+        condition: 'Test string',
+        description: 'Test string',
+        name: 'Test string',
+        path: 'Test string',
+      }
+    );
+    /** Creates a new reCAPTCHA Enterprise key. */
+    await gapi.client.recaptchaenterprise.projects.keys.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        androidSettings: {
+          allowAllPackageNames: true,
+          allowedPackageNames: ['Test string'],
+          supportNonGoogleAppStoreDistribution: true,
+        },
+        createTime: 'Test string',
+        displayName: 'Test string',
+        iosSettings: {
+          allowAllBundleIds: true,
+          allowedBundleIds: ['Test string'],
+          appleDeveloperId: {
+            keyId: 'Test string',
+            privateKey: 'Test string',
+            teamId: 'Test string',
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        testingOptions: {
+          testingChallenge: 'Test string',
+          testingScore: 42,
+        },
+        wafSettings: {
+          wafFeature: 'Test string',
+          wafService: 'Test string',
+        },
+        webSettings: {
+          allowAllDomains: true,
+          allowAmpTraffic: true,
+          allowedDomains: ['Test string'],
+          challengeSecurityPreference: 'Test string',
+          integrationType: 'Test string',
+        },
+      }
+    );
+    /** Deletes the specified key. */
+    await gapi.client.recaptchaenterprise.projects.keys.delete({
+      name: 'Test string',
+    });
+    /** Returns the specified key. */
+    await gapi.client.recaptchaenterprise.projects.keys.get({
+      name: 'Test string',
+    });
+    /** Get some aggregated metrics for a Key. This data can be used to build dashboards. */
+    await gapi.client.recaptchaenterprise.projects.keys.getMetrics({
+      name: 'Test string',
+    });
+    /** Returns the list of all keys that belong to a project. */
+    await gapi.client.recaptchaenterprise.projects.keys.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project. */
+    await gapi.client.recaptchaenterprise.projects.keys.migrate(
+      {
+        name: 'Test string',
+      },
+      {
+        skipBillingCheck: true,
+      }
+    );
+    /** Updates the specified key. */
+    await gapi.client.recaptchaenterprise.projects.keys.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        androidSettings: {
+          allowAllPackageNames: true,
+          allowedPackageNames: ['Test string'],
+          supportNonGoogleAppStoreDistribution: true,
+        },
+        createTime: 'Test string',
+        displayName: 'Test string',
+        iosSettings: {
+          allowAllBundleIds: true,
+          allowedBundleIds: ['Test string'],
+          appleDeveloperId: {
+            keyId: 'Test string',
+            privateKey: 'Test string',
+            teamId: 'Test string',
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        testingOptions: {
+          testingChallenge: 'Test string',
+          testingScore: 42,
+        },
+        wafSettings: {
+          wafFeature: 'Test string',
+          wafService: 'Test string',
+        },
+        webSettings: {
+          allowAllDomains: true,
+          allowAmpTraffic: true,
+          allowedDomains: ['Test string'],
+          challengeSecurityPreference: 'Test string',
+          integrationType: 'Test string',
+        },
+      }
+    );
+    /** Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA. */
+    await gapi.client.recaptchaenterprise.projects.keys.retrieveLegacySecretKey(
+      {
+        key: 'Test string',
+      }
+    );
+    /** Search group memberships related to a given account. */
+    await gapi.client.recaptchaenterprise.projects.relatedaccountgroupmemberships.search(
+      {
+        project: 'Test string',
+      },
+      {
+        hashedAccountId: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** List groups of related accounts. */
+    await gapi.client.recaptchaenterprise.projects.relatedaccountgroups.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Get memberships in a group of related accounts. */
+    await gapi.client.recaptchaenterprise.projects.relatedaccountgroups.memberships.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+  }
 });

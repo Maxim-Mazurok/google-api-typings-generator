@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://retail.googleapis.com/$discovery/rest?version=v2alpha', () => {
-  // now we can use:
-  // gapi.client.retail
-});
+gapi.client.load(
+  'https://retail.googleapis.com/$discovery/rest?version=v2alpha',
+  () => {
+    // now we can use:
+    // gapi.client.retail
+  }
+);
 ```
 
 ```typescript
@@ -45,49 +48,49 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Retail API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 The method enrolls a solution of type Retail Search into a project. The Recommendations AI solution type is enrolled by default when your project enables Retail API, so you don't need to call the enrollSolution method for recommendations.
 */
-await gapi.client.retail.projects.enrollSolution({ project: "project",  });
+await gapi.client.retail.projects.enrollSolution({project: 'project'});
 
 /*
 Gets the LoggingConfig of the requested project.
 */
-await gapi.client.retail.projects.getLoggingConfig({ name: "name",  });
+await gapi.client.retail.projects.getLoggingConfig({name: 'name'});
 
 /*
 Gets the project. Throws `NOT_FOUND` if the project wasn't initialized for the Retail API service.
 */
-await gapi.client.retail.projects.getRetailProject({ name: "name",  });
+await gapi.client.retail.projects.getRetailProject({name: 'name'});
 
 /*
 Lists all the retail API solutions the project has enrolled.
 */
-await gapi.client.retail.projects.listEnrolledSolutions({ parent: "parent",  });
+await gapi.client.retail.projects.listEnrolledSolutions({parent: 'parent'});
 
 /*
 Updates the LoggingConfig of the requested project.
 */
-await gapi.client.retail.projects.updateLoggingConfig({ name: "name",  });
+await gapi.client.retail.projects.updateLoggingConfig({name: 'name'});
 ```

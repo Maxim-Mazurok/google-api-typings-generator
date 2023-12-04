@@ -1,6 +1,6 @@
 # TypeScript typings for Chrome UX Report API v1
 
-The Chrome UX Report API lets you view real user experience data for millions of websites. 
+The Chrome UX Report API lets you view real user experience data for millions of websites.
 For detailed description please check [documentation](https://developers.google.com/web/tools/chrome-user-experience-report/api/reference).
 
 ## Installing
@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://chromeuxreport.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.chromeuxreport
-});
+gapi.client.load(
+  'https://chromeuxreport.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.chromeuxreport
+  }
+);
 ```
 
 ```typescript
@@ -39,19 +42,16 @@ gapi.client.load('chromeuxreport', 'v1', () => {
 });
 ```
 
-
-
 After that you can use Chrome UX Report API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Queries the Chrome User Experience Report for a timeseries `history record` for a given site. Returns a `history record` that contains one or more `metric timeseries` corresponding to performance data about the requested site.
 */
-await gapi.client.chromeuxreport.records.queryHistoryRecord({  });
+await gapi.client.chromeuxreport.records.queryHistoryRecord({});
 
 /*
 Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to performance data about the requested site.
 */
-await gapi.client.chromeuxreport.records.queryRecord({  });
+await gapi.client.chromeuxreport.records.queryRecord({});
 ```

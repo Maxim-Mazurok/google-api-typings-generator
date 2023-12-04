@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://analyticsreporting.googleapis.com/$discovery/rest?version=v4', () => {
-  // now we can use:
-  // gapi.client.analyticsreporting
-});
+gapi.client.load(
+  'https://analyticsreporting.googleapis.com/$discovery/rest?version=v4',
+  () => {
+    // now we can use:
+    // gapi.client.analyticsreporting
+  }
+);
 ```
 
 ```typescript
@@ -45,37 +48,37 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and manage your Google Analytics data
-      'https://www.googleapis.com/auth/analytics',
+    // View and manage your Google Analytics data
+    'https://www.googleapis.com/auth/analytics',
 
-      // See and download your Google Analytics data
-      'https://www.googleapis.com/auth/analytics.readonly',
-    ],
-    immediate = true;
+    // See and download your Google Analytics data
+    'https://www.googleapis.com/auth/analytics.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Analytics Reporting API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Returns the Analytics data.
 */
-await gapi.client.analyticsreporting.reports.batchGet({  });
+await gapi.client.analyticsreporting.reports.batchGet({});
 
 /*
 Returns User Activity data.
 */
-await gapi.client.analyticsreporting.userActivity.search({  });
+await gapi.client.analyticsreporting.userActivity.search({});
 ```

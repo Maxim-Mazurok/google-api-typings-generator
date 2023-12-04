@@ -2,15 +2,15 @@
   "name": "@maxim_mazurok/gapi.client.discoveryengine-v1beta",
   "version": "0.0.20231110",
   "description": "TypeScript typings for Discovery Engine API v1beta",
-  "license": "MIT",
-  "author": {
-    "email": "maxim@mazurok.com",
-    "name": "Maxim Mazurok",
-    "url": "https://maxim.mazurok.com"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Maxim Mazurok",
+    "email": "maxim@mazurok.com",
+    "url": "https://maxim.mazurok.com"
   },
   "types": "index.d.ts",
   "dependencies": {

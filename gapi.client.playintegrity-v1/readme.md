@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://playintegrity.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.playintegrity
-});
+gapi.client.load(
+  'https://playintegrity.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.playintegrity
+  }
+);
 ```
 
 ```typescript
@@ -45,29 +48,31 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // Private Service: https://www.googleapis.com/auth/playintegrity
-      'https://www.googleapis.com/auth/playintegrity',
-    ],
-    immediate = true;
+    // Private Service: https://www.googleapis.com/auth/playintegrity
+    'https://www.googleapis.com/auth/playintegrity',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Google Play Integrity API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Decodes the integrity token and returns the token payload.
 */
-await gapi.client.playintegrity.decodeIntegrityToken({ packageName: "packageName",  });
+await gapi.client.playintegrity.decodeIntegrityToken({
+  packageName: 'packageName',
+});
 ```

@@ -6,889 +6,945 @@
 // Revision: 20231106
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://baremetalsolution.googleapis.com/$discovery/rest?version=v2');
-    /** now we can use gapi.client.baremetalsolution */
+  await gapi.client.load(
+    'https://baremetalsolution.googleapis.com/$discovery/rest?version=v2'
+  );
+  /** now we can use gapi.client.baremetalsolution */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
+    }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.baremetalsolution.projects.locations.get({
+      name: 'Test string',
     });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.baremetalsolution.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.baremetalsolution.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Detach LUN from Instance. */
-        await gapi.client.baremetalsolution.projects.locations.instances.detachLun({
-            instance: "Test string",
-        }, {
-            lun: "Test string",
-            skipReboot: true,
-        });
-        /** Disable the interactive serial console feature on an instance. */
-        await gapi.client.baremetalsolution.projects.locations.instances.disableInteractiveSerialConsole({
-            name: "Test string",
-        }, {
-        });
-        /** Enable the interactive serial console feature on an instance. */
-        await gapi.client.baremetalsolution.projects.locations.instances.enableInteractiveSerialConsole({
-            name: "Test string",
-        }, {
-        });
-        /** Get details about a single server. */
-        await gapi.client.baremetalsolution.projects.locations.instances.get({
-            name: "Test string",
-        });
-        /** List servers in a given project and location. */
-        await gapi.client.baremetalsolution.projects.locations.instances.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Update details of a single server. */
-        await gapi.client.baremetalsolution.projects.locations.instances.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            firmwareVersion: "Test string",
-            hyperthreadingEnabled: true,
-            id: "Test string",
-            interactiveSerialConsoleEnabled: true,
-            labels: {
-                A: "Test string"
-            },
-            logicalInterfaces: [
-                {
-                    interfaceIndex: 42,
-                    logicalNetworkInterfaces: [
-                        {
-                            defaultGateway: true,
-                            id: "Test string",
-                            ipAddress: "Test string",
-                            network: "Test string",
-                            networkType: "Test string",
-                        }
-                    ],
-                    name: "Test string",
-                }
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.baremetalsolution.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Detach LUN from Instance. */
+    await gapi.client.baremetalsolution.projects.locations.instances.detachLun(
+      {
+        instance: 'Test string',
+      },
+      {
+        lun: 'Test string',
+        skipReboot: true,
+      }
+    );
+    /** Disable the interactive serial console feature on an instance. */
+    await gapi.client.baremetalsolution.projects.locations.instances.disableInteractiveSerialConsole(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Enable the interactive serial console feature on an instance. */
+    await gapi.client.baremetalsolution.projects.locations.instances.enableInteractiveSerialConsole(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Get details about a single server. */
+    await gapi.client.baremetalsolution.projects.locations.instances.get({
+      name: 'Test string',
+    });
+    /** List servers in a given project and location. */
+    await gapi.client.baremetalsolution.projects.locations.instances.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Update details of a single server. */
+    await gapi.client.baremetalsolution.projects.locations.instances.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        firmwareVersion: 'Test string',
+        hyperthreadingEnabled: true,
+        id: 'Test string',
+        interactiveSerialConsoleEnabled: true,
+        labels: {
+          A: 'Test string',
+        },
+        logicalInterfaces: [
+          {
+            interfaceIndex: 42,
+            logicalNetworkInterfaces: [
+              {
+                defaultGateway: true,
+                id: 'Test string',
+                ipAddress: 'Test string',
+                network: 'Test string',
+                networkType: 'Test string',
+              },
             ],
-            loginInfo: "Test string",
-            luns: [
-                {
-                    bootLun: true,
-                    expireTime: "Test string",
-                    id: "Test string",
-                    instances: [
-                        "Test string"
-                    ],
-                    multiprotocolType: "Test string",
-                    name: "Test string",
-                    shareable: true,
-                    sizeGb: "Test string",
-                    state: "Test string",
-                    storageType: "Test string",
-                    storageVolume: "Test string",
-                    wwid: "Test string",
-                }
-            ],
-            machineType: "Test string",
-            name: "Test string",
-            networks: [
-                {
-                    cidr: "Test string",
-                    gatewayIp: "Test string",
-                    id: "Test string",
-                    ipAddress: "Test string",
-                    jumboFramesEnabled: true,
-                    labels: {
-                        A: "Test string"
-                    },
-                    macAddress: [
-                        "Test string"
-                    ],
-                    mountPoints: [
-                        {
-                            defaultGateway: true,
-                            instance: "Test string",
-                            ipAddress: "Test string",
-                            logicalInterface: "Test string",
-                        }
-                    ],
-                    name: "Test string",
-                    pod: "Test string",
-                    reservations: [
-                        {
-                            endAddress: "Test string",
-                            note: "Test string",
-                            startAddress: "Test string",
-                        }
-                    ],
-                    servicesCidr: "Test string",
-                    state: "Test string",
-                    type: "Test string",
-                    vlanId: "Test string",
-                    vrf: {
-                        name: "Test string",
-                        qosPolicy: {
-                            bandwidthGbps: 42,
-                        },
-                        state: "Test string",
-                        vlanAttachments: [
-                            {
-                                id: "Test string",
-                                interconnectAttachment: "Test string",
-                                pairingKey: "Test string",
-                                peerIp: "Test string",
-                                peerVlanId: "Test string",
-                                qosPolicy: {
-                                    bandwidthGbps: 42,
-                                },
-                                routerIp: "Test string",
-                            }
-                        ],
-                    },
-                    vrfAttachment: "Test string",
-                }
-            ],
-            networkTemplate: "Test string",
-            osImage: "Test string",
-            pod: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            volumes: [
-                {
-                    attached: true,
-                    autoGrownSizeGib: "Test string",
-                    bootVolume: true,
-                    currentSizeGib: "Test string",
-                    emergencySizeGib: "Test string",
-                    expireTime: "Test string",
-                    id: "Test string",
-                    instances: [
-                        "Test string"
-                    ],
-                    labels: {
-                        A: "Test string"
-                    },
-                    maxSizeGib: "Test string",
-                    name: "Test string",
-                    notes: "Test string",
-                    originallyRequestedSizeGib: "Test string",
-                    performanceTier: "Test string",
-                    pod: "Test string",
-                    protocol: "Test string",
-                    remainingSpaceGib: "Test string",
-                    requestedSizeGib: "Test string",
-                    snapshotAutoDeleteBehavior: "Test string",
-                    snapshotEnabled: true,
-                    snapshotReservationDetail: {
-                        reservedSpaceGib: "Test string",
-                        reservedSpacePercent: 42,
-                        reservedSpaceRemainingGib: "Test string",
-                        reservedSpaceUsedPercent: 42,
-                    },
-                    state: "Test string",
-                    storageType: "Test string",
-                    workloadProfile: "Test string",
-                }
-            ],
-            workloadProfile: "Test string",
-        });
-        /** RenameInstance sets a new name for an instance. Use with caution, previous names become immediately invalidated. */
-        await gapi.client.baremetalsolution.projects.locations.instances.rename({
-            name: "Test string",
-        }, {
-            newInstanceId: "Test string",
-        });
-        /** Perform an ungraceful, hard reset on a server. Equivalent to shutting the power off and then turning it back on. */
-        await gapi.client.baremetalsolution.projects.locations.instances.reset({
-            name: "Test string",
-        }, {
-        });
-        /** Starts a server that was shutdown. */
-        await gapi.client.baremetalsolution.projects.locations.instances.start({
-            name: "Test string",
-        }, {
-        });
-        /** Stop a running server. */
-        await gapi.client.baremetalsolution.projects.locations.instances.stop({
-            name: "Test string",
-        }, {
-        });
-        /** Get details of a single network. */
-        await gapi.client.baremetalsolution.projects.locations.networks.get({
-            name: "Test string",
-        });
-        /** List network in a given project and location. */
-        await gapi.client.baremetalsolution.projects.locations.networks.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** List all Networks (and used IPs for each Network) in the vendor account associated with the specified project. */
-        await gapi.client.baremetalsolution.projects.locations.networks.listNetworkUsage({
-            location: "Test string",
-        });
-        /** Update details of a single network. */
-        await gapi.client.baremetalsolution.projects.locations.networks.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            cidr: "Test string",
-            gatewayIp: "Test string",
-            id: "Test string",
-            ipAddress: "Test string",
+            name: 'Test string',
+          },
+        ],
+        loginInfo: 'Test string',
+        luns: [
+          {
+            bootLun: true,
+            expireTime: 'Test string',
+            id: 'Test string',
+            instances: ['Test string'],
+            multiprotocolType: 'Test string',
+            name: 'Test string',
+            shareable: true,
+            sizeGb: 'Test string',
+            state: 'Test string',
+            storageType: 'Test string',
+            storageVolume: 'Test string',
+            wwid: 'Test string',
+          },
+        ],
+        machineType: 'Test string',
+        name: 'Test string',
+        networks: [
+          {
+            cidr: 'Test string',
+            gatewayIp: 'Test string',
+            id: 'Test string',
+            ipAddress: 'Test string',
             jumboFramesEnabled: true,
             labels: {
-                A: "Test string"
+              A: 'Test string',
             },
-            macAddress: [
-                "Test string"
-            ],
+            macAddress: ['Test string'],
             mountPoints: [
-                {
-                    defaultGateway: true,
-                    instance: "Test string",
-                    ipAddress: "Test string",
-                    logicalInterface: "Test string",
-                }
+              {
+                defaultGateway: true,
+                instance: 'Test string',
+                ipAddress: 'Test string',
+                logicalInterface: 'Test string',
+              },
             ],
-            name: "Test string",
-            pod: "Test string",
+            name: 'Test string',
+            pod: 'Test string',
             reservations: [
-                {
-                    endAddress: "Test string",
-                    note: "Test string",
-                    startAddress: "Test string",
-                }
+              {
+                endAddress: 'Test string',
+                note: 'Test string',
+                startAddress: 'Test string',
+              },
             ],
-            servicesCidr: "Test string",
-            state: "Test string",
-            type: "Test string",
-            vlanId: "Test string",
+            servicesCidr: 'Test string',
+            state: 'Test string',
+            type: 'Test string',
+            vlanId: 'Test string',
             vrf: {
-                name: "Test string",
-                qosPolicy: {
+              name: 'Test string',
+              qosPolicy: {
+                bandwidthGbps: 42,
+              },
+              state: 'Test string',
+              vlanAttachments: [
+                {
+                  id: 'Test string',
+                  interconnectAttachment: 'Test string',
+                  pairingKey: 'Test string',
+                  peerIp: 'Test string',
+                  peerVlanId: 'Test string',
+                  qosPolicy: {
                     bandwidthGbps: 42,
+                  },
+                  routerIp: 'Test string',
                 },
-                state: "Test string",
-                vlanAttachments: [
-                    {
-                        id: "Test string",
-                        interconnectAttachment: "Test string",
-                        pairingKey: "Test string",
-                        peerIp: "Test string",
-                        peerVlanId: "Test string",
-                        qosPolicy: {
-                            bandwidthGbps: 42,
-                        },
-                        routerIp: "Test string",
-                    }
-                ],
+              ],
             },
-            vrfAttachment: "Test string",
-        });
-        /** RenameNetwork sets a new name for a network. Use with caution, previous names become immediately invalidated. */
-        await gapi.client.baremetalsolution.projects.locations.networks.rename({
-            name: "Test string",
-        }, {
-            newNetworkId: "Test string",
-        });
-        /** Create an NFS share. */
-        await gapi.client.baremetalsolution.projects.locations.nfsShares.create({
-            parent: "Test string",
-        }, {
-            allowedClients: [
-                {
-                    allowDev: true,
-                    allowedClientsCidr: "Test string",
-                    allowSuid: true,
-                    mountPermissions: "Test string",
-                    network: "Test string",
-                    nfsPath: "Test string",
-                    noRootSquash: true,
-                    shareIp: "Test string",
-                }
-            ],
-            id: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            nfsShareId: "Test string",
-            pod: "Test string",
-            requestedSizeGib: "Test string",
-            state: "Test string",
-            storageType: "Test string",
-            volume: "Test string",
-        });
-        /** Delete an NFS share. The underlying volume is automatically deleted. */
-        await gapi.client.baremetalsolution.projects.locations.nfsShares.delete({
-            name: "Test string",
-        });
-        /** Get details of a single NFS share. */
-        await gapi.client.baremetalsolution.projects.locations.nfsShares.get({
-            name: "Test string",
-        });
-        /** List NFS shares. */
-        await gapi.client.baremetalsolution.projects.locations.nfsShares.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Update details of a single NFS share. */
-        await gapi.client.baremetalsolution.projects.locations.nfsShares.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            allowedClients: [
-                {
-                    allowDev: true,
-                    allowedClientsCidr: "Test string",
-                    allowSuid: true,
-                    mountPermissions: "Test string",
-                    network: "Test string",
-                    nfsPath: "Test string",
-                    noRootSquash: true,
-                    shareIp: "Test string",
-                }
-            ],
-            id: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            nfsShareId: "Test string",
-            pod: "Test string",
-            requestedSizeGib: "Test string",
-            state: "Test string",
-            storageType: "Test string",
-            volume: "Test string",
-        });
-        /** RenameNfsShare sets a new name for an nfsshare. Use with caution, previous names become immediately invalidated. */
-        await gapi.client.baremetalsolution.projects.locations.nfsShares.rename({
-            name: "Test string",
-        }, {
-            newNfsshareId: "Test string",
-        });
-        /** Get details about an operation. */
-        await gapi.client.baremetalsolution.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Get details of a single OS image. */
-        await gapi.client.baremetalsolution.projects.locations.osImages.get({
-            name: "Test string",
-        });
-        /** Retrieves the list of OS images which are currently approved. */
-        await gapi.client.baremetalsolution.projects.locations.osImages.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Create new ProvisioningConfig. */
-        await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.create({
-            email: "Test string",
-            parent: "Test string",
-        }, {
-            cloudConsoleUri: "Test string",
-            customId: "Test string",
-            email: "Test string",
-            handoverServiceAccount: "Test string",
-            instances: [
-                {
-                    accountNetworksEnabled: true,
-                    clientNetwork: {
-                        address: "Test string",
-                        existingNetworkId: "Test string",
-                        networkId: "Test string",
-                    },
-                    hyperthreading: true,
-                    id: "Test string",
-                    instanceType: "Test string",
-                    logicalInterfaces: [
-                        {
-                            interfaceIndex: 42,
-                            logicalNetworkInterfaces: [
-                                {
-                                    defaultGateway: true,
-                                    id: "Test string",
-                                    ipAddress: "Test string",
-                                    network: "Test string",
-                                    networkType: "Test string",
-                                }
-                            ],
-                            name: "Test string",
-                        }
-                    ],
-                    name: "Test string",
-                    networkConfig: "Test string",
-                    networkTemplate: "Test string",
-                    osImage: "Test string",
-                    privateNetwork: {
-                        address: "Test string",
-                        existingNetworkId: "Test string",
-                        networkId: "Test string",
-                    },
-                    sshKeyNames: [
-                        "Test string"
-                    ],
-                    userNote: "Test string",
-                }
-            ],
-            location: "Test string",
-            name: "Test string",
-            networks: [
-                {
-                    bandwidth: "Test string",
-                    cidr: "Test string",
-                    gcpService: "Test string",
-                    id: "Test string",
-                    jumboFramesEnabled: true,
-                    name: "Test string",
-                    serviceCidr: "Test string",
-                    type: "Test string",
-                    userNote: "Test string",
-                    vlanAttachments: [
-                        {
-                            id: "Test string",
-                            pairingKey: "Test string",
-                        }
-                    ],
-                    vlanSameProject: true,
-                }
-            ],
-            pod: "Test string",
-            state: "Test string",
-            statusMessage: "Test string",
-            ticketId: "Test string",
-            updateTime: "Test string",
-            volumes: [
-                {
-                    gcpService: "Test string",
-                    id: "Test string",
-                    lunRanges: [
-                        {
-                            quantity: 42,
-                            sizeGb: 42,
-                        }
-                    ],
-                    machineIds: [
-                        "Test string"
-                    ],
-                    name: "Test string",
-                    nfsExports: [
-                        {
-                            allowDev: true,
-                            allowSuid: true,
-                            cidr: "Test string",
-                            machineId: "Test string",
-                            networkId: "Test string",
-                            noRootSquash: true,
-                            permissions: "Test string",
-                        }
-                    ],
-                    performanceTier: "Test string",
-                    protocol: "Test string",
-                    sizeGb: 42,
-                    snapshotsEnabled: true,
-                    type: "Test string",
-                    userNote: "Test string",
-                }
-            ],
-            vpcScEnabled: true,
-        });
-        /** Get ProvisioningConfig by name. */
-        await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.get({
-            name: "Test string",
-        });
-        /** Update existing ProvisioningConfig. */
-        await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.patch({
-            email: "Test string",
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            cloudConsoleUri: "Test string",
-            customId: "Test string",
-            email: "Test string",
-            handoverServiceAccount: "Test string",
-            instances: [
-                {
-                    accountNetworksEnabled: true,
-                    clientNetwork: {
-                        address: "Test string",
-                        existingNetworkId: "Test string",
-                        networkId: "Test string",
-                    },
-                    hyperthreading: true,
-                    id: "Test string",
-                    instanceType: "Test string",
-                    logicalInterfaces: [
-                        {
-                            interfaceIndex: 42,
-                            logicalNetworkInterfaces: [
-                                {
-                                    defaultGateway: true,
-                                    id: "Test string",
-                                    ipAddress: "Test string",
-                                    network: "Test string",
-                                    networkType: "Test string",
-                                }
-                            ],
-                            name: "Test string",
-                        }
-                    ],
-                    name: "Test string",
-                    networkConfig: "Test string",
-                    networkTemplate: "Test string",
-                    osImage: "Test string",
-                    privateNetwork: {
-                        address: "Test string",
-                        existingNetworkId: "Test string",
-                        networkId: "Test string",
-                    },
-                    sshKeyNames: [
-                        "Test string"
-                    ],
-                    userNote: "Test string",
-                }
-            ],
-            location: "Test string",
-            name: "Test string",
-            networks: [
-                {
-                    bandwidth: "Test string",
-                    cidr: "Test string",
-                    gcpService: "Test string",
-                    id: "Test string",
-                    jumboFramesEnabled: true,
-                    name: "Test string",
-                    serviceCidr: "Test string",
-                    type: "Test string",
-                    userNote: "Test string",
-                    vlanAttachments: [
-                        {
-                            id: "Test string",
-                            pairingKey: "Test string",
-                        }
-                    ],
-                    vlanSameProject: true,
-                }
-            ],
-            pod: "Test string",
-            state: "Test string",
-            statusMessage: "Test string",
-            ticketId: "Test string",
-            updateTime: "Test string",
-            volumes: [
-                {
-                    gcpService: "Test string",
-                    id: "Test string",
-                    lunRanges: [
-                        {
-                            quantity: 42,
-                            sizeGb: 42,
-                        }
-                    ],
-                    machineIds: [
-                        "Test string"
-                    ],
-                    name: "Test string",
-                    nfsExports: [
-                        {
-                            allowDev: true,
-                            allowSuid: true,
-                            cidr: "Test string",
-                            machineId: "Test string",
-                            networkId: "Test string",
-                            noRootSquash: true,
-                            permissions: "Test string",
-                        }
-                    ],
-                    performanceTier: "Test string",
-                    protocol: "Test string",
-                    sizeGb: 42,
-                    snapshotsEnabled: true,
-                    type: "Test string",
-                    userNote: "Test string",
-                }
-            ],
-            vpcScEnabled: true,
-        });
-        /** Submit a provisiong configuration for a given project. */
-        await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.submit({
-            parent: "Test string",
-        }, {
-            email: "Test string",
-            provisioningConfig: {
-                cloudConsoleUri: "Test string",
-                customId: "Test string",
-                email: "Test string",
-                handoverServiceAccount: "Test string",
-                instances: [
-                    {
-                        accountNetworksEnabled: true,
-                        clientNetwork: {
-                            address: "Test string",
-                            existingNetworkId: "Test string",
-                            networkId: "Test string",
-                        },
-                        hyperthreading: true,
-                        id: "Test string",
-                        instanceType: "Test string",
-                        logicalInterfaces: [
-                            {
-                                interfaceIndex: 42,
-                                logicalNetworkInterfaces: [
-                                    {
-                                        defaultGateway: true,
-                                        id: "Test string",
-                                        ipAddress: "Test string",
-                                        network: "Test string",
-                                        networkType: "Test string",
-                                    }
-                                ],
-                                name: "Test string",
-                            }
-                        ],
-                        name: "Test string",
-                        networkConfig: "Test string",
-                        networkTemplate: "Test string",
-                        osImage: "Test string",
-                        privateNetwork: {
-                            address: "Test string",
-                            existingNetworkId: "Test string",
-                            networkId: "Test string",
-                        },
-                        sshKeyNames: [
-                            "Test string"
-                        ],
-                        userNote: "Test string",
-                    }
-                ],
-                location: "Test string",
-                name: "Test string",
-                networks: [
-                    {
-                        bandwidth: "Test string",
-                        cidr: "Test string",
-                        gcpService: "Test string",
-                        id: "Test string",
-                        jumboFramesEnabled: true,
-                        name: "Test string",
-                        serviceCidr: "Test string",
-                        type: "Test string",
-                        userNote: "Test string",
-                        vlanAttachments: [
-                            {
-                                id: "Test string",
-                                pairingKey: "Test string",
-                            }
-                        ],
-                        vlanSameProject: true,
-                    }
-                ],
-                pod: "Test string",
-                state: "Test string",
-                statusMessage: "Test string",
-                ticketId: "Test string",
-                updateTime: "Test string",
-                volumes: [
-                    {
-                        gcpService: "Test string",
-                        id: "Test string",
-                        lunRanges: [
-                            {
-                                quantity: 42,
-                                sizeGb: 42,
-                            }
-                        ],
-                        machineIds: [
-                            "Test string"
-                        ],
-                        name: "Test string",
-                        nfsExports: [
-                            {
-                                allowDev: true,
-                                allowSuid: true,
-                                cidr: "Test string",
-                                machineId: "Test string",
-                                networkId: "Test string",
-                                noRootSquash: true,
-                                permissions: "Test string",
-                            }
-                        ],
-                        performanceTier: "Test string",
-                        protocol: "Test string",
-                        sizeGb: 42,
-                        snapshotsEnabled: true,
-                        type: "Test string",
-                        userNote: "Test string",
-                    }
-                ],
-                vpcScEnabled: true,
-            },
-        });
-        /** List the budget details to provision resources on a given project. */
-        await gapi.client.baremetalsolution.projects.locations.provisioningQuotas.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Register a public SSH key in the specified project for use with the interactive serial console feature. */
-        await gapi.client.baremetalsolution.projects.locations.sshKeys.create({
-            parent: "Test string",
-            sshKeyId: "Test string",
-        }, {
-            name: "Test string",
-            publicKey: "Test string",
-        });
-        /** Deletes a public SSH key registered in the specified project. */
-        await gapi.client.baremetalsolution.projects.locations.sshKeys.delete({
-            name: "Test string",
-        });
-        /** Lists the public SSH keys registered for the specified project. These SSH keys are used only for the interactive serial console feature. */
-        await gapi.client.baremetalsolution.projects.locations.sshKeys.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Skips volume's cooloff and deletes it now. Volume must be in cooloff state. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.evict({
-            name: "Test string",
-        }, {
-        });
-        /** Get details of a single storage volume. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.get({
-            name: "Test string",
-        });
-        /** List storage volumes in a given project and location. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Update details of a single storage volume. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
+            vrfAttachment: 'Test string',
+          },
+        ],
+        networkTemplate: 'Test string',
+        osImage: 'Test string',
+        pod: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        volumes: [
+          {
             attached: true,
-            autoGrownSizeGib: "Test string",
+            autoGrownSizeGib: 'Test string',
             bootVolume: true,
-            currentSizeGib: "Test string",
-            emergencySizeGib: "Test string",
-            expireTime: "Test string",
-            id: "Test string",
-            instances: [
-                "Test string"
-            ],
+            currentSizeGib: 'Test string',
+            emergencySizeGib: 'Test string',
+            expireTime: 'Test string',
+            id: 'Test string',
+            instances: ['Test string'],
             labels: {
-                A: "Test string"
+              A: 'Test string',
             },
-            maxSizeGib: "Test string",
-            name: "Test string",
-            notes: "Test string",
-            originallyRequestedSizeGib: "Test string",
-            performanceTier: "Test string",
-            pod: "Test string",
-            protocol: "Test string",
-            remainingSpaceGib: "Test string",
-            requestedSizeGib: "Test string",
-            snapshotAutoDeleteBehavior: "Test string",
+            maxSizeGib: 'Test string',
+            name: 'Test string',
+            notes: 'Test string',
+            originallyRequestedSizeGib: 'Test string',
+            performanceTier: 'Test string',
+            pod: 'Test string',
+            protocol: 'Test string',
+            remainingSpaceGib: 'Test string',
+            requestedSizeGib: 'Test string',
+            snapshotAutoDeleteBehavior: 'Test string',
             snapshotEnabled: true,
             snapshotReservationDetail: {
-                reservedSpaceGib: "Test string",
-                reservedSpacePercent: 42,
-                reservedSpaceRemainingGib: "Test string",
-                reservedSpaceUsedPercent: 42,
+              reservedSpaceGib: 'Test string',
+              reservedSpacePercent: 42,
+              reservedSpaceRemainingGib: 'Test string',
+              reservedSpaceUsedPercent: 42,
             },
-            state: "Test string",
-            storageType: "Test string",
-            workloadProfile: "Test string",
-        });
-        /** RenameVolume sets a new name for a volume. Use with caution, previous names become immediately invalidated. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.rename({
-            name: "Test string",
-        }, {
-            newVolumeId: "Test string",
-        });
-        /** Emergency Volume resize. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.resize({
-            volume: "Test string",
-        }, {
-            sizeGib: "Test string",
-        });
-        /** Skips lun's cooloff and deletes it now. Lun must be in cooloff state. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.luns.evict({
-            name: "Test string",
-        }, {
-        });
-        /** Get details of a single storage logical unit number(LUN). */
-        await gapi.client.baremetalsolution.projects.locations.volumes.luns.get({
-            name: "Test string",
-        });
-        /** List storage volume luns for given storage volume. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.luns.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Takes a snapshot of a boot volume. Returns INVALID_ARGUMENT if called for a non-boot volume. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            id: "Test string",
-            name: "Test string",
-            storageVolume: "Test string",
-            type: "Test string",
-        });
-        /** Deletes a volume snapshot. Returns INVALID_ARGUMENT if called for a non-boot volume. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.delete({
-            name: "Test string",
-        });
-        /** Returns the specified snapshot resource. Returns INVALID_ARGUMENT if called for a non-boot volume. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.get({
-            name: "Test string",
-        });
-        /** Retrieves the list of snapshots for the specified volume. Returns a response with an empty list of snapshots if called for a non-boot volume. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Uses the specified snapshot to restore its parent volume. Returns INVALID_ARGUMENT if called for a non-boot volume. */
-        await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.restoreVolumeSnapshot({
-            volumeSnapshot: "Test string",
-        }, {
-        });
-    }
+            state: 'Test string',
+            storageType: 'Test string',
+            workloadProfile: 'Test string',
+          },
+        ],
+        workloadProfile: 'Test string',
+      }
+    );
+    /** RenameInstance sets a new name for an instance. Use with caution, previous names become immediately invalidated. */
+    await gapi.client.baremetalsolution.projects.locations.instances.rename(
+      {
+        name: 'Test string',
+      },
+      {
+        newInstanceId: 'Test string',
+      }
+    );
+    /** Perform an ungraceful, hard reset on a server. Equivalent to shutting the power off and then turning it back on. */
+    await gapi.client.baremetalsolution.projects.locations.instances.reset(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Starts a server that was shutdown. */
+    await gapi.client.baremetalsolution.projects.locations.instances.start(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Stop a running server. */
+    await gapi.client.baremetalsolution.projects.locations.instances.stop(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Get details of a single network. */
+    await gapi.client.baremetalsolution.projects.locations.networks.get({
+      name: 'Test string',
+    });
+    /** List network in a given project and location. */
+    await gapi.client.baremetalsolution.projects.locations.networks.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** List all Networks (and used IPs for each Network) in the vendor account associated with the specified project. */
+    await gapi.client.baremetalsolution.projects.locations.networks.listNetworkUsage(
+      {
+        location: 'Test string',
+      }
+    );
+    /** Update details of a single network. */
+    await gapi.client.baremetalsolution.projects.locations.networks.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        cidr: 'Test string',
+        gatewayIp: 'Test string',
+        id: 'Test string',
+        ipAddress: 'Test string',
+        jumboFramesEnabled: true,
+        labels: {
+          A: 'Test string',
+        },
+        macAddress: ['Test string'],
+        mountPoints: [
+          {
+            defaultGateway: true,
+            instance: 'Test string',
+            ipAddress: 'Test string',
+            logicalInterface: 'Test string',
+          },
+        ],
+        name: 'Test string',
+        pod: 'Test string',
+        reservations: [
+          {
+            endAddress: 'Test string',
+            note: 'Test string',
+            startAddress: 'Test string',
+          },
+        ],
+        servicesCidr: 'Test string',
+        state: 'Test string',
+        type: 'Test string',
+        vlanId: 'Test string',
+        vrf: {
+          name: 'Test string',
+          qosPolicy: {
+            bandwidthGbps: 42,
+          },
+          state: 'Test string',
+          vlanAttachments: [
+            {
+              id: 'Test string',
+              interconnectAttachment: 'Test string',
+              pairingKey: 'Test string',
+              peerIp: 'Test string',
+              peerVlanId: 'Test string',
+              qosPolicy: {
+                bandwidthGbps: 42,
+              },
+              routerIp: 'Test string',
+            },
+          ],
+        },
+        vrfAttachment: 'Test string',
+      }
+    );
+    /** RenameNetwork sets a new name for a network. Use with caution, previous names become immediately invalidated. */
+    await gapi.client.baremetalsolution.projects.locations.networks.rename(
+      {
+        name: 'Test string',
+      },
+      {
+        newNetworkId: 'Test string',
+      }
+    );
+    /** Create an NFS share. */
+    await gapi.client.baremetalsolution.projects.locations.nfsShares.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        allowedClients: [
+          {
+            allowDev: true,
+            allowedClientsCidr: 'Test string',
+            allowSuid: true,
+            mountPermissions: 'Test string',
+            network: 'Test string',
+            nfsPath: 'Test string',
+            noRootSquash: true,
+            shareIp: 'Test string',
+          },
+        ],
+        id: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        nfsShareId: 'Test string',
+        pod: 'Test string',
+        requestedSizeGib: 'Test string',
+        state: 'Test string',
+        storageType: 'Test string',
+        volume: 'Test string',
+      }
+    );
+    /** Delete an NFS share. The underlying volume is automatically deleted. */
+    await gapi.client.baremetalsolution.projects.locations.nfsShares.delete({
+      name: 'Test string',
+    });
+    /** Get details of a single NFS share. */
+    await gapi.client.baremetalsolution.projects.locations.nfsShares.get({
+      name: 'Test string',
+    });
+    /** List NFS shares. */
+    await gapi.client.baremetalsolution.projects.locations.nfsShares.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Update details of a single NFS share. */
+    await gapi.client.baremetalsolution.projects.locations.nfsShares.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        allowedClients: [
+          {
+            allowDev: true,
+            allowedClientsCidr: 'Test string',
+            allowSuid: true,
+            mountPermissions: 'Test string',
+            network: 'Test string',
+            nfsPath: 'Test string',
+            noRootSquash: true,
+            shareIp: 'Test string',
+          },
+        ],
+        id: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        nfsShareId: 'Test string',
+        pod: 'Test string',
+        requestedSizeGib: 'Test string',
+        state: 'Test string',
+        storageType: 'Test string',
+        volume: 'Test string',
+      }
+    );
+    /** RenameNfsShare sets a new name for an nfsshare. Use with caution, previous names become immediately invalidated. */
+    await gapi.client.baremetalsolution.projects.locations.nfsShares.rename(
+      {
+        name: 'Test string',
+      },
+      {
+        newNfsshareId: 'Test string',
+      }
+    );
+    /** Get details about an operation. */
+    await gapi.client.baremetalsolution.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Get details of a single OS image. */
+    await gapi.client.baremetalsolution.projects.locations.osImages.get({
+      name: 'Test string',
+    });
+    /** Retrieves the list of OS images which are currently approved. */
+    await gapi.client.baremetalsolution.projects.locations.osImages.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Create new ProvisioningConfig. */
+    await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.create(
+      {
+        email: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        cloudConsoleUri: 'Test string',
+        customId: 'Test string',
+        email: 'Test string',
+        handoverServiceAccount: 'Test string',
+        instances: [
+          {
+            accountNetworksEnabled: true,
+            clientNetwork: {
+              address: 'Test string',
+              existingNetworkId: 'Test string',
+              networkId: 'Test string',
+            },
+            hyperthreading: true,
+            id: 'Test string',
+            instanceType: 'Test string',
+            logicalInterfaces: [
+              {
+                interfaceIndex: 42,
+                logicalNetworkInterfaces: [
+                  {
+                    defaultGateway: true,
+                    id: 'Test string',
+                    ipAddress: 'Test string',
+                    network: 'Test string',
+                    networkType: 'Test string',
+                  },
+                ],
+                name: 'Test string',
+              },
+            ],
+            name: 'Test string',
+            networkConfig: 'Test string',
+            networkTemplate: 'Test string',
+            osImage: 'Test string',
+            privateNetwork: {
+              address: 'Test string',
+              existingNetworkId: 'Test string',
+              networkId: 'Test string',
+            },
+            sshKeyNames: ['Test string'],
+            userNote: 'Test string',
+          },
+        ],
+        location: 'Test string',
+        name: 'Test string',
+        networks: [
+          {
+            bandwidth: 'Test string',
+            cidr: 'Test string',
+            gcpService: 'Test string',
+            id: 'Test string',
+            jumboFramesEnabled: true,
+            name: 'Test string',
+            serviceCidr: 'Test string',
+            type: 'Test string',
+            userNote: 'Test string',
+            vlanAttachments: [
+              {
+                id: 'Test string',
+                pairingKey: 'Test string',
+              },
+            ],
+            vlanSameProject: true,
+          },
+        ],
+        pod: 'Test string',
+        state: 'Test string',
+        statusMessage: 'Test string',
+        ticketId: 'Test string',
+        updateTime: 'Test string',
+        volumes: [
+          {
+            gcpService: 'Test string',
+            id: 'Test string',
+            lunRanges: [
+              {
+                quantity: 42,
+                sizeGb: 42,
+              },
+            ],
+            machineIds: ['Test string'],
+            name: 'Test string',
+            nfsExports: [
+              {
+                allowDev: true,
+                allowSuid: true,
+                cidr: 'Test string',
+                machineId: 'Test string',
+                networkId: 'Test string',
+                noRootSquash: true,
+                permissions: 'Test string',
+              },
+            ],
+            performanceTier: 'Test string',
+            protocol: 'Test string',
+            sizeGb: 42,
+            snapshotsEnabled: true,
+            type: 'Test string',
+            userNote: 'Test string',
+          },
+        ],
+        vpcScEnabled: true,
+      }
+    );
+    /** Get ProvisioningConfig by name. */
+    await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Update existing ProvisioningConfig. */
+    await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.patch(
+      {
+        email: 'Test string',
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        cloudConsoleUri: 'Test string',
+        customId: 'Test string',
+        email: 'Test string',
+        handoverServiceAccount: 'Test string',
+        instances: [
+          {
+            accountNetworksEnabled: true,
+            clientNetwork: {
+              address: 'Test string',
+              existingNetworkId: 'Test string',
+              networkId: 'Test string',
+            },
+            hyperthreading: true,
+            id: 'Test string',
+            instanceType: 'Test string',
+            logicalInterfaces: [
+              {
+                interfaceIndex: 42,
+                logicalNetworkInterfaces: [
+                  {
+                    defaultGateway: true,
+                    id: 'Test string',
+                    ipAddress: 'Test string',
+                    network: 'Test string',
+                    networkType: 'Test string',
+                  },
+                ],
+                name: 'Test string',
+              },
+            ],
+            name: 'Test string',
+            networkConfig: 'Test string',
+            networkTemplate: 'Test string',
+            osImage: 'Test string',
+            privateNetwork: {
+              address: 'Test string',
+              existingNetworkId: 'Test string',
+              networkId: 'Test string',
+            },
+            sshKeyNames: ['Test string'],
+            userNote: 'Test string',
+          },
+        ],
+        location: 'Test string',
+        name: 'Test string',
+        networks: [
+          {
+            bandwidth: 'Test string',
+            cidr: 'Test string',
+            gcpService: 'Test string',
+            id: 'Test string',
+            jumboFramesEnabled: true,
+            name: 'Test string',
+            serviceCidr: 'Test string',
+            type: 'Test string',
+            userNote: 'Test string',
+            vlanAttachments: [
+              {
+                id: 'Test string',
+                pairingKey: 'Test string',
+              },
+            ],
+            vlanSameProject: true,
+          },
+        ],
+        pod: 'Test string',
+        state: 'Test string',
+        statusMessage: 'Test string',
+        ticketId: 'Test string',
+        updateTime: 'Test string',
+        volumes: [
+          {
+            gcpService: 'Test string',
+            id: 'Test string',
+            lunRanges: [
+              {
+                quantity: 42,
+                sizeGb: 42,
+              },
+            ],
+            machineIds: ['Test string'],
+            name: 'Test string',
+            nfsExports: [
+              {
+                allowDev: true,
+                allowSuid: true,
+                cidr: 'Test string',
+                machineId: 'Test string',
+                networkId: 'Test string',
+                noRootSquash: true,
+                permissions: 'Test string',
+              },
+            ],
+            performanceTier: 'Test string',
+            protocol: 'Test string',
+            sizeGb: 42,
+            snapshotsEnabled: true,
+            type: 'Test string',
+            userNote: 'Test string',
+          },
+        ],
+        vpcScEnabled: true,
+      }
+    );
+    /** Submit a provisiong configuration for a given project. */
+    await gapi.client.baremetalsolution.projects.locations.provisioningConfigs.submit(
+      {
+        parent: 'Test string',
+      },
+      {
+        email: 'Test string',
+        provisioningConfig: {
+          cloudConsoleUri: 'Test string',
+          customId: 'Test string',
+          email: 'Test string',
+          handoverServiceAccount: 'Test string',
+          instances: [
+            {
+              accountNetworksEnabled: true,
+              clientNetwork: {
+                address: 'Test string',
+                existingNetworkId: 'Test string',
+                networkId: 'Test string',
+              },
+              hyperthreading: true,
+              id: 'Test string',
+              instanceType: 'Test string',
+              logicalInterfaces: [
+                {
+                  interfaceIndex: 42,
+                  logicalNetworkInterfaces: [
+                    {
+                      defaultGateway: true,
+                      id: 'Test string',
+                      ipAddress: 'Test string',
+                      network: 'Test string',
+                      networkType: 'Test string',
+                    },
+                  ],
+                  name: 'Test string',
+                },
+              ],
+              name: 'Test string',
+              networkConfig: 'Test string',
+              networkTemplate: 'Test string',
+              osImage: 'Test string',
+              privateNetwork: {
+                address: 'Test string',
+                existingNetworkId: 'Test string',
+                networkId: 'Test string',
+              },
+              sshKeyNames: ['Test string'],
+              userNote: 'Test string',
+            },
+          ],
+          location: 'Test string',
+          name: 'Test string',
+          networks: [
+            {
+              bandwidth: 'Test string',
+              cidr: 'Test string',
+              gcpService: 'Test string',
+              id: 'Test string',
+              jumboFramesEnabled: true,
+              name: 'Test string',
+              serviceCidr: 'Test string',
+              type: 'Test string',
+              userNote: 'Test string',
+              vlanAttachments: [
+                {
+                  id: 'Test string',
+                  pairingKey: 'Test string',
+                },
+              ],
+              vlanSameProject: true,
+            },
+          ],
+          pod: 'Test string',
+          state: 'Test string',
+          statusMessage: 'Test string',
+          ticketId: 'Test string',
+          updateTime: 'Test string',
+          volumes: [
+            {
+              gcpService: 'Test string',
+              id: 'Test string',
+              lunRanges: [
+                {
+                  quantity: 42,
+                  sizeGb: 42,
+                },
+              ],
+              machineIds: ['Test string'],
+              name: 'Test string',
+              nfsExports: [
+                {
+                  allowDev: true,
+                  allowSuid: true,
+                  cidr: 'Test string',
+                  machineId: 'Test string',
+                  networkId: 'Test string',
+                  noRootSquash: true,
+                  permissions: 'Test string',
+                },
+              ],
+              performanceTier: 'Test string',
+              protocol: 'Test string',
+              sizeGb: 42,
+              snapshotsEnabled: true,
+              type: 'Test string',
+              userNote: 'Test string',
+            },
+          ],
+          vpcScEnabled: true,
+        },
+      }
+    );
+    /** List the budget details to provision resources on a given project. */
+    await gapi.client.baremetalsolution.projects.locations.provisioningQuotas.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Register a public SSH key in the specified project for use with the interactive serial console feature. */
+    await gapi.client.baremetalsolution.projects.locations.sshKeys.create(
+      {
+        parent: 'Test string',
+        sshKeyId: 'Test string',
+      },
+      {
+        name: 'Test string',
+        publicKey: 'Test string',
+      }
+    );
+    /** Deletes a public SSH key registered in the specified project. */
+    await gapi.client.baremetalsolution.projects.locations.sshKeys.delete({
+      name: 'Test string',
+    });
+    /** Lists the public SSH keys registered for the specified project. These SSH keys are used only for the interactive serial console feature. */
+    await gapi.client.baremetalsolution.projects.locations.sshKeys.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Skips volume's cooloff and deletes it now. Volume must be in cooloff state. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.evict(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Get details of a single storage volume. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.get({
+      name: 'Test string',
+    });
+    /** List storage volumes in a given project and location. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Update details of a single storage volume. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        attached: true,
+        autoGrownSizeGib: 'Test string',
+        bootVolume: true,
+        currentSizeGib: 'Test string',
+        emergencySizeGib: 'Test string',
+        expireTime: 'Test string',
+        id: 'Test string',
+        instances: ['Test string'],
+        labels: {
+          A: 'Test string',
+        },
+        maxSizeGib: 'Test string',
+        name: 'Test string',
+        notes: 'Test string',
+        originallyRequestedSizeGib: 'Test string',
+        performanceTier: 'Test string',
+        pod: 'Test string',
+        protocol: 'Test string',
+        remainingSpaceGib: 'Test string',
+        requestedSizeGib: 'Test string',
+        snapshotAutoDeleteBehavior: 'Test string',
+        snapshotEnabled: true,
+        snapshotReservationDetail: {
+          reservedSpaceGib: 'Test string',
+          reservedSpacePercent: 42,
+          reservedSpaceRemainingGib: 'Test string',
+          reservedSpaceUsedPercent: 42,
+        },
+        state: 'Test string',
+        storageType: 'Test string',
+        workloadProfile: 'Test string',
+      }
+    );
+    /** RenameVolume sets a new name for a volume. Use with caution, previous names become immediately invalidated. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.rename(
+      {
+        name: 'Test string',
+      },
+      {
+        newVolumeId: 'Test string',
+      }
+    );
+    /** Emergency Volume resize. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.resize(
+      {
+        volume: 'Test string',
+      },
+      {
+        sizeGib: 'Test string',
+      }
+    );
+    /** Skips lun's cooloff and deletes it now. Lun must be in cooloff state. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.luns.evict(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Get details of a single storage logical unit number(LUN). */
+    await gapi.client.baremetalsolution.projects.locations.volumes.luns.get({
+      name: 'Test string',
+    });
+    /** List storage volume luns for given storage volume. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.luns.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Takes a snapshot of a boot volume. Returns INVALID_ARGUMENT if called for a non-boot volume. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        id: 'Test string',
+        name: 'Test string',
+        storageVolume: 'Test string',
+        type: 'Test string',
+      }
+    );
+    /** Deletes a volume snapshot. Returns INVALID_ARGUMENT if called for a non-boot volume. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Returns the specified snapshot resource. Returns INVALID_ARGUMENT if called for a non-boot volume. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Retrieves the list of snapshots for the specified volume. Returns a response with an empty list of snapshots if called for a non-boot volume. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Uses the specified snapshot to restore its parent volume. Returns INVALID_ARGUMENT if called for a non-boot volume. */
+    await gapi.client.baremetalsolution.projects.locations.volumes.snapshots.restoreVolumeSnapshot(
+      {
+        volumeSnapshot: 'Test string',
+      },
+      {}
+    );
+  }
 });

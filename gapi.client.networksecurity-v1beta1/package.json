@@ -2,15 +2,15 @@
   "name": "@maxim_mazurok/gapi.client.networksecurity-v1beta1",
   "version": "0.0.20231101",
   "description": "TypeScript typings for Network Security API v1beta1",
-  "license": "MIT",
-  "author": {
-    "email": "maxim@mazurok.com",
-    "name": "Maxim Mazurok",
-    "url": "https://maxim.mazurok.com"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Maxim Mazurok",
+    "email": "maxim@mazurok.com",
+    "url": "https://maxim.mazurok.com"
   },
   "types": "index.d.ts",
   "dependencies": {

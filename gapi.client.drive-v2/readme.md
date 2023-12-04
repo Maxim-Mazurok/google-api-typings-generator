@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://www.googleapis.com/discovery/v1/apis/drive/v2/rest', () => {
-  // now we can use:
-  // gapi.client.drive
-});
+gapi.client.load(
+  'https://www.googleapis.com/discovery/v1/apis/drive/v2/rest',
+  () => {
+    // now we can use:
+    // gapi.client.drive
+  }
+);
 ```
 
 ```typescript
@@ -45,45 +48,46 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, create, and delete all of your Google Drive files
-      'https://www.googleapis.com/auth/drive',
+    // See, edit, create, and delete all of your Google Drive files
+    'https://www.googleapis.com/auth/drive',
 
-      // See, create, and delete its own configuration data in your Google Drive
-      'https://www.googleapis.com/auth/drive.appdata',
+    // See, create, and delete its own configuration data in your Google Drive
+    'https://www.googleapis.com/auth/drive.appdata',
 
-      // View your Google Drive apps
-      'https://www.googleapis.com/auth/drive.apps.readonly',
+    // View your Google Drive apps
+    'https://www.googleapis.com/auth/drive.apps.readonly',
 
-      // See, edit, create, and delete only the specific Google Drive files you use with this app
-      'https://www.googleapis.com/auth/drive.file',
+    // See, edit, create, and delete only the specific Google Drive files you use with this app
+    'https://www.googleapis.com/auth/drive.file',
 
-      // View and manage metadata of files in your Google Drive
-      'https://www.googleapis.com/auth/drive.metadata',
+    // View and manage metadata of files in your Google Drive
+    'https://www.googleapis.com/auth/drive.metadata',
 
-      // See information about your Google Drive files
-      'https://www.googleapis.com/auth/drive.metadata.readonly',
+    // See information about your Google Drive files
+    'https://www.googleapis.com/auth/drive.metadata.readonly',
 
-      // View the photos, videos and albums in your Google Photos
-      'https://www.googleapis.com/auth/drive.photos.readonly',
+    // View the photos, videos and albums in your Google Photos
+    'https://www.googleapis.com/auth/drive.photos.readonly',
 
-      // See and download all your Google Drive files
-      'https://www.googleapis.com/auth/drive.readonly',
+    // See and download all your Google Drive files
+    'https://www.googleapis.com/auth/drive.readonly',
 
-      // Modify your Google Apps Script scripts' behavior
-      'https://www.googleapis.com/auth/drive.scripts',
-    ],
-    immediate = true;
+    // Modify your Google Apps Script scripts' behavior
+    'https://www.googleapis.com/auth/drive.scripts',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Google Drive API resources: <!-- TODO: make this work for multiple namespaces -->

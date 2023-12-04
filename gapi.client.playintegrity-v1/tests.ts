@@ -6,34 +6,39 @@
 // Revision: 20231128
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://playintegrity.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.playintegrity */
+  await gapi.client.load(
+    'https://playintegrity.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.playintegrity */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** Private Service: https://www.googleapis.com/auth/playintegrity */
-        'https://www.googleapis.com/auth/playintegrity',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Decodes the integrity token and returns the token payload. */
-        await gapi.client.playintegrity.v1.decodeIntegrityToken({
-            packageName: "Test string",
-        }, {
-            integrityToken: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** Private Service: https://www.googleapis.com/auth/playintegrity */
+    'https://www.googleapis.com/auth/playintegrity',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Decodes the integrity token and returns the token payload. */
+    await gapi.client.playintegrity.v1.decodeIntegrityToken(
+      {
+        packageName: 'Test string',
+      },
+      {
+        integrityToken: 'Test string',
+      }
+    );
+  }
 });

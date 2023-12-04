@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://mybusinessverifications.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.mybusinessverifications
-});
+gapi.client.load(
+  'https://mybusinessverifications.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.mybusinessverifications
+  }
+);
 ```
 
 ```typescript
@@ -39,24 +42,25 @@ gapi.client.load('mybusinessverifications', 'v1', () => {
 });
 ```
 
-
-
 After that you can use My Business Verifications API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Reports all eligible verification options for a location in a specific language.
 */
-await gapi.client.mybusinessverifications.locations.fetchVerificationOptions({ location: "location",  });
+await gapi.client.mybusinessverifications.locations.fetchVerificationOptions({
+  location: 'location',
+});
 
 /*
 Gets the VoiceOfMerchant state.
 */
-await gapi.client.mybusinessverifications.locations.getVoiceOfMerchantState({ name: "name",  });
+await gapi.client.mybusinessverifications.locations.getVoiceOfMerchantState({
+  name: 'name',
+});
 
 /*
 Starts the verification process for a location.
 */
-await gapi.client.mybusinessverifications.locations.verify({ name: "name",  });
+await gapi.client.mybusinessverifications.locations.verify({name: 'name'});
 ```

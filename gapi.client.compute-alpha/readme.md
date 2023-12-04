@@ -1,6 +1,6 @@
 # TypeScript typings for Compute Engine API alpha
 
-Creates and runs virtual machines on Google Cloud Platform. 
+Creates and runs virtual machines on Google Cloud Platform.
 For detailed description please check [documentation](https://cloud.google.com/compute/).
 
 ## Installing
@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://www.googleapis.com/discovery/v1/apis/compute/alpha/rest', () => {
-  // now we can use:
-  // gapi.client.compute
-});
+gapi.client.load(
+  'https://www.googleapis.com/discovery/v1/apis/compute/alpha/rest',
+  () => {
+    // now we can use:
+    // gapi.client.compute
+  }
+);
 ```
 
 ```typescript
@@ -45,36 +48,37 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View and manage your Google Compute Engine resources
-      'https://www.googleapis.com/auth/compute',
+    // View and manage your Google Compute Engine resources
+    'https://www.googleapis.com/auth/compute',
 
-      // View your Google Compute Engine resources
-      'https://www.googleapis.com/auth/compute.readonly',
+    // View your Google Compute Engine resources
+    'https://www.googleapis.com/auth/compute.readonly',
 
-      // Manage your data and permissions in Cloud Storage and see the email address for your Google Account
-      'https://www.googleapis.com/auth/devstorage.full_control',
+    // Manage your data and permissions in Cloud Storage and see the email address for your Google Account
+    'https://www.googleapis.com/auth/devstorage.full_control',
 
-      // View your data in Google Cloud Storage
-      'https://www.googleapis.com/auth/devstorage.read_only',
+    // View your data in Google Cloud Storage
+    'https://www.googleapis.com/auth/devstorage.read_only',
 
-      // Manage your data in Cloud Storage and see the email address of your Google Account
-      'https://www.googleapis.com/auth/devstorage.read_write',
-    ],
-    immediate = true;
+    // Manage your data in Cloud Storage and see the email address of your Google Account
+    'https://www.googleapis.com/auth/devstorage.read_write',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Compute Engine API resources: <!-- TODO: make this work for multiple namespaces -->
@@ -802,7 +806,7 @@ Retrieves a list of Operation resources contained within the specified project.
 await gapi.client.compute.globalOperations.list({ project: "project",  });
 
 /*
-Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`. 
+Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.
 */
 await gapi.client.compute.globalOperations.wait({ operation: "operation", project: "project",  });
 
@@ -1737,57 +1741,57 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.interconnects.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Return a specified license code. License codes are mirrored across all projects that have permissions to read the License Code. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenseCodes.get({ licenseCode: "licenseCode", project: "project",  });
 
 /*
-Gets the access control policy for a resource. May be empty if no such policy or resource exists. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Gets the access control policy for a resource. May be empty if no such policy or resource exists. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenseCodes.getIamPolicy({ project: "project", resource: "resource",  });
 
 /*
-Sets the access control policy on the specified resource. Replaces any existing policy. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Sets the access control policy on the specified resource. Replaces any existing policy. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenseCodes.setIamPolicy({ project: "project", resource: "resource",  });
 
 /*
-Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenseCodes.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Deletes the specified license. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Deletes the specified license. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenses.delete({ license: "license", project: "project",  });
 
 /*
-Returns the specified License resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Returns the specified License resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenses.get({ license: "license", project: "project",  });
 
 /*
-Gets the access control policy for a resource. May be empty if no such policy or resource exists. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Gets the access control policy for a resource. May be empty if no such policy or resource exists. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenses.getIamPolicy({ project: "project", resource: "resource",  });
 
 /*
-Create a License resource in the specified project. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Create a License resource in the specified project. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenses.insert({ project: "project",  });
 
 /*
-Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Retrieves the list of licenses available in the specified project. This method does not get any licenses that belong to other projects, including licenses attached to publicly-available images, like Debian 9. If you want to get a list of publicly-available licenses, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenses.list({ project: "project",  });
 
 /*
-Sets the access control policy on the specified resource. Replaces any existing policy. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Sets the access control policy on the specified resource. Replaces any existing policy. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenses.setIamPolicy({ project: "project", resource: "resource",  });
 
 /*
-Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images. 
+Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenses.testIamPermissions({ project: "project", resource: "resource",  });
 
@@ -3217,7 +3221,7 @@ Retrieves a list of Operation resources contained within the specified region.
 await gapi.client.compute.regionOperations.list({ project: "project", region: "region",  });
 
 /*
-Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`. 
+Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method differs from the `GET` method in that it waits for no more than the default deadline (2 minutes) and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.
 */
 await gapi.client.compute.regionOperations.wait({ operation: "operation", project: "project", region: "region",  });
 
@@ -4587,7 +4591,7 @@ Retrieves a list of Operation resources contained within the specified zone.
 await gapi.client.compute.zoneOperations.list({ project: "project", zone: "zone",  });
 
 /*
-Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method waits for no more than the 2 minutes and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`. 
+Waits for the specified Operation resource to return as `DONE` or for the request to approach the 2 minute deadline, and retrieves the specified Operation resource. This method waits for no more than the 2 minutes and then returns the current state of the operation, which might be `DONE` or still in progress. This method is called on a best-effort basis. Specifically: - In uncommon cases, when the server is overloaded, the request might return before the default deadline is reached, or might return after zero seconds. - If the default deadline is reached, there is no guarantee that the operation is actually done when the method returns. Be prepared to retry if the operation is not `DONE`.
 */
 await gapi.client.compute.zoneOperations.wait({ operation: "operation", project: "project", zone: "zone",  });
 

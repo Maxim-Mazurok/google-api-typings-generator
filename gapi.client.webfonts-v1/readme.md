@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://webfonts.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.webfonts
-});
+gapi.client.load(
+  'https://webfonts.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.webfonts
+  }
+);
 ```
 
 ```typescript
@@ -39,14 +42,11 @@ gapi.client.load('webfonts', 'v1', () => {
 });
 ```
 
-
-
 After that you can use Web Fonts Developer API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Retrieves the list of fonts currently served by the Google Fonts Developer API.
 */
-await gapi.client.webfonts.webfonts.list({  });
+await gapi.client.webfonts.webfonts.list({});
 ```

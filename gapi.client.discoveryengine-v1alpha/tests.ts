@@ -6,2386 +6,2387 @@
 // Revision: 20231110
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://discoveryengine.googleapis.com/$discovery/rest?version=v1alpha');
-    /** now we can use gapi.client.discoveryengine */
+  await gapi.client.load(
+    'https://discoveryengine.googleapis.com/$discovery/rest?version=v1alpha'
+  );
+  /** now we can use gapi.client.discoveryengine */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets the Widget Config using the uuid. */
-        await gapi.client.discoveryengine.locations.lookupWidgetConfig({
-            location: "Test string",
-        }, {
-            widgetConfigId: "Test string",
-        });
-        /**
-         * Performs a user input completion with keyword suggestion. Similar to the CompletionService.CompleteQuery method, but a widget version that allows CompleteQuery without API Key. It
-         * supports CompleteQuery with or without JWT token.
-         */
-        await gapi.client.discoveryengine.locations.widgetCompleteQuery({
-            location: "Test string",
-        }, {
-            additionalParams: {
-                token: "Test string",
-            },
-            completeQueryRequest: {
-                dataStore: "Test string",
-                includeTailSuggestions: true,
-                query: "Test string",
-                queryModel: "Test string",
-                userPseudoId: "Test string",
-            },
-            configId: "Test string",
-        });
-        /** Converse a conversation with Widget. */
-        await gapi.client.discoveryengine.locations.widgetConverseConversation({
-            location: "Test string",
-        }, {
-            additionalParams: {
-                token: "Test string",
-            },
-            configId: "Test string",
-            conversationId: "Test string",
-            converseConversationRequest: {
-                conversation: {
-                    endTime: "Test string",
-                    messages: [
-                        {
-                            createTime: "Test string",
-                            reply: {
-                                references: [
-                                    {
-                                        anchorText: "Test string",
-                                        end: 42,
-                                        start: 42,
-                                        uri: "Test string",
-                                    }
-                                ],
-                                reply: "Test string",
-                                summary: {
-                                    safetyAttributes: {
-                                        categories: [
-                                            "Test string"
-                                        ],
-                                        scores: [
-                                            42
-                                        ],
-                                    },
-                                    summarySkippedReasons: [
-                                        "Test string"
-                                    ],
-                                    summaryText: "Test string",
-                                },
-                            },
-                            userInput: {
-                                context: {
-                                    activeDocument: "Test string",
-                                    contextDocuments: [
-                                        "Test string"
-                                    ],
-                                },
-                                input: "Test string",
-                            },
-                        }
-                    ],
-                    name: "Test string",
-                    startTime: "Test string",
-                    state: "Test string",
-                    userPseudoId: "Test string",
-                },
-                name: "Test string",
-                query: {
-                    context: {
-                        activeDocument: "Test string",
-                        contextDocuments: [
-                            "Test string"
-                        ],
-                    },
-                    input: "Test string",
-                },
-                safeSearch: true,
-                servingConfig: "Test string",
-                summarySpec: {
-                    ignoreAdversarialQuery: true,
-                    ignoreNonSummarySeekingQuery: true,
-                    includeCitations: true,
-                    languageCode: "Test string",
-                    summaryResultCount: 42,
-                },
-                userLabels: {
-                    A: "Test string"
-                },
-            },
-        });
-        /** Performs a search. Similar to the SearchService.Search method, but a widget version that allows search without API Key. It supports search with or without JWT token. */
-        await gapi.client.discoveryengine.locations.widgetSearch({
-            location: "Test string",
-        }, {
-            additionalParams: {
-                token: "Test string",
-            },
-            configId: "Test string",
-            searchRequest: {
-                boostSpec: {
-                    conditionBoostSpecs: [
-                        {
-                            boost: 42,
-                            condition: "Test string",
-                        }
-                    ],
-                },
-                branch: "Test string",
-                canonicalFilter: "Test string",
-                contentSearchSpec: {
-                    extractiveContentSpec: {
-                        maxExtractiveAnswerCount: 42,
-                        maxExtractiveSegmentCount: 42,
-                        numNextSegments: 42,
-                        numPreviousSegments: 42,
-                    },
-                    snippetSpec: {
-                        maxSnippetCount: 42,
-                        referenceOnly: true,
-                        returnSnippet: true,
-                    },
-                    summarySpec: {
-                        ignoreAdversarialQuery: true,
-                        ignoreNonSummarySeekingQuery: true,
-                        includeCitations: true,
-                        languageCode: "Test string",
-                        summaryResultCount: 42,
-                    },
-                },
-                embeddingSpec: {
-                    embeddingVectors: [
-                        {
-                            fieldPath: "Test string",
-                            vector: [
-                                42
-                            ],
-                        }
-                    ],
-                },
-                facetSpecs: [
-                    {
-                        enableDynamicPosition: true,
-                        excludedFilterKeys: [
-                            "Test string"
-                        ],
-                        facetKey: {
-                            caseInsensitive: true,
-                            contains: [
-                                "Test string"
-                            ],
-                            intervals: [
-                                {
-                                    exclusiveMaximum: 42,
-                                    exclusiveMinimum: 42,
-                                    maximum: 42,
-                                    minimum: 42,
-                                }
-                            ],
-                            key: "Test string",
-                            orderBy: "Test string",
-                            prefixes: [
-                                "Test string"
-                            ],
-                            restrictedValues: [
-                                "Test string"
-                            ],
-                        },
-                        limit: 42,
-                    }
-                ],
-                filter: "Test string",
-                imageQuery: {
-                    imageBytes: "Test string",
-                },
-                offset: 42,
-                orderBy: "Test string",
-                pageSize: 42,
-                pageToken: "Test string",
-                params: {
-                    A: 42
-                },
-                query: "Test string",
-                queryExpansionSpec: {
-                    condition: "Test string",
-                    pinUnexpandedResults: true,
-                },
-                rankingExpression: "Test string",
-                safeSearch: true,
-                servingConfig: "Test string",
-                spellCorrectionSpec: {
-                    mode: "Test string",
-                },
-                userInfo: {
-                    userAgent: "Test string",
-                    userId: "Test string",
-                },
-                userLabels: {
-                    A: "Test string"
-                },
-                userPseudoId: "Test string",
-            },
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataConnector.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataConnector.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Completes the specified user input with keyword suggestions. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.completeQuery({
-            dataStore: "Test string",
-            includeTailSuggestions: true,
-            query: "Test string",
-            queryModel: "Test string",
-            userPseudoId: "Test string",
-        });
-        /** Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.create({
-            createAdvancedSiteSearch: true,
-            dataStoreId: "Test string",
-            parent: "Test string",
-        }, {
-            contentConfig: "Test string",
-            createTime: "Test string",
-            defaultSchemaId: "Test string",
-            displayName: "Test string",
-            industryVertical: "Test string",
-            name: "Test string",
-            solutionTypes: [
-                "Test string"
-            ],
-        });
-        /** Deletes a DataStore. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.delete({
-            name: "Test string",
-        });
-        /** Gets a DataStore. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.get({
-            name: "Test string",
-        });
-        /** Lists all the DataStores associated with the project. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a DataStore */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            contentConfig: "Test string",
-            createTime: "Test string",
-            defaultSchemaId: "Test string",
-            displayName: "Test string",
-            industryVertical: "Test string",
-            name: "Test string",
-            solutionTypes: [
-                "Test string"
-            ],
-        });
-        /** Creates a Document. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.create({
-            documentId: "Test string",
-            parent: "Test string",
-        }, {
-            content: {
-                mimeType: "Test string",
-                rawBytes: "Test string",
-                uri: "Test string",
-            },
-            derivedStructData: {
-                A: 42
-            },
-            id: "Test string",
-            jsonData: "Test string",
-            name: "Test string",
-            parentDocumentId: "Test string",
-            schemaId: "Test string",
-            structData: {
-                A: 42
-            },
-        });
-        /** Deletes a Document. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.delete({
-            name: "Test string",
-        });
-        /** Gets a Document. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.get({
-            name: "Test string",
-        });
-        /**
-         * Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items will be created. Note: It is possible for a subset of the Documents to be successfully
-         * updated.
-         */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.import({
-            parent: "Test string",
-        }, {
-            autoGenerateIds: true,
-            bigquerySource: {
-                dataSchema: "Test string",
-                datasetId: "Test string",
-                gcsStagingDir: "Test string",
-                partitionDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                projectId: "Test string",
-                tableId: "Test string",
-            },
-            errorConfig: {
-                gcsPrefix: "Test string",
-            },
-            gcsSource: {
-                dataSchema: "Test string",
-                inputUris: [
-                    "Test string"
-                ],
-            },
-            idField: "Test string",
-            inlineSource: {
-                documents: [
-                    {
-                        content: {
-                            mimeType: "Test string",
-                            rawBytes: "Test string",
-                            uri: "Test string",
-                        },
-                        derivedStructData: {
-                            A: 42
-                        },
-                        id: "Test string",
-                        jsonData: "Test string",
-                        name: "Test string",
-                        parentDocumentId: "Test string",
-                        schemaId: "Test string",
-                        structData: {
-                            A: 42
-                        },
-                    }
-                ],
-            },
-            reconciliationMode: "Test string",
-        });
-        /** Gets a list of Documents. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a Document. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.patch({
-            allowMissing: true,
-            name: "Test string",
-        }, {
-            content: {
-                mimeType: "Test string",
-                rawBytes: "Test string",
-                uri: "Test string",
-            },
-            derivedStructData: {
-                A: 42
-            },
-            id: "Test string",
-            jsonData: "Test string",
-            name: "Test string",
-            parentDocumentId: "Test string",
-            schemaId: "Test string",
-            structData: {
-                A: 42
-            },
-        });
-        /**
-         * Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete.
-         * Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be
-         * deleted, set PurgeDocumentsRequest.force to false.
-         */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.purge({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-            force: true,
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Converses a conversation. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.converse({
-            name: "Test string",
-        }, {
-            conversation: {
-                endTime: "Test string",
-                messages: [
-                    {
-                        createTime: "Test string",
-                        reply: {
-                            references: [
-                                {
-                                    anchorText: "Test string",
-                                    end: 42,
-                                    start: 42,
-                                    uri: "Test string",
-                                }
-                            ],
-                            reply: "Test string",
-                            summary: {
-                                safetyAttributes: {
-                                    categories: [
-                                        "Test string"
-                                    ],
-                                    scores: [
-                                        42
-                                    ],
-                                },
-                                summarySkippedReasons: [
-                                    "Test string"
-                                ],
-                                summaryText: "Test string",
-                            },
-                        },
-                        userInput: {
-                            context: {
-                                activeDocument: "Test string",
-                                contextDocuments: [
-                                    "Test string"
-                                ],
-                            },
-                            input: "Test string",
-                        },
-                    }
-                ],
-                name: "Test string",
-                startTime: "Test string",
-                state: "Test string",
-                userPseudoId: "Test string",
-            },
-            name: "Test string",
-            query: {
-                context: {
-                    activeDocument: "Test string",
-                    contextDocuments: [
-                        "Test string"
-                    ],
-                },
-                input: "Test string",
-            },
-            safeSearch: true,
-            servingConfig: "Test string",
-            summarySpec: {
-                ignoreAdversarialQuery: true,
-                ignoreNonSummarySeekingQuery: true,
-                includeCitations: true,
-                languageCode: "Test string",
-                summaryResultCount: 42,
-            },
-            userLabels: {
-                A: "Test string"
-            },
-        });
-        /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            messages: [
-                {
-                    createTime: "Test string",
-                    reply: {
-                        references: [
-                            {
-                                anchorText: "Test string",
-                                end: 42,
-                                start: 42,
-                                uri: "Test string",
-                            }
-                        ],
-                        reply: "Test string",
-                        summary: {
-                            safetyAttributes: {
-                                categories: [
-                                    "Test string"
-                                ],
-                                scores: [
-                                    42
-                                ],
-                            },
-                            summarySkippedReasons: [
-                                "Test string"
-                            ],
-                            summaryText: "Test string",
-                        },
-                    },
-                    userInput: {
-                        context: {
-                            activeDocument: "Test string",
-                            contextDocuments: [
-                                "Test string"
-                            ],
-                        },
-                        input: "Test string",
-                    },
-                }
-            ],
-            name: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            userPseudoId: "Test string",
-        });
-        /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.delete({
-            name: "Test string",
-        });
-        /** Gets a Conversation. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.get({
-            name: "Test string",
-        });
-        /** Lists all Conversations by their parent DataStore. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            endTime: "Test string",
-            messages: [
-                {
-                    createTime: "Test string",
-                    reply: {
-                        references: [
-                            {
-                                anchorText: "Test string",
-                                end: 42,
-                                start: 42,
-                                uri: "Test string",
-                            }
-                        ],
-                        reply: "Test string",
-                        summary: {
-                            safetyAttributes: {
-                                categories: [
-                                    "Test string"
-                                ],
-                                scores: [
-                                    42
-                                ],
-                            },
-                            summarySkippedReasons: [
-                                "Test string"
-                            ],
-                            summaryText: "Test string",
-                        },
-                    },
-                    userInput: {
-                        context: {
-                            activeDocument: "Test string",
-                            contextDocuments: [
-                                "Test string"
-                            ],
-                        },
-                        input: "Test string",
-                    },
-                }
-            ],
-            name: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            userPseudoId: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.models.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.models.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a Schema. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.create({
-            parent: "Test string",
-            schemaId: "Test string",
-        }, {
-            fieldConfigs: [
-                {
-                    completableOption: "Test string",
-                    dynamicFacetableOption: "Test string",
-                    fieldPath: "Test string",
-                    fieldType: "Test string",
-                    indexableOption: "Test string",
-                    keyPropertyType: "Test string",
-                    recsFilterableOption: "Test string",
-                    retrievableOption: "Test string",
-                    searchableOption: "Test string",
-                }
-            ],
-            jsonSchema: "Test string",
-            name: "Test string",
-            structSchema: {
-                A: 42
-            },
-        });
-        /** Deletes a Schema. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.delete({
-            name: "Test string",
-        });
-        /** Gets a Schema. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.get({
-            name: "Test string",
-        });
-        /** Gets a list of Schemas. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a Schema. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.patch({
-            allowMissing: true,
-            name: "Test string",
-        }, {
-            fieldConfigs: [
-                {
-                    completableOption: "Test string",
-                    dynamicFacetableOption: "Test string",
-                    fieldPath: "Test string",
-                    fieldType: "Test string",
-                    indexableOption: "Test string",
-                    keyPropertyType: "Test string",
-                    recsFilterableOption: "Test string",
-                    retrievableOption: "Test string",
-                    searchableOption: "Test string",
-                }
-            ],
-            jsonSchema: "Test string",
-            name: "Test string",
-            structSchema: {
-                A: 42
-            },
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Makes a recommendation, which requires a contextual user event. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.recommend({
-            servingConfig: "Test string",
-        }, {
-            filter: "Test string",
-            pageSize: 42,
-            params: {
-                A: 42
-            },
-            userEvent: {
-                attributes: {
-                    A: {
-                        numbers: [
-                            42
-                        ],
-                        text: [
-                            "Test string"
-                        ],
-                    }
-                },
-                attributionToken: "Test string",
-                completionInfo: {
-                    selectedPosition: 42,
-                    selectedSuggestion: "Test string",
-                },
-                directUserRequest: true,
-                documents: [
-                    {
-                        id: "Test string",
-                        name: "Test string",
-                        promotionIds: [
-                            "Test string"
-                        ],
-                        quantity: 42,
-                        uri: "Test string",
-                    }
-                ],
-                eventTime: "Test string",
-                eventType: "Test string",
-                filter: "Test string",
-                mediaInfo: {
-                    mediaProgressDuration: "Test string",
-                    mediaProgressPercentage: 42,
-                },
-                pageInfo: {
-                    pageCategory: "Test string",
-                    pageviewId: "Test string",
-                    referrerUri: "Test string",
-                    uri: "Test string",
-                },
-                panel: {
-                    displayName: "Test string",
-                    panelId: "Test string",
-                    panelPosition: 42,
-                    totalPanels: 42,
-                },
-                promotionIds: [
-                    "Test string"
-                ],
-                searchInfo: {
-                    offset: 42,
-                    orderBy: "Test string",
-                    searchQuery: "Test string",
-                },
-                sessionId: "Test string",
-                tagIds: [
-                    "Test string"
-                ],
-                transactionInfo: {
-                    cost: 42,
-                    currency: "Test string",
-                    discountValue: 42,
-                    tax: 42,
-                    transactionId: "Test string",
-                    value: 42,
-                },
-                userInfo: {
-                    userAgent: "Test string",
-                    userId: "Test string",
-                },
-                userPseudoId: "Test string",
-            },
-            userLabels: {
-                A: "Test string"
-            },
-            validateOnly: true,
-        });
-        /** Performs a search. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.search({
-            servingConfig: "Test string",
-        }, {
-            boostSpec: {
-                conditionBoostSpecs: [
-                    {
-                        boost: 42,
-                        condition: "Test string",
-                    }
-                ],
-            },
-            branch: "Test string",
-            canonicalFilter: "Test string",
-            contentSearchSpec: {
-                extractiveContentSpec: {
-                    maxExtractiveAnswerCount: 42,
-                    maxExtractiveSegmentCount: 42,
-                    numNextSegments: 42,
-                    numPreviousSegments: 42,
-                },
-                snippetSpec: {
-                    maxSnippetCount: 42,
-                    referenceOnly: true,
-                    returnSnippet: true,
-                },
-                summarySpec: {
-                    ignoreAdversarialQuery: true,
-                    ignoreNonSummarySeekingQuery: true,
-                    includeCitations: true,
-                    languageCode: "Test string",
-                    summaryResultCount: 42,
-                },
-            },
-            embeddingSpec: {
-                embeddingVectors: [
-                    {
-                        fieldPath: "Test string",
-                        vector: [
-                            42
-                        ],
-                    }
-                ],
-            },
-            facetSpecs: [
-                {
-                    enableDynamicPosition: true,
-                    excludedFilterKeys: [
-                        "Test string"
-                    ],
-                    facetKey: {
-                        caseInsensitive: true,
-                        contains: [
-                            "Test string"
-                        ],
-                        intervals: [
-                            {
-                                exclusiveMaximum: 42,
-                                exclusiveMinimum: 42,
-                                maximum: 42,
-                                minimum: 42,
-                            }
-                        ],
-                        key: "Test string",
-                        orderBy: "Test string",
-                        prefixes: [
-                            "Test string"
-                        ],
-                        restrictedValues: [
-                            "Test string"
-                        ],
-                    },
-                    limit: 42,
-                }
-            ],
-            filter: "Test string",
-            imageQuery: {
-                imageBytes: "Test string",
-            },
-            offset: 42,
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            params: {
-                A: 42
-            },
-            query: "Test string",
-            queryExpansionSpec: {
-                condition: "Test string",
-                pinUnexpandedResults: true,
-            },
-            rankingExpression: "Test string",
-            safeSearch: true,
-            servingConfig: "Test string",
-            spellCorrectionSpec: {
-                mode: "Test string",
-            },
-            userInfo: {
-                userAgent: "Test string",
-                userId: "Test string",
-            },
-            userLabels: {
-                A: "Test string"
-            },
-            userPseudoId: "Test string",
-        });
-        /** Request on-demand recrawl for a list of URIs. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.recrawlUris({
-            siteSearchEngine: "Test string",
-        }, {
-            uris: [
-                "Test string"
-            ],
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine
-         * API JavaScript pixel and Google Tag Manager. Users should not call this method directly.
-         */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.collect({
-            ets: "Test string",
-            parent: "Test string",
-            uri: "Test string",
-            userEvent: "Test string",
-        });
-        /**
-         * Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is
-         * of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata.
-         */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.import({
-            parent: "Test string",
-        }, {
-            bigquerySource: {
-                dataSchema: "Test string",
-                datasetId: "Test string",
-                gcsStagingDir: "Test string",
-                partitionDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                projectId: "Test string",
-                tableId: "Test string",
-            },
-            errorConfig: {
-                gcsPrefix: "Test string",
-            },
-            gcsSource: {
-                dataSchema: "Test string",
-                inputUris: [
-                    "Test string"
-                ],
-            },
-            inlineSource: {
-                userEvents: [
-                    {
-                        attributes: {
-                            A: {
-                                numbers: [
-                                    42
-                                ],
-                                text: [
-                                    "Test string"
-                                ],
-                            }
-                        },
-                        attributionToken: "Test string",
-                        completionInfo: {
-                            selectedPosition: 42,
-                            selectedSuggestion: "Test string",
-                        },
-                        directUserRequest: true,
-                        documents: [
-                            {
-                                id: "Test string",
-                                name: "Test string",
-                                promotionIds: [
-                                    "Test string"
-                                ],
-                                quantity: 42,
-                                uri: "Test string",
-                            }
-                        ],
-                        eventTime: "Test string",
-                        eventType: "Test string",
-                        filter: "Test string",
-                        mediaInfo: {
-                            mediaProgressDuration: "Test string",
-                            mediaProgressPercentage: 42,
-                        },
-                        pageInfo: {
-                            pageCategory: "Test string",
-                            pageviewId: "Test string",
-                            referrerUri: "Test string",
-                            uri: "Test string",
-                        },
-                        panel: {
-                            displayName: "Test string",
-                            panelId: "Test string",
-                            panelPosition: 42,
-                            totalPanels: 42,
-                        },
-                        promotionIds: [
-                            "Test string"
-                        ],
-                        searchInfo: {
-                            offset: 42,
-                            orderBy: "Test string",
-                            searchQuery: "Test string",
-                        },
-                        sessionId: "Test string",
-                        tagIds: [
-                            "Test string"
-                        ],
-                        transactionInfo: {
-                            cost: 42,
-                            currency: "Test string",
-                            discountValue: 42,
-                            tax: 42,
-                            transactionId: "Test string",
-                            value: 42,
-                        },
-                        userInfo: {
-                            userAgent: "Test string",
-                            userId: "Test string",
-                        },
-                        userPseudoId: "Test string",
-                    }
-                ],
-            },
-        });
-        /**
-         * Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To
-         * test a filter, use the list command first.
-         */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.purge({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-            force: true,
-        });
-        /** Writes a single user event. */
-        await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.write({
-            parent: "Test string",
-        }, {
-            attributes: {
-                A: {
-                    numbers: [
-                        42
-                    ],
-                    text: [
-                        "Test string"
-                    ],
-                }
-            },
-            attributionToken: "Test string",
-            completionInfo: {
-                selectedPosition: 42,
-                selectedSuggestion: "Test string",
-            },
-            directUserRequest: true,
-            documents: [
-                {
-                    id: "Test string",
-                    name: "Test string",
-                    promotionIds: [
-                        "Test string"
-                    ],
-                    quantity: 42,
-                    uri: "Test string",
-                }
-            ],
-            eventTime: "Test string",
-            eventType: "Test string",
-            filter: "Test string",
-            mediaInfo: {
-                mediaProgressDuration: "Test string",
-                mediaProgressPercentage: 42,
-            },
-            pageInfo: {
-                pageCategory: "Test string",
-                pageviewId: "Test string",
-                referrerUri: "Test string",
-                uri: "Test string",
-            },
-            panel: {
-                displayName: "Test string",
-                panelId: "Test string",
-                panelPosition: 42,
-                totalPanels: 42,
-            },
-            promotionIds: [
-                "Test string"
-            ],
-            searchInfo: {
-                offset: 42,
-                orderBy: "Test string",
-                searchQuery: "Test string",
-            },
-            sessionId: "Test string",
-            tagIds: [
-                "Test string"
-            ],
-            transactionInfo: {
-                cost: 42,
-                currency: "Test string",
-                discountValue: 42,
-                tax: 42,
-                transactionId: "Test string",
-                value: 42,
-            },
-            userInfo: {
-                userAgent: "Test string",
-                userId: "Test string",
-            },
-            userPseudoId: "Test string",
-        });
-        /** Creates a Engine. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.create({
-            engineId: "Test string",
-            parent: "Test string",
-        }, {
-            chatEngineConfig: {
-                agentCreationConfig: {
-                    business: "Test string",
-                    defaultLanguageCode: "Test string",
-                    timeZone: "Test string",
-                },
-                dialogflowAgentToLink: "Test string",
-            },
-            chatEngineMetadata: {
-                dialogflowAgent: "Test string",
-            },
-            commonConfig: {
-                companyName: "Test string",
-            },
-            createTime: "Test string",
-            dataStoreIds: [
-                "Test string"
-            ],
-            displayName: "Test string",
-            industryVertical: "Test string",
-            mediaRecommendationEngineConfig: {
-                optimizationObjective: "Test string",
-                optimizationObjectiveConfig: {
-                    targetField: "Test string",
-                    targetFieldValueFloat: 42,
-                },
-                trainingState: "Test string",
-                type: "Test string",
-            },
-            name: "Test string",
-            recommendationMetadata: {
-                dataState: "Test string",
-                lastTuneTime: "Test string",
-                servingState: "Test string",
-                tuningOperation: "Test string",
-            },
-            searchEngineConfig: {
-                searchAddOns: [
-                    "Test string"
-                ],
-                searchTier: "Test string",
-            },
-            similarDocumentsConfig: {
-            },
-            solutionType: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a Engine. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.delete({
-            name: "Test string",
-        });
-        /** Gets a Engine. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.get({
-            name: "Test string",
-        });
-        /** Lists all the Engines associated with the project. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an Engine */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            chatEngineConfig: {
-                agentCreationConfig: {
-                    business: "Test string",
-                    defaultLanguageCode: "Test string",
-                    timeZone: "Test string",
-                },
-                dialogflowAgentToLink: "Test string",
-            },
-            chatEngineMetadata: {
-                dialogflowAgent: "Test string",
-            },
-            commonConfig: {
-                companyName: "Test string",
-            },
-            createTime: "Test string",
-            dataStoreIds: [
-                "Test string"
-            ],
-            displayName: "Test string",
-            industryVertical: "Test string",
-            mediaRecommendationEngineConfig: {
-                optimizationObjective: "Test string",
-                optimizationObjectiveConfig: {
-                    targetField: "Test string",
-                    targetFieldValueFloat: 42,
-                },
-                trainingState: "Test string",
-                type: "Test string",
-            },
-            name: "Test string",
-            recommendationMetadata: {
-                dataState: "Test string",
-                lastTuneTime: "Test string",
-                servingState: "Test string",
-                tuningOperation: "Test string",
-            },
-            searchEngineConfig: {
-                searchAddOns: [
-                    "Test string"
-                ],
-                searchTier: "Test string",
-            },
-            similarDocumentsConfig: {
-            },
-            solutionType: "Test string",
-            updateTime: "Test string",
-        });
-        /** Pauses the training of an existing engine. Only applicable if solution_type is SOLUTION_TYPE_RECOMMENDATION. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.pause({
-            name: "Test string",
-        }, {
-        });
-        /** Resumes the training of an existing engine. Only applicable if solution_type is SOLUTION_TYPE_RECOMMENDATION. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.resume({
-            name: "Test string",
-        }, {
-        });
-        /** Tunes an existing engine. Only applicable if solution_type is SOLUTION_TYPE_RECOMMENDATION. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.tune({
-            name: "Test string",
-        }, {
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Makes a recommendation, which requires a contextual user event. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.recommend({
-            servingConfig: "Test string",
-        }, {
-            filter: "Test string",
-            pageSize: 42,
-            params: {
-                A: 42
-            },
-            userEvent: {
-                attributes: {
-                    A: {
-                        numbers: [
-                            42
-                        ],
-                        text: [
-                            "Test string"
-                        ],
-                    }
-                },
-                attributionToken: "Test string",
-                completionInfo: {
-                    selectedPosition: 42,
-                    selectedSuggestion: "Test string",
-                },
-                directUserRequest: true,
-                documents: [
-                    {
-                        id: "Test string",
-                        name: "Test string",
-                        promotionIds: [
-                            "Test string"
-                        ],
-                        quantity: 42,
-                        uri: "Test string",
-                    }
-                ],
-                eventTime: "Test string",
-                eventType: "Test string",
-                filter: "Test string",
-                mediaInfo: {
-                    mediaProgressDuration: "Test string",
-                    mediaProgressPercentage: 42,
-                },
-                pageInfo: {
-                    pageCategory: "Test string",
-                    pageviewId: "Test string",
-                    referrerUri: "Test string",
-                    uri: "Test string",
-                },
-                panel: {
-                    displayName: "Test string",
-                    panelId: "Test string",
-                    panelPosition: 42,
-                    totalPanels: 42,
-                },
-                promotionIds: [
-                    "Test string"
-                ],
-                searchInfo: {
-                    offset: 42,
-                    orderBy: "Test string",
-                    searchQuery: "Test string",
-                },
-                sessionId: "Test string",
-                tagIds: [
-                    "Test string"
-                ],
-                transactionInfo: {
-                    cost: 42,
-                    currency: "Test string",
-                    discountValue: 42,
-                    tax: 42,
-                    transactionId: "Test string",
-                    value: 42,
-                },
-                userInfo: {
-                    userAgent: "Test string",
-                    userId: "Test string",
-                },
-                userPseudoId: "Test string",
-            },
-            userLabels: {
-                A: "Test string"
-            },
-            validateOnly: true,
-        });
-        /** Performs a search. */
-        await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.search({
-            servingConfig: "Test string",
-        }, {
-            boostSpec: {
-                conditionBoostSpecs: [
-                    {
-                        boost: 42,
-                        condition: "Test string",
-                    }
-                ],
-            },
-            branch: "Test string",
-            canonicalFilter: "Test string",
-            contentSearchSpec: {
-                extractiveContentSpec: {
-                    maxExtractiveAnswerCount: 42,
-                    maxExtractiveSegmentCount: 42,
-                    numNextSegments: 42,
-                    numPreviousSegments: 42,
-                },
-                snippetSpec: {
-                    maxSnippetCount: 42,
-                    referenceOnly: true,
-                    returnSnippet: true,
-                },
-                summarySpec: {
-                    ignoreAdversarialQuery: true,
-                    ignoreNonSummarySeekingQuery: true,
-                    includeCitations: true,
-                    languageCode: "Test string",
-                    summaryResultCount: 42,
-                },
-            },
-            embeddingSpec: {
-                embeddingVectors: [
-                    {
-                        fieldPath: "Test string",
-                        vector: [
-                            42
-                        ],
-                    }
-                ],
-            },
-            facetSpecs: [
-                {
-                    enableDynamicPosition: true,
-                    excludedFilterKeys: [
-                        "Test string"
-                    ],
-                    facetKey: {
-                        caseInsensitive: true,
-                        contains: [
-                            "Test string"
-                        ],
-                        intervals: [
-                            {
-                                exclusiveMaximum: 42,
-                                exclusiveMinimum: 42,
-                                maximum: 42,
-                                minimum: 42,
-                            }
-                        ],
-                        key: "Test string",
-                        orderBy: "Test string",
-                        prefixes: [
-                            "Test string"
-                        ],
-                        restrictedValues: [
-                            "Test string"
-                        ],
-                    },
-                    limit: 42,
-                }
-            ],
-            filter: "Test string",
-            imageQuery: {
-                imageBytes: "Test string",
-            },
-            offset: 42,
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            params: {
-                A: 42
-            },
-            query: "Test string",
-            queryExpansionSpec: {
-                condition: "Test string",
-                pinUnexpandedResults: true,
-            },
-            rankingExpression: "Test string",
-            safeSearch: true,
-            servingConfig: "Test string",
-            spellCorrectionSpec: {
-                mode: "Test string",
-            },
-            userInfo: {
-                userAgent: "Test string",
-                userId: "Test string",
-            },
-            userLabels: {
-                A: "Test string"
-            },
-            userPseudoId: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.collections.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.collections.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Completes the specified user input with keyword suggestions. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.completeQuery({
-            dataStore: "Test string",
-            includeTailSuggestions: true,
-            query: "Test string",
-            queryModel: "Test string",
-            userPseudoId: "Test string",
-        });
-        /** Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.create({
-            createAdvancedSiteSearch: true,
-            dataStoreId: "Test string",
-            parent: "Test string",
-        }, {
-            contentConfig: "Test string",
-            createTime: "Test string",
-            defaultSchemaId: "Test string",
-            displayName: "Test string",
-            industryVertical: "Test string",
-            name: "Test string",
-            solutionTypes: [
-                "Test string"
-            ],
-        });
-        /** Deletes a DataStore. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.delete({
-            name: "Test string",
-        });
-        /** Gets a DataStore. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.get({
-            name: "Test string",
-        });
-        /** Lists all the DataStores associated with the project. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a DataStore */
-        await gapi.client.discoveryengine.projects.locations.dataStores.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            contentConfig: "Test string",
-            createTime: "Test string",
-            defaultSchemaId: "Test string",
-            displayName: "Test string",
-            industryVertical: "Test string",
-            name: "Test string",
-            solutionTypes: [
-                "Test string"
-            ],
-        });
-        /** Creates a Document. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.create({
-            documentId: "Test string",
-            parent: "Test string",
-        }, {
-            content: {
-                mimeType: "Test string",
-                rawBytes: "Test string",
-                uri: "Test string",
-            },
-            derivedStructData: {
-                A: 42
-            },
-            id: "Test string",
-            jsonData: "Test string",
-            name: "Test string",
-            parentDocumentId: "Test string",
-            schemaId: "Test string",
-            structData: {
-                A: 42
-            },
-        });
-        /** Deletes a Document. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.delete({
-            name: "Test string",
-        });
-        /** Gets a Document. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.get({
-            name: "Test string",
-        });
-        /**
-         * Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items will be created. Note: It is possible for a subset of the Documents to be successfully
-         * updated.
-         */
-        await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.import({
-            parent: "Test string",
-        }, {
-            autoGenerateIds: true,
-            bigquerySource: {
-                dataSchema: "Test string",
-                datasetId: "Test string",
-                gcsStagingDir: "Test string",
-                partitionDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                projectId: "Test string",
-                tableId: "Test string",
-            },
-            errorConfig: {
-                gcsPrefix: "Test string",
-            },
-            gcsSource: {
-                dataSchema: "Test string",
-                inputUris: [
-                    "Test string"
-                ],
-            },
-            idField: "Test string",
-            inlineSource: {
-                documents: [
-                    {
-                        content: {
-                            mimeType: "Test string",
-                            rawBytes: "Test string",
-                            uri: "Test string",
-                        },
-                        derivedStructData: {
-                            A: 42
-                        },
-                        id: "Test string",
-                        jsonData: "Test string",
-                        name: "Test string",
-                        parentDocumentId: "Test string",
-                        schemaId: "Test string",
-                        structData: {
-                            A: 42
-                        },
-                    }
-                ],
-            },
-            reconciliationMode: "Test string",
-        });
-        /** Gets a list of Documents. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a Document. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.patch({
-            allowMissing: true,
-            name: "Test string",
-        }, {
-            content: {
-                mimeType: "Test string",
-                rawBytes: "Test string",
-                uri: "Test string",
-            },
-            derivedStructData: {
-                A: 42
-            },
-            id: "Test string",
-            jsonData: "Test string",
-            name: "Test string",
-            parentDocumentId: "Test string",
-            schemaId: "Test string",
-            structData: {
-                A: 42
-            },
-        });
-        /**
-         * Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete.
-         * Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be
-         * deleted, set PurgeDocumentsRequest.force to false.
-         */
-        await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.purge({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-            force: true,
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.branches.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.branches.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Converses a conversation. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.conversations.converse({
-            name: "Test string",
-        }, {
-            conversation: {
-                endTime: "Test string",
-                messages: [
-                    {
-                        createTime: "Test string",
-                        reply: {
-                            references: [
-                                {
-                                    anchorText: "Test string",
-                                    end: 42,
-                                    start: 42,
-                                    uri: "Test string",
-                                }
-                            ],
-                            reply: "Test string",
-                            summary: {
-                                safetyAttributes: {
-                                    categories: [
-                                        "Test string"
-                                    ],
-                                    scores: [
-                                        42
-                                    ],
-                                },
-                                summarySkippedReasons: [
-                                    "Test string"
-                                ],
-                                summaryText: "Test string",
-                            },
-                        },
-                        userInput: {
-                            context: {
-                                activeDocument: "Test string",
-                                contextDocuments: [
-                                    "Test string"
-                                ],
-                            },
-                            input: "Test string",
-                        },
-                    }
-                ],
-                name: "Test string",
-                startTime: "Test string",
-                state: "Test string",
-                userPseudoId: "Test string",
-            },
-            name: "Test string",
-            query: {
-                context: {
-                    activeDocument: "Test string",
-                    contextDocuments: [
-                        "Test string"
-                    ],
-                },
-                input: "Test string",
-            },
-            safeSearch: true,
-            servingConfig: "Test string",
-            summarySpec: {
-                ignoreAdversarialQuery: true,
-                ignoreNonSummarySeekingQuery: true,
-                includeCitations: true,
-                languageCode: "Test string",
-                summaryResultCount: 42,
-            },
-            userLabels: {
-                A: "Test string"
-            },
-        });
-        /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.conversations.create({
-            parent: "Test string",
-        }, {
-            endTime: "Test string",
-            messages: [
-                {
-                    createTime: "Test string",
-                    reply: {
-                        references: [
-                            {
-                                anchorText: "Test string",
-                                end: 42,
-                                start: 42,
-                                uri: "Test string",
-                            }
-                        ],
-                        reply: "Test string",
-                        summary: {
-                            safetyAttributes: {
-                                categories: [
-                                    "Test string"
-                                ],
-                                scores: [
-                                    42
-                                ],
-                            },
-                            summarySkippedReasons: [
-                                "Test string"
-                            ],
-                            summaryText: "Test string",
-                        },
-                    },
-                    userInput: {
-                        context: {
-                            activeDocument: "Test string",
-                            contextDocuments: [
-                                "Test string"
-                            ],
-                        },
-                        input: "Test string",
-                    },
-                }
-            ],
-            name: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            userPseudoId: "Test string",
-        });
-        /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.conversations.delete({
-            name: "Test string",
-        });
-        /** Gets a Conversation. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.conversations.get({
-            name: "Test string",
-        });
-        /** Lists all Conversations by their parent DataStore. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.conversations.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.conversations.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            endTime: "Test string",
-            messages: [
-                {
-                    createTime: "Test string",
-                    reply: {
-                        references: [
-                            {
-                                anchorText: "Test string",
-                                end: 42,
-                                start: 42,
-                                uri: "Test string",
-                            }
-                        ],
-                        reply: "Test string",
-                        summary: {
-                            safetyAttributes: {
-                                categories: [
-                                    "Test string"
-                                ],
-                                scores: [
-                                    42
-                                ],
-                            },
-                            summarySkippedReasons: [
-                                "Test string"
-                            ],
-                            summaryText: "Test string",
-                        },
-                    },
-                    userInput: {
-                        context: {
-                            activeDocument: "Test string",
-                            contextDocuments: [
-                                "Test string"
-                            ],
-                        },
-                        input: "Test string",
-                    },
-                }
-            ],
-            name: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            userPseudoId: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.models.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.models.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a Schema. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.schemas.create({
-            parent: "Test string",
-            schemaId: "Test string",
-        }, {
-            fieldConfigs: [
-                {
-                    completableOption: "Test string",
-                    dynamicFacetableOption: "Test string",
-                    fieldPath: "Test string",
-                    fieldType: "Test string",
-                    indexableOption: "Test string",
-                    keyPropertyType: "Test string",
-                    recsFilterableOption: "Test string",
-                    retrievableOption: "Test string",
-                    searchableOption: "Test string",
-                }
-            ],
-            jsonSchema: "Test string",
-            name: "Test string",
-            structSchema: {
-                A: 42
-            },
-        });
-        /** Deletes a Schema. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.schemas.delete({
-            name: "Test string",
-        });
-        /** Gets a Schema. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.schemas.get({
-            name: "Test string",
-        });
-        /** Gets a list of Schemas. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.schemas.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a Schema. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.schemas.patch({
-            allowMissing: true,
-            name: "Test string",
-        }, {
-            fieldConfigs: [
-                {
-                    completableOption: "Test string",
-                    dynamicFacetableOption: "Test string",
-                    fieldPath: "Test string",
-                    fieldType: "Test string",
-                    indexableOption: "Test string",
-                    keyPropertyType: "Test string",
-                    recsFilterableOption: "Test string",
-                    retrievableOption: "Test string",
-                    searchableOption: "Test string",
-                }
-            ],
-            jsonSchema: "Test string",
-            name: "Test string",
-            structSchema: {
-                A: 42
-            },
-        });
-        /** Makes a recommendation, which requires a contextual user event. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.recommend({
-            servingConfig: "Test string",
-        }, {
-            filter: "Test string",
-            pageSize: 42,
-            params: {
-                A: 42
-            },
-            userEvent: {
-                attributes: {
-                    A: {
-                        numbers: [
-                            42
-                        ],
-                        text: [
-                            "Test string"
-                        ],
-                    }
-                },
-                attributionToken: "Test string",
-                completionInfo: {
-                    selectedPosition: 42,
-                    selectedSuggestion: "Test string",
-                },
-                directUserRequest: true,
-                documents: [
-                    {
-                        id: "Test string",
-                        name: "Test string",
-                        promotionIds: [
-                            "Test string"
-                        ],
-                        quantity: 42,
-                        uri: "Test string",
-                    }
-                ],
-                eventTime: "Test string",
-                eventType: "Test string",
-                filter: "Test string",
-                mediaInfo: {
-                    mediaProgressDuration: "Test string",
-                    mediaProgressPercentage: 42,
-                },
-                pageInfo: {
-                    pageCategory: "Test string",
-                    pageviewId: "Test string",
-                    referrerUri: "Test string",
-                    uri: "Test string",
-                },
-                panel: {
-                    displayName: "Test string",
-                    panelId: "Test string",
-                    panelPosition: 42,
-                    totalPanels: 42,
-                },
-                promotionIds: [
-                    "Test string"
-                ],
-                searchInfo: {
-                    offset: 42,
-                    orderBy: "Test string",
-                    searchQuery: "Test string",
-                },
-                sessionId: "Test string",
-                tagIds: [
-                    "Test string"
-                ],
-                transactionInfo: {
-                    cost: 42,
-                    currency: "Test string",
-                    discountValue: 42,
-                    tax: 42,
-                    transactionId: "Test string",
-                    value: 42,
-                },
-                userInfo: {
-                    userAgent: "Test string",
-                    userId: "Test string",
-                },
-                userPseudoId: "Test string",
-            },
-            userLabels: {
-                A: "Test string"
-            },
-            validateOnly: true,
-        });
-        /** Performs a search. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.search({
-            servingConfig: "Test string",
-        }, {
-            boostSpec: {
-                conditionBoostSpecs: [
-                    {
-                        boost: 42,
-                        condition: "Test string",
-                    }
-                ],
-            },
-            branch: "Test string",
-            canonicalFilter: "Test string",
-            contentSearchSpec: {
-                extractiveContentSpec: {
-                    maxExtractiveAnswerCount: 42,
-                    maxExtractiveSegmentCount: 42,
-                    numNextSegments: 42,
-                    numPreviousSegments: 42,
-                },
-                snippetSpec: {
-                    maxSnippetCount: 42,
-                    referenceOnly: true,
-                    returnSnippet: true,
-                },
-                summarySpec: {
-                    ignoreAdversarialQuery: true,
-                    ignoreNonSummarySeekingQuery: true,
-                    includeCitations: true,
-                    languageCode: "Test string",
-                    summaryResultCount: 42,
-                },
-            },
-            embeddingSpec: {
-                embeddingVectors: [
-                    {
-                        fieldPath: "Test string",
-                        vector: [
-                            42
-                        ],
-                    }
-                ],
-            },
-            facetSpecs: [
-                {
-                    enableDynamicPosition: true,
-                    excludedFilterKeys: [
-                        "Test string"
-                    ],
-                    facetKey: {
-                        caseInsensitive: true,
-                        contains: [
-                            "Test string"
-                        ],
-                        intervals: [
-                            {
-                                exclusiveMaximum: 42,
-                                exclusiveMinimum: 42,
-                                maximum: 42,
-                                minimum: 42,
-                            }
-                        ],
-                        key: "Test string",
-                        orderBy: "Test string",
-                        prefixes: [
-                            "Test string"
-                        ],
-                        restrictedValues: [
-                            "Test string"
-                        ],
-                    },
-                    limit: 42,
-                }
-            ],
-            filter: "Test string",
-            imageQuery: {
-                imageBytes: "Test string",
-            },
-            offset: 42,
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            params: {
-                A: 42
-            },
-            query: "Test string",
-            queryExpansionSpec: {
-                condition: "Test string",
-                pinUnexpandedResults: true,
-            },
-            rankingExpression: "Test string",
-            safeSearch: true,
-            servingConfig: "Test string",
-            spellCorrectionSpec: {
-                mode: "Test string",
-            },
-            userInfo: {
-                userAgent: "Test string",
-                userId: "Test string",
-            },
-            userLabels: {
-                A: "Test string"
-            },
-            userPseudoId: "Test string",
-        });
-        /** Request on-demand recrawl for a list of URIs. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.recrawlUris({
-            siteSearchEngine: "Test string",
-        }, {
-            uris: [
-                "Test string"
-            ],
-        });
-        /**
-         * Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine
-         * API JavaScript pixel and Google Tag Manager. Users should not call this method directly.
-         */
-        await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.collect({
-            ets: "Test string",
-            parent: "Test string",
-            uri: "Test string",
-            userEvent: "Test string",
-        });
-        /**
-         * Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is
-         * of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata.
-         */
-        await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.import({
-            parent: "Test string",
-        }, {
-            bigquerySource: {
-                dataSchema: "Test string",
-                datasetId: "Test string",
-                gcsStagingDir: "Test string",
-                partitionDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                projectId: "Test string",
-                tableId: "Test string",
-            },
-            errorConfig: {
-                gcsPrefix: "Test string",
-            },
-            gcsSource: {
-                dataSchema: "Test string",
-                inputUris: [
-                    "Test string"
-                ],
-            },
-            inlineSource: {
-                userEvents: [
-                    {
-                        attributes: {
-                            A: {
-                                numbers: [
-                                    42
-                                ],
-                                text: [
-                                    "Test string"
-                                ],
-                            }
-                        },
-                        attributionToken: "Test string",
-                        completionInfo: {
-                            selectedPosition: 42,
-                            selectedSuggestion: "Test string",
-                        },
-                        directUserRequest: true,
-                        documents: [
-                            {
-                                id: "Test string",
-                                name: "Test string",
-                                promotionIds: [
-                                    "Test string"
-                                ],
-                                quantity: 42,
-                                uri: "Test string",
-                            }
-                        ],
-                        eventTime: "Test string",
-                        eventType: "Test string",
-                        filter: "Test string",
-                        mediaInfo: {
-                            mediaProgressDuration: "Test string",
-                            mediaProgressPercentage: 42,
-                        },
-                        pageInfo: {
-                            pageCategory: "Test string",
-                            pageviewId: "Test string",
-                            referrerUri: "Test string",
-                            uri: "Test string",
-                        },
-                        panel: {
-                            displayName: "Test string",
-                            panelId: "Test string",
-                            panelPosition: 42,
-                            totalPanels: 42,
-                        },
-                        promotionIds: [
-                            "Test string"
-                        ],
-                        searchInfo: {
-                            offset: 42,
-                            orderBy: "Test string",
-                            searchQuery: "Test string",
-                        },
-                        sessionId: "Test string",
-                        tagIds: [
-                            "Test string"
-                        ],
-                        transactionInfo: {
-                            cost: 42,
-                            currency: "Test string",
-                            discountValue: 42,
-                            tax: 42,
-                            transactionId: "Test string",
-                            value: 42,
-                        },
-                        userInfo: {
-                            userAgent: "Test string",
-                            userId: "Test string",
-                        },
-                        userPseudoId: "Test string",
-                    }
-                ],
-            },
-        });
-        /**
-         * Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To
-         * test a filter, use the list command first.
-         */
-        await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.purge({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-            force: true,
-        });
-        /** Writes a single user event. */
-        await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.write({
-            parent: "Test string",
-        }, {
-            attributes: {
-                A: {
-                    numbers: [
-                        42
-                    ],
-                    text: [
-                        "Test string"
-                    ],
-                }
-            },
-            attributionToken: "Test string",
-            completionInfo: {
-                selectedPosition: 42,
-                selectedSuggestion: "Test string",
-            },
-            directUserRequest: true,
-            documents: [
-                {
-                    id: "Test string",
-                    name: "Test string",
-                    promotionIds: [
-                        "Test string"
-                    ],
-                    quantity: 42,
-                    uri: "Test string",
-                }
-            ],
-            eventTime: "Test string",
-            eventType: "Test string",
-            filter: "Test string",
-            mediaInfo: {
-                mediaProgressDuration: "Test string",
-                mediaProgressPercentage: 42,
-            },
-            pageInfo: {
-                pageCategory: "Test string",
-                pageviewId: "Test string",
-                referrerUri: "Test string",
-                uri: "Test string",
-            },
-            panel: {
-                displayName: "Test string",
-                panelId: "Test string",
-                panelPosition: 42,
-                totalPanels: 42,
-            },
-            promotionIds: [
-                "Test string"
-            ],
-            searchInfo: {
-                offset: 42,
-                orderBy: "Test string",
-                searchQuery: "Test string",
-            },
-            sessionId: "Test string",
-            tagIds: [
-                "Test string"
-            ],
-            transactionInfo: {
-                cost: 42,
-                currency: "Test string",
-                discountValue: 42,
-                tax: 42,
-                transactionId: "Test string",
-                value: 42,
-            },
-            userInfo: {
-                userAgent: "Test string",
-                userId: "Test string",
-            },
-            userPseudoId: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.discoveryengine.projects.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.discoveryengine.projects.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets the Widget Config using the uuid. */
+    await gapi.client.discoveryengine.locations.lookupWidgetConfig(
+      {
+        location: 'Test string',
+      },
+      {
+        widgetConfigId: 'Test string',
+      }
+    );
+    /** Performs a user input completion with keyword suggestion. Similar to the CompletionService.CompleteQuery method, but a widget version that allows CompleteQuery without API Key. It supports CompleteQuery with or without JWT token. */
+    await gapi.client.discoveryengine.locations.widgetCompleteQuery(
+      {
+        location: 'Test string',
+      },
+      {
+        additionalParams: {
+          token: 'Test string',
+        },
+        completeQueryRequest: {
+          dataStore: 'Test string',
+          includeTailSuggestions: true,
+          query: 'Test string',
+          queryModel: 'Test string',
+          userPseudoId: 'Test string',
+        },
+        configId: 'Test string',
+      }
+    );
+    /** Converse a conversation with Widget. */
+    await gapi.client.discoveryengine.locations.widgetConverseConversation(
+      {
+        location: 'Test string',
+      },
+      {
+        additionalParams: {
+          token: 'Test string',
+        },
+        configId: 'Test string',
+        conversationId: 'Test string',
+        converseConversationRequest: {
+          conversation: {
+            endTime: 'Test string',
+            messages: [
+              {
+                createTime: 'Test string',
+                reply: {
+                  references: [
+                    {
+                      anchorText: 'Test string',
+                      end: 42,
+                      start: 42,
+                      uri: 'Test string',
+                    },
+                  ],
+                  reply: 'Test string',
+                  summary: {
+                    safetyAttributes: {
+                      categories: ['Test string'],
+                      scores: [42],
+                    },
+                    summarySkippedReasons: ['Test string'],
+                    summaryText: 'Test string',
+                  },
+                },
+                userInput: {
+                  context: {
+                    activeDocument: 'Test string',
+                    contextDocuments: ['Test string'],
+                  },
+                  input: 'Test string',
+                },
+              },
+            ],
+            name: 'Test string',
+            startTime: 'Test string',
+            state: 'Test string',
+            userPseudoId: 'Test string',
+          },
+          name: 'Test string',
+          query: {
+            context: {
+              activeDocument: 'Test string',
+              contextDocuments: ['Test string'],
+            },
+            input: 'Test string',
+          },
+          safeSearch: true,
+          servingConfig: 'Test string',
+          summarySpec: {
+            ignoreAdversarialQuery: true,
+            ignoreNonSummarySeekingQuery: true,
+            includeCitations: true,
+            languageCode: 'Test string',
+            summaryResultCount: 42,
+          },
+          userLabels: {
+            A: 'Test string',
+          },
+        },
+      }
+    );
+    /** Performs a search. Similar to the SearchService.Search method, but a widget version that allows search without API Key. It supports search with or without JWT token. */
+    await gapi.client.discoveryengine.locations.widgetSearch(
+      {
+        location: 'Test string',
+      },
+      {
+        additionalParams: {
+          token: 'Test string',
+        },
+        configId: 'Test string',
+        searchRequest: {
+          boostSpec: {
+            conditionBoostSpecs: [
+              {
+                boost: 42,
+                condition: 'Test string',
+              },
+            ],
+          },
+          branch: 'Test string',
+          canonicalFilter: 'Test string',
+          contentSearchSpec: {
+            extractiveContentSpec: {
+              maxExtractiveAnswerCount: 42,
+              maxExtractiveSegmentCount: 42,
+              numNextSegments: 42,
+              numPreviousSegments: 42,
+            },
+            snippetSpec: {
+              maxSnippetCount: 42,
+              referenceOnly: true,
+              returnSnippet: true,
+            },
+            summarySpec: {
+              ignoreAdversarialQuery: true,
+              ignoreNonSummarySeekingQuery: true,
+              includeCitations: true,
+              languageCode: 'Test string',
+              summaryResultCount: 42,
+            },
+          },
+          embeddingSpec: {
+            embeddingVectors: [
+              {
+                fieldPath: 'Test string',
+                vector: [42],
+              },
+            ],
+          },
+          facetSpecs: [
+            {
+              enableDynamicPosition: true,
+              excludedFilterKeys: ['Test string'],
+              facetKey: {
+                caseInsensitive: true,
+                contains: ['Test string'],
+                intervals: [
+                  {
+                    exclusiveMaximum: 42,
+                    exclusiveMinimum: 42,
+                    maximum: 42,
+                    minimum: 42,
+                  },
+                ],
+                key: 'Test string',
+                orderBy: 'Test string',
+                prefixes: ['Test string'],
+                restrictedValues: ['Test string'],
+              },
+              limit: 42,
+            },
+          ],
+          filter: 'Test string',
+          imageQuery: {
+            imageBytes: 'Test string',
+          },
+          offset: 42,
+          orderBy: 'Test string',
+          pageSize: 42,
+          pageToken: 'Test string',
+          params: {
+            A: 42,
+          },
+          query: 'Test string',
+          queryExpansionSpec: {
+            condition: 'Test string',
+            pinUnexpandedResults: true,
+          },
+          rankingExpression: 'Test string',
+          safeSearch: true,
+          servingConfig: 'Test string',
+          spellCorrectionSpec: {
+            mode: 'Test string',
+          },
+          userInfo: {
+            userAgent: 'Test string',
+            userId: 'Test string',
+          },
+          userLabels: {
+            A: 'Test string',
+          },
+          userPseudoId: 'Test string',
+        },
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataConnector.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataConnector.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Completes the specified user input with keyword suggestions. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.completeQuery(
+      {
+        dataStore: 'Test string',
+        includeTailSuggestions: true,
+        query: 'Test string',
+        queryModel: 'Test string',
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.create(
+      {
+        createAdvancedSiteSearch: true,
+        dataStoreId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        contentConfig: 'Test string',
+        createTime: 'Test string',
+        defaultSchemaId: 'Test string',
+        displayName: 'Test string',
+        industryVertical: 'Test string',
+        name: 'Test string',
+        solutionTypes: ['Test string'],
+      }
+    );
+    /** Deletes a DataStore. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a DataStore. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists all the DataStores associated with the project. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a DataStore */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        contentConfig: 'Test string',
+        createTime: 'Test string',
+        defaultSchemaId: 'Test string',
+        displayName: 'Test string',
+        industryVertical: 'Test string',
+        name: 'Test string',
+        solutionTypes: ['Test string'],
+      }
+    );
+    /** Creates a Document. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.create(
+      {
+        documentId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        content: {
+          mimeType: 'Test string',
+          rawBytes: 'Test string',
+          uri: 'Test string',
+        },
+        derivedStructData: {
+          A: 42,
+        },
+        id: 'Test string',
+        jsonData: 'Test string',
+        name: 'Test string',
+        parentDocumentId: 'Test string',
+        schemaId: 'Test string',
+        structData: {
+          A: 42,
+        },
+      }
+    );
+    /** Deletes a Document. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a Document. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items will be created. Note: It is possible for a subset of the Documents to be successfully updated. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        autoGenerateIds: true,
+        bigquerySource: {
+          dataSchema: 'Test string',
+          datasetId: 'Test string',
+          gcsStagingDir: 'Test string',
+          partitionDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          projectId: 'Test string',
+          tableId: 'Test string',
+        },
+        errorConfig: {
+          gcsPrefix: 'Test string',
+        },
+        gcsSource: {
+          dataSchema: 'Test string',
+          inputUris: ['Test string'],
+        },
+        idField: 'Test string',
+        inlineSource: {
+          documents: [
+            {
+              content: {
+                mimeType: 'Test string',
+                rawBytes: 'Test string',
+                uri: 'Test string',
+              },
+              derivedStructData: {
+                A: 42,
+              },
+              id: 'Test string',
+              jsonData: 'Test string',
+              name: 'Test string',
+              parentDocumentId: 'Test string',
+              schemaId: 'Test string',
+              structData: {
+                A: 42,
+              },
+            },
+          ],
+        },
+        reconciliationMode: 'Test string',
+      }
+    );
+    /** Gets a list of Documents. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a Document. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+      },
+      {
+        content: {
+          mimeType: 'Test string',
+          rawBytes: 'Test string',
+          uri: 'Test string',
+        },
+        derivedStructData: {
+          A: 42,
+        },
+        id: 'Test string',
+        jsonData: 'Test string',
+        name: 'Test string',
+        parentDocumentId: 'Test string',
+        schemaId: 'Test string',
+        structData: {
+          A: 42,
+        },
+      }
+    );
+    /** Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.documents.purge(
+      {
+        parent: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        force: true,
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Converses a conversation. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.converse(
+      {
+        name: 'Test string',
+      },
+      {
+        conversation: {
+          endTime: 'Test string',
+          messages: [
+            {
+              createTime: 'Test string',
+              reply: {
+                references: [
+                  {
+                    anchorText: 'Test string',
+                    end: 42,
+                    start: 42,
+                    uri: 'Test string',
+                  },
+                ],
+                reply: 'Test string',
+                summary: {
+                  safetyAttributes: {
+                    categories: ['Test string'],
+                    scores: [42],
+                  },
+                  summarySkippedReasons: ['Test string'],
+                  summaryText: 'Test string',
+                },
+              },
+              userInput: {
+                context: {
+                  activeDocument: 'Test string',
+                  contextDocuments: ['Test string'],
+                },
+                input: 'Test string',
+              },
+            },
+          ],
+          name: 'Test string',
+          startTime: 'Test string',
+          state: 'Test string',
+          userPseudoId: 'Test string',
+        },
+        name: 'Test string',
+        query: {
+          context: {
+            activeDocument: 'Test string',
+            contextDocuments: ['Test string'],
+          },
+          input: 'Test string',
+        },
+        safeSearch: true,
+        servingConfig: 'Test string',
+        summarySpec: {
+          ignoreAdversarialQuery: true,
+          ignoreNonSummarySeekingQuery: true,
+          includeCitations: true,
+          languageCode: 'Test string',
+          summaryResultCount: 42,
+        },
+        userLabels: {
+          A: 'Test string',
+        },
+      }
+    );
+    /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        endTime: 'Test string',
+        messages: [
+          {
+            createTime: 'Test string',
+            reply: {
+              references: [
+                {
+                  anchorText: 'Test string',
+                  end: 42,
+                  start: 42,
+                  uri: 'Test string',
+                },
+              ],
+              reply: 'Test string',
+              summary: {
+                safetyAttributes: {
+                  categories: ['Test string'],
+                  scores: [42],
+                },
+                summarySkippedReasons: ['Test string'],
+                summaryText: 'Test string',
+              },
+            },
+            userInput: {
+              context: {
+                activeDocument: 'Test string',
+                contextDocuments: ['Test string'],
+              },
+              input: 'Test string',
+            },
+          },
+        ],
+        name: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a Conversation. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists all Conversations by their parent DataStore. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.conversations.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        endTime: 'Test string',
+        messages: [
+          {
+            createTime: 'Test string',
+            reply: {
+              references: [
+                {
+                  anchorText: 'Test string',
+                  end: 42,
+                  start: 42,
+                  uri: 'Test string',
+                },
+              ],
+              reply: 'Test string',
+              summary: {
+                safetyAttributes: {
+                  categories: ['Test string'],
+                  scores: [42],
+                },
+                summarySkippedReasons: ['Test string'],
+                summaryText: 'Test string',
+              },
+            },
+            userInput: {
+              context: {
+                activeDocument: 'Test string',
+                contextDocuments: ['Test string'],
+              },
+              input: 'Test string',
+            },
+          },
+        ],
+        name: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.models.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.models.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Creates a Schema. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.create(
+      {
+        parent: 'Test string',
+        schemaId: 'Test string',
+      },
+      {
+        fieldConfigs: [
+          {
+            completableOption: 'Test string',
+            dynamicFacetableOption: 'Test string',
+            fieldPath: 'Test string',
+            fieldType: 'Test string',
+            indexableOption: 'Test string',
+            keyPropertyType: 'Test string',
+            recsFilterableOption: 'Test string',
+            retrievableOption: 'Test string',
+            searchableOption: 'Test string',
+          },
+        ],
+        jsonSchema: 'Test string',
+        name: 'Test string',
+        structSchema: {
+          A: 42,
+        },
+      }
+    );
+    /** Deletes a Schema. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a Schema. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a list of Schemas. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a Schema. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+      },
+      {
+        fieldConfigs: [
+          {
+            completableOption: 'Test string',
+            dynamicFacetableOption: 'Test string',
+            fieldPath: 'Test string',
+            fieldType: 'Test string',
+            indexableOption: 'Test string',
+            keyPropertyType: 'Test string',
+            recsFilterableOption: 'Test string',
+            retrievableOption: 'Test string',
+            searchableOption: 'Test string',
+          },
+        ],
+        jsonSchema: 'Test string',
+        name: 'Test string',
+        structSchema: {
+          A: 42,
+        },
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.schemas.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Makes a recommendation, which requires a contextual user event. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.recommend(
+      {
+        servingConfig: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        params: {
+          A: 42,
+        },
+        userEvent: {
+          attributes: {
+            A: {
+              numbers: [42],
+              text: ['Test string'],
+            },
+          },
+          attributionToken: 'Test string',
+          completionInfo: {
+            selectedPosition: 42,
+            selectedSuggestion: 'Test string',
+          },
+          directUserRequest: true,
+          documents: [
+            {
+              id: 'Test string',
+              name: 'Test string',
+              promotionIds: ['Test string'],
+              quantity: 42,
+              uri: 'Test string',
+            },
+          ],
+          eventTime: 'Test string',
+          eventType: 'Test string',
+          filter: 'Test string',
+          mediaInfo: {
+            mediaProgressDuration: 'Test string',
+            mediaProgressPercentage: 42,
+          },
+          pageInfo: {
+            pageCategory: 'Test string',
+            pageviewId: 'Test string',
+            referrerUri: 'Test string',
+            uri: 'Test string',
+          },
+          panel: {
+            displayName: 'Test string',
+            panelId: 'Test string',
+            panelPosition: 42,
+            totalPanels: 42,
+          },
+          promotionIds: ['Test string'],
+          searchInfo: {
+            offset: 42,
+            orderBy: 'Test string',
+            searchQuery: 'Test string',
+          },
+          sessionId: 'Test string',
+          tagIds: ['Test string'],
+          transactionInfo: {
+            cost: 42,
+            currency: 'Test string',
+            discountValue: 42,
+            tax: 42,
+            transactionId: 'Test string',
+            value: 42,
+          },
+          userInfo: {
+            userAgent: 'Test string',
+            userId: 'Test string',
+          },
+          userPseudoId: 'Test string',
+        },
+        userLabels: {
+          A: 'Test string',
+        },
+        validateOnly: true,
+      }
+    );
+    /** Performs a search. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.servingConfigs.search(
+      {
+        servingConfig: 'Test string',
+      },
+      {
+        boostSpec: {
+          conditionBoostSpecs: [
+            {
+              boost: 42,
+              condition: 'Test string',
+            },
+          ],
+        },
+        branch: 'Test string',
+        canonicalFilter: 'Test string',
+        contentSearchSpec: {
+          extractiveContentSpec: {
+            maxExtractiveAnswerCount: 42,
+            maxExtractiveSegmentCount: 42,
+            numNextSegments: 42,
+            numPreviousSegments: 42,
+          },
+          snippetSpec: {
+            maxSnippetCount: 42,
+            referenceOnly: true,
+            returnSnippet: true,
+          },
+          summarySpec: {
+            ignoreAdversarialQuery: true,
+            ignoreNonSummarySeekingQuery: true,
+            includeCitations: true,
+            languageCode: 'Test string',
+            summaryResultCount: 42,
+          },
+        },
+        embeddingSpec: {
+          embeddingVectors: [
+            {
+              fieldPath: 'Test string',
+              vector: [42],
+            },
+          ],
+        },
+        facetSpecs: [
+          {
+            enableDynamicPosition: true,
+            excludedFilterKeys: ['Test string'],
+            facetKey: {
+              caseInsensitive: true,
+              contains: ['Test string'],
+              intervals: [
+                {
+                  exclusiveMaximum: 42,
+                  exclusiveMinimum: 42,
+                  maximum: 42,
+                  minimum: 42,
+                },
+              ],
+              key: 'Test string',
+              orderBy: 'Test string',
+              prefixes: ['Test string'],
+              restrictedValues: ['Test string'],
+            },
+            limit: 42,
+          },
+        ],
+        filter: 'Test string',
+        imageQuery: {
+          imageBytes: 'Test string',
+        },
+        offset: 42,
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        params: {
+          A: 42,
+        },
+        query: 'Test string',
+        queryExpansionSpec: {
+          condition: 'Test string',
+          pinUnexpandedResults: true,
+        },
+        rankingExpression: 'Test string',
+        safeSearch: true,
+        servingConfig: 'Test string',
+        spellCorrectionSpec: {
+          mode: 'Test string',
+        },
+        userInfo: {
+          userAgent: 'Test string',
+          userId: 'Test string',
+        },
+        userLabels: {
+          A: 'Test string',
+        },
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Request on-demand recrawl for a list of URIs. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.recrawlUris(
+      {
+        siteSearchEngine: 'Test string',
+      },
+      {
+        uris: ['Test string'],
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.siteSearchEngine.targetSites.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.collect(
+      {
+        ets: 'Test string',
+        parent: 'Test string',
+        uri: 'Test string',
+        userEvent: 'Test string',
+      }
+    );
+    /** Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        bigquerySource: {
+          dataSchema: 'Test string',
+          datasetId: 'Test string',
+          gcsStagingDir: 'Test string',
+          partitionDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          projectId: 'Test string',
+          tableId: 'Test string',
+        },
+        errorConfig: {
+          gcsPrefix: 'Test string',
+        },
+        gcsSource: {
+          dataSchema: 'Test string',
+          inputUris: ['Test string'],
+        },
+        inlineSource: {
+          userEvents: [
+            {
+              attributes: {
+                A: {
+                  numbers: [42],
+                  text: ['Test string'],
+                },
+              },
+              attributionToken: 'Test string',
+              completionInfo: {
+                selectedPosition: 42,
+                selectedSuggestion: 'Test string',
+              },
+              directUserRequest: true,
+              documents: [
+                {
+                  id: 'Test string',
+                  name: 'Test string',
+                  promotionIds: ['Test string'],
+                  quantity: 42,
+                  uri: 'Test string',
+                },
+              ],
+              eventTime: 'Test string',
+              eventType: 'Test string',
+              filter: 'Test string',
+              mediaInfo: {
+                mediaProgressDuration: 'Test string',
+                mediaProgressPercentage: 42,
+              },
+              pageInfo: {
+                pageCategory: 'Test string',
+                pageviewId: 'Test string',
+                referrerUri: 'Test string',
+                uri: 'Test string',
+              },
+              panel: {
+                displayName: 'Test string',
+                panelId: 'Test string',
+                panelPosition: 42,
+                totalPanels: 42,
+              },
+              promotionIds: ['Test string'],
+              searchInfo: {
+                offset: 42,
+                orderBy: 'Test string',
+                searchQuery: 'Test string',
+              },
+              sessionId: 'Test string',
+              tagIds: ['Test string'],
+              transactionInfo: {
+                cost: 42,
+                currency: 'Test string',
+                discountValue: 42,
+                tax: 42,
+                transactionId: 'Test string',
+                value: 42,
+              },
+              userInfo: {
+                userAgent: 'Test string',
+                userId: 'Test string',
+              },
+              userPseudoId: 'Test string',
+            },
+          ],
+        },
+      }
+    );
+    /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.purge(
+      {
+        parent: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        force: true,
+      }
+    );
+    /** Writes a single user event. */
+    await gapi.client.discoveryengine.projects.locations.collections.dataStores.userEvents.write(
+      {
+        parent: 'Test string',
+      },
+      {
+        attributes: {
+          A: {
+            numbers: [42],
+            text: ['Test string'],
+          },
+        },
+        attributionToken: 'Test string',
+        completionInfo: {
+          selectedPosition: 42,
+          selectedSuggestion: 'Test string',
+        },
+        directUserRequest: true,
+        documents: [
+          {
+            id: 'Test string',
+            name: 'Test string',
+            promotionIds: ['Test string'],
+            quantity: 42,
+            uri: 'Test string',
+          },
+        ],
+        eventTime: 'Test string',
+        eventType: 'Test string',
+        filter: 'Test string',
+        mediaInfo: {
+          mediaProgressDuration: 'Test string',
+          mediaProgressPercentage: 42,
+        },
+        pageInfo: {
+          pageCategory: 'Test string',
+          pageviewId: 'Test string',
+          referrerUri: 'Test string',
+          uri: 'Test string',
+        },
+        panel: {
+          displayName: 'Test string',
+          panelId: 'Test string',
+          panelPosition: 42,
+          totalPanels: 42,
+        },
+        promotionIds: ['Test string'],
+        searchInfo: {
+          offset: 42,
+          orderBy: 'Test string',
+          searchQuery: 'Test string',
+        },
+        sessionId: 'Test string',
+        tagIds: ['Test string'],
+        transactionInfo: {
+          cost: 42,
+          currency: 'Test string',
+          discountValue: 42,
+          tax: 42,
+          transactionId: 'Test string',
+          value: 42,
+        },
+        userInfo: {
+          userAgent: 'Test string',
+          userId: 'Test string',
+        },
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Creates a Engine. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.create(
+      {
+        engineId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        chatEngineConfig: {
+          agentCreationConfig: {
+            business: 'Test string',
+            defaultLanguageCode: 'Test string',
+            timeZone: 'Test string',
+          },
+          dialogflowAgentToLink: 'Test string',
+        },
+        chatEngineMetadata: {
+          dialogflowAgent: 'Test string',
+        },
+        commonConfig: {
+          companyName: 'Test string',
+        },
+        createTime: 'Test string',
+        dataStoreIds: ['Test string'],
+        displayName: 'Test string',
+        industryVertical: 'Test string',
+        mediaRecommendationEngineConfig: {
+          optimizationObjective: 'Test string',
+          optimizationObjectiveConfig: {
+            targetField: 'Test string',
+            targetFieldValueFloat: 42,
+          },
+          trainingState: 'Test string',
+          type: 'Test string',
+        },
+        name: 'Test string',
+        recommendationMetadata: {
+          dataState: 'Test string',
+          lastTuneTime: 'Test string',
+          servingState: 'Test string',
+          tuningOperation: 'Test string',
+        },
+        searchEngineConfig: {
+          searchAddOns: ['Test string'],
+          searchTier: 'Test string',
+        },
+        similarDocumentsConfig: {},
+        solutionType: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a Engine. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a Engine. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists all the Engines associated with the project. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates an Engine */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        chatEngineConfig: {
+          agentCreationConfig: {
+            business: 'Test string',
+            defaultLanguageCode: 'Test string',
+            timeZone: 'Test string',
+          },
+          dialogflowAgentToLink: 'Test string',
+        },
+        chatEngineMetadata: {
+          dialogflowAgent: 'Test string',
+        },
+        commonConfig: {
+          companyName: 'Test string',
+        },
+        createTime: 'Test string',
+        dataStoreIds: ['Test string'],
+        displayName: 'Test string',
+        industryVertical: 'Test string',
+        mediaRecommendationEngineConfig: {
+          optimizationObjective: 'Test string',
+          optimizationObjectiveConfig: {
+            targetField: 'Test string',
+            targetFieldValueFloat: 42,
+          },
+          trainingState: 'Test string',
+          type: 'Test string',
+        },
+        name: 'Test string',
+        recommendationMetadata: {
+          dataState: 'Test string',
+          lastTuneTime: 'Test string',
+          servingState: 'Test string',
+          tuningOperation: 'Test string',
+        },
+        searchEngineConfig: {
+          searchAddOns: ['Test string'],
+          searchTier: 'Test string',
+        },
+        similarDocumentsConfig: {},
+        solutionType: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Pauses the training of an existing engine. Only applicable if solution_type is SOLUTION_TYPE_RECOMMENDATION. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.pause(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Resumes the training of an existing engine. Only applicable if solution_type is SOLUTION_TYPE_RECOMMENDATION. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.resume(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Tunes an existing engine. Only applicable if solution_type is SOLUTION_TYPE_RECOMMENDATION. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.tune(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Makes a recommendation, which requires a contextual user event. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.recommend(
+      {
+        servingConfig: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        params: {
+          A: 42,
+        },
+        userEvent: {
+          attributes: {
+            A: {
+              numbers: [42],
+              text: ['Test string'],
+            },
+          },
+          attributionToken: 'Test string',
+          completionInfo: {
+            selectedPosition: 42,
+            selectedSuggestion: 'Test string',
+          },
+          directUserRequest: true,
+          documents: [
+            {
+              id: 'Test string',
+              name: 'Test string',
+              promotionIds: ['Test string'],
+              quantity: 42,
+              uri: 'Test string',
+            },
+          ],
+          eventTime: 'Test string',
+          eventType: 'Test string',
+          filter: 'Test string',
+          mediaInfo: {
+            mediaProgressDuration: 'Test string',
+            mediaProgressPercentage: 42,
+          },
+          pageInfo: {
+            pageCategory: 'Test string',
+            pageviewId: 'Test string',
+            referrerUri: 'Test string',
+            uri: 'Test string',
+          },
+          panel: {
+            displayName: 'Test string',
+            panelId: 'Test string',
+            panelPosition: 42,
+            totalPanels: 42,
+          },
+          promotionIds: ['Test string'],
+          searchInfo: {
+            offset: 42,
+            orderBy: 'Test string',
+            searchQuery: 'Test string',
+          },
+          sessionId: 'Test string',
+          tagIds: ['Test string'],
+          transactionInfo: {
+            cost: 42,
+            currency: 'Test string',
+            discountValue: 42,
+            tax: 42,
+            transactionId: 'Test string',
+            value: 42,
+          },
+          userInfo: {
+            userAgent: 'Test string',
+            userId: 'Test string',
+          },
+          userPseudoId: 'Test string',
+        },
+        userLabels: {
+          A: 'Test string',
+        },
+        validateOnly: true,
+      }
+    );
+    /** Performs a search. */
+    await gapi.client.discoveryengine.projects.locations.collections.engines.servingConfigs.search(
+      {
+        servingConfig: 'Test string',
+      },
+      {
+        boostSpec: {
+          conditionBoostSpecs: [
+            {
+              boost: 42,
+              condition: 'Test string',
+            },
+          ],
+        },
+        branch: 'Test string',
+        canonicalFilter: 'Test string',
+        contentSearchSpec: {
+          extractiveContentSpec: {
+            maxExtractiveAnswerCount: 42,
+            maxExtractiveSegmentCount: 42,
+            numNextSegments: 42,
+            numPreviousSegments: 42,
+          },
+          snippetSpec: {
+            maxSnippetCount: 42,
+            referenceOnly: true,
+            returnSnippet: true,
+          },
+          summarySpec: {
+            ignoreAdversarialQuery: true,
+            ignoreNonSummarySeekingQuery: true,
+            includeCitations: true,
+            languageCode: 'Test string',
+            summaryResultCount: 42,
+          },
+        },
+        embeddingSpec: {
+          embeddingVectors: [
+            {
+              fieldPath: 'Test string',
+              vector: [42],
+            },
+          ],
+        },
+        facetSpecs: [
+          {
+            enableDynamicPosition: true,
+            excludedFilterKeys: ['Test string'],
+            facetKey: {
+              caseInsensitive: true,
+              contains: ['Test string'],
+              intervals: [
+                {
+                  exclusiveMaximum: 42,
+                  exclusiveMinimum: 42,
+                  maximum: 42,
+                  minimum: 42,
+                },
+              ],
+              key: 'Test string',
+              orderBy: 'Test string',
+              prefixes: ['Test string'],
+              restrictedValues: ['Test string'],
+            },
+            limit: 42,
+          },
+        ],
+        filter: 'Test string',
+        imageQuery: {
+          imageBytes: 'Test string',
+        },
+        offset: 42,
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        params: {
+          A: 42,
+        },
+        query: 'Test string',
+        queryExpansionSpec: {
+          condition: 'Test string',
+          pinUnexpandedResults: true,
+        },
+        rankingExpression: 'Test string',
+        safeSearch: true,
+        servingConfig: 'Test string',
+        spellCorrectionSpec: {
+          mode: 'Test string',
+        },
+        userInfo: {
+          userAgent: 'Test string',
+          userId: 'Test string',
+        },
+        userLabels: {
+          A: 'Test string',
+        },
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.collections.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.collections.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Completes the specified user input with keyword suggestions. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.completeQuery(
+      {
+        dataStore: 'Test string',
+        includeTailSuggestions: true,
+        query: 'Test string',
+        queryModel: 'Test string',
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Creates a DataStore. DataStore is for storing Documents. To serve these documents for Search, or Recommendation use case, an Engine needs to be created separately. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.create(
+      {
+        createAdvancedSiteSearch: true,
+        dataStoreId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        contentConfig: 'Test string',
+        createTime: 'Test string',
+        defaultSchemaId: 'Test string',
+        displayName: 'Test string',
+        industryVertical: 'Test string',
+        name: 'Test string',
+        solutionTypes: ['Test string'],
+      }
+    );
+    /** Deletes a DataStore. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.delete({
+      name: 'Test string',
+    });
+    /** Gets a DataStore. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.get({
+      name: 'Test string',
+    });
+    /** Lists all the DataStores associated with the project. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a DataStore */
+    await gapi.client.discoveryengine.projects.locations.dataStores.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        contentConfig: 'Test string',
+        createTime: 'Test string',
+        defaultSchemaId: 'Test string',
+        displayName: 'Test string',
+        industryVertical: 'Test string',
+        name: 'Test string',
+        solutionTypes: ['Test string'],
+      }
+    );
+    /** Creates a Document. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.create(
+      {
+        documentId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        content: {
+          mimeType: 'Test string',
+          rawBytes: 'Test string',
+          uri: 'Test string',
+        },
+        derivedStructData: {
+          A: 42,
+        },
+        id: 'Test string',
+        jsonData: 'Test string',
+        name: 'Test string',
+        parentDocumentId: 'Test string',
+        schemaId: 'Test string',
+        structData: {
+          A: 42,
+        },
+      }
+    );
+    /** Deletes a Document. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a Document. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Bulk import of multiple Documents. Request processing may be synchronous. Non-existing items will be created. Note: It is possible for a subset of the Documents to be successfully updated. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        autoGenerateIds: true,
+        bigquerySource: {
+          dataSchema: 'Test string',
+          datasetId: 'Test string',
+          gcsStagingDir: 'Test string',
+          partitionDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          projectId: 'Test string',
+          tableId: 'Test string',
+        },
+        errorConfig: {
+          gcsPrefix: 'Test string',
+        },
+        gcsSource: {
+          dataSchema: 'Test string',
+          inputUris: ['Test string'],
+        },
+        idField: 'Test string',
+        inlineSource: {
+          documents: [
+            {
+              content: {
+                mimeType: 'Test string',
+                rawBytes: 'Test string',
+                uri: 'Test string',
+              },
+              derivedStructData: {
+                A: 42,
+              },
+              id: 'Test string',
+              jsonData: 'Test string',
+              name: 'Test string',
+              parentDocumentId: 'Test string',
+              schemaId: 'Test string',
+              structData: {
+                A: 42,
+              },
+            },
+          ],
+        },
+        reconciliationMode: 'Test string',
+      }
+    );
+    /** Gets a list of Documents. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a Document. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+      },
+      {
+        content: {
+          mimeType: 'Test string',
+          rawBytes: 'Test string',
+          uri: 'Test string',
+        },
+        derivedStructData: {
+          A: 42,
+        },
+        id: 'Test string',
+        jsonData: 'Test string',
+        name: 'Test string',
+        parentDocumentId: 'Test string',
+        schemaId: 'Test string',
+        structData: {
+          A: 42,
+        },
+      }
+    );
+    /** Permanently deletes all selected Documents in a branch. This process is asynchronous. Depending on the number of Documents to be deleted, this operation can take hours to complete. Before the delete operation completes, some Documents might still be returned by DocumentService.GetDocument or DocumentService.ListDocuments. To get a list of the Documents to be deleted, set PurgeDocumentsRequest.force to false. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.branches.documents.purge(
+      {
+        parent: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        force: true,
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.branches.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.branches.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Converses a conversation. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.conversations.converse(
+      {
+        name: 'Test string',
+      },
+      {
+        conversation: {
+          endTime: 'Test string',
+          messages: [
+            {
+              createTime: 'Test string',
+              reply: {
+                references: [
+                  {
+                    anchorText: 'Test string',
+                    end: 42,
+                    start: 42,
+                    uri: 'Test string',
+                  },
+                ],
+                reply: 'Test string',
+                summary: {
+                  safetyAttributes: {
+                    categories: ['Test string'],
+                    scores: [42],
+                  },
+                  summarySkippedReasons: ['Test string'],
+                  summaryText: 'Test string',
+                },
+              },
+              userInput: {
+                context: {
+                  activeDocument: 'Test string',
+                  contextDocuments: ['Test string'],
+                },
+                input: 'Test string',
+              },
+            },
+          ],
+          name: 'Test string',
+          startTime: 'Test string',
+          state: 'Test string',
+          userPseudoId: 'Test string',
+        },
+        name: 'Test string',
+        query: {
+          context: {
+            activeDocument: 'Test string',
+            contextDocuments: ['Test string'],
+          },
+          input: 'Test string',
+        },
+        safeSearch: true,
+        servingConfig: 'Test string',
+        summarySpec: {
+          ignoreAdversarialQuery: true,
+          ignoreNonSummarySeekingQuery: true,
+          includeCitations: true,
+          languageCode: 'Test string',
+          summaryResultCount: 42,
+        },
+        userLabels: {
+          A: 'Test string',
+        },
+      }
+    );
+    /** Creates a Conversation. If the Conversation to create already exists, an ALREADY_EXISTS error is returned. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.conversations.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        endTime: 'Test string',
+        messages: [
+          {
+            createTime: 'Test string',
+            reply: {
+              references: [
+                {
+                  anchorText: 'Test string',
+                  end: 42,
+                  start: 42,
+                  uri: 'Test string',
+                },
+              ],
+              reply: 'Test string',
+              summary: {
+                safetyAttributes: {
+                  categories: ['Test string'],
+                  scores: [42],
+                },
+                summarySkippedReasons: ['Test string'],
+                summaryText: 'Test string',
+              },
+            },
+            userInput: {
+              context: {
+                activeDocument: 'Test string',
+                contextDocuments: ['Test string'],
+              },
+              input: 'Test string',
+            },
+          },
+        ],
+        name: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Deletes a Conversation. If the Conversation to delete does not exist, a NOT_FOUND error is returned. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.conversations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a Conversation. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.conversations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists all Conversations by their parent DataStore. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.conversations.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a Conversation. Conversation action type cannot be changed. If the Conversation to update does not exist, a NOT_FOUND error is returned. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.conversations.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        endTime: 'Test string',
+        messages: [
+          {
+            createTime: 'Test string',
+            reply: {
+              references: [
+                {
+                  anchorText: 'Test string',
+                  end: 42,
+                  start: 42,
+                  uri: 'Test string',
+                },
+              ],
+              reply: 'Test string',
+              summary: {
+                safetyAttributes: {
+                  categories: ['Test string'],
+                  scores: [42],
+                },
+                summarySkippedReasons: ['Test string'],
+                summaryText: 'Test string',
+              },
+            },
+            userInput: {
+              context: {
+                activeDocument: 'Test string',
+                contextDocuments: ['Test string'],
+              },
+              input: 'Test string',
+            },
+          },
+        ],
+        name: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.models.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.models.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Creates a Schema. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.schemas.create(
+      {
+        parent: 'Test string',
+        schemaId: 'Test string',
+      },
+      {
+        fieldConfigs: [
+          {
+            completableOption: 'Test string',
+            dynamicFacetableOption: 'Test string',
+            fieldPath: 'Test string',
+            fieldType: 'Test string',
+            indexableOption: 'Test string',
+            keyPropertyType: 'Test string',
+            recsFilterableOption: 'Test string',
+            retrievableOption: 'Test string',
+            searchableOption: 'Test string',
+          },
+        ],
+        jsonSchema: 'Test string',
+        name: 'Test string',
+        structSchema: {
+          A: 42,
+        },
+      }
+    );
+    /** Deletes a Schema. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.schemas.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a Schema. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.schemas.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a list of Schemas. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.schemas.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a Schema. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.schemas.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+      },
+      {
+        fieldConfigs: [
+          {
+            completableOption: 'Test string',
+            dynamicFacetableOption: 'Test string',
+            fieldPath: 'Test string',
+            fieldType: 'Test string',
+            indexableOption: 'Test string',
+            keyPropertyType: 'Test string',
+            recsFilterableOption: 'Test string',
+            retrievableOption: 'Test string',
+            searchableOption: 'Test string',
+          },
+        ],
+        jsonSchema: 'Test string',
+        name: 'Test string',
+        structSchema: {
+          A: 42,
+        },
+      }
+    );
+    /** Makes a recommendation, which requires a contextual user event. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.recommend(
+      {
+        servingConfig: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        params: {
+          A: 42,
+        },
+        userEvent: {
+          attributes: {
+            A: {
+              numbers: [42],
+              text: ['Test string'],
+            },
+          },
+          attributionToken: 'Test string',
+          completionInfo: {
+            selectedPosition: 42,
+            selectedSuggestion: 'Test string',
+          },
+          directUserRequest: true,
+          documents: [
+            {
+              id: 'Test string',
+              name: 'Test string',
+              promotionIds: ['Test string'],
+              quantity: 42,
+              uri: 'Test string',
+            },
+          ],
+          eventTime: 'Test string',
+          eventType: 'Test string',
+          filter: 'Test string',
+          mediaInfo: {
+            mediaProgressDuration: 'Test string',
+            mediaProgressPercentage: 42,
+          },
+          pageInfo: {
+            pageCategory: 'Test string',
+            pageviewId: 'Test string',
+            referrerUri: 'Test string',
+            uri: 'Test string',
+          },
+          panel: {
+            displayName: 'Test string',
+            panelId: 'Test string',
+            panelPosition: 42,
+            totalPanels: 42,
+          },
+          promotionIds: ['Test string'],
+          searchInfo: {
+            offset: 42,
+            orderBy: 'Test string',
+            searchQuery: 'Test string',
+          },
+          sessionId: 'Test string',
+          tagIds: ['Test string'],
+          transactionInfo: {
+            cost: 42,
+            currency: 'Test string',
+            discountValue: 42,
+            tax: 42,
+            transactionId: 'Test string',
+            value: 42,
+          },
+          userInfo: {
+            userAgent: 'Test string',
+            userId: 'Test string',
+          },
+          userPseudoId: 'Test string',
+        },
+        userLabels: {
+          A: 'Test string',
+        },
+        validateOnly: true,
+      }
+    );
+    /** Performs a search. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.servingConfigs.search(
+      {
+        servingConfig: 'Test string',
+      },
+      {
+        boostSpec: {
+          conditionBoostSpecs: [
+            {
+              boost: 42,
+              condition: 'Test string',
+            },
+          ],
+        },
+        branch: 'Test string',
+        canonicalFilter: 'Test string',
+        contentSearchSpec: {
+          extractiveContentSpec: {
+            maxExtractiveAnswerCount: 42,
+            maxExtractiveSegmentCount: 42,
+            numNextSegments: 42,
+            numPreviousSegments: 42,
+          },
+          snippetSpec: {
+            maxSnippetCount: 42,
+            referenceOnly: true,
+            returnSnippet: true,
+          },
+          summarySpec: {
+            ignoreAdversarialQuery: true,
+            ignoreNonSummarySeekingQuery: true,
+            includeCitations: true,
+            languageCode: 'Test string',
+            summaryResultCount: 42,
+          },
+        },
+        embeddingSpec: {
+          embeddingVectors: [
+            {
+              fieldPath: 'Test string',
+              vector: [42],
+            },
+          ],
+        },
+        facetSpecs: [
+          {
+            enableDynamicPosition: true,
+            excludedFilterKeys: ['Test string'],
+            facetKey: {
+              caseInsensitive: true,
+              contains: ['Test string'],
+              intervals: [
+                {
+                  exclusiveMaximum: 42,
+                  exclusiveMinimum: 42,
+                  maximum: 42,
+                  minimum: 42,
+                },
+              ],
+              key: 'Test string',
+              orderBy: 'Test string',
+              prefixes: ['Test string'],
+              restrictedValues: ['Test string'],
+            },
+            limit: 42,
+          },
+        ],
+        filter: 'Test string',
+        imageQuery: {
+          imageBytes: 'Test string',
+        },
+        offset: 42,
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        params: {
+          A: 42,
+        },
+        query: 'Test string',
+        queryExpansionSpec: {
+          condition: 'Test string',
+          pinUnexpandedResults: true,
+        },
+        rankingExpression: 'Test string',
+        safeSearch: true,
+        servingConfig: 'Test string',
+        spellCorrectionSpec: {
+          mode: 'Test string',
+        },
+        userInfo: {
+          userAgent: 'Test string',
+          userId: 'Test string',
+        },
+        userLabels: {
+          A: 'Test string',
+        },
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Request on-demand recrawl for a list of URIs. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.siteSearchEngine.recrawlUris(
+      {
+        siteSearchEngine: 'Test string',
+      },
+      {
+        uris: ['Test string'],
+      }
+    );
+    /** Writes a single user event from the browser. This uses a GET request to due to browser restriction of POST-ing to a third-party domain. This method is used only by the Discovery Engine API JavaScript pixel and Google Tag Manager. Users should not call this method directly. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.collect(
+      {
+        ets: 'Test string',
+        parent: 'Test string',
+        uri: 'Test string',
+        userEvent: 'Test string',
+      }
+    );
+    /** Bulk import of User events. Request processing might be synchronous. Events that already exist are skipped. Use this method for backfilling historical user events. Operation.response is of type ImportResponse. Note that it is possible for a subset of the items to be successfully inserted. Operation.metadata is of type ImportMetadata. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        bigquerySource: {
+          dataSchema: 'Test string',
+          datasetId: 'Test string',
+          gcsStagingDir: 'Test string',
+          partitionDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          projectId: 'Test string',
+          tableId: 'Test string',
+        },
+        errorConfig: {
+          gcsPrefix: 'Test string',
+        },
+        gcsSource: {
+          dataSchema: 'Test string',
+          inputUris: ['Test string'],
+        },
+        inlineSource: {
+          userEvents: [
+            {
+              attributes: {
+                A: {
+                  numbers: [42],
+                  text: ['Test string'],
+                },
+              },
+              attributionToken: 'Test string',
+              completionInfo: {
+                selectedPosition: 42,
+                selectedSuggestion: 'Test string',
+              },
+              directUserRequest: true,
+              documents: [
+                {
+                  id: 'Test string',
+                  name: 'Test string',
+                  promotionIds: ['Test string'],
+                  quantity: 42,
+                  uri: 'Test string',
+                },
+              ],
+              eventTime: 'Test string',
+              eventType: 'Test string',
+              filter: 'Test string',
+              mediaInfo: {
+                mediaProgressDuration: 'Test string',
+                mediaProgressPercentage: 42,
+              },
+              pageInfo: {
+                pageCategory: 'Test string',
+                pageviewId: 'Test string',
+                referrerUri: 'Test string',
+                uri: 'Test string',
+              },
+              panel: {
+                displayName: 'Test string',
+                panelId: 'Test string',
+                panelPosition: 42,
+                totalPanels: 42,
+              },
+              promotionIds: ['Test string'],
+              searchInfo: {
+                offset: 42,
+                orderBy: 'Test string',
+                searchQuery: 'Test string',
+              },
+              sessionId: 'Test string',
+              tagIds: ['Test string'],
+              transactionInfo: {
+                cost: 42,
+                currency: 'Test string',
+                discountValue: 42,
+                tax: 42,
+                transactionId: 'Test string',
+                value: 42,
+              },
+              userInfo: {
+                userAgent: 'Test string',
+                userId: 'Test string',
+              },
+              userPseudoId: 'Test string',
+            },
+          ],
+        },
+      }
+    );
+    /** Deletes permanently all user events specified by the filter provided. Depending on the number of events specified by the filter, this operation could take hours or days to complete. To test a filter, use the list command first. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.purge(
+      {
+        parent: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        force: true,
+      }
+    );
+    /** Writes a single user event. */
+    await gapi.client.discoveryengine.projects.locations.dataStores.userEvents.write(
+      {
+        parent: 'Test string',
+      },
+      {
+        attributes: {
+          A: {
+            numbers: [42],
+            text: ['Test string'],
+          },
+        },
+        attributionToken: 'Test string',
+        completionInfo: {
+          selectedPosition: 42,
+          selectedSuggestion: 'Test string',
+        },
+        directUserRequest: true,
+        documents: [
+          {
+            id: 'Test string',
+            name: 'Test string',
+            promotionIds: ['Test string'],
+            quantity: 42,
+            uri: 'Test string',
+          },
+        ],
+        eventTime: 'Test string',
+        eventType: 'Test string',
+        filter: 'Test string',
+        mediaInfo: {
+          mediaProgressDuration: 'Test string',
+          mediaProgressPercentage: 42,
+        },
+        pageInfo: {
+          pageCategory: 'Test string',
+          pageviewId: 'Test string',
+          referrerUri: 'Test string',
+          uri: 'Test string',
+        },
+        panel: {
+          displayName: 'Test string',
+          panelId: 'Test string',
+          panelPosition: 42,
+          totalPanels: 42,
+        },
+        promotionIds: ['Test string'],
+        searchInfo: {
+          offset: 42,
+          orderBy: 'Test string',
+          searchQuery: 'Test string',
+        },
+        sessionId: 'Test string',
+        tagIds: ['Test string'],
+        transactionInfo: {
+          cost: 42,
+          currency: 'Test string',
+          discountValue: 42,
+          tax: 42,
+          transactionId: 'Test string',
+          value: 42,
+        },
+        userInfo: {
+          userAgent: 'Test string',
+          userId: 'Test string',
+        },
+        userPseudoId: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.discoveryengine.projects.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.discoveryengine.projects.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+  }
 });

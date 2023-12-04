@@ -1,6 +1,5 @@
 # TypeScript typings for Google Play Developer Reporting API v1beta1
 
-
 For detailed description please check [documentation](https://developers.google.com/play/developer/reporting).
 
 ## Installing
@@ -25,10 +24,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://playdeveloperreporting.googleapis.com/$discovery/rest?version=v1beta1', () => {
-  // now we can use:
-  // gapi.client.playdeveloperreporting
-});
+gapi.client.load(
+  'https://playdeveloperreporting.googleapis.com/$discovery/rest?version=v1beta1',
+  () => {
+    // now we can use:
+    // gapi.client.playdeveloperreporting
+  }
+);
 ```
 
 ```typescript
@@ -45,39 +47,41 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See metrics and data about the apps in your Google Play Developer account
-      'https://www.googleapis.com/auth/playdeveloperreporting',
-    ],
-    immediate = true;
+    // See metrics and data about the apps in your Google Play Developer account
+    'https://www.googleapis.com/auth/playdeveloperreporting',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Google Play Developer Reporting API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Lists anomalies in any of the datasets.
 */
-await gapi.client.playdeveloperreporting.anomalies.list({ parent: "parent",  });
+await gapi.client.playdeveloperreporting.anomalies.list({parent: 'parent'});
 
 /*
 Describes filtering options for releases.
 */
-await gapi.client.playdeveloperreporting.apps.fetchReleaseFilterOptions({ name: "name",  });
+await gapi.client.playdeveloperreporting.apps.fetchReleaseFilterOptions({
+  name: 'name',
+});
 
 /*
 Searches for Apps accessible by the user.
 */
-await gapi.client.playdeveloperreporting.apps.search({  });
+await gapi.client.playdeveloperreporting.apps.search({});
 ```

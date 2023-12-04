@@ -6,34 +6,36 @@
 // Revision: 20200213
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://www.googleapis.com/discovery/v1/apis/oauth2/v2/rest');
-    /** now we can use gapi.client.oauth2 */
+  await gapi.client.load(
+    'https://www.googleapis.com/discovery/v1/apis/oauth2/v2/rest'
+  );
+  /** now we can use gapi.client.oauth2 */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See your primary Google Account email address */
-        'https://www.googleapis.com/auth/userinfo.email',
-        /** See your personal info, including any personal info you've made publicly available */
-        'https://www.googleapis.com/auth/userinfo.profile',
-        /** Associate you with your personal info on Google */
-        'openid',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        await gapi.client.oauth2.userinfo.get();
-        await gapi.client.oauth2.userinfo.v2.me.get();
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See your primary Google Account email address */
+    'https://www.googleapis.com/auth/userinfo.email',
+    /** See your personal info, including any personal info you've made publicly available */
+    'https://www.googleapis.com/auth/userinfo.profile',
+    /** Associate you with your personal info on Google */
+    'openid',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    await gapi.client.oauth2.userinfo.get();
+    await gapi.client.oauth2.userinfo.v2.me.get();
+  }
 });

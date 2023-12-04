@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://safebrowsing.googleapis.com/$discovery/rest?version=v4', () => {
-  // now we can use:
-  // gapi.client.safebrowsing
-});
+gapi.client.load(
+  'https://safebrowsing.googleapis.com/$discovery/rest?version=v4',
+  () => {
+    // now we can use:
+    // gapi.client.safebrowsing
+  }
+);
 ```
 
 ```typescript
@@ -39,44 +42,45 @@ gapi.client.load('safebrowsing', 'v4', () => {
 });
 ```
 
-
-
 After that you can use Safe Browsing API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+/*
+
+*/
+await gapi.client.safebrowsing.encodedFullHashes.get({
+  encodedRequest: 'encodedRequest',
+});
 
 /*
 
 */
-await gapi.client.safebrowsing.encodedFullHashes.get({ encodedRequest: "encodedRequest",  });
-
-/*
-
-*/
-await gapi.client.safebrowsing.encodedUpdates.get({ encodedRequest: "encodedRequest",  });
+await gapi.client.safebrowsing.encodedUpdates.get({
+  encodedRequest: 'encodedRequest',
+});
 
 /*
 Finds the full hashes that match the requested hash prefixes.
 */
-await gapi.client.safebrowsing.fullHashes.find({  });
+await gapi.client.safebrowsing.fullHashes.find({});
 
 /*
 Reports a Safe Browsing threat list hit to Google. Only projects with TRUSTED_REPORTER visibility can use this method.
 */
-await gapi.client.safebrowsing.threatHits.create({  });
+await gapi.client.safebrowsing.threatHits.create({});
 
 /*
 Lists the Safe Browsing threat lists available for download.
 */
-await gapi.client.safebrowsing.threatLists.list({  });
+await gapi.client.safebrowsing.threatLists.list({});
 
 /*
 Fetches the most recent threat list updates. A client can request updates for multiple lists at once.
 */
-await gapi.client.safebrowsing.threatListUpdates.fetch({  });
+await gapi.client.safebrowsing.threatListUpdates.fetch({});
 
 /*
 Finds the threat entries that match the Safe Browsing lists.
 */
-await gapi.client.safebrowsing.threatMatches.find({  });
+await gapi.client.safebrowsing.threatMatches.find({});
 ```

@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://apikeys.googleapis.com/$discovery/rest?version=v2', () => {
-  // now we can use:
-  // gapi.client.apikeys
-});
+gapi.client.load(
+  'https://apikeys.googleapis.com/$discovery/rest?version=v2',
+  () => {
+    // now we can use:
+    // gapi.client.apikeys
+  }
+);
 ```
 
 ```typescript
@@ -45,37 +48,37 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View your data across Google Cloud services and see the email address of your Google Account
-      'https://www.googleapis.com/auth/cloud-platform.read-only',
-    ],
-    immediate = true;
+    // View your data across Google Cloud services and see the email address of your Google Account
+    'https://www.googleapis.com/auth/cloud-platform.read-only',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use API Keys API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Find the parent project and resource name of the API key that matches the key string in the request. If the API key has been purged, resource name will not be set. The service account must have the `apikeys.keys.lookup` permission on the parent project.
 */
-await gapi.client.apikeys.keys.lookupKey({  });
+await gapi.client.apikeys.keys.lookupKey({});
 
 /*
 Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 */
-await gapi.client.apikeys.operations.get({ name: "name",  });
+await gapi.client.apikeys.operations.get({name: 'name'});
 ```

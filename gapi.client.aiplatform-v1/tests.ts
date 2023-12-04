@@ -6,8269 +6,8041 @@
 // Revision: 20231121
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://aiplatform.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.aiplatform */
+  await gapi.client.load(
+    'https://aiplatform.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.aiplatform */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-        /** View your data across Google Cloud services and see the email address of your Google Account */
-        'https://www.googleapis.com/auth/cloud-platform.read-only',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+    /** View your data across Google Cloud services and see the email address of your Google Account */
+    'https://www.googleapis.com/auth/cloud-platform.read-only',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
+    }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.aiplatform.projects.locations.get({
+      name: 'Test string',
     });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.aiplatform.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.aiplatform.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Cancels a BatchPredictionJob. Starts asynchronous cancellation on the BatchPredictionJob. The server makes the best effort to cancel the job, but success is not guaranteed. Clients can
-         * use JobService.GetBatchPredictionJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On a successful cancellation, the
-         * BatchPredictionJob is not deleted;instead its BatchPredictionJob.state is set to `CANCELLED`. Any files already outputted by the job are not deleted.
-         */
-        await gapi.client.aiplatform.projects.locations.batchPredictionJobs.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a BatchPredictionJob. A BatchPredictionJob once created will right away be attempted to start. */
-        await gapi.client.aiplatform.projects.locations.batchPredictionJobs.create({
-            parent: "Test string",
-        }, {
-            completionStats: {
-                failedCount: "Test string",
-                incompleteCount: "Test string",
-                successfulCount: "Test string",
-                successfulForecastPointCount: "Test string",
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.aiplatform.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Cancels a BatchPredictionJob. Starts asynchronous cancellation on the BatchPredictionJob. The server makes the best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetBatchPredictionJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On a successful cancellation, the BatchPredictionJob is not deleted;instead its BatchPredictionJob.state is set to `CANCELLED`. Any files already outputted by the job are not deleted. */
+    await gapi.client.aiplatform.projects.locations.batchPredictionJobs.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a BatchPredictionJob. A BatchPredictionJob once created will right away be attempted to start. */
+    await gapi.client.aiplatform.projects.locations.batchPredictionJobs.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        completionStats: {
+          failedCount: 'Test string',
+          incompleteCount: 'Test string',
+          successfulCount: 'Test string',
+          successfulForecastPointCount: 'Test string',
+        },
+        createTime: 'Test string',
+        dedicatedResources: {
+          machineSpec: {
+            acceleratorCount: 42,
+            acceleratorType: 'Test string',
+            machineType: 'Test string',
+            tpuTopology: 'Test string',
+          },
+          maxReplicaCount: 42,
+          startingReplicaCount: 42,
+        },
+        disableContainerLogging: true,
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        endTime: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
             },
-            createTime: "Test string",
-            dedicatedResources: {
-                machineSpec: {
-                    acceleratorCount: 42,
-                    acceleratorType: "Test string",
-                    machineType: "Test string",
-                    tpuTopology: "Test string",
+          ],
+          message: 'Test string',
+        },
+        explanationSpec: {
+          metadata: {
+            featureAttributionsSchemaUri: 'Test string',
+            inputs: {
+              A: {
+                denseShapeTensorName: 'Test string',
+                encodedBaselines: [42],
+                encodedTensorName: 'Test string',
+                encoding: 'Test string',
+                featureValueDomain: {
+                  maxValue: 42,
+                  minValue: 42,
+                  originalMean: 42,
+                  originalStddev: 42,
                 },
-                maxReplicaCount: 42,
-                startingReplicaCount: 42,
+                groupName: 'Test string',
+                indexFeatureMapping: ['Test string'],
+                indicesTensorName: 'Test string',
+                inputBaselines: [42],
+                inputTensorName: 'Test string',
+                modality: 'Test string',
+                visualization: {
+                  clipPercentLowerbound: 42,
+                  clipPercentUpperbound: 42,
+                  colorMap: 'Test string',
+                  overlayType: 'Test string',
+                  polarity: 'Test string',
+                  type: 'Test string',
+                },
+              },
+            },
+            latentSpaceSource: 'Test string',
+            outputs: {
+              A: {
+                displayNameMappingKey: 'Test string',
+                indexDisplayNameMapping: 42,
+                outputTensorName: 'Test string',
+              },
+            },
+          },
+          parameters: {
+            examples: {
+              exampleGcsSource: {
+                dataFormat: 'Test string',
+                gcsSource: {
+                  uris: ['Test string'],
+                },
+              },
+              nearestNeighborSearchConfig: 42,
+              neighborCount: 42,
+              presets: {
+                modality: 'Test string',
+                query: 'Test string',
+              },
+            },
+            integratedGradientsAttribution: {
+              blurBaselineConfig: {
+                maxBlurSigma: 42,
+              },
+              smoothGradConfig: {
+                featureNoiseSigma: {
+                  noiseSigma: [
+                    {
+                      name: 'Test string',
+                      sigma: 42,
+                    },
+                  ],
+                },
+                noiseSigma: 42,
+                noisySampleCount: 42,
+              },
+              stepCount: 42,
+            },
+            outputIndices: [42],
+            sampledShapleyAttribution: {
+              pathCount: 42,
+            },
+            topK: 42,
+            xraiAttribution: {
+              blurBaselineConfig: {
+                maxBlurSigma: 42,
+              },
+              smoothGradConfig: {
+                featureNoiseSigma: {
+                  noiseSigma: [
+                    {
+                      name: 'Test string',
+                      sigma: 42,
+                    },
+                  ],
+                },
+                noiseSigma: 42,
+                noisySampleCount: 42,
+              },
+              stepCount: 42,
+            },
+          },
+        },
+        generateExplanation: true,
+        inputConfig: {
+          bigquerySource: {
+            inputUri: 'Test string',
+          },
+          gcsSource: {
+            uris: ['Test string'],
+          },
+          instancesFormat: 'Test string',
+        },
+        instanceConfig: {
+          excludedFields: ['Test string'],
+          includedFields: ['Test string'],
+          instanceType: 'Test string',
+          keyField: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        manualBatchTuningParameters: {
+          batchSize: 42,
+        },
+        model: 'Test string',
+        modelParameters: 42,
+        modelVersionId: 'Test string',
+        name: 'Test string',
+        outputConfig: {
+          bigqueryDestination: {
+            outputUri: 'Test string',
+          },
+          gcsDestination: {
+            outputUriPrefix: 'Test string',
+          },
+          predictionsFormat: 'Test string',
+        },
+        outputInfo: {
+          bigqueryOutputDataset: 'Test string',
+          bigqueryOutputTable: 'Test string',
+          gcsOutputDirectory: 'Test string',
+        },
+        partialFailures: [
+          {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+        ],
+        resourcesConsumed: {
+          replicaHours: 42,
+        },
+        serviceAccount: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        unmanagedContainerModel: {
+          artifactUri: 'Test string',
+          containerSpec: {
+            args: ['Test string'],
+            command: ['Test string'],
+            deploymentTimeout: 'Test string',
+            env: [
+              {
+                name: 'Test string',
+                value: 'Test string',
+              },
+            ],
+            healthProbe: {
+              exec: {
+                command: ['Test string'],
+              },
+              periodSeconds: 42,
+              timeoutSeconds: 42,
+            },
+            healthRoute: 'Test string',
+            imageUri: 'Test string',
+            ports: [
+              {
+                containerPort: 42,
+              },
+            ],
+            predictRoute: 'Test string',
+            sharedMemorySizeMb: 'Test string',
+            startupProbe: {
+              exec: {
+                command: ['Test string'],
+              },
+              periodSeconds: 42,
+              timeoutSeconds: 42,
+            },
+          },
+          predictSchemata: {
+            instanceSchemaUri: 'Test string',
+            parametersSchemaUri: 'Test string',
+            predictionSchemaUri: 'Test string',
+          },
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a BatchPredictionJob. Can only be called on jobs that already finished. */
+    await gapi.client.aiplatform.projects.locations.batchPredictionJobs.delete({
+      name: 'Test string',
+    });
+    /** Gets a BatchPredictionJob */
+    await gapi.client.aiplatform.projects.locations.batchPredictionJobs.get({
+      name: 'Test string',
+    });
+    /** Lists BatchPredictionJobs in a Location. */
+    await gapi.client.aiplatform.projects.locations.batchPredictionJobs.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Cancels a CustomJob. Starts asynchronous cancellation on the CustomJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetCustomJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the CustomJob is not deleted; instead it becomes a job with a CustomJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and CustomJob.state is set to `CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.customJobs.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a CustomJob. A created CustomJob right away will be attempted to be run. */
+    await gapi.client.aiplatform.projects.locations.customJobs.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        endTime: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        jobSpec: {
+          baseOutputDirectory: {
+            outputUriPrefix: 'Test string',
+          },
+          enableDashboardAccess: true,
+          enableWebAccess: true,
+          experiment: 'Test string',
+          experimentRun: 'Test string',
+          network: 'Test string',
+          protectedArtifactLocationId: 'Test string',
+          reservedIpRanges: ['Test string'],
+          scheduling: {
+            disableRetries: true,
+            restartJobOnWorkerRestart: true,
+            timeout: 'Test string',
+          },
+          serviceAccount: 'Test string',
+          tensorboard: 'Test string',
+          workerPoolSpecs: [
+            {
+              containerSpec: {
+                args: ['Test string'],
+                command: ['Test string'],
+                env: [
+                  {
+                    name: 'Test string',
+                    value: 'Test string',
+                  },
+                ],
+                imageUri: 'Test string',
+              },
+              diskSpec: {
+                bootDiskSizeGb: 42,
+                bootDiskType: 'Test string',
+              },
+              machineSpec: {
+                acceleratorCount: 42,
+                acceleratorType: 'Test string',
+                machineType: 'Test string',
+                tpuTopology: 'Test string',
+              },
+              nfsMounts: [
+                {
+                  mountPoint: 'Test string',
+                  path: 'Test string',
+                  server: 'Test string',
+                },
+              ],
+              pythonPackageSpec: {
+                args: ['Test string'],
+                env: [
+                  {
+                    name: 'Test string',
+                    value: 'Test string',
+                  },
+                ],
+                executorImageUri: 'Test string',
+                packageUris: ['Test string'],
+                pythonModule: 'Test string',
+              },
+              replicaCount: 'Test string',
+            },
+          ],
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        webAccessUris: {
+          A: 'Test string',
+        },
+      }
+    );
+    /** Deletes a CustomJob. */
+    await gapi.client.aiplatform.projects.locations.customJobs.delete({
+      name: 'Test string',
+    });
+    /** Gets a CustomJob. */
+    await gapi.client.aiplatform.projects.locations.customJobs.get({
+      name: 'Test string',
+    });
+    /** Lists CustomJobs in a Location. */
+    await gapi.client.aiplatform.projects.locations.customJobs.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.customJobs.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.customJobs.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.customJobs.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.customJobs.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.customJobs.operations.wait({
+      name: 'Test string',
+      timeout: 'Test string',
+    });
+    /** Cancels a DataLabelingJob. Success of cancellation is not guaranteed. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a DataLabelingJob. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        activeLearningConfig: {
+          maxDataItemCount: 'Test string',
+          maxDataItemPercentage: 42,
+          sampleConfig: {
+            followingBatchSamplePercentage: 42,
+            initialBatchSamplePercentage: 42,
+            sampleStrategy: 'Test string',
+          },
+          trainingConfig: {
+            timeoutTrainingMilliHours: 'Test string',
+          },
+        },
+        annotationLabels: {
+          A: 'Test string',
+        },
+        createTime: 'Test string',
+        currentSpend: {
+          currencyCode: 'Test string',
+          nanos: 42,
+          units: 'Test string',
+        },
+        datasets: ['Test string'],
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        inputs: 42,
+        inputsSchemaUri: 'Test string',
+        instructionUri: 'Test string',
+        labelerCount: 42,
+        labelingProgress: 42,
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        specialistPools: ['Test string'],
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a DataLabelingJob. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.delete({
+      name: 'Test string',
+    });
+    /** Gets a DataLabelingJob. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.get({
+      name: 'Test string',
+    });
+    /** Lists DataLabelingJobs in a Location. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Creates a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        dataItemCount: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: 42,
+        metadataArtifact: 'Test string',
+        metadataSchemaUri: 'Test string',
+        name: 'Test string',
+        savedQueries: [
+          {
+            annotationFilter: 'Test string',
+            annotationSpecCount: 42,
+            createTime: 'Test string',
+            displayName: 'Test string',
+            etag: 'Test string',
+            metadata: 42,
+            name: 'Test string',
+            problemType: 'Test string',
+            supportAutomlTraining: true,
+            updateTime: 'Test string',
+          },
+        ],
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.delete({
+      name: 'Test string',
+    });
+    /** Exports data from a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.export(
+      {
+        name: 'Test string',
+      },
+      {
+        exportConfig: {
+          annotationsFilter: 'Test string',
+          fractionSplit: {
+            testFraction: 42,
+            trainingFraction: 42,
+            validationFraction: 42,
+          },
+          gcsDestination: {
+            outputUriPrefix: 'Test string',
+          },
+        },
+      }
+    );
+    /** Gets a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.get({
+      name: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Imports data into a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.import(
+      {
+        name: 'Test string',
+      },
+      {
+        importConfigs: [
+          {
+            annotationLabels: {
+              A: 'Test string',
+            },
+            dataItemLabels: {
+              A: 'Test string',
+            },
+            gcsSource: {
+              uris: ['Test string'],
+            },
+            importSchemaUri: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Lists Datasets in a Location. */
+    await gapi.client.aiplatform.projects.locations.datasets.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Updates a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        dataItemCount: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: 42,
+        metadataArtifact: 'Test string',
+        metadataSchemaUri: 'Test string',
+        name: 'Test string',
+        savedQueries: [
+          {
+            annotationFilter: 'Test string',
+            annotationSpecCount: 42,
+            createTime: 'Test string',
+            displayName: 'Test string',
+            etag: 'Test string',
+            metadata: 42,
+            name: 'Test string',
+            problemType: 'Test string',
+            supportAutomlTraining: true,
+            updateTime: 'Test string',
+          },
+        ],
+        updateTime: 'Test string',
+      }
+    );
+    /** Searches DataItems in a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.searchDataItems({
+      annotationFilters: 'Test string',
+      annotationsFilter: 'Test string',
+      annotationsLimit: 42,
+      dataItemFilter: 'Test string',
+      dataLabelingJob: 'Test string',
+      dataset: 'Test string',
+      fieldMask: 'Test string',
+      orderBy: 'Test string',
+      'orderByAnnotation.orderBy': 'Test string',
+      'orderByAnnotation.savedQuery': 'Test string',
+      orderByDataItem: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      savedQuery: 'Test string',
+    });
+    /** Gets an AnnotationSpec. */
+    await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.get(
+      {
+        name: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Lists DataItems in a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Lists Annotations belongs to a dataitem */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Create a version from a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        bigQueryDatasetName: 'Test string',
+        createTime: 'Test string',
+        etag: 'Test string',
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a Dataset version. */
+    await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a Dataset version. */
+    await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.get(
+      {
+        name: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Lists DatasetVersions in a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Restores a dataset version. */
+    await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.restore(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.operations.cancel({
+      name: 'Test string',
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.datasets.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.datasets.operations.wait({
+      name: 'Test string',
+      timeout: 'Test string',
+    });
+    /** Deletes a SavedQuery. */
+    await gapi.client.aiplatform.projects.locations.datasets.savedQueries.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists SavedQueries in a Dataset. */
+    await gapi.client.aiplatform.projects.locations.datasets.savedQueries.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Create a DeploymentResourcePool. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        deploymentResourcePool: {
+          createTime: 'Test string',
+          dedicatedResources: {
+            autoscalingMetricSpecs: [
+              {
+                metricName: 'Test string',
+                target: 42,
+              },
+            ],
+            machineSpec: {
+              acceleratorCount: 42,
+              acceleratorType: 'Test string',
+              machineType: 'Test string',
+              tpuTopology: 'Test string',
+            },
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+          },
+          name: 'Test string',
+        },
+        deploymentResourcePoolId: 'Test string',
+      }
+    );
+    /** Delete a DeploymentResourcePool. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Get a DeploymentResourcePool. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** List DeploymentResourcePools in a location. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** List DeployedModels that have been deployed on this DeploymentResourcePool. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.queryDeployedModels(
+      {
+        deploymentResourcePool: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Return a list of tokens based on the input text. */
+    await gapi.client.aiplatform.projects.locations.endpoints.computeTokens(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        instances: [42],
+      }
+    );
+    /** Perform a token counting. */
+    await gapi.client.aiplatform.projects.locations.endpoints.countTokens(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        instances: [42],
+      }
+    );
+    /** Creates an Endpoint. */
+    await gapi.client.aiplatform.projects.locations.endpoints.create(
+      {
+        endpointId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deployedModels: [
+          {
+            automaticResources: {
+              maxReplicaCount: 42,
+              minReplicaCount: 42,
+            },
+            createTime: 'Test string',
+            dedicatedResources: {
+              autoscalingMetricSpecs: [
+                {
+                  metricName: 'Test string',
+                  target: 42,
+                },
+              ],
+              machineSpec: {
+                acceleratorCount: 42,
+                acceleratorType: 'Test string',
+                machineType: 'Test string',
+                tpuTopology: 'Test string',
+              },
+              maxReplicaCount: 42,
+              minReplicaCount: 42,
             },
             disableContainerLogging: true,
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            endTime: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            explanationSpec: {
-                metadata: {
-                    featureAttributionsSchemaUri: "Test string",
-                    inputs: {
-                        A: {
-                            denseShapeTensorName: "Test string",
-                            encodedBaselines: [
-                                42
-                            ],
-                            encodedTensorName: "Test string",
-                            encoding: "Test string",
-                            featureValueDomain: {
-                                maxValue: 42,
-                                minValue: 42,
-                                originalMean: 42,
-                                originalStddev: 42,
-                            },
-                            groupName: "Test string",
-                            indexFeatureMapping: [
-                                "Test string"
-                            ],
-                            indicesTensorName: "Test string",
-                            inputBaselines: [
-                                42
-                            ],
-                            inputTensorName: "Test string",
-                            modality: "Test string",
-                            visualization: {
-                                clipPercentLowerbound: 42,
-                                clipPercentUpperbound: 42,
-                                colorMap: "Test string",
-                                overlayType: "Test string",
-                                polarity: "Test string",
-                                type: "Test string",
-                            },
-                        }
-                    },
-                    latentSpaceSource: "Test string",
-                    outputs: {
-                        A: {
-                            displayNameMappingKey: "Test string",
-                            indexDisplayNameMapping: 42,
-                            outputTensorName: "Test string",
-                        }
-                    },
-                },
-                parameters: {
-                    examples: {
-                        exampleGcsSource: {
-                            dataFormat: "Test string",
-                            gcsSource: {
-                                uris: [
-                                    "Test string"
-                                ],
-                            },
-                        },
-                        nearestNeighborSearchConfig: 42,
-                        neighborCount: 42,
-                        presets: {
-                            modality: "Test string",
-                            query: "Test string",
-                        },
-                    },
-                    integratedGradientsAttribution: {
-                        blurBaselineConfig: {
-                            maxBlurSigma: 42,
-                        },
-                        smoothGradConfig: {
-                            featureNoiseSigma: {
-                                noiseSigma: [
-                                    {
-                                        name: "Test string",
-                                        sigma: 42,
-                                    }
-                                ],
-                            },
-                            noiseSigma: 42,
-                            noisySampleCount: 42,
-                        },
-                        stepCount: 42,
-                    },
-                    outputIndices: [
-                        42
-                    ],
-                    sampledShapleyAttribution: {
-                        pathCount: 42,
-                    },
-                    topK: 42,
-                    xraiAttribution: {
-                        blurBaselineConfig: {
-                            maxBlurSigma: 42,
-                        },
-                        smoothGradConfig: {
-                            featureNoiseSigma: {
-                                noiseSigma: [
-                                    {
-                                        name: "Test string",
-                                        sigma: 42,
-                                    }
-                                ],
-                            },
-                            noiseSigma: 42,
-                            noisySampleCount: 42,
-                        },
-                        stepCount: 42,
-                    },
-                },
-            },
-            generateExplanation: true,
-            inputConfig: {
-                bigquerySource: {
-                    inputUri: "Test string",
-                },
-                gcsSource: {
-                    uris: [
-                        "Test string"
-                    ],
-                },
-                instancesFormat: "Test string",
-            },
-            instanceConfig: {
-                excludedFields: [
-                    "Test string"
-                ],
-                includedFields: [
-                    "Test string"
-                ],
-                instanceType: "Test string",
-                keyField: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            manualBatchTuningParameters: {
-                batchSize: 42,
-            },
-            model: "Test string",
-            modelParameters: 42,
-            modelVersionId: "Test string",
-            name: "Test string",
-            outputConfig: {
-                bigqueryDestination: {
-                    outputUri: "Test string",
-                },
-                gcsDestination: {
-                    outputUriPrefix: "Test string",
-                },
-                predictionsFormat: "Test string",
-            },
-            outputInfo: {
-                bigqueryOutputDataset: "Test string",
-                bigqueryOutputTable: "Test string",
-                gcsOutputDirectory: "Test string",
-            },
-            partialFailures: [
-                {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                }
-            ],
-            resourcesConsumed: {
-                replicaHours: 42,
-            },
-            serviceAccount: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            unmanagedContainerModel: {
-                artifactUri: "Test string",
-                containerSpec: {
-                    args: [
-                        "Test string"
-                    ],
-                    command: [
-                        "Test string"
-                    ],
-                    deploymentTimeout: "Test string",
-                    env: [
-                        {
-                            name: "Test string",
-                            value: "Test string",
-                        }
-                    ],
-                    healthProbe: {
-                        exec: {
-                            command: [
-                                "Test string"
-                            ],
-                        },
-                        periodSeconds: 42,
-                        timeoutSeconds: 42,
-                    },
-                    healthRoute: "Test string",
-                    imageUri: "Test string",
-                    ports: [
-                        {
-                            containerPort: 42,
-                        }
-                    ],
-                    predictRoute: "Test string",
-                    sharedMemorySizeMb: "Test string",
-                    startupProbe: {
-                        exec: {
-                            command: [
-                                "Test string"
-                            ],
-                        },
-                        periodSeconds: 42,
-                        timeoutSeconds: 42,
-                    },
-                },
-                predictSchemata: {
-                    instanceSchemaUri: "Test string",
-                    parametersSchemaUri: "Test string",
-                    predictionSchemaUri: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /** Deletes a BatchPredictionJob. Can only be called on jobs that already finished. */
-        await gapi.client.aiplatform.projects.locations.batchPredictionJobs.delete({
-            name: "Test string",
-        });
-        /** Gets a BatchPredictionJob */
-        await gapi.client.aiplatform.projects.locations.batchPredictionJobs.get({
-            name: "Test string",
-        });
-        /** Lists BatchPredictionJobs in a Location. */
-        await gapi.client.aiplatform.projects.locations.batchPredictionJobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Cancels a CustomJob. Starts asynchronous cancellation on the CustomJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use
-         * JobService.GetCustomJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the CustomJob is not
-         * deleted; instead it becomes a job with a CustomJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and CustomJob.state is set to `CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.customJobs.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a CustomJob. A created CustomJob right away will be attempted to be run. */
-        await gapi.client.aiplatform.projects.locations.customJobs.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            endTime: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            jobSpec: {
-                baseOutputDirectory: {
-                    outputUriPrefix: "Test string",
-                },
-                enableDashboardAccess: true,
-                enableWebAccess: true,
-                experiment: "Test string",
-                experimentRun: "Test string",
-                network: "Test string",
-                protectedArtifactLocationId: "Test string",
-                reservedIpRanges: [
-                    "Test string"
-                ],
-                scheduling: {
-                    disableRetries: true,
-                    restartJobOnWorkerRestart: true,
-                    timeout: "Test string",
-                },
-                serviceAccount: "Test string",
-                tensorboard: "Test string",
-                workerPoolSpecs: [
-                    {
-                        containerSpec: {
-                            args: [
-                                "Test string"
-                            ],
-                            command: [
-                                "Test string"
-                            ],
-                            env: [
-                                {
-                                    name: "Test string",
-                                    value: "Test string",
-                                }
-                            ],
-                            imageUri: "Test string",
-                        },
-                        diskSpec: {
-                            bootDiskSizeGb: 42,
-                            bootDiskType: "Test string",
-                        },
-                        machineSpec: {
-                            acceleratorCount: 42,
-                            acceleratorType: "Test string",
-                            machineType: "Test string",
-                            tpuTopology: "Test string",
-                        },
-                        nfsMounts: [
-                            {
-                                mountPoint: "Test string",
-                                path: "Test string",
-                                server: "Test string",
-                            }
-                        ],
-                        pythonPackageSpec: {
-                            args: [
-                                "Test string"
-                            ],
-                            env: [
-                                {
-                                    name: "Test string",
-                                    value: "Test string",
-                                }
-                            ],
-                            executorImageUri: "Test string",
-                            packageUris: [
-                                "Test string"
-                            ],
-                            pythonModule: "Test string",
-                        },
-                        replicaCount: "Test string",
-                    }
-                ],
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            webAccessUris: {
-                A: "Test string"
-            },
-        });
-        /** Deletes a CustomJob. */
-        await gapi.client.aiplatform.projects.locations.customJobs.delete({
-            name: "Test string",
-        });
-        /** Gets a CustomJob. */
-        await gapi.client.aiplatform.projects.locations.customJobs.get({
-            name: "Test string",
-        });
-        /** Lists CustomJobs in a Location. */
-        await gapi.client.aiplatform.projects.locations.customJobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.customJobs.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.customJobs.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.customJobs.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.customJobs.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.customJobs.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Cancels a DataLabelingJob. Success of cancellation is not guaranteed. */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a DataLabelingJob. */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.create({
-            parent: "Test string",
-        }, {
-            activeLearningConfig: {
-                maxDataItemCount: "Test string",
-                maxDataItemPercentage: 42,
-                sampleConfig: {
-                    followingBatchSamplePercentage: 42,
-                    initialBatchSamplePercentage: 42,
-                    sampleStrategy: "Test string",
-                },
-                trainingConfig: {
-                    timeoutTrainingMilliHours: "Test string",
-                },
-            },
-            annotationLabels: {
-                A: "Test string"
-            },
-            createTime: "Test string",
-            currentSpend: {
-                currencyCode: "Test string",
-                nanos: 42,
-                units: "Test string",
-            },
-            datasets: [
-                "Test string"
-            ],
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            inputs: 42,
-            inputsSchemaUri: "Test string",
-            instructionUri: "Test string",
-            labelerCount: 42,
-            labelingProgress: 42,
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            specialistPools: [
-                "Test string"
-            ],
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a DataLabelingJob. */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.delete({
-            name: "Test string",
-        });
-        /** Gets a DataLabelingJob. */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.get({
-            name: "Test string",
-        });
-        /** Lists DataLabelingJobs in a Location. */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.dataLabelingJobs.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Creates a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            dataItemCount: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: 42,
-            metadataArtifact: "Test string",
-            metadataSchemaUri: "Test string",
-            name: "Test string",
-            savedQueries: [
-                {
-                    annotationFilter: "Test string",
-                    annotationSpecCount: 42,
-                    createTime: "Test string",
-                    displayName: "Test string",
-                    etag: "Test string",
-                    metadata: 42,
-                    name: "Test string",
-                    problemType: "Test string",
-                    supportAutomlTraining: true,
-                    updateTime: "Test string",
-                }
-            ],
-            updateTime: "Test string",
-        });
-        /** Deletes a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.delete({
-            name: "Test string",
-        });
-        /** Exports data from a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.export({
-            name: "Test string",
-        }, {
-            exportConfig: {
-                annotationsFilter: "Test string",
-                fractionSplit: {
-                    testFraction: 42,
-                    trainingFraction: 42,
-                    validationFraction: 42,
-                },
-                gcsDestination: {
-                    outputUriPrefix: "Test string",
-                },
-            },
-        });
-        /** Gets a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.get({
-            name: "Test string",
-            readMask: "Test string",
-        });
-        /** Imports data into a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.import({
-            name: "Test string",
-        }, {
-            importConfigs: [
-                {
-                    annotationLabels: {
-                        A: "Test string"
-                    },
-                    dataItemLabels: {
-                        A: "Test string"
-                    },
-                    gcsSource: {
-                        uris: [
-                            "Test string"
-                        ],
-                    },
-                    importSchemaUri: "Test string",
-                }
-            ],
-        });
-        /** Lists Datasets in a Location. */
-        await gapi.client.aiplatform.projects.locations.datasets.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            dataItemCount: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: 42,
-            metadataArtifact: "Test string",
-            metadataSchemaUri: "Test string",
-            name: "Test string",
-            savedQueries: [
-                {
-                    annotationFilter: "Test string",
-                    annotationSpecCount: 42,
-                    createTime: "Test string",
-                    displayName: "Test string",
-                    etag: "Test string",
-                    metadata: 42,
-                    name: "Test string",
-                    problemType: "Test string",
-                    supportAutomlTraining: true,
-                    updateTime: "Test string",
-                }
-            ],
-            updateTime: "Test string",
-        });
-        /** Searches DataItems in a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.searchDataItems({
-            annotationFilters: "Test string",
-            annotationsFilter: "Test string",
-            annotationsLimit: 42,
-            dataItemFilter: "Test string",
-            dataLabelingJob: "Test string",
-            dataset: "Test string",
-            fieldMask: "Test string",
-            orderBy: "Test string",
-            "orderByAnnotation.orderBy": "Test string",
-            "orderByAnnotation.savedQuery": "Test string",
-            orderByDataItem: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            savedQuery: "Test string",
-        });
-        /** Gets an AnnotationSpec. */
-        await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.get({
-            name: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.annotationSpecs.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Lists DataItems in a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Lists Annotations belongs to a dataitem */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.annotations.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.dataItems.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Create a version from a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.create({
-            parent: "Test string",
-        }, {
-            bigQueryDatasetName: "Test string",
-            createTime: "Test string",
-            etag: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a Dataset version. */
-        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.delete({
-            name: "Test string",
-        });
-        /** Gets a Dataset version. */
-        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.get({
-            name: "Test string",
-            readMask: "Test string",
-        });
-        /** Lists DatasetVersions in a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Restores a dataset version. */
-        await gapi.client.aiplatform.projects.locations.datasets.datasetVersions.restore({
-            name: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.datasets.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.datasets.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Deletes a SavedQuery. */
-        await gapi.client.aiplatform.projects.locations.datasets.savedQueries.delete({
-            name: "Test string",
-        });
-        /** Lists SavedQueries in a Dataset. */
-        await gapi.client.aiplatform.projects.locations.datasets.savedQueries.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.datasets.savedQueries.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Create a DeploymentResourcePool. */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.create({
-            parent: "Test string",
-        }, {
-            deploymentResourcePool: {
-                createTime: "Test string",
-                dedicatedResources: {
-                    autoscalingMetricSpecs: [
-                        {
-                            metricName: "Test string",
-                            target: 42,
-                        }
-                    ],
-                    machineSpec: {
-                        acceleratorCount: 42,
-                        acceleratorType: "Test string",
-                        machineType: "Test string",
-                        tpuTopology: "Test string",
-                    },
-                    maxReplicaCount: 42,
-                    minReplicaCount: 42,
-                },
-                name: "Test string",
-            },
-            deploymentResourcePoolId: "Test string",
-        });
-        /** Delete a DeploymentResourcePool. */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.delete({
-            name: "Test string",
-        });
-        /** Get a DeploymentResourcePool. */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.get({
-            name: "Test string",
-        });
-        /** List DeploymentResourcePools in a location. */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** List DeployedModels that have been deployed on this DeploymentResourcePool. */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.queryDeployedModels({
-            deploymentResourcePool: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.deploymentResourcePools.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Return a list of tokens based on the input text. */
-        await gapi.client.aiplatform.projects.locations.endpoints.computeTokens({
-            endpoint: "Test string",
-        }, {
-            instances: [
-                42
-            ],
-        });
-        /** Perform a token counting. */
-        await gapi.client.aiplatform.projects.locations.endpoints.countTokens({
-            endpoint: "Test string",
-        }, {
-            instances: [
-                42
-            ],
-        });
-        /** Creates an Endpoint. */
-        await gapi.client.aiplatform.projects.locations.endpoints.create({
-            endpointId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            deployedModels: [
-                {
-                    automaticResources: {
-                        maxReplicaCount: 42,
-                        minReplicaCount: 42,
-                    },
-                    createTime: "Test string",
-                    dedicatedResources: {
-                        autoscalingMetricSpecs: [
-                            {
-                                metricName: "Test string",
-                                target: 42,
-                            }
-                        ],
-                        machineSpec: {
-                            acceleratorCount: 42,
-                            acceleratorType: "Test string",
-                            machineType: "Test string",
-                            tpuTopology: "Test string",
-                        },
-                        maxReplicaCount: 42,
-                        minReplicaCount: 42,
-                    },
-                    disableContainerLogging: true,
-                    displayName: "Test string",
-                    enableAccessLogging: true,
-                    explanationSpec: {
-                        metadata: {
-                            featureAttributionsSchemaUri: "Test string",
-                            inputs: {
-                                A: {
-                                    denseShapeTensorName: "Test string",
-                                    encodedBaselines: [
-                                        42
-                                    ],
-                                    encodedTensorName: "Test string",
-                                    encoding: "Test string",
-                                    featureValueDomain: {
-                                        maxValue: 42,
-                                        minValue: 42,
-                                        originalMean: 42,
-                                        originalStddev: 42,
-                                    },
-                                    groupName: "Test string",
-                                    indexFeatureMapping: [
-                                        "Test string"
-                                    ],
-                                    indicesTensorName: "Test string",
-                                    inputBaselines: [
-                                        42
-                                    ],
-                                    inputTensorName: "Test string",
-                                    modality: "Test string",
-                                    visualization: {
-                                        clipPercentLowerbound: 42,
-                                        clipPercentUpperbound: 42,
-                                        colorMap: "Test string",
-                                        overlayType: "Test string",
-                                        polarity: "Test string",
-                                        type: "Test string",
-                                    },
-                                }
-                            },
-                            latentSpaceSource: "Test string",
-                            outputs: {
-                                A: {
-                                    displayNameMappingKey: "Test string",
-                                    indexDisplayNameMapping: 42,
-                                    outputTensorName: "Test string",
-                                }
-                            },
-                        },
-                        parameters: {
-                            examples: {
-                                exampleGcsSource: {
-                                    dataFormat: "Test string",
-                                    gcsSource: {
-                                        uris: [
-                                            "Test string"
-                                        ],
-                                    },
-                                },
-                                nearestNeighborSearchConfig: 42,
-                                neighborCount: 42,
-                                presets: {
-                                    modality: "Test string",
-                                    query: "Test string",
-                                },
-                            },
-                            integratedGradientsAttribution: {
-                                blurBaselineConfig: {
-                                    maxBlurSigma: 42,
-                                },
-                                smoothGradConfig: {
-                                    featureNoiseSigma: {
-                                        noiseSigma: [
-                                            {
-                                                name: "Test string",
-                                                sigma: 42,
-                                            }
-                                        ],
-                                    },
-                                    noiseSigma: 42,
-                                    noisySampleCount: 42,
-                                },
-                                stepCount: 42,
-                            },
-                            outputIndices: [
-                                42
-                            ],
-                            sampledShapleyAttribution: {
-                                pathCount: 42,
-                            },
-                            topK: 42,
-                            xraiAttribution: {
-                                blurBaselineConfig: {
-                                    maxBlurSigma: 42,
-                                },
-                                smoothGradConfig: {
-                                    featureNoiseSigma: {
-                                        noiseSigma: [
-                                            {
-                                                name: "Test string",
-                                                sigma: 42,
-                                            }
-                                        ],
-                                    },
-                                    noiseSigma: 42,
-                                    noisySampleCount: 42,
-                                },
-                                stepCount: 42,
-                            },
-                        },
-                    },
-                    id: "Test string",
-                    model: "Test string",
-                    modelVersionId: "Test string",
-                    privateEndpoints: {
-                        explainHttpUri: "Test string",
-                        healthHttpUri: "Test string",
-                        predictHttpUri: "Test string",
-                        serviceAttachment: "Test string",
-                    },
-                    serviceAccount: "Test string",
-                }
-            ],
-            description: "Test string",
-            displayName: "Test string",
-            enablePrivateServiceConnect: true,
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            modelDeploymentMonitoringJob: "Test string",
-            name: "Test string",
-            network: "Test string",
-            predictRequestResponseLoggingConfig: {
-                bigqueryDestination: {
-                    outputUri: "Test string",
-                },
-                enabled: true,
-                samplingRate: 42,
-            },
-            trafficSplit: {
-                A: 42
-            },
-            updateTime: "Test string",
-        });
-        /** Deletes an Endpoint. */
-        await gapi.client.aiplatform.projects.locations.endpoints.delete({
-            name: "Test string",
-        });
-        /** Deploys a Model into this Endpoint, creating a DeployedModel within it. */
-        await gapi.client.aiplatform.projects.locations.endpoints.deployModel({
-            endpoint: "Test string",
-        }, {
-            deployedModel: {
-                automaticResources: {
-                    maxReplicaCount: 42,
-                    minReplicaCount: 42,
-                },
-                createTime: "Test string",
-                dedicatedResources: {
-                    autoscalingMetricSpecs: [
-                        {
-                            metricName: "Test string",
-                            target: 42,
-                        }
-                    ],
-                    machineSpec: {
-                        acceleratorCount: 42,
-                        acceleratorType: "Test string",
-                        machineType: "Test string",
-                        tpuTopology: "Test string",
-                    },
-                    maxReplicaCount: 42,
-                    minReplicaCount: 42,
-                },
-                disableContainerLogging: true,
-                displayName: "Test string",
-                enableAccessLogging: true,
-                explanationSpec: {
-                    metadata: {
-                        featureAttributionsSchemaUri: "Test string",
-                        inputs: {
-                            A: {
-                                denseShapeTensorName: "Test string",
-                                encodedBaselines: [
-                                    42
-                                ],
-                                encodedTensorName: "Test string",
-                                encoding: "Test string",
-                                featureValueDomain: {
-                                    maxValue: 42,
-                                    minValue: 42,
-                                    originalMean: 42,
-                                    originalStddev: 42,
-                                },
-                                groupName: "Test string",
-                                indexFeatureMapping: [
-                                    "Test string"
-                                ],
-                                indicesTensorName: "Test string",
-                                inputBaselines: [
-                                    42
-                                ],
-                                inputTensorName: "Test string",
-                                modality: "Test string",
-                                visualization: {
-                                    clipPercentLowerbound: 42,
-                                    clipPercentUpperbound: 42,
-                                    colorMap: "Test string",
-                                    overlayType: "Test string",
-                                    polarity: "Test string",
-                                    type: "Test string",
-                                },
-                            }
-                        },
-                        latentSpaceSource: "Test string",
-                        outputs: {
-                            A: {
-                                displayNameMappingKey: "Test string",
-                                indexDisplayNameMapping: 42,
-                                outputTensorName: "Test string",
-                            }
-                        },
-                    },
-                    parameters: {
-                        examples: {
-                            exampleGcsSource: {
-                                dataFormat: "Test string",
-                                gcsSource: {
-                                    uris: [
-                                        "Test string"
-                                    ],
-                                },
-                            },
-                            nearestNeighborSearchConfig: 42,
-                            neighborCount: 42,
-                            presets: {
-                                modality: "Test string",
-                                query: "Test string",
-                            },
-                        },
-                        integratedGradientsAttribution: {
-                            blurBaselineConfig: {
-                                maxBlurSigma: 42,
-                            },
-                            smoothGradConfig: {
-                                featureNoiseSigma: {
-                                    noiseSigma: [
-                                        {
-                                            name: "Test string",
-                                            sigma: 42,
-                                        }
-                                    ],
-                                },
-                                noiseSigma: 42,
-                                noisySampleCount: 42,
-                            },
-                            stepCount: 42,
-                        },
-                        outputIndices: [
-                            42
-                        ],
-                        sampledShapleyAttribution: {
-                            pathCount: 42,
-                        },
-                        topK: 42,
-                        xraiAttribution: {
-                            blurBaselineConfig: {
-                                maxBlurSigma: 42,
-                            },
-                            smoothGradConfig: {
-                                featureNoiseSigma: {
-                                    noiseSigma: [
-                                        {
-                                            name: "Test string",
-                                            sigma: 42,
-                                        }
-                                    ],
-                                },
-                                noiseSigma: 42,
-                                noisySampleCount: 42,
-                            },
-                            stepCount: 42,
-                        },
-                    },
-                },
-                id: "Test string",
-                model: "Test string",
-                modelVersionId: "Test string",
-                privateEndpoints: {
-                    explainHttpUri: "Test string",
-                    healthHttpUri: "Test string",
-                    predictHttpUri: "Test string",
-                    serviceAttachment: "Test string",
-                },
-                serviceAccount: "Test string",
-            },
-            trafficSplit: {
-                A: 42
-            },
-        });
-        /**
-         * Perform an online explanation. If deployed_model_id is specified, the corresponding DeployModel must have explanation_spec populated. If deployed_model_id is not specified, all
-         * DeployedModels must have explanation_spec populated.
-         */
-        await gapi.client.aiplatform.projects.locations.endpoints.explain({
-            endpoint: "Test string",
-        }, {
-            deployedModelId: "Test string",
-            explanationSpecOverride: {
-                examplesOverride: {
-                    crowdingCount: 42,
-                    dataFormat: "Test string",
-                    neighborCount: 42,
-                    restrictions: [
-                        {
-                            allow: [
-                                "Test string"
-                            ],
-                            deny: [
-                                "Test string"
-                            ],
-                            namespaceName: "Test string",
-                        }
-                    ],
-                    returnEmbeddings: true,
-                },
-                metadata: {
-                    inputs: {
-                        A: {
-                            inputBaselines: [
-                                42
-                            ],
-                        }
-                    },
-                },
-                parameters: {
-                    examples: {
-                        exampleGcsSource: {
-                            dataFormat: "Test string",
-                            gcsSource: {
-                                uris: [
-                                    "Test string"
-                                ],
-                            },
-                        },
-                        nearestNeighborSearchConfig: 42,
-                        neighborCount: 42,
-                        presets: {
-                            modality: "Test string",
-                            query: "Test string",
-                        },
-                    },
-                    integratedGradientsAttribution: {
-                        blurBaselineConfig: {
-                            maxBlurSigma: 42,
-                        },
-                        smoothGradConfig: {
-                            featureNoiseSigma: {
-                                noiseSigma: [
-                                    {
-                                        name: "Test string",
-                                        sigma: 42,
-                                    }
-                                ],
-                            },
-                            noiseSigma: 42,
-                            noisySampleCount: 42,
-                        },
-                        stepCount: 42,
-                    },
-                    outputIndices: [
-                        42
-                    ],
-                    sampledShapleyAttribution: {
-                        pathCount: 42,
-                    },
-                    topK: 42,
-                    xraiAttribution: {
-                        blurBaselineConfig: {
-                            maxBlurSigma: 42,
-                        },
-                        smoothGradConfig: {
-                            featureNoiseSigma: {
-                                noiseSigma: [
-                                    {
-                                        name: "Test string",
-                                        sigma: 42,
-                                    }
-                                ],
-                            },
-                            noiseSigma: 42,
-                            noisySampleCount: 42,
-                        },
-                        stepCount: 42,
-                    },
-                },
-            },
-            instances: [
-                42
-            ],
-            parameters: 42,
-        });
-        /** Gets an Endpoint. */
-        await gapi.client.aiplatform.projects.locations.endpoints.get({
-            name: "Test string",
-        });
-        /** Lists Endpoints in a Location. */
-        await gapi.client.aiplatform.projects.locations.endpoints.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Updates an existing deployed model. Updatable fields include `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and
-         * `enable_container_logging` (v1beta1 only).
-         */
-        await gapi.client.aiplatform.projects.locations.endpoints.mutateDeployedModel({
-            endpoint: "Test string",
-        }, {
-            deployedModel: {
-                automaticResources: {
-                    maxReplicaCount: 42,
-                    minReplicaCount: 42,
-                },
-                createTime: "Test string",
-                dedicatedResources: {
-                    autoscalingMetricSpecs: [
-                        {
-                            metricName: "Test string",
-                            target: 42,
-                        }
-                    ],
-                    machineSpec: {
-                        acceleratorCount: 42,
-                        acceleratorType: "Test string",
-                        machineType: "Test string",
-                        tpuTopology: "Test string",
-                    },
-                    maxReplicaCount: 42,
-                    minReplicaCount: 42,
-                },
-                disableContainerLogging: true,
-                displayName: "Test string",
-                enableAccessLogging: true,
-                explanationSpec: {
-                    metadata: {
-                        featureAttributionsSchemaUri: "Test string",
-                        inputs: {
-                            A: {
-                                denseShapeTensorName: "Test string",
-                                encodedBaselines: [
-                                    42
-                                ],
-                                encodedTensorName: "Test string",
-                                encoding: "Test string",
-                                featureValueDomain: {
-                                    maxValue: 42,
-                                    minValue: 42,
-                                    originalMean: 42,
-                                    originalStddev: 42,
-                                },
-                                groupName: "Test string",
-                                indexFeatureMapping: [
-                                    "Test string"
-                                ],
-                                indicesTensorName: "Test string",
-                                inputBaselines: [
-                                    42
-                                ],
-                                inputTensorName: "Test string",
-                                modality: "Test string",
-                                visualization: {
-                                    clipPercentLowerbound: 42,
-                                    clipPercentUpperbound: 42,
-                                    colorMap: "Test string",
-                                    overlayType: "Test string",
-                                    polarity: "Test string",
-                                    type: "Test string",
-                                },
-                            }
-                        },
-                        latentSpaceSource: "Test string",
-                        outputs: {
-                            A: {
-                                displayNameMappingKey: "Test string",
-                                indexDisplayNameMapping: 42,
-                                outputTensorName: "Test string",
-                            }
-                        },
-                    },
-                    parameters: {
-                        examples: {
-                            exampleGcsSource: {
-                                dataFormat: "Test string",
-                                gcsSource: {
-                                    uris: [
-                                        "Test string"
-                                    ],
-                                },
-                            },
-                            nearestNeighborSearchConfig: 42,
-                            neighborCount: 42,
-                            presets: {
-                                modality: "Test string",
-                                query: "Test string",
-                            },
-                        },
-                        integratedGradientsAttribution: {
-                            blurBaselineConfig: {
-                                maxBlurSigma: 42,
-                            },
-                            smoothGradConfig: {
-                                featureNoiseSigma: {
-                                    noiseSigma: [
-                                        {
-                                            name: "Test string",
-                                            sigma: 42,
-                                        }
-                                    ],
-                                },
-                                noiseSigma: 42,
-                                noisySampleCount: 42,
-                            },
-                            stepCount: 42,
-                        },
-                        outputIndices: [
-                            42
-                        ],
-                        sampledShapleyAttribution: {
-                            pathCount: 42,
-                        },
-                        topK: 42,
-                        xraiAttribution: {
-                            blurBaselineConfig: {
-                                maxBlurSigma: 42,
-                            },
-                            smoothGradConfig: {
-                                featureNoiseSigma: {
-                                    noiseSigma: [
-                                        {
-                                            name: "Test string",
-                                            sigma: 42,
-                                        }
-                                    ],
-                                },
-                                noiseSigma: 42,
-                                noisySampleCount: 42,
-                            },
-                            stepCount: 42,
-                        },
-                    },
-                },
-                id: "Test string",
-                model: "Test string",
-                modelVersionId: "Test string",
-                privateEndpoints: {
-                    explainHttpUri: "Test string",
-                    healthHttpUri: "Test string",
-                    predictHttpUri: "Test string",
-                    serviceAttachment: "Test string",
-                },
-                serviceAccount: "Test string",
-            },
-            updateMask: "Test string",
-        });
-        /** Updates an Endpoint. */
-        await gapi.client.aiplatform.projects.locations.endpoints.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            deployedModels: [
-                {
-                    automaticResources: {
-                        maxReplicaCount: 42,
-                        minReplicaCount: 42,
-                    },
-                    createTime: "Test string",
-                    dedicatedResources: {
-                        autoscalingMetricSpecs: [
-                            {
-                                metricName: "Test string",
-                                target: 42,
-                            }
-                        ],
-                        machineSpec: {
-                            acceleratorCount: 42,
-                            acceleratorType: "Test string",
-                            machineType: "Test string",
-                            tpuTopology: "Test string",
-                        },
-                        maxReplicaCount: 42,
-                        minReplicaCount: 42,
-                    },
-                    disableContainerLogging: true,
-                    displayName: "Test string",
-                    enableAccessLogging: true,
-                    explanationSpec: {
-                        metadata: {
-                            featureAttributionsSchemaUri: "Test string",
-                            inputs: {
-                                A: {
-                                    denseShapeTensorName: "Test string",
-                                    encodedBaselines: [
-                                        42
-                                    ],
-                                    encodedTensorName: "Test string",
-                                    encoding: "Test string",
-                                    featureValueDomain: {
-                                        maxValue: 42,
-                                        minValue: 42,
-                                        originalMean: 42,
-                                        originalStddev: 42,
-                                    },
-                                    groupName: "Test string",
-                                    indexFeatureMapping: [
-                                        "Test string"
-                                    ],
-                                    indicesTensorName: "Test string",
-                                    inputBaselines: [
-                                        42
-                                    ],
-                                    inputTensorName: "Test string",
-                                    modality: "Test string",
-                                    visualization: {
-                                        clipPercentLowerbound: 42,
-                                        clipPercentUpperbound: 42,
-                                        colorMap: "Test string",
-                                        overlayType: "Test string",
-                                        polarity: "Test string",
-                                        type: "Test string",
-                                    },
-                                }
-                            },
-                            latentSpaceSource: "Test string",
-                            outputs: {
-                                A: {
-                                    displayNameMappingKey: "Test string",
-                                    indexDisplayNameMapping: 42,
-                                    outputTensorName: "Test string",
-                                }
-                            },
-                        },
-                        parameters: {
-                            examples: {
-                                exampleGcsSource: {
-                                    dataFormat: "Test string",
-                                    gcsSource: {
-                                        uris: [
-                                            "Test string"
-                                        ],
-                                    },
-                                },
-                                nearestNeighborSearchConfig: 42,
-                                neighborCount: 42,
-                                presets: {
-                                    modality: "Test string",
-                                    query: "Test string",
-                                },
-                            },
-                            integratedGradientsAttribution: {
-                                blurBaselineConfig: {
-                                    maxBlurSigma: 42,
-                                },
-                                smoothGradConfig: {
-                                    featureNoiseSigma: {
-                                        noiseSigma: [
-                                            {
-                                                name: "Test string",
-                                                sigma: 42,
-                                            }
-                                        ],
-                                    },
-                                    noiseSigma: 42,
-                                    noisySampleCount: 42,
-                                },
-                                stepCount: 42,
-                            },
-                            outputIndices: [
-                                42
-                            ],
-                            sampledShapleyAttribution: {
-                                pathCount: 42,
-                            },
-                            topK: 42,
-                            xraiAttribution: {
-                                blurBaselineConfig: {
-                                    maxBlurSigma: 42,
-                                },
-                                smoothGradConfig: {
-                                    featureNoiseSigma: {
-                                        noiseSigma: [
-                                            {
-                                                name: "Test string",
-                                                sigma: 42,
-                                            }
-                                        ],
-                                    },
-                                    noiseSigma: 42,
-                                    noisySampleCount: 42,
-                                },
-                                stepCount: 42,
-                            },
-                        },
-                    },
-                    id: "Test string",
-                    model: "Test string",
-                    modelVersionId: "Test string",
-                    privateEndpoints: {
-                        explainHttpUri: "Test string",
-                        healthHttpUri: "Test string",
-                        predictHttpUri: "Test string",
-                        serviceAttachment: "Test string",
-                    },
-                    serviceAccount: "Test string",
-                }
-            ],
-            description: "Test string",
-            displayName: "Test string",
-            enablePrivateServiceConnect: true,
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            modelDeploymentMonitoringJob: "Test string",
-            name: "Test string",
-            network: "Test string",
-            predictRequestResponseLoggingConfig: {
-                bigqueryDestination: {
-                    outputUri: "Test string",
-                },
-                enabled: true,
-                samplingRate: 42,
-            },
-            trafficSplit: {
-                A: 42
-            },
-            updateTime: "Test string",
-        });
-        /** Perform an online prediction. */
-        await gapi.client.aiplatform.projects.locations.endpoints.predict({
-            endpoint: "Test string",
-        }, {
-            instances: [
-                42
-            ],
-            parameters: 42,
-        });
-        /**
-         * Perform an online prediction with an arbitrary HTTP payload. The response includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the Endpoint that served this
-         * prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's DeployedModel that served this prediction.
-         */
-        await gapi.client.aiplatform.projects.locations.endpoints.rawPredict({
-            endpoint: "Test string",
-        }, {
-            httpBody: {
-                contentType: "Test string",
-                data: "Test string",
-                extensions: [
-                    {
-                        A: 42
-                    }
-                ],
-            },
-        });
-        /** Perform a server-side streaming online prediction request for Vertex LLM streaming. */
-        await gapi.client.aiplatform.projects.locations.endpoints.serverStreamingPredict({
-            endpoint: "Test string",
-        }, {
-            inputs: [
-                {
-                    boolVal: [
-                        true
-                    ],
-                    bytesVal: [
-                        "Test string"
-                    ],
-                    doubleVal: [
-                        42
-                    ],
-                    dtype: "Test string",
-                    floatVal: [
-                        42
-                    ],
-                    int64Val: [
-                        "Test string"
-                    ],
-                    intVal: [
-                        42
-                    ],
-                    listVal: undefined,
-                    shape: [
-                        "Test string"
-                    ],
-                    stringVal: [
-                        "Test string"
-                    ],
-                    structVal: undefined,
-                    tensorVal: "Test string",
-                    uint64Val: [
-                        "Test string"
-                    ],
-                    uintVal: [
-                        42
-                    ],
-                }
-            ],
-            parameters: {
-                boolVal: [
-                    true
-                ],
-                bytesVal: [
-                    "Test string"
-                ],
-                doubleVal: [
-                    42
-                ],
-                dtype: "Test string",
-                floatVal: [
-                    42
-                ],
-                int64Val: [
-                    "Test string"
-                ],
-                intVal: [
-                    42
-                ],
-                listVal: undefined,
-                shape: [
-                    "Test string"
-                ],
-                stringVal: [
-                    "Test string"
-                ],
-                structVal: undefined,
-                tensorVal: "Test string",
-                uint64Val: [
-                    "Test string"
-                ],
-                uintVal: [
-                    42
-                ],
-            },
-        });
-        /** Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using. */
-        await gapi.client.aiplatform.projects.locations.endpoints.undeployModel({
-            endpoint: "Test string",
-        }, {
-            deployedModelId: "Test string",
-            trafficSplit: {
-                A: 42
-            },
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.endpoints.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.endpoints.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.endpoints.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.endpoints.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.endpoints.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Creates a new FeatureGroup in a given project and location. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.create({
-            featureGroupId: "Test string",
-            parent: "Test string",
-        }, {
-            bigQuery: {
-                bigQuerySource: {
-                    inputUri: "Test string",
-                },
-                entityIdColumns: [
-                    "Test string"
-                ],
-            },
-            createTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single FeatureGroup. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.delete({
-            force: true,
-            name: "Test string",
-        });
-        /** Gets details of a single FeatureGroup. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.get({
-            name: "Test string",
-        });
-        /** Lists FeatureGroups in a given project and location. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single FeatureGroup. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            bigQuery: {
-                bigQuerySource: {
-                    inputUri: "Test string",
-                },
-                entityIdColumns: [
-                    "Test string"
-                ],
-            },
-            createTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Creates a new Feature in a given FeatureGroup. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.features.create({
-            featureId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disableMonitoring: true,
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            monitoringStatsAnomalies: [
-                {
-                    featureStatsAnomaly: {
-                        anomalyDetectionThreshold: 42,
-                        anomalyUri: "Test string",
-                        distributionDeviation: 42,
-                        endTime: "Test string",
-                        score: 42,
-                        startTime: "Test string",
-                        statsUri: "Test string",
-                    },
-                    objective: "Test string",
-                }
-            ],
-            name: "Test string",
-            updateTime: "Test string",
-            valueType: "Test string",
-            versionColumnName: "Test string",
-        });
-        /** Deletes a single Feature. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.features.delete({
-            name: "Test string",
-        });
-        /** Gets details of a single Feature. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.features.get({
-            name: "Test string",
-        });
-        /** Lists Features in a given FeatureGroup. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.features.list({
-            filter: "Test string",
-            latestStatsCount: 42,
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates the parameters of a single Feature. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.features.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disableMonitoring: true,
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            monitoringStatsAnomalies: [
-                {
-                    featureStatsAnomaly: {
-                        anomalyDetectionThreshold: 42,
-                        anomalyUri: "Test string",
-                        distributionDeviation: 42,
-                        endTime: "Test string",
-                        score: 42,
-                        startTime: "Test string",
-                        statsUri: "Test string",
-                    },
-                    objective: "Test string",
-                }
-            ],
-            name: "Test string",
-            updateTime: "Test string",
-            valueType: "Test string",
-            versionColumnName: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featureGroups.features.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.features.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.features.operations.listWait({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.featureGroups.features.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featureGroups.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.featureGroups.operations.listWait({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.featureGroups.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Creates a new FeatureOnlineStore in a given project and location. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.create({
-            featureOnlineStoreId: "Test string",
-            parent: "Test string",
-        }, {
-            bigtable: {
-                autoScaling: {
-                    cpuUtilizationTarget: 42,
-                    maxNodeCount: 42,
-                    minNodeCount: 42,
-                },
-            },
-            createTime: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not contain any FeatureViews. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.delete({
-            force: true,
-            name: "Test string",
-        });
-        /** Gets details of a single FeatureOnlineStore. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.get({
-            name: "Test string",
-        });
-        /** Lists FeatureOnlineStores in a given project and location. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single FeatureOnlineStore. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            bigtable: {
-                autoScaling: {
-                    cpuUtilizationTarget: 42,
-                    maxNodeCount: 42,
-                    minNodeCount: 42,
-                },
-            },
-            createTime: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Creates a new FeatureView in a given FeatureOnlineStore. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.create({
-            featureViewId: "Test string",
-            parent: "Test string",
-            runSyncImmediately: true,
-        }, {
-            bigQuerySource: {
-                entityIdColumns: [
-                    "Test string"
-                ],
-                uri: "Test string",
-            },
-            createTime: "Test string",
-            etag: "Test string",
-            featureRegistrySource: {
-                featureGroups: [
-                    {
-                        featureGroupId: "Test string",
-                        featureIds: [
-                            "Test string"
-                        ],
-                    }
-                ],
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            syncConfig: {
-                cron: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Deletes a single FeatureView. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.delete({
-            name: "Test string",
-        });
-        /** Fetch feature values under a FeatureView. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.fetchFeatureValues({
-            featureView: "Test string",
-        }, {
-            dataFormat: "Test string",
-            dataKey: {
-                key: "Test string",
-            },
-        });
-        /** Gets details of a single FeatureView. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.get({
-            name: "Test string",
-        });
-        /** Lists FeatureViews in a given FeatureOnlineStore. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single FeatureView. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            bigQuerySource: {
-                entityIdColumns: [
-                    "Test string"
-                ],
-                uri: "Test string",
-            },
-            createTime: "Test string",
-            etag: "Test string",
-            featureRegistrySource: {
-                featureGroups: [
-                    {
-                        featureGroupId: "Test string",
-                        featureIds: [
-                            "Test string"
-                        ],
-                    }
-                ],
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            syncConfig: {
-                cron: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Triggers on-demand sync for the FeatureView. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.sync({
-            featureView: "Test string",
-        }, {
-        });
-        /** Gets details of a single FeatureViewSync. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.featureViewSyncs.get({
-            name: "Test string",
-        });
-        /** Lists FeatureViewSyncs in a given FeatureView. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.featureViewSyncs.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.operations.listWait({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.operations.listWait({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.featureOnlineStores.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Batch reads Feature values from a Featurestore. This API enables batch reading Feature values, where each read instance in the batch may read Feature values of entities from one or more
-         * EntityTypes. Point-in-time correctness is guaranteed for Feature values of each read instance as of each instance's read timestamp.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.batchReadFeatureValues({
-            featurestore: "Test string",
-        }, {
-            bigqueryReadInstances: {
-                inputUri: "Test string",
-            },
-            csvReadInstances: {
-                gcsSource: {
-                    uris: [
-                        "Test string"
-                    ],
-                },
-            },
-            destination: {
-                bigqueryDestination: {
-                    outputUri: "Test string",
-                },
-                csvDestination: {
-                    gcsDestination: {
-                        outputUriPrefix: "Test string",
-                    },
-                },
-                tfrecordDestination: {
-                    gcsDestination: {
-                        outputUriPrefix: "Test string",
-                    },
-                },
-            },
-            entityTypeSpecs: [
-                {
-                    entityTypeId: "Test string",
-                    featureSelector: {
-                        idMatcher: {
-                            ids: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    settings: [
-                        {
-                            destinationField: "Test string",
-                            featureId: "Test string",
-                        }
-                    ],
-                }
-            ],
-            passThroughFields: [
-                {
-                    fieldName: "Test string",
-                }
-            ],
-            startTime: "Test string",
-        });
-        /** Creates a new Featurestore in a given project and location. */
-        await gapi.client.aiplatform.projects.locations.featurestores.create({
-            featurestoreId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            onlineServingConfig: {
-                fixedNodeCount: 42,
-                scaling: {
-                    cpuUtilizationTarget: 42,
-                    maxNodeCount: 42,
-                    minNodeCount: 42,
-                },
-            },
-            onlineStorageTtlDays: 42,
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single Featurestore. The Featurestore must not contain any EntityTypes or `force` must be set to true for the request to succeed. */
-        await gapi.client.aiplatform.projects.locations.featurestores.delete({
-            force: true,
-            name: "Test string",
-        });
-        /** Gets details of a single Featurestore. */
-        await gapi.client.aiplatform.projects.locations.featurestores.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.aiplatform.projects.locations.featurestores.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Featurestores in a given project and location. */
-        await gapi.client.aiplatform.projects.locations.featurestores.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates the parameters of a single Featurestore. */
-        await gapi.client.aiplatform.projects.locations.featurestores.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            onlineServingConfig: {
-                fixedNodeCount: 42,
-                scaling: {
-                    cpuUtilizationTarget: 42,
-                    maxNodeCount: 42,
-                    minNodeCount: 42,
-                },
-            },
-            onlineStorageTtlDays: 42,
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Searches Features matching a query in a given project. */
-        await gapi.client.aiplatform.projects.locations.featurestores.searchFeatures({
-            location: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            query: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.aiplatform.projects.locations.featurestores.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.testIamPermissions({
-            permissions: "Test string",
-            resource: "Test string",
-        });
-        /** Creates a new EntityType in a given Featurestore. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.create({
-            entityTypeId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            monitoringConfig: {
-                categoricalThresholdConfig: {
-                    value: 42,
-                },
-                importFeaturesAnalysis: {
-                    anomalyDetectionBaseline: "Test string",
-                    state: "Test string",
-                },
-                numericalThresholdConfig: {
-                    value: 42,
-                },
-                snapshotAnalysis: {
-                    disabled: true,
-                    monitoringIntervalDays: 42,
-                    stalenessDays: 42,
-                },
-            },
-            name: "Test string",
-            offlineStorageTtlDays: 42,
-            updateTime: "Test string",
-        });
-        /** Deletes a single EntityType. The EntityType must not have any Features or `force` must be set to true for the request to succeed. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.delete({
-            force: true,
-            name: "Test string",
-        });
-        /**
-         * Delete Feature values from Featurestore. The progress of the deletion is tracked by the returned operation. The deleted feature values are guaranteed to be invisible to subsequent read
-         * operations after the operation is marked as successfully done. If a delete feature values operation fails, the feature values returned from reads and exports may be inconsistent. If
-         * consistency is required, the caller must retry the same delete request again and wait till the new operation returned is marked as successfully done.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.deleteFeatureValues({
-            entityType: "Test string",
-        }, {
-            selectEntity: {
-                entityIdSelector: {
-                    csvSource: {
-                        gcsSource: {
-                            uris: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    entityIdField: "Test string",
-                },
-            },
-            selectTimeRangeAndFeature: {
-                featureSelector: {
-                    idMatcher: {
-                        ids: [
-                            "Test string"
-                        ],
-                    },
-                },
-                skipOnlineStorageDelete: true,
-                timeRange: {
-                    endTime: "Test string",
-                    startTime: "Test string",
-                },
-            },
-        });
-        /** Exports Feature values from all the entities of a target EntityType. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.exportFeatureValues({
-            entityType: "Test string",
-        }, {
-            destination: {
-                bigqueryDestination: {
-                    outputUri: "Test string",
-                },
-                csvDestination: {
-                    gcsDestination: {
-                        outputUriPrefix: "Test string",
-                    },
-                },
-                tfrecordDestination: {
-                    gcsDestination: {
-                        outputUriPrefix: "Test string",
-                    },
-                },
-            },
-            featureSelector: {
-                idMatcher: {
-                    ids: [
-                        "Test string"
-                    ],
-                },
-            },
-            fullExport: {
-                endTime: "Test string",
-                startTime: "Test string",
-            },
-            settings: [
-                {
-                    destinationField: "Test string",
-                    featureId: "Test string",
-                }
-            ],
-            snapshotExport: {
-                snapshotTime: "Test string",
-                startTime: "Test string",
-            },
-        });
-        /** Gets details of a single EntityType. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /**
-         * Imports Feature values into the Featurestore from a source storage. The progress of the import is tracked by the returned operation. The imported features are guaranteed to be visible
-         * to subsequent read operations after the operation is marked as successfully done. If an import operation fails, the Feature values returned from reads and exports may be inconsistent.
-         * If consistency is required, the caller must retry the same import request again and wait till the new operation returned is marked as successfully done. There are also scenarios where
-         * the caller can cause inconsistency. - Source data for import contains multiple distinct Feature values for the same entity ID and timestamp. - Source is modified during an import. This
-         * includes adding, updating, or removing source data and/or metadata. Examples of updating metadata include but are not limited to changing storage location, storage class, or retention
-         * policy. - Online serving cluster is under-provisioned.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.importFeatureValues({
-            entityType: "Test string",
-        }, {
-            avroSource: {
-                gcsSource: {
-                    uris: [
-                        "Test string"
-                    ],
-                },
-            },
-            bigquerySource: {
-                inputUri: "Test string",
-            },
-            csvSource: {
-                gcsSource: {
-                    uris: [
-                        "Test string"
-                    ],
-                },
-            },
-            disableIngestionAnalysis: true,
-            disableOnlineServing: true,
-            entityIdField: "Test string",
-            featureSpecs: [
-                {
-                    id: "Test string",
-                    sourceField: "Test string",
-                }
-            ],
-            featureTime: "Test string",
-            featureTimeField: "Test string",
-            workerCount: 42,
-        });
-        /** Lists EntityTypes in a given Featurestore. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates the parameters of a single EntityType. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            monitoringConfig: {
-                categoricalThresholdConfig: {
-                    value: 42,
-                },
-                importFeaturesAnalysis: {
-                    anomalyDetectionBaseline: "Test string",
-                    state: "Test string",
-                },
-                numericalThresholdConfig: {
-                    value: 42,
-                },
-                snapshotAnalysis: {
-                    disabled: true,
-                    monitoringIntervalDays: 42,
-                    stalenessDays: 42,
-                },
-            },
-            name: "Test string",
-            offlineStorageTtlDays: 42,
-            updateTime: "Test string",
-        });
-        /** Reads Feature values of a specific entity of an EntityType. For reading feature values of multiple entities of an EntityType, please use StreamingReadFeatureValues. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.readFeatureValues({
-            entityType: "Test string",
-        }, {
-            entityId: "Test string",
-            featureSelector: {
-                idMatcher: {
-                    ids: [
-                        "Test string"
-                    ],
-                },
-            },
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /** Reads Feature values for multiple entities. Depending on their size, data for different entities may be broken up across multiple responses. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.streamingReadFeatureValues({
-            entityType: "Test string",
-        }, {
-            entityIds: [
-                "Test string"
-            ],
-            featureSelector: {
-                idMatcher: {
-                    ids: [
-                        "Test string"
-                    ],
-                },
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.testIamPermissions({
-            permissions: "Test string",
-            resource: "Test string",
-        });
-        /**
-         * Writes Feature values of one or more entities of an EntityType. The Feature values are merged into existing entities if any. The Feature values to be written must have timestamp within
-         * the online storage retention.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.writeFeatureValues({
-            entityType: "Test string",
-        }, {
-            payloads: [
-                {
-                    entityId: "Test string",
-                    featureValues: {
-                        A: {
-                            boolArrayValue: {
-                                values: [
-                                    true
-                                ],
-                            },
-                            boolValue: true,
-                            bytesValue: "Test string",
-                            doubleArrayValue: {
-                                values: [
-                                    42
-                                ],
-                            },
-                            doubleValue: 42,
-                            int64ArrayValue: {
-                                values: [
-                                    "Test string"
-                                ],
-                            },
-                            int64Value: "Test string",
-                            metadata: {
-                                generateTime: "Test string",
-                            },
-                            stringArrayValue: {
-                                values: [
-                                    "Test string"
-                                ],
-                            },
-                            stringValue: "Test string",
-                        }
-                    },
-                }
-            ],
-        });
-        /** Creates a batch of Features in a given EntityType. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.batchCreate({
-            parent: "Test string",
-        }, {
-            requests: [
-                {
-                    feature: {
-                        createTime: "Test string",
-                        description: "Test string",
-                        disableMonitoring: true,
-                        etag: "Test string",
-                        labels: {
-                            A: "Test string"
-                        },
-                        monitoringStatsAnomalies: [
-                            {
-                                featureStatsAnomaly: {
-                                    anomalyDetectionThreshold: 42,
-                                    anomalyUri: "Test string",
-                                    distributionDeviation: 42,
-                                    endTime: "Test string",
-                                    score: 42,
-                                    startTime: "Test string",
-                                    statsUri: "Test string",
-                                },
-                                objective: "Test string",
-                            }
-                        ],
-                        name: "Test string",
-                        updateTime: "Test string",
-                        valueType: "Test string",
-                        versionColumnName: "Test string",
-                    },
-                    featureId: "Test string",
-                    parent: "Test string",
-                }
-            ],
-        });
-        /** Creates a new Feature in a given EntityType. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.create({
-            featureId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disableMonitoring: true,
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            monitoringStatsAnomalies: [
-                {
-                    featureStatsAnomaly: {
-                        anomalyDetectionThreshold: 42,
-                        anomalyUri: "Test string",
-                        distributionDeviation: 42,
-                        endTime: "Test string",
-                        score: 42,
-                        startTime: "Test string",
-                        statsUri: "Test string",
-                    },
-                    objective: "Test string",
-                }
-            ],
-            name: "Test string",
-            updateTime: "Test string",
-            valueType: "Test string",
-            versionColumnName: "Test string",
-        });
-        /** Deletes a single Feature. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.delete({
-            name: "Test string",
-        });
-        /** Gets details of a single Feature. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.get({
-            name: "Test string",
-        });
-        /** Lists Features in a given EntityType. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.list({
-            filter: "Test string",
-            latestStatsCount: 42,
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates the parameters of a single Feature. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            disableMonitoring: true,
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            monitoringStatsAnomalies: [
-                {
-                    featureStatsAnomaly: {
-                        anomalyDetectionThreshold: 42,
-                        anomalyUri: "Test string",
-                        distributionDeviation: 42,
-                        endTime: "Test string",
-                        score: 42,
-                        startTime: "Test string",
-                        statsUri: "Test string",
-                    },
-                    objective: "Test string",
-                }
-            ],
-            name: "Test string",
-            updateTime: "Test string",
-            valueType: "Test string",
-            versionColumnName: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.featurestores.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.featurestores.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.featurestores.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Cancels a HyperparameterTuningJob. Starts asynchronous cancellation on the HyperparameterTuningJob. The server makes a best effort to cancel the job, but success is not guaranteed.
-         * Clients can use JobService.GetHyperparameterTuningJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful
-         * cancellation, the HyperparameterTuningJob is not deleted; instead it becomes a job with a HyperparameterTuningJob.error value with a google.rpc.Status.code of 1, corresponding to
-         * `Code.CANCELLED`, and HyperparameterTuningJob.state is set to `CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a HyperparameterTuningJob */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            endTime: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            maxFailedTrialCount: 42,
-            maxTrialCount: 42,
-            name: "Test string",
-            parallelTrialCount: 42,
-            startTime: "Test string",
-            state: "Test string",
-            studySpec: {
-                algorithm: "Test string",
-                convexAutomatedStoppingSpec: {
-                    learningRateParameterName: "Test string",
-                    maxStepCount: "Test string",
-                    minMeasurementCount: "Test string",
-                    minStepCount: "Test string",
-                    updateAllStoppedTrials: true,
-                    useElapsedDuration: true,
-                },
-                decayCurveStoppingSpec: {
-                    useElapsedDuration: true,
-                },
-                measurementSelectionType: "Test string",
-                medianAutomatedStoppingSpec: {
-                    useElapsedDuration: true,
-                },
-                metrics: [
-                    {
-                        goal: "Test string",
-                        metricId: "Test string",
-                        safetyConfig: {
-                            desiredMinSafeTrialsFraction: 42,
-                            safetyThreshold: 42,
-                        },
-                    }
-                ],
-                observationNoise: "Test string",
-                parameters: [
-                    {
-                        categoricalValueSpec: {
-                            defaultValue: "Test string",
-                            values: [
-                                "Test string"
-                            ],
-                        },
-                        conditionalParameterSpecs: [
-                            {
-                                parameterSpec: undefined,
-                                parentCategoricalValues: {
-                                    values: [
-                                        "Test string"
-                                    ],
-                                },
-                                parentDiscreteValues: {
-                                    values: [
-                                        42
-                                    ],
-                                },
-                                parentIntValues: {
-                                    values: [
-                                        "Test string"
-                                    ],
-                                },
-                            }
-                        ],
-                        discreteValueSpec: {
-                            defaultValue: 42,
-                            values: [
-                                42
-                            ],
-                        },
-                        doubleValueSpec: {
-                            defaultValue: 42,
-                            maxValue: 42,
-                            minValue: 42,
-                        },
-                        integerValueSpec: {
-                            defaultValue: "Test string",
-                            maxValue: "Test string",
-                            minValue: "Test string",
-                        },
-                        parameterId: "Test string",
-                        scaleType: "Test string",
-                    }
-                ],
-                studyStoppingConfig: {
-                    maxDurationNoProgress: "Test string",
-                    maximumRuntimeConstraint: {
-                        endTime: "Test string",
-                        maxDuration: "Test string",
-                    },
-                    maxNumTrials: 42,
-                    maxNumTrialsNoProgress: 42,
-                    minimumRuntimeConstraint: {
-                        endTime: "Test string",
-                        maxDuration: "Test string",
-                    },
-                    minNumTrials: 42,
-                    shouldStopAsap: true,
-                },
-            },
-            trialJobSpec: {
-                baseOutputDirectory: {
-                    outputUriPrefix: "Test string",
-                },
-                enableDashboardAccess: true,
-                enableWebAccess: true,
-                experiment: "Test string",
-                experimentRun: "Test string",
-                network: "Test string",
-                protectedArtifactLocationId: "Test string",
-                reservedIpRanges: [
-                    "Test string"
-                ],
-                scheduling: {
-                    disableRetries: true,
-                    restartJobOnWorkerRestart: true,
-                    timeout: "Test string",
-                },
-                serviceAccount: "Test string",
-                tensorboard: "Test string",
-                workerPoolSpecs: [
-                    {
-                        containerSpec: {
-                            args: [
-                                "Test string"
-                            ],
-                            command: [
-                                "Test string"
-                            ],
-                            env: [
-                                {
-                                    name: "Test string",
-                                    value: "Test string",
-                                }
-                            ],
-                            imageUri: "Test string",
-                        },
-                        diskSpec: {
-                            bootDiskSizeGb: 42,
-                            bootDiskType: "Test string",
-                        },
-                        machineSpec: {
-                            acceleratorCount: 42,
-                            acceleratorType: "Test string",
-                            machineType: "Test string",
-                            tpuTopology: "Test string",
-                        },
-                        nfsMounts: [
-                            {
-                                mountPoint: "Test string",
-                                path: "Test string",
-                                server: "Test string",
-                            }
-                        ],
-                        pythonPackageSpec: {
-                            args: [
-                                "Test string"
-                            ],
-                            env: [
-                                {
-                                    name: "Test string",
-                                    value: "Test string",
-                                }
-                            ],
-                            executorImageUri: "Test string",
-                            packageUris: [
-                                "Test string"
-                            ],
-                            pythonModule: "Test string",
-                        },
-                        replicaCount: "Test string",
-                    }
-                ],
-            },
-            trials: [
-                {
-                    clientId: "Test string",
-                    customJob: "Test string",
-                    endTime: "Test string",
-                    finalMeasurement: {
-                        elapsedDuration: "Test string",
-                        metrics: [
-                            {
-                                metricId: "Test string",
-                                value: 42,
-                            }
-                        ],
-                        stepCount: "Test string",
-                    },
-                    id: "Test string",
-                    infeasibleReason: "Test string",
-                    measurements: [
-                        {
-                            elapsedDuration: "Test string",
-                            metrics: [
-                                {
-                                    metricId: "Test string",
-                                    value: 42,
-                                }
-                            ],
-                            stepCount: "Test string",
-                        }
-                    ],
-                    name: "Test string",
-                    parameters: [
-                        {
-                            parameterId: "Test string",
-                            value: 42,
-                        }
-                    ],
-                    startTime: "Test string",
-                    state: "Test string",
-                    webAccessUris: {
-                        A: "Test string"
-                    },
-                }
-            ],
-            updateTime: "Test string",
-        });
-        /** Deletes a HyperparameterTuningJob. */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.delete({
-            name: "Test string",
-        });
-        /** Gets a HyperparameterTuningJob */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.get({
-            name: "Test string",
-        });
-        /** Lists HyperparameterTuningJobs in a Location. */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Creates an IndexEndpoint. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            deployedIndexes: [
-                {
-                    automaticResources: {
-                        maxReplicaCount: 42,
-                        minReplicaCount: 42,
-                    },
-                    createTime: "Test string",
-                    dedicatedResources: {
-                        autoscalingMetricSpecs: [
-                            {
-                                metricName: "Test string",
-                                target: 42,
-                            }
-                        ],
-                        machineSpec: {
-                            acceleratorCount: 42,
-                            acceleratorType: "Test string",
-                            machineType: "Test string",
-                            tpuTopology: "Test string",
-                        },
-                        maxReplicaCount: 42,
-                        minReplicaCount: 42,
-                    },
-                    deployedIndexAuthConfig: {
-                        authProvider: {
-                            allowedIssuers: [
-                                "Test string"
-                            ],
-                            audiences: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    deploymentGroup: "Test string",
-                    displayName: "Test string",
-                    enableAccessLogging: true,
-                    id: "Test string",
-                    index: "Test string",
-                    indexSyncTime: "Test string",
-                    privateEndpoints: {
-                        matchGrpcAddress: "Test string",
-                        serviceAttachment: "Test string",
-                    },
-                    reservedIpRanges: [
-                        "Test string"
-                    ],
-                }
-            ],
-            description: "Test string",
-            displayName: "Test string",
-            enablePrivateServiceConnect: true,
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            network: "Test string",
-            privateServiceConnectConfig: {
-                enablePrivateServiceConnect: true,
-                projectAllowlist: [
-                    "Test string"
-                ],
-            },
-            publicEndpointDomainName: "Test string",
-            publicEndpointEnabled: true,
-            updateTime: "Test string",
-        });
-        /** Deletes an IndexEndpoint. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.delete({
-            name: "Test string",
-        });
-        /** Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it. Only non-empty Indexes can be deployed. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.deployIndex({
-            indexEndpoint: "Test string",
-        }, {
-            deployedIndex: {
-                automaticResources: {
-                    maxReplicaCount: 42,
-                    minReplicaCount: 42,
-                },
-                createTime: "Test string",
-                dedicatedResources: {
-                    autoscalingMetricSpecs: [
-                        {
-                            metricName: "Test string",
-                            target: 42,
-                        }
-                    ],
-                    machineSpec: {
-                        acceleratorCount: 42,
-                        acceleratorType: "Test string",
-                        machineType: "Test string",
-                        tpuTopology: "Test string",
-                    },
-                    maxReplicaCount: 42,
-                    minReplicaCount: 42,
-                },
-                deployedIndexAuthConfig: {
-                    authProvider: {
-                        allowedIssuers: [
-                            "Test string"
-                        ],
-                        audiences: [
-                            "Test string"
-                        ],
-                    },
-                },
-                deploymentGroup: "Test string",
-                displayName: "Test string",
-                enableAccessLogging: true,
-                id: "Test string",
-                index: "Test string",
-                indexSyncTime: "Test string",
-                privateEndpoints: {
-                    matchGrpcAddress: "Test string",
-                    serviceAttachment: "Test string",
-                },
-                reservedIpRanges: [
-                    "Test string"
-                ],
-            },
-        });
-        /** Finds the nearest neighbors of each vector within the request. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.findNeighbors({
-            indexEndpoint: "Test string",
-        }, {
-            deployedIndexId: "Test string",
-            queries: [
-                {
-                    approximateNeighborCount: 42,
-                    datapoint: {
-                        crowdingTag: {
-                            crowdingAttribute: "Test string",
-                        },
-                        datapointId: "Test string",
-                        featureVector: [
-                            42
-                        ],
-                        numericRestricts: [
-                            {
-                                namespace: "Test string",
-                                op: "Test string",
-                                valueDouble: 42,
-                                valueFloat: 42,
-                                valueInt: "Test string",
-                            }
-                        ],
-                        restricts: [
-                            {
-                                allowList: [
-                                    "Test string"
-                                ],
-                                denyList: [
-                                    "Test string"
-                                ],
-                                namespace: "Test string",
-                            }
-                        ],
-                    },
-                    fractionLeafNodesToSearchOverride: 42,
-                    neighborCount: 42,
-                    perCrowdingAttributeNeighborCount: 42,
-                }
-            ],
-            returnFullDatapoint: true,
-        });
-        /** Gets an IndexEndpoint. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.get({
-            name: "Test string",
-        });
-        /** Lists IndexEndpoints in a Location. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Update an existing DeployedIndex under an IndexEndpoint. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.mutateDeployedIndex({
-            indexEndpoint: "Test string",
-        }, {
-            automaticResources: {
-                maxReplicaCount: 42,
-                minReplicaCount: 42,
-            },
-            createTime: "Test string",
-            dedicatedResources: {
-                autoscalingMetricSpecs: [
-                    {
-                        metricName: "Test string",
-                        target: 42,
-                    }
-                ],
-                machineSpec: {
-                    acceleratorCount: 42,
-                    acceleratorType: "Test string",
-                    machineType: "Test string",
-                    tpuTopology: "Test string",
-                },
-                maxReplicaCount: 42,
-                minReplicaCount: 42,
-            },
-            deployedIndexAuthConfig: {
-                authProvider: {
-                    allowedIssuers: [
-                        "Test string"
-                    ],
-                    audiences: [
-                        "Test string"
-                    ],
-                },
-            },
-            deploymentGroup: "Test string",
-            displayName: "Test string",
+            displayName: 'Test string',
             enableAccessLogging: true,
-            id: "Test string",
-            index: "Test string",
-            indexSyncTime: "Test string",
-            privateEndpoints: {
-                matchGrpcAddress: "Test string",
-                serviceAttachment: "Test string",
-            },
-            reservedIpRanges: [
-                "Test string"
-            ],
-        });
-        /** Updates an IndexEndpoint. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            deployedIndexes: [
-                {
-                    automaticResources: {
-                        maxReplicaCount: 42,
-                        minReplicaCount: 42,
-                    },
-                    createTime: "Test string",
-                    dedicatedResources: {
-                        autoscalingMetricSpecs: [
-                            {
-                                metricName: "Test string",
-                                target: 42,
-                            }
-                        ],
-                        machineSpec: {
-                            acceleratorCount: 42,
-                            acceleratorType: "Test string",
-                            machineType: "Test string",
-                            tpuTopology: "Test string",
-                        },
-                        maxReplicaCount: 42,
-                        minReplicaCount: 42,
-                    },
-                    deployedIndexAuthConfig: {
-                        authProvider: {
-                            allowedIssuers: [
-                                "Test string"
-                            ],
-                            audiences: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    deploymentGroup: "Test string",
-                    displayName: "Test string",
-                    enableAccessLogging: true,
-                    id: "Test string",
-                    index: "Test string",
-                    indexSyncTime: "Test string",
-                    privateEndpoints: {
-                        matchGrpcAddress: "Test string",
-                        serviceAttachment: "Test string",
-                    },
-                    reservedIpRanges: [
-                        "Test string"
-                    ],
-                }
-            ],
-            description: "Test string",
-            displayName: "Test string",
-            enablePrivateServiceConnect: true,
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            network: "Test string",
-            privateServiceConnectConfig: {
-                enablePrivateServiceConnect: true,
-                projectAllowlist: [
-                    "Test string"
-                ],
-            },
-            publicEndpointDomainName: "Test string",
-            publicEndpointEnabled: true,
-            updateTime: "Test string",
-        });
-        /** Reads the datapoints/vectors of the given IDs. A maximum of 1000 datapoints can be retrieved in a batch. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.readIndexDatapoints({
-            indexEndpoint: "Test string",
-        }, {
-            deployedIndexId: "Test string",
-            ids: [
-                "Test string"
-            ],
-        });
-        /** Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.undeployIndex({
-            indexEndpoint: "Test string",
-        }, {
-            deployedIndexId: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Creates an Index. */
-        await gapi.client.aiplatform.projects.locations.indexes.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            deployedIndexes: [
-                {
-                    deployedIndexId: "Test string",
-                    indexEndpoint: "Test string",
-                }
-            ],
-            description: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            indexStats: {
-                shardsCount: 42,
-                vectorsCount: "Test string",
-            },
-            indexUpdateMethod: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: 42,
-            metadataSchemaUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes an Index. An Index can only be deleted when all its DeployedIndexes had been undeployed. */
-        await gapi.client.aiplatform.projects.locations.indexes.delete({
-            name: "Test string",
-        });
-        /** Gets an Index. */
-        await gapi.client.aiplatform.projects.locations.indexes.get({
-            name: "Test string",
-        });
-        /** Lists Indexes in a Location. */
-        await gapi.client.aiplatform.projects.locations.indexes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates an Index. */
-        await gapi.client.aiplatform.projects.locations.indexes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            deployedIndexes: [
-                {
-                    deployedIndexId: "Test string",
-                    indexEndpoint: "Test string",
-                }
-            ],
-            description: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            indexStats: {
-                shardsCount: 42,
-                vectorsCount: "Test string",
-            },
-            indexUpdateMethod: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: 42,
-            metadataSchemaUri: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Remove Datapoints from an Index. */
-        await gapi.client.aiplatform.projects.locations.indexes.removeDatapoints({
-            index: "Test string",
-        }, {
-            datapointIds: [
-                "Test string"
-            ],
-        });
-        /** Add/update Datapoints into an Index. */
-        await gapi.client.aiplatform.projects.locations.indexes.upsertDatapoints({
-            index: "Test string",
-        }, {
-            datapoints: [
-                {
-                    crowdingTag: {
-                        crowdingAttribute: "Test string",
-                    },
-                    datapointId: "Test string",
-                    featureVector: [
-                        42
-                    ],
-                    numericRestricts: [
-                        {
-                            namespace: "Test string",
-                            op: "Test string",
-                            valueDouble: 42,
-                            valueFloat: 42,
-                            valueInt: "Test string",
-                        }
-                    ],
-                    restricts: [
-                        {
-                            allowList: [
-                                "Test string"
-                            ],
-                            denyList: [
-                                "Test string"
-                            ],
-                            namespace: "Test string",
-                        }
-                    ],
-                }
-            ],
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.indexes.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.indexes.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.indexes.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.indexes.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.indexes.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Initializes a MetadataStore, including allocation of resources. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.create({
-            metadataStoreId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            name: "Test string",
-            state: {
-                diskUtilizationBytes: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts). */
-        await gapi.client.aiplatform.projects.locations.metadataStores.delete({
-            force: true,
-            name: "Test string",
-        });
-        /** Retrieves a specific MetadataStore. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.get({
-            name: "Test string",
-        });
-        /** Lists MetadataStores for a Location. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates an Artifact associated with a MetadataStore. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.create({
-            artifactId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: {
-                A: 42
-            },
-            name: "Test string",
-            schemaTitle: "Test string",
-            schemaVersion: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            uri: "Test string",
-        });
-        /** Deletes an Artifact. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.delete({
-            etag: "Test string",
-            name: "Test string",
-        });
-        /** Retrieves a specific Artifact. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.get({
-            name: "Test string",
-        });
-        /** Lists Artifacts in the MetadataStore. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a stored Artifact. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.patch({
-            allowMissing: true,
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: {
-                A: 42
-            },
-            name: "Test string",
-            schemaTitle: "Test string",
-            schemaVersion: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            uri: "Test string",
-        });
-        /** Purges Artifacts. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.purge({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-            force: true,
-        });
-        /** Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.queryArtifactLineageSubgraph({
-            artifact: "Test string",
-            filter: "Test string",
-            maxHops: 42,
-        });
-        /** Adds a set of Artifacts and Executions to a Context. If any of the Artifacts or Executions have already been added to a Context, they are simply skipped. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.addContextArtifactsAndExecutions({
-            context: "Test string",
-        }, {
-            artifacts: [
-                "Test string"
-            ],
-            executions: [
-                "Test string"
-            ],
-        });
-        /**
-         * Adds a set of Contexts as children to a parent Context. If any of the child Contexts have already been added to the parent Context, they are simply skipped. If this call would create a
-         * cycle or cause any Context to have more than 10 parents, the request will fail with an INVALID_ARGUMENT error.
-         */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.addContextChildren({
-            context: "Test string",
-        }, {
-            childContexts: [
-                "Test string"
-            ],
-        });
-        /** Creates a Context associated with a MetadataStore. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.create({
-            contextId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: {
-                A: 42
-            },
-            name: "Test string",
-            parentContexts: [
-                "Test string"
-            ],
-            schemaTitle: "Test string",
-            schemaVersion: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a stored Context. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.delete({
-            etag: "Test string",
-            force: true,
-            name: "Test string",
-        });
-        /** Retrieves a specific Context. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.get({
-            name: "Test string",
-        });
-        /** Lists Contexts on the MetadataStore. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a stored Context. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.patch({
-            allowMissing: true,
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: {
-                A: 42
-            },
-            name: "Test string",
-            parentContexts: [
-                "Test string"
-            ],
-            schemaTitle: "Test string",
-            schemaVersion: "Test string",
-            updateTime: "Test string",
-        });
-        /** Purges Contexts. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.purge({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-            force: true,
-        });
-        /** Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.queryContextLineageSubgraph({
-            context: "Test string",
-        });
-        /** Remove a set of children contexts from a parent Context. If any of the child Contexts were NOT added to the parent Context, they are simply skipped. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.contexts.removeContextChildren({
-            context: "Test string",
-        }, {
-            childContexts: [
-                "Test string"
-            ],
-        });
-        /**
-         * Adds Events to the specified Execution. An Event indicates whether an Artifact was used as an input or output for an Execution. If an Event already exists between the Execution and the
-         * Artifact, the Event is skipped.
-         */
-        await gapi.client.aiplatform.projects.locations.metadataStores.executions.addExecutionEvents({
-            execution: "Test string",
-        }, {
-            events: [
-                {
-                    artifact: "Test string",
-                    eventTime: "Test string",
-                    execution: "Test string",
-                    labels: {
-                        A: "Test string"
-                    },
-                    type: "Test string",
-                }
-            ],
-        });
-        /** Creates an Execution associated with a MetadataStore. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.executions.create({
-            executionId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: {
-                A: 42
-            },
-            name: "Test string",
-            schemaTitle: "Test string",
-            schemaVersion: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes an Execution. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.executions.delete({
-            etag: "Test string",
-            name: "Test string",
-        });
-        /** Retrieves a specific Execution. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.executions.get({
-            name: "Test string",
-        });
-        /** Lists Executions in the MetadataStore. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.executions.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a stored Execution. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.executions.patch({
-            allowMissing: true,
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            metadata: {
-                A: 42
-            },
-            name: "Test string",
-            schemaTitle: "Test string",
-            schemaVersion: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Purges Executions. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.executions.purge({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-            force: true,
-        });
-        /** Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.executions.queryExecutionInputsAndOutputs({
-            execution: "Test string",
-        });
-        /** Creates a MetadataSchema. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.metadataSchemas.create({
-            metadataSchemaId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            name: "Test string",
-            schema: "Test string",
-            schemaType: "Test string",
-            schemaVersion: "Test string",
-        });
-        /** Retrieves a specific MetadataSchema. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.metadataSchemas.get({
-            name: "Test string",
-        });
-        /** Lists MetadataSchemas. */
-        await gapi.client.aiplatform.projects.locations.metadataStores.metadataSchemas.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Vertex AI. */
-        await gapi.client.aiplatform.projects.locations.migratableResources.batchMigrate({
-            parent: "Test string",
-        }, {
-            migrateResourceRequests: [
-                {
-                    migrateAutomlDatasetConfig: {
-                        dataset: "Test string",
-                        datasetDisplayName: "Test string",
-                    },
-                    migrateAutomlModelConfig: {
-                        model: "Test string",
-                        modelDisplayName: "Test string",
-                    },
-                    migrateDataLabelingDatasetConfig: {
-                        dataset: "Test string",
-                        datasetDisplayName: "Test string",
-                        migrateDataLabelingAnnotatedDatasetConfigs: [
-                            {
-                                annotatedDataset: "Test string",
-                            }
-                        ],
-                    },
-                    migrateMlEngineModelVersionConfig: {
-                        endpoint: "Test string",
-                        modelDisplayName: "Test string",
-                        modelVersion: "Test string",
-                    },
-                }
-            ],
-        });
-        /** Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Vertex AI's given location. */
-        await gapi.client.aiplatform.projects.locations.migratableResources.search({
-            parent: "Test string",
-        }, {
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.migratableResources.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.migratableResources.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.migratableResources.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.migratableResources.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.migratableResources.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Creates a ModelDeploymentMonitoringJob. It will run periodically on a configured interval. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.create({
-            parent: "Test string",
-        }, {
-            analysisInstanceSchemaUri: "Test string",
-            bigqueryTables: [
-                {
-                    bigqueryTablePath: "Test string",
-                    logSource: "Test string",
-                    logType: "Test string",
-                }
-            ],
-            createTime: "Test string",
-            displayName: "Test string",
-            enableMonitoringPipelineLogs: true,
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            endpoint: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            latestMonitoringPipelineMetadata: {
-                runTime: "Test string",
-                status: {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                },
-            },
-            loggingSamplingStrategy: {
-                randomSampleConfig: {
-                    sampleRate: 42,
-                },
-            },
-            logTtl: "Test string",
-            modelDeploymentMonitoringObjectiveConfigs: [
-                {
-                    deployedModelId: "Test string",
-                    objectiveConfig: {
-                        explanationConfig: {
-                            enableFeatureAttributes: true,
-                            explanationBaseline: {
-                                bigquery: {
-                                    outputUri: "Test string",
-                                },
-                                gcs: {
-                                    outputUriPrefix: "Test string",
-                                },
-                                predictionFormat: "Test string",
-                            },
-                        },
-                        predictionDriftDetectionConfig: {
-                            attributionScoreDriftThresholds: {
-                                A: {
-                                    value: 42,
-                                }
-                            },
-                            defaultDriftThreshold: {
-                                value: 42,
-                            },
-                            driftThresholds: {
-                                A: {
-                                    value: 42,
-                                }
-                            },
-                        },
-                        trainingDataset: {
-                            bigquerySource: {
-                                inputUri: "Test string",
-                            },
-                            dataFormat: "Test string",
-                            dataset: "Test string",
-                            gcsSource: {
-                                uris: [
-                                    "Test string"
-                                ],
-                            },
-                            loggingSamplingStrategy: {
-                                randomSampleConfig: {
-                                    sampleRate: 42,
-                                },
-                            },
-                            targetField: "Test string",
-                        },
-                        trainingPredictionSkewDetectionConfig: {
-                            attributionScoreSkewThresholds: {
-                                A: {
-                                    value: 42,
-                                }
-                            },
-                            defaultSkewThreshold: {
-                                value: 42,
-                            },
-                            skewThresholds: {
-                                A: {
-                                    value: 42,
-                                }
-                            },
-                        },
-                    },
-                }
-            ],
-            modelDeploymentMonitoringScheduleConfig: {
-                monitorInterval: "Test string",
-                monitorWindow: "Test string",
-            },
-            modelMonitoringAlertConfig: {
-                emailAlertConfig: {
-                    userEmails: [
-                        "Test string"
-                    ],
-                },
-                enableLogging: true,
-                notificationChannels: [
-                    "Test string"
-                ],
-            },
-            name: "Test string",
-            nextScheduleTime: "Test string",
-            predictInstanceSchemaUri: "Test string",
-            samplePredictInstance: 42,
-            scheduleState: "Test string",
-            state: "Test string",
-            statsAnomaliesBaseDirectory: {
-                outputUriPrefix: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Deletes a ModelDeploymentMonitoringJob. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.delete({
-            name: "Test string",
-        });
-        /** Gets a ModelDeploymentMonitoringJob. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.get({
-            name: "Test string",
-        });
-        /** Lists ModelDeploymentMonitoringJobs in a Location. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates a ModelDeploymentMonitoringJob. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            analysisInstanceSchemaUri: "Test string",
-            bigqueryTables: [
-                {
-                    bigqueryTablePath: "Test string",
-                    logSource: "Test string",
-                    logType: "Test string",
-                }
-            ],
-            createTime: "Test string",
-            displayName: "Test string",
-            enableMonitoringPipelineLogs: true,
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            endpoint: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            latestMonitoringPipelineMetadata: {
-                runTime: "Test string",
-                status: {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                },
-            },
-            loggingSamplingStrategy: {
-                randomSampleConfig: {
-                    sampleRate: 42,
-                },
-            },
-            logTtl: "Test string",
-            modelDeploymentMonitoringObjectiveConfigs: [
-                {
-                    deployedModelId: "Test string",
-                    objectiveConfig: {
-                        explanationConfig: {
-                            enableFeatureAttributes: true,
-                            explanationBaseline: {
-                                bigquery: {
-                                    outputUri: "Test string",
-                                },
-                                gcs: {
-                                    outputUriPrefix: "Test string",
-                                },
-                                predictionFormat: "Test string",
-                            },
-                        },
-                        predictionDriftDetectionConfig: {
-                            attributionScoreDriftThresholds: {
-                                A: {
-                                    value: 42,
-                                }
-                            },
-                            defaultDriftThreshold: {
-                                value: 42,
-                            },
-                            driftThresholds: {
-                                A: {
-                                    value: 42,
-                                }
-                            },
-                        },
-                        trainingDataset: {
-                            bigquerySource: {
-                                inputUri: "Test string",
-                            },
-                            dataFormat: "Test string",
-                            dataset: "Test string",
-                            gcsSource: {
-                                uris: [
-                                    "Test string"
-                                ],
-                            },
-                            loggingSamplingStrategy: {
-                                randomSampleConfig: {
-                                    sampleRate: 42,
-                                },
-                            },
-                            targetField: "Test string",
-                        },
-                        trainingPredictionSkewDetectionConfig: {
-                            attributionScoreSkewThresholds: {
-                                A: {
-                                    value: 42,
-                                }
-                            },
-                            defaultSkewThreshold: {
-                                value: 42,
-                            },
-                            skewThresholds: {
-                                A: {
-                                    value: 42,
-                                }
-                            },
-                        },
-                    },
-                }
-            ],
-            modelDeploymentMonitoringScheduleConfig: {
-                monitorInterval: "Test string",
-                monitorWindow: "Test string",
-            },
-            modelMonitoringAlertConfig: {
-                emailAlertConfig: {
-                    userEmails: [
-                        "Test string"
-                    ],
-                },
-                enableLogging: true,
-                notificationChannels: [
-                    "Test string"
-                ],
-            },
-            name: "Test string",
-            nextScheduleTime: "Test string",
-            predictInstanceSchemaUri: "Test string",
-            samplePredictInstance: 42,
-            scheduleState: "Test string",
-            state: "Test string",
-            statsAnomaliesBaseDirectory: {
-                outputUriPrefix: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Pauses a ModelDeploymentMonitoringJob. If the job is running, the server makes a best effort to cancel the job. Will mark ModelDeploymentMonitoringJob.state to 'PAUSED'. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.pause({
-            name: "Test string",
-        }, {
-        });
-        /** Resumes a paused ModelDeploymentMonitoringJob. It will start to run from next scheduled time. A deleted ModelDeploymentMonitoringJob can't be resumed. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.resume({
-            name: "Test string",
-        }, {
-        });
-        /** Searches Model Monitoring Statistics generated within a given time window. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.searchModelDeploymentMonitoringStatsAnomalies({
-            modelDeploymentMonitoringJob: "Test string",
-        }, {
-            deployedModelId: "Test string",
-            endTime: "Test string",
-            featureDisplayName: "Test string",
-            objectives: [
-                {
-                    topFeatureCount: 42,
-                    type: "Test string",
-                }
-            ],
-            pageSize: 42,
-            pageToken: "Test string",
-            startTime: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Copies an already existing Vertex AI Model into the specified Location. The source Model must exist in the same Project. When copying custom Models, the users themselves are responsible
-         * for Model.metadata content to be region-agnostic, as well as making sure that any resources (e.g. files) it depends on remain accessible.
-         */
-        await gapi.client.aiplatform.projects.locations.models.copy({
-            parent: "Test string",
-        }, {
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            modelId: "Test string",
-            parentModel: "Test string",
-            sourceModel: "Test string",
-        });
-        /** Deletes a Model. A model cannot be deleted if any Endpoint resource has a DeployedModel based on the model in its deployed_models field. */
-        await gapi.client.aiplatform.projects.locations.models.delete({
-            name: "Test string",
-        });
-        /**
-         * Deletes a Model version. Model version can only be deleted if there are no DeployedModels created from it. Deleting the only version in the Model is not allowed. Use DeleteModel for
-         * deleting the Model instead.
-         */
-        await gapi.client.aiplatform.projects.locations.models.deleteVersion({
-            name: "Test string",
-        });
-        /** Exports a trained, exportable Model to a location specified by the user. A Model is considered to be exportable if it has at least one supported export format. */
-        await gapi.client.aiplatform.projects.locations.models.export({
-            name: "Test string",
-        }, {
-            outputConfig: {
-                artifactDestination: {
-                    outputUriPrefix: "Test string",
-                },
-                exportFormatId: "Test string",
-                imageDestination: {
-                    outputUri: "Test string",
-                },
-            },
-        });
-        /** Gets a Model. */
-        await gapi.client.aiplatform.projects.locations.models.get({
-            name: "Test string",
-        });
-        /** Lists Models in a Location. */
-        await gapi.client.aiplatform.projects.locations.models.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Lists versions of the specified model. */
-        await gapi.client.aiplatform.projects.locations.models.listVersions({
-            filter: "Test string",
-            name: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            readMask: "Test string",
-        });
-        /** Merges a set of aliases for a Model version. */
-        await gapi.client.aiplatform.projects.locations.models.mergeVersionAliases({
-            name: "Test string",
-        }, {
-            versionAliases: [
-                "Test string"
-            ],
-        });
-        /** Updates a Model. */
-        await gapi.client.aiplatform.projects.locations.models.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            artifactUri: "Test string",
-            containerSpec: {
-                args: [
-                    "Test string"
-                ],
-                command: [
-                    "Test string"
-                ],
-                deploymentTimeout: "Test string",
-                env: [
-                    {
-                        name: "Test string",
-                        value: "Test string",
-                    }
-                ],
-                healthProbe: {
-                    exec: {
-                        command: [
-                            "Test string"
-                        ],
-                    },
-                    periodSeconds: 42,
-                    timeoutSeconds: 42,
-                },
-                healthRoute: "Test string",
-                imageUri: "Test string",
-                ports: [
-                    {
-                        containerPort: 42,
-                    }
-                ],
-                predictRoute: "Test string",
-                sharedMemorySizeMb: "Test string",
-                startupProbe: {
-                    exec: {
-                        command: [
-                            "Test string"
-                        ],
-                    },
-                    periodSeconds: 42,
-                    timeoutSeconds: 42,
-                },
-            },
-            createTime: "Test string",
-            deployedModels: [
-                {
-                    deployedModelId: "Test string",
-                    endpoint: "Test string",
-                }
-            ],
-            description: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
             explanationSpec: {
-                metadata: {
-                    featureAttributionsSchemaUri: "Test string",
-                    inputs: {
-                        A: {
-                            denseShapeTensorName: "Test string",
-                            encodedBaselines: [
-                                42
-                            ],
-                            encodedTensorName: "Test string",
-                            encoding: "Test string",
-                            featureValueDomain: {
-                                maxValue: 42,
-                                minValue: 42,
-                                originalMean: 42,
-                                originalStddev: 42,
-                            },
-                            groupName: "Test string",
-                            indexFeatureMapping: [
-                                "Test string"
-                            ],
-                            indicesTensorName: "Test string",
-                            inputBaselines: [
-                                42
-                            ],
-                            inputTensorName: "Test string",
-                            modality: "Test string",
-                            visualization: {
-                                clipPercentLowerbound: 42,
-                                clipPercentUpperbound: 42,
-                                colorMap: "Test string",
-                                overlayType: "Test string",
-                                polarity: "Test string",
-                                type: "Test string",
-                            },
-                        }
+              metadata: {
+                featureAttributionsSchemaUri: 'Test string',
+                inputs: {
+                  A: {
+                    denseShapeTensorName: 'Test string',
+                    encodedBaselines: [42],
+                    encodedTensorName: 'Test string',
+                    encoding: 'Test string',
+                    featureValueDomain: {
+                      maxValue: 42,
+                      minValue: 42,
+                      originalMean: 42,
+                      originalStddev: 42,
                     },
-                    latentSpaceSource: "Test string",
-                    outputs: {
-                        A: {
-                            displayNameMappingKey: "Test string",
-                            indexDisplayNameMapping: 42,
-                            outputTensorName: "Test string",
-                        }
+                    groupName: 'Test string',
+                    indexFeatureMapping: ['Test string'],
+                    indicesTensorName: 'Test string',
+                    inputBaselines: [42],
+                    inputTensorName: 'Test string',
+                    modality: 'Test string',
+                    visualization: {
+                      clipPercentLowerbound: 42,
+                      clipPercentUpperbound: 42,
+                      colorMap: 'Test string',
+                      overlayType: 'Test string',
+                      polarity: 'Test string',
+                      type: 'Test string',
                     },
+                  },
                 },
-                parameters: {
-                    examples: {
-                        exampleGcsSource: {
-                            dataFormat: "Test string",
-                            gcsSource: {
-                                uris: [
-                                    "Test string"
-                                ],
-                            },
-                        },
-                        nearestNeighborSearchConfig: 42,
-                        neighborCount: 42,
-                        presets: {
-                            modality: "Test string",
-                            query: "Test string",
-                        },
-                    },
-                    integratedGradientsAttribution: {
-                        blurBaselineConfig: {
-                            maxBlurSigma: 42,
-                        },
-                        smoothGradConfig: {
-                            featureNoiseSigma: {
-                                noiseSigma: [
-                                    {
-                                        name: "Test string",
-                                        sigma: 42,
-                                    }
-                                ],
-                            },
-                            noiseSigma: 42,
-                            noisySampleCount: 42,
-                        },
-                        stepCount: 42,
-                    },
-                    outputIndices: [
-                        42
-                    ],
-                    sampledShapleyAttribution: {
-                        pathCount: 42,
-                    },
-                    topK: 42,
-                    xraiAttribution: {
-                        blurBaselineConfig: {
-                            maxBlurSigma: 42,
-                        },
-                        smoothGradConfig: {
-                            featureNoiseSigma: {
-                                noiseSigma: [
-                                    {
-                                        name: "Test string",
-                                        sigma: 42,
-                                    }
-                                ],
-                            },
-                            noiseSigma: 42,
-                            noisySampleCount: 42,
-                        },
-                        stepCount: 42,
-                    },
+                latentSpaceSource: 'Test string',
+                outputs: {
+                  A: {
+                    displayNameMappingKey: 'Test string',
+                    indexDisplayNameMapping: 42,
+                    outputTensorName: 'Test string',
+                  },
                 },
-            },
-            labels: {
-                A: "Test string"
-            },
-            metadata: 42,
-            metadataArtifact: "Test string",
-            metadataSchemaUri: "Test string",
-            modelSourceInfo: {
-                copy: true,
-                sourceType: "Test string",
-            },
-            name: "Test string",
-            originalModelInfo: {
-                model: "Test string",
-            },
-            pipelineJob: "Test string",
-            predictSchemata: {
-                instanceSchemaUri: "Test string",
-                parametersSchemaUri: "Test string",
-                predictionSchemaUri: "Test string",
-            },
-            supportedDeploymentResourcesTypes: [
-                "Test string"
-            ],
-            supportedExportFormats: [
-                {
-                    exportableContents: [
-                        "Test string"
-                    ],
-                    id: "Test string",
-                }
-            ],
-            supportedInputStorageFormats: [
-                "Test string"
-            ],
-            supportedOutputStorageFormats: [
-                "Test string"
-            ],
-            trainingPipeline: "Test string",
-            updateTime: "Test string",
-            versionAliases: [
-                "Test string"
-            ],
-            versionCreateTime: "Test string",
-            versionDescription: "Test string",
-            versionId: "Test string",
-            versionUpdateTime: "Test string",
-        });
-        /** Incrementally update the dataset used for an examples model. */
-        await gapi.client.aiplatform.projects.locations.models.updateExplanationDataset({
-            model: "Test string",
-        }, {
-            examples: {
-                exampleGcsSource: {
-                    dataFormat: "Test string",
+              },
+              parameters: {
+                examples: {
+                  exampleGcsSource: {
+                    dataFormat: 'Test string',
                     gcsSource: {
-                        uris: [
-                            "Test string"
-                        ],
+                      uris: ['Test string'],
                     },
+                  },
+                  nearestNeighborSearchConfig: 42,
+                  neighborCount: 42,
+                  presets: {
+                    modality: 'Test string',
+                    query: 'Test string',
+                  },
+                },
+                integratedGradientsAttribution: {
+                  blurBaselineConfig: {
+                    maxBlurSigma: 42,
+                  },
+                  smoothGradConfig: {
+                    featureNoiseSigma: {
+                      noiseSigma: [
+                        {
+                          name: 'Test string',
+                          sigma: 42,
+                        },
+                      ],
+                    },
+                    noiseSigma: 42,
+                    noisySampleCount: 42,
+                  },
+                  stepCount: 42,
+                },
+                outputIndices: [42],
+                sampledShapleyAttribution: {
+                  pathCount: 42,
+                },
+                topK: 42,
+                xraiAttribution: {
+                  blurBaselineConfig: {
+                    maxBlurSigma: 42,
+                  },
+                  smoothGradConfig: {
+                    featureNoiseSigma: {
+                      noiseSigma: [
+                        {
+                          name: 'Test string',
+                          sigma: 42,
+                        },
+                      ],
+                    },
+                    noiseSigma: 42,
+                    noisySampleCount: 42,
+                  },
+                  stepCount: 42,
+                },
+              },
+            },
+            id: 'Test string',
+            model: 'Test string',
+            modelVersionId: 'Test string',
+            privateEndpoints: {
+              explainHttpUri: 'Test string',
+              healthHttpUri: 'Test string',
+              predictHttpUri: 'Test string',
+              serviceAttachment: 'Test string',
+            },
+            serviceAccount: 'Test string',
+          },
+        ],
+        description: 'Test string',
+        displayName: 'Test string',
+        enablePrivateServiceConnect: true,
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        modelDeploymentMonitoringJob: 'Test string',
+        name: 'Test string',
+        network: 'Test string',
+        predictRequestResponseLoggingConfig: {
+          bigqueryDestination: {
+            outputUri: 'Test string',
+          },
+          enabled: true,
+          samplingRate: 42,
+        },
+        trafficSplit: {
+          A: 42,
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes an Endpoint. */
+    await gapi.client.aiplatform.projects.locations.endpoints.delete({
+      name: 'Test string',
+    });
+    /** Deploys a Model into this Endpoint, creating a DeployedModel within it. */
+    await gapi.client.aiplatform.projects.locations.endpoints.deployModel(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        deployedModel: {
+          automaticResources: {
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+          },
+          createTime: 'Test string',
+          dedicatedResources: {
+            autoscalingMetricSpecs: [
+              {
+                metricName: 'Test string',
+                target: 42,
+              },
+            ],
+            machineSpec: {
+              acceleratorCount: 42,
+              acceleratorType: 'Test string',
+              machineType: 'Test string',
+              tpuTopology: 'Test string',
+            },
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+          },
+          disableContainerLogging: true,
+          displayName: 'Test string',
+          enableAccessLogging: true,
+          explanationSpec: {
+            metadata: {
+              featureAttributionsSchemaUri: 'Test string',
+              inputs: {
+                A: {
+                  denseShapeTensorName: 'Test string',
+                  encodedBaselines: [42],
+                  encodedTensorName: 'Test string',
+                  encoding: 'Test string',
+                  featureValueDomain: {
+                    maxValue: 42,
+                    minValue: 42,
+                    originalMean: 42,
+                    originalStddev: 42,
+                  },
+                  groupName: 'Test string',
+                  indexFeatureMapping: ['Test string'],
+                  indicesTensorName: 'Test string',
+                  inputBaselines: [42],
+                  inputTensorName: 'Test string',
+                  modality: 'Test string',
+                  visualization: {
+                    clipPercentLowerbound: 42,
+                    clipPercentUpperbound: 42,
+                    colorMap: 'Test string',
+                    overlayType: 'Test string',
+                    polarity: 'Test string',
+                    type: 'Test string',
+                  },
+                },
+              },
+              latentSpaceSource: 'Test string',
+              outputs: {
+                A: {
+                  displayNameMappingKey: 'Test string',
+                  indexDisplayNameMapping: 42,
+                  outputTensorName: 'Test string',
+                },
+              },
+            },
+            parameters: {
+              examples: {
+                exampleGcsSource: {
+                  dataFormat: 'Test string',
+                  gcsSource: {
+                    uris: ['Test string'],
+                  },
                 },
                 nearestNeighborSearchConfig: 42,
                 neighborCount: 42,
                 presets: {
-                    modality: "Test string",
-                    query: "Test string",
+                  modality: 'Test string',
+                  query: 'Test string',
                 },
+              },
+              integratedGradientsAttribution: {
+                blurBaselineConfig: {
+                  maxBlurSigma: 42,
+                },
+                smoothGradConfig: {
+                  featureNoiseSigma: {
+                    noiseSigma: [
+                      {
+                        name: 'Test string',
+                        sigma: 42,
+                      },
+                    ],
+                  },
+                  noiseSigma: 42,
+                  noisySampleCount: 42,
+                },
+                stepCount: 42,
+              },
+              outputIndices: [42],
+              sampledShapleyAttribution: {
+                pathCount: 42,
+              },
+              topK: 42,
+              xraiAttribution: {
+                blurBaselineConfig: {
+                  maxBlurSigma: 42,
+                },
+                smoothGradConfig: {
+                  featureNoiseSigma: {
+                    noiseSigma: [
+                      {
+                        name: 'Test string',
+                        sigma: 42,
+                      },
+                    ],
+                  },
+                  noiseSigma: 42,
+                  noisySampleCount: 42,
+                },
+                stepCount: 42,
+              },
             },
-        });
-        /** Uploads a Model artifact into Vertex AI. */
-        await gapi.client.aiplatform.projects.locations.models.upload({
-            parent: "Test string",
-        }, {
-            model: {
-                artifactUri: "Test string",
-                containerSpec: {
-                    args: [
-                        "Test string"
-                    ],
-                    command: [
-                        "Test string"
-                    ],
-                    deploymentTimeout: "Test string",
-                    env: [
-                        {
-                            name: "Test string",
-                            value: "Test string",
-                        }
-                    ],
-                    healthProbe: {
-                        exec: {
-                            command: [
-                                "Test string"
-                            ],
-                        },
-                        periodSeconds: 42,
-                        timeoutSeconds: 42,
-                    },
-                    healthRoute: "Test string",
-                    imageUri: "Test string",
-                    ports: [
-                        {
-                            containerPort: 42,
-                        }
-                    ],
-                    predictRoute: "Test string",
-                    sharedMemorySizeMb: "Test string",
-                    startupProbe: {
-                        exec: {
-                            command: [
-                                "Test string"
-                            ],
-                        },
-                        periodSeconds: 42,
-                        timeoutSeconds: 42,
-                    },
-                },
-                createTime: "Test string",
-                deployedModels: [
-                    {
-                        deployedModelId: "Test string",
-                        endpoint: "Test string",
-                    }
-                ],
-                description: "Test string",
-                displayName: "Test string",
-                encryptionSpec: {
-                    kmsKeyName: "Test string",
-                },
-                etag: "Test string",
-                explanationSpec: {
-                    metadata: {
-                        featureAttributionsSchemaUri: "Test string",
-                        inputs: {
-                            A: {
-                                denseShapeTensorName: "Test string",
-                                encodedBaselines: [
-                                    42
-                                ],
-                                encodedTensorName: "Test string",
-                                encoding: "Test string",
-                                featureValueDomain: {
-                                    maxValue: 42,
-                                    minValue: 42,
-                                    originalMean: 42,
-                                    originalStddev: 42,
-                                },
-                                groupName: "Test string",
-                                indexFeatureMapping: [
-                                    "Test string"
-                                ],
-                                indicesTensorName: "Test string",
-                                inputBaselines: [
-                                    42
-                                ],
-                                inputTensorName: "Test string",
-                                modality: "Test string",
-                                visualization: {
-                                    clipPercentLowerbound: 42,
-                                    clipPercentUpperbound: 42,
-                                    colorMap: "Test string",
-                                    overlayType: "Test string",
-                                    polarity: "Test string",
-                                    type: "Test string",
-                                },
-                            }
-                        },
-                        latentSpaceSource: "Test string",
-                        outputs: {
-                            A: {
-                                displayNameMappingKey: "Test string",
-                                indexDisplayNameMapping: 42,
-                                outputTensorName: "Test string",
-                            }
-                        },
-                    },
-                    parameters: {
-                        examples: {
-                            exampleGcsSource: {
-                                dataFormat: "Test string",
-                                gcsSource: {
-                                    uris: [
-                                        "Test string"
-                                    ],
-                                },
-                            },
-                            nearestNeighborSearchConfig: 42,
-                            neighborCount: 42,
-                            presets: {
-                                modality: "Test string",
-                                query: "Test string",
-                            },
-                        },
-                        integratedGradientsAttribution: {
-                            blurBaselineConfig: {
-                                maxBlurSigma: 42,
-                            },
-                            smoothGradConfig: {
-                                featureNoiseSigma: {
-                                    noiseSigma: [
-                                        {
-                                            name: "Test string",
-                                            sigma: 42,
-                                        }
-                                    ],
-                                },
-                                noiseSigma: 42,
-                                noisySampleCount: 42,
-                            },
-                            stepCount: 42,
-                        },
-                        outputIndices: [
-                            42
-                        ],
-                        sampledShapleyAttribution: {
-                            pathCount: 42,
-                        },
-                        topK: 42,
-                        xraiAttribution: {
-                            blurBaselineConfig: {
-                                maxBlurSigma: 42,
-                            },
-                            smoothGradConfig: {
-                                featureNoiseSigma: {
-                                    noiseSigma: [
-                                        {
-                                            name: "Test string",
-                                            sigma: 42,
-                                        }
-                                    ],
-                                },
-                                noiseSigma: 42,
-                                noisySampleCount: 42,
-                            },
-                            stepCount: 42,
-                        },
-                    },
-                },
-                labels: {
-                    A: "Test string"
-                },
-                metadata: 42,
-                metadataArtifact: "Test string",
-                metadataSchemaUri: "Test string",
-                modelSourceInfo: {
-                    copy: true,
-                    sourceType: "Test string",
-                },
-                name: "Test string",
-                originalModelInfo: {
-                    model: "Test string",
-                },
-                pipelineJob: "Test string",
-                predictSchemata: {
-                    instanceSchemaUri: "Test string",
-                    parametersSchemaUri: "Test string",
-                    predictionSchemaUri: "Test string",
-                },
-                supportedDeploymentResourcesTypes: [
-                    "Test string"
-                ],
-                supportedExportFormats: [
-                    {
-                        exportableContents: [
-                            "Test string"
-                        ],
-                        id: "Test string",
-                    }
-                ],
-                supportedInputStorageFormats: [
-                    "Test string"
-                ],
-                supportedOutputStorageFormats: [
-                    "Test string"
-                ],
-                trainingPipeline: "Test string",
-                updateTime: "Test string",
-                versionAliases: [
-                    "Test string"
-                ],
-                versionCreateTime: "Test string",
-                versionDescription: "Test string",
-                versionId: "Test string",
-                versionUpdateTime: "Test string",
-            },
-            modelId: "Test string",
-            parentModel: "Test string",
-            serviceAccount: "Test string",
-        });
-        /** Gets a ModelEvaluation. */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.get({
-            name: "Test string",
-        });
-        /** Imports an externally generated ModelEvaluation. */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.import({
-            parent: "Test string",
-        }, {
-            modelEvaluation: {
-                annotationSchemaUri: "Test string",
-                createTime: "Test string",
-                dataItemSchemaUri: "Test string",
-                displayName: "Test string",
-                explanationSpecs: [
-                    {
-                        explanationSpec: {
-                            metadata: {
-                                featureAttributionsSchemaUri: "Test string",
-                                inputs: {
-                                    A: {
-                                        denseShapeTensorName: "Test string",
-                                        encodedBaselines: [
-                                            42
-                                        ],
-                                        encodedTensorName: "Test string",
-                                        encoding: "Test string",
-                                        featureValueDomain: {
-                                            maxValue: 42,
-                                            minValue: 42,
-                                            originalMean: 42,
-                                            originalStddev: 42,
-                                        },
-                                        groupName: "Test string",
-                                        indexFeatureMapping: [
-                                            "Test string"
-                                        ],
-                                        indicesTensorName: "Test string",
-                                        inputBaselines: [
-                                            42
-                                        ],
-                                        inputTensorName: "Test string",
-                                        modality: "Test string",
-                                        visualization: {
-                                            clipPercentLowerbound: 42,
-                                            clipPercentUpperbound: 42,
-                                            colorMap: "Test string",
-                                            overlayType: "Test string",
-                                            polarity: "Test string",
-                                            type: "Test string",
-                                        },
-                                    }
-                                },
-                                latentSpaceSource: "Test string",
-                                outputs: {
-                                    A: {
-                                        displayNameMappingKey: "Test string",
-                                        indexDisplayNameMapping: 42,
-                                        outputTensorName: "Test string",
-                                    }
-                                },
-                            },
-                            parameters: {
-                                examples: {
-                                    exampleGcsSource: {
-                                        dataFormat: "Test string",
-                                        gcsSource: {
-                                            uris: [
-                                                "Test string"
-                                            ],
-                                        },
-                                    },
-                                    nearestNeighborSearchConfig: 42,
-                                    neighborCount: 42,
-                                    presets: {
-                                        modality: "Test string",
-                                        query: "Test string",
-                                    },
-                                },
-                                integratedGradientsAttribution: {
-                                    blurBaselineConfig: {
-                                        maxBlurSigma: 42,
-                                    },
-                                    smoothGradConfig: {
-                                        featureNoiseSigma: {
-                                            noiseSigma: [
-                                                {
-                                                    name: "Test string",
-                                                    sigma: 42,
-                                                }
-                                            ],
-                                        },
-                                        noiseSigma: 42,
-                                        noisySampleCount: 42,
-                                    },
-                                    stepCount: 42,
-                                },
-                                outputIndices: [
-                                    42
-                                ],
-                                sampledShapleyAttribution: {
-                                    pathCount: 42,
-                                },
-                                topK: 42,
-                                xraiAttribution: {
-                                    blurBaselineConfig: {
-                                        maxBlurSigma: 42,
-                                    },
-                                    smoothGradConfig: {
-                                        featureNoiseSigma: {
-                                            noiseSigma: [
-                                                {
-                                                    name: "Test string",
-                                                    sigma: 42,
-                                                }
-                                            ],
-                                        },
-                                        noiseSigma: 42,
-                                        noisySampleCount: 42,
-                                    },
-                                    stepCount: 42,
-                                },
-                            },
-                        },
-                        explanationType: "Test string",
-                    }
-                ],
-                metadata: 42,
-                metrics: 42,
-                metricsSchemaUri: "Test string",
-                modelExplanation: {
-                    meanAttributions: [
-                        {
-                            approximationError: 42,
-                            baselineOutputValue: 42,
-                            featureAttributions: 42,
-                            instanceOutputValue: 42,
-                            outputDisplayName: "Test string",
-                            outputIndex: [
-                                42
-                            ],
-                            outputName: "Test string",
-                        }
-                    ],
-                },
-                name: "Test string",
-                sliceDimensions: [
-                    "Test string"
-                ],
-            },
-        });
-        /** Lists ModelEvaluations in a Model. */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Imports a list of externally generated EvaluatedAnnotations. */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.slices.batchImport({
-            parent: "Test string",
-        }, {
-            evaluatedAnnotations: [
-                {
-                    dataItemPayload: 42,
-                    errorAnalysisAnnotations: [
-                        {
-                            attributedItems: [
-                                {
-                                    annotationResourceName: "Test string",
-                                    distance: 42,
-                                }
-                            ],
-                            outlierScore: 42,
-                            outlierThreshold: 42,
-                            queryType: "Test string",
-                        }
-                    ],
-                    evaluatedDataItemViewId: "Test string",
-                    explanations: [
-                        {
-                            explanation: {
-                                attributions: [
-                                    {
-                                        approximationError: 42,
-                                        baselineOutputValue: 42,
-                                        featureAttributions: 42,
-                                        instanceOutputValue: 42,
-                                        outputDisplayName: "Test string",
-                                        outputIndex: [
-                                            42
-                                        ],
-                                        outputName: "Test string",
-                                    }
-                                ],
-                                neighbors: [
-                                    {
-                                        neighborDistance: 42,
-                                        neighborId: "Test string",
-                                    }
-                                ],
-                            },
-                            explanationType: "Test string",
-                        }
-                    ],
-                    groundTruths: [
-                        42
-                    ],
-                    predictions: [
-                        42
-                    ],
-                    type: "Test string",
-                }
+          },
+          id: 'Test string',
+          model: 'Test string',
+          modelVersionId: 'Test string',
+          privateEndpoints: {
+            explainHttpUri: 'Test string',
+            healthHttpUri: 'Test string',
+            predictHttpUri: 'Test string',
+            serviceAttachment: 'Test string',
+          },
+          serviceAccount: 'Test string',
+        },
+        trafficSplit: {
+          A: 42,
+        },
+      }
+    );
+    /** Perform an online explanation. If deployed_model_id is specified, the corresponding DeployModel must have explanation_spec populated. If deployed_model_id is not specified, all DeployedModels must have explanation_spec populated. */
+    await gapi.client.aiplatform.projects.locations.endpoints.explain(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        deployedModelId: 'Test string',
+        explanationSpecOverride: {
+          examplesOverride: {
+            crowdingCount: 42,
+            dataFormat: 'Test string',
+            neighborCount: 42,
+            restrictions: [
+              {
+                allow: ['Test string'],
+                deny: ['Test string'],
+                namespaceName: 'Test string',
+              },
             ],
-        });
-        /** Gets a ModelEvaluationSlice. */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.slices.get({
-            name: "Test string",
-        });
-        /** Lists ModelEvaluationSlices in a ModelEvaluation. */
-        await gapi.client.aiplatform.projects.locations.models.evaluations.slices.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.models.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.models.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.models.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.models.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.models.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Cancels a NasJob. Starts asynchronous cancellation on the NasJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetNasJob
-         * or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the NasJob is not deleted; instead it becomes
-         * a job with a NasJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and NasJob.state is set to `CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.nasJobs.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a NasJob */
-        await gapi.client.aiplatform.projects.locations.nasJobs.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            enableRestrictedImageTraining: true,
-            encryptionSpec: {
-                kmsKeyName: "Test string",
+            returnEmbeddings: true,
+          },
+          metadata: {
+            inputs: {
+              A: {
+                inputBaselines: [42],
+              },
             },
-            endTime: "Test string",
-            error: {
-                code: 42,
-                details: [
+          },
+          parameters: {
+            examples: {
+              exampleGcsSource: {
+                dataFormat: 'Test string',
+                gcsSource: {
+                  uris: ['Test string'],
+                },
+              },
+              nearestNeighborSearchConfig: 42,
+              neighborCount: 42,
+              presets: {
+                modality: 'Test string',
+                query: 'Test string',
+              },
+            },
+            integratedGradientsAttribution: {
+              blurBaselineConfig: {
+                maxBlurSigma: 42,
+              },
+              smoothGradConfig: {
+                featureNoiseSigma: {
+                  noiseSigma: [
                     {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            nasJobOutput: {
-                multiTrialJobOutput: {
-                    searchTrials: [
-                        {
-                            endTime: "Test string",
-                            finalMeasurement: {
-                                elapsedDuration: "Test string",
-                                metrics: [
-                                    {
-                                        metricId: "Test string",
-                                        value: 42,
-                                    }
-                                ],
-                                stepCount: "Test string",
-                            },
-                            id: "Test string",
-                            startTime: "Test string",
-                            state: "Test string",
-                        }
-                    ],
-                    trainTrials: [
-                        {
-                            endTime: "Test string",
-                            finalMeasurement: {
-                                elapsedDuration: "Test string",
-                                metrics: [
-                                    {
-                                        metricId: "Test string",
-                                        value: 42,
-                                    }
-                                ],
-                                stepCount: "Test string",
-                            },
-                            id: "Test string",
-                            startTime: "Test string",
-                            state: "Test string",
-                        }
-                    ],
-                },
-            },
-            nasJobSpec: {
-                multiTrialAlgorithmSpec: {
-                    metric: {
-                        goal: "Test string",
-                        metricId: "Test string",
+                      name: 'Test string',
+                      sigma: 42,
                     },
-                    multiTrialAlgorithm: "Test string",
-                    searchTrialSpec: {
-                        maxFailedTrialCount: 42,
-                        maxParallelTrialCount: 42,
-                        maxTrialCount: 42,
-                        searchTrialJobSpec: {
-                            baseOutputDirectory: {
-                                outputUriPrefix: "Test string",
-                            },
-                            enableDashboardAccess: true,
-                            enableWebAccess: true,
-                            experiment: "Test string",
-                            experimentRun: "Test string",
-                            network: "Test string",
-                            protectedArtifactLocationId: "Test string",
-                            reservedIpRanges: [
-                                "Test string"
-                            ],
-                            scheduling: {
-                                disableRetries: true,
-                                restartJobOnWorkerRestart: true,
-                                timeout: "Test string",
-                            },
-                            serviceAccount: "Test string",
-                            tensorboard: "Test string",
-                            workerPoolSpecs: [
-                                {
-                                    containerSpec: {
-                                        args: [
-                                            "Test string"
-                                        ],
-                                        command: [
-                                            "Test string"
-                                        ],
-                                        env: [
-                                            {
-                                                name: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        imageUri: "Test string",
-                                    },
-                                    diskSpec: {
-                                        bootDiskSizeGb: 42,
-                                        bootDiskType: "Test string",
-                                    },
-                                    machineSpec: {
-                                        acceleratorCount: 42,
-                                        acceleratorType: "Test string",
-                                        machineType: "Test string",
-                                        tpuTopology: "Test string",
-                                    },
-                                    nfsMounts: [
-                                        {
-                                            mountPoint: "Test string",
-                                            path: "Test string",
-                                            server: "Test string",
-                                        }
-                                    ],
-                                    pythonPackageSpec: {
-                                        args: [
-                                            "Test string"
-                                        ],
-                                        env: [
-                                            {
-                                                name: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        executorImageUri: "Test string",
-                                        packageUris: [
-                                            "Test string"
-                                        ],
-                                        pythonModule: "Test string",
-                                    },
-                                    replicaCount: "Test string",
-                                }
-                            ],
-                        },
+                  ],
+                },
+                noiseSigma: 42,
+                noisySampleCount: 42,
+              },
+              stepCount: 42,
+            },
+            outputIndices: [42],
+            sampledShapleyAttribution: {
+              pathCount: 42,
+            },
+            topK: 42,
+            xraiAttribution: {
+              blurBaselineConfig: {
+                maxBlurSigma: 42,
+              },
+              smoothGradConfig: {
+                featureNoiseSigma: {
+                  noiseSigma: [
+                    {
+                      name: 'Test string',
+                      sigma: 42,
                     },
-                    trainTrialSpec: {
-                        frequency: 42,
-                        maxParallelTrialCount: 42,
-                        trainTrialJobSpec: {
-                            baseOutputDirectory: {
-                                outputUriPrefix: "Test string",
-                            },
-                            enableDashboardAccess: true,
-                            enableWebAccess: true,
-                            experiment: "Test string",
-                            experimentRun: "Test string",
-                            network: "Test string",
-                            protectedArtifactLocationId: "Test string",
-                            reservedIpRanges: [
-                                "Test string"
-                            ],
-                            scheduling: {
-                                disableRetries: true,
-                                restartJobOnWorkerRestart: true,
-                                timeout: "Test string",
-                            },
-                            serviceAccount: "Test string",
-                            tensorboard: "Test string",
-                            workerPoolSpecs: [
-                                {
-                                    containerSpec: {
-                                        args: [
-                                            "Test string"
-                                        ],
-                                        command: [
-                                            "Test string"
-                                        ],
-                                        env: [
-                                            {
-                                                name: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        imageUri: "Test string",
-                                    },
-                                    diskSpec: {
-                                        bootDiskSizeGb: 42,
-                                        bootDiskType: "Test string",
-                                    },
-                                    machineSpec: {
-                                        acceleratorCount: 42,
-                                        acceleratorType: "Test string",
-                                        machineType: "Test string",
-                                        tpuTopology: "Test string",
-                                    },
-                                    nfsMounts: [
-                                        {
-                                            mountPoint: "Test string",
-                                            path: "Test string",
-                                            server: "Test string",
-                                        }
-                                    ],
-                                    pythonPackageSpec: {
-                                        args: [
-                                            "Test string"
-                                        ],
-                                        env: [
-                                            {
-                                                name: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        executorImageUri: "Test string",
-                                        packageUris: [
-                                            "Test string"
-                                        ],
-                                        pythonModule: "Test string",
-                                    },
-                                    replicaCount: "Test string",
-                                }
-                            ],
-                        },
-                    },
+                  ],
                 },
-                resumeNasJobId: "Test string",
-                searchSpaceSpec: "Test string",
+                noiseSigma: 42,
+                noisySampleCount: 42,
+              },
+              stepCount: 42,
             },
-            startTime: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a NasJob. */
-        await gapi.client.aiplatform.projects.locations.nasJobs.delete({
-            name: "Test string",
-        });
-        /** Gets a NasJob */
-        await gapi.client.aiplatform.projects.locations.nasJobs.get({
-            name: "Test string",
-        });
-        /** Lists NasJobs in a Location. */
-        await gapi.client.aiplatform.projects.locations.nasJobs.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Gets a NasTrialDetail. */
-        await gapi.client.aiplatform.projects.locations.nasJobs.nasTrialDetails.get({
-            name: "Test string",
-        });
-        /** List top NasTrialDetails of a NasJob. */
-        await gapi.client.aiplatform.projects.locations.nasJobs.nasTrialDetails.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Assigns a NotebookRuntime to a user for a particular Notebook file. This method will either returns an existing assignment or generates a new one. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimes.assign({
-            parent: "Test string",
-        }, {
-            notebookRuntime: {
-                createTime: "Test string",
-                description: "Test string",
-                displayName: "Test string",
-                expirationTime: "Test string",
-                healthState: "Test string",
-                labels: {
-                    A: "Test string"
-                },
-                name: "Test string",
-                notebookRuntimeTemplateRef: {
-                    notebookRuntimeTemplate: "Test string",
-                },
-                notebookRuntimeType: "Test string",
-                proxyUri: "Test string",
-                runtimeState: "Test string",
-                runtimeUser: "Test string",
-                serviceAccount: "Test string",
-                updateTime: "Test string",
-                version: "Test string",
-            },
-            notebookRuntimeId: "Test string",
-            notebookRuntimeTemplate: "Test string",
-        });
-        /** Deletes a NotebookRuntime. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimes.delete({
-            name: "Test string",
-        });
-        /** Gets a NotebookRuntime. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimes.get({
-            name: "Test string",
-        });
-        /** Lists NotebookRuntimes in a Location. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimes.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Starts a NotebookRuntime. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimes.start({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a NotebookRuntimeTemplate. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.create({
-            notebookRuntimeTemplateId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            dataPersistentDiskSpec: {
-                diskSizeGb: "Test string",
-                diskType: "Test string",
-            },
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            eucConfig: {
-                bypassActasCheck: true,
-                eucDisabled: true,
-            },
-            idleShutdownConfig: {
-                idleShutdownDisabled: true,
-                idleTimeout: "Test string",
-            },
-            isDefault: true,
-            labels: {
-                A: "Test string"
-            },
+          },
+        },
+        instances: [42],
+        parameters: 42,
+      }
+    );
+    /** Gets an Endpoint. */
+    await gapi.client.aiplatform.projects.locations.endpoints.get({
+      name: 'Test string',
+    });
+    /** Lists Endpoints in a Location. */
+    await gapi.client.aiplatform.projects.locations.endpoints.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Updates an existing deployed model. Updatable fields include `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and `enable_container_logging` (v1beta1 only). */
+    await gapi.client.aiplatform.projects.locations.endpoints.mutateDeployedModel(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        deployedModel: {
+          automaticResources: {
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+          },
+          createTime: 'Test string',
+          dedicatedResources: {
+            autoscalingMetricSpecs: [
+              {
+                metricName: 'Test string',
+                target: 42,
+              },
+            ],
             machineSpec: {
+              acceleratorCount: 42,
+              acceleratorType: 'Test string',
+              machineType: 'Test string',
+              tpuTopology: 'Test string',
+            },
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+          },
+          disableContainerLogging: true,
+          displayName: 'Test string',
+          enableAccessLogging: true,
+          explanationSpec: {
+            metadata: {
+              featureAttributionsSchemaUri: 'Test string',
+              inputs: {
+                A: {
+                  denseShapeTensorName: 'Test string',
+                  encodedBaselines: [42],
+                  encodedTensorName: 'Test string',
+                  encoding: 'Test string',
+                  featureValueDomain: {
+                    maxValue: 42,
+                    minValue: 42,
+                    originalMean: 42,
+                    originalStddev: 42,
+                  },
+                  groupName: 'Test string',
+                  indexFeatureMapping: ['Test string'],
+                  indicesTensorName: 'Test string',
+                  inputBaselines: [42],
+                  inputTensorName: 'Test string',
+                  modality: 'Test string',
+                  visualization: {
+                    clipPercentLowerbound: 42,
+                    clipPercentUpperbound: 42,
+                    colorMap: 'Test string',
+                    overlayType: 'Test string',
+                    polarity: 'Test string',
+                    type: 'Test string',
+                  },
+                },
+              },
+              latentSpaceSource: 'Test string',
+              outputs: {
+                A: {
+                  displayNameMappingKey: 'Test string',
+                  indexDisplayNameMapping: 42,
+                  outputTensorName: 'Test string',
+                },
+              },
+            },
+            parameters: {
+              examples: {
+                exampleGcsSource: {
+                  dataFormat: 'Test string',
+                  gcsSource: {
+                    uris: ['Test string'],
+                  },
+                },
+                nearestNeighborSearchConfig: 42,
+                neighborCount: 42,
+                presets: {
+                  modality: 'Test string',
+                  query: 'Test string',
+                },
+              },
+              integratedGradientsAttribution: {
+                blurBaselineConfig: {
+                  maxBlurSigma: 42,
+                },
+                smoothGradConfig: {
+                  featureNoiseSigma: {
+                    noiseSigma: [
+                      {
+                        name: 'Test string',
+                        sigma: 42,
+                      },
+                    ],
+                  },
+                  noiseSigma: 42,
+                  noisySampleCount: 42,
+                },
+                stepCount: 42,
+              },
+              outputIndices: [42],
+              sampledShapleyAttribution: {
+                pathCount: 42,
+              },
+              topK: 42,
+              xraiAttribution: {
+                blurBaselineConfig: {
+                  maxBlurSigma: 42,
+                },
+                smoothGradConfig: {
+                  featureNoiseSigma: {
+                    noiseSigma: [
+                      {
+                        name: 'Test string',
+                        sigma: 42,
+                      },
+                    ],
+                  },
+                  noiseSigma: 42,
+                  noisySampleCount: 42,
+                },
+                stepCount: 42,
+              },
+            },
+          },
+          id: 'Test string',
+          model: 'Test string',
+          modelVersionId: 'Test string',
+          privateEndpoints: {
+            explainHttpUri: 'Test string',
+            healthHttpUri: 'Test string',
+            predictHttpUri: 'Test string',
+            serviceAttachment: 'Test string',
+          },
+          serviceAccount: 'Test string',
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Updates an Endpoint. */
+    await gapi.client.aiplatform.projects.locations.endpoints.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deployedModels: [
+          {
+            automaticResources: {
+              maxReplicaCount: 42,
+              minReplicaCount: 42,
+            },
+            createTime: 'Test string',
+            dedicatedResources: {
+              autoscalingMetricSpecs: [
+                {
+                  metricName: 'Test string',
+                  target: 42,
+                },
+              ],
+              machineSpec: {
                 acceleratorCount: 42,
-                acceleratorType: "Test string",
-                machineType: "Test string",
-                tpuTopology: "Test string",
+                acceleratorType: 'Test string',
+                machineType: 'Test string',
+                tpuTopology: 'Test string',
+              },
+              maxReplicaCount: 42,
+              minReplicaCount: 42,
             },
-            name: "Test string",
-            networkSpec: {
-                enableInternetAccess: true,
-                network: "Test string",
-                subnetwork: "Test string",
-            },
-            notebookRuntimeType: "Test string",
-            serviceAccount: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a NotebookRuntimeTemplate. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.delete({
-            name: "Test string",
-        });
-        /** Gets a NotebookRuntimeTemplate. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists NotebookRuntimeTemplates in a Location. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.testIamPermissions({
-            permissions: "Test string",
-            resource: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Cancels a PipelineJob. Starts asynchronous cancellation on the PipelineJob. The server makes a best effort to cancel the pipeline, but success is not guaranteed. Clients can use
-         * PipelineService.GetPipelineJob or other methods to check whether the cancellation succeeded or whether the pipeline completed despite cancellation. On successful cancellation, the
-         * PipelineJob is not deleted; instead it becomes a pipeline with a PipelineJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and PipelineJob.state is
-         * set to `CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a PipelineJob. A PipelineJob will run immediately when created. */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.create({
-            parent: "Test string",
-            pipelineJobId: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            endTime: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            jobDetail: {
-                pipelineContext: {
-                    createTime: "Test string",
-                    description: "Test string",
-                    displayName: "Test string",
-                    etag: "Test string",
-                    labels: {
-                        A: "Test string"
+            disableContainerLogging: true,
+            displayName: 'Test string',
+            enableAccessLogging: true,
+            explanationSpec: {
+              metadata: {
+                featureAttributionsSchemaUri: 'Test string',
+                inputs: {
+                  A: {
+                    denseShapeTensorName: 'Test string',
+                    encodedBaselines: [42],
+                    encodedTensorName: 'Test string',
+                    encoding: 'Test string',
+                    featureValueDomain: {
+                      maxValue: 42,
+                      minValue: 42,
+                      originalMean: 42,
+                      originalStddev: 42,
                     },
-                    metadata: {
-                        A: 42
+                    groupName: 'Test string',
+                    indexFeatureMapping: ['Test string'],
+                    indicesTensorName: 'Test string',
+                    inputBaselines: [42],
+                    inputTensorName: 'Test string',
+                    modality: 'Test string',
+                    visualization: {
+                      clipPercentLowerbound: 42,
+                      clipPercentUpperbound: 42,
+                      colorMap: 'Test string',
+                      overlayType: 'Test string',
+                      polarity: 'Test string',
+                      type: 'Test string',
                     },
-                    name: "Test string",
-                    parentContexts: [
-                        "Test string"
-                    ],
-                    schemaTitle: "Test string",
-                    schemaVersion: "Test string",
-                    updateTime: "Test string",
+                  },
                 },
-                pipelineRunContext: {
-                    createTime: "Test string",
-                    description: "Test string",
-                    displayName: "Test string",
-                    etag: "Test string",
-                    labels: {
-                        A: "Test string"
-                    },
-                    metadata: {
-                        A: 42
-                    },
-                    name: "Test string",
-                    parentContexts: [
-                        "Test string"
-                    ],
-                    schemaTitle: "Test string",
-                    schemaVersion: "Test string",
-                    updateTime: "Test string",
+                latentSpaceSource: 'Test string',
+                outputs: {
+                  A: {
+                    displayNameMappingKey: 'Test string',
+                    indexDisplayNameMapping: 42,
+                    outputTensorName: 'Test string',
+                  },
                 },
-                taskDetails: [
-                    {
-                        createTime: "Test string",
-                        endTime: "Test string",
-                        error: {
-                            code: 42,
-                            details: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            message: "Test string",
+              },
+              parameters: {
+                examples: {
+                  exampleGcsSource: {
+                    dataFormat: 'Test string',
+                    gcsSource: {
+                      uris: ['Test string'],
+                    },
+                  },
+                  nearestNeighborSearchConfig: 42,
+                  neighborCount: 42,
+                  presets: {
+                    modality: 'Test string',
+                    query: 'Test string',
+                  },
+                },
+                integratedGradientsAttribution: {
+                  blurBaselineConfig: {
+                    maxBlurSigma: 42,
+                  },
+                  smoothGradConfig: {
+                    featureNoiseSigma: {
+                      noiseSigma: [
+                        {
+                          name: 'Test string',
+                          sigma: 42,
                         },
-                        execution: {
-                            createTime: "Test string",
-                            description: "Test string",
-                            displayName: "Test string",
-                            etag: "Test string",
-                            labels: {
-                                A: "Test string"
-                            },
-                            metadata: {
-                                A: 42
-                            },
-                            name: "Test string",
-                            schemaTitle: "Test string",
-                            schemaVersion: "Test string",
-                            state: "Test string",
-                            updateTime: "Test string",
+                      ],
+                    },
+                    noiseSigma: 42,
+                    noisySampleCount: 42,
+                  },
+                  stepCount: 42,
+                },
+                outputIndices: [42],
+                sampledShapleyAttribution: {
+                  pathCount: 42,
+                },
+                topK: 42,
+                xraiAttribution: {
+                  blurBaselineConfig: {
+                    maxBlurSigma: 42,
+                  },
+                  smoothGradConfig: {
+                    featureNoiseSigma: {
+                      noiseSigma: [
+                        {
+                          name: 'Test string',
+                          sigma: 42,
                         },
-                        executorDetail: {
-                            containerDetail: {
-                                failedMainJobs: [
-                                    "Test string"
-                                ],
-                                failedPreCachingCheckJobs: [
-                                    "Test string"
-                                ],
-                                mainJob: "Test string",
-                                preCachingCheckJob: "Test string",
-                            },
-                            customJobDetail: {
-                                failedJobs: [
-                                    "Test string"
-                                ],
-                                job: "Test string",
-                            },
-                        },
-                        inputs: {
-                            A: {
-                                artifacts: [
-                                    {
-                                        createTime: "Test string",
-                                        description: "Test string",
-                                        displayName: "Test string",
-                                        etag: "Test string",
-                                        labels: {
-                                            A: "Test string"
-                                        },
-                                        metadata: {
-                                            A: 42
-                                        },
-                                        name: "Test string",
-                                        schemaTitle: "Test string",
-                                        schemaVersion: "Test string",
-                                        state: "Test string",
-                                        updateTime: "Test string",
-                                        uri: "Test string",
-                                    }
-                                ],
-                            }
-                        },
-                        outputs: {
-                            A: {
-                                artifacts: [
-                                    {
-                                        createTime: "Test string",
-                                        description: "Test string",
-                                        displayName: "Test string",
-                                        etag: "Test string",
-                                        labels: {
-                                            A: "Test string"
-                                        },
-                                        metadata: {
-                                            A: 42
-                                        },
-                                        name: "Test string",
-                                        schemaTitle: "Test string",
-                                        schemaVersion: "Test string",
-                                        state: "Test string",
-                                        updateTime: "Test string",
-                                        uri: "Test string",
-                                    }
-                                ],
-                            }
-                        },
-                        parentTaskId: "Test string",
-                        pipelineTaskStatus: [
-                            {
-                                error: {
-                                    code: 42,
-                                    details: [
-                                        {
-                                            A: 42
-                                        }
-                                    ],
-                                    message: "Test string",
-                                },
-                                state: "Test string",
-                                updateTime: "Test string",
-                            }
-                        ],
-                        startTime: "Test string",
-                        state: "Test string",
-                        taskId: "Test string",
-                        taskName: "Test string",
-                    }
-                ],
+                      ],
+                    },
+                    noiseSigma: 42,
+                    noisySampleCount: 42,
+                  },
+                  stepCount: 42,
+                },
+              },
             },
-            labels: {
-                A: "Test string"
+            id: 'Test string',
+            model: 'Test string',
+            modelVersionId: 'Test string',
+            privateEndpoints: {
+              explainHttpUri: 'Test string',
+              healthHttpUri: 'Test string',
+              predictHttpUri: 'Test string',
+              serviceAttachment: 'Test string',
             },
-            name: "Test string",
-            network: "Test string",
-            pipelineSpec: {
-                A: 42
+            serviceAccount: 'Test string',
+          },
+        ],
+        description: 'Test string',
+        displayName: 'Test string',
+        enablePrivateServiceConnect: true,
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        modelDeploymentMonitoringJob: 'Test string',
+        name: 'Test string',
+        network: 'Test string',
+        predictRequestResponseLoggingConfig: {
+          bigqueryDestination: {
+            outputUri: 'Test string',
+          },
+          enabled: true,
+          samplingRate: 42,
+        },
+        trafficSplit: {
+          A: 42,
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Perform an online prediction. */
+    await gapi.client.aiplatform.projects.locations.endpoints.predict(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        instances: [42],
+        parameters: 42,
+      }
+    );
+    /** Perform an online prediction with an arbitrary HTTP payload. The response includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the Endpoint that served this prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's DeployedModel that served this prediction. */
+    await gapi.client.aiplatform.projects.locations.endpoints.rawPredict(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        httpBody: {
+          contentType: 'Test string',
+          data: 'Test string',
+          extensions: [
+            {
+              A: 42,
             },
-            reservedIpRanges: [
-                "Test string"
+          ],
+        },
+      }
+    );
+    /** Perform a server-side streaming online prediction request for Vertex LLM streaming. */
+    await gapi.client.aiplatform.projects.locations.endpoints.serverStreamingPredict(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        inputs: [
+          {
+            boolVal: [true],
+            bytesVal: ['Test string'],
+            doubleVal: [42],
+            dtype: 'Test string',
+            floatVal: [42],
+            int64Val: ['Test string'],
+            intVal: [42],
+            listVal: undefined,
+            shape: ['Test string'],
+            stringVal: ['Test string'],
+            structVal: undefined,
+            tensorVal: 'Test string',
+            uint64Val: ['Test string'],
+            uintVal: [42],
+          },
+        ],
+        parameters: {
+          boolVal: [true],
+          bytesVal: ['Test string'],
+          doubleVal: [42],
+          dtype: 'Test string',
+          floatVal: [42],
+          int64Val: ['Test string'],
+          intVal: [42],
+          listVal: undefined,
+          shape: ['Test string'],
+          stringVal: ['Test string'],
+          structVal: undefined,
+          tensorVal: 'Test string',
+          uint64Val: ['Test string'],
+          uintVal: [42],
+        },
+      }
+    );
+    /** Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using. */
+    await gapi.client.aiplatform.projects.locations.endpoints.undeployModel(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        deployedModelId: 'Test string',
+        trafficSplit: {
+          A: 42,
+        },
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.endpoints.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.endpoints.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.endpoints.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.endpoints.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.endpoints.operations.wait({
+      name: 'Test string',
+      timeout: 'Test string',
+    });
+    /** Creates a new FeatureGroup in a given project and location. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.create(
+      {
+        featureGroupId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        bigQuery: {
+          bigQuerySource: {
+            inputUri: 'Test string',
+          },
+          entityIdColumns: ['Test string'],
+        },
+        createTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single FeatureGroup. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.delete({
+      force: true,
+      name: 'Test string',
+    });
+    /** Gets details of a single FeatureGroup. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.get({
+      name: 'Test string',
+    });
+    /** Lists FeatureGroups in a given project and location. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single FeatureGroup. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        bigQuery: {
+          bigQuerySource: {
+            inputUri: 'Test string',
+          },
+          entityIdColumns: ['Test string'],
+        },
+        createTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a new Feature in a given FeatureGroup. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.features.create(
+      {
+        featureId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        disableMonitoring: true,
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        monitoringStatsAnomalies: [
+          {
+            featureStatsAnomaly: {
+              anomalyDetectionThreshold: 42,
+              anomalyUri: 'Test string',
+              distributionDeviation: 42,
+              endTime: 'Test string',
+              score: 42,
+              startTime: 'Test string',
+              statsUri: 'Test string',
+            },
+            objective: 'Test string',
+          },
+        ],
+        name: 'Test string',
+        updateTime: 'Test string',
+        valueType: 'Test string',
+        versionColumnName: 'Test string',
+      }
+    );
+    /** Deletes a single Feature. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.features.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets details of a single Feature. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.features.get({
+      name: 'Test string',
+    });
+    /** Lists Features in a given FeatureGroup. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.features.list(
+      {
+        filter: 'Test string',
+        latestStatsCount: 42,
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Updates the parameters of a single Feature. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.features.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        disableMonitoring: true,
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        monitoringStatsAnomalies: [
+          {
+            featureStatsAnomaly: {
+              anomalyDetectionThreshold: 42,
+              anomalyUri: 'Test string',
+              distributionDeviation: 42,
+              endTime: 'Test string',
+              score: 42,
+              startTime: 'Test string',
+              statsUri: 'Test string',
+            },
+            objective: 'Test string',
+          },
+        ],
+        name: 'Test string',
+        updateTime: 'Test string',
+        valueType: 'Test string',
+        versionColumnName: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.features.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.features.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.features.operations.listWait(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.features.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.operations.listWait(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.featureGroups.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Creates a new FeatureOnlineStore in a given project and location. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.create(
+      {
+        featureOnlineStoreId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        bigtable: {
+          autoScaling: {
+            cpuUtilizationTarget: 42,
+            maxNodeCount: 42,
+            minNodeCount: 42,
+          },
+        },
+        createTime: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not contain any FeatureViews. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.delete({
+      force: true,
+      name: 'Test string',
+    });
+    /** Gets details of a single FeatureOnlineStore. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.get({
+      name: 'Test string',
+    });
+    /** Lists FeatureOnlineStores in a given project and location. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single FeatureOnlineStore. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        bigtable: {
+          autoScaling: {
+            cpuUtilizationTarget: 42,
+            maxNodeCount: 42,
+            minNodeCount: 42,
+          },
+        },
+        createTime: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a new FeatureView in a given FeatureOnlineStore. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.create(
+      {
+        featureViewId: 'Test string',
+        parent: 'Test string',
+        runSyncImmediately: true,
+      },
+      {
+        bigQuerySource: {
+          entityIdColumns: ['Test string'],
+          uri: 'Test string',
+        },
+        createTime: 'Test string',
+        etag: 'Test string',
+        featureRegistrySource: {
+          featureGroups: [
+            {
+              featureGroupId: 'Test string',
+              featureIds: ['Test string'],
+            },
+          ],
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        syncConfig: {
+          cron: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single FeatureView. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Fetch feature values under a FeatureView. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.fetchFeatureValues(
+      {
+        featureView: 'Test string',
+      },
+      {
+        dataFormat: 'Test string',
+        dataKey: {
+          key: 'Test string',
+        },
+      }
+    );
+    /** Gets details of a single FeatureView. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists FeatureViews in a given FeatureOnlineStore. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates the parameters of a single FeatureView. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        bigQuerySource: {
+          entityIdColumns: ['Test string'],
+          uri: 'Test string',
+        },
+        createTime: 'Test string',
+        etag: 'Test string',
+        featureRegistrySource: {
+          featureGroups: [
+            {
+              featureGroupId: 'Test string',
+              featureIds: ['Test string'],
+            },
+          ],
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        syncConfig: {
+          cron: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Triggers on-demand sync for the FeatureView. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.sync(
+      {
+        featureView: 'Test string',
+      },
+      {}
+    );
+    /** Gets details of a single FeatureViewSync. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.featureViewSyncs.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists FeatureViewSyncs in a given FeatureView. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.featureViewSyncs.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.operations.listWait(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.operations.listWait(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Batch reads Feature values from a Featurestore. This API enables batch reading Feature values, where each read instance in the batch may read Feature values of entities from one or more EntityTypes. Point-in-time correctness is guaranteed for Feature values of each read instance as of each instance's read timestamp. */
+    await gapi.client.aiplatform.projects.locations.featurestores.batchReadFeatureValues(
+      {
+        featurestore: 'Test string',
+      },
+      {
+        bigqueryReadInstances: {
+          inputUri: 'Test string',
+        },
+        csvReadInstances: {
+          gcsSource: {
+            uris: ['Test string'],
+          },
+        },
+        destination: {
+          bigqueryDestination: {
+            outputUri: 'Test string',
+          },
+          csvDestination: {
+            gcsDestination: {
+              outputUriPrefix: 'Test string',
+            },
+          },
+          tfrecordDestination: {
+            gcsDestination: {
+              outputUriPrefix: 'Test string',
+            },
+          },
+        },
+        entityTypeSpecs: [
+          {
+            entityTypeId: 'Test string',
+            featureSelector: {
+              idMatcher: {
+                ids: ['Test string'],
+              },
+            },
+            settings: [
+              {
+                destinationField: 'Test string',
+                featureId: 'Test string',
+              },
             ],
-            runtimeConfig: {
-                failurePolicy: "Test string",
-                gcsOutputDirectory: "Test string",
-                inputArtifacts: {
+          },
+        ],
+        passThroughFields: [
+          {
+            fieldName: 'Test string',
+          },
+        ],
+        startTime: 'Test string',
+      }
+    );
+    /** Creates a new Featurestore in a given project and location. */
+    await gapi.client.aiplatform.projects.locations.featurestores.create(
+      {
+        featurestoreId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        onlineServingConfig: {
+          fixedNodeCount: 42,
+          scaling: {
+            cpuUtilizationTarget: 42,
+            maxNodeCount: 42,
+            minNodeCount: 42,
+          },
+        },
+        onlineStorageTtlDays: 42,
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single Featurestore. The Featurestore must not contain any EntityTypes or `force` must be set to true for the request to succeed. */
+    await gapi.client.aiplatform.projects.locations.featurestores.delete({
+      force: true,
+      name: 'Test string',
+    });
+    /** Gets details of a single Featurestore. */
+    await gapi.client.aiplatform.projects.locations.featurestores.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.aiplatform.projects.locations.featurestores.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Featurestores in a given project and location. */
+    await gapi.client.aiplatform.projects.locations.featurestores.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Updates the parameters of a single Featurestore. */
+    await gapi.client.aiplatform.projects.locations.featurestores.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        onlineServingConfig: {
+          fixedNodeCount: 42,
+          scaling: {
+            cpuUtilizationTarget: 42,
+            maxNodeCount: 42,
+            minNodeCount: 42,
+          },
+        },
+        onlineStorageTtlDays: 42,
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Searches Features matching a query in a given project. */
+    await gapi.client.aiplatform.projects.locations.featurestores.searchFeatures(
+      {
+        location: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        query: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.aiplatform.projects.locations.featurestores.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.aiplatform.projects.locations.featurestores.testIamPermissions(
+      {
+        permissions: 'Test string',
+        resource: 'Test string',
+      }
+    );
+    /** Creates a new EntityType in a given Featurestore. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.create(
+      {
+        entityTypeId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        monitoringConfig: {
+          categoricalThresholdConfig: {
+            value: 42,
+          },
+          importFeaturesAnalysis: {
+            anomalyDetectionBaseline: 'Test string',
+            state: 'Test string',
+          },
+          numericalThresholdConfig: {
+            value: 42,
+          },
+          snapshotAnalysis: {
+            disabled: true,
+            monitoringIntervalDays: 42,
+            stalenessDays: 42,
+          },
+        },
+        name: 'Test string',
+        offlineStorageTtlDays: 42,
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single EntityType. The EntityType must not have any Features or `force` must be set to true for the request to succeed. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.delete(
+      {
+        force: true,
+        name: 'Test string',
+      }
+    );
+    /** Delete Feature values from Featurestore. The progress of the deletion is tracked by the returned operation. The deleted feature values are guaranteed to be invisible to subsequent read operations after the operation is marked as successfully done. If a delete feature values operation fails, the feature values returned from reads and exports may be inconsistent. If consistency is required, the caller must retry the same delete request again and wait till the new operation returned is marked as successfully done. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.deleteFeatureValues(
+      {
+        entityType: 'Test string',
+      },
+      {
+        selectEntity: {
+          entityIdSelector: {
+            csvSource: {
+              gcsSource: {
+                uris: ['Test string'],
+              },
+            },
+            entityIdField: 'Test string',
+          },
+        },
+        selectTimeRangeAndFeature: {
+          featureSelector: {
+            idMatcher: {
+              ids: ['Test string'],
+            },
+          },
+          skipOnlineStorageDelete: true,
+          timeRange: {
+            endTime: 'Test string',
+            startTime: 'Test string',
+          },
+        },
+      }
+    );
+    /** Exports Feature values from all the entities of a target EntityType. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.exportFeatureValues(
+      {
+        entityType: 'Test string',
+      },
+      {
+        destination: {
+          bigqueryDestination: {
+            outputUri: 'Test string',
+          },
+          csvDestination: {
+            gcsDestination: {
+              outputUriPrefix: 'Test string',
+            },
+          },
+          tfrecordDestination: {
+            gcsDestination: {
+              outputUriPrefix: 'Test string',
+            },
+          },
+        },
+        featureSelector: {
+          idMatcher: {
+            ids: ['Test string'],
+          },
+        },
+        fullExport: {
+          endTime: 'Test string',
+          startTime: 'Test string',
+        },
+        settings: [
+          {
+            destinationField: 'Test string',
+            featureId: 'Test string',
+          },
+        ],
+        snapshotExport: {
+          snapshotTime: 'Test string',
+          startTime: 'Test string',
+        },
+      }
+    );
+    /** Gets details of a single EntityType. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Imports Feature values into the Featurestore from a source storage. The progress of the import is tracked by the returned operation. The imported features are guaranteed to be visible to subsequent read operations after the operation is marked as successfully done. If an import operation fails, the Feature values returned from reads and exports may be inconsistent. If consistency is required, the caller must retry the same import request again and wait till the new operation returned is marked as successfully done. There are also scenarios where the caller can cause inconsistency. - Source data for import contains multiple distinct Feature values for the same entity ID and timestamp. - Source is modified during an import. This includes adding, updating, or removing source data and/or metadata. Examples of updating metadata include but are not limited to changing storage location, storage class, or retention policy. - Online serving cluster is under-provisioned. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.importFeatureValues(
+      {
+        entityType: 'Test string',
+      },
+      {
+        avroSource: {
+          gcsSource: {
+            uris: ['Test string'],
+          },
+        },
+        bigquerySource: {
+          inputUri: 'Test string',
+        },
+        csvSource: {
+          gcsSource: {
+            uris: ['Test string'],
+          },
+        },
+        disableIngestionAnalysis: true,
+        disableOnlineServing: true,
+        entityIdField: 'Test string',
+        featureSpecs: [
+          {
+            id: 'Test string',
+            sourceField: 'Test string',
+          },
+        ],
+        featureTime: 'Test string',
+        featureTimeField: 'Test string',
+        workerCount: 42,
+      }
+    );
+    /** Lists EntityTypes in a given Featurestore. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Updates the parameters of a single EntityType. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        monitoringConfig: {
+          categoricalThresholdConfig: {
+            value: 42,
+          },
+          importFeaturesAnalysis: {
+            anomalyDetectionBaseline: 'Test string',
+            state: 'Test string',
+          },
+          numericalThresholdConfig: {
+            value: 42,
+          },
+          snapshotAnalysis: {
+            disabled: true,
+            monitoringIntervalDays: 42,
+            stalenessDays: 42,
+          },
+        },
+        name: 'Test string',
+        offlineStorageTtlDays: 42,
+        updateTime: 'Test string',
+      }
+    );
+    /** Reads Feature values of a specific entity of an EntityType. For reading feature values of multiple entities of an EntityType, please use StreamingReadFeatureValues. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.readFeatureValues(
+      {
+        entityType: 'Test string',
+      },
+      {
+        entityId: 'Test string',
+        featureSelector: {
+          idMatcher: {
+            ids: ['Test string'],
+          },
+        },
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Reads Feature values for multiple entities. Depending on their size, data for different entities may be broken up across multiple responses. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.streamingReadFeatureValues(
+      {
+        entityType: 'Test string',
+      },
+      {
+        entityIds: ['Test string'],
+        featureSelector: {
+          idMatcher: {
+            ids: ['Test string'],
+          },
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.testIamPermissions(
+      {
+        permissions: 'Test string',
+        resource: 'Test string',
+      }
+    );
+    /** Writes Feature values of one or more entities of an EntityType. The Feature values are merged into existing entities if any. The Feature values to be written must have timestamp within the online storage retention. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.writeFeatureValues(
+      {
+        entityType: 'Test string',
+      },
+      {
+        payloads: [
+          {
+            entityId: 'Test string',
+            featureValues: {
+              A: {
+                boolArrayValue: {
+                  values: [true],
+                },
+                boolValue: true,
+                bytesValue: 'Test string',
+                doubleArrayValue: {
+                  values: [42],
+                },
+                doubleValue: 42,
+                int64ArrayValue: {
+                  values: ['Test string'],
+                },
+                int64Value: 'Test string',
+                metadata: {
+                  generateTime: 'Test string',
+                },
+                stringArrayValue: {
+                  values: ['Test string'],
+                },
+                stringValue: 'Test string',
+              },
+            },
+          },
+        ],
+      }
+    );
+    /** Creates a batch of Features in a given EntityType. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.batchCreate(
+      {
+        parent: 'Test string',
+      },
+      {
+        requests: [
+          {
+            feature: {
+              createTime: 'Test string',
+              description: 'Test string',
+              disableMonitoring: true,
+              etag: 'Test string',
+              labels: {
+                A: 'Test string',
+              },
+              monitoringStatsAnomalies: [
+                {
+                  featureStatsAnomaly: {
+                    anomalyDetectionThreshold: 42,
+                    anomalyUri: 'Test string',
+                    distributionDeviation: 42,
+                    endTime: 'Test string',
+                    score: 42,
+                    startTime: 'Test string',
+                    statsUri: 'Test string',
+                  },
+                  objective: 'Test string',
+                },
+              ],
+              name: 'Test string',
+              updateTime: 'Test string',
+              valueType: 'Test string',
+              versionColumnName: 'Test string',
+            },
+            featureId: 'Test string',
+            parent: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Creates a new Feature in a given EntityType. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.create(
+      {
+        featureId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        disableMonitoring: true,
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        monitoringStatsAnomalies: [
+          {
+            featureStatsAnomaly: {
+              anomalyDetectionThreshold: 42,
+              anomalyUri: 'Test string',
+              distributionDeviation: 42,
+              endTime: 'Test string',
+              score: 42,
+              startTime: 'Test string',
+              statsUri: 'Test string',
+            },
+            objective: 'Test string',
+          },
+        ],
+        name: 'Test string',
+        updateTime: 'Test string',
+        valueType: 'Test string',
+        versionColumnName: 'Test string',
+      }
+    );
+    /** Deletes a single Feature. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets details of a single Feature. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists Features in a given EntityType. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.list(
+      {
+        filter: 'Test string',
+        latestStatsCount: 42,
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Updates the parameters of a single Feature. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        disableMonitoring: true,
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        monitoringStatsAnomalies: [
+          {
+            featureStatsAnomaly: {
+              anomalyDetectionThreshold: 42,
+              anomalyUri: 'Test string',
+              distributionDeviation: 42,
+              endTime: 'Test string',
+              score: 42,
+              startTime: 'Test string',
+              statsUri: 'Test string',
+            },
+            objective: 'Test string',
+          },
+        ],
+        name: 'Test string',
+        updateTime: 'Test string',
+        valueType: 'Test string',
+        versionColumnName: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.features.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.featurestores.entityTypes.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.featurestores.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featurestores.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.featurestores.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.featurestores.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.featurestores.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Cancels a HyperparameterTuningJob. Starts asynchronous cancellation on the HyperparameterTuningJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetHyperparameterTuningJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the HyperparameterTuningJob is not deleted; instead it becomes a job with a HyperparameterTuningJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and HyperparameterTuningJob.state is set to `CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a HyperparameterTuningJob */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        endTime: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        maxFailedTrialCount: 42,
+        maxTrialCount: 42,
+        name: 'Test string',
+        parallelTrialCount: 42,
+        startTime: 'Test string',
+        state: 'Test string',
+        studySpec: {
+          algorithm: 'Test string',
+          convexAutomatedStoppingSpec: {
+            learningRateParameterName: 'Test string',
+            maxStepCount: 'Test string',
+            minMeasurementCount: 'Test string',
+            minStepCount: 'Test string',
+            updateAllStoppedTrials: true,
+            useElapsedDuration: true,
+          },
+          decayCurveStoppingSpec: {
+            useElapsedDuration: true,
+          },
+          measurementSelectionType: 'Test string',
+          medianAutomatedStoppingSpec: {
+            useElapsedDuration: true,
+          },
+          metrics: [
+            {
+              goal: 'Test string',
+              metricId: 'Test string',
+              safetyConfig: {
+                desiredMinSafeTrialsFraction: 42,
+                safetyThreshold: 42,
+              },
+            },
+          ],
+          observationNoise: 'Test string',
+          parameters: [
+            {
+              categoricalValueSpec: {
+                defaultValue: 'Test string',
+                values: ['Test string'],
+              },
+              conditionalParameterSpecs: [
+                {
+                  parameterSpec: undefined,
+                  parentCategoricalValues: {
+                    values: ['Test string'],
+                  },
+                  parentDiscreteValues: {
+                    values: [42],
+                  },
+                  parentIntValues: {
+                    values: ['Test string'],
+                  },
+                },
+              ],
+              discreteValueSpec: {
+                defaultValue: 42,
+                values: [42],
+              },
+              doubleValueSpec: {
+                defaultValue: 42,
+                maxValue: 42,
+                minValue: 42,
+              },
+              integerValueSpec: {
+                defaultValue: 'Test string',
+                maxValue: 'Test string',
+                minValue: 'Test string',
+              },
+              parameterId: 'Test string',
+              scaleType: 'Test string',
+            },
+          ],
+          studyStoppingConfig: {
+            maxDurationNoProgress: 'Test string',
+            maximumRuntimeConstraint: {
+              endTime: 'Test string',
+              maxDuration: 'Test string',
+            },
+            maxNumTrials: 42,
+            maxNumTrialsNoProgress: 42,
+            minimumRuntimeConstraint: {
+              endTime: 'Test string',
+              maxDuration: 'Test string',
+            },
+            minNumTrials: 42,
+            shouldStopAsap: true,
+          },
+        },
+        trialJobSpec: {
+          baseOutputDirectory: {
+            outputUriPrefix: 'Test string',
+          },
+          enableDashboardAccess: true,
+          enableWebAccess: true,
+          experiment: 'Test string',
+          experimentRun: 'Test string',
+          network: 'Test string',
+          protectedArtifactLocationId: 'Test string',
+          reservedIpRanges: ['Test string'],
+          scheduling: {
+            disableRetries: true,
+            restartJobOnWorkerRestart: true,
+            timeout: 'Test string',
+          },
+          serviceAccount: 'Test string',
+          tensorboard: 'Test string',
+          workerPoolSpecs: [
+            {
+              containerSpec: {
+                args: ['Test string'],
+                command: ['Test string'],
+                env: [
+                  {
+                    name: 'Test string',
+                    value: 'Test string',
+                  },
+                ],
+                imageUri: 'Test string',
+              },
+              diskSpec: {
+                bootDiskSizeGb: 42,
+                bootDiskType: 'Test string',
+              },
+              machineSpec: {
+                acceleratorCount: 42,
+                acceleratorType: 'Test string',
+                machineType: 'Test string',
+                tpuTopology: 'Test string',
+              },
+              nfsMounts: [
+                {
+                  mountPoint: 'Test string',
+                  path: 'Test string',
+                  server: 'Test string',
+                },
+              ],
+              pythonPackageSpec: {
+                args: ['Test string'],
+                env: [
+                  {
+                    name: 'Test string',
+                    value: 'Test string',
+                  },
+                ],
+                executorImageUri: 'Test string',
+                packageUris: ['Test string'],
+                pythonModule: 'Test string',
+              },
+              replicaCount: 'Test string',
+            },
+          ],
+        },
+        trials: [
+          {
+            clientId: 'Test string',
+            customJob: 'Test string',
+            endTime: 'Test string',
+            finalMeasurement: {
+              elapsedDuration: 'Test string',
+              metrics: [
+                {
+                  metricId: 'Test string',
+                  value: 42,
+                },
+              ],
+              stepCount: 'Test string',
+            },
+            id: 'Test string',
+            infeasibleReason: 'Test string',
+            measurements: [
+              {
+                elapsedDuration: 'Test string',
+                metrics: [
+                  {
+                    metricId: 'Test string',
+                    value: 42,
+                  },
+                ],
+                stepCount: 'Test string',
+              },
+            ],
+            name: 'Test string',
+            parameters: [
+              {
+                parameterId: 'Test string',
+                value: 42,
+              },
+            ],
+            startTime: 'Test string',
+            state: 'Test string',
+            webAccessUris: {
+              A: 'Test string',
+            },
+          },
+        ],
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a HyperparameterTuningJob. */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a HyperparameterTuningJob */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists HyperparameterTuningJobs in a Location. */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.hyperparameterTuningJobs.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Creates an IndexEndpoint. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deployedIndexes: [
+          {
+            automaticResources: {
+              maxReplicaCount: 42,
+              minReplicaCount: 42,
+            },
+            createTime: 'Test string',
+            dedicatedResources: {
+              autoscalingMetricSpecs: [
+                {
+                  metricName: 'Test string',
+                  target: 42,
+                },
+              ],
+              machineSpec: {
+                acceleratorCount: 42,
+                acceleratorType: 'Test string',
+                machineType: 'Test string',
+                tpuTopology: 'Test string',
+              },
+              maxReplicaCount: 42,
+              minReplicaCount: 42,
+            },
+            deployedIndexAuthConfig: {
+              authProvider: {
+                allowedIssuers: ['Test string'],
+                audiences: ['Test string'],
+              },
+            },
+            deploymentGroup: 'Test string',
+            displayName: 'Test string',
+            enableAccessLogging: true,
+            id: 'Test string',
+            index: 'Test string',
+            indexSyncTime: 'Test string',
+            privateEndpoints: {
+              matchGrpcAddress: 'Test string',
+              serviceAttachment: 'Test string',
+            },
+            reservedIpRanges: ['Test string'],
+          },
+        ],
+        description: 'Test string',
+        displayName: 'Test string',
+        enablePrivateServiceConnect: true,
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        network: 'Test string',
+        privateServiceConnectConfig: {
+          enablePrivateServiceConnect: true,
+          projectAllowlist: ['Test string'],
+        },
+        publicEndpointDomainName: 'Test string',
+        publicEndpointEnabled: true,
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes an IndexEndpoint. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.delete({
+      name: 'Test string',
+    });
+    /** Deploys an Index into this IndexEndpoint, creating a DeployedIndex within it. Only non-empty Indexes can be deployed. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.deployIndex(
+      {
+        indexEndpoint: 'Test string',
+      },
+      {
+        deployedIndex: {
+          automaticResources: {
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+          },
+          createTime: 'Test string',
+          dedicatedResources: {
+            autoscalingMetricSpecs: [
+              {
+                metricName: 'Test string',
+                target: 42,
+              },
+            ],
+            machineSpec: {
+              acceleratorCount: 42,
+              acceleratorType: 'Test string',
+              machineType: 'Test string',
+              tpuTopology: 'Test string',
+            },
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+          },
+          deployedIndexAuthConfig: {
+            authProvider: {
+              allowedIssuers: ['Test string'],
+              audiences: ['Test string'],
+            },
+          },
+          deploymentGroup: 'Test string',
+          displayName: 'Test string',
+          enableAccessLogging: true,
+          id: 'Test string',
+          index: 'Test string',
+          indexSyncTime: 'Test string',
+          privateEndpoints: {
+            matchGrpcAddress: 'Test string',
+            serviceAttachment: 'Test string',
+          },
+          reservedIpRanges: ['Test string'],
+        },
+      }
+    );
+    /** Finds the nearest neighbors of each vector within the request. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.findNeighbors(
+      {
+        indexEndpoint: 'Test string',
+      },
+      {
+        deployedIndexId: 'Test string',
+        queries: [
+          {
+            approximateNeighborCount: 42,
+            datapoint: {
+              crowdingTag: {
+                crowdingAttribute: 'Test string',
+              },
+              datapointId: 'Test string',
+              featureVector: [42],
+              numericRestricts: [
+                {
+                  namespace: 'Test string',
+                  op: 'Test string',
+                  valueDouble: 42,
+                  valueFloat: 42,
+                  valueInt: 'Test string',
+                },
+              ],
+              restricts: [
+                {
+                  allowList: ['Test string'],
+                  denyList: ['Test string'],
+                  namespace: 'Test string',
+                },
+              ],
+            },
+            fractionLeafNodesToSearchOverride: 42,
+            neighborCount: 42,
+            perCrowdingAttributeNeighborCount: 42,
+          },
+        ],
+        returnFullDatapoint: true,
+      }
+    );
+    /** Gets an IndexEndpoint. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.get({
+      name: 'Test string',
+    });
+    /** Lists IndexEndpoints in a Location. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Update an existing DeployedIndex under an IndexEndpoint. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.mutateDeployedIndex(
+      {
+        indexEndpoint: 'Test string',
+      },
+      {
+        automaticResources: {
+          maxReplicaCount: 42,
+          minReplicaCount: 42,
+        },
+        createTime: 'Test string',
+        dedicatedResources: {
+          autoscalingMetricSpecs: [
+            {
+              metricName: 'Test string',
+              target: 42,
+            },
+          ],
+          machineSpec: {
+            acceleratorCount: 42,
+            acceleratorType: 'Test string',
+            machineType: 'Test string',
+            tpuTopology: 'Test string',
+          },
+          maxReplicaCount: 42,
+          minReplicaCount: 42,
+        },
+        deployedIndexAuthConfig: {
+          authProvider: {
+            allowedIssuers: ['Test string'],
+            audiences: ['Test string'],
+          },
+        },
+        deploymentGroup: 'Test string',
+        displayName: 'Test string',
+        enableAccessLogging: true,
+        id: 'Test string',
+        index: 'Test string',
+        indexSyncTime: 'Test string',
+        privateEndpoints: {
+          matchGrpcAddress: 'Test string',
+          serviceAttachment: 'Test string',
+        },
+        reservedIpRanges: ['Test string'],
+      }
+    );
+    /** Updates an IndexEndpoint. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deployedIndexes: [
+          {
+            automaticResources: {
+              maxReplicaCount: 42,
+              minReplicaCount: 42,
+            },
+            createTime: 'Test string',
+            dedicatedResources: {
+              autoscalingMetricSpecs: [
+                {
+                  metricName: 'Test string',
+                  target: 42,
+                },
+              ],
+              machineSpec: {
+                acceleratorCount: 42,
+                acceleratorType: 'Test string',
+                machineType: 'Test string',
+                tpuTopology: 'Test string',
+              },
+              maxReplicaCount: 42,
+              minReplicaCount: 42,
+            },
+            deployedIndexAuthConfig: {
+              authProvider: {
+                allowedIssuers: ['Test string'],
+                audiences: ['Test string'],
+              },
+            },
+            deploymentGroup: 'Test string',
+            displayName: 'Test string',
+            enableAccessLogging: true,
+            id: 'Test string',
+            index: 'Test string',
+            indexSyncTime: 'Test string',
+            privateEndpoints: {
+              matchGrpcAddress: 'Test string',
+              serviceAttachment: 'Test string',
+            },
+            reservedIpRanges: ['Test string'],
+          },
+        ],
+        description: 'Test string',
+        displayName: 'Test string',
+        enablePrivateServiceConnect: true,
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        network: 'Test string',
+        privateServiceConnectConfig: {
+          enablePrivateServiceConnect: true,
+          projectAllowlist: ['Test string'],
+        },
+        publicEndpointDomainName: 'Test string',
+        publicEndpointEnabled: true,
+        updateTime: 'Test string',
+      }
+    );
+    /** Reads the datapoints/vectors of the given IDs. A maximum of 1000 datapoints can be retrieved in a batch. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.readIndexDatapoints(
+      {
+        indexEndpoint: 'Test string',
+      },
+      {
+        deployedIndexId: 'Test string',
+        ids: ['Test string'],
+      }
+    );
+    /** Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it, and freeing all resources it's using. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.undeployIndex(
+      {
+        indexEndpoint: 'Test string',
+      },
+      {
+        deployedIndexId: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.indexEndpoints.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Creates an Index. */
+    await gapi.client.aiplatform.projects.locations.indexes.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deployedIndexes: [
+          {
+            deployedIndexId: 'Test string',
+            indexEndpoint: 'Test string',
+          },
+        ],
+        description: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        indexStats: {
+          shardsCount: 42,
+          vectorsCount: 'Test string',
+        },
+        indexUpdateMethod: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: 42,
+        metadataSchemaUri: 'Test string',
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes an Index. An Index can only be deleted when all its DeployedIndexes had been undeployed. */
+    await gapi.client.aiplatform.projects.locations.indexes.delete({
+      name: 'Test string',
+    });
+    /** Gets an Index. */
+    await gapi.client.aiplatform.projects.locations.indexes.get({
+      name: 'Test string',
+    });
+    /** Lists Indexes in a Location. */
+    await gapi.client.aiplatform.projects.locations.indexes.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Updates an Index. */
+    await gapi.client.aiplatform.projects.locations.indexes.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deployedIndexes: [
+          {
+            deployedIndexId: 'Test string',
+            indexEndpoint: 'Test string',
+          },
+        ],
+        description: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        indexStats: {
+          shardsCount: 42,
+          vectorsCount: 'Test string',
+        },
+        indexUpdateMethod: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: 42,
+        metadataSchemaUri: 'Test string',
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Remove Datapoints from an Index. */
+    await gapi.client.aiplatform.projects.locations.indexes.removeDatapoints(
+      {
+        index: 'Test string',
+      },
+      {
+        datapointIds: ['Test string'],
+      }
+    );
+    /** Add/update Datapoints into an Index. */
+    await gapi.client.aiplatform.projects.locations.indexes.upsertDatapoints(
+      {
+        index: 'Test string',
+      },
+      {
+        datapoints: [
+          {
+            crowdingTag: {
+              crowdingAttribute: 'Test string',
+            },
+            datapointId: 'Test string',
+            featureVector: [42],
+            numericRestricts: [
+              {
+                namespace: 'Test string',
+                op: 'Test string',
+                valueDouble: 42,
+                valueFloat: 42,
+                valueInt: 'Test string',
+              },
+            ],
+            restricts: [
+              {
+                allowList: ['Test string'],
+                denyList: ['Test string'],
+                namespace: 'Test string',
+              },
+            ],
+          },
+        ],
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.indexes.operations.cancel({
+      name: 'Test string',
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.indexes.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.indexes.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.indexes.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.indexes.operations.wait({
+      name: 'Test string',
+      timeout: 'Test string',
+    });
+    /** Initializes a MetadataStore, including allocation of resources. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.create(
+      {
+        metadataStoreId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        name: 'Test string',
+        state: {
+          diskUtilizationBytes: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single MetadataStore and all its child resources (Artifacts, Executions, and Contexts). */
+    await gapi.client.aiplatform.projects.locations.metadataStores.delete({
+      force: true,
+      name: 'Test string',
+    });
+    /** Retrieves a specific MetadataStore. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.get({
+      name: 'Test string',
+    });
+    /** Lists MetadataStores for a Location. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Creates an Artifact associated with a MetadataStore. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.create(
+      {
+        artifactId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: {
+          A: 42,
+        },
+        name: 'Test string',
+        schemaTitle: 'Test string',
+        schemaVersion: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        uri: 'Test string',
+      }
+    );
+    /** Deletes an Artifact. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.delete(
+      {
+        etag: 'Test string',
+        name: 'Test string',
+      }
+    );
+    /** Retrieves a specific Artifact. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists Artifacts in the MetadataStore. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a stored Artifact. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: {
+          A: 42,
+        },
+        name: 'Test string',
+        schemaTitle: 'Test string',
+        schemaVersion: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        uri: 'Test string',
+      }
+    );
+    /** Purges Artifacts. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.purge(
+      {
+        parent: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        force: true,
+      }
+    );
+    /** Retrieves lineage of an Artifact represented through Artifacts and Executions connected by Event edges and returned as a LineageSubgraph. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.artifacts.queryArtifactLineageSubgraph(
+      {
+        artifact: 'Test string',
+        filter: 'Test string',
+        maxHops: 42,
+      }
+    );
+    /** Adds a set of Artifacts and Executions to a Context. If any of the Artifacts or Executions have already been added to a Context, they are simply skipped. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.addContextArtifactsAndExecutions(
+      {
+        context: 'Test string',
+      },
+      {
+        artifacts: ['Test string'],
+        executions: ['Test string'],
+      }
+    );
+    /** Adds a set of Contexts as children to a parent Context. If any of the child Contexts have already been added to the parent Context, they are simply skipped. If this call would create a cycle or cause any Context to have more than 10 parents, the request will fail with an INVALID_ARGUMENT error. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.addContextChildren(
+      {
+        context: 'Test string',
+      },
+      {
+        childContexts: ['Test string'],
+      }
+    );
+    /** Creates a Context associated with a MetadataStore. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.create(
+      {
+        contextId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: {
+          A: 42,
+        },
+        name: 'Test string',
+        parentContexts: ['Test string'],
+        schemaTitle: 'Test string',
+        schemaVersion: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a stored Context. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.delete(
+      {
+        etag: 'Test string',
+        force: true,
+        name: 'Test string',
+      }
+    );
+    /** Retrieves a specific Context. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists Contexts on the MetadataStore. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a stored Context. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: {
+          A: 42,
+        },
+        name: 'Test string',
+        parentContexts: ['Test string'],
+        schemaTitle: 'Test string',
+        schemaVersion: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Purges Contexts. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.purge(
+      {
+        parent: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        force: true,
+      }
+    );
+    /** Retrieves Artifacts and Executions within the specified Context, connected by Event edges and returned as a LineageSubgraph. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.queryContextLineageSubgraph(
+      {
+        context: 'Test string',
+      }
+    );
+    /** Remove a set of children contexts from a parent Context. If any of the child Contexts were NOT added to the parent Context, they are simply skipped. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.contexts.removeContextChildren(
+      {
+        context: 'Test string',
+      },
+      {
+        childContexts: ['Test string'],
+      }
+    );
+    /** Adds Events to the specified Execution. An Event indicates whether an Artifact was used as an input or output for an Execution. If an Event already exists between the Execution and the Artifact, the Event is skipped. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.executions.addExecutionEvents(
+      {
+        execution: 'Test string',
+      },
+      {
+        events: [
+          {
+            artifact: 'Test string',
+            eventTime: 'Test string',
+            execution: 'Test string',
+            labels: {
+              A: 'Test string',
+            },
+            type: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Creates an Execution associated with a MetadataStore. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.executions.create(
+      {
+        executionId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: {
+          A: 42,
+        },
+        name: 'Test string',
+        schemaTitle: 'Test string',
+        schemaVersion: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes an Execution. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.executions.delete(
+      {
+        etag: 'Test string',
+        name: 'Test string',
+      }
+    );
+    /** Retrieves a specific Execution. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.executions.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists Executions in the MetadataStore. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.executions.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a stored Execution. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.executions.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: {
+          A: 42,
+        },
+        name: 'Test string',
+        schemaTitle: 'Test string',
+        schemaVersion: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Purges Executions. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.executions.purge(
+      {
+        parent: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        force: true,
+      }
+    );
+    /** Obtains the set of input and output Artifacts for this Execution, in the form of LineageSubgraph that also contains the Execution and connecting Events. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.executions.queryExecutionInputsAndOutputs(
+      {
+        execution: 'Test string',
+      }
+    );
+    /** Creates a MetadataSchema. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.metadataSchemas.create(
+      {
+        metadataSchemaId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        name: 'Test string',
+        schema: 'Test string',
+        schemaType: 'Test string',
+        schemaVersion: 'Test string',
+      }
+    );
+    /** Retrieves a specific MetadataSchema. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.metadataSchemas.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists MetadataSchemas. */
+    await gapi.client.aiplatform.projects.locations.metadataStores.metadataSchemas.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Batch migrates resources from ml.googleapis.com, automl.googleapis.com, and datalabeling.googleapis.com to Vertex AI. */
+    await gapi.client.aiplatform.projects.locations.migratableResources.batchMigrate(
+      {
+        parent: 'Test string',
+      },
+      {
+        migrateResourceRequests: [
+          {
+            migrateAutomlDatasetConfig: {
+              dataset: 'Test string',
+              datasetDisplayName: 'Test string',
+            },
+            migrateAutomlModelConfig: {
+              model: 'Test string',
+              modelDisplayName: 'Test string',
+            },
+            migrateDataLabelingDatasetConfig: {
+              dataset: 'Test string',
+              datasetDisplayName: 'Test string',
+              migrateDataLabelingAnnotatedDatasetConfigs: [
+                {
+                  annotatedDataset: 'Test string',
+                },
+              ],
+            },
+            migrateMlEngineModelVersionConfig: {
+              endpoint: 'Test string',
+              modelDisplayName: 'Test string',
+              modelVersion: 'Test string',
+            },
+          },
+        ],
+      }
+    );
+    /** Searches all of the resources in automl.googleapis.com, datalabeling.googleapis.com and ml.googleapis.com that can be migrated to Vertex AI's given location. */
+    await gapi.client.aiplatform.projects.locations.migratableResources.search(
+      {
+        parent: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.migratableResources.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.migratableResources.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.migratableResources.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.migratableResources.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.migratableResources.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Creates a ModelDeploymentMonitoringJob. It will run periodically on a configured interval. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        analysisInstanceSchemaUri: 'Test string',
+        bigqueryTables: [
+          {
+            bigqueryTablePath: 'Test string',
+            logSource: 'Test string',
+            logType: 'Test string',
+          },
+        ],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        enableMonitoringPipelineLogs: true,
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        endpoint: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        latestMonitoringPipelineMetadata: {
+          runTime: 'Test string',
+          status: {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+        },
+        loggingSamplingStrategy: {
+          randomSampleConfig: {
+            sampleRate: 42,
+          },
+        },
+        logTtl: 'Test string',
+        modelDeploymentMonitoringObjectiveConfigs: [
+          {
+            deployedModelId: 'Test string',
+            objectiveConfig: {
+              explanationConfig: {
+                enableFeatureAttributes: true,
+                explanationBaseline: {
+                  bigquery: {
+                    outputUri: 'Test string',
+                  },
+                  gcs: {
+                    outputUriPrefix: 'Test string',
+                  },
+                  predictionFormat: 'Test string',
+                },
+              },
+              predictionDriftDetectionConfig: {
+                attributionScoreDriftThresholds: {
+                  A: {
+                    value: 42,
+                  },
+                },
+                defaultDriftThreshold: {
+                  value: 42,
+                },
+                driftThresholds: {
+                  A: {
+                    value: 42,
+                  },
+                },
+              },
+              trainingDataset: {
+                bigquerySource: {
+                  inputUri: 'Test string',
+                },
+                dataFormat: 'Test string',
+                dataset: 'Test string',
+                gcsSource: {
+                  uris: ['Test string'],
+                },
+                loggingSamplingStrategy: {
+                  randomSampleConfig: {
+                    sampleRate: 42,
+                  },
+                },
+                targetField: 'Test string',
+              },
+              trainingPredictionSkewDetectionConfig: {
+                attributionScoreSkewThresholds: {
+                  A: {
+                    value: 42,
+                  },
+                },
+                defaultSkewThreshold: {
+                  value: 42,
+                },
+                skewThresholds: {
+                  A: {
+                    value: 42,
+                  },
+                },
+              },
+            },
+          },
+        ],
+        modelDeploymentMonitoringScheduleConfig: {
+          monitorInterval: 'Test string',
+          monitorWindow: 'Test string',
+        },
+        modelMonitoringAlertConfig: {
+          emailAlertConfig: {
+            userEmails: ['Test string'],
+          },
+          enableLogging: true,
+          notificationChannels: ['Test string'],
+        },
+        name: 'Test string',
+        nextScheduleTime: 'Test string',
+        predictInstanceSchemaUri: 'Test string',
+        samplePredictInstance: 42,
+        scheduleState: 'Test string',
+        state: 'Test string',
+        statsAnomaliesBaseDirectory: {
+          outputUriPrefix: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a ModelDeploymentMonitoringJob. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a ModelDeploymentMonitoringJob. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists ModelDeploymentMonitoringJobs in a Location. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Updates a ModelDeploymentMonitoringJob. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        analysisInstanceSchemaUri: 'Test string',
+        bigqueryTables: [
+          {
+            bigqueryTablePath: 'Test string',
+            logSource: 'Test string',
+            logType: 'Test string',
+          },
+        ],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        enableMonitoringPipelineLogs: true,
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        endpoint: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        latestMonitoringPipelineMetadata: {
+          runTime: 'Test string',
+          status: {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+        },
+        loggingSamplingStrategy: {
+          randomSampleConfig: {
+            sampleRate: 42,
+          },
+        },
+        logTtl: 'Test string',
+        modelDeploymentMonitoringObjectiveConfigs: [
+          {
+            deployedModelId: 'Test string',
+            objectiveConfig: {
+              explanationConfig: {
+                enableFeatureAttributes: true,
+                explanationBaseline: {
+                  bigquery: {
+                    outputUri: 'Test string',
+                  },
+                  gcs: {
+                    outputUriPrefix: 'Test string',
+                  },
+                  predictionFormat: 'Test string',
+                },
+              },
+              predictionDriftDetectionConfig: {
+                attributionScoreDriftThresholds: {
+                  A: {
+                    value: 42,
+                  },
+                },
+                defaultDriftThreshold: {
+                  value: 42,
+                },
+                driftThresholds: {
+                  A: {
+                    value: 42,
+                  },
+                },
+              },
+              trainingDataset: {
+                bigquerySource: {
+                  inputUri: 'Test string',
+                },
+                dataFormat: 'Test string',
+                dataset: 'Test string',
+                gcsSource: {
+                  uris: ['Test string'],
+                },
+                loggingSamplingStrategy: {
+                  randomSampleConfig: {
+                    sampleRate: 42,
+                  },
+                },
+                targetField: 'Test string',
+              },
+              trainingPredictionSkewDetectionConfig: {
+                attributionScoreSkewThresholds: {
+                  A: {
+                    value: 42,
+                  },
+                },
+                defaultSkewThreshold: {
+                  value: 42,
+                },
+                skewThresholds: {
+                  A: {
+                    value: 42,
+                  },
+                },
+              },
+            },
+          },
+        ],
+        modelDeploymentMonitoringScheduleConfig: {
+          monitorInterval: 'Test string',
+          monitorWindow: 'Test string',
+        },
+        modelMonitoringAlertConfig: {
+          emailAlertConfig: {
+            userEmails: ['Test string'],
+          },
+          enableLogging: true,
+          notificationChannels: ['Test string'],
+        },
+        name: 'Test string',
+        nextScheduleTime: 'Test string',
+        predictInstanceSchemaUri: 'Test string',
+        samplePredictInstance: 42,
+        scheduleState: 'Test string',
+        state: 'Test string',
+        statsAnomaliesBaseDirectory: {
+          outputUriPrefix: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Pauses a ModelDeploymentMonitoringJob. If the job is running, the server makes a best effort to cancel the job. Will mark ModelDeploymentMonitoringJob.state to 'PAUSED'. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.pause(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Resumes a paused ModelDeploymentMonitoringJob. It will start to run from next scheduled time. A deleted ModelDeploymentMonitoringJob can't be resumed. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.resume(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Searches Model Monitoring Statistics generated within a given time window. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.searchModelDeploymentMonitoringStatsAnomalies(
+      {
+        modelDeploymentMonitoringJob: 'Test string',
+      },
+      {
+        deployedModelId: 'Test string',
+        endTime: 'Test string',
+        featureDisplayName: 'Test string',
+        objectives: [
+          {
+            topFeatureCount: 42,
+            type: 'Test string',
+          },
+        ],
+        pageSize: 42,
+        pageToken: 'Test string',
+        startTime: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Copies an already existing Vertex AI Model into the specified Location. The source Model must exist in the same Project. When copying custom Models, the users themselves are responsible for Model.metadata content to be region-agnostic, as well as making sure that any resources (e.g. files) it depends on remain accessible. */
+    await gapi.client.aiplatform.projects.locations.models.copy(
+      {
+        parent: 'Test string',
+      },
+      {
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        modelId: 'Test string',
+        parentModel: 'Test string',
+        sourceModel: 'Test string',
+      }
+    );
+    /** Deletes a Model. A model cannot be deleted if any Endpoint resource has a DeployedModel based on the model in its deployed_models field. */
+    await gapi.client.aiplatform.projects.locations.models.delete({
+      name: 'Test string',
+    });
+    /** Deletes a Model version. Model version can only be deleted if there are no DeployedModels created from it. Deleting the only version in the Model is not allowed. Use DeleteModel for deleting the Model instead. */
+    await gapi.client.aiplatform.projects.locations.models.deleteVersion({
+      name: 'Test string',
+    });
+    /** Exports a trained, exportable Model to a location specified by the user. A Model is considered to be exportable if it has at least one supported export format. */
+    await gapi.client.aiplatform.projects.locations.models.export(
+      {
+        name: 'Test string',
+      },
+      {
+        outputConfig: {
+          artifactDestination: {
+            outputUriPrefix: 'Test string',
+          },
+          exportFormatId: 'Test string',
+          imageDestination: {
+            outputUri: 'Test string',
+          },
+        },
+      }
+    );
+    /** Gets a Model. */
+    await gapi.client.aiplatform.projects.locations.models.get({
+      name: 'Test string',
+    });
+    /** Lists Models in a Location. */
+    await gapi.client.aiplatform.projects.locations.models.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Lists versions of the specified model. */
+    await gapi.client.aiplatform.projects.locations.models.listVersions({
+      filter: 'Test string',
+      name: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Merges a set of aliases for a Model version. */
+    await gapi.client.aiplatform.projects.locations.models.mergeVersionAliases(
+      {
+        name: 'Test string',
+      },
+      {
+        versionAliases: ['Test string'],
+      }
+    );
+    /** Updates a Model. */
+    await gapi.client.aiplatform.projects.locations.models.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        artifactUri: 'Test string',
+        containerSpec: {
+          args: ['Test string'],
+          command: ['Test string'],
+          deploymentTimeout: 'Test string',
+          env: [
+            {
+              name: 'Test string',
+              value: 'Test string',
+            },
+          ],
+          healthProbe: {
+            exec: {
+              command: ['Test string'],
+            },
+            periodSeconds: 42,
+            timeoutSeconds: 42,
+          },
+          healthRoute: 'Test string',
+          imageUri: 'Test string',
+          ports: [
+            {
+              containerPort: 42,
+            },
+          ],
+          predictRoute: 'Test string',
+          sharedMemorySizeMb: 'Test string',
+          startupProbe: {
+            exec: {
+              command: ['Test string'],
+            },
+            periodSeconds: 42,
+            timeoutSeconds: 42,
+          },
+        },
+        createTime: 'Test string',
+        deployedModels: [
+          {
+            deployedModelId: 'Test string',
+            endpoint: 'Test string',
+          },
+        ],
+        description: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        explanationSpec: {
+          metadata: {
+            featureAttributionsSchemaUri: 'Test string',
+            inputs: {
+              A: {
+                denseShapeTensorName: 'Test string',
+                encodedBaselines: [42],
+                encodedTensorName: 'Test string',
+                encoding: 'Test string',
+                featureValueDomain: {
+                  maxValue: 42,
+                  minValue: 42,
+                  originalMean: 42,
+                  originalStddev: 42,
+                },
+                groupName: 'Test string',
+                indexFeatureMapping: ['Test string'],
+                indicesTensorName: 'Test string',
+                inputBaselines: [42],
+                inputTensorName: 'Test string',
+                modality: 'Test string',
+                visualization: {
+                  clipPercentLowerbound: 42,
+                  clipPercentUpperbound: 42,
+                  colorMap: 'Test string',
+                  overlayType: 'Test string',
+                  polarity: 'Test string',
+                  type: 'Test string',
+                },
+              },
+            },
+            latentSpaceSource: 'Test string',
+            outputs: {
+              A: {
+                displayNameMappingKey: 'Test string',
+                indexDisplayNameMapping: 42,
+                outputTensorName: 'Test string',
+              },
+            },
+          },
+          parameters: {
+            examples: {
+              exampleGcsSource: {
+                dataFormat: 'Test string',
+                gcsSource: {
+                  uris: ['Test string'],
+                },
+              },
+              nearestNeighborSearchConfig: 42,
+              neighborCount: 42,
+              presets: {
+                modality: 'Test string',
+                query: 'Test string',
+              },
+            },
+            integratedGradientsAttribution: {
+              blurBaselineConfig: {
+                maxBlurSigma: 42,
+              },
+              smoothGradConfig: {
+                featureNoiseSigma: {
+                  noiseSigma: [
+                    {
+                      name: 'Test string',
+                      sigma: 42,
+                    },
+                  ],
+                },
+                noiseSigma: 42,
+                noisySampleCount: 42,
+              },
+              stepCount: 42,
+            },
+            outputIndices: [42],
+            sampledShapleyAttribution: {
+              pathCount: 42,
+            },
+            topK: 42,
+            xraiAttribution: {
+              blurBaselineConfig: {
+                maxBlurSigma: 42,
+              },
+              smoothGradConfig: {
+                featureNoiseSigma: {
+                  noiseSigma: [
+                    {
+                      name: 'Test string',
+                      sigma: 42,
+                    },
+                  ],
+                },
+                noiseSigma: 42,
+                noisySampleCount: 42,
+              },
+              stepCount: 42,
+            },
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        metadata: 42,
+        metadataArtifact: 'Test string',
+        metadataSchemaUri: 'Test string',
+        modelSourceInfo: {
+          copy: true,
+          sourceType: 'Test string',
+        },
+        name: 'Test string',
+        originalModelInfo: {
+          model: 'Test string',
+        },
+        pipelineJob: 'Test string',
+        predictSchemata: {
+          instanceSchemaUri: 'Test string',
+          parametersSchemaUri: 'Test string',
+          predictionSchemaUri: 'Test string',
+        },
+        supportedDeploymentResourcesTypes: ['Test string'],
+        supportedExportFormats: [
+          {
+            exportableContents: ['Test string'],
+            id: 'Test string',
+          },
+        ],
+        supportedInputStorageFormats: ['Test string'],
+        supportedOutputStorageFormats: ['Test string'],
+        trainingPipeline: 'Test string',
+        updateTime: 'Test string',
+        versionAliases: ['Test string'],
+        versionCreateTime: 'Test string',
+        versionDescription: 'Test string',
+        versionId: 'Test string',
+        versionUpdateTime: 'Test string',
+      }
+    );
+    /** Incrementally update the dataset used for an examples model. */
+    await gapi.client.aiplatform.projects.locations.models.updateExplanationDataset(
+      {
+        model: 'Test string',
+      },
+      {
+        examples: {
+          exampleGcsSource: {
+            dataFormat: 'Test string',
+            gcsSource: {
+              uris: ['Test string'],
+            },
+          },
+          nearestNeighborSearchConfig: 42,
+          neighborCount: 42,
+          presets: {
+            modality: 'Test string',
+            query: 'Test string',
+          },
+        },
+      }
+    );
+    /** Uploads a Model artifact into Vertex AI. */
+    await gapi.client.aiplatform.projects.locations.models.upload(
+      {
+        parent: 'Test string',
+      },
+      {
+        model: {
+          artifactUri: 'Test string',
+          containerSpec: {
+            args: ['Test string'],
+            command: ['Test string'],
+            deploymentTimeout: 'Test string',
+            env: [
+              {
+                name: 'Test string',
+                value: 'Test string',
+              },
+            ],
+            healthProbe: {
+              exec: {
+                command: ['Test string'],
+              },
+              periodSeconds: 42,
+              timeoutSeconds: 42,
+            },
+            healthRoute: 'Test string',
+            imageUri: 'Test string',
+            ports: [
+              {
+                containerPort: 42,
+              },
+            ],
+            predictRoute: 'Test string',
+            sharedMemorySizeMb: 'Test string',
+            startupProbe: {
+              exec: {
+                command: ['Test string'],
+              },
+              periodSeconds: 42,
+              timeoutSeconds: 42,
+            },
+          },
+          createTime: 'Test string',
+          deployedModels: [
+            {
+              deployedModelId: 'Test string',
+              endpoint: 'Test string',
+            },
+          ],
+          description: 'Test string',
+          displayName: 'Test string',
+          encryptionSpec: {
+            kmsKeyName: 'Test string',
+          },
+          etag: 'Test string',
+          explanationSpec: {
+            metadata: {
+              featureAttributionsSchemaUri: 'Test string',
+              inputs: {
+                A: {
+                  denseShapeTensorName: 'Test string',
+                  encodedBaselines: [42],
+                  encodedTensorName: 'Test string',
+                  encoding: 'Test string',
+                  featureValueDomain: {
+                    maxValue: 42,
+                    minValue: 42,
+                    originalMean: 42,
+                    originalStddev: 42,
+                  },
+                  groupName: 'Test string',
+                  indexFeatureMapping: ['Test string'],
+                  indicesTensorName: 'Test string',
+                  inputBaselines: [42],
+                  inputTensorName: 'Test string',
+                  modality: 'Test string',
+                  visualization: {
+                    clipPercentLowerbound: 42,
+                    clipPercentUpperbound: 42,
+                    colorMap: 'Test string',
+                    overlayType: 'Test string',
+                    polarity: 'Test string',
+                    type: 'Test string',
+                  },
+                },
+              },
+              latentSpaceSource: 'Test string',
+              outputs: {
+                A: {
+                  displayNameMappingKey: 'Test string',
+                  indexDisplayNameMapping: 42,
+                  outputTensorName: 'Test string',
+                },
+              },
+            },
+            parameters: {
+              examples: {
+                exampleGcsSource: {
+                  dataFormat: 'Test string',
+                  gcsSource: {
+                    uris: ['Test string'],
+                  },
+                },
+                nearestNeighborSearchConfig: 42,
+                neighborCount: 42,
+                presets: {
+                  modality: 'Test string',
+                  query: 'Test string',
+                },
+              },
+              integratedGradientsAttribution: {
+                blurBaselineConfig: {
+                  maxBlurSigma: 42,
+                },
+                smoothGradConfig: {
+                  featureNoiseSigma: {
+                    noiseSigma: [
+                      {
+                        name: 'Test string',
+                        sigma: 42,
+                      },
+                    ],
+                  },
+                  noiseSigma: 42,
+                  noisySampleCount: 42,
+                },
+                stepCount: 42,
+              },
+              outputIndices: [42],
+              sampledShapleyAttribution: {
+                pathCount: 42,
+              },
+              topK: 42,
+              xraiAttribution: {
+                blurBaselineConfig: {
+                  maxBlurSigma: 42,
+                },
+                smoothGradConfig: {
+                  featureNoiseSigma: {
+                    noiseSigma: [
+                      {
+                        name: 'Test string',
+                        sigma: 42,
+                      },
+                    ],
+                  },
+                  noiseSigma: 42,
+                  noisySampleCount: 42,
+                },
+                stepCount: 42,
+              },
+            },
+          },
+          labels: {
+            A: 'Test string',
+          },
+          metadata: 42,
+          metadataArtifact: 'Test string',
+          metadataSchemaUri: 'Test string',
+          modelSourceInfo: {
+            copy: true,
+            sourceType: 'Test string',
+          },
+          name: 'Test string',
+          originalModelInfo: {
+            model: 'Test string',
+          },
+          pipelineJob: 'Test string',
+          predictSchemata: {
+            instanceSchemaUri: 'Test string',
+            parametersSchemaUri: 'Test string',
+            predictionSchemaUri: 'Test string',
+          },
+          supportedDeploymentResourcesTypes: ['Test string'],
+          supportedExportFormats: [
+            {
+              exportableContents: ['Test string'],
+              id: 'Test string',
+            },
+          ],
+          supportedInputStorageFormats: ['Test string'],
+          supportedOutputStorageFormats: ['Test string'],
+          trainingPipeline: 'Test string',
+          updateTime: 'Test string',
+          versionAliases: ['Test string'],
+          versionCreateTime: 'Test string',
+          versionDescription: 'Test string',
+          versionId: 'Test string',
+          versionUpdateTime: 'Test string',
+        },
+        modelId: 'Test string',
+        parentModel: 'Test string',
+        serviceAccount: 'Test string',
+      }
+    );
+    /** Gets a ModelEvaluation. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.get({
+      name: 'Test string',
+    });
+    /** Imports an externally generated ModelEvaluation. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        modelEvaluation: {
+          annotationSchemaUri: 'Test string',
+          createTime: 'Test string',
+          dataItemSchemaUri: 'Test string',
+          displayName: 'Test string',
+          explanationSpecs: [
+            {
+              explanationSpec: {
+                metadata: {
+                  featureAttributionsSchemaUri: 'Test string',
+                  inputs: {
                     A: {
-                        artifactId: "Test string",
-                    }
+                      denseShapeTensorName: 'Test string',
+                      encodedBaselines: [42],
+                      encodedTensorName: 'Test string',
+                      encoding: 'Test string',
+                      featureValueDomain: {
+                        maxValue: 42,
+                        minValue: 42,
+                        originalMean: 42,
+                        originalStddev: 42,
+                      },
+                      groupName: 'Test string',
+                      indexFeatureMapping: ['Test string'],
+                      indicesTensorName: 'Test string',
+                      inputBaselines: [42],
+                      inputTensorName: 'Test string',
+                      modality: 'Test string',
+                      visualization: {
+                        clipPercentLowerbound: 42,
+                        clipPercentUpperbound: 42,
+                        colorMap: 'Test string',
+                        overlayType: 'Test string',
+                        polarity: 'Test string',
+                        type: 'Test string',
+                      },
+                    },
+                  },
+                  latentSpaceSource: 'Test string',
+                  outputs: {
+                    A: {
+                      displayNameMappingKey: 'Test string',
+                      indexDisplayNameMapping: 42,
+                      outputTensorName: 'Test string',
+                    },
+                  },
                 },
                 parameters: {
-                    A: {
-                        doubleValue: 42,
-                        intValue: "Test string",
-                        stringValue: "Test string",
-                    }
-                },
-                parameterValues: {
-                    A: 42
-                },
-            },
-            scheduleName: "Test string",
-            serviceAccount: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            templateMetadata: {
-                version: "Test string",
-            },
-            templateUri: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a PipelineJob. */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.delete({
-            name: "Test string",
-        });
-        /** Gets a PipelineJob. */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.get({
-            name: "Test string",
-        });
-        /** Lists PipelineJobs in a Location. */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Return a list of tokens based on the input text. */
-        await gapi.client.aiplatform.projects.locations.publishers.models.computeTokens({
-            endpoint: "Test string",
-        }, {
-            instances: [
-                42
-            ],
-        });
-        /** Perform a token counting. */
-        await gapi.client.aiplatform.projects.locations.publishers.models.countTokens({
-            endpoint: "Test string",
-        }, {
-            instances: [
-                42
-            ],
-        });
-        /** Perform an online prediction. */
-        await gapi.client.aiplatform.projects.locations.publishers.models.predict({
-            endpoint: "Test string",
-        }, {
-            instances: [
-                42
-            ],
-            parameters: 42,
-        });
-        /**
-         * Perform an online prediction with an arbitrary HTTP payload. The response includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the Endpoint that served this
-         * prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's DeployedModel that served this prediction.
-         */
-        await gapi.client.aiplatform.projects.locations.publishers.models.rawPredict({
-            endpoint: "Test string",
-        }, {
-            httpBody: {
-                contentType: "Test string",
-                data: "Test string",
-                extensions: [
-                    {
-                        A: 42
-                    }
-                ],
-            },
-        });
-        /** Perform a server-side streaming online prediction request for Vertex LLM streaming. */
-        await gapi.client.aiplatform.projects.locations.publishers.models.serverStreamingPredict({
-            endpoint: "Test string",
-        }, {
-            inputs: [
-                {
-                    boolVal: [
-                        true
-                    ],
-                    bytesVal: [
-                        "Test string"
-                    ],
-                    doubleVal: [
-                        42
-                    ],
-                    dtype: "Test string",
-                    floatVal: [
-                        42
-                    ],
-                    int64Val: [
-                        "Test string"
-                    ],
-                    intVal: [
-                        42
-                    ],
-                    listVal: undefined,
-                    shape: [
-                        "Test string"
-                    ],
-                    stringVal: [
-                        "Test string"
-                    ],
-                    structVal: undefined,
-                    tensorVal: "Test string",
-                    uint64Val: [
-                        "Test string"
-                    ],
-                    uintVal: [
-                        42
-                    ],
-                }
-            ],
-            parameters: {
-                boolVal: [
-                    true
-                ],
-                bytesVal: [
-                    "Test string"
-                ],
-                doubleVal: [
-                    42
-                ],
-                dtype: "Test string",
-                floatVal: [
-                    42
-                ],
-                int64Val: [
-                    "Test string"
-                ],
-                intVal: [
-                    42
-                ],
-                listVal: undefined,
-                shape: [
-                    "Test string"
-                ],
-                stringVal: [
-                    "Test string"
-                ],
-                structVal: undefined,
-                tensorVal: "Test string",
-                uint64Val: [
-                    "Test string"
-                ],
-                uintVal: [
-                    42
-                ],
-            },
-        });
-        /** Creates a Schedule. */
-        await gapi.client.aiplatform.projects.locations.schedules.create({
-            parent: "Test string",
-        }, {
-            allowQueueing: true,
-            catchUp: true,
-            createPipelineJobRequest: {
-                parent: "Test string",
-                pipelineJob: {
-                    createTime: "Test string",
-                    displayName: "Test string",
-                    encryptionSpec: {
-                        kmsKeyName: "Test string",
+                  examples: {
+                    exampleGcsSource: {
+                      dataFormat: 'Test string',
+                      gcsSource: {
+                        uris: ['Test string'],
+                      },
                     },
-                    endTime: "Test string",
-                    error: {
-                        code: 42,
-                        details: [
-                            {
-                                A: 42
-                            }
+                    nearestNeighborSearchConfig: 42,
+                    neighborCount: 42,
+                    presets: {
+                      modality: 'Test string',
+                      query: 'Test string',
+                    },
+                  },
+                  integratedGradientsAttribution: {
+                    blurBaselineConfig: {
+                      maxBlurSigma: 42,
+                    },
+                    smoothGradConfig: {
+                      featureNoiseSigma: {
+                        noiseSigma: [
+                          {
+                            name: 'Test string',
+                            sigma: 42,
+                          },
                         ],
-                        message: "Test string",
+                      },
+                      noiseSigma: 42,
+                      noisySampleCount: 42,
                     },
-                    jobDetail: {
-                        pipelineContext: {
-                            createTime: "Test string",
-                            description: "Test string",
-                            displayName: "Test string",
-                            etag: "Test string",
-                            labels: {
-                                A: "Test string"
-                            },
-                            metadata: {
-                                A: 42
-                            },
-                            name: "Test string",
-                            parentContexts: [
-                                "Test string"
-                            ],
-                            schemaTitle: "Test string",
-                            schemaVersion: "Test string",
-                            updateTime: "Test string",
-                        },
-                        pipelineRunContext: {
-                            createTime: "Test string",
-                            description: "Test string",
-                            displayName: "Test string",
-                            etag: "Test string",
-                            labels: {
-                                A: "Test string"
-                            },
-                            metadata: {
-                                A: 42
-                            },
-                            name: "Test string",
-                            parentContexts: [
-                                "Test string"
-                            ],
-                            schemaTitle: "Test string",
-                            schemaVersion: "Test string",
-                            updateTime: "Test string",
-                        },
-                        taskDetails: [
-                            {
-                                createTime: "Test string",
-                                endTime: "Test string",
-                                error: {
-                                    code: 42,
-                                    details: [
-                                        {
-                                            A: 42
-                                        }
-                                    ],
-                                    message: "Test string",
-                                },
-                                execution: {
-                                    createTime: "Test string",
-                                    description: "Test string",
-                                    displayName: "Test string",
-                                    etag: "Test string",
-                                    labels: {
-                                        A: "Test string"
-                                    },
-                                    metadata: {
-                                        A: 42
-                                    },
-                                    name: "Test string",
-                                    schemaTitle: "Test string",
-                                    schemaVersion: "Test string",
-                                    state: "Test string",
-                                    updateTime: "Test string",
-                                },
-                                executorDetail: {
-                                    containerDetail: {
-                                        failedMainJobs: [
-                                            "Test string"
-                                        ],
-                                        failedPreCachingCheckJobs: [
-                                            "Test string"
-                                        ],
-                                        mainJob: "Test string",
-                                        preCachingCheckJob: "Test string",
-                                    },
-                                    customJobDetail: {
-                                        failedJobs: [
-                                            "Test string"
-                                        ],
-                                        job: "Test string",
-                                    },
-                                },
-                                inputs: {
-                                    A: {
-                                        artifacts: [
-                                            {
-                                                createTime: "Test string",
-                                                description: "Test string",
-                                                displayName: "Test string",
-                                                etag: "Test string",
-                                                labels: {
-                                                    A: "Test string"
-                                                },
-                                                metadata: {
-                                                    A: 42
-                                                },
-                                                name: "Test string",
-                                                schemaTitle: "Test string",
-                                                schemaVersion: "Test string",
-                                                state: "Test string",
-                                                updateTime: "Test string",
-                                                uri: "Test string",
-                                            }
-                                        ],
-                                    }
-                                },
-                                outputs: {
-                                    A: {
-                                        artifacts: [
-                                            {
-                                                createTime: "Test string",
-                                                description: "Test string",
-                                                displayName: "Test string",
-                                                etag: "Test string",
-                                                labels: {
-                                                    A: "Test string"
-                                                },
-                                                metadata: {
-                                                    A: 42
-                                                },
-                                                name: "Test string",
-                                                schemaTitle: "Test string",
-                                                schemaVersion: "Test string",
-                                                state: "Test string",
-                                                updateTime: "Test string",
-                                                uri: "Test string",
-                                            }
-                                        ],
-                                    }
-                                },
-                                parentTaskId: "Test string",
-                                pipelineTaskStatus: [
-                                    {
-                                        error: {
-                                            code: 42,
-                                            details: [
-                                                {
-                                                    A: 42
-                                                }
-                                            ],
-                                            message: "Test string",
-                                        },
-                                        state: "Test string",
-                                        updateTime: "Test string",
-                                    }
-                                ],
-                                startTime: "Test string",
-                                state: "Test string",
-                                taskId: "Test string",
-                                taskName: "Test string",
-                            }
+                    stepCount: 42,
+                  },
+                  outputIndices: [42],
+                  sampledShapleyAttribution: {
+                    pathCount: 42,
+                  },
+                  topK: 42,
+                  xraiAttribution: {
+                    blurBaselineConfig: {
+                      maxBlurSigma: 42,
+                    },
+                    smoothGradConfig: {
+                      featureNoiseSigma: {
+                        noiseSigma: [
+                          {
+                            name: 'Test string',
+                            sigma: 42,
+                          },
                         ],
+                      },
+                      noiseSigma: 42,
+                      noisySampleCount: 42,
                     },
-                    labels: {
-                        A: "Test string"
-                    },
-                    name: "Test string",
-                    network: "Test string",
-                    pipelineSpec: {
-                        A: 42
-                    },
-                    reservedIpRanges: [
-                        "Test string"
-                    ],
-                    runtimeConfig: {
-                        failurePolicy: "Test string",
-                        gcsOutputDirectory: "Test string",
-                        inputArtifacts: {
-                            A: {
-                                artifactId: "Test string",
-                            }
-                        },
-                        parameters: {
-                            A: {
-                                doubleValue: 42,
-                                intValue: "Test string",
-                                stringValue: "Test string",
-                            }
-                        },
-                        parameterValues: {
-                            A: 42
-                        },
-                    },
-                    scheduleName: "Test string",
-                    serviceAccount: "Test string",
-                    startTime: "Test string",
-                    state: "Test string",
-                    templateMetadata: {
-                        version: "Test string",
-                    },
-                    templateUri: "Test string",
-                    updateTime: "Test string",
+                    stepCount: 42,
+                  },
                 },
-                pipelineJobId: "Test string",
+              },
+              explanationType: 'Test string',
             },
-            createTime: "Test string",
-            cron: "Test string",
-            displayName: "Test string",
-            endTime: "Test string",
-            lastPauseTime: "Test string",
-            lastResumeTime: "Test string",
-            lastScheduledRunResponse: {
-                runResponse: "Test string",
-                scheduledRunTime: "Test string",
-            },
-            maxConcurrentRunCount: "Test string",
-            maxRunCount: "Test string",
-            name: "Test string",
-            nextRunTime: "Test string",
-            startedRunCount: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a Schedule. */
-        await gapi.client.aiplatform.projects.locations.schedules.delete({
-            name: "Test string",
-        });
-        /** Gets a Schedule. */
-        await gapi.client.aiplatform.projects.locations.schedules.get({
-            name: "Test string",
-        });
-        /** Lists Schedules in a Location. */
-        await gapi.client.aiplatform.projects.locations.schedules.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates an active or paused Schedule. When the Schedule is updated, new runs will be scheduled starting from the updated next execution time after the update time based on the
-         * time_specification in the updated Schedule. All unstarted runs before the update time will be skipped while already created runs will NOT be paused or canceled.
-         */
-        await gapi.client.aiplatform.projects.locations.schedules.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            allowQueueing: true,
-            catchUp: true,
-            createPipelineJobRequest: {
-                parent: "Test string",
-                pipelineJob: {
-                    createTime: "Test string",
-                    displayName: "Test string",
-                    encryptionSpec: {
-                        kmsKeyName: "Test string",
-                    },
-                    endTime: "Test string",
-                    error: {
-                        code: 42,
-                        details: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        message: "Test string",
-                    },
-                    jobDetail: {
-                        pipelineContext: {
-                            createTime: "Test string",
-                            description: "Test string",
-                            displayName: "Test string",
-                            etag: "Test string",
-                            labels: {
-                                A: "Test string"
-                            },
-                            metadata: {
-                                A: 42
-                            },
-                            name: "Test string",
-                            parentContexts: [
-                                "Test string"
-                            ],
-                            schemaTitle: "Test string",
-                            schemaVersion: "Test string",
-                            updateTime: "Test string",
-                        },
-                        pipelineRunContext: {
-                            createTime: "Test string",
-                            description: "Test string",
-                            displayName: "Test string",
-                            etag: "Test string",
-                            labels: {
-                                A: "Test string"
-                            },
-                            metadata: {
-                                A: 42
-                            },
-                            name: "Test string",
-                            parentContexts: [
-                                "Test string"
-                            ],
-                            schemaTitle: "Test string",
-                            schemaVersion: "Test string",
-                            updateTime: "Test string",
-                        },
-                        taskDetails: [
-                            {
-                                createTime: "Test string",
-                                endTime: "Test string",
-                                error: {
-                                    code: 42,
-                                    details: [
-                                        {
-                                            A: 42
-                                        }
-                                    ],
-                                    message: "Test string",
-                                },
-                                execution: {
-                                    createTime: "Test string",
-                                    description: "Test string",
-                                    displayName: "Test string",
-                                    etag: "Test string",
-                                    labels: {
-                                        A: "Test string"
-                                    },
-                                    metadata: {
-                                        A: 42
-                                    },
-                                    name: "Test string",
-                                    schemaTitle: "Test string",
-                                    schemaVersion: "Test string",
-                                    state: "Test string",
-                                    updateTime: "Test string",
-                                },
-                                executorDetail: {
-                                    containerDetail: {
-                                        failedMainJobs: [
-                                            "Test string"
-                                        ],
-                                        failedPreCachingCheckJobs: [
-                                            "Test string"
-                                        ],
-                                        mainJob: "Test string",
-                                        preCachingCheckJob: "Test string",
-                                    },
-                                    customJobDetail: {
-                                        failedJobs: [
-                                            "Test string"
-                                        ],
-                                        job: "Test string",
-                                    },
-                                },
-                                inputs: {
-                                    A: {
-                                        artifacts: [
-                                            {
-                                                createTime: "Test string",
-                                                description: "Test string",
-                                                displayName: "Test string",
-                                                etag: "Test string",
-                                                labels: {
-                                                    A: "Test string"
-                                                },
-                                                metadata: {
-                                                    A: 42
-                                                },
-                                                name: "Test string",
-                                                schemaTitle: "Test string",
-                                                schemaVersion: "Test string",
-                                                state: "Test string",
-                                                updateTime: "Test string",
-                                                uri: "Test string",
-                                            }
-                                        ],
-                                    }
-                                },
-                                outputs: {
-                                    A: {
-                                        artifacts: [
-                                            {
-                                                createTime: "Test string",
-                                                description: "Test string",
-                                                displayName: "Test string",
-                                                etag: "Test string",
-                                                labels: {
-                                                    A: "Test string"
-                                                },
-                                                metadata: {
-                                                    A: 42
-                                                },
-                                                name: "Test string",
-                                                schemaTitle: "Test string",
-                                                schemaVersion: "Test string",
-                                                state: "Test string",
-                                                updateTime: "Test string",
-                                                uri: "Test string",
-                                            }
-                                        ],
-                                    }
-                                },
-                                parentTaskId: "Test string",
-                                pipelineTaskStatus: [
-                                    {
-                                        error: {
-                                            code: 42,
-                                            details: [
-                                                {
-                                                    A: 42
-                                                }
-                                            ],
-                                            message: "Test string",
-                                        },
-                                        state: "Test string",
-                                        updateTime: "Test string",
-                                    }
-                                ],
-                                startTime: "Test string",
-                                state: "Test string",
-                                taskId: "Test string",
-                                taskName: "Test string",
-                            }
-                        ],
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                    name: "Test string",
-                    network: "Test string",
-                    pipelineSpec: {
-                        A: 42
-                    },
-                    reservedIpRanges: [
-                        "Test string"
-                    ],
-                    runtimeConfig: {
-                        failurePolicy: "Test string",
-                        gcsOutputDirectory: "Test string",
-                        inputArtifacts: {
-                            A: {
-                                artifactId: "Test string",
-                            }
-                        },
-                        parameters: {
-                            A: {
-                                doubleValue: 42,
-                                intValue: "Test string",
-                                stringValue: "Test string",
-                            }
-                        },
-                        parameterValues: {
-                            A: 42
-                        },
-                    },
-                    scheduleName: "Test string",
-                    serviceAccount: "Test string",
-                    startTime: "Test string",
-                    state: "Test string",
-                    templateMetadata: {
-                        version: "Test string",
-                    },
-                    templateUri: "Test string",
-                    updateTime: "Test string",
-                },
-                pipelineJobId: "Test string",
-            },
-            createTime: "Test string",
-            cron: "Test string",
-            displayName: "Test string",
-            endTime: "Test string",
-            lastPauseTime: "Test string",
-            lastResumeTime: "Test string",
-            lastScheduledRunResponse: {
-                runResponse: "Test string",
-                scheduledRunTime: "Test string",
-            },
-            maxConcurrentRunCount: "Test string",
-            maxRunCount: "Test string",
-            name: "Test string",
-            nextRunTime: "Test string",
-            startedRunCount: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Pauses a Schedule. Will mark Schedule.state to 'PAUSED'. If the schedule is paused, no new runs will be created. Already created runs will NOT be paused or canceled. */
-        await gapi.client.aiplatform.projects.locations.schedules.pause({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Resumes a paused Schedule to start scheduling new runs. Will mark Schedule.state to 'ACTIVE'. Only paused Schedule can be resumed. When the Schedule is resumed, new runs will be
-         * scheduled starting from the next execution time after the current time based on the time_specification in the Schedule. If Schedule.catchUp is set up true, all missed runs will be
-         * scheduled for backfill first.
-         */
-        await gapi.client.aiplatform.projects.locations.schedules.resume({
-            name: "Test string",
-        }, {
-            catchUp: true,
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.schedules.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.schedules.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.schedules.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.schedules.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.schedules.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Creates a SpecialistPool. */
-        await gapi.client.aiplatform.projects.locations.specialistPools.create({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            pendingDataLabelingJobs: [
-                "Test string"
+          ],
+          metadata: 42,
+          metrics: 42,
+          metricsSchemaUri: 'Test string',
+          modelExplanation: {
+            meanAttributions: [
+              {
+                approximationError: 42,
+                baselineOutputValue: 42,
+                featureAttributions: 42,
+                instanceOutputValue: 42,
+                outputDisplayName: 'Test string',
+                outputIndex: [42],
+                outputName: 'Test string',
+              },
             ],
-            specialistManagerEmails: [
-                "Test string"
-            ],
-            specialistManagersCount: 42,
-            specialistWorkerEmails: [
-                "Test string"
-            ],
-        });
-        /** Deletes a SpecialistPool as well as all Specialists in the pool. */
-        await gapi.client.aiplatform.projects.locations.specialistPools.delete({
-            force: true,
-            name: "Test string",
-        });
-        /** Gets a SpecialistPool. */
-        await gapi.client.aiplatform.projects.locations.specialistPools.get({
-            name: "Test string",
-        });
-        /** Lists SpecialistPools in a Location. */
-        await gapi.client.aiplatform.projects.locations.specialistPools.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates a SpecialistPool. */
-        await gapi.client.aiplatform.projects.locations.specialistPools.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            name: "Test string",
-            pendingDataLabelingJobs: [
-                "Test string"
-            ],
-            specialistManagerEmails: [
-                "Test string"
-            ],
-            specialistManagersCount: 42,
-            specialistWorkerEmails: [
-                "Test string"
-            ],
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.specialistPools.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.specialistPools.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.specialistPools.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.specialistPools.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.specialistPools.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Creates a Study. A resource name will be generated after creation of the Study. */
-        await gapi.client.aiplatform.projects.locations.studies.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            inactiveReason: "Test string",
-            name: "Test string",
-            state: "Test string",
-            studySpec: {
-                algorithm: "Test string",
-                convexAutomatedStoppingSpec: {
-                    learningRateParameterName: "Test string",
-                    maxStepCount: "Test string",
-                    minMeasurementCount: "Test string",
-                    minStepCount: "Test string",
-                    updateAllStoppedTrials: true,
-                    useElapsedDuration: true,
-                },
-                decayCurveStoppingSpec: {
-                    useElapsedDuration: true,
-                },
-                measurementSelectionType: "Test string",
-                medianAutomatedStoppingSpec: {
-                    useElapsedDuration: true,
-                },
-                metrics: [
-                    {
-                        goal: "Test string",
-                        metricId: "Test string",
-                        safetyConfig: {
-                            desiredMinSafeTrialsFraction: 42,
-                            safetyThreshold: 42,
-                        },
-                    }
+          },
+          name: 'Test string',
+          sliceDimensions: ['Test string'],
+        },
+      }
+    );
+    /** Lists ModelEvaluations in a Model. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Imports a list of externally generated EvaluatedAnnotations. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.slices.batchImport(
+      {
+        parent: 'Test string',
+      },
+      {
+        evaluatedAnnotations: [
+          {
+            dataItemPayload: 42,
+            errorAnalysisAnnotations: [
+              {
+                attributedItems: [
+                  {
+                    annotationResourceName: 'Test string',
+                    distance: 42,
+                  },
                 ],
-                observationNoise: "Test string",
-                parameters: [
+                outlierScore: 42,
+                outlierThreshold: 42,
+                queryType: 'Test string',
+              },
+            ],
+            evaluatedDataItemViewId: 'Test string',
+            explanations: [
+              {
+                explanation: {
+                  attributions: [
                     {
-                        categoricalValueSpec: {
-                            defaultValue: "Test string",
-                            values: [
-                                "Test string"
-                            ],
-                        },
-                        conditionalParameterSpecs: [
-                            {
-                                parameterSpec: undefined,
-                                parentCategoricalValues: {
-                                    values: [
-                                        "Test string"
-                                    ],
-                                },
-                                parentDiscreteValues: {
-                                    values: [
-                                        42
-                                    ],
-                                },
-                                parentIntValues: {
-                                    values: [
-                                        "Test string"
-                                    ],
-                                },
-                            }
-                        ],
-                        discreteValueSpec: {
-                            defaultValue: 42,
-                            values: [
-                                42
-                            ],
-                        },
-                        doubleValueSpec: {
-                            defaultValue: 42,
-                            maxValue: 42,
-                            minValue: 42,
-                        },
-                        integerValueSpec: {
-                            defaultValue: "Test string",
-                            maxValue: "Test string",
-                            minValue: "Test string",
-                        },
-                        parameterId: "Test string",
-                        scaleType: "Test string",
-                    }
-                ],
-                studyStoppingConfig: {
-                    maxDurationNoProgress: "Test string",
-                    maximumRuntimeConstraint: {
-                        endTime: "Test string",
-                        maxDuration: "Test string",
+                      approximationError: 42,
+                      baselineOutputValue: 42,
+                      featureAttributions: 42,
+                      instanceOutputValue: 42,
+                      outputDisplayName: 'Test string',
+                      outputIndex: [42],
+                      outputName: 'Test string',
                     },
-                    maxNumTrials: 42,
-                    maxNumTrialsNoProgress: 42,
-                    minimumRuntimeConstraint: {
-                        endTime: "Test string",
-                        maxDuration: "Test string",
+                  ],
+                  neighbors: [
+                    {
+                      neighborDistance: 42,
+                      neighborId: 'Test string',
                     },
-                    minNumTrials: 42,
-                    shouldStopAsap: true,
+                  ],
                 },
+                explanationType: 'Test string',
+              },
+            ],
+            groundTruths: [42],
+            predictions: [42],
+            type: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Gets a ModelEvaluationSlice. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.slices.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists ModelEvaluationSlices in a ModelEvaluation. */
+    await gapi.client.aiplatform.projects.locations.models.evaluations.slices.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.models.operations.cancel({
+      name: 'Test string',
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.models.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.models.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.models.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.models.operations.wait({
+      name: 'Test string',
+      timeout: 'Test string',
+    });
+    /** Cancels a NasJob. Starts asynchronous cancellation on the NasJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use JobService.GetNasJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the NasJob is not deleted; instead it becomes a job with a NasJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and NasJob.state is set to `CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.nasJobs.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a NasJob */
+    await gapi.client.aiplatform.projects.locations.nasJobs.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        enableRestrictedImageTraining: true,
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        endTime: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
             },
-        });
-        /** Deletes a Study. */
-        await gapi.client.aiplatform.projects.locations.studies.delete({
-            name: "Test string",
-        });
-        /** Gets a Study by name. */
-        await gapi.client.aiplatform.projects.locations.studies.get({
-            name: "Test string",
-        });
-        /** Lists all the studies in a region for an associated project. */
-        await gapi.client.aiplatform.projects.locations.studies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Looks a study up using the user-defined display_name field instead of the fully qualified resource name. */
-        await gapi.client.aiplatform.projects.locations.studies.lookup({
-            parent: "Test string",
-        }, {
-            displayName: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.studies.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.studies.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.studies.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.studies.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.studies.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Adds a measurement of the objective metrics to a Trial. This measurement is assumed to have been taken before the Trial is complete. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.addTrialMeasurement({
-            trialName: "Test string",
-        }, {
-            measurement: {
-                elapsedDuration: "Test string",
-                metrics: [
+          ],
+          message: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        nasJobOutput: {
+          multiTrialJobOutput: {
+            searchTrials: [
+              {
+                endTime: 'Test string',
+                finalMeasurement: {
+                  elapsedDuration: 'Test string',
+                  metrics: [
                     {
-                        metricId: "Test string",
-                        value: 42,
-                    }
-                ],
-                stepCount: "Test string",
-            },
-        });
-        /** Checks whether a Trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a CheckTrialEarlyStoppingStateResponse. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.checkTrialEarlyStoppingState({
-            trialName: "Test string",
-        }, {
-        });
-        /** Marks a Trial as complete. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.complete({
-            name: "Test string",
-        }, {
-            finalMeasurement: {
-                elapsedDuration: "Test string",
-                metrics: [
+                      metricId: 'Test string',
+                      value: 42,
+                    },
+                  ],
+                  stepCount: 'Test string',
+                },
+                id: 'Test string',
+                startTime: 'Test string',
+                state: 'Test string',
+              },
+            ],
+            trainTrials: [
+              {
+                endTime: 'Test string',
+                finalMeasurement: {
+                  elapsedDuration: 'Test string',
+                  metrics: [
                     {
-                        metricId: "Test string",
-                        value: 42,
-                    }
-                ],
-                stepCount: "Test string",
+                      metricId: 'Test string',
+                      value: 42,
+                    },
+                  ],
+                  stepCount: 'Test string',
+                },
+                id: 'Test string',
+                startTime: 'Test string',
+                state: 'Test string',
+              },
+            ],
+          },
+        },
+        nasJobSpec: {
+          multiTrialAlgorithmSpec: {
+            metric: {
+              goal: 'Test string',
+              metricId: 'Test string',
             },
-            infeasibleReason: "Test string",
-            trialInfeasible: true,
-        });
-        /** Adds a user provided Trial to a Study. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.create({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            customJob: "Test string",
-            endTime: "Test string",
-            finalMeasurement: {
-                elapsedDuration: "Test string",
-                metrics: [
-                    {
-                        metricId: "Test string",
-                        value: 42,
-                    }
-                ],
-                stepCount: "Test string",
-            },
-            id: "Test string",
-            infeasibleReason: "Test string",
-            measurements: [
-                {
-                    elapsedDuration: "Test string",
-                    metrics: [
+            multiTrialAlgorithm: 'Test string',
+            searchTrialSpec: {
+              maxFailedTrialCount: 42,
+              maxParallelTrialCount: 42,
+              maxTrialCount: 42,
+              searchTrialJobSpec: {
+                baseOutputDirectory: {
+                  outputUriPrefix: 'Test string',
+                },
+                enableDashboardAccess: true,
+                enableWebAccess: true,
+                experiment: 'Test string',
+                experimentRun: 'Test string',
+                network: 'Test string',
+                protectedArtifactLocationId: 'Test string',
+                reservedIpRanges: ['Test string'],
+                scheduling: {
+                  disableRetries: true,
+                  restartJobOnWorkerRestart: true,
+                  timeout: 'Test string',
+                },
+                serviceAccount: 'Test string',
+                tensorboard: 'Test string',
+                workerPoolSpecs: [
+                  {
+                    containerSpec: {
+                      args: ['Test string'],
+                      command: ['Test string'],
+                      env: [
                         {
-                            metricId: "Test string",
-                            value: 42,
-                        }
-                    ],
-                    stepCount: "Test string",
-                }
-            ],
-            name: "Test string",
-            parameters: [
-                {
-                    parameterId: "Test string",
-                    value: 42,
-                }
-            ],
-            startTime: "Test string",
-            state: "Test string",
-            webAccessUris: {
-                A: "Test string"
-            },
-        });
-        /** Deletes a Trial. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.delete({
-            name: "Test string",
-        });
-        /** Gets a Trial. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.get({
-            name: "Test string",
-        });
-        /** Lists the Trials associated with a Study. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study. The definition of pareto-optimal can be checked in wiki page.
-         * https://en.wikipedia.org/wiki/Pareto_efficiency
-         */
-        await gapi.client.aiplatform.projects.locations.studies.trials.listOptimalTrials({
-            parent: "Test string",
-        }, {
-        });
-        /** Stops a Trial. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Adds one or more Trials to a Study, with parameter values suggested by Vertex AI Vizier. Returns a long-running operation associated with the generation of Trial suggestions. When this
-         * long-running operation succeeds, it will contain a SuggestTrialsResponse.
-         */
-        await gapi.client.aiplatform.projects.locations.studies.trials.suggest({
-            parent: "Test string",
-        }, {
-            clientId: "Test string",
-            contexts: [
-                {
-                    description: "Test string",
-                    parameters: [
-                        {
-                            parameterId: "Test string",
-                            value: 42,
-                        }
-                    ],
-                }
-            ],
-            suggestionCount: 42,
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.studies.trials.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.studies.trials.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.studies.trials.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.studies.trials.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Creates a Tensorboard. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.create({
-            parent: "Test string",
-        }, {
-            blobStoragePathPrefix: "Test string",
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            runCount: 42,
-            updateTime: "Test string",
-        });
-        /** Deletes a Tensorboard. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.delete({
-            name: "Test string",
-        });
-        /** Gets a Tensorboard. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.get({
-            name: "Test string",
-        });
-        /** Lists Tensorboards in a Location. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates a Tensorboard. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            blobStoragePathPrefix: "Test string",
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            etag: "Test string",
-            isDefault: true,
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            runCount: 42,
-            updateTime: "Test string",
-        });
-        /** Returns the storage size for a given TensorBoard instance. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.readSize({
-            tensorboard: "Test string",
-        });
-        /** Returns a list of monthly active users for a given TensorBoard instance. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.readUsage({
-            tensorboard: "Test string",
-        });
-        /** Creates a TensorboardExperiment. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.create({
-            parent: "Test string",
-            tensorboardExperimentId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            source: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a TensorboardExperiment. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.delete({
-            name: "Test string",
-        });
-        /** Gets a TensorboardExperiment. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.get({
-            name: "Test string",
-        });
-        /** Lists TensorboardExperiments in a Location. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates a TensorboardExperiment. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            source: "Test string",
-            updateTime: "Test string",
-        });
-        /** Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's. If any data fail to be ingested, an error is returned. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.write({
-            tensorboardExperiment: "Test string",
-        }, {
-            writeRunDataRequests: [
-                {
-                    tensorboardRun: "Test string",
-                    timeSeriesData: [
-                        {
-                            tensorboardTimeSeriesId: "Test string",
-                            values: [
-                                {
-                                    blobs: {
-                                        values: [
-                                            {
-                                                data: "Test string",
-                                                id: "Test string",
-                                            }
-                                        ],
-                                    },
-                                    scalar: {
-                                        value: 42,
-                                    },
-                                    step: "Test string",
-                                    tensor: {
-                                        value: "Test string",
-                                        versionNumber: 42,
-                                    },
-                                    wallTime: "Test string",
-                                }
-                            ],
-                            valueType: "Test string",
-                        }
-                    ],
-                }
-            ],
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Batch create TensorboardRuns. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.batchCreate({
-            parent: "Test string",
-        }, {
-            requests: [
-                {
-                    parent: "Test string",
-                    tensorboardRun: {
-                        createTime: "Test string",
-                        description: "Test string",
-                        displayName: "Test string",
-                        etag: "Test string",
-                        labels: {
-                            A: "Test string"
+                          name: 'Test string',
+                          value: 'Test string',
                         },
-                        name: "Test string",
-                        updateTime: "Test string",
+                      ],
+                      imageUri: 'Test string',
                     },
-                    tensorboardRunId: "Test string",
-                }
-            ],
-        });
-        /** Creates a TensorboardRun. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.create({
-            parent: "Test string",
-            tensorboardRunId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a TensorboardRun. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.delete({
-            name: "Test string",
-        });
-        /** Gets a TensorboardRun. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.get({
-            name: "Test string",
-        });
-        /** Lists TensorboardRuns in a Location. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates a TensorboardRun. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun. If any data fail to be ingested, an error is returned. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.write({
-            tensorboardRun: "Test string",
-        }, {
-            tensorboardRun: "Test string",
-            timeSeriesData: [
-                {
-                    tensorboardTimeSeriesId: "Test string",
-                    values: [
-                        {
-                            blobs: {
-                                values: [
-                                    {
-                                        data: "Test string",
-                                        id: "Test string",
-                                    }
-                                ],
-                            },
-                            scalar: {
-                                value: 42,
-                            },
-                            step: "Test string",
-                            tensor: {
-                                value: "Test string",
-                                versionNumber: 42,
-                            },
-                            wallTime: "Test string",
-                        }
+                    diskSpec: {
+                      bootDiskSizeGb: 42,
+                      bootDiskType: 'Test string',
+                    },
+                    machineSpec: {
+                      acceleratorCount: 42,
+                      acceleratorType: 'Test string',
+                      machineType: 'Test string',
+                      tpuTopology: 'Test string',
+                    },
+                    nfsMounts: [
+                      {
+                        mountPoint: 'Test string',
+                        path: 'Test string',
+                        server: 'Test string',
+                      },
                     ],
-                    valueType: "Test string",
-                }
-            ],
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Batch create TensorboardTimeSeries that belong to a TensorboardExperiment. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.batchCreate({
-            parent: "Test string",
-            runsId: "Test string",
-        }, {
-            requests: [
-                {
-                    parent: "Test string",
-                    tensorboardTimeSeries: {
-                        createTime: "Test string",
-                        description: "Test string",
-                        displayName: "Test string",
-                        etag: "Test string",
-                        metadata: {
-                            maxBlobSequenceLength: "Test string",
-                            maxStep: "Test string",
-                            maxWallTime: "Test string",
+                    pythonPackageSpec: {
+                      args: ['Test string'],
+                      env: [
+                        {
+                          name: 'Test string',
+                          value: 'Test string',
                         },
-                        name: "Test string",
-                        pluginData: "Test string",
-                        pluginName: "Test string",
-                        updateTime: "Test string",
-                        valueType: "Test string",
+                      ],
+                      executorImageUri: 'Test string',
+                      packageUris: ['Test string'],
+                      pythonModule: 'Test string',
                     },
-                    tensorboardTimeSeriesId: "Test string",
-                }
-            ],
-        });
-        /**
-         * Reads multiple TensorboardTimeSeries' data. The data point number limit is 1000 for scalars, 100 for tensors and blob references. If the number of data points stored is less than the
-         * limit, all data is returned. Otherwise, the number limit of data points is randomly selected from this time series and returned.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.batchRead({
-            experimentsId: "Test string",
-            runsId: "Test string",
-            tensorboard: "Test string",
-            timeSeries: "Test string",
-        });
-        /** Creates a TensorboardTimeSeries. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.create({
-            parent: "Test string",
-            tensorboardTimeSeriesId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
+                    replicaCount: 'Test string',
+                  },
+                ],
+              },
+            },
+            trainTrialSpec: {
+              frequency: 42,
+              maxParallelTrialCount: 42,
+              trainTrialJobSpec: {
+                baseOutputDirectory: {
+                  outputUriPrefix: 'Test string',
+                },
+                enableDashboardAccess: true,
+                enableWebAccess: true,
+                experiment: 'Test string',
+                experimentRun: 'Test string',
+                network: 'Test string',
+                protectedArtifactLocationId: 'Test string',
+                reservedIpRanges: ['Test string'],
+                scheduling: {
+                  disableRetries: true,
+                  restartJobOnWorkerRestart: true,
+                  timeout: 'Test string',
+                },
+                serviceAccount: 'Test string',
+                tensorboard: 'Test string',
+                workerPoolSpecs: [
+                  {
+                    containerSpec: {
+                      args: ['Test string'],
+                      command: ['Test string'],
+                      env: [
+                        {
+                          name: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      imageUri: 'Test string',
+                    },
+                    diskSpec: {
+                      bootDiskSizeGb: 42,
+                      bootDiskType: 'Test string',
+                    },
+                    machineSpec: {
+                      acceleratorCount: 42,
+                      acceleratorType: 'Test string',
+                      machineType: 'Test string',
+                      tpuTopology: 'Test string',
+                    },
+                    nfsMounts: [
+                      {
+                        mountPoint: 'Test string',
+                        path: 'Test string',
+                        server: 'Test string',
+                      },
+                    ],
+                    pythonPackageSpec: {
+                      args: ['Test string'],
+                      env: [
+                        {
+                          name: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      executorImageUri: 'Test string',
+                      packageUris: ['Test string'],
+                      pythonModule: 'Test string',
+                    },
+                    replicaCount: 'Test string',
+                  },
+                ],
+              },
+            },
+          },
+          resumeNasJobId: 'Test string',
+          searchSpaceSpec: 'Test string',
+        },
+        startTime: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a NasJob. */
+    await gapi.client.aiplatform.projects.locations.nasJobs.delete({
+      name: 'Test string',
+    });
+    /** Gets a NasJob */
+    await gapi.client.aiplatform.projects.locations.nasJobs.get({
+      name: 'Test string',
+    });
+    /** Lists NasJobs in a Location. */
+    await gapi.client.aiplatform.projects.locations.nasJobs.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Gets a NasTrialDetail. */
+    await gapi.client.aiplatform.projects.locations.nasJobs.nasTrialDetails.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** List top NasTrialDetails of a NasJob. */
+    await gapi.client.aiplatform.projects.locations.nasJobs.nasTrialDetails.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Assigns a NotebookRuntime to a user for a particular Notebook file. This method will either returns an existing assignment or generates a new one. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimes.assign(
+      {
+        parent: 'Test string',
+      },
+      {
+        notebookRuntime: {
+          createTime: 'Test string',
+          description: 'Test string',
+          displayName: 'Test string',
+          expirationTime: 'Test string',
+          healthState: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          name: 'Test string',
+          notebookRuntimeTemplateRef: {
+            notebookRuntimeTemplate: 'Test string',
+          },
+          notebookRuntimeType: 'Test string',
+          proxyUri: 'Test string',
+          runtimeState: 'Test string',
+          runtimeUser: 'Test string',
+          serviceAccount: 'Test string',
+          updateTime: 'Test string',
+          version: 'Test string',
+        },
+        notebookRuntimeId: 'Test string',
+        notebookRuntimeTemplate: 'Test string',
+      }
+    );
+    /** Deletes a NotebookRuntime. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimes.delete({
+      name: 'Test string',
+    });
+    /** Gets a NotebookRuntime. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimes.get({
+      name: 'Test string',
+    });
+    /** Lists NotebookRuntimes in a Location. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimes.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Starts a NotebookRuntime. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimes.start(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a NotebookRuntimeTemplate. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.create(
+      {
+        notebookRuntimeTemplateId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        dataPersistentDiskSpec: {
+          diskSizeGb: 'Test string',
+          diskType: 'Test string',
+        },
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        eucConfig: {
+          bypassActasCheck: true,
+          eucDisabled: true,
+        },
+        idleShutdownConfig: {
+          idleShutdownDisabled: true,
+          idleTimeout: 'Test string',
+        },
+        isDefault: true,
+        labels: {
+          A: 'Test string',
+        },
+        machineSpec: {
+          acceleratorCount: 42,
+          acceleratorType: 'Test string',
+          machineType: 'Test string',
+          tpuTopology: 'Test string',
+        },
+        name: 'Test string',
+        networkSpec: {
+          enableInternetAccess: true,
+          network: 'Test string',
+          subnetwork: 'Test string',
+        },
+        notebookRuntimeType: 'Test string',
+        serviceAccount: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a NotebookRuntimeTemplate. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a NotebookRuntimeTemplate. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Lists NotebookRuntimeTemplates in a Location. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimeTemplates.testIamPermissions(
+      {
+        permissions: 'Test string',
+        resource: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.operations.cancel({
+      name: 'Test string',
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.operations.wait({
+      name: 'Test string',
+      timeout: 'Test string',
+    });
+    /** Cancels a PipelineJob. Starts asynchronous cancellation on the PipelineJob. The server makes a best effort to cancel the pipeline, but success is not guaranteed. Clients can use PipelineService.GetPipelineJob or other methods to check whether the cancellation succeeded or whether the pipeline completed despite cancellation. On successful cancellation, the PipelineJob is not deleted; instead it becomes a pipeline with a PipelineJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and PipelineJob.state is set to `CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a PipelineJob. A PipelineJob will run immediately when created. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.create(
+      {
+        parent: 'Test string',
+        pipelineJobId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        endTime: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        jobDetail: {
+          pipelineContext: {
+            createTime: 'Test string',
+            description: 'Test string',
+            displayName: 'Test string',
+            etag: 'Test string',
+            labels: {
+              A: 'Test string',
+            },
             metadata: {
-                maxBlobSequenceLength: "Test string",
-                maxStep: "Test string",
-                maxWallTime: "Test string",
+              A: 42,
             },
-            name: "Test string",
-            pluginData: "Test string",
-            pluginName: "Test string",
-            updateTime: "Test string",
-            valueType: "Test string",
-        });
-        /** Deletes a TensorboardTimeSeries. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.delete({
-            name: "Test string",
-        });
-        /** Exports a TensorboardTimeSeries' data. Data is returned in paginated responses. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.exportTensorboardTimeSeries({
-            tensorboardTimeSeries: "Test string",
-        }, {
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets a TensorboardTimeSeries. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.get({
-            name: "Test string",
-        });
-        /** Lists TensorboardTimeSeries in a Location. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /** Updates a TensorboardTimeSeries. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
+            name: 'Test string',
+            parentContexts: ['Test string'],
+            schemaTitle: 'Test string',
+            schemaVersion: 'Test string',
+            updateTime: 'Test string',
+          },
+          pipelineRunContext: {
+            createTime: 'Test string',
+            description: 'Test string',
+            displayName: 'Test string',
+            etag: 'Test string',
+            labels: {
+              A: 'Test string',
+            },
             metadata: {
-                maxBlobSequenceLength: "Test string",
-                maxStep: "Test string",
-                maxWallTime: "Test string",
+              A: 42,
             },
-            name: "Test string",
-            pluginData: "Test string",
-            pluginName: "Test string",
-            updateTime: "Test string",
-            valueType: "Test string",
-        });
-        /**
-         * Reads a TensorboardTimeSeries' data. By default, if the number of data points stored is less than 1000, all data is returned. Otherwise, 1000 data points is randomly selected from this
-         * time series and returned. This value can be changed by changing max_data_points, which can't be greater than 10k.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.read({
-            filter: "Test string",
-            maxDataPoints: 42,
-            tensorboardTimeSeries: "Test string",
-        });
-        /** Gets bytes of TensorboardBlobs. This is to allow reading blob data stored in consumer project's Cloud Storage bucket without users having to obtain Cloud Storage access permission. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.readBlobData({
-            blobIds: "Test string",
-            timeSeries: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.tensorboards.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.tensorboards.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /**
-         * Cancels a TrainingPipeline. Starts asynchronous cancellation on the TrainingPipeline. The server makes a best effort to cancel the pipeline, but success is not guaranteed. Clients can
-         * use PipelineService.GetTrainingPipeline or other methods to check whether the cancellation succeeded or whether the pipeline completed despite cancellation. On successful cancellation,
-         * the TrainingPipeline is not deleted; instead it becomes a pipeline with a TrainingPipeline.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and
-         * TrainingPipeline.state is set to `CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a TrainingPipeline. A created TrainingPipeline right away will be attempted to be run. */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            encryptionSpec: {
-                kmsKeyName: "Test string",
-            },
-            endTime: "Test string",
-            error: {
+            name: 'Test string',
+            parentContexts: ['Test string'],
+            schemaTitle: 'Test string',
+            schemaVersion: 'Test string',
+            updateTime: 'Test string',
+          },
+          taskDetails: [
+            {
+              createTime: 'Test string',
+              endTime: 'Test string',
+              error: {
                 code: 42,
                 details: [
-                    {
-                        A: 42
-                    }
+                  {
+                    A: 42,
+                  },
                 ],
-                message: "Test string",
+                message: 'Test string',
+              },
+              execution: {
+                createTime: 'Test string',
+                description: 'Test string',
+                displayName: 'Test string',
+                etag: 'Test string',
+                labels: {
+                  A: 'Test string',
+                },
+                metadata: {
+                  A: 42,
+                },
+                name: 'Test string',
+                schemaTitle: 'Test string',
+                schemaVersion: 'Test string',
+                state: 'Test string',
+                updateTime: 'Test string',
+              },
+              executorDetail: {
+                containerDetail: {
+                  failedMainJobs: ['Test string'],
+                  failedPreCachingCheckJobs: ['Test string'],
+                  mainJob: 'Test string',
+                  preCachingCheckJob: 'Test string',
+                },
+                customJobDetail: {
+                  failedJobs: ['Test string'],
+                  job: 'Test string',
+                },
+              },
+              inputs: {
+                A: {
+                  artifacts: [
+                    {
+                      createTime: 'Test string',
+                      description: 'Test string',
+                      displayName: 'Test string',
+                      etag: 'Test string',
+                      labels: {
+                        A: 'Test string',
+                      },
+                      metadata: {
+                        A: 42,
+                      },
+                      name: 'Test string',
+                      schemaTitle: 'Test string',
+                      schemaVersion: 'Test string',
+                      state: 'Test string',
+                      updateTime: 'Test string',
+                      uri: 'Test string',
+                    },
+                  ],
+                },
+              },
+              outputs: {
+                A: {
+                  artifacts: [
+                    {
+                      createTime: 'Test string',
+                      description: 'Test string',
+                      displayName: 'Test string',
+                      etag: 'Test string',
+                      labels: {
+                        A: 'Test string',
+                      },
+                      metadata: {
+                        A: 42,
+                      },
+                      name: 'Test string',
+                      schemaTitle: 'Test string',
+                      schemaVersion: 'Test string',
+                      state: 'Test string',
+                      updateTime: 'Test string',
+                      uri: 'Test string',
+                    },
+                  ],
+                },
+              },
+              parentTaskId: 'Test string',
+              pipelineTaskStatus: [
+                {
+                  error: {
+                    code: 42,
+                    details: [
+                      {
+                        A: 42,
+                      },
+                    ],
+                    message: 'Test string',
+                  },
+                  state: 'Test string',
+                  updateTime: 'Test string',
+                },
+              ],
+              startTime: 'Test string',
+              state: 'Test string',
+              taskId: 'Test string',
+              taskName: 'Test string',
             },
-            inputDataConfig: {
-                annotationSchemaUri: "Test string",
-                annotationsFilter: "Test string",
-                bigqueryDestination: {
-                    outputUri: "Test string",
+          ],
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        network: 'Test string',
+        pipelineSpec: {
+          A: 42,
+        },
+        reservedIpRanges: ['Test string'],
+        runtimeConfig: {
+          failurePolicy: 'Test string',
+          gcsOutputDirectory: 'Test string',
+          inputArtifacts: {
+            A: {
+              artifactId: 'Test string',
+            },
+          },
+          parameters: {
+            A: {
+              doubleValue: 42,
+              intValue: 'Test string',
+              stringValue: 'Test string',
+            },
+          },
+          parameterValues: {
+            A: 42,
+          },
+        },
+        scheduleName: 'Test string',
+        serviceAccount: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        templateMetadata: {
+          version: 'Test string',
+        },
+        templateUri: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a PipelineJob. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.delete({
+      name: 'Test string',
+    });
+    /** Gets a PipelineJob. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.get({
+      name: 'Test string',
+    });
+    /** Lists PipelineJobs in a Location. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.pipelineJobs.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Return a list of tokens based on the input text. */
+    await gapi.client.aiplatform.projects.locations.publishers.models.computeTokens(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        instances: [42],
+      }
+    );
+    /** Perform a token counting. */
+    await gapi.client.aiplatform.projects.locations.publishers.models.countTokens(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        instances: [42],
+      }
+    );
+    /** Perform an online prediction. */
+    await gapi.client.aiplatform.projects.locations.publishers.models.predict(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        instances: [42],
+        parameters: 42,
+      }
+    );
+    /** Perform an online prediction with an arbitrary HTTP payload. The response includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the Endpoint that served this prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's DeployedModel that served this prediction. */
+    await gapi.client.aiplatform.projects.locations.publishers.models.rawPredict(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        httpBody: {
+          contentType: 'Test string',
+          data: 'Test string',
+          extensions: [
+            {
+              A: 42,
+            },
+          ],
+        },
+      }
+    );
+    /** Perform a server-side streaming online prediction request for Vertex LLM streaming. */
+    await gapi.client.aiplatform.projects.locations.publishers.models.serverStreamingPredict(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        inputs: [
+          {
+            boolVal: [true],
+            bytesVal: ['Test string'],
+            doubleVal: [42],
+            dtype: 'Test string',
+            floatVal: [42],
+            int64Val: ['Test string'],
+            intVal: [42],
+            listVal: undefined,
+            shape: ['Test string'],
+            stringVal: ['Test string'],
+            structVal: undefined,
+            tensorVal: 'Test string',
+            uint64Val: ['Test string'],
+            uintVal: [42],
+          },
+        ],
+        parameters: {
+          boolVal: [true],
+          bytesVal: ['Test string'],
+          doubleVal: [42],
+          dtype: 'Test string',
+          floatVal: [42],
+          int64Val: ['Test string'],
+          intVal: [42],
+          listVal: undefined,
+          shape: ['Test string'],
+          stringVal: ['Test string'],
+          structVal: undefined,
+          tensorVal: 'Test string',
+          uint64Val: ['Test string'],
+          uintVal: [42],
+        },
+      }
+    );
+    /** Creates a Schedule. */
+    await gapi.client.aiplatform.projects.locations.schedules.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        allowQueueing: true,
+        catchUp: true,
+        createPipelineJobRequest: {
+          parent: 'Test string',
+          pipelineJob: {
+            createTime: 'Test string',
+            displayName: 'Test string',
+            encryptionSpec: {
+              kmsKeyName: 'Test string',
+            },
+            endTime: 'Test string',
+            error: {
+              code: 42,
+              details: [
+                {
+                  A: 42,
                 },
-                datasetId: "Test string",
-                filterSplit: {
-                    testFilter: "Test string",
-                    trainingFilter: "Test string",
-                    validationFilter: "Test string",
+              ],
+              message: 'Test string',
+            },
+            jobDetail: {
+              pipelineContext: {
+                createTime: 'Test string',
+                description: 'Test string',
+                displayName: 'Test string',
+                etag: 'Test string',
+                labels: {
+                  A: 'Test string',
                 },
-                fractionSplit: {
-                    testFraction: 42,
-                    trainingFraction: 42,
-                    validationFraction: 42,
+                metadata: {
+                  A: 42,
                 },
-                gcsDestination: {
-                    outputUriPrefix: "Test string",
+                name: 'Test string',
+                parentContexts: ['Test string'],
+                schemaTitle: 'Test string',
+                schemaVersion: 'Test string',
+                updateTime: 'Test string',
+              },
+              pipelineRunContext: {
+                createTime: 'Test string',
+                description: 'Test string',
+                displayName: 'Test string',
+                etag: 'Test string',
+                labels: {
+                  A: 'Test string',
                 },
-                persistMlUseAssignment: true,
-                predefinedSplit: {
-                    key: "Test string",
+                metadata: {
+                  A: 42,
                 },
-                savedQueryId: "Test string",
-                stratifiedSplit: {
-                    key: "Test string",
-                    testFraction: 42,
-                    trainingFraction: 42,
-                    validationFraction: 42,
+                name: 'Test string',
+                parentContexts: ['Test string'],
+                schemaTitle: 'Test string',
+                schemaVersion: 'Test string',
+                updateTime: 'Test string',
+              },
+              taskDetails: [
+                {
+                  createTime: 'Test string',
+                  endTime: 'Test string',
+                  error: {
+                    code: 42,
+                    details: [
+                      {
+                        A: 42,
+                      },
+                    ],
+                    message: 'Test string',
+                  },
+                  execution: {
+                    createTime: 'Test string',
+                    description: 'Test string',
+                    displayName: 'Test string',
+                    etag: 'Test string',
+                    labels: {
+                      A: 'Test string',
+                    },
+                    metadata: {
+                      A: 42,
+                    },
+                    name: 'Test string',
+                    schemaTitle: 'Test string',
+                    schemaVersion: 'Test string',
+                    state: 'Test string',
+                    updateTime: 'Test string',
+                  },
+                  executorDetail: {
+                    containerDetail: {
+                      failedMainJobs: ['Test string'],
+                      failedPreCachingCheckJobs: ['Test string'],
+                      mainJob: 'Test string',
+                      preCachingCheckJob: 'Test string',
+                    },
+                    customJobDetail: {
+                      failedJobs: ['Test string'],
+                      job: 'Test string',
+                    },
+                  },
+                  inputs: {
+                    A: {
+                      artifacts: [
+                        {
+                          createTime: 'Test string',
+                          description: 'Test string',
+                          displayName: 'Test string',
+                          etag: 'Test string',
+                          labels: {
+                            A: 'Test string',
+                          },
+                          metadata: {
+                            A: 42,
+                          },
+                          name: 'Test string',
+                          schemaTitle: 'Test string',
+                          schemaVersion: 'Test string',
+                          state: 'Test string',
+                          updateTime: 'Test string',
+                          uri: 'Test string',
+                        },
+                      ],
+                    },
+                  },
+                  outputs: {
+                    A: {
+                      artifacts: [
+                        {
+                          createTime: 'Test string',
+                          description: 'Test string',
+                          displayName: 'Test string',
+                          etag: 'Test string',
+                          labels: {
+                            A: 'Test string',
+                          },
+                          metadata: {
+                            A: 42,
+                          },
+                          name: 'Test string',
+                          schemaTitle: 'Test string',
+                          schemaVersion: 'Test string',
+                          state: 'Test string',
+                          updateTime: 'Test string',
+                          uri: 'Test string',
+                        },
+                      ],
+                    },
+                  },
+                  parentTaskId: 'Test string',
+                  pipelineTaskStatus: [
+                    {
+                      error: {
+                        code: 42,
+                        details: [
+                          {
+                            A: 42,
+                          },
+                        ],
+                        message: 'Test string',
+                      },
+                      state: 'Test string',
+                      updateTime: 'Test string',
+                    },
+                  ],
+                  startTime: 'Test string',
+                  state: 'Test string',
+                  taskId: 'Test string',
+                  taskName: 'Test string',
                 },
-                timestampSplit: {
-                    key: "Test string",
-                    testFraction: 42,
-                    trainingFraction: 42,
-                    validationFraction: 42,
-                },
+              ],
             },
             labels: {
-                A: "Test string"
+              A: 'Test string',
             },
-            modelId: "Test string",
-            modelToUpload: {
-                artifactUri: "Test string",
-                containerSpec: {
-                    args: [
-                        "Test string"
-                    ],
-                    command: [
-                        "Test string"
-                    ],
-                    deploymentTimeout: "Test string",
-                    env: [
-                        {
-                            name: "Test string",
-                            value: "Test string",
-                        }
-                    ],
-                    healthProbe: {
-                        exec: {
-                            command: [
-                                "Test string"
-                            ],
-                        },
-                        periodSeconds: 42,
-                        timeoutSeconds: 42,
-                    },
-                    healthRoute: "Test string",
-                    imageUri: "Test string",
-                    ports: [
-                        {
-                            containerPort: 42,
-                        }
-                    ],
-                    predictRoute: "Test string",
-                    sharedMemorySizeMb: "Test string",
-                    startupProbe: {
-                        exec: {
-                            command: [
-                                "Test string"
-                            ],
-                        },
-                        periodSeconds: 42,
-                        timeoutSeconds: 42,
-                    },
+            name: 'Test string',
+            network: 'Test string',
+            pipelineSpec: {
+              A: 42,
+            },
+            reservedIpRanges: ['Test string'],
+            runtimeConfig: {
+              failurePolicy: 'Test string',
+              gcsOutputDirectory: 'Test string',
+              inputArtifacts: {
+                A: {
+                  artifactId: 'Test string',
                 },
-                createTime: "Test string",
-                deployedModels: [
-                    {
-                        deployedModelId: "Test string",
-                        endpoint: "Test string",
-                    }
-                ],
-                description: "Test string",
-                displayName: "Test string",
-                encryptionSpec: {
-                    kmsKeyName: "Test string",
+              },
+              parameters: {
+                A: {
+                  doubleValue: 42,
+                  intValue: 'Test string',
+                  stringValue: 'Test string',
                 },
-                etag: "Test string",
-                explanationSpec: {
-                    metadata: {
-                        featureAttributionsSchemaUri: "Test string",
-                        inputs: {
-                            A: {
-                                denseShapeTensorName: "Test string",
-                                encodedBaselines: [
-                                    42
-                                ],
-                                encodedTensorName: "Test string",
-                                encoding: "Test string",
-                                featureValueDomain: {
-                                    maxValue: 42,
-                                    minValue: 42,
-                                    originalMean: 42,
-                                    originalStddev: 42,
-                                },
-                                groupName: "Test string",
-                                indexFeatureMapping: [
-                                    "Test string"
-                                ],
-                                indicesTensorName: "Test string",
-                                inputBaselines: [
-                                    42
-                                ],
-                                inputTensorName: "Test string",
-                                modality: "Test string",
-                                visualization: {
-                                    clipPercentLowerbound: 42,
-                                    clipPercentUpperbound: 42,
-                                    colorMap: "Test string",
-                                    overlayType: "Test string",
-                                    polarity: "Test string",
-                                    type: "Test string",
-                                },
-                            }
-                        },
-                        latentSpaceSource: "Test string",
-                        outputs: {
-                            A: {
-                                displayNameMappingKey: "Test string",
-                                indexDisplayNameMapping: 42,
-                                outputTensorName: "Test string",
-                            }
-                        },
-                    },
-                    parameters: {
-                        examples: {
-                            exampleGcsSource: {
-                                dataFormat: "Test string",
-                                gcsSource: {
-                                    uris: [
-                                        "Test string"
-                                    ],
-                                },
-                            },
-                            nearestNeighborSearchConfig: 42,
-                            neighborCount: 42,
-                            presets: {
-                                modality: "Test string",
-                                query: "Test string",
-                            },
-                        },
-                        integratedGradientsAttribution: {
-                            blurBaselineConfig: {
-                                maxBlurSigma: 42,
-                            },
-                            smoothGradConfig: {
-                                featureNoiseSigma: {
-                                    noiseSigma: [
-                                        {
-                                            name: "Test string",
-                                            sigma: 42,
-                                        }
-                                    ],
-                                },
-                                noiseSigma: 42,
-                                noisySampleCount: 42,
-                            },
-                            stepCount: 42,
-                        },
-                        outputIndices: [
-                            42
-                        ],
-                        sampledShapleyAttribution: {
-                            pathCount: 42,
-                        },
-                        topK: 42,
-                        xraiAttribution: {
-                            blurBaselineConfig: {
-                                maxBlurSigma: 42,
-                            },
-                            smoothGradConfig: {
-                                featureNoiseSigma: {
-                                    noiseSigma: [
-                                        {
-                                            name: "Test string",
-                                            sigma: 42,
-                                        }
-                                    ],
-                                },
-                                noiseSigma: 42,
-                                noisySampleCount: 42,
-                            },
-                            stepCount: 42,
-                        },
-                    },
+              },
+              parameterValues: {
+                A: 42,
+              },
+            },
+            scheduleName: 'Test string',
+            serviceAccount: 'Test string',
+            startTime: 'Test string',
+            state: 'Test string',
+            templateMetadata: {
+              version: 'Test string',
+            },
+            templateUri: 'Test string',
+            updateTime: 'Test string',
+          },
+          pipelineJobId: 'Test string',
+        },
+        createTime: 'Test string',
+        cron: 'Test string',
+        displayName: 'Test string',
+        endTime: 'Test string',
+        lastPauseTime: 'Test string',
+        lastResumeTime: 'Test string',
+        lastScheduledRunResponse: {
+          runResponse: 'Test string',
+          scheduledRunTime: 'Test string',
+        },
+        maxConcurrentRunCount: 'Test string',
+        maxRunCount: 'Test string',
+        name: 'Test string',
+        nextRunTime: 'Test string',
+        startedRunCount: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a Schedule. */
+    await gapi.client.aiplatform.projects.locations.schedules.delete({
+      name: 'Test string',
+    });
+    /** Gets a Schedule. */
+    await gapi.client.aiplatform.projects.locations.schedules.get({
+      name: 'Test string',
+    });
+    /** Lists Schedules in a Location. */
+    await gapi.client.aiplatform.projects.locations.schedules.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates an active or paused Schedule. When the Schedule is updated, new runs will be scheduled starting from the updated next execution time after the update time based on the time_specification in the updated Schedule. All unstarted runs before the update time will be skipped while already created runs will NOT be paused or canceled. */
+    await gapi.client.aiplatform.projects.locations.schedules.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        allowQueueing: true,
+        catchUp: true,
+        createPipelineJobRequest: {
+          parent: 'Test string',
+          pipelineJob: {
+            createTime: 'Test string',
+            displayName: 'Test string',
+            encryptionSpec: {
+              kmsKeyName: 'Test string',
+            },
+            endTime: 'Test string',
+            error: {
+              code: 42,
+              details: [
+                {
+                  A: 42,
                 },
+              ],
+              message: 'Test string',
+            },
+            jobDetail: {
+              pipelineContext: {
+                createTime: 'Test string',
+                description: 'Test string',
+                displayName: 'Test string',
+                etag: 'Test string',
                 labels: {
-                    A: "Test string"
+                  A: 'Test string',
                 },
-                metadata: 42,
-                metadataArtifact: "Test string",
-                metadataSchemaUri: "Test string",
-                modelSourceInfo: {
-                    copy: true,
-                    sourceType: "Test string",
+                metadata: {
+                  A: 42,
                 },
-                name: "Test string",
-                originalModelInfo: {
-                    model: "Test string",
+                name: 'Test string',
+                parentContexts: ['Test string'],
+                schemaTitle: 'Test string',
+                schemaVersion: 'Test string',
+                updateTime: 'Test string',
+              },
+              pipelineRunContext: {
+                createTime: 'Test string',
+                description: 'Test string',
+                displayName: 'Test string',
+                etag: 'Test string',
+                labels: {
+                  A: 'Test string',
                 },
-                pipelineJob: "Test string",
-                predictSchemata: {
-                    instanceSchemaUri: "Test string",
-                    parametersSchemaUri: "Test string",
-                    predictionSchemaUri: "Test string",
+                metadata: {
+                  A: 42,
                 },
-                supportedDeploymentResourcesTypes: [
-                    "Test string"
-                ],
-                supportedExportFormats: [
+                name: 'Test string',
+                parentContexts: ['Test string'],
+                schemaTitle: 'Test string',
+                schemaVersion: 'Test string',
+                updateTime: 'Test string',
+              },
+              taskDetails: [
+                {
+                  createTime: 'Test string',
+                  endTime: 'Test string',
+                  error: {
+                    code: 42,
+                    details: [
+                      {
+                        A: 42,
+                      },
+                    ],
+                    message: 'Test string',
+                  },
+                  execution: {
+                    createTime: 'Test string',
+                    description: 'Test string',
+                    displayName: 'Test string',
+                    etag: 'Test string',
+                    labels: {
+                      A: 'Test string',
+                    },
+                    metadata: {
+                      A: 42,
+                    },
+                    name: 'Test string',
+                    schemaTitle: 'Test string',
+                    schemaVersion: 'Test string',
+                    state: 'Test string',
+                    updateTime: 'Test string',
+                  },
+                  executorDetail: {
+                    containerDetail: {
+                      failedMainJobs: ['Test string'],
+                      failedPreCachingCheckJobs: ['Test string'],
+                      mainJob: 'Test string',
+                      preCachingCheckJob: 'Test string',
+                    },
+                    customJobDetail: {
+                      failedJobs: ['Test string'],
+                      job: 'Test string',
+                    },
+                  },
+                  inputs: {
+                    A: {
+                      artifacts: [
+                        {
+                          createTime: 'Test string',
+                          description: 'Test string',
+                          displayName: 'Test string',
+                          etag: 'Test string',
+                          labels: {
+                            A: 'Test string',
+                          },
+                          metadata: {
+                            A: 42,
+                          },
+                          name: 'Test string',
+                          schemaTitle: 'Test string',
+                          schemaVersion: 'Test string',
+                          state: 'Test string',
+                          updateTime: 'Test string',
+                          uri: 'Test string',
+                        },
+                      ],
+                    },
+                  },
+                  outputs: {
+                    A: {
+                      artifacts: [
+                        {
+                          createTime: 'Test string',
+                          description: 'Test string',
+                          displayName: 'Test string',
+                          etag: 'Test string',
+                          labels: {
+                            A: 'Test string',
+                          },
+                          metadata: {
+                            A: 42,
+                          },
+                          name: 'Test string',
+                          schemaTitle: 'Test string',
+                          schemaVersion: 'Test string',
+                          state: 'Test string',
+                          updateTime: 'Test string',
+                          uri: 'Test string',
+                        },
+                      ],
+                    },
+                  },
+                  parentTaskId: 'Test string',
+                  pipelineTaskStatus: [
                     {
-                        exportableContents: [
-                            "Test string"
+                      error: {
+                        code: 42,
+                        details: [
+                          {
+                            A: 42,
+                          },
                         ],
-                        id: "Test string",
-                    }
-                ],
-                supportedInputStorageFormats: [
-                    "Test string"
-                ],
-                supportedOutputStorageFormats: [
-                    "Test string"
-                ],
-                trainingPipeline: "Test string",
-                updateTime: "Test string",
-                versionAliases: [
-                    "Test string"
-                ],
-                versionCreateTime: "Test string",
-                versionDescription: "Test string",
-                versionId: "Test string",
-                versionUpdateTime: "Test string",
+                        message: 'Test string',
+                      },
+                      state: 'Test string',
+                      updateTime: 'Test string',
+                    },
+                  ],
+                  startTime: 'Test string',
+                  state: 'Test string',
+                  taskId: 'Test string',
+                  taskName: 'Test string',
+                },
+              ],
             },
-            name: "Test string",
-            parentModel: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            trainingTaskDefinition: "Test string",
-            trainingTaskInputs: 42,
-            trainingTaskMetadata: 42,
-            updateTime: "Test string",
-        });
-        /** Deletes a TrainingPipeline. */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.delete({
-            name: "Test string",
-        });
-        /** Gets a TrainingPipeline. */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.get({
-            name: "Test string",
-        });
-        /** Lists TrainingPipelines in a Location. */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            readMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Gets a Model Garden publisher model. */
-        await gapi.client.aiplatform.publishers.models.get({
-            languageCode: "Test string",
-            name: "Test string",
-            view: "Test string",
-        });
-    }
+            labels: {
+              A: 'Test string',
+            },
+            name: 'Test string',
+            network: 'Test string',
+            pipelineSpec: {
+              A: 42,
+            },
+            reservedIpRanges: ['Test string'],
+            runtimeConfig: {
+              failurePolicy: 'Test string',
+              gcsOutputDirectory: 'Test string',
+              inputArtifacts: {
+                A: {
+                  artifactId: 'Test string',
+                },
+              },
+              parameters: {
+                A: {
+                  doubleValue: 42,
+                  intValue: 'Test string',
+                  stringValue: 'Test string',
+                },
+              },
+              parameterValues: {
+                A: 42,
+              },
+            },
+            scheduleName: 'Test string',
+            serviceAccount: 'Test string',
+            startTime: 'Test string',
+            state: 'Test string',
+            templateMetadata: {
+              version: 'Test string',
+            },
+            templateUri: 'Test string',
+            updateTime: 'Test string',
+          },
+          pipelineJobId: 'Test string',
+        },
+        createTime: 'Test string',
+        cron: 'Test string',
+        displayName: 'Test string',
+        endTime: 'Test string',
+        lastPauseTime: 'Test string',
+        lastResumeTime: 'Test string',
+        lastScheduledRunResponse: {
+          runResponse: 'Test string',
+          scheduledRunTime: 'Test string',
+        },
+        maxConcurrentRunCount: 'Test string',
+        maxRunCount: 'Test string',
+        name: 'Test string',
+        nextRunTime: 'Test string',
+        startedRunCount: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Pauses a Schedule. Will mark Schedule.state to 'PAUSED'. If the schedule is paused, no new runs will be created. Already created runs will NOT be paused or canceled. */
+    await gapi.client.aiplatform.projects.locations.schedules.pause(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Resumes a paused Schedule to start scheduling new runs. Will mark Schedule.state to 'ACTIVE'. Only paused Schedule can be resumed. When the Schedule is resumed, new runs will be scheduled starting from the next execution time after the current time based on the time_specification in the Schedule. If Schedule.catchUp is set up true, all missed runs will be scheduled for backfill first. */
+    await gapi.client.aiplatform.projects.locations.schedules.resume(
+      {
+        name: 'Test string',
+      },
+      {
+        catchUp: true,
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.schedules.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.schedules.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.schedules.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.schedules.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.schedules.operations.wait({
+      name: 'Test string',
+      timeout: 'Test string',
+    });
+    /** Creates a SpecialistPool. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        displayName: 'Test string',
+        name: 'Test string',
+        pendingDataLabelingJobs: ['Test string'],
+        specialistManagerEmails: ['Test string'],
+        specialistManagersCount: 42,
+        specialistWorkerEmails: ['Test string'],
+      }
+    );
+    /** Deletes a SpecialistPool as well as all Specialists in the pool. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.delete({
+      force: true,
+      name: 'Test string',
+    });
+    /** Gets a SpecialistPool. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.get({
+      name: 'Test string',
+    });
+    /** Lists SpecialistPools in a Location. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Updates a SpecialistPool. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        displayName: 'Test string',
+        name: 'Test string',
+        pendingDataLabelingJobs: ['Test string'],
+        specialistManagerEmails: ['Test string'],
+        specialistManagersCount: 42,
+        specialistWorkerEmails: ['Test string'],
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.specialistPools.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Creates a Study. A resource name will be generated after creation of the Study. */
+    await gapi.client.aiplatform.projects.locations.studies.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        inactiveReason: 'Test string',
+        name: 'Test string',
+        state: 'Test string',
+        studySpec: {
+          algorithm: 'Test string',
+          convexAutomatedStoppingSpec: {
+            learningRateParameterName: 'Test string',
+            maxStepCount: 'Test string',
+            minMeasurementCount: 'Test string',
+            minStepCount: 'Test string',
+            updateAllStoppedTrials: true,
+            useElapsedDuration: true,
+          },
+          decayCurveStoppingSpec: {
+            useElapsedDuration: true,
+          },
+          measurementSelectionType: 'Test string',
+          medianAutomatedStoppingSpec: {
+            useElapsedDuration: true,
+          },
+          metrics: [
+            {
+              goal: 'Test string',
+              metricId: 'Test string',
+              safetyConfig: {
+                desiredMinSafeTrialsFraction: 42,
+                safetyThreshold: 42,
+              },
+            },
+          ],
+          observationNoise: 'Test string',
+          parameters: [
+            {
+              categoricalValueSpec: {
+                defaultValue: 'Test string',
+                values: ['Test string'],
+              },
+              conditionalParameterSpecs: [
+                {
+                  parameterSpec: undefined,
+                  parentCategoricalValues: {
+                    values: ['Test string'],
+                  },
+                  parentDiscreteValues: {
+                    values: [42],
+                  },
+                  parentIntValues: {
+                    values: ['Test string'],
+                  },
+                },
+              ],
+              discreteValueSpec: {
+                defaultValue: 42,
+                values: [42],
+              },
+              doubleValueSpec: {
+                defaultValue: 42,
+                maxValue: 42,
+                minValue: 42,
+              },
+              integerValueSpec: {
+                defaultValue: 'Test string',
+                maxValue: 'Test string',
+                minValue: 'Test string',
+              },
+              parameterId: 'Test string',
+              scaleType: 'Test string',
+            },
+          ],
+          studyStoppingConfig: {
+            maxDurationNoProgress: 'Test string',
+            maximumRuntimeConstraint: {
+              endTime: 'Test string',
+              maxDuration: 'Test string',
+            },
+            maxNumTrials: 42,
+            maxNumTrialsNoProgress: 42,
+            minimumRuntimeConstraint: {
+              endTime: 'Test string',
+              maxDuration: 'Test string',
+            },
+            minNumTrials: 42,
+            shouldStopAsap: true,
+          },
+        },
+      }
+    );
+    /** Deletes a Study. */
+    await gapi.client.aiplatform.projects.locations.studies.delete({
+      name: 'Test string',
+    });
+    /** Gets a Study by name. */
+    await gapi.client.aiplatform.projects.locations.studies.get({
+      name: 'Test string',
+    });
+    /** Lists all the studies in a region for an associated project. */
+    await gapi.client.aiplatform.projects.locations.studies.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Looks a study up using the user-defined display_name field instead of the fully qualified resource name. */
+    await gapi.client.aiplatform.projects.locations.studies.lookup(
+      {
+        parent: 'Test string',
+      },
+      {
+        displayName: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.studies.operations.cancel({
+      name: 'Test string',
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.studies.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.studies.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.studies.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.studies.operations.wait({
+      name: 'Test string',
+      timeout: 'Test string',
+    });
+    /** Adds a measurement of the objective metrics to a Trial. This measurement is assumed to have been taken before the Trial is complete. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.addTrialMeasurement(
+      {
+        trialName: 'Test string',
+      },
+      {
+        measurement: {
+          elapsedDuration: 'Test string',
+          metrics: [
+            {
+              metricId: 'Test string',
+              value: 42,
+            },
+          ],
+          stepCount: 'Test string',
+        },
+      }
+    );
+    /** Checks whether a Trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a CheckTrialEarlyStoppingStateResponse. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.checkTrialEarlyStoppingState(
+      {
+        trialName: 'Test string',
+      },
+      {}
+    );
+    /** Marks a Trial as complete. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.complete(
+      {
+        name: 'Test string',
+      },
+      {
+        finalMeasurement: {
+          elapsedDuration: 'Test string',
+          metrics: [
+            {
+              metricId: 'Test string',
+              value: 42,
+            },
+          ],
+          stepCount: 'Test string',
+        },
+        infeasibleReason: 'Test string',
+        trialInfeasible: true,
+      }
+    );
+    /** Adds a user provided Trial to a Study. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        clientId: 'Test string',
+        customJob: 'Test string',
+        endTime: 'Test string',
+        finalMeasurement: {
+          elapsedDuration: 'Test string',
+          metrics: [
+            {
+              metricId: 'Test string',
+              value: 42,
+            },
+          ],
+          stepCount: 'Test string',
+        },
+        id: 'Test string',
+        infeasibleReason: 'Test string',
+        measurements: [
+          {
+            elapsedDuration: 'Test string',
+            metrics: [
+              {
+                metricId: 'Test string',
+                value: 42,
+              },
+            ],
+            stepCount: 'Test string',
+          },
+        ],
+        name: 'Test string',
+        parameters: [
+          {
+            parameterId: 'Test string',
+            value: 42,
+          },
+        ],
+        startTime: 'Test string',
+        state: 'Test string',
+        webAccessUris: {
+          A: 'Test string',
+        },
+      }
+    );
+    /** Deletes a Trial. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.delete({
+      name: 'Test string',
+    });
+    /** Gets a Trial. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.get({
+      name: 'Test string',
+    });
+    /** Lists the Trials associated with a Study. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Lists the pareto-optimal Trials for multi-objective Study or the optimal Trials for single-objective Study. The definition of pareto-optimal can be checked in wiki page. https://en.wikipedia.org/wiki/Pareto_efficiency */
+    await gapi.client.aiplatform.projects.locations.studies.trials.listOptimalTrials(
+      {
+        parent: 'Test string',
+      },
+      {}
+    );
+    /** Stops a Trial. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.stop(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Adds one or more Trials to a Study, with parameter values suggested by Vertex AI Vizier. Returns a long-running operation associated with the generation of Trial suggestions. When this long-running operation succeeds, it will contain a SuggestTrialsResponse. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.suggest(
+      {
+        parent: 'Test string',
+      },
+      {
+        clientId: 'Test string',
+        contexts: [
+          {
+            description: 'Test string',
+            parameters: [
+              {
+                parameterId: 'Test string',
+                value: 42,
+              },
+            ],
+          },
+        ],
+        suggestionCount: 42,
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.studies.trials.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Creates a Tensorboard. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        blobStoragePathPrefix: 'Test string',
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        isDefault: true,
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        runCount: 42,
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a Tensorboard. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.delete({
+      name: 'Test string',
+    });
+    /** Gets a Tensorboard. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.get({
+      name: 'Test string',
+    });
+    /** Lists Tensorboards in a Location. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Updates a Tensorboard. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        blobStoragePathPrefix: 'Test string',
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        etag: 'Test string',
+        isDefault: true,
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        runCount: 42,
+        updateTime: 'Test string',
+      }
+    );
+    /** Returns the storage size for a given TensorBoard instance. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.readSize({
+      tensorboard: 'Test string',
+    });
+    /** Returns a list of monthly active users for a given TensorBoard instance. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.readUsage({
+      tensorboard: 'Test string',
+    });
+    /** Creates a TensorboardExperiment. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.create(
+      {
+        parent: 'Test string',
+        tensorboardExperimentId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        source: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a TensorboardExperiment. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a TensorboardExperiment. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists TensorboardExperiments in a Location. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Updates a TensorboardExperiment. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        source: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Write time series data points of multiple TensorboardTimeSeries in multiple TensorboardRun's. If any data fail to be ingested, an error is returned. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.write(
+      {
+        tensorboardExperiment: 'Test string',
+      },
+      {
+        writeRunDataRequests: [
+          {
+            tensorboardRun: 'Test string',
+            timeSeriesData: [
+              {
+                tensorboardTimeSeriesId: 'Test string',
+                values: [
+                  {
+                    blobs: {
+                      values: [
+                        {
+                          data: 'Test string',
+                          id: 'Test string',
+                        },
+                      ],
+                    },
+                    scalar: {
+                      value: 42,
+                    },
+                    step: 'Test string',
+                    tensor: {
+                      value: 'Test string',
+                      versionNumber: 42,
+                    },
+                    wallTime: 'Test string',
+                  },
+                ],
+                valueType: 'Test string',
+              },
+            ],
+          },
+        ],
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Batch create TensorboardRuns. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.batchCreate(
+      {
+        parent: 'Test string',
+      },
+      {
+        requests: [
+          {
+            parent: 'Test string',
+            tensorboardRun: {
+              createTime: 'Test string',
+              description: 'Test string',
+              displayName: 'Test string',
+              etag: 'Test string',
+              labels: {
+                A: 'Test string',
+              },
+              name: 'Test string',
+              updateTime: 'Test string',
+            },
+            tensorboardRunId: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Creates a TensorboardRun. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.create(
+      {
+        parent: 'Test string',
+        tensorboardRunId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a TensorboardRun. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a TensorboardRun. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists TensorboardRuns in a Location. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Updates a TensorboardRun. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Write time series data points into multiple TensorboardTimeSeries under a TensorboardRun. If any data fail to be ingested, an error is returned. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.write(
+      {
+        tensorboardRun: 'Test string',
+      },
+      {
+        tensorboardRun: 'Test string',
+        timeSeriesData: [
+          {
+            tensorboardTimeSeriesId: 'Test string',
+            values: [
+              {
+                blobs: {
+                  values: [
+                    {
+                      data: 'Test string',
+                      id: 'Test string',
+                    },
+                  ],
+                },
+                scalar: {
+                  value: 42,
+                },
+                step: 'Test string',
+                tensor: {
+                  value: 'Test string',
+                  versionNumber: 42,
+                },
+                wallTime: 'Test string',
+              },
+            ],
+            valueType: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Batch create TensorboardTimeSeries that belong to a TensorboardExperiment. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.batchCreate(
+      {
+        parent: 'Test string',
+        runsId: 'Test string',
+      },
+      {
+        requests: [
+          {
+            parent: 'Test string',
+            tensorboardTimeSeries: {
+              createTime: 'Test string',
+              description: 'Test string',
+              displayName: 'Test string',
+              etag: 'Test string',
+              metadata: {
+                maxBlobSequenceLength: 'Test string',
+                maxStep: 'Test string',
+                maxWallTime: 'Test string',
+              },
+              name: 'Test string',
+              pluginData: 'Test string',
+              pluginName: 'Test string',
+              updateTime: 'Test string',
+              valueType: 'Test string',
+            },
+            tensorboardTimeSeriesId: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Reads multiple TensorboardTimeSeries' data. The data point number limit is 1000 for scalars, 100 for tensors and blob references. If the number of data points stored is less than the limit, all data is returned. Otherwise, the number limit of data points is randomly selected from this time series and returned. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.batchRead(
+      {
+        experimentsId: 'Test string',
+        runsId: 'Test string',
+        tensorboard: 'Test string',
+        timeSeries: 'Test string',
+      }
+    );
+    /** Creates a TensorboardTimeSeries. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.create(
+      {
+        parent: 'Test string',
+        tensorboardTimeSeriesId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        metadata: {
+          maxBlobSequenceLength: 'Test string',
+          maxStep: 'Test string',
+          maxWallTime: 'Test string',
+        },
+        name: 'Test string',
+        pluginData: 'Test string',
+        pluginName: 'Test string',
+        updateTime: 'Test string',
+        valueType: 'Test string',
+      }
+    );
+    /** Deletes a TensorboardTimeSeries. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Exports a TensorboardTimeSeries' data. Data is returned in paginated responses. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.exportTensorboardTimeSeries(
+      {
+        tensorboardTimeSeries: 'Test string',
+      },
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Gets a TensorboardTimeSeries. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists TensorboardTimeSeries in a Location. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        readMask: 'Test string',
+      }
+    );
+    /** Updates a TensorboardTimeSeries. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        metadata: {
+          maxBlobSequenceLength: 'Test string',
+          maxStep: 'Test string',
+          maxWallTime: 'Test string',
+        },
+        name: 'Test string',
+        pluginData: 'Test string',
+        pluginName: 'Test string',
+        updateTime: 'Test string',
+        valueType: 'Test string',
+      }
+    );
+    /** Reads a TensorboardTimeSeries' data. By default, if the number of data points stored is less than 1000, all data is returned. Otherwise, 1000 data points is randomly selected from this time series and returned. This value can be changed by changing max_data_points, which can't be greater than 10k. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.read(
+      {
+        filter: 'Test string',
+        maxDataPoints: 42,
+        tensorboardTimeSeries: 'Test string',
+      }
+    );
+    /** Gets bytes of TensorboardBlobs. This is to allow reading blob data stored in consumer project's Cloud Storage bucket without users having to obtain Cloud Storage access permission. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.readBlobData(
+      {
+        blobIds: 'Test string',
+        timeSeries: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.tensorboards.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Cancels a TrainingPipeline. Starts asynchronous cancellation on the TrainingPipeline. The server makes a best effort to cancel the pipeline, but success is not guaranteed. Clients can use PipelineService.GetTrainingPipeline or other methods to check whether the cancellation succeeded or whether the pipeline completed despite cancellation. On successful cancellation, the TrainingPipeline is not deleted; instead it becomes a pipeline with a TrainingPipeline.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and TrainingPipeline.state is set to `CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a TrainingPipeline. A created TrainingPipeline right away will be attempted to be run. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
+        endTime: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        inputDataConfig: {
+          annotationSchemaUri: 'Test string',
+          annotationsFilter: 'Test string',
+          bigqueryDestination: {
+            outputUri: 'Test string',
+          },
+          datasetId: 'Test string',
+          filterSplit: {
+            testFilter: 'Test string',
+            trainingFilter: 'Test string',
+            validationFilter: 'Test string',
+          },
+          fractionSplit: {
+            testFraction: 42,
+            trainingFraction: 42,
+            validationFraction: 42,
+          },
+          gcsDestination: {
+            outputUriPrefix: 'Test string',
+          },
+          persistMlUseAssignment: true,
+          predefinedSplit: {
+            key: 'Test string',
+          },
+          savedQueryId: 'Test string',
+          stratifiedSplit: {
+            key: 'Test string',
+            testFraction: 42,
+            trainingFraction: 42,
+            validationFraction: 42,
+          },
+          timestampSplit: {
+            key: 'Test string',
+            testFraction: 42,
+            trainingFraction: 42,
+            validationFraction: 42,
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        modelId: 'Test string',
+        modelToUpload: {
+          artifactUri: 'Test string',
+          containerSpec: {
+            args: ['Test string'],
+            command: ['Test string'],
+            deploymentTimeout: 'Test string',
+            env: [
+              {
+                name: 'Test string',
+                value: 'Test string',
+              },
+            ],
+            healthProbe: {
+              exec: {
+                command: ['Test string'],
+              },
+              periodSeconds: 42,
+              timeoutSeconds: 42,
+            },
+            healthRoute: 'Test string',
+            imageUri: 'Test string',
+            ports: [
+              {
+                containerPort: 42,
+              },
+            ],
+            predictRoute: 'Test string',
+            sharedMemorySizeMb: 'Test string',
+            startupProbe: {
+              exec: {
+                command: ['Test string'],
+              },
+              periodSeconds: 42,
+              timeoutSeconds: 42,
+            },
+          },
+          createTime: 'Test string',
+          deployedModels: [
+            {
+              deployedModelId: 'Test string',
+              endpoint: 'Test string',
+            },
+          ],
+          description: 'Test string',
+          displayName: 'Test string',
+          encryptionSpec: {
+            kmsKeyName: 'Test string',
+          },
+          etag: 'Test string',
+          explanationSpec: {
+            metadata: {
+              featureAttributionsSchemaUri: 'Test string',
+              inputs: {
+                A: {
+                  denseShapeTensorName: 'Test string',
+                  encodedBaselines: [42],
+                  encodedTensorName: 'Test string',
+                  encoding: 'Test string',
+                  featureValueDomain: {
+                    maxValue: 42,
+                    minValue: 42,
+                    originalMean: 42,
+                    originalStddev: 42,
+                  },
+                  groupName: 'Test string',
+                  indexFeatureMapping: ['Test string'],
+                  indicesTensorName: 'Test string',
+                  inputBaselines: [42],
+                  inputTensorName: 'Test string',
+                  modality: 'Test string',
+                  visualization: {
+                    clipPercentLowerbound: 42,
+                    clipPercentUpperbound: 42,
+                    colorMap: 'Test string',
+                    overlayType: 'Test string',
+                    polarity: 'Test string',
+                    type: 'Test string',
+                  },
+                },
+              },
+              latentSpaceSource: 'Test string',
+              outputs: {
+                A: {
+                  displayNameMappingKey: 'Test string',
+                  indexDisplayNameMapping: 42,
+                  outputTensorName: 'Test string',
+                },
+              },
+            },
+            parameters: {
+              examples: {
+                exampleGcsSource: {
+                  dataFormat: 'Test string',
+                  gcsSource: {
+                    uris: ['Test string'],
+                  },
+                },
+                nearestNeighborSearchConfig: 42,
+                neighborCount: 42,
+                presets: {
+                  modality: 'Test string',
+                  query: 'Test string',
+                },
+              },
+              integratedGradientsAttribution: {
+                blurBaselineConfig: {
+                  maxBlurSigma: 42,
+                },
+                smoothGradConfig: {
+                  featureNoiseSigma: {
+                    noiseSigma: [
+                      {
+                        name: 'Test string',
+                        sigma: 42,
+                      },
+                    ],
+                  },
+                  noiseSigma: 42,
+                  noisySampleCount: 42,
+                },
+                stepCount: 42,
+              },
+              outputIndices: [42],
+              sampledShapleyAttribution: {
+                pathCount: 42,
+              },
+              topK: 42,
+              xraiAttribution: {
+                blurBaselineConfig: {
+                  maxBlurSigma: 42,
+                },
+                smoothGradConfig: {
+                  featureNoiseSigma: {
+                    noiseSigma: [
+                      {
+                        name: 'Test string',
+                        sigma: 42,
+                      },
+                    ],
+                  },
+                  noiseSigma: 42,
+                  noisySampleCount: 42,
+                },
+                stepCount: 42,
+              },
+            },
+          },
+          labels: {
+            A: 'Test string',
+          },
+          metadata: 42,
+          metadataArtifact: 'Test string',
+          metadataSchemaUri: 'Test string',
+          modelSourceInfo: {
+            copy: true,
+            sourceType: 'Test string',
+          },
+          name: 'Test string',
+          originalModelInfo: {
+            model: 'Test string',
+          },
+          pipelineJob: 'Test string',
+          predictSchemata: {
+            instanceSchemaUri: 'Test string',
+            parametersSchemaUri: 'Test string',
+            predictionSchemaUri: 'Test string',
+          },
+          supportedDeploymentResourcesTypes: ['Test string'],
+          supportedExportFormats: [
+            {
+              exportableContents: ['Test string'],
+              id: 'Test string',
+            },
+          ],
+          supportedInputStorageFormats: ['Test string'],
+          supportedOutputStorageFormats: ['Test string'],
+          trainingPipeline: 'Test string',
+          updateTime: 'Test string',
+          versionAliases: ['Test string'],
+          versionCreateTime: 'Test string',
+          versionDescription: 'Test string',
+          versionId: 'Test string',
+          versionUpdateTime: 'Test string',
+        },
+        name: 'Test string',
+        parentModel: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        trainingTaskDefinition: 'Test string',
+        trainingTaskInputs: 42,
+        trainingTaskMetadata: 42,
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a TrainingPipeline. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.delete({
+      name: 'Test string',
+    });
+    /** Gets a TrainingPipeline. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.get({
+      name: 'Test string',
+    });
+    /** Lists TrainingPipelines in a Location. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      readMask: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.trainingPipelines.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
+    /** Gets a Model Garden publisher model. */
+    await gapi.client.aiplatform.publishers.models.get({
+      languageCode: 'Test string',
+      name: 'Test string',
+      view: 'Test string',
+    });
+  }
 });

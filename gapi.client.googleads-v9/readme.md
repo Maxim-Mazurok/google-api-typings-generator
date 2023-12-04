@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://googleads.googleapis.com/$discovery/rest?version=v9', () => {
-  // now we can use:
-  // gapi.client.googleads
-});
+gapi.client.load(
+  'https://googleads.googleapis.com/$discovery/rest?version=v9',
+  () => {
+    // now we can use:
+    // gapi.client.googleads
+  }
+);
 ```
 
 ```typescript
@@ -45,24 +48,26 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, create, and delete your Google Ads accounts and data.
-      'https://www.googleapis.com/auth/adwords',
-    ],
-    immediate = true;
+    // See, edit, create, and delete your Google Ads accounts and data.
+    'https://www.googleapis.com/auth/adwords',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Google Ads API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

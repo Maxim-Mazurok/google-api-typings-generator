@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://cloudbuild.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.cloudbuild
-});
+gapi.client.load(
+  'https://cloudbuild.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.cloudbuild
+  }
+);
 ```
 
 ```typescript
@@ -45,49 +48,49 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Build API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 ReceiveGitHubDotComWebhook is called when the API receives a github.com webhook.
 */
-await gapi.client.cloudbuild.githubDotComWebhook.receive({  });
+await gapi.client.cloudbuild.githubDotComWebhook.receive({});
 
 /*
 ReceiveRegionalWebhook is called when the API receives a regional GitHub webhook.
 */
-await gapi.client.cloudbuild.locations.regionalWebhook({ location: "location",  });
+await gapi.client.cloudbuild.locations.regionalWebhook({location: 'location'});
 
 /*
 Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
 */
-await gapi.client.cloudbuild.operations.cancel({ name: "name",  });
+await gapi.client.cloudbuild.operations.cancel({name: 'name'});
 
 /*
 Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 */
-await gapi.client.cloudbuild.operations.get({ name: "name",  });
+await gapi.client.cloudbuild.operations.get({name: 'name'});
 
 /*
 ReceiveWebhook is called when the API receives a GitHub webhook.
 */
-await gapi.client.cloudbuild.webhook({  });
+await gapi.client.cloudbuild.webhook({});
 ```

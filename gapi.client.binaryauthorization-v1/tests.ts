@@ -6,477 +6,433 @@
 // Revision: 20231110
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://binaryauthorization.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.binaryauthorization */
+  await gapi.client.load(
+    'https://binaryauthorization.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.binaryauthorization */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /**
-         * A policy specifies the attestors that must attest to a container image, before the project is allowed to deploy that image. There is at most one policy per project. All image admission
-         * requests are permitted if a project has no policy. Gets the policy for this project. Returns a default policy if the project does not have one.
-         */
-        await gapi.client.binaryauthorization.projects.getPolicy({
-            name: "Test string",
-        });
-        /**
-         * Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or
-         * management!) requests. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed.
-         */
-        await gapi.client.binaryauthorization.projects.updatePolicy({
-            name: "Test string",
-        }, {
-            admissionWhitelistPatterns: [
-                {
-                    namePattern: "Test string",
-                }
-            ],
-            clusterAdmissionRules: {
-                A: {
-                    enforcementMode: "Test string",
-                    evaluationMode: "Test string",
-                    requireAttestationsBy: [
-                        "Test string"
-                    ],
-                }
-            },
-            defaultAdmissionRule: {
-                enforcementMode: "Test string",
-                evaluationMode: "Test string",
-                requireAttestationsBy: [
-                    "Test string"
-                ],
-            },
-            description: "Test string",
-            etag: "Test string",
-            globalPolicyEvaluationMode: "Test string",
-            istioServiceIdentityAdmissionRules: {
-                A: {
-                    enforcementMode: "Test string",
-                    evaluationMode: "Test string",
-                    requireAttestationsBy: [
-                        "Test string"
-                    ],
-                }
-            },
-            kubernetesNamespaceAdmissionRules: {
-                A: {
-                    enforcementMode: "Test string",
-                    evaluationMode: "Test string",
-                    requireAttestationsBy: [
-                        "Test string"
-                    ],
-                }
-            },
-            kubernetesServiceAccountAdmissionRules: {
-                A: {
-                    enforcementMode: "Test string",
-                    evaluationMode: "Test string",
-                    requireAttestationsBy: [
-                        "Test string"
-                    ],
-                }
-            },
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /**
-         * Creates an attestor, and returns a copy of the new attestor. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed, `ALREADY_EXISTS` if the
-         * attestor already exists.
-         */
-        await gapi.client.binaryauthorization.projects.attestors.create({
-            attestorId: "Test string",
-            parent: "Test string",
-        }, {
-            description: "Test string",
-            etag: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-            userOwnedGrafeasNote: {
-                delegationServiceAccountEmail: "Test string",
-                noteReference: "Test string",
-                publicKeys: [
-                    {
-                        asciiArmoredPgpPublicKey: "Test string",
-                        comment: "Test string",
-                        id: "Test string",
-                        pkixPublicKey: {
-                            keyId: "Test string",
-                            publicKeyPem: "Test string",
-                            signatureAlgorithm: "Test string",
-                        },
-                    }
-                ],
-            },
-        });
-        /** Deletes an attestor. Returns `NOT_FOUND` if the attestor does not exist. */
-        await gapi.client.binaryauthorization.projects.attestors.delete({
-            name: "Test string",
-        });
-        /** Gets an attestor. Returns `NOT_FOUND` if the attestor does not exist. */
-        await gapi.client.binaryauthorization.projects.attestors.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.binaryauthorization.projects.attestors.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist. */
-        await gapi.client.binaryauthorization.projects.attestors.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.binaryauthorization.projects.attestors.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.binaryauthorization.projects.attestors.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist. */
-        await gapi.client.binaryauthorization.projects.attestors.update({
-            name: "Test string",
-        }, {
-            description: "Test string",
-            etag: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-            userOwnedGrafeasNote: {
-                delegationServiceAccountEmail: "Test string",
-                noteReference: "Test string",
-                publicKeys: [
-                    {
-                        asciiArmoredPgpPublicKey: "Test string",
-                        comment: "Test string",
-                        id: "Test string",
-                        pkixPublicKey: {
-                            keyId: "Test string",
-                            publicKeyPem: "Test string",
-                            signatureAlgorithm: "Test string",
-                        },
-                    }
-                ],
-            },
-        });
-        /** Returns whether the given `Attestation` for the given image URI was signed by the given `Attestor` */
-        await gapi.client.binaryauthorization.projects.attestors.validateAttestationOccurrence({
-            attestor: "Test string",
-        }, {
-            attestation: {
-                jwts: [
-                    {
-                        compactJwt: "Test string",
-                    }
-                ],
-                serializedPayload: "Test string",
-                signatures: [
-                    {
-                        publicKeyId: "Test string",
-                        signature: "Test string",
-                    }
-                ],
-            },
-            occurrenceNote: "Test string",
-            occurrenceResourceUri: "Test string",
-        });
-        /**
-         * Creates a platform policy, and returns a copy of it. Returns `NOT_FOUND` if the project or platform doesn't exist, `INVALID_ARGUMENT` if the request is malformed, `ALREADY_EXISTS` if
-         * the policy already exists, and `INVALID_ARGUMENT` if the policy contains a platform-specific policy that does not match the platform value specified in the URL.
-         */
-        await gapi.client.binaryauthorization.projects.platforms.policies.create({
-            parent: "Test string",
-            policyId: "Test string",
-        }, {
-            description: "Test string",
-            gkePolicy: {
-                checkSets: [
-                    {
-                        checks: [
-                            {
-                                alwaysDeny: true,
-                                displayName: "Test string",
-                                imageAllowlist: {
-                                    allowPattern: [
-                                        "Test string"
-                                    ],
-                                },
-                                imageFreshnessCheck: {
-                                    maxUploadAgeDays: 42,
-                                },
-                                simpleSigningAttestationCheck: {
-                                    attestationAuthenticators: [
-                                        {
-                                            displayName: "Test string",
-                                            pkixPublicKeySet: {
-                                                pkixPublicKeys: [
-                                                    {
-                                                        keyId: "Test string",
-                                                        publicKeyPem: "Test string",
-                                                        signatureAlgorithm: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                        }
-                                    ],
-                                    containerAnalysisAttestationProjects: [
-                                        "Test string"
-                                    ],
-                                },
-                                slsaCheck: {
-                                    rules: [
-                                        {
-                                            attestationSource: {
-                                                containerAnalysisAttestationProjects: [
-                                                    "Test string"
-                                                ],
-                                            },
-                                            configBasedBuildRequired: true,
-                                            trustedBuilder: "Test string",
-                                            trustedSourceRepoPatterns: [
-                                                "Test string"
-                                            ],
-                                        }
-                                    ],
-                                },
-                                trustedDirectoryCheck: {
-                                    trustedDirPatterns: [
-                                        "Test string"
-                                    ],
-                                },
-                                vulnerabilityCheck: {
-                                    allowedCves: [
-                                        "Test string"
-                                    ],
-                                    blockedCves: [
-                                        "Test string"
-                                    ],
-                                    containerAnalysisVulnerabilityProjects: [
-                                        "Test string"
-                                    ],
-                                    maximumFixableSeverity: "Test string",
-                                    maximumUnfixableSeverity: "Test string",
-                                },
-                            }
-                        ],
-                        displayName: "Test string",
-                        imageAllowlist: {
-                            allowPattern: [
-                                "Test string"
-                            ],
-                        },
-                        scope: {
-                            kubernetesNamespace: "Test string",
-                            kubernetesServiceAccount: "Test string",
-                        },
-                    }
-                ],
-                imageAllowlist: {
-                    allowPattern: [
-                        "Test string"
-                    ],
-                },
-            },
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a platform policy. Returns `NOT_FOUND` if the policy doesn't exist. */
-        await gapi.client.binaryauthorization.projects.platforms.policies.delete({
-            name: "Test string",
-        });
-        /** Gets a platform policy. Returns `NOT_FOUND` if the policy doesn't exist. */
-        await gapi.client.binaryauthorization.projects.platforms.policies.get({
-            name: "Test string",
-        });
-        /** Lists platform policies owned by a project in the specified platform. Returns `INVALID_ARGUMENT` if the project or the platform doesn't exist. */
-        await gapi.client.binaryauthorization.projects.platforms.policies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Replaces a platform policy. Returns `NOT_FOUND` if the policy doesn't exist. */
-        await gapi.client.binaryauthorization.projects.platforms.policies.replacePlatformPolicy({
-            name: "Test string",
-        }, {
-            description: "Test string",
-            gkePolicy: {
-                checkSets: [
-                    {
-                        checks: [
-                            {
-                                alwaysDeny: true,
-                                displayName: "Test string",
-                                imageAllowlist: {
-                                    allowPattern: [
-                                        "Test string"
-                                    ],
-                                },
-                                imageFreshnessCheck: {
-                                    maxUploadAgeDays: 42,
-                                },
-                                simpleSigningAttestationCheck: {
-                                    attestationAuthenticators: [
-                                        {
-                                            displayName: "Test string",
-                                            pkixPublicKeySet: {
-                                                pkixPublicKeys: [
-                                                    {
-                                                        keyId: "Test string",
-                                                        publicKeyPem: "Test string",
-                                                        signatureAlgorithm: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                        }
-                                    ],
-                                    containerAnalysisAttestationProjects: [
-                                        "Test string"
-                                    ],
-                                },
-                                slsaCheck: {
-                                    rules: [
-                                        {
-                                            attestationSource: {
-                                                containerAnalysisAttestationProjects: [
-                                                    "Test string"
-                                                ],
-                                            },
-                                            configBasedBuildRequired: true,
-                                            trustedBuilder: "Test string",
-                                            trustedSourceRepoPatterns: [
-                                                "Test string"
-                                            ],
-                                        }
-                                    ],
-                                },
-                                trustedDirectoryCheck: {
-                                    trustedDirPatterns: [
-                                        "Test string"
-                                    ],
-                                },
-                                vulnerabilityCheck: {
-                                    allowedCves: [
-                                        "Test string"
-                                    ],
-                                    blockedCves: [
-                                        "Test string"
-                                    ],
-                                    containerAnalysisVulnerabilityProjects: [
-                                        "Test string"
-                                    ],
-                                    maximumFixableSeverity: "Test string",
-                                    maximumUnfixableSeverity: "Test string",
-                                },
-                            }
-                        ],
-                        displayName: "Test string",
-                        imageAllowlist: {
-                            allowPattern: [
-                                "Test string"
-                            ],
-                        },
-                        scope: {
-                            kubernetesNamespace: "Test string",
-                            kubernetesServiceAccount: "Test string",
-                        },
-                    }
-                ],
-                imageAllowlist: {
-                    allowPattern: [
-                        "Test string"
-                    ],
-                },
-            },
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.binaryauthorization.projects.policy.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.binaryauthorization.projects.policy.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Gets the current system policy in the specified location. */
-        await gapi.client.binaryauthorization.systempolicy.getPolicy({
-            name: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** A policy specifies the attestors that must attest to a container image, before the project is allowed to deploy that image. There is at most one policy per project. All image admission requests are permitted if a project has no policy. Gets the policy for this project. Returns a default policy if the project does not have one. */
+    await gapi.client.binaryauthorization.projects.getPolicy({
+      name: 'Test string',
+    });
+    /** Creates or updates a project's policy, and returns a copy of the new policy. A policy is always updated as a whole, to avoid race conditions with concurrent policy enforcement (or management!) requests. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed. */
+    await gapi.client.binaryauthorization.projects.updatePolicy(
+      {
+        name: 'Test string',
+      },
+      {
+        admissionWhitelistPatterns: [
+          {
+            namePattern: 'Test string',
+          },
+        ],
+        clusterAdmissionRules: {
+          A: {
+            enforcementMode: 'Test string',
+            evaluationMode: 'Test string',
+            requireAttestationsBy: ['Test string'],
+          },
+        },
+        defaultAdmissionRule: {
+          enforcementMode: 'Test string',
+          evaluationMode: 'Test string',
+          requireAttestationsBy: ['Test string'],
+        },
+        description: 'Test string',
+        etag: 'Test string',
+        globalPolicyEvaluationMode: 'Test string',
+        istioServiceIdentityAdmissionRules: {
+          A: {
+            enforcementMode: 'Test string',
+            evaluationMode: 'Test string',
+            requireAttestationsBy: ['Test string'],
+          },
+        },
+        kubernetesNamespaceAdmissionRules: {
+          A: {
+            enforcementMode: 'Test string',
+            evaluationMode: 'Test string',
+            requireAttestationsBy: ['Test string'],
+          },
+        },
+        kubernetesServiceAccountAdmissionRules: {
+          A: {
+            enforcementMode: 'Test string',
+            evaluationMode: 'Test string',
+            requireAttestationsBy: ['Test string'],
+          },
+        },
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates an attestor, and returns a copy of the new attestor. Returns `NOT_FOUND` if the project does not exist, `INVALID_ARGUMENT` if the request is malformed, `ALREADY_EXISTS` if the attestor already exists. */
+    await gapi.client.binaryauthorization.projects.attestors.create(
+      {
+        attestorId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        description: 'Test string',
+        etag: 'Test string',
+        name: 'Test string',
+        updateTime: 'Test string',
+        userOwnedGrafeasNote: {
+          delegationServiceAccountEmail: 'Test string',
+          noteReference: 'Test string',
+          publicKeys: [
+            {
+              asciiArmoredPgpPublicKey: 'Test string',
+              comment: 'Test string',
+              id: 'Test string',
+              pkixPublicKey: {
+                keyId: 'Test string',
+                publicKeyPem: 'Test string',
+                signatureAlgorithm: 'Test string',
+              },
+            },
+          ],
+        },
+      }
+    );
+    /** Deletes an attestor. Returns `NOT_FOUND` if the attestor does not exist. */
+    await gapi.client.binaryauthorization.projects.attestors.delete({
+      name: 'Test string',
+    });
+    /** Gets an attestor. Returns `NOT_FOUND` if the attestor does not exist. */
+    await gapi.client.binaryauthorization.projects.attestors.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.binaryauthorization.projects.attestors.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists attestors. Returns `INVALID_ARGUMENT` if the project does not exist. */
+    await gapi.client.binaryauthorization.projects.attestors.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.binaryauthorization.projects.attestors.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.binaryauthorization.projects.attestors.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Updates an attestor. Returns `NOT_FOUND` if the attestor does not exist. */
+    await gapi.client.binaryauthorization.projects.attestors.update(
+      {
+        name: 'Test string',
+      },
+      {
+        description: 'Test string',
+        etag: 'Test string',
+        name: 'Test string',
+        updateTime: 'Test string',
+        userOwnedGrafeasNote: {
+          delegationServiceAccountEmail: 'Test string',
+          noteReference: 'Test string',
+          publicKeys: [
+            {
+              asciiArmoredPgpPublicKey: 'Test string',
+              comment: 'Test string',
+              id: 'Test string',
+              pkixPublicKey: {
+                keyId: 'Test string',
+                publicKeyPem: 'Test string',
+                signatureAlgorithm: 'Test string',
+              },
+            },
+          ],
+        },
+      }
+    );
+    /** Returns whether the given `Attestation` for the given image URI was signed by the given `Attestor` */
+    await gapi.client.binaryauthorization.projects.attestors.validateAttestationOccurrence(
+      {
+        attestor: 'Test string',
+      },
+      {
+        attestation: {
+          jwts: [
+            {
+              compactJwt: 'Test string',
+            },
+          ],
+          serializedPayload: 'Test string',
+          signatures: [
+            {
+              publicKeyId: 'Test string',
+              signature: 'Test string',
+            },
+          ],
+        },
+        occurrenceNote: 'Test string',
+        occurrenceResourceUri: 'Test string',
+      }
+    );
+    /** Creates a platform policy, and returns a copy of it. Returns `NOT_FOUND` if the project or platform doesn't exist, `INVALID_ARGUMENT` if the request is malformed, `ALREADY_EXISTS` if the policy already exists, and `INVALID_ARGUMENT` if the policy contains a platform-specific policy that does not match the platform value specified in the URL. */
+    await gapi.client.binaryauthorization.projects.platforms.policies.create(
+      {
+        parent: 'Test string',
+        policyId: 'Test string',
+      },
+      {
+        description: 'Test string',
+        gkePolicy: {
+          checkSets: [
+            {
+              checks: [
+                {
+                  alwaysDeny: true,
+                  displayName: 'Test string',
+                  imageAllowlist: {
+                    allowPattern: ['Test string'],
+                  },
+                  imageFreshnessCheck: {
+                    maxUploadAgeDays: 42,
+                  },
+                  simpleSigningAttestationCheck: {
+                    attestationAuthenticators: [
+                      {
+                        displayName: 'Test string',
+                        pkixPublicKeySet: {
+                          pkixPublicKeys: [
+                            {
+                              keyId: 'Test string',
+                              publicKeyPem: 'Test string',
+                              signatureAlgorithm: 'Test string',
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                    containerAnalysisAttestationProjects: ['Test string'],
+                  },
+                  slsaCheck: {
+                    rules: [
+                      {
+                        attestationSource: {
+                          containerAnalysisAttestationProjects: ['Test string'],
+                        },
+                        configBasedBuildRequired: true,
+                        trustedBuilder: 'Test string',
+                        trustedSourceRepoPatterns: ['Test string'],
+                      },
+                    ],
+                  },
+                  trustedDirectoryCheck: {
+                    trustedDirPatterns: ['Test string'],
+                  },
+                  vulnerabilityCheck: {
+                    allowedCves: ['Test string'],
+                    blockedCves: ['Test string'],
+                    containerAnalysisVulnerabilityProjects: ['Test string'],
+                    maximumFixableSeverity: 'Test string',
+                    maximumUnfixableSeverity: 'Test string',
+                  },
+                },
+              ],
+              displayName: 'Test string',
+              imageAllowlist: {
+                allowPattern: ['Test string'],
+              },
+              scope: {
+                kubernetesNamespace: 'Test string',
+                kubernetesServiceAccount: 'Test string',
+              },
+            },
+          ],
+          imageAllowlist: {
+            allowPattern: ['Test string'],
+          },
+        },
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a platform policy. Returns `NOT_FOUND` if the policy doesn't exist. */
+    await gapi.client.binaryauthorization.projects.platforms.policies.delete({
+      name: 'Test string',
+    });
+    /** Gets a platform policy. Returns `NOT_FOUND` if the policy doesn't exist. */
+    await gapi.client.binaryauthorization.projects.platforms.policies.get({
+      name: 'Test string',
+    });
+    /** Lists platform policies owned by a project in the specified platform. Returns `INVALID_ARGUMENT` if the project or the platform doesn't exist. */
+    await gapi.client.binaryauthorization.projects.platforms.policies.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Replaces a platform policy. Returns `NOT_FOUND` if the policy doesn't exist. */
+    await gapi.client.binaryauthorization.projects.platforms.policies.replacePlatformPolicy(
+      {
+        name: 'Test string',
+      },
+      {
+        description: 'Test string',
+        gkePolicy: {
+          checkSets: [
+            {
+              checks: [
+                {
+                  alwaysDeny: true,
+                  displayName: 'Test string',
+                  imageAllowlist: {
+                    allowPattern: ['Test string'],
+                  },
+                  imageFreshnessCheck: {
+                    maxUploadAgeDays: 42,
+                  },
+                  simpleSigningAttestationCheck: {
+                    attestationAuthenticators: [
+                      {
+                        displayName: 'Test string',
+                        pkixPublicKeySet: {
+                          pkixPublicKeys: [
+                            {
+                              keyId: 'Test string',
+                              publicKeyPem: 'Test string',
+                              signatureAlgorithm: 'Test string',
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                    containerAnalysisAttestationProjects: ['Test string'],
+                  },
+                  slsaCheck: {
+                    rules: [
+                      {
+                        attestationSource: {
+                          containerAnalysisAttestationProjects: ['Test string'],
+                        },
+                        configBasedBuildRequired: true,
+                        trustedBuilder: 'Test string',
+                        trustedSourceRepoPatterns: ['Test string'],
+                      },
+                    ],
+                  },
+                  trustedDirectoryCheck: {
+                    trustedDirPatterns: ['Test string'],
+                  },
+                  vulnerabilityCheck: {
+                    allowedCves: ['Test string'],
+                    blockedCves: ['Test string'],
+                    containerAnalysisVulnerabilityProjects: ['Test string'],
+                    maximumFixableSeverity: 'Test string',
+                    maximumUnfixableSeverity: 'Test string',
+                  },
+                },
+              ],
+              displayName: 'Test string',
+              imageAllowlist: {
+                allowPattern: ['Test string'],
+              },
+              scope: {
+                kubernetesNamespace: 'Test string',
+                kubernetesServiceAccount: 'Test string',
+              },
+            },
+          ],
+          imageAllowlist: {
+            allowPattern: ['Test string'],
+          },
+        },
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.binaryauthorization.projects.policy.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.binaryauthorization.projects.policy.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.binaryauthorization.projects.policy.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Gets the current system policy in the specified location. */
+    await gapi.client.binaryauthorization.systempolicy.getPolicy({
+      name: 'Test string',
+    });
+  }
 });

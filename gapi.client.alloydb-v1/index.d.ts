@@ -14,3811 +14,2393 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load AlloyDB API v1 */
-    function load(urlOrObject: "https://alloydb.googleapis.com/$discovery/rest?version=v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "alloydb", version: "v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "alloydb", version: "v1", callback: () => any): void;
+  /** Load AlloyDB API v1 */
+  function load(
+    urlOrObject: 'https://alloydb.googleapis.com/$discovery/rest?version=v1'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'alloydb', version: 'v1'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'alloydb', version: 'v1', callback: () => any): void;
 
-    namespace alloydb {
-        interface AutomatedBackupPolicy {
-            /**
-             * The length of the time window during which a backup can be taken. If a backup does not succeed within this time window, it will be canceled and considered failed. The backup window
-             * must be at least 5 minutes long. There is no upper bound on the window. If not set, it defaults to 1 hour.
-             */
-            backupWindow?:
-                string;
-            /** Whether automated automated backups are enabled. If not set, defaults to true. */
-            enabled?:
-                boolean;
-            /**
-             * Optional. The encryption config can be specified to encrypt the backups with a customer-managed encryption key (CMEK). When this field is not specified, the backup will then use
-             * default encryption scheme to protect the user data.
-             */
-            encryptionConfig?:
-                EncryptionConfig;
-            /** Labels to apply to backups created using this configuration. */
-            labels?:
-                { [P in string]: string };
-            /**
-             * The location where the backup will be stored. Currently, the only supported option is to store the backup in the same region as the cluster. If empty, defaults to the region of the
-             * cluster.
-             */
-            location?:
-                string;
-            /** Quantity-based Backup retention policy to retain recent backups. */
-            quantityBasedRetention?:
-                QuantityBasedRetention;
-            /** Time-based Backup retention policy. */
-            timeBasedRetention?:
-                TimeBasedRetention;
-            /** Weekly schedule for the Backup. */
-            weeklySchedule?:
-                WeeklySchedule;
-        }
-        interface Backup {
-            /** Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels. https://google.aip.dev/128 */
-            annotations?:
-                { [P in string]: string };
-            /** Required. The full resource name of the backup source cluster (e.g., projects/{project}/locations/{region}/clusters/{cluster_id}). */
-            clusterName?:
-                string;
-            /** Output only. The system-generated UID of the cluster which was used to create this resource. */
-            clusterUid?:
-                string;
-            /** Output only. Create time stamp */
-            createTime?:
-                string;
-            /** Output only. The database engine major version of the cluster this backup was created from. Any restored cluster created from this backup will have the same database version. */
-            databaseVersion?:
-                string;
-            /** Output only. Delete time stamp */
-            deleteTime?:
-                string;
-            /** User-provided description of the backup. */
-            description?:
-                string;
-            /** User-settable and human-readable display name for the Backup. */
-            displayName?:
-                string;
-            /**
-             * Optional. The encryption config can be specified to encrypt the backup with a customer-managed encryption key (CMEK). When this field is not specified, the backup will then use
-             * default encryption scheme to protect the user data.
-             */
-            encryptionConfig?:
-                EncryptionConfig;
-            /** Output only. The encryption information for the backup. */
-            encryptionInfo?:
-                EncryptionInfo;
-            /** For Resource freshness validation (https://google.aip.dev/154) */
-            etag?:
-                string;
-            /**
-             * Output only. The QuantityBasedExpiry of the backup, specified by the backup's retention policy. Once the expiry quantity is over retention, the backup is eligible to be garbage
-             * collected.
-             */
-            expiryQuantity?:
-                QuantityBasedExpiry;
-            /**
-             * Output only. The time at which after the backup is eligible to be garbage collected. It is the duration specified by the backup's retention policy, added to the backup's
-             * create_time.
-             */
-            expiryTime?:
-                string;
-            /** Labels as key value pairs */
-            labels?:
-                { [P in string]: string };
-            /**
-             * Output only. The name of the backup resource with the format: * projects/{project}/locations/{region}/backups/{backup_id} where the cluster and backup ID segments should satisfy the
-             * regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending with a letter or number. For
-             * more details see https://google.aip.dev/122. The prefix of the backup resource name is the name of the parent resource: * projects/{project}/locations/{region}
-             */
-            name?:
-                string;
-            /**
-             * Output only. Reconciling (https://google.aip.dev/128#reconciliation), if true, indicates that the service is actively updating the resource. This can happen due to user-triggered
-             * updates or system actions like failover or maintenance.
-             */
-            reconciling?:
-                boolean;
-            /** Output only. The size of the backup in bytes. */
-            sizeBytes?:
-                string;
-            /** Output only. The current state of the backup. */
-            state?:
-                string;
-            /** The backup type, which suggests the trigger for the backup. */
-            type?:
-                string;
-            /** Output only. The system-generated UID of the resource. The UID is assigned when the resource is created, and it is retained until it is deleted. */
-            uid?:
-                string;
-            /** Output only. Update time stamp */
-            updateTime?:
-                string;
-        }
-        interface BackupSource {
-            /** Required. The name of the backup resource with the format: * projects/{project}/locations/{region}/backups/{backup_id} */
-            backupName?:
-                string;
-            /**
-             * Output only. The system-generated UID of the backup which was used to create this resource. The UID is generated when the backup is created, and it is retained until the backup is
-             * deleted.
-             */
-            backupUid?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface CancelOperationRequest {
-        }
-        interface ClientConnectionConfig {
-            /** Optional. Configuration to enforce connectors only (ex: AuthProxy) connections to the database. */
-            requireConnectors?:
-                boolean;
-            /** Optional. SSL config option for this instance. */
-            sslConfig?:
-                SslConfig;
-        }
-        interface CloudControl2SharedOperationsReconciliationOperationMetadata {
-            /** DEPRECATED. Use exclusive_action instead. */
-            deleteResource?:
-                boolean;
-            /** Excluisive action returned by the CLH. */
-            exclusiveAction?:
-                string;
-        }
-        interface Cluster {
-            /** Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels. https://google.aip.dev/128 */
-            annotations?:
-                { [P in string]: string };
-            /**
-             * The automated backup policy for this cluster. If no policy is provided then the default policy will be used. If backups are supported for the cluster, the default policy takes one
-             * backup a day, has a backup window of 1 hour, and retains backups for 14 days. For more information on the defaults, consult the documentation for the message type.
-             */
-            automatedBackupPolicy?:
-                AutomatedBackupPolicy;
-            /** Output only. Cluster created from backup. */
-            backupSource?:
-                BackupSource;
-            /**
-             * Output only. The type of the cluster. This is an output-only field and it's populated at the Cluster creation time or the Cluster promotion time. The cluster type is determined by
-             * which RPC was used to create the cluster (i.e. `CreateCluster` vs. `CreateSecondaryCluster`
-             */
-            clusterType?:
-                string;
-            /** Optional. Continuous backup configuration for this cluster. */
-            continuousBackupConfig?:
-                ContinuousBackupConfig;
-            /** Output only. Continuous backup properties for this cluster. */
-            continuousBackupInfo?:
-                ContinuousBackupInfo;
-            /** Output only. Create time stamp */
-            createTime?:
-                string;
-            /**
-             * Optional. The database engine major version. This is an optional field and it is populated at the Cluster creation time. If a database version is not supplied at cluster creation
-             * time, then a default database version will be used.
-             */
-            databaseVersion?:
-                string;
-            /** Output only. Delete time stamp */
-            deleteTime?:
-                string;
-            /** User-settable and human-readable display name for the Cluster. */
-            displayName?:
-                string;
-            /**
-             * Optional. The encryption config can be specified to encrypt the data disks and other persistent data resources of a cluster with a customer-managed encryption key (CMEK). When this
-             * field is not specified, the cluster will then use default encryption scheme to protect the user data.
-             */
-            encryptionConfig?:
-                EncryptionConfig;
-            /** Output only. The encryption information for the cluster. */
-            encryptionInfo?:
-                EncryptionInfo;
-            /** For Resource freshness validation (https://google.aip.dev/154) */
-            etag?:
-                string;
-            /** Input only. Initial user to setup during cluster creation. Required. If used in `RestoreCluster` this is ignored. */
-            initialUser?:
-                UserPassword;
-            /** Labels as key value pairs */
-            labels?:
-                { [P in string]: string };
-            /** Output only. Cluster created via DMS migration. */
-            migrationSource?:
-                MigrationSource;
-            /**
-             * Output only. The name of the cluster resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id} where the cluster ID segment should satisfy the regex
-             * expression `[a-z0-9-]+`. For more details see https://google.aip.dev/122. The prefix of the cluster resource name is the name of the parent resource: *
-             * projects/{project}/locations/{region}
-             */
-            name?:
-                string;
-            /**
-             * Required. The resource link for the VPC network in which cluster resources are created and from which they are accessible via Private IP. The network must belong to the same project
-             * as the cluster. It is specified in the form: "projects/{project}/global/networks/{network_id}". This is required to create a cluster. Deprecated, use network_config.network instead.
-             */
-            network?:
-                string;
-            networkConfig?:
-                NetworkConfig;
-            /** Output only. Cross Region replication config specific to PRIMARY cluster. */
-            primaryConfig?:
-                PrimaryConfig;
-            /**
-             * Output only. Reconciling (https://google.aip.dev/128#reconciliation). Set to true if the current state of Cluster does not match the user's intended state, and the service is
-             * actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
-             */
-            reconciling?:
-                boolean;
-            /** Cross Region replication config specific to SECONDARY cluster. */
-            secondaryConfig?:
-                SecondaryConfig;
-            /** SSL configuration for this AlloyDB cluster. */
-            sslConfig?:
-                SslConfig;
-            /** Output only. The current serving state of the cluster. */
-            state?:
-                string;
-            /** Output only. The system-generated UID of the resource. The UID is assigned when the resource is created, and it is retained until it is deleted. */
-            uid?:
-                string;
-            /** Output only. Update time stamp */
-            updateTime?:
-                string;
-        }
-        interface ConnectionInfo {
-            /** Output only. The unique ID of the Instance. */
-            instanceUid?:
-                string;
-            /**
-             * Output only. The private network IP address for the Instance. This is the default IP for the instance and is always created (even if enable_public_ip is set). This is the connection
-             * endpoint for an end-user application.
-             */
-            ipAddress?:
-                string;
-            /**
-             * The name of the ConnectionInfo singleton resource, e.g.: projects/{project}/locations/{location}/clusters/*‍/instances/*‍/connectionInfo This field currently has no semantic
-             * meaning.
-             */
-            name?:
-                string;
-        }
-        interface ContinuousBackupConfig {
-            /** Whether ContinuousBackup is enabled. */
-            enabled?:
-                boolean;
-            /**
-             * The encryption config can be specified to encrypt the backups with a customer-managed encryption key (CMEK). When this field is not specified, the backup will then use default
-             * encryption scheme to protect the user data.
-             */
-            encryptionConfig?:
-                EncryptionConfig;
-            /**
-             * The number of days that are eligible to restore from using PITR. To support the entire recovery window, backups and logs are retained for one day more than the recovery window. If
-             * not set, defaults to 14 days.
-             */
-            recoveryWindowDays?:
-                number;
-        }
-        interface ContinuousBackupInfo {
-            /** Output only. The earliest restorable time that can be restored to. Output only field. */
-            earliestRestorableTime?:
-                string;
-            /** Output only. When ContinuousBackup was most recently enabled. Set to null if ContinuousBackup is not enabled. */
-            enabledTime?:
-                string;
-            /** Output only. The encryption information for the WALs and backups required for ContinuousBackup. */
-            encryptionInfo?:
-                EncryptionInfo;
-            /** Output only. Days of the week on which a continuous backup is taken. Output only field. Ignored if passed into the request. */
-            schedule?:
-                string[];
-        }
-        interface ContinuousBackupSource {
-            /**
-             * Required. The source cluster from which to restore. This cluster must have continuous backup enabled for this operation to succeed. For the required format, see the comment on the
-             * Cluster.name field.
-             */
-            cluster?:
-                string;
-            /** Required. The point in time to restore to. */
-            pointInTime?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface Empty {
-        }
-        interface EncryptionConfig {
-            /**
-             * The fully-qualified resource name of the KMS key. Each Cloud KMS key is regionalized and has the following format:
-             * projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME]
-             */
-            kmsKeyName?:
-                string;
-        }
-        interface EncryptionInfo {
-            /** Output only. Type of encryption. */
-            encryptionType?:
-                string;
-            /** Output only. Cloud KMS key versions that are being used to protect the database or the backup. */
-            kmsKeyVersions?:
-                string[];
-        }
-        interface FailoverInstanceRequest {
-            /**
-             * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-             * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-             * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore
-             * the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-             * (00000000-0000-0000-0000-000000000000).
-             */
-            requestId?:
-                string;
-            /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the failover. */
-            validateOnly?:
-                boolean;
-        }
-        interface GenerateClientCertificateRequest {
-            /**
-             * Optional. An optional hint to the endpoint to generate the client certificate with the requested duration. The duration can be from 1 hour to 24 hours. The endpoint may or may not
-             * honor the hint. If the hint is left unspecified or is not honored, then the endpoint will pick an appropriate default duration.
-             */
-            certDuration?:
-                string;
-            /** Optional. The public key from the client. */
-            publicKey?:
-                string;
-            /**
-             * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-             * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-             * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore
-             * the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-             * (00000000-0000-0000-0000-000000000000).
-             */
-            requestId?:
-                string;
-            /**
-             * Optional. An optional hint to the endpoint to generate a client ceritificate that can be used by AlloyDB connectors to exchange additional metadata with the server after TLS
-             * handshake.
-             */
-            useMetadataExchange?:
-                boolean;
-        }
-        interface GenerateClientCertificateResponse {
-            /** Optional. The pem-encoded cluster ca X.509 certificate. */
-            caCert?:
-                string;
-            /** Output only. The pem-encoded chain that may be used to verify the X.509 certificate. Expected to be in issuer-to-root order according to RFC 5246. */
-            pemCertificateChain?:
-                string[];
-        }
-        interface GoogleCloudLocationListLocationsResponse {
-            /** A list of locations that matches the specified filter in the request. */
-            locations?:
-                GoogleCloudLocationLocation[];
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-        }
-        interface GoogleCloudLocationLocation {
-            /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?:
-                string;
-            /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?:
-                { [P in string]: string };
-            /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?:
-                string;
-            /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?:
-                { [P in string]: any };
-            /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?:
-                string;
-        }
-        interface GoogleTypeTimeOfDay {
-            /** Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
-            hours?:
-                number;
-            /** Minutes of hour of day. Must be from 0 to 59. */
-            minutes?:
-                number;
-            /** Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. */
-            nanos?:
-                number;
-            /** Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds. */
-            seconds?:
-                number;
-        }
-        interface InjectFaultRequest {
-            /** Required. The type of fault to be injected in an instance. */
-            faultType?:
-                string;
-            /**
-             * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-             * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-             * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore
-             * the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-             * (00000000-0000-0000-0000-000000000000).
-             */
-            requestId?:
-                string;
-            /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the fault injection. */
-            validateOnly?:
-                boolean;
-        }
-        interface Instance {
-            /** Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels. https://google.aip.dev/128 */
-            annotations?:
-                { [P in string]: string };
-            /**
-             * Availability type of an Instance. If empty, defaults to REGIONAL for primary instances. For read pools, availability_type is always UNSPECIFIED. Instances in the read pools are
-             * evenly distributed across available zones within the region (i.e. read pools with more than one node will have a node in at least two zones).
-             */
-            availabilityType?:
-                string;
-            /** Optional. Client connection specific configurations */
-            clientConnectionConfig?:
-                ClientConnectionConfig;
-            /** Output only. Create time stamp */
-            createTime?:
-                string;
-            /**
-             * Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant
-             * for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary. This is a list of "key": "value" pairs. "key": The
-             * name of the flag. These flags are passed at instance setup time, so include both server options and system variables for Postgres. Flags are specified with underscores, not hyphens.
-             * "value": The value of the flag. Booleans are set to **on** for true and **off** for false. This field must be omitted if the flag doesn't take a value.
-             */
-            databaseFlags?:
-                { [P in string]: string };
-            /** Output only. Delete time stamp */
-            deleteTime?:
-                string;
-            /** User-settable and human-readable display name for the Instance. */
-            displayName?:
-                string;
-            /** For Resource freshness validation (https://google.aip.dev/154) */
-            etag?:
-                string;
-            /**
-             * The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a
-             * REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity.
-             */
-            gceZone?:
-                string;
-            /** Required. The type of the instance. Specified at creation time. */
-            instanceType?:
-                string;
-            /** Output only. The IP address for the Instance. This is the connection endpoint for an end-user application. */
-            ipAddress?:
-                string;
-            /** Labels as key value pairs */
-            labels?:
-                { [P in string]: string };
-            /** Configurations for the machines that host the underlying database engine. */
-            machineConfig?:
-                MachineConfig;
-            /**
-             * Output only. The name of the instance resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id}/instances/{instance_id} where the cluster and instance
-             * ID segments should satisfy the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending
-             * with a letter or number. For more details see https://google.aip.dev/122. The prefix of the instance resource name is the name of the parent resource: *
-             * projects/{project}/locations/{region}/clusters/{cluster_id}
-             */
-            name?:
-                string;
-            /** Output only. List of available read-only VMs in this instance, including the standby for a PRIMARY instance. */
-            nodes?:
-                Node[];
-            /** Configuration for query insights. */
-            queryInsightsConfig?:
-                QueryInsightsInstanceConfig;
-            /** Read pool instance configuration. This is required if the value of instanceType is READ_POOL. */
-            readPoolConfig?:
-                ReadPoolConfig;
-            /**
-             * Output only. Reconciling (https://google.aip.dev/128#reconciliation). Set to true if the current state of Instance does not match the user's intended state, and the service is
-             * actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance.
-             */
-            reconciling?:
-                boolean;
-            /** Output only. The current serving state of the instance. */
-            state?:
-                string;
-            /** Output only. The system-generated UID of the resource. The UID is assigned when the resource is created, and it is retained until it is deleted. */
-            uid?:
-                string;
-            /** Output only. Update time stamp */
-            updateTime?:
-                string;
-            /** Output only. This is set for the read-write VM of the PRIMARY instance only. */
-            writableNode?:
-                Node;
-        }
-        interface IntegerRestrictions {
-            /** The maximum value that can be specified, if applicable. */
-            maxValue?:
-                string;
-            /** The minimum value that can be specified, if applicable. */
-            minValue?:
-                string;
-        }
-        interface ListBackupsResponse {
-            /** The list of Backup */
-            backups?:
-                Backup[];
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface ListClustersResponse {
-            /** The list of Cluster */
-            clusters?:
-                Cluster[];
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface ListInstancesResponse {
-            /** The list of Instance */
-            instances?:
-                Instance[];
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface ListOperationsResponse {
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-            /** A list of operations that matches the specified filter in the request. */
-            operations?:
-                Operation[];
-        }
-        interface ListSupportedDatabaseFlagsResponse {
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** The list of SupportedDatabaseFlags. */
-            supportedDatabaseFlags?:
-                SupportedDatabaseFlag[];
-        }
-        interface ListUsersResponse {
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-            /** The list of User */
-            users?:
-                User[];
-        }
-        interface MachineConfig {
-            /** The number of CPU's in the VM instance. */
-            cpuCount?:
-                number;
-        }
-        interface MigrationSource {
-            /** Output only. The host and port of the on-premises instance in host:port format */
-            hostPort?:
-                string;
-            /** Output only. Place holder for the external source identifier(e.g DMS job name) that created the cluster. */
-            referenceId?:
-                string;
-            /** Output only. Type of migration source. */
-            sourceType?:
-                string;
-        }
-        interface NetworkConfig {
-            /**
-             * Optional. Name of the allocated IP range for the private IP AlloyDB cluster, for example: "google-managed-services-default". If set, the instance IPs for this cluster will be
-             * created in the allocated range. The range name must comply with RFC 1035. Specifically, the name must be 1-63 characters long and match the regular expression
-             * `[a-z]([-a-z0-9]*[a-z0-9])?`. Field name is intended to be consistent with Cloud SQL.
-             */
-            allocatedIpRange?:
-                string;
-            /**
-             * Optional. The resource link for the VPC network in which cluster resources are created and from which they are accessible via Private IP. The network must belong to the same project
-             * as the cluster. It is specified in the form: "projects/{project_number}/global/networks/{network_id}". This is required to create a cluster.
-             */
-            network?:
-                string;
-        }
-        interface Node {
-            /** The identifier of the VM e.g. "test-read-0601-407e52be-ms3l". */
-            id?:
-                string;
-            /** The private IP address of the VM e.g. "10.57.0.34". */
-            ip?:
-                string;
-            /**
-             * Determined by state of the compute VM and postgres-service health. Compute VM state can have values listed in https://cloud.google.com/compute/docs/instances/instance-life-cycle and
-             * postgres-service health can have values: HEALTHY and UNHEALTHY.
-             */
-            state?:
-                string;
-            /** The Compute Engine zone of the VM e.g. "us-central1-b". */
-            zoneId?:
-                string;
-        }
-        interface Operation {
-            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?:
-                boolean;
-            /** The error result of the operation in case of failure or cancellation. */
-            error?:
-                Status;
-            /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
-             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
-             */
-            metadata?:
-                { [P in string]: any };
-            /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
-             * with `operations/{unique_id}`.
-             */
-            name?:
-                string;
-            /**
-             * The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original
-             * method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original
-             * method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
-             */
-            response?:
-                { [P in string]: any };
-        }
-        interface OperationMetadata {
-            /** Output only. API version used to start the operation. */
-            apiVersion?:
-                string;
-            /** Output only. The time the operation was created. */
-            createTime?:
-                string;
-            /** Output only. The time the operation finished running. */
-            endTime?:
-                string;
-            /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            requestedCancellation?:
-                boolean;
-            /** Output only. Human-readable status of the operation, if any. */
-            statusMessage?:
-                string;
-            /** Output only. Server-defined resource path for the target of the operation. */
-            target?:
-                string;
-            /** Output only. Name of the verb executed by the operation. */
-            verb?:
-                string;
-        }
-        interface PrimaryConfig {
-            /** Output only. Names of the clusters that are replicating from this cluster. */
-            secondaryClusterNames?:
-                string[];
-        }
-        interface PromoteClusterRequest {
-            /** Optional. The current etag of the Cluster. If an etag is provided and does not match the current etag of the Cluster, deletion will be blocked and an ABORTED error will be returned. */
-            etag?:
-                string;
-            /**
-             * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-             * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-             * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore
-             * the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-             * (00000000-0000-0000-0000-000000000000).
-             */
-            requestId?:
-                string;
-            /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the delete. */
-            validateOnly?:
-                boolean;
-        }
-        interface QuantityBasedExpiry {
-            /** Output only. The backup's position among its backups with the same source cluster and type, by descending chronological order create time(i.e. newest first). */
-            retentionCount?:
-                number;
-            /** Output only. The length of the quantity-based queue, specified by the backup's retention policy. */
-            totalRetentionCount?:
-                number;
-        }
-        interface QuantityBasedRetention {
-            /** The number of backups to retain. */
-            count?:
-                number;
-        }
-        interface QueryInsightsInstanceConfig {
-            /** Number of query execution plans captured by Insights per minute for all queries combined. The default value is 5. Any integer between 0 and 20 is considered valid. */
-            queryPlansPerMinute?:
-                number;
-            /** Query string length. The default value is 1024. Any integer between 256 and 4500 is considered valid. */
-            queryStringLength?:
-                number;
-            /** Record application tags for an instance. This flag is turned "on" by default. */
-            recordApplicationTags?:
-                boolean;
-            /** Record client address for an instance. Client address is PII information. This flag is turned "on" by default. */
-            recordClientAddress?:
-                boolean;
-        }
-        interface ReadPoolConfig {
-            /** Read capacity, i.e. number of nodes in a read pool instance. */
-            nodeCount?:
-                number;
-        }
-        interface RestartInstanceRequest {
-            /**
-             * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-             * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-             * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore
-             * the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-             * (00000000-0000-0000-0000-000000000000).
-             */
-            requestId?:
-                string;
-            /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the restart. */
-            validateOnly?:
-                boolean;
-        }
-        interface RestoreClusterRequest {
-            /** Backup source. */
-            backupSource?:
-                BackupSource;
-            /** Required. The resource being created */
-            cluster?:
-                Cluster;
-            /** Required. ID of the requesting object. */
-            clusterId?:
-                string;
-            /** ContinuousBackup source. Continuous backup needs to be enabled in the source cluster for this operation to succeed. */
-            continuousBackupSource?:
-                ContinuousBackupSource;
-            /**
-             * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-             * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
-             * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore
-             * the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-             * (00000000-0000-0000-0000-000000000000).
-             */
-            requestId?:
-                string;
-            /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the import request. */
-            validateOnly?:
-                boolean;
-        }
-        interface SecondaryConfig {
-            /** The name of the primary cluster name with the format: * projects/{project}/locations/{region}/clusters/{cluster_id} */
-            primaryClusterName?:
-                string;
-        }
-        interface SslConfig {
-            /** Optional. Certificate Authority (CA) source. Only CA_SOURCE_MANAGED is supported currently, and is the default value. */
-            caSource?:
-                string;
-            /** Optional. SSL mode. Specifies client-server SSL/TLS connection behavior. */
-            sslMode?:
-                string;
-        }
-        interface Status {
-            /** The status code, which should be an enum value of google.rpc.Code. */
-            code?:
-                number;
-            /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?:
-                Array<{ [P in string]: any }>;
-            /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
-             * client.
-             */
-            message?:
-                string;
-        }
-        interface StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration {
-            /**
-             * Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data accessibility. * `REGIONAL`: The instance can serve
-             * data from more than one zone in a region (it is highly available).
-             */
-            availabilityType?:
-                string;
-            externalReplicaConfigured?:
-                boolean;
-            promotableReplicaConfigured?:
-                boolean;
-        }
-        interface StorageDatabasecenterPartnerapiV1mainBackupConfiguration {
-            /** Whether customer visible automated backups are enabled on the instance. */
-            automatedBackupEnabled?:
-                boolean;
-            /** Backup retention settings. */
-            backupRetentionSettings?:
-                StorageDatabasecenterPartnerapiV1mainRetentionSettings;
-            /**
-             * Whether point-in-time recovery is enabled. This is optional field, if the database service does not have this feature or metadata is not available in control plane, this can be
-             * omitted.
-             */
-            pointInTimeRecoveryEnabled?:
-                boolean;
-        }
-        interface StorageDatabasecenterPartnerapiV1mainBackupRun {
-            /** The time the backup operation completed. REQUIRED */
-            endTime?:
-                string;
-            /** Information about why the backup operation failed. This is only present if the run has the FAILED status. OPTIONAL */
-            error?:
-                StorageDatabasecenterPartnerapiV1mainOperationError;
-            /** The time the backup operation started. REQUIRED */
-            startTime?:
-                string;
-            /** The status of this run. REQUIRED */
-            status?:
-                string;
-        }
-        interface StorageDatabasecenterPartnerapiV1mainCompliance {
-            /** Industry-wide compliance standards or benchmarks, such as CIS, PCI, and OWASP. */
-            standard?:
-                string;
-            /** Version of the standard or benchmark, for example, 1.1 */
-            version?:
-                string;
-        }
-        interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed {
-            /** Required. Timestamp when feed is generated. */
-            feedTimestamp?:
-                string;
-            /** Required. Type feed to be ingested into condor */
-            feedType?:
-                string;
-            /** More feed data would be added in subsequent CLs */
-            resourceHealthSignalData?:
-                StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData;
-            /** Primary key associated with the Resource. resource_id is available in individual feed level as well. */
-            resourceId?:
-                StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
-            resourceMetadata?:
-                StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata;
-        }
-        interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData {
-            /** Any other additional metadata */
-            additionalMetadata?:
-                { [P in string]: any };
-            /**
-             * Industry standards associated with this signal; if this signal is an issue, that could be a violation of the associated industry standard(s). For example, AUTO_BACKUP_DISABLED
-             * signal is associated with CIS GCP 1.1, CIS GCP 1.2, CIS GCP 1.3, NIST 800-53 and ISO-27001 compliance standards. If a database resource does not have automated backup enable, it
-             * will violate these following industry standards.
-             */
-            compliance?:
-                StorageDatabasecenterPartnerapiV1mainCompliance[];
-            /** Description associated with signal */
-            description?:
-                string;
-            /** Required. The last time at which the event described by this signal took place */
-            eventTime?:
-                string;
-            /** The external-uri of the signal, using which more information about this signal can be obtained. In GCP, this will take user to SCC page to get more details about signals. */
-            externalUri?:
-                string;
-            /** Required. The name of the signal, ex: PUBLIC_SQL_INSTANCE, SQL_LOG_ERROR_VERBOSITY etc. */
-            name?:
-                string;
-            /** Cloud provider name. Ex: GCP/AWS/Azure/OnPrem/SelfManaged */
-            provider?:
-                string;
-            /**
-             * Closest parent container of this resource. In GCP, 'container' refers to a Cloud Resource Manager project. It must be resource name of a Cloud Resource Manager project with the
-             * format of "provider//", such as "gcp/projects/123". For GCP provided resources, number should be project number.
-             */
-            resourceContainer?:
-                string;
-            /** Required. Database resource name associated with the signal. Resource name to follow CAIS resource_name format as noted here go/condor-common-datamodel */
-            resourceName?:
-                string;
-            /** Required. The class of the signal, such as if it's a THREAT or VULNERABILITY. */
-            signalClass?:
-                string;
-            /** Required. Unique identifier for the signal. This is an unique id which would be mainatined by partner to identify a signal. */
-            signalId?:
-                string;
-            /** Required. Type of signal, for example, `AVAILABLE_IN_MULTIPLE_ZONES`, `LOGGING_MOST_ERRORS`, etc. */
-            signalType?:
-                string;
-            state?:
-                string;
-        }
-        interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceId {
-            /** Required. Cloud provider name. Ex: GCP/AWS/Azure/OnPrem/SelfManaged */
-            provider?:
-                string;
-            /** Optional. Needs to be used only when the provider is PROVIDER_OTHER. */
-            providerDescription?:
-                string;
-            /**
-             * Required. The type of resource this ID is identifying. Ex alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance, spanner.googleapis.com/Instance REQUIRED Please refer
-             * go/condor-common-datamodel
-             */
-            resourceType?:
-                string;
-            /** Required. A service-local token that distinguishes this resource from other resources within the same service. */
-            uniqueId?:
-                string;
-        }
-        interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata {
-            /** Availability configuration for this instance */
-            availabilityConfiguration?:
-                StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration;
-            /** Backup configuration for this instance */
-            backupConfiguration?:
-                StorageDatabasecenterPartnerapiV1mainBackupConfiguration;
-            /** Latest backup run information for this instance */
-            backupRun?:
-                StorageDatabasecenterPartnerapiV1mainBackupRun;
-            /** The creation time of the resource, i.e. the time when resource is created and recorded in partner service. */
-            creationTime?:
-                string;
-            /** Current state of the instance. */
-            currentState?:
-                string;
-            /** Any custom metadata associated with the resource (a JSON field) */
-            customMetadata?:
-                { [P in string]: any };
-            /**
-             * The state that the instance is expected to be in. For example, an instance state can transition to UNHEALTHY due to wrong patch update, while the expected state will remain at the
-             * HEALTHY.
-             */
-            expectedState?:
-                string;
-            /** Required. Unique identifier for a Database resource */
-            id?:
-                StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
-            /** The type of the instance. Specified at creation time. */
-            instanceType?:
-                string;
-            /** The resource location. REQUIRED */
-            location?:
-                string;
-            /**
-             * Identifier for this resource's immediate parent/primary resource if the current resource is a replica or derived form of another Database resource. Else it would be NULL. REQUIRED
-             * if the immediate parent exists when first time resource is getting ingested
-             */
-            primaryResourceId?:
-                StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
-            /** The product this resource represents. */
-            product?:
-                StorageDatabasecenterProtoCommonProduct;
-            /**
-             * Closest parent Cloud Resource Manager container of this resource. It must be resource name of a Cloud Resource Manager project with the format of "provider//", such as
-             * "gcp/projects/123". For GCP provided resources, number should be project number.
-             */
-            resourceContainer?:
-                string;
-            /**
-             * Required. Different from DatabaseResourceId.unique_id, a resource name can be reused over time. That is, after a resource named "ABC" is deleted, the name "ABC" can be used to to
-             * create a new resource within the same source. Resource name to follow CAIS resource_name format as noted here go/condor-common-datamodel
-             */
-            resourceName?:
-                string;
-            /** The time at which the resource was updated and recorded at partner service. */
-            updationTime?:
-                string;
-            /** User-provided labels, represented as a dictionary where each label is a single key value pair. */
-            userLabels?:
-                { [P in string]: string };
-        }
-        interface StorageDatabasecenterPartnerapiV1mainOperationError {
-            /** Identifies the specific error that occurred. REQUIRED */
-            code?:
-                string;
-            /** Additional information about the error encountered. REQUIRED */
-            message?:
-                string;
-        }
-        interface StorageDatabasecenterPartnerapiV1mainRetentionSettings {
-            quantityBasedRetention?:
-                number;
-            /** The unit that 'retained_backups' represents. */
-            retentionUnit?:
-                string;
-            timeBasedRetention?:
-                string;
-        }
-        interface StorageDatabasecenterProtoCommonProduct {
-            /** The specific engine that the underlying database is running. */
-            engine?:
-                string;
-            /** Type of specific database product. It could be CloudSQL, AlloyDB etc.. */
-            type?:
-                string;
-            /** Version of the underlying database engine. Example values: For MySQL, it could be "8.0", "5.7" etc.. For Postgres, it could be "14", "15" etc.. */
-            version?:
-                string;
-        }
-        interface StringRestrictions {
-            /** The list of allowed values, if bounded. This field will be empty if there is a unbounded number of allowed values. */
-            allowedValues?:
-                string[];
-        }
-        interface SupportedDatabaseFlag {
-            /** Whether the database flag accepts multiple values. If true, a comma-separated list of stringified values may be specified. */
-            acceptsMultipleValues?:
-                boolean;
-            /** The name of the database flag, e.g. "max_allowed_packets". The is a possibly key for the Instance.database_flags map field. */
-            flagName?:
-                string;
-            /** Restriction on INTEGER type value. */
-            integerRestrictions?:
-                IntegerRestrictions;
-            /** The name of the flag resource, following Google Cloud conventions, e.g.: * projects/{project}/locations/{location}/flags/{flag} This field currently has no semantic meaning. */
-            name?:
-                string;
-            /**
-             * Whether setting or updating this flag on an Instance requires a database restart. If a flag that requires database restart is set, the backend will automatically restart the
-             * database (making sure to satisfy any availability SLO's).
-             */
-            requiresDbRestart?:
-                boolean;
-            /** Restriction on STRING type value. */
-            stringRestrictions?:
-                StringRestrictions;
-            /** Major database engine versions for which this flag is supported. */
-            supportedDbVersions?:
-                string[];
-            valueType?:
-                string;
-        }
-        interface TimeBasedRetention {
-            /** The retention period. */
-            retentionPeriod?:
-                string;
-        }
-        interface User {
-            /** Optional. List of database roles this user has. The database role strings are subject to the PostgreSQL naming conventions. */
-            databaseRoles?:
-                string[];
-            /** Output only. Name of the resource in the form of projects/{project}/locations/{location}/cluster/{cluster}/users/{user}. */
-            name?:
-                string;
-            /** Input only. Password for the user. */
-            password?:
-                string;
-            /** Optional. Type of this user. */
-            userType?:
-                string;
-        }
-        interface UserPassword {
-            /** The initial password for the user. */
-            password?:
-                string;
-            /** The database username. */
-            user?:
-                string;
-        }
-        interface WeeklySchedule {
-            /** The days of the week to perform a backup. If this field is left empty, the default of every day of the week is used. */
-            daysOfWeek?:
-                string[];
-            /**
-             * The times during the day to start a backup. The start times are assumed to be in UTC and to be an exact hour (e.g., 04:00:00). If no start times are provided, a single fixed start
-             * time is chosen arbitrarily.
-             */
-            startTimes?:
-                GoogleTypeTimeOfDay[];
-        }
-        interface BackupsResource {
-            /** Creates a new Backup in a given project and location. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** Required. ID of the requesting object. */
-                backupId?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Value for parent. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    Backup;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** Required. ID of the requesting object. */
-                backupId?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Value for parent. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-            },
-            body: Backup): Request<Operation>;
-            /** Deletes a single Backup. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /**
-                 * Optional. The current etag of the Backup. If an etag is provided and does not match the current etag of the Backup, deletion will be blocked and an ABORTED error will be
-                 * returned.
-                 */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the resource. For the required format, see the comment on the Backup.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-            }): Request<Operation>;
-            /** Gets details of a single Backup. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the resource */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Backup>;
-            /** Lists Backups in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Filtering results */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Hint for how to order the results */
-                orderBy?:
-                    string;
-                /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /** Required. Parent value for ListBackupsRequest */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListBackupsResponse>;
-            /** Updates the parameters of a single Backup. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new backup is created and `update_mask` is ignored. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Output only. The name of the backup resource with the format: * projects/{project}/locations/{region}/backups/{backup_id} where the cluster and backup ID segments should satisfy
-                 * the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending with a letter or
-                 * number. For more details see https://google.aip.dev/122. The prefix of the backup resource name is the name of the parent resource: * projects/{project}/locations/{region}
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /**
-                 * Optional. Field mask is used to specify the fields to be overwritten in the Backup resource by the update. The fields specified in the update_mask are relative to the resource,
-                 * not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
-                 */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    Backup;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new backup is created and `update_mask` is ignored. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Output only. The name of the backup resource with the format: * projects/{project}/locations/{region}/backups/{backup_id} where the cluster and backup ID segments should satisfy
-                 * the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending with a letter or
-                 * number. For more details see https://google.aip.dev/122. The prefix of the backup resource name is the name of the parent resource: * projects/{project}/locations/{region}
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /**
-                 * Optional. Field mask is used to specify the fields to be overwritten in the Backup resource by the update. The fields specified in the update_mask are relative to the resource,
-                 * not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
-                 */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-            },
-            body: Backup): Request<Operation>;
-        }
-        interface InstancesResource {
-            /** Creates a new Instance in a given project and location. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Required. ID of the requesting object. */
-                instanceId?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    Instance;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Required. ID of the requesting object. */
-                instanceId?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
-                validateOnly?:
-                    boolean;
-            },
-            body: Instance): Request<Operation>;
-            /** Creates a new SECONDARY Instance in a given project and location. */
-            createsecondary(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Required. ID of the requesting object. */
-                instanceId?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    Instance;
-            }): Request<Operation>;
-            createsecondary(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Required. ID of the requesting object. */
-                instanceId?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
-                validateOnly?:
-                    boolean;
-            },
-            body: Instance): Request<Operation>;
-            /** Deletes a single Instance. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /**
-                 * Optional. The current etag of the Instance. If an etag is provided and does not match the current etag of the Instance, deletion will be blocked and an ABORTED error will be
-                 * returned.
-                 */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the delete. */
-                validateOnly?:
-                    boolean;
-            }): Request<Operation>;
-            /** Forces a Failover for a highly available instance. Failover promotes the HA standby instance as the new primary. Imperative only. */
-            failover(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    FailoverInstanceRequest;
-            }): Request<Operation>;
-            failover(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: FailoverInstanceRequest): Request<Operation>;
-            /** Gets details of a single Instance. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** The view of the instance to return. */
-                view?:
-                    string;
-            }): Request<Instance>;
-            /** Get instance metadata used for a connection. */
-            getConnectionInfo(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the parent resource. The required format is: projects/{project}/locations/{location}/clusters/{cluster}/instances/{instance} */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ConnectionInfo>;
-            /** Injects fault in an instance. Imperative only. */
-            injectFault(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    InjectFaultRequest;
-            }): Request<Operation>;
-            injectFault(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: InjectFaultRequest): Request<Operation>;
-            /** Lists Instances in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Optional. Filtering results */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. Hint for how to order the results */
-                orderBy?:
-                    string;
-                /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /**
-                 * Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. Additionally, you can perform an aggregated list operation by
-                 * specifying a value with one of the following formats: * projects/{project}/locations/-/clusters/- * projects/{project}/locations/{region}/clusters/-
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListInstancesResponse>;
-            /** Updates the parameters of a single Instance. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new instance is created and `update_mask` is ignored. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Output only. The name of the instance resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id}/instances/{instance_id} where the cluster and
-                 * instance ID segments should satisfy the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a
-                 * letter, and ending with a letter or number. For more details see https://google.aip.dev/122. The prefix of the instance resource name is the name of the parent resource: *
-                 * projects/{project}/locations/{region}/clusters/{cluster_id}
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /**
-                 * Optional. Field mask is used to specify the fields to be overwritten in the Instance resource by the update. The fields specified in the update_mask are relative to the
-                 * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
-                 */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the update request. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    Instance;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new instance is created and `update_mask` is ignored. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Output only. The name of the instance resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id}/instances/{instance_id} where the cluster and
-                 * instance ID segments should satisfy the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a
-                 * letter, and ending with a letter or number. For more details see https://google.aip.dev/122. The prefix of the instance resource name is the name of the parent resource: *
-                 * projects/{project}/locations/{region}/clusters/{cluster_id}
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /**
-                 * Optional. Field mask is used to specify the fields to be overwritten in the Instance resource by the update. The fields specified in the update_mask are relative to the
-                 * resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
-                 */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the update request. */
-                validateOnly?:
-                    boolean;
-            },
-            body: Instance): Request<Operation>;
-            /** Restart an Instance in a cluster. Imperative only. */
-            restart(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RestartInstanceRequest;
-            }): Request<Operation>;
-            restart(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RestartInstanceRequest): Request<Operation>;
-        }
-        interface UsersResource {
-            /** Creates a new User in a given project, location, and cluster. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Value for parent. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Required. ID of the requesting object. */
-                userId?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    User;
-            }): Request<User>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Value for parent. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Required. ID of the requesting object. */
-                userId?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-            },
-            body: User): Request<User>;
-            /** Deletes a single User. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the User.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-            }): Request<{}>;
-            /** Gets details of a single User. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the User.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<User>;
-            /** Lists Users in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Optional. Filtering results */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. Hint for how to order the results */
-                orderBy?:
-                    string;
-                /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** Optional. A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /** Required. Parent value for ListUsersRequest */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListUsersResponse>;
-            /** Updates the parameters of a single User. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Optional. Allow missing fields in the update mask. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Output only. Name of the resource in the form of projects/{project}/locations/{location}/cluster/{cluster}/users/{user}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /**
-                 * Optional. Field mask is used to specify the fields to be overwritten in the User resource by the update. The fields specified in the update_mask are relative to the resource,
-                 * not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
-                 */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    User;
-            }): Request<User>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Optional. Allow missing fields in the update mask. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Output only. Name of the resource in the form of projects/{project}/locations/{location}/cluster/{cluster}/users/{user}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /**
-                 * Optional. Field mask is used to specify the fields to be overwritten in the User resource by the update. The fields specified in the update_mask are relative to the resource,
-                 * not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
-                 */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
-                validateOnly?:
-                    boolean;
-            },
-            body: User): Request<User>;
-        }
-        interface ClustersResource {
-            /** Creates a new Cluster in a given project and location. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. ID of the requesting object. */
-                clusterId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The location of the new cluster. For the required format, see the comment on the Cluster.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    Cluster;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. ID of the requesting object. */
-                clusterId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The location of the new cluster. For the required format, see the comment on the Cluster.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
-                validateOnly?:
-                    boolean;
-            },
-            body: Cluster): Request<Operation>;
-            /** Creates a cluster of type SECONDARY in the given location using the primary cluster as the source. */
-            createsecondary(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. ID of the requesting object (the secondary cluster). */
-                clusterId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The location of the new cluster. For the required format, see the comment on the Cluster.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    Cluster;
-            }): Request<Operation>;
-            createsecondary(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. ID of the requesting object (the secondary cluster). */
-                clusterId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The location of the new cluster. For the required format, see the comment on the Cluster.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
-                validateOnly?:
-                    boolean;
-            },
-            body: Cluster): Request<Operation>;
-            /** Deletes a single Cluster. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /**
-                 * Optional. The current etag of the Cluster. If an etag is provided and does not match the current etag of the Cluster, deletion will be blocked and an ABORTED error will be
-                 * returned.
-                 */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Optional. Whether to cascade delete child instances for given cluster. */
-                force?:
-                    boolean;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Cluster.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the delete. */
-                validateOnly?:
-                    boolean;
-            }): Request<Operation>;
-            /**
-             * Generate a client certificate signed by a Cluster CA. The sole purpose of this endpoint is to support AlloyDB connectors and the Auth Proxy client. The endpoint's behavior is
-             * subject to change without notice, so do not rely on its behavior remaining constant. Future changes will not break AlloyDB connectors or the Auth Proxy client.
-             */
-            generateClientCertificate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the parent resource. The required format is: * projects/{project}/locations/{location}/clusters/{cluster} */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GenerateClientCertificateRequest;
-            }): Request<GenerateClientCertificateResponse>;
-            generateClientCertificate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the parent resource. The required format is: * projects/{project}/locations/{location}/clusters/{cluster} */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GenerateClientCertificateRequest): Request<GenerateClientCertificateResponse>;
-            /** Gets details of a single Cluster. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Cluster.name field. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. The view of the cluster to return. Returns all default fields if not set. */
-                view?:
-                    string;
-            }): Request<Cluster>;
-            /** Lists Clusters in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Optional. Filtering results */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. Hint for how to order the results */
-                orderBy?:
-                    string;
-                /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /**
-                 * Required. The name of the parent resource. For the required format, see the comment on the Cluster.name field. Additionally, you can perform an aggregated list operation by
-                 * specifying a value with the following format: * projects/{project}/locations/-
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListClustersResponse>;
-            /** Updates the parameters of a single Cluster. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Optional. If set to true, update succeeds even if cluster is not found. In that case, a new cluster is created and `update_mask` is ignored. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Output only. The name of the cluster resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id} where the cluster ID segment should satisfy the
-                 * regex expression `[a-z0-9-]+`. For more details see https://google.aip.dev/122. The prefix of the cluster resource name is the name of the parent resource: *
-                 * projects/{project}/locations/{region}
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /**
-                 * Optional. Field mask is used to specify the fields to be overwritten in the Cluster resource by the update. The fields specified in the update_mask are relative to the resource,
-                 * not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
-                 */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the update request. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    Cluster;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Optional. If set to true, update succeeds even if cluster is not found. In that case, a new cluster is created and `update_mask` is ignored. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Output only. The name of the cluster resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id} where the cluster ID segment should satisfy the
-                 * regex expression `[a-z0-9-]+`. For more details see https://google.aip.dev/122. The prefix of the cluster resource name is the name of the parent resource: *
-                 * projects/{project}/locations/{region}
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /**
-                 * Optional. Field mask is used to specify the fields to be overwritten in the Cluster resource by the update. The fields specified in the update_mask are relative to the resource,
-                 * not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten.
-                 */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the update request. */
-                validateOnly?:
-                    boolean;
-            },
-            body: Cluster): Request<Operation>;
-            /** Promotes a SECONDARY cluster. This turns down replication from the PRIMARY cluster and promotes a secondary cluster into its own standalone cluster. Imperative only. */
-            promote(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Cluster.name field */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    PromoteClusterRequest;
-            }): Request<Operation>;
-            promote(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the resource. For the required format, see the comment on the Cluster.name field */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: PromoteClusterRequest): Request<Operation>;
-            /** Creates a new Cluster in a given project and location, with a volume restored from the provided source, either a backup ID or a point-in-time and a source cluster. */
-            restore(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the parent resource. For the required format, see the comment on the Cluster.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RestoreClusterRequest;
-            }): Request<Operation>;
-            restore(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the parent resource. For the required format, see the comment on the Cluster.name field. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RestoreClusterRequest): Request<Operation>;
-            instances:
-                InstancesResource;
-            users:
-                UsersResource;
-        }
-        interface OperationsResource {
-            /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
-             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
-             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    CancelOperationRequest;
-            }): Request<{}>;
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: CancelOperationRequest): Request<{}>;
-            /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
-             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-             */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be deleted. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<{}>;
-            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** The standard list filter. */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation's parent resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The standard list page size. */
-                pageSize?:
-                    number;
-                /** The standard list page token. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListOperationsResponse>;
-        }
-        interface SupportedDatabaseFlagsResource {
-            /** Lists SupportedDatabaseFlags for a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /**
-                 * Required. The name of the parent resource. The required format is: * projects/{project}/locations/{location} Regardless of the parent specified here, as long it is contains a
-                 * valid project and location, the service will return a static list of supported flags resources. Note that we do not yet support region-specific flags.
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListSupportedDatabaseFlagsResponse>;
-        }
-        interface LocationsResource {
-            /** Gets information about a location. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Resource name for the location. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudLocationLocation>;
-            /** Lists information about the supported locations for this service. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
-                 * [AIP-160](https://google.aip.dev/160).
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource that owns the locations collection, if applicable. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?:
-                    number;
-                /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudLocationListLocationsResponse>;
-            backups:
-                BackupsResource;
-            clusters:
-                ClustersResource;
-            operations:
-                OperationsResource;
-            supportedDatabaseFlags:
-                SupportedDatabaseFlagsResource;
-        }
-        interface ProjectsResource {
-            locations:
-                LocationsResource;
-        }
-
-        const projects: ProjectsResource;
+  namespace alloydb {
+    interface AutomatedBackupPolicy {
+      /** The length of the time window during which a backup can be taken. If a backup does not succeed within this time window, it will be canceled and considered failed. The backup window must be at least 5 minutes long. There is no upper bound on the window. If not set, it defaults to 1 hour. */
+      backupWindow?: string;
+      /** Whether automated automated backups are enabled. If not set, defaults to true. */
+      enabled?: boolean;
+      /** Optional. The encryption config can be specified to encrypt the backups with a customer-managed encryption key (CMEK). When this field is not specified, the backup will then use default encryption scheme to protect the user data. */
+      encryptionConfig?: EncryptionConfig;
+      /** Labels to apply to backups created using this configuration. */
+      labels?: {[P in string]: string};
+      /** The location where the backup will be stored. Currently, the only supported option is to store the backup in the same region as the cluster. If empty, defaults to the region of the cluster. */
+      location?: string;
+      /** Quantity-based Backup retention policy to retain recent backups. */
+      quantityBasedRetention?: QuantityBasedRetention;
+      /** Time-based Backup retention policy. */
+      timeBasedRetention?: TimeBasedRetention;
+      /** Weekly schedule for the Backup. */
+      weeklySchedule?: WeeklySchedule;
     }
+    interface Backup {
+      /** Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels. https://google.aip.dev/128 */
+      annotations?: {[P in string]: string};
+      /** Required. The full resource name of the backup source cluster (e.g., projects/{project}/locations/{region}/clusters/{cluster_id}). */
+      clusterName?: string;
+      /** Output only. The system-generated UID of the cluster which was used to create this resource. */
+      clusterUid?: string;
+      /** Output only. Create time stamp */
+      createTime?: string;
+      /** Output only. The database engine major version of the cluster this backup was created from. Any restored cluster created from this backup will have the same database version. */
+      databaseVersion?: string;
+      /** Output only. Delete time stamp */
+      deleteTime?: string;
+      /** User-provided description of the backup. */
+      description?: string;
+      /** User-settable and human-readable display name for the Backup. */
+      displayName?: string;
+      /** Optional. The encryption config can be specified to encrypt the backup with a customer-managed encryption key (CMEK). When this field is not specified, the backup will then use default encryption scheme to protect the user data. */
+      encryptionConfig?: EncryptionConfig;
+      /** Output only. The encryption information for the backup. */
+      encryptionInfo?: EncryptionInfo;
+      /** For Resource freshness validation (https://google.aip.dev/154) */
+      etag?: string;
+      /** Output only. The QuantityBasedExpiry of the backup, specified by the backup's retention policy. Once the expiry quantity is over retention, the backup is eligible to be garbage collected. */
+      expiryQuantity?: QuantityBasedExpiry;
+      /** Output only. The time at which after the backup is eligible to be garbage collected. It is the duration specified by the backup's retention policy, added to the backup's create_time. */
+      expiryTime?: string;
+      /** Labels as key value pairs */
+      labels?: {[P in string]: string};
+      /** Output only. The name of the backup resource with the format: * projects/{project}/locations/{region}/backups/{backup_id} where the cluster and backup ID segments should satisfy the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending with a letter or number. For more details see https://google.aip.dev/122. The prefix of the backup resource name is the name of the parent resource: * projects/{project}/locations/{region} */
+      name?: string;
+      /** Output only. Reconciling (https://google.aip.dev/128#reconciliation), if true, indicates that the service is actively updating the resource. This can happen due to user-triggered updates or system actions like failover or maintenance. */
+      reconciling?: boolean;
+      /** Output only. The size of the backup in bytes. */
+      sizeBytes?: string;
+      /** Output only. The current state of the backup. */
+      state?: string;
+      /** The backup type, which suggests the trigger for the backup. */
+      type?: string;
+      /** Output only. The system-generated UID of the resource. The UID is assigned when the resource is created, and it is retained until it is deleted. */
+      uid?: string;
+      /** Output only. Update time stamp */
+      updateTime?: string;
+    }
+    interface BackupSource {
+      /** Required. The name of the backup resource with the format: * projects/{project}/locations/{region}/backups/{backup_id} */
+      backupName?: string;
+      /** Output only. The system-generated UID of the backup which was used to create this resource. The UID is generated when the backup is created, and it is retained until the backup is deleted. */
+      backupUid?: string;
+    }
+    interface CancelOperationRequest {}
+    interface ClientConnectionConfig {
+      /** Optional. Configuration to enforce connectors only (ex: AuthProxy) connections to the database. */
+      requireConnectors?: boolean;
+      /** Optional. SSL config option for this instance. */
+      sslConfig?: SslConfig;
+    }
+    interface CloudControl2SharedOperationsReconciliationOperationMetadata {
+      /** DEPRECATED. Use exclusive_action instead. */
+      deleteResource?: boolean;
+      /** Excluisive action returned by the CLH. */
+      exclusiveAction?: string;
+    }
+    interface Cluster {
+      /** Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels. https://google.aip.dev/128 */
+      annotations?: {[P in string]: string};
+      /** The automated backup policy for this cluster. If no policy is provided then the default policy will be used. If backups are supported for the cluster, the default policy takes one backup a day, has a backup window of 1 hour, and retains backups for 14 days. For more information on the defaults, consult the documentation for the message type. */
+      automatedBackupPolicy?: AutomatedBackupPolicy;
+      /** Output only. Cluster created from backup. */
+      backupSource?: BackupSource;
+      /** Output only. The type of the cluster. This is an output-only field and it's populated at the Cluster creation time or the Cluster promotion time. The cluster type is determined by which RPC was used to create the cluster (i.e. `CreateCluster` vs. `CreateSecondaryCluster` */
+      clusterType?: string;
+      /** Optional. Continuous backup configuration for this cluster. */
+      continuousBackupConfig?: ContinuousBackupConfig;
+      /** Output only. Continuous backup properties for this cluster. */
+      continuousBackupInfo?: ContinuousBackupInfo;
+      /** Output only. Create time stamp */
+      createTime?: string;
+      /** Optional. The database engine major version. This is an optional field and it is populated at the Cluster creation time. If a database version is not supplied at cluster creation time, then a default database version will be used. */
+      databaseVersion?: string;
+      /** Output only. Delete time stamp */
+      deleteTime?: string;
+      /** User-settable and human-readable display name for the Cluster. */
+      displayName?: string;
+      /** Optional. The encryption config can be specified to encrypt the data disks and other persistent data resources of a cluster with a customer-managed encryption key (CMEK). When this field is not specified, the cluster will then use default encryption scheme to protect the user data. */
+      encryptionConfig?: EncryptionConfig;
+      /** Output only. The encryption information for the cluster. */
+      encryptionInfo?: EncryptionInfo;
+      /** For Resource freshness validation (https://google.aip.dev/154) */
+      etag?: string;
+      /** Input only. Initial user to setup during cluster creation. Required. If used in `RestoreCluster` this is ignored. */
+      initialUser?: UserPassword;
+      /** Labels as key value pairs */
+      labels?: {[P in string]: string};
+      /** Output only. Cluster created via DMS migration. */
+      migrationSource?: MigrationSource;
+      /** Output only. The name of the cluster resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id} where the cluster ID segment should satisfy the regex expression `[a-z0-9-]+`. For more details see https://google.aip.dev/122. The prefix of the cluster resource name is the name of the parent resource: * projects/{project}/locations/{region} */
+      name?: string;
+      /** Required. The resource link for the VPC network in which cluster resources are created and from which they are accessible via Private IP. The network must belong to the same project as the cluster. It is specified in the form: "projects/{project}/global/networks/{network_id}". This is required to create a cluster. Deprecated, use network_config.network instead. */
+      network?: string;
+      networkConfig?: NetworkConfig;
+      /** Output only. Cross Region replication config specific to PRIMARY cluster. */
+      primaryConfig?: PrimaryConfig;
+      /** Output only. Reconciling (https://google.aip.dev/128#reconciliation). Set to true if the current state of Cluster does not match the user's intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance. */
+      reconciling?: boolean;
+      /** Cross Region replication config specific to SECONDARY cluster. */
+      secondaryConfig?: SecondaryConfig;
+      /** SSL configuration for this AlloyDB cluster. */
+      sslConfig?: SslConfig;
+      /** Output only. The current serving state of the cluster. */
+      state?: string;
+      /** Output only. The system-generated UID of the resource. The UID is assigned when the resource is created, and it is retained until it is deleted. */
+      uid?: string;
+      /** Output only. Update time stamp */
+      updateTime?: string;
+    }
+    interface ConnectionInfo {
+      /** Output only. The unique ID of the Instance. */
+      instanceUid?: string;
+      /** Output only. The private network IP address for the Instance. This is the default IP for the instance and is always created (even if enable_public_ip is set). This is the connection endpoint for an end-user application. */
+      ipAddress?: string;
+      /** The name of the ConnectionInfo singleton resource, e.g.: projects/{project}/locations/{location}/clusters/*‍/instances/*‍/connectionInfo This field currently has no semantic meaning. */
+      name?: string;
+    }
+    interface ContinuousBackupConfig {
+      /** Whether ContinuousBackup is enabled. */
+      enabled?: boolean;
+      /** The encryption config can be specified to encrypt the backups with a customer-managed encryption key (CMEK). When this field is not specified, the backup will then use default encryption scheme to protect the user data. */
+      encryptionConfig?: EncryptionConfig;
+      /** The number of days that are eligible to restore from using PITR. To support the entire recovery window, backups and logs are retained for one day more than the recovery window. If not set, defaults to 14 days. */
+      recoveryWindowDays?: number;
+    }
+    interface ContinuousBackupInfo {
+      /** Output only. The earliest restorable time that can be restored to. Output only field. */
+      earliestRestorableTime?: string;
+      /** Output only. When ContinuousBackup was most recently enabled. Set to null if ContinuousBackup is not enabled. */
+      enabledTime?: string;
+      /** Output only. The encryption information for the WALs and backups required for ContinuousBackup. */
+      encryptionInfo?: EncryptionInfo;
+      /** Output only. Days of the week on which a continuous backup is taken. Output only field. Ignored if passed into the request. */
+      schedule?: string[];
+    }
+    interface ContinuousBackupSource {
+      /** Required. The source cluster from which to restore. This cluster must have continuous backup enabled for this operation to succeed. For the required format, see the comment on the Cluster.name field. */
+      cluster?: string;
+      /** Required. The point in time to restore to. */
+      pointInTime?: string;
+    }
+    interface Empty {}
+    interface EncryptionConfig {
+      /** The fully-qualified resource name of the KMS key. Each Cloud KMS key is regionalized and has the following format: projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME] */
+      kmsKeyName?: string;
+    }
+    interface EncryptionInfo {
+      /** Output only. Type of encryption. */
+      encryptionType?: string;
+      /** Output only. Cloud KMS key versions that are being used to protect the database or the backup. */
+      kmsKeyVersions?: string[];
+    }
+    interface FailoverInstanceRequest {
+      /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+      requestId?: string;
+      /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the failover. */
+      validateOnly?: boolean;
+    }
+    interface GenerateClientCertificateRequest {
+      /** Optional. An optional hint to the endpoint to generate the client certificate with the requested duration. The duration can be from 1 hour to 24 hours. The endpoint may or may not honor the hint. If the hint is left unspecified or is not honored, then the endpoint will pick an appropriate default duration. */
+      certDuration?: string;
+      /** Optional. The public key from the client. */
+      publicKey?: string;
+      /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+      requestId?: string;
+      /** Optional. An optional hint to the endpoint to generate a client ceritificate that can be used by AlloyDB connectors to exchange additional metadata with the server after TLS handshake. */
+      useMetadataExchange?: boolean;
+    }
+    interface GenerateClientCertificateResponse {
+      /** Optional. The pem-encoded cluster ca X.509 certificate. */
+      caCert?: string;
+      /** Output only. The pem-encoded chain that may be used to verify the X.509 certificate. Expected to be in issuer-to-root order according to RFC 5246. */
+      pemCertificateChain?: string[];
+    }
+    interface GoogleCloudLocationListLocationsResponse {
+      /** A list of locations that matches the specified filter in the request. */
+      locations?: GoogleCloudLocationLocation[];
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudLocationLocation {
+      /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
+      displayName?: string;
+      /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
+      labels?: {[P in string]: string};
+      /** The canonical id for this location. For example: `"us-east1"`. */
+      locationId?: string;
+      /** Service-specific metadata. For example the available capacity at the given location. */
+      metadata?: {[P in string]: any};
+      /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
+      name?: string;
+    }
+    interface GoogleTypeTimeOfDay {
+      /** Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to allow the value "24:00:00" for scenarios like business closing time. */
+      hours?: number;
+      /** Minutes of hour of day. Must be from 0 to 59. */
+      minutes?: number;
+      /** Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. */
+      nanos?: number;
+      /** Seconds of minutes of the time. Must normally be from 0 to 59. An API may allow the value 60 if it allows leap-seconds. */
+      seconds?: number;
+    }
+    interface InjectFaultRequest {
+      /** Required. The type of fault to be injected in an instance. */
+      faultType?: string;
+      /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+      requestId?: string;
+      /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the fault injection. */
+      validateOnly?: boolean;
+    }
+    interface Instance {
+      /** Annotations to allow client tools to store small amount of arbitrary data. This is distinct from labels. https://google.aip.dev/128 */
+      annotations?: {[P in string]: string};
+      /** Availability type of an Instance. If empty, defaults to REGIONAL for primary instances. For read pools, availability_type is always UNSPECIFIED. Instances in the read pools are evenly distributed across available zones within the region (i.e. read pools with more than one node will have a node in at least two zones). */
+      availabilityType?: string;
+      /** Optional. Client connection specific configurations */
+      clientConnectionConfig?: ClientConnectionConfig;
+      /** Output only. Create time stamp */
+      createTime?: string;
+      /** Database flags. Set at instance level. * They are copied from primary instance on read instance creation. * Read instances can set new or override existing flags that are relevant for reads, e.g. for enabling columnar cache on a read instance. Flags set on read instance may or may not be present on primary. This is a list of "key": "value" pairs. "key": The name of the flag. These flags are passed at instance setup time, so include both server options and system variables for Postgres. Flags are specified with underscores, not hyphens. "value": The value of the flag. Booleans are set to **on** for true and **off** for false. This field must be omitted if the flag doesn't take a value. */
+      databaseFlags?: {[P in string]: string};
+      /** Output only. Delete time stamp */
+      deleteTime?: string;
+      /** User-settable and human-readable display name for the Instance. */
+      displayName?: string;
+      /** For Resource freshness validation (https://google.aip.dev/154) */
+      etag?: string;
+      /** The Compute Engine zone that the instance should serve from, per https://cloud.google.com/compute/docs/regions-zones This can ONLY be specified for ZONAL instances. If present for a REGIONAL instance, an error will be thrown. If this is absent for a ZONAL instance, instance is created in a random zone with available capacity. */
+      gceZone?: string;
+      /** Required. The type of the instance. Specified at creation time. */
+      instanceType?: string;
+      /** Output only. The IP address for the Instance. This is the connection endpoint for an end-user application. */
+      ipAddress?: string;
+      /** Labels as key value pairs */
+      labels?: {[P in string]: string};
+      /** Configurations for the machines that host the underlying database engine. */
+      machineConfig?: MachineConfig;
+      /** Output only. The name of the instance resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id}/instances/{instance_id} where the cluster and instance ID segments should satisfy the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending with a letter or number. For more details see https://google.aip.dev/122. The prefix of the instance resource name is the name of the parent resource: * projects/{project}/locations/{region}/clusters/{cluster_id} */
+      name?: string;
+      /** Output only. List of available read-only VMs in this instance, including the standby for a PRIMARY instance. */
+      nodes?: Node[];
+      /** Configuration for query insights. */
+      queryInsightsConfig?: QueryInsightsInstanceConfig;
+      /** Read pool instance configuration. This is required if the value of instanceType is READ_POOL. */
+      readPoolConfig?: ReadPoolConfig;
+      /** Output only. Reconciling (https://google.aip.dev/128#reconciliation). Set to true if the current state of Instance does not match the user's intended state, and the service is actively updating the resource to reconcile them. This can happen due to user-triggered updates or system actions like failover or maintenance. */
+      reconciling?: boolean;
+      /** Output only. The current serving state of the instance. */
+      state?: string;
+      /** Output only. The system-generated UID of the resource. The UID is assigned when the resource is created, and it is retained until it is deleted. */
+      uid?: string;
+      /** Output only. Update time stamp */
+      updateTime?: string;
+      /** Output only. This is set for the read-write VM of the PRIMARY instance only. */
+      writableNode?: Node;
+    }
+    interface IntegerRestrictions {
+      /** The maximum value that can be specified, if applicable. */
+      maxValue?: string;
+      /** The minimum value that can be specified, if applicable. */
+      minValue?: string;
+    }
+    interface ListBackupsResponse {
+      /** The list of Backup */
+      backups?: Backup[];
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface ListClustersResponse {
+      /** The list of Cluster */
+      clusters?: Cluster[];
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface ListInstancesResponse {
+      /** The list of Instance */
+      instances?: Instance[];
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface ListOperationsResponse {
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+      /** A list of operations that matches the specified filter in the request. */
+      operations?: Operation[];
+    }
+    interface ListSupportedDatabaseFlagsResponse {
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** The list of SupportedDatabaseFlags. */
+      supportedDatabaseFlags?: SupportedDatabaseFlag[];
+    }
+    interface ListUsersResponse {
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+      /** The list of User */
+      users?: User[];
+    }
+    interface MachineConfig {
+      /** The number of CPU's in the VM instance. */
+      cpuCount?: number;
+    }
+    interface MigrationSource {
+      /** Output only. The host and port of the on-premises instance in host:port format */
+      hostPort?: string;
+      /** Output only. Place holder for the external source identifier(e.g DMS job name) that created the cluster. */
+      referenceId?: string;
+      /** Output only. Type of migration source. */
+      sourceType?: string;
+    }
+    interface NetworkConfig {
+      /** Optional. Name of the allocated IP range for the private IP AlloyDB cluster, for example: "google-managed-services-default". If set, the instance IPs for this cluster will be created in the allocated range. The range name must comply with RFC 1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?`. Field name is intended to be consistent with Cloud SQL. */
+      allocatedIpRange?: string;
+      /** Optional. The resource link for the VPC network in which cluster resources are created and from which they are accessible via Private IP. The network must belong to the same project as the cluster. It is specified in the form: "projects/{project_number}/global/networks/{network_id}". This is required to create a cluster. */
+      network?: string;
+    }
+    interface Node {
+      /** The identifier of the VM e.g. "test-read-0601-407e52be-ms3l". */
+      id?: string;
+      /** The private IP address of the VM e.g. "10.57.0.34". */
+      ip?: string;
+      /** Determined by state of the compute VM and postgres-service health. Compute VM state can have values listed in https://cloud.google.com/compute/docs/instances/instance-life-cycle and postgres-service health can have values: HEALTHY and UNHEALTHY. */
+      state?: string;
+      /** The Compute Engine zone of the VM e.g. "us-central1-b". */
+      zoneId?: string;
+    }
+    interface Operation {
+      /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
+      done?: boolean;
+      /** The error result of the operation in case of failure or cancellation. */
+      error?: Status;
+      /** Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. */
+      metadata?: {[P in string]: any};
+      /** The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending with `operations/{unique_id}`. */
+      name?: string;
+      /** The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`. */
+      response?: {[P in string]: any};
+    }
+    interface OperationMetadata {
+      /** Output only. API version used to start the operation. */
+      apiVersion?: string;
+      /** Output only. The time the operation was created. */
+      createTime?: string;
+      /** Output only. The time the operation finished running. */
+      endTime?: string;
+      /** Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      requestedCancellation?: boolean;
+      /** Output only. Human-readable status of the operation, if any. */
+      statusMessage?: string;
+      /** Output only. Server-defined resource path for the target of the operation. */
+      target?: string;
+      /** Output only. Name of the verb executed by the operation. */
+      verb?: string;
+    }
+    interface PrimaryConfig {
+      /** Output only. Names of the clusters that are replicating from this cluster. */
+      secondaryClusterNames?: string[];
+    }
+    interface PromoteClusterRequest {
+      /** Optional. The current etag of the Cluster. If an etag is provided and does not match the current etag of the Cluster, deletion will be blocked and an ABORTED error will be returned. */
+      etag?: string;
+      /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+      requestId?: string;
+      /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the delete. */
+      validateOnly?: boolean;
+    }
+    interface QuantityBasedExpiry {
+      /** Output only. The backup's position among its backups with the same source cluster and type, by descending chronological order create time(i.e. newest first). */
+      retentionCount?: number;
+      /** Output only. The length of the quantity-based queue, specified by the backup's retention policy. */
+      totalRetentionCount?: number;
+    }
+    interface QuantityBasedRetention {
+      /** The number of backups to retain. */
+      count?: number;
+    }
+    interface QueryInsightsInstanceConfig {
+      /** Number of query execution plans captured by Insights per minute for all queries combined. The default value is 5. Any integer between 0 and 20 is considered valid. */
+      queryPlansPerMinute?: number;
+      /** Query string length. The default value is 1024. Any integer between 256 and 4500 is considered valid. */
+      queryStringLength?: number;
+      /** Record application tags for an instance. This flag is turned "on" by default. */
+      recordApplicationTags?: boolean;
+      /** Record client address for an instance. Client address is PII information. This flag is turned "on" by default. */
+      recordClientAddress?: boolean;
+    }
+    interface ReadPoolConfig {
+      /** Read capacity, i.e. number of nodes in a read pool instance. */
+      nodeCount?: number;
+    }
+    interface RestartInstanceRequest {
+      /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+      requestId?: string;
+      /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the restart. */
+      validateOnly?: boolean;
+    }
+    interface RestoreClusterRequest {
+      /** Backup source. */
+      backupSource?: BackupSource;
+      /** Required. The resource being created */
+      cluster?: Cluster;
+      /** Required. ID of the requesting object. */
+      clusterId?: string;
+      /** ContinuousBackup source. Continuous backup needs to be enabled in the source cluster for this operation to succeed. */
+      continuousBackupSource?: ContinuousBackupSource;
+      /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+      requestId?: string;
+      /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the import request. */
+      validateOnly?: boolean;
+    }
+    interface SecondaryConfig {
+      /** The name of the primary cluster name with the format: * projects/{project}/locations/{region}/clusters/{cluster_id} */
+      primaryClusterName?: string;
+    }
+    interface SslConfig {
+      /** Optional. Certificate Authority (CA) source. Only CA_SOURCE_MANAGED is supported currently, and is the default value. */
+      caSource?: string;
+      /** Optional. SSL mode. Specifies client-server SSL/TLS connection behavior. */
+      sslMode?: string;
+    }
+    interface Status {
+      /** The status code, which should be an enum value of google.rpc.Code. */
+      code?: number;
+      /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
+      details?: Array<{[P in string]: any}>;
+      /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
+      message?: string;
+    }
+    interface StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration {
+      /** Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data accessibility. * `REGIONAL`: The instance can serve data from more than one zone in a region (it is highly available). */
+      availabilityType?: string;
+      externalReplicaConfigured?: boolean;
+      promotableReplicaConfigured?: boolean;
+    }
+    interface StorageDatabasecenterPartnerapiV1mainBackupConfiguration {
+      /** Whether customer visible automated backups are enabled on the instance. */
+      automatedBackupEnabled?: boolean;
+      /** Backup retention settings. */
+      backupRetentionSettings?: StorageDatabasecenterPartnerapiV1mainRetentionSettings;
+      /** Whether point-in-time recovery is enabled. This is optional field, if the database service does not have this feature or metadata is not available in control plane, this can be omitted. */
+      pointInTimeRecoveryEnabled?: boolean;
+    }
+    interface StorageDatabasecenterPartnerapiV1mainBackupRun {
+      /** The time the backup operation completed. REQUIRED */
+      endTime?: string;
+      /** Information about why the backup operation failed. This is only present if the run has the FAILED status. OPTIONAL */
+      error?: StorageDatabasecenterPartnerapiV1mainOperationError;
+      /** The time the backup operation started. REQUIRED */
+      startTime?: string;
+      /** The status of this run. REQUIRED */
+      status?: string;
+    }
+    interface StorageDatabasecenterPartnerapiV1mainCompliance {
+      /** Industry-wide compliance standards or benchmarks, such as CIS, PCI, and OWASP. */
+      standard?: string;
+      /** Version of the standard or benchmark, for example, 1.1 */
+      version?: string;
+    }
+    interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed {
+      /** Required. Timestamp when feed is generated. */
+      feedTimestamp?: string;
+      /** Required. Type feed to be ingested into condor */
+      feedType?: string;
+      /** More feed data would be added in subsequent CLs */
+      resourceHealthSignalData?: StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData;
+      /** Primary key associated with the Resource. resource_id is available in individual feed level as well. */
+      resourceId?: StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
+      resourceMetadata?: StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata;
+    }
+    interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData {
+      /** Any other additional metadata */
+      additionalMetadata?: {[P in string]: any};
+      /** Industry standards associated with this signal; if this signal is an issue, that could be a violation of the associated industry standard(s). For example, AUTO_BACKUP_DISABLED signal is associated with CIS GCP 1.1, CIS GCP 1.2, CIS GCP 1.3, NIST 800-53 and ISO-27001 compliance standards. If a database resource does not have automated backup enable, it will violate these following industry standards. */
+      compliance?: StorageDatabasecenterPartnerapiV1mainCompliance[];
+      /** Description associated with signal */
+      description?: string;
+      /** Required. The last time at which the event described by this signal took place */
+      eventTime?: string;
+      /** The external-uri of the signal, using which more information about this signal can be obtained. In GCP, this will take user to SCC page to get more details about signals. */
+      externalUri?: string;
+      /** Required. The name of the signal, ex: PUBLIC_SQL_INSTANCE, SQL_LOG_ERROR_VERBOSITY etc. */
+      name?: string;
+      /** Cloud provider name. Ex: GCP/AWS/Azure/OnPrem/SelfManaged */
+      provider?: string;
+      /** Closest parent container of this resource. In GCP, 'container' refers to a Cloud Resource Manager project. It must be resource name of a Cloud Resource Manager project with the format of "provider//", such as "gcp/projects/123". For GCP provided resources, number should be project number. */
+      resourceContainer?: string;
+      /** Required. Database resource name associated with the signal. Resource name to follow CAIS resource_name format as noted here go/condor-common-datamodel */
+      resourceName?: string;
+      /** Required. The class of the signal, such as if it's a THREAT or VULNERABILITY. */
+      signalClass?: string;
+      /** Required. Unique identifier for the signal. This is an unique id which would be mainatined by partner to identify a signal. */
+      signalId?: string;
+      /** Required. Type of signal, for example, `AVAILABLE_IN_MULTIPLE_ZONES`, `LOGGING_MOST_ERRORS`, etc. */
+      signalType?: string;
+      state?: string;
+    }
+    interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceId {
+      /** Required. Cloud provider name. Ex: GCP/AWS/Azure/OnPrem/SelfManaged */
+      provider?: string;
+      /** Optional. Needs to be used only when the provider is PROVIDER_OTHER. */
+      providerDescription?: string;
+      /** Required. The type of resource this ID is identifying. Ex alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance, spanner.googleapis.com/Instance REQUIRED Please refer go/condor-common-datamodel */
+      resourceType?: string;
+      /** Required. A service-local token that distinguishes this resource from other resources within the same service. */
+      uniqueId?: string;
+    }
+    interface StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata {
+      /** Availability configuration for this instance */
+      availabilityConfiguration?: StorageDatabasecenterPartnerapiV1mainAvailabilityConfiguration;
+      /** Backup configuration for this instance */
+      backupConfiguration?: StorageDatabasecenterPartnerapiV1mainBackupConfiguration;
+      /** Latest backup run information for this instance */
+      backupRun?: StorageDatabasecenterPartnerapiV1mainBackupRun;
+      /** The creation time of the resource, i.e. the time when resource is created and recorded in partner service. */
+      creationTime?: string;
+      /** Current state of the instance. */
+      currentState?: string;
+      /** Any custom metadata associated with the resource (a JSON field) */
+      customMetadata?: {[P in string]: any};
+      /** The state that the instance is expected to be in. For example, an instance state can transition to UNHEALTHY due to wrong patch update, while the expected state will remain at the HEALTHY. */
+      expectedState?: string;
+      /** Required. Unique identifier for a Database resource */
+      id?: StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
+      /** The type of the instance. Specified at creation time. */
+      instanceType?: string;
+      /** The resource location. REQUIRED */
+      location?: string;
+      /** Identifier for this resource's immediate parent/primary resource if the current resource is a replica or derived form of another Database resource. Else it would be NULL. REQUIRED if the immediate parent exists when first time resource is getting ingested */
+      primaryResourceId?: StorageDatabasecenterPartnerapiV1mainDatabaseResourceId;
+      /** The product this resource represents. */
+      product?: StorageDatabasecenterProtoCommonProduct;
+      /** Closest parent Cloud Resource Manager container of this resource. It must be resource name of a Cloud Resource Manager project with the format of "provider//", such as "gcp/projects/123". For GCP provided resources, number should be project number. */
+      resourceContainer?: string;
+      /** Required. Different from DatabaseResourceId.unique_id, a resource name can be reused over time. That is, after a resource named "ABC" is deleted, the name "ABC" can be used to to create a new resource within the same source. Resource name to follow CAIS resource_name format as noted here go/condor-common-datamodel */
+      resourceName?: string;
+      /** The time at which the resource was updated and recorded at partner service. */
+      updationTime?: string;
+      /** User-provided labels, represented as a dictionary where each label is a single key value pair. */
+      userLabels?: {[P in string]: string};
+    }
+    interface StorageDatabasecenterPartnerapiV1mainOperationError {
+      /** Identifies the specific error that occurred. REQUIRED */
+      code?: string;
+      /** Additional information about the error encountered. REQUIRED */
+      message?: string;
+    }
+    interface StorageDatabasecenterPartnerapiV1mainRetentionSettings {
+      quantityBasedRetention?: number;
+      /** The unit that 'retained_backups' represents. */
+      retentionUnit?: string;
+      timeBasedRetention?: string;
+    }
+    interface StorageDatabasecenterProtoCommonProduct {
+      /** The specific engine that the underlying database is running. */
+      engine?: string;
+      /** Type of specific database product. It could be CloudSQL, AlloyDB etc.. */
+      type?: string;
+      /** Version of the underlying database engine. Example values: For MySQL, it could be "8.0", "5.7" etc.. For Postgres, it could be "14", "15" etc.. */
+      version?: string;
+    }
+    interface StringRestrictions {
+      /** The list of allowed values, if bounded. This field will be empty if there is a unbounded number of allowed values. */
+      allowedValues?: string[];
+    }
+    interface SupportedDatabaseFlag {
+      /** Whether the database flag accepts multiple values. If true, a comma-separated list of stringified values may be specified. */
+      acceptsMultipleValues?: boolean;
+      /** The name of the database flag, e.g. "max_allowed_packets". The is a possibly key for the Instance.database_flags map field. */
+      flagName?: string;
+      /** Restriction on INTEGER type value. */
+      integerRestrictions?: IntegerRestrictions;
+      /** The name of the flag resource, following Google Cloud conventions, e.g.: * projects/{project}/locations/{location}/flags/{flag} This field currently has no semantic meaning. */
+      name?: string;
+      /** Whether setting or updating this flag on an Instance requires a database restart. If a flag that requires database restart is set, the backend will automatically restart the database (making sure to satisfy any availability SLO's). */
+      requiresDbRestart?: boolean;
+      /** Restriction on STRING type value. */
+      stringRestrictions?: StringRestrictions;
+      /** Major database engine versions for which this flag is supported. */
+      supportedDbVersions?: string[];
+      valueType?: string;
+    }
+    interface TimeBasedRetention {
+      /** The retention period. */
+      retentionPeriod?: string;
+    }
+    interface User {
+      /** Optional. List of database roles this user has. The database role strings are subject to the PostgreSQL naming conventions. */
+      databaseRoles?: string[];
+      /** Output only. Name of the resource in the form of projects/{project}/locations/{location}/cluster/{cluster}/users/{user}. */
+      name?: string;
+      /** Input only. Password for the user. */
+      password?: string;
+      /** Optional. Type of this user. */
+      userType?: string;
+    }
+    interface UserPassword {
+      /** The initial password for the user. */
+      password?: string;
+      /** The database username. */
+      user?: string;
+    }
+    interface WeeklySchedule {
+      /** The days of the week to perform a backup. If this field is left empty, the default of every day of the week is used. */
+      daysOfWeek?: string[];
+      /** The times during the day to start a backup. The start times are assumed to be in UTC and to be an exact hour (e.g., 04:00:00). If no start times are provided, a single fixed start time is chosen arbitrarily. */
+      startTimes?: GoogleTypeTimeOfDay[];
+    }
+    interface BackupsResource {
+      /** Creates a new Backup in a given project and location. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** Required. ID of the requesting object. */
+        backupId?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. Value for parent. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: Backup;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** Required. ID of the requesting object. */
+          backupId?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. Value for parent. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+          validateOnly?: boolean;
+        },
+        body: Backup
+      ): Request<Operation>;
+      /** Deletes a single Backup. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Optional. The current etag of the Backup. If an etag is provided and does not match the current etag of the Backup, deletion will be blocked and an ABORTED error will be returned. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the resource. For the required format, see the comment on the Backup.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+        validateOnly?: boolean;
+      }): Request<Operation>;
+      /** Gets details of a single Backup. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the resource */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Backup>;
+      /** Lists Backups in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Filtering results */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Hint for how to order the results */
+        orderBy?: string;
+        /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. Parent value for ListBackupsRequest */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListBackupsResponse>;
+      /** Updates the parameters of a single Backup. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new backup is created and `update_mask` is ignored. */
+        allowMissing?: boolean;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Output only. The name of the backup resource with the format: * projects/{project}/locations/{region}/backups/{backup_id} where the cluster and backup ID segments should satisfy the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending with a letter or number. For more details see https://google.aip.dev/122. The prefix of the backup resource name is the name of the parent resource: * projects/{project}/locations/{region} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Optional. Field mask is used to specify the fields to be overwritten in the Backup resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: Backup;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new backup is created and `update_mask` is ignored. */
+          allowMissing?: boolean;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Output only. The name of the backup resource with the format: * projects/{project}/locations/{region}/backups/{backup_id} where the cluster and backup ID segments should satisfy the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending with a letter or number. For more details see https://google.aip.dev/122. The prefix of the backup resource name is the name of the parent resource: * projects/{project}/locations/{region} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Optional. Field mask is used to specify the fields to be overwritten in the Backup resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+          validateOnly?: boolean;
+        },
+        body: Backup
+      ): Request<Operation>;
+    }
+    interface InstancesResource {
+      /** Creates a new Instance in a given project and location. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Required. ID of the requesting object. */
+        instanceId?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: Instance;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Required. ID of the requesting object. */
+          instanceId?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
+          validateOnly?: boolean;
+        },
+        body: Instance
+      ): Request<Operation>;
+      /** Creates a new SECONDARY Instance in a given project and location. */
+      createsecondary(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Required. ID of the requesting object. */
+        instanceId?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: Instance;
+      }): Request<Operation>;
+      createsecondary(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Required. ID of the requesting object. */
+          instanceId?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
+          validateOnly?: boolean;
+        },
+        body: Instance
+      ): Request<Operation>;
+      /** Deletes a single Instance. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Optional. The current etag of the Instance. If an etag is provided and does not match the current etag of the Instance, deletion will be blocked and an ABORTED error will be returned. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the delete. */
+        validateOnly?: boolean;
+      }): Request<Operation>;
+      /** Forces a Failover for a highly available instance. Failover promotes the HA standby instance as the new primary. Imperative only. */
+      failover(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: FailoverInstanceRequest;
+      }): Request<Operation>;
+      failover(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: FailoverInstanceRequest
+      ): Request<Operation>;
+      /** Gets details of a single Instance. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** The view of the instance to return. */
+        view?: string;
+      }): Request<Instance>;
+      /** Get instance metadata used for a connection. */
+      getConnectionInfo(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The name of the parent resource. The required format is: projects/{project}/locations/{location}/clusters/{cluster}/instances/{instance} */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ConnectionInfo>;
+      /** Injects fault in an instance. Imperative only. */
+      injectFault(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: InjectFaultRequest;
+      }): Request<Operation>;
+      injectFault(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: InjectFaultRequest
+      ): Request<Operation>;
+      /** Lists Instances in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Filtering results */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. Hint for how to order the results */
+        orderBy?: string;
+        /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. The name of the parent resource. For the required format, see the comment on the Instance.name field. Additionally, you can perform an aggregated list operation by specifying a value with one of the following formats: * projects/{project}/locations/-/clusters/- * projects/{project}/locations/{region}/clusters/- */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListInstancesResponse>;
+      /** Updates the parameters of a single Instance. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new instance is created and `update_mask` is ignored. */
+        allowMissing?: boolean;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Output only. The name of the instance resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id}/instances/{instance_id} where the cluster and instance ID segments should satisfy the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending with a letter or number. For more details see https://google.aip.dev/122. The prefix of the instance resource name is the name of the parent resource: * projects/{project}/locations/{region}/clusters/{cluster_id} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Optional. Field mask is used to specify the fields to be overwritten in the Instance resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the update request. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: Instance;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Optional. If set to true, update succeeds even if instance is not found. In that case, a new instance is created and `update_mask` is ignored. */
+          allowMissing?: boolean;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Output only. The name of the instance resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id}/instances/{instance_id} where the cluster and instance ID segments should satisfy the regex expression `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`, e.g. 1-63 characters of lowercase letters, numbers, and dashes, starting with a letter, and ending with a letter or number. For more details see https://google.aip.dev/122. The prefix of the instance resource name is the name of the parent resource: * projects/{project}/locations/{region}/clusters/{cluster_id} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Optional. Field mask is used to specify the fields to be overwritten in the Instance resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the update request. */
+          validateOnly?: boolean;
+        },
+        body: Instance
+      ): Request<Operation>;
+      /** Restart an Instance in a cluster. Imperative only. */
+      restart(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RestartInstanceRequest;
+      }): Request<Operation>;
+      restart(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the resource. For the required format, see the comment on the Instance.name field. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RestartInstanceRequest
+      ): Request<Operation>;
+    }
+    interface UsersResource {
+      /** Creates a new User in a given project, location, and cluster. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. Value for parent. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Required. ID of the requesting object. */
+        userId?: string;
+        /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: User;
+      }): Request<User>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. Value for parent. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Required. ID of the requesting object. */
+          userId?: string;
+          /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+          validateOnly?: boolean;
+        },
+        body: User
+      ): Request<User>;
+      /** Deletes a single User. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the User.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+        validateOnly?: boolean;
+      }): Request<{}>;
+      /** Gets details of a single User. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the User.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<User>;
+      /** Lists Users in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Filtering results */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. Hint for how to order the results */
+        orderBy?: string;
+        /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** Optional. A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. Parent value for ListUsersRequest */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListUsersResponse>;
+      /** Updates the parameters of a single User. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Optional. Allow missing fields in the update mask. */
+        allowMissing?: boolean;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Output only. Name of the resource in the form of projects/{project}/locations/{location}/cluster/{cluster}/users/{user}. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Optional. Field mask is used to specify the fields to be overwritten in the User resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: User;
+      }): Request<User>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Optional. Allow missing fields in the update mask. */
+          allowMissing?: boolean;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Output only. Name of the resource in the form of projects/{project}/locations/{location}/cluster/{cluster}/users/{user}. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Optional. Field mask is used to specify the fields to be overwritten in the User resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. If set, the backend validates the request, but doesn't actually execute it. */
+          validateOnly?: boolean;
+        },
+        body: User
+      ): Request<User>;
+    }
+    interface ClustersResource {
+      /** Creates a new Cluster in a given project and location. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. ID of the requesting object. */
+        clusterId?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The location of the new cluster. For the required format, see the comment on the Cluster.name field. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: Cluster;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. ID of the requesting object. */
+          clusterId?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The location of the new cluster. For the required format, see the comment on the Cluster.name field. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
+          validateOnly?: boolean;
+        },
+        body: Cluster
+      ): Request<Operation>;
+      /** Creates a cluster of type SECONDARY in the given location using the primary cluster as the source. */
+      createsecondary(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. ID of the requesting object (the secondary cluster). */
+        clusterId?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The location of the new cluster. For the required format, see the comment on the Cluster.name field. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: Cluster;
+      }): Request<Operation>;
+      createsecondary(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. ID of the requesting object (the secondary cluster). */
+          clusterId?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The location of the new cluster. For the required format, see the comment on the Cluster.name field. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the create request. */
+          validateOnly?: boolean;
+        },
+        body: Cluster
+      ): Request<Operation>;
+      /** Deletes a single Cluster. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Optional. The current etag of the Cluster. If an etag is provided and does not match the current etag of the Cluster, deletion will be blocked and an ABORTED error will be returned. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Whether to cascade delete child instances for given cluster. */
+        force?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the Cluster.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the delete. */
+        validateOnly?: boolean;
+      }): Request<Operation>;
+      /** Generate a client certificate signed by a Cluster CA. The sole purpose of this endpoint is to support AlloyDB connectors and the Auth Proxy client. The endpoint's behavior is subject to change without notice, so do not rely on its behavior remaining constant. Future changes will not break AlloyDB connectors or the Auth Proxy client. */
+      generateClientCertificate(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The name of the parent resource. The required format is: * projects/{project}/locations/{location}/clusters/{cluster} */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GenerateClientCertificateRequest;
+      }): Request<GenerateClientCertificateResponse>;
+      generateClientCertificate(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The name of the parent resource. The required format is: * projects/{project}/locations/{location}/clusters/{cluster} */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GenerateClientCertificateRequest
+      ): Request<GenerateClientCertificateResponse>;
+      /** Gets details of a single Cluster. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the Cluster.name field. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. The view of the cluster to return. Returns all default fields if not set. */
+        view?: string;
+      }): Request<Cluster>;
+      /** Lists Clusters in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Filtering results */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. Hint for how to order the results */
+        orderBy?: string;
+        /** Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. The name of the parent resource. For the required format, see the comment on the Cluster.name field. Additionally, you can perform an aggregated list operation by specifying a value with the following format: * projects/{project}/locations/- */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListClustersResponse>;
+      /** Updates the parameters of a single Cluster. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Optional. If set to true, update succeeds even if cluster is not found. In that case, a new cluster is created and `update_mask` is ignored. */
+        allowMissing?: boolean;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Output only. The name of the cluster resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id} where the cluster ID segment should satisfy the regex expression `[a-z0-9-]+`. For more details see https://google.aip.dev/122. The prefix of the cluster resource name is the name of the parent resource: * projects/{project}/locations/{region} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Optional. Field mask is used to specify the fields to be overwritten in the Cluster resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the update request. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: Cluster;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Optional. If set to true, update succeeds even if cluster is not found. In that case, a new cluster is created and `update_mask` is ignored. */
+          allowMissing?: boolean;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Output only. The name of the cluster resource with the format: * projects/{project}/locations/{region}/clusters/{cluster_id} where the cluster ID segment should satisfy the regex expression `[a-z0-9-]+`. For more details see https://google.aip.dev/122. The prefix of the cluster resource name is the name of the parent resource: * projects/{project}/locations/{region} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Optional. Field mask is used to specify the fields to be overwritten in the Cluster resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then all fields will be overwritten. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. If set, performs request validation (e.g. permission checks and any other type of validation), but do not actually execute the update request. */
+          validateOnly?: boolean;
+        },
+        body: Cluster
+      ): Request<Operation>;
+      /** Promotes a SECONDARY cluster. This turns down replication from the PRIMARY cluster and promotes a secondary cluster into its own standalone cluster. Imperative only. */
+      promote(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the resource. For the required format, see the comment on the Cluster.name field */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: PromoteClusterRequest;
+      }): Request<Operation>;
+      promote(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the resource. For the required format, see the comment on the Cluster.name field */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: PromoteClusterRequest
+      ): Request<Operation>;
+      /** Creates a new Cluster in a given project and location, with a volume restored from the provided source, either a backup ID or a point-in-time and a source cluster. */
+      restore(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The name of the parent resource. For the required format, see the comment on the Cluster.name field. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RestoreClusterRequest;
+      }): Request<Operation>;
+      restore(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The name of the parent resource. For the required format, see the comment on the Cluster.name field. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RestoreClusterRequest
+      ): Request<Operation>;
+      instances: InstancesResource;
+      users: UsersResource;
+    }
+    interface OperationsResource {
+      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      cancel(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be cancelled. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CancelOperationRequest;
+      }): Request<{}>;
+      cancel(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of the operation resource to be cancelled. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CancelOperationRequest
+      ): Request<{}>;
+      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be deleted. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** The standard list filter. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation's parent resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The standard list page size. */
+        pageSize?: number;
+        /** The standard list page token. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListOperationsResponse>;
+    }
+    interface SupportedDatabaseFlagsResource {
+      /** Lists SupportedDatabaseFlags for a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. The name of the parent resource. The required format is: * projects/{project}/locations/{location} Regardless of the parent specified here, as long it is contains a valid project and location, the service will return a static list of supported flags resources. Note that we do not yet support region-specific flags. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListSupportedDatabaseFlagsResponse>;
+    }
+    interface LocationsResource {
+      /** Gets information about a location. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Resource name for the location. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudLocationLocation>;
+      /** Lists information about the supported locations for this service. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource that owns the locations collection, if applicable. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The maximum number of results to return. If not set, the service selects a default. */
+        pageSize?: number;
+        /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudLocationListLocationsResponse>;
+      backups: BackupsResource;
+      clusters: ClustersResource;
+      operations: OperationsResource;
+      supportedDatabaseFlags: SupportedDatabaseFlagsResource;
+    }
+    interface ProjectsResource {
+      locations: LocationsResource;
+    }
+
+    const projects: ProjectsResource;
+  }
 }

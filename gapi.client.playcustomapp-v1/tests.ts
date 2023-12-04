@@ -6,42 +6,47 @@
 // Revision: 20231128
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://playcustomapp.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.playcustomapp */
+  await gapi.client.load(
+    'https://playcustomapp.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.playcustomapp */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** View and manage your Google Play Developer account */
-        'https://www.googleapis.com/auth/androidpublisher',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Creates a new custom app. */
-        await gapi.client.playcustomapp.accounts.customApps.create({
-            account: "Test string",
-        }, {
-            languageCode: "Test string",
-            organizations: [
-                {
-                    organizationId: "Test string",
-                    organizationName: "Test string",
-                }
-            ],
-            packageName: "Test string",
-            title: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** View and manage your Google Play Developer account */
+    'https://www.googleapis.com/auth/androidpublisher',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Creates a new custom app. */
+    await gapi.client.playcustomapp.accounts.customApps.create(
+      {
+        account: 'Test string',
+      },
+      {
+        languageCode: 'Test string',
+        organizations: [
+          {
+            organizationId: 'Test string',
+            organizationName: 'Test string',
+          },
+        ],
+        packageName: 'Test string',
+        title: 'Test string',
+      }
+    );
+  }
 });

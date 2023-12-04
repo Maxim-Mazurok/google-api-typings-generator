@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://texttospeech.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.texttospeech
-});
+gapi.client.load(
+  'https://texttospeech.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.texttospeech
+  }
+);
 ```
 
 ```typescript
@@ -45,44 +48,44 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Text-to-Speech API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
 */
-await gapi.client.texttospeech.operations.cancel({ name: "name",  });
+await gapi.client.texttospeech.operations.cancel({name: 'name'});
 
 /*
 Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
 */
-await gapi.client.texttospeech.operations.delete({ name: "name",  });
+await gapi.client.texttospeech.operations.delete({name: 'name'});
 
 /*
 Synthesizes speech synchronously: receive results after all text input has been processed.
 */
-await gapi.client.texttospeech.text.synthesize({  });
+await gapi.client.texttospeech.text.synthesize({});
 
 /*
 Returns a list of Voice supported for synthesis.
 */
-await gapi.client.texttospeech.voices.list({  });
+await gapi.client.texttospeech.voices.list({});
 ```

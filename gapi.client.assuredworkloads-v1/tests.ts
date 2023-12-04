@@ -6,244 +6,245 @@
 // Revision: 20231110
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://assuredworkloads.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.assuredworkloads */
+  await gapi.client.load(
+    'https://assuredworkloads.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.assuredworkloads */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.assuredworkloads.organizations.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.assuredworkloads.organizations.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Analyzes a hypothetical move of a source resource to a target workload to surface compliance risks. The analysis is best effort and is not guaranteed to be exhaustive. */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.analyzeWorkloadMove({
-            assetTypes: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            project: "Test string",
-            target: "Test string",
-        });
-        /** Creates Assured Workload. */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.create({
-            externalId: "Test string",
-            parent: "Test string",
-        }, {
-            billingAccount: "Test string",
-            complianceRegime: "Test string",
-            complianceStatus: {
-                acknowledgedResourceViolationCount: 42,
-                acknowledgedViolationCount: 42,
-                activeResourceViolationCount: 42,
-                activeViolationCount: 42,
-            },
-            compliantButDisallowedServices: [
-                "Test string"
-            ],
-            createTime: "Test string",
-            displayName: "Test string",
-            ekmProvisioningResponse: {
-                ekmProvisioningErrorDomain: "Test string",
-                ekmProvisioningErrorMapping: "Test string",
-                ekmProvisioningState: "Test string",
-            },
-            enableSovereignControls: true,
-            etag: "Test string",
-            kajEnrollmentState: "Test string",
-            kmsSettings: {
-                nextRotationTime: "Test string",
-                rotationPeriod: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            partner: "Test string",
-            partnerPermissions: {
-                assuredWorkloadsMonitoring: true,
-                dataLogsViewer: true,
-                serviceAccessApprover: true,
-            },
-            provisionedResourcesParent: "Test string",
-            resourceMonitoringEnabled: true,
-            resources: [
-                {
-                    resourceId: "Test string",
-                    resourceType: "Test string",
-                }
-            ],
-            resourceSettings: [
-                {
-                    displayName: "Test string",
-                    resourceId: "Test string",
-                    resourceType: "Test string",
-                }
-            ],
-            saaEnrollmentResponse: {
-                setupErrors: [
-                    "Test string"
-                ],
-                setupStatus: "Test string",
-            },
-            violationNotificationsEnabled: true,
-        });
-        /**
-         * Deletes the workload. Make sure that workload's direct children are already in a deleted state, otherwise the request will fail with a FAILED_PRECONDITION error. In addition to
-         * assuredworkloads.workload.delete permission, the user should also have orgpolicy.policy.set permission on the deleted folder to remove Assured Workloads OrgPolicies.
-         */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.delete({
-            etag: "Test string",
-            name: "Test string",
-        });
-        /** Gets Assured Workload associated with a CRM Node */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.get({
-            name: "Test string",
-        });
-        /** Lists Assured Workloads under a CRM Node. */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Update the permissions settings for an existing partner workload. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.mutatePartnerPermissions({
-            name: "Test string",
-        }, {
-            etag: "Test string",
-            partnerPermissions: {
-                assuredWorkloadsMonitoring: true,
-                dataLogsViewer: true,
-                serviceAccessApprover: true,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Updates an existing workload. Currently allows updating of workload display_name and labels. For force updates don't set etag field in the Workload. Only one update operation per
-         * workload can be in progress.
-         */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            billingAccount: "Test string",
-            complianceRegime: "Test string",
-            complianceStatus: {
-                acknowledgedResourceViolationCount: 42,
-                acknowledgedViolationCount: 42,
-                activeResourceViolationCount: 42,
-                activeViolationCount: 42,
-            },
-            compliantButDisallowedServices: [
-                "Test string"
-            ],
-            createTime: "Test string",
-            displayName: "Test string",
-            ekmProvisioningResponse: {
-                ekmProvisioningErrorDomain: "Test string",
-                ekmProvisioningErrorMapping: "Test string",
-                ekmProvisioningState: "Test string",
-            },
-            enableSovereignControls: true,
-            etag: "Test string",
-            kajEnrollmentState: "Test string",
-            kmsSettings: {
-                nextRotationTime: "Test string",
-                rotationPeriod: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            partner: "Test string",
-            partnerPermissions: {
-                assuredWorkloadsMonitoring: true,
-                dataLogsViewer: true,
-                serviceAccessApprover: true,
-            },
-            provisionedResourcesParent: "Test string",
-            resourceMonitoringEnabled: true,
-            resources: [
-                {
-                    resourceId: "Test string",
-                    resourceType: "Test string",
-                }
-            ],
-            resourceSettings: [
-                {
-                    displayName: "Test string",
-                    resourceId: "Test string",
-                    resourceType: "Test string",
-                }
-            ],
-            saaEnrollmentResponse: {
-                setupErrors: [
-                    "Test string"
-                ],
-                setupStatus: "Test string",
-            },
-            violationNotificationsEnabled: true,
-        });
-        /**
-         * Restrict the list of resources allowed in the Workload environment. The current list of allowed products can be found at
-         * https://cloud.google.com/assured-workloads/docs/supported-products In addition to assuredworkloads.workload.update permission, the user should also have orgpolicy.policy.set permission
-         * on the folder resource to use this functionality.
-         */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.restrictAllowedResources({
-            name: "Test string",
-        }, {
-            restrictionType: "Test string",
-        });
-        /**
-         * Acknowledges an existing violation. By acknowledging a violation, users acknowledge the existence of a compliance violation in their workload and decide to ignore it due to a valid
-         * business justification. Acknowledgement is a permanent operation and it cannot be reverted.
-         */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.violations.acknowledge({
-            name: "Test string",
-        }, {
-            acknowledgeType: "Test string",
-            comment: "Test string",
-            nonCompliantOrgPolicy: "Test string",
-        });
-        /** Retrieves Assured Workload Violation based on ID. */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.violations.get({
-            name: "Test string",
-        });
-        /**
-         * Lists the Violations in the AssuredWorkload Environment. Callers may also choose to read across multiple Workloads as per [AIP-159](https://google.aip.dev/159) by using '-' (the hyphen
-         * or dash character) as a wildcard character instead of workload-id in the parent. Format `organizations/{org_id}/locations/{location}/workloads/-`
-         */
-        await gapi.client.assuredworkloads.organizations.locations.workloads.violations.list({
-            filter: "Test string",
-            "interval.endTime": "Test string",
-            "interval.startTime": "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.assuredworkloads.organizations.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.assuredworkloads.organizations.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Analyzes a hypothetical move of a source resource to a target workload to surface compliance risks. The analysis is best effort and is not guaranteed to be exhaustive. */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.analyzeWorkloadMove(
+      {
+        assetTypes: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        project: 'Test string',
+        target: 'Test string',
+      }
+    );
+    /** Creates Assured Workload. */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.create(
+      {
+        externalId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        billingAccount: 'Test string',
+        complianceRegime: 'Test string',
+        complianceStatus: {
+          acknowledgedResourceViolationCount: 42,
+          acknowledgedViolationCount: 42,
+          activeResourceViolationCount: 42,
+          activeViolationCount: 42,
+        },
+        compliantButDisallowedServices: ['Test string'],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        ekmProvisioningResponse: {
+          ekmProvisioningErrorDomain: 'Test string',
+          ekmProvisioningErrorMapping: 'Test string',
+          ekmProvisioningState: 'Test string',
+        },
+        enableSovereignControls: true,
+        etag: 'Test string',
+        kajEnrollmentState: 'Test string',
+        kmsSettings: {
+          nextRotationTime: 'Test string',
+          rotationPeriod: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        partner: 'Test string',
+        partnerPermissions: {
+          assuredWorkloadsMonitoring: true,
+          dataLogsViewer: true,
+          serviceAccessApprover: true,
+        },
+        provisionedResourcesParent: 'Test string',
+        resourceMonitoringEnabled: true,
+        resources: [
+          {
+            resourceId: 'Test string',
+            resourceType: 'Test string',
+          },
+        ],
+        resourceSettings: [
+          {
+            displayName: 'Test string',
+            resourceId: 'Test string',
+            resourceType: 'Test string',
+          },
+        ],
+        saaEnrollmentResponse: {
+          setupErrors: ['Test string'],
+          setupStatus: 'Test string',
+        },
+        violationNotificationsEnabled: true,
+      }
+    );
+    /** Deletes the workload. Make sure that workload's direct children are already in a deleted state, otherwise the request will fail with a FAILED_PRECONDITION error. In addition to assuredworkloads.workload.delete permission, the user should also have orgpolicy.policy.set permission on the deleted folder to remove Assured Workloads OrgPolicies. */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.delete(
+      {
+        etag: 'Test string',
+        name: 'Test string',
+      }
+    );
+    /** Gets Assured Workload associated with a CRM Node */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.get({
+      name: 'Test string',
+    });
+    /** Lists Assured Workloads under a CRM Node. */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Update the permissions settings for an existing partner workload. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.mutatePartnerPermissions(
+      {
+        name: 'Test string',
+      },
+      {
+        etag: 'Test string',
+        partnerPermissions: {
+          assuredWorkloadsMonitoring: true,
+          dataLogsViewer: true,
+          serviceAccessApprover: true,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Updates an existing workload. Currently allows updating of workload display_name and labels. For force updates don't set etag field in the Workload. Only one update operation per workload can be in progress. */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        billingAccount: 'Test string',
+        complianceRegime: 'Test string',
+        complianceStatus: {
+          acknowledgedResourceViolationCount: 42,
+          acknowledgedViolationCount: 42,
+          activeResourceViolationCount: 42,
+          activeViolationCount: 42,
+        },
+        compliantButDisallowedServices: ['Test string'],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        ekmProvisioningResponse: {
+          ekmProvisioningErrorDomain: 'Test string',
+          ekmProvisioningErrorMapping: 'Test string',
+          ekmProvisioningState: 'Test string',
+        },
+        enableSovereignControls: true,
+        etag: 'Test string',
+        kajEnrollmentState: 'Test string',
+        kmsSettings: {
+          nextRotationTime: 'Test string',
+          rotationPeriod: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        partner: 'Test string',
+        partnerPermissions: {
+          assuredWorkloadsMonitoring: true,
+          dataLogsViewer: true,
+          serviceAccessApprover: true,
+        },
+        provisionedResourcesParent: 'Test string',
+        resourceMonitoringEnabled: true,
+        resources: [
+          {
+            resourceId: 'Test string',
+            resourceType: 'Test string',
+          },
+        ],
+        resourceSettings: [
+          {
+            displayName: 'Test string',
+            resourceId: 'Test string',
+            resourceType: 'Test string',
+          },
+        ],
+        saaEnrollmentResponse: {
+          setupErrors: ['Test string'],
+          setupStatus: 'Test string',
+        },
+        violationNotificationsEnabled: true,
+      }
+    );
+    /** Restrict the list of resources allowed in the Workload environment. The current list of allowed products can be found at https://cloud.google.com/assured-workloads/docs/supported-products In addition to assuredworkloads.workload.update permission, the user should also have orgpolicy.policy.set permission on the folder resource to use this functionality. */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.restrictAllowedResources(
+      {
+        name: 'Test string',
+      },
+      {
+        restrictionType: 'Test string',
+      }
+    );
+    /** Acknowledges an existing violation. By acknowledging a violation, users acknowledge the existence of a compliance violation in their workload and decide to ignore it due to a valid business justification. Acknowledgement is a permanent operation and it cannot be reverted. */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.violations.acknowledge(
+      {
+        name: 'Test string',
+      },
+      {
+        acknowledgeType: 'Test string',
+        comment: 'Test string',
+        nonCompliantOrgPolicy: 'Test string',
+      }
+    );
+    /** Retrieves Assured Workload Violation based on ID. */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.violations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists the Violations in the AssuredWorkload Environment. Callers may also choose to read across multiple Workloads as per [AIP-159](https://google.aip.dev/159) by using '-' (the hyphen or dash character) as a wildcard character instead of workload-id in the parent. Format `organizations/{org_id}/locations/{location}/workloads/-` */
+    await gapi.client.assuredworkloads.organizations.locations.workloads.violations.list(
+      {
+        filter: 'Test string',
+        'interval.endTime': 'Test string',
+        'interval.startTime': 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+  }
 });

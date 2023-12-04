@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://analytics.googleapis.com/$discovery/rest?version=v3', () => {
-  // now we can use:
-  // gapi.client.analytics
-});
+gapi.client.load(
+  'https://analytics.googleapis.com/$discovery/rest?version=v3',
+  () => {
+    // now we can use:
+    // gapi.client.analytics
+  }
+);
 ```
 
 ```typescript
@@ -45,52 +48,52 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and manage your Google Analytics data
-      'https://www.googleapis.com/auth/analytics',
+    // View and manage your Google Analytics data
+    'https://www.googleapis.com/auth/analytics',
 
-      // Edit Google Analytics management entities
-      'https://www.googleapis.com/auth/analytics.edit',
+    // Edit Google Analytics management entities
+    'https://www.googleapis.com/auth/analytics.edit',
 
-      // Manage Google Analytics Account users by email address
-      'https://www.googleapis.com/auth/analytics.manage.users',
+    // Manage Google Analytics Account users by email address
+    'https://www.googleapis.com/auth/analytics.manage.users',
 
-      // View Google Analytics user permissions
-      'https://www.googleapis.com/auth/analytics.manage.users.readonly',
+    // View Google Analytics user permissions
+    'https://www.googleapis.com/auth/analytics.manage.users.readonly',
 
-      // Create a new Google Analytics account along with its default property and view
-      'https://www.googleapis.com/auth/analytics.provision',
+    // Create a new Google Analytics account along with its default property and view
+    'https://www.googleapis.com/auth/analytics.provision',
 
-      // View your Google Analytics data
-      'https://www.googleapis.com/auth/analytics.readonly',
+    // View your Google Analytics data
+    'https://www.googleapis.com/auth/analytics.readonly',
 
-      // Manage Google Analytics user deletion requests
-      'https://www.googleapis.com/auth/analytics.user.deletion',
-    ],
-    immediate = true;
+    // Manage Google Analytics user deletion requests
+    'https://www.googleapis.com/auth/analytics.user.deletion',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Google Analytics API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Creates an account ticket.
 */
-await gapi.client.analytics.provisioning.createAccountTicket({  });
+await gapi.client.analytics.provisioning.createAccountTicket({});
 
 /*
 Provision account.
 */
-await gapi.client.analytics.provisioning.createAccountTree({  });
+await gapi.client.analytics.provisioning.createAccountTree({});
 ```

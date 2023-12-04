@@ -6,293 +6,295 @@
 // Revision: 20231012
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://memcache.googleapis.com/$discovery/rest?version=v1beta2');
-    /** now we can use gapi.client.memcache */
+  await gapi.client.load(
+    'https://memcache.googleapis.com/$discovery/rest?version=v1beta2'
+  );
+  /** now we can use gapi.client.memcache */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.memcache.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.memcache.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** `ApplyParameters` restarts the set of specified nodes in order to update them to the current set of parameters for the Memcached Instance. */
-        await gapi.client.memcache.projects.locations.instances.applyParameters({
-            name: "Test string",
-        }, {
-            applyAll: true,
-            nodeIds: [
-                "Test string"
-            ],
-        });
-        /** Updates software on the selected nodes of the Instance. */
-        await gapi.client.memcache.projects.locations.instances.applySoftwareUpdate({
-            instance: "Test string",
-        }, {
-            applyAll: true,
-            nodeIds: [
-                "Test string"
-            ],
-        });
-        /** Creates a new Instance in a given location. */
-        await gapi.client.memcache.projects.locations.instances.create({
-            instanceId: "Test string",
-            parent: "Test string",
-        }, {
-            authorizedNetwork: "Test string",
-            createTime: "Test string",
-            discoveryEndpoint: "Test string",
-            displayName: "Test string",
-            instanceMessages: [
-                {
-                    code: "Test string",
-                    message: "Test string",
-                }
-            ],
-            labels: {
-                A: "Test string"
-            },
-            maintenancePolicy: {
-                createTime: "Test string",
-                description: "Test string",
-                updateTime: "Test string",
-                weeklyMaintenanceWindow: [
-                    {
-                        day: "Test string",
-                        duration: "Test string",
-                        startTime: {
-                            hours: 42,
-                            minutes: 42,
-                            nanos: 42,
-                            seconds: 42,
-                        },
-                    }
-                ],
-            },
-            maintenanceSchedule: {
-                endTime: "Test string",
-                scheduleDeadlineTime: "Test string",
-                startTime: "Test string",
-            },
-            memcacheFullVersion: "Test string",
-            memcacheNodes: [
-                {
-                    host: "Test string",
-                    memcacheFullVersion: "Test string",
-                    memcacheVersion: "Test string",
-                    nodeId: "Test string",
-                    parameters: {
-                        id: "Test string",
-                        params: {
-                            A: "Test string"
-                        },
-                    },
-                    port: 42,
-                    state: "Test string",
-                    updateAvailable: true,
-                    zone: "Test string",
-                }
-            ],
-            memcacheVersion: "Test string",
-            name: "Test string",
-            nodeConfig: {
-                cpuCount: 42,
-                memorySizeMb: 42,
-            },
-            nodeCount: 42,
-            parameters: {
-                id: "Test string",
-                params: {
-                    A: "Test string"
-                },
-            },
-            reservedIpRangeId: [
-                "Test string"
-            ],
-            state: "Test string",
-            updateAvailable: true,
-            updateTime: "Test string",
-            zones: [
-                "Test string"
-            ],
-        });
-        /** Deletes a single Instance. */
-        await gapi.client.memcache.projects.locations.instances.delete({
-            name: "Test string",
-        });
-        /** Gets details of a single Instance. */
-        await gapi.client.memcache.projects.locations.instances.get({
-            name: "Test string",
-        });
-        /** Lists Instances in a given location. */
-        await gapi.client.memcache.projects.locations.instances.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing Instance in a given project and location. */
-        await gapi.client.memcache.projects.locations.instances.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            authorizedNetwork: "Test string",
-            createTime: "Test string",
-            discoveryEndpoint: "Test string",
-            displayName: "Test string",
-            instanceMessages: [
-                {
-                    code: "Test string",
-                    message: "Test string",
-                }
-            ],
-            labels: {
-                A: "Test string"
-            },
-            maintenancePolicy: {
-                createTime: "Test string",
-                description: "Test string",
-                updateTime: "Test string",
-                weeklyMaintenanceWindow: [
-                    {
-                        day: "Test string",
-                        duration: "Test string",
-                        startTime: {
-                            hours: 42,
-                            minutes: 42,
-                            nanos: 42,
-                            seconds: 42,
-                        },
-                    }
-                ],
-            },
-            maintenanceSchedule: {
-                endTime: "Test string",
-                scheduleDeadlineTime: "Test string",
-                startTime: "Test string",
-            },
-            memcacheFullVersion: "Test string",
-            memcacheNodes: [
-                {
-                    host: "Test string",
-                    memcacheFullVersion: "Test string",
-                    memcacheVersion: "Test string",
-                    nodeId: "Test string",
-                    parameters: {
-                        id: "Test string",
-                        params: {
-                            A: "Test string"
-                        },
-                    },
-                    port: 42,
-                    state: "Test string",
-                    updateAvailable: true,
-                    zone: "Test string",
-                }
-            ],
-            memcacheVersion: "Test string",
-            name: "Test string",
-            nodeConfig: {
-                cpuCount: 42,
-                memorySizeMb: 42,
-            },
-            nodeCount: 42,
-            parameters: {
-                id: "Test string",
-                params: {
-                    A: "Test string"
-                },
-            },
-            reservedIpRangeId: [
-                "Test string"
-            ],
-            state: "Test string",
-            updateAvailable: true,
-            updateTime: "Test string",
-            zones: [
-                "Test string"
-            ],
-        });
-        /** Performs the apply phase of the RescheduleMaintenance verb. */
-        await gapi.client.memcache.projects.locations.instances.rescheduleMaintenance({
-            instance: "Test string",
-        }, {
-            rescheduleType: "Test string",
-            scheduleTime: "Test string",
-        });
-        /**
-         * Updates the defined Memcached parameters for an existing instance. This method only stages the parameters, it must be followed by `ApplyParameters` to apply the parameters to nodes of
-         * the Memcached instance.
-         */
-        await gapi.client.memcache.projects.locations.instances.updateParameters({
-            name: "Test string",
-        }, {
-            parameters: {
-                id: "Test string",
-                params: {
-                    A: "Test string"
-                },
-            },
-            updateMask: "Test string",
-        });
-        /** Upgrades the Memcache instance to a newer memcached engine version specified in the request. */
-        await gapi.client.memcache.projects.locations.instances.upgrade({
-            name: "Test string",
-        }, {
-            memcacheVersion: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.memcache.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.memcache.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.memcache.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.memcache.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.memcache.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.memcache.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** `ApplyParameters` restarts the set of specified nodes in order to update them to the current set of parameters for the Memcached Instance. */
+    await gapi.client.memcache.projects.locations.instances.applyParameters(
+      {
+        name: 'Test string',
+      },
+      {
+        applyAll: true,
+        nodeIds: ['Test string'],
+      }
+    );
+    /** Updates software on the selected nodes of the Instance. */
+    await gapi.client.memcache.projects.locations.instances.applySoftwareUpdate(
+      {
+        instance: 'Test string',
+      },
+      {
+        applyAll: true,
+        nodeIds: ['Test string'],
+      }
+    );
+    /** Creates a new Instance in a given location. */
+    await gapi.client.memcache.projects.locations.instances.create(
+      {
+        instanceId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        authorizedNetwork: 'Test string',
+        createTime: 'Test string',
+        discoveryEndpoint: 'Test string',
+        displayName: 'Test string',
+        instanceMessages: [
+          {
+            code: 'Test string',
+            message: 'Test string',
+          },
+        ],
+        labels: {
+          A: 'Test string',
+        },
+        maintenancePolicy: {
+          createTime: 'Test string',
+          description: 'Test string',
+          updateTime: 'Test string',
+          weeklyMaintenanceWindow: [
+            {
+              day: 'Test string',
+              duration: 'Test string',
+              startTime: {
+                hours: 42,
+                minutes: 42,
+                nanos: 42,
+                seconds: 42,
+              },
+            },
+          ],
+        },
+        maintenanceSchedule: {
+          endTime: 'Test string',
+          scheduleDeadlineTime: 'Test string',
+          startTime: 'Test string',
+        },
+        memcacheFullVersion: 'Test string',
+        memcacheNodes: [
+          {
+            host: 'Test string',
+            memcacheFullVersion: 'Test string',
+            memcacheVersion: 'Test string',
+            nodeId: 'Test string',
+            parameters: {
+              id: 'Test string',
+              params: {
+                A: 'Test string',
+              },
+            },
+            port: 42,
+            state: 'Test string',
+            updateAvailable: true,
+            zone: 'Test string',
+          },
+        ],
+        memcacheVersion: 'Test string',
+        name: 'Test string',
+        nodeConfig: {
+          cpuCount: 42,
+          memorySizeMb: 42,
+        },
+        nodeCount: 42,
+        parameters: {
+          id: 'Test string',
+          params: {
+            A: 'Test string',
+          },
+        },
+        reservedIpRangeId: ['Test string'],
+        state: 'Test string',
+        updateAvailable: true,
+        updateTime: 'Test string',
+        zones: ['Test string'],
+      }
+    );
+    /** Deletes a single Instance. */
+    await gapi.client.memcache.projects.locations.instances.delete({
+      name: 'Test string',
+    });
+    /** Gets details of a single Instance. */
+    await gapi.client.memcache.projects.locations.instances.get({
+      name: 'Test string',
+    });
+    /** Lists Instances in a given location. */
+    await gapi.client.memcache.projects.locations.instances.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates an existing Instance in a given project and location. */
+    await gapi.client.memcache.projects.locations.instances.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        authorizedNetwork: 'Test string',
+        createTime: 'Test string',
+        discoveryEndpoint: 'Test string',
+        displayName: 'Test string',
+        instanceMessages: [
+          {
+            code: 'Test string',
+            message: 'Test string',
+          },
+        ],
+        labels: {
+          A: 'Test string',
+        },
+        maintenancePolicy: {
+          createTime: 'Test string',
+          description: 'Test string',
+          updateTime: 'Test string',
+          weeklyMaintenanceWindow: [
+            {
+              day: 'Test string',
+              duration: 'Test string',
+              startTime: {
+                hours: 42,
+                minutes: 42,
+                nanos: 42,
+                seconds: 42,
+              },
+            },
+          ],
+        },
+        maintenanceSchedule: {
+          endTime: 'Test string',
+          scheduleDeadlineTime: 'Test string',
+          startTime: 'Test string',
+        },
+        memcacheFullVersion: 'Test string',
+        memcacheNodes: [
+          {
+            host: 'Test string',
+            memcacheFullVersion: 'Test string',
+            memcacheVersion: 'Test string',
+            nodeId: 'Test string',
+            parameters: {
+              id: 'Test string',
+              params: {
+                A: 'Test string',
+              },
+            },
+            port: 42,
+            state: 'Test string',
+            updateAvailable: true,
+            zone: 'Test string',
+          },
+        ],
+        memcacheVersion: 'Test string',
+        name: 'Test string',
+        nodeConfig: {
+          cpuCount: 42,
+          memorySizeMb: 42,
+        },
+        nodeCount: 42,
+        parameters: {
+          id: 'Test string',
+          params: {
+            A: 'Test string',
+          },
+        },
+        reservedIpRangeId: ['Test string'],
+        state: 'Test string',
+        updateAvailable: true,
+        updateTime: 'Test string',
+        zones: ['Test string'],
+      }
+    );
+    /** Performs the apply phase of the RescheduleMaintenance verb. */
+    await gapi.client.memcache.projects.locations.instances.rescheduleMaintenance(
+      {
+        instance: 'Test string',
+      },
+      {
+        rescheduleType: 'Test string',
+        scheduleTime: 'Test string',
+      }
+    );
+    /** Updates the defined Memcached parameters for an existing instance. This method only stages the parameters, it must be followed by `ApplyParameters` to apply the parameters to nodes of the Memcached instance. */
+    await gapi.client.memcache.projects.locations.instances.updateParameters(
+      {
+        name: 'Test string',
+      },
+      {
+        parameters: {
+          id: 'Test string',
+          params: {
+            A: 'Test string',
+          },
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Upgrades the Memcache instance to a newer memcached engine version specified in the request. */
+    await gapi.client.memcache.projects.locations.instances.upgrade(
+      {
+        name: 'Test string',
+      },
+      {
+        memcacheVersion: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.memcache.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.memcache.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.memcache.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.memcache.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+  }
 });

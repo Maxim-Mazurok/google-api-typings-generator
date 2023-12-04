@@ -1,6 +1,5 @@
 # TypeScript typings for Traffic Director API v3
 
-
 For detailed description please check [documentation](https://cloud.google.com/traffic-director).
 
 ## Installing
@@ -25,10 +24,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://trafficdirector.googleapis.com/$discovery/rest?version=v3', () => {
-  // now we can use:
-  // gapi.client.trafficdirector
-});
+gapi.client.load(
+  'https://trafficdirector.googleapis.com/$discovery/rest?version=v3',
+  () => {
+    // now we can use:
+    // gapi.client.trafficdirector
+  }
+);
 ```
 
 ```typescript
@@ -45,29 +47,29 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Traffic Director API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 
 */
-await gapi.client.trafficdirector.discovery.client_status({  });
+await gapi.client.trafficdirector.discovery.client_status({});
 ```

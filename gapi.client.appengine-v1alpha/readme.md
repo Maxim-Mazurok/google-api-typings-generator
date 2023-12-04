@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://appengine.googleapis.com/$discovery/rest?version=v1alpha', () => {
-  // now we can use:
-  // gapi.client.appengine
-});
+gapi.client.load(
+  'https://appengine.googleapis.com/$discovery/rest?version=v1alpha',
+  () => {
+    // now we can use:
+    // gapi.client.appengine
+  }
+);
 ```
 
 ```typescript
@@ -45,30 +48,32 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and manage your applications deployed on Google App Engine
-      'https://www.googleapis.com/auth/appengine.admin',
+    // View and manage your applications deployed on Google App Engine
+    'https://www.googleapis.com/auth/appengine.admin',
 
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View your data across Google Cloud services and see the email address of your Google Account
-      'https://www.googleapis.com/auth/cloud-platform.read-only',
-    ],
-    immediate = true;
+    // View your data across Google Cloud services and see the email address of your Google Account
+    'https://www.googleapis.com/auth/cloud-platform.read-only',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use App Engine Admin API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

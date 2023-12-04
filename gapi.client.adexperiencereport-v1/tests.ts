@@ -6,20 +6,21 @@
 // Revision: 20231106
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://adexperiencereport.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.adexperiencereport */
+  await gapi.client.load(
+    'https://adexperiencereport.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.adexperiencereport */
 
-    run();
+  void run();
 
-    async function run() {
-        /** Gets a site's Ad Experience Report summary. */
-        await gapi.client.adexperiencereport.sites.get({
-            name: "Test string",
-        });
-        /** Lists sites that are failing in the Ad Experience Report on at least one platform. */
-        await gapi.client.adexperiencereport.violatingSites.list({
-        });
-    }
+  async function run() {
+    /** Gets a site's Ad Experience Report summary. */
+    await gapi.client.adexperiencereport.sites.get({
+      name: 'Test string',
+    });
+    /** Lists sites that are failing in the Ad Experience Report on at least one platform. */
+    await gapi.client.adexperiencereport.violatingSites.list({});
+  }
 });

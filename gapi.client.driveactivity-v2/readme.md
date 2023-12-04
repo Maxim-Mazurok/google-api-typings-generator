@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://driveactivity.googleapis.com/$discovery/rest?version=v2', () => {
-  // now we can use:
-  // gapi.client.driveactivity
-});
+gapi.client.load(
+  'https://driveactivity.googleapis.com/$discovery/rest?version=v2',
+  () => {
+    // now we can use:
+    // gapi.client.driveactivity
+  }
+);
 ```
 
 ```typescript
@@ -45,32 +48,32 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and add to the activity record of files in your Google Drive
-      'https://www.googleapis.com/auth/drive.activity',
+    // View and add to the activity record of files in your Google Drive
+    'https://www.googleapis.com/auth/drive.activity',
 
-      // View the activity record of files in your Google Drive
-      'https://www.googleapis.com/auth/drive.activity.readonly',
-    ],
-    immediate = true;
+    // View the activity record of files in your Google Drive
+    'https://www.googleapis.com/auth/drive.activity.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Drive Activity API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Query past activity in Google Drive.
 */
-await gapi.client.driveactivity.activity.query({  });
+await gapi.client.driveactivity.activity.query({});
 ```

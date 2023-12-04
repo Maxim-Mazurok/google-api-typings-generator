@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://identitytoolkit.googleapis.com/$discovery/rest?version=v2', () => {
-  // now we can use:
-  // gapi.client.identitytoolkit
-});
+gapi.client.load(
+  'https://identitytoolkit.googleapis.com/$discovery/rest?version=v2',
+  () => {
+    // now we can use:
+    // gapi.client.identitytoolkit
+  }
+);
 ```
 
 ```typescript
@@ -45,57 +48,57 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View and administer all your Firebase data and settings
-      'https://www.googleapis.com/auth/firebase',
-    ],
-    immediate = true;
+    // View and administer all your Firebase data and settings
+    'https://www.googleapis.com/auth/firebase',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Identity Toolkit API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Revokes a user's token from an Identity Provider (IdP). This is done by manually providing an IdP credential, and the token types for revocation. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project.
 */
-await gapi.client.identitytoolkit.accounts.revokeToken({  });
+await gapi.client.identitytoolkit.accounts.revokeToken({});
 
 /*
 List all default supported Idps.
 */
-await gapi.client.identitytoolkit.defaultSupportedIdps.list({  });
+await gapi.client.identitytoolkit.defaultSupportedIdps.list({});
 
 /*
 Retrieve an Identity Toolkit project configuration.
 */
-await gapi.client.identitytoolkit.projects.getConfig({ name: "name",  });
+await gapi.client.identitytoolkit.projects.getConfig({name: 'name'});
 
 /*
 Update an Identity Toolkit project configuration.
 */
-await gapi.client.identitytoolkit.projects.updateConfig({ name: "name",  });
+await gapi.client.identitytoolkit.projects.updateConfig({name: 'name'});
 
 /*
 Gets password policy config set on the project or tenant.
 */
-await gapi.client.identitytoolkit.getPasswordPolicy({  });
+await gapi.client.identitytoolkit.getPasswordPolicy({});
 
 /*
 Gets parameters needed for reCAPTCHA analysis.
 */
-await gapi.client.identitytoolkit.getRecaptchaConfig({  });
+await gapi.client.identitytoolkit.getRecaptchaConfig({});
 ```

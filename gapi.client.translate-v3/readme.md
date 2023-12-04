@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://translation.googleapis.com/$discovery/rest?version=v3', () => {
-  // now we can use:
-  // gapi.client.translate
-});
+gapi.client.load(
+  'https://translation.googleapis.com/$discovery/rest?version=v3',
+  () => {
+    // now we can use:
+    // gapi.client.translate
+  }
+);
 ```
 
 ```typescript
@@ -45,47 +48,47 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // Translate text from one language to another using Google Translate
-      'https://www.googleapis.com/auth/cloud-translation',
-    ],
-    immediate = true;
+    // Translate text from one language to another using Google Translate
+    'https://www.googleapis.com/auth/cloud-translation',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Translation API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Detects the language of text within a request.
 */
-await gapi.client.translate.projects.detectLanguage({ parent: "parent",  });
+await gapi.client.translate.projects.detectLanguage({parent: 'parent'});
 
 /*
 Returns a list of supported languages for translation.
 */
-await gapi.client.translate.projects.getSupportedLanguages({ parent: "parent",  });
+await gapi.client.translate.projects.getSupportedLanguages({parent: 'parent'});
 
 /*
 Romanize input text written in non-Latin scripts to Latin text.
 */
-await gapi.client.translate.projects.romanizeText({ parent: "parent",  });
+await gapi.client.translate.projects.romanizeText({parent: 'parent'});
 
 /*
 Translates input text and returns translated text.
 */
-await gapi.client.translate.projects.translateText({ parent: "parent",  });
+await gapi.client.translate.projects.translateText({parent: 'parent'});
 ```

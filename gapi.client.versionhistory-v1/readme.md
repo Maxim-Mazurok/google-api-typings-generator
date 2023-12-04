@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://versionhistory.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.versionhistory
-});
+gapi.client.load(
+  'https://versionhistory.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.versionhistory
+  }
+);
 ```
 
 ```typescript
@@ -39,14 +42,11 @@ gapi.client.load('versionhistory', 'v1', () => {
 });
 ```
 
-
-
 After that you can use versionhistory.googleapis.com API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Returns list of platforms that are available for a given product. The resource "product" has no resource name in its name.
 */
-await gapi.client.versionhistory.platforms.list({ parent: "parent",  });
+await gapi.client.versionhistory.platforms.list({parent: 'parent'});
 ```

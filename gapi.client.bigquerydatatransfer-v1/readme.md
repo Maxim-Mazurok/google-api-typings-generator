@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://bigquerydatatransfer.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.bigquerydatatransfer
-});
+gapi.client.load(
+  'https://bigquerydatatransfer.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.bigquerydatatransfer
+  }
+);
 ```
 
 ```typescript
@@ -45,35 +48,37 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and manage your data in Google BigQuery and see the email address for your Google Account
-      'https://www.googleapis.com/auth/bigquery',
+    // View and manage your data in Google BigQuery and see the email address for your Google Account
+    'https://www.googleapis.com/auth/bigquery',
 
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View your data across Google Cloud services and see the email address of your Google Account
-      'https://www.googleapis.com/auth/cloud-platform.read-only',
-    ],
-    immediate = true;
+    // View your data across Google Cloud services and see the email address of your Google Account
+    'https://www.googleapis.com/auth/cloud-platform.read-only',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use BigQuery Data Transfer API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Enroll data sources in a user project. This allows users to create transfer configurations for these data sources. They will also appear in the ListDataSources RPC and as such, will appear in the [BigQuery UI](https://console.cloud.google.com/bigquery), and the documents can be found in the public guide for [BigQuery Web UI](https://cloud.google.com/bigquery/bigquery-web-ui) and [Data Transfer Service](https://cloud.google.com/bigquery/docs/working-with-transfers).
 */
-await gapi.client.bigquerydatatransfer.projects.enrollDataSources({ name: "name",  });
+await gapi.client.bigquerydatatransfer.projects.enrollDataSources({
+  name: 'name',
+});
 ```

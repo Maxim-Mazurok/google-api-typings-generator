@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://admin.googleapis.com/$discovery/rest?version=datatransfer_v1', () => {
-  // now we can use:
-  // gapi.client.datatransfer
-});
+gapi.client.load(
+  'https://admin.googleapis.com/$discovery/rest?version=datatransfer_v1',
+  () => {
+    // now we can use:
+    // gapi.client.datatransfer
+  }
+);
 ```
 
 ```typescript
@@ -45,52 +48,56 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and manage data transfers between users in your organization
-      'https://www.googleapis.com/auth/admin.datatransfer',
+    // View and manage data transfers between users in your organization
+    'https://www.googleapis.com/auth/admin.datatransfer',
 
-      // View data transfers between users in your organization
-      'https://www.googleapis.com/auth/admin.datatransfer.readonly',
-    ],
-    immediate = true;
+    // View data transfers between users in your organization
+    'https://www.googleapis.com/auth/admin.datatransfer.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Admin SDK API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Retrieves information about an application for the given application ID.
 */
-await gapi.client.datatransfer.applications.get({ applicationId: "applicationId",  });
+await gapi.client.datatransfer.applications.get({
+  applicationId: 'applicationId',
+});
 
 /*
 Lists the applications available for data transfer for a customer.
 */
-await gapi.client.datatransfer.applications.list({  });
+await gapi.client.datatransfer.applications.list({});
 
 /*
 Retrieves a data transfer request by its resource ID.
 */
-await gapi.client.datatransfer.transfers.get({ dataTransferId: "dataTransferId",  });
+await gapi.client.datatransfer.transfers.get({
+  dataTransferId: 'dataTransferId',
+});
 
 /*
 Inserts a data transfer request. See the [Transfer parameters](/admin-sdk/data-transfer/v1/parameters) reference for specific application requirements.
 */
-await gapi.client.datatransfer.transfers.insert({  });
+await gapi.client.datatransfer.transfers.insert({});
 
 /*
 Lists the transfers for a customer by source user, destination user, or status.
 */
-await gapi.client.datatransfer.transfers.list({  });
+await gapi.client.datatransfer.transfers.list({});
 ```

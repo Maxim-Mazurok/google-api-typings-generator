@@ -6,28 +6,28 @@
 // Revision: 20231112
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://sts.googleapis.com/$discovery/rest?version=v1beta');
-    /** now we can use gapi.client.sts */
+  await gapi.client.load(
+    'https://sts.googleapis.com/$discovery/rest?version=v1beta'
+  );
+  /** now we can use gapi.client.sts */
 
-    run();
+  void run();
 
-    async function run() {
-        /**
-         * Exchanges a credential for a Google OAuth 2.0 access token. The token asserts an external identity within a workload identity pool, or it applies a Credential Access Boundary to a
-         * Google access token. When you call this method, do not send the `Authorization` HTTP header in the request. This method does not require the `Authorization` header, and using the header
-         * can cause the request to fail.
-         */
-        await gapi.client.sts.v1beta.token({
-        }, {
-            audience: "Test string",
-            grantType: "Test string",
-            options: "Test string",
-            requestedTokenType: "Test string",
-            scope: "Test string",
-            subjectToken: "Test string",
-            subjectTokenType: "Test string",
-        });
-    }
+  async function run() {
+    /** Exchanges a credential for a Google OAuth 2.0 access token. The token asserts an external identity within a workload identity pool, or it applies a Credential Access Boundary to a Google access token. When you call this method, do not send the `Authorization` HTTP header in the request. This method does not require the `Authorization` header, and using the header can cause the request to fail. */
+    await gapi.client.sts.v1beta.token(
+      {},
+      {
+        audience: 'Test string',
+        grantType: 'Test string',
+        options: 'Test string',
+        requestedTokenType: 'Test string',
+        scope: 'Test string',
+        subjectToken: 'Test string',
+        subjectTokenType: 'Test string',
+      }
+    );
+  }
 });

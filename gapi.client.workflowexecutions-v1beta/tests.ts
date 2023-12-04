@@ -6,86 +6,94 @@
 // Revision: 20231107
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://workflowexecutions.googleapis.com/$discovery/rest?version=v1beta');
-    /** now we can use gapi.client.workflowexecutions */
+  await gapi.client.load(
+    'https://workflowexecutions.googleapis.com/$discovery/rest?version=v1beta'
+  );
+  /** now we can use gapi.client.workflowexecutions */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Cancels an execution of the given name. */
-        await gapi.client.workflowexecutions.projects.locations.workflows.executions.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a new execution using the latest revision of the given workflow. */
-        await gapi.client.workflowexecutions.projects.locations.workflows.executions.create({
-            parent: "Test string",
-        }, {
-            argument: "Test string",
-            callLogLevel: "Test string",
-            endTime: "Test string",
-            error: {
-                context: "Test string",
-                payload: "Test string",
-                stackTrace: {
-                    elements: [
-                        {
-                            position: {
-                                column: "Test string",
-                                length: "Test string",
-                                line: "Test string",
-                            },
-                            routine: "Test string",
-                            step: "Test string",
-                        }
-                    ],
-                },
-            },
-            name: "Test string",
-            result: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            status: {
-                currentSteps: [
-                    {
-                        routine: "Test string",
-                        step: "Test string",
-                    }
-                ],
-            },
-            workflowRevisionId: "Test string",
-        });
-        /** Returns an execution of the given name. */
-        await gapi.client.workflowexecutions.projects.locations.workflows.executions.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start
-         * time (newest first).
-         */
-        await gapi.client.workflowexecutions.projects.locations.workflows.executions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Cancels an execution of the given name. */
+    await gapi.client.workflowexecutions.projects.locations.workflows.executions.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a new execution using the latest revision of the given workflow. */
+    await gapi.client.workflowexecutions.projects.locations.workflows.executions.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        argument: 'Test string',
+        callLogLevel: 'Test string',
+        endTime: 'Test string',
+        error: {
+          context: 'Test string',
+          payload: 'Test string',
+          stackTrace: {
+            elements: [
+              {
+                position: {
+                  column: 'Test string',
+                  length: 'Test string',
+                  line: 'Test string',
+                },
+                routine: 'Test string',
+                step: 'Test string',
+              },
+            ],
+          },
+        },
+        name: 'Test string',
+        result: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        status: {
+          currentSteps: [
+            {
+              routine: 'Test string',
+              step: 'Test string',
+            },
+          ],
+        },
+        workflowRevisionId: 'Test string',
+      }
+    );
+    /** Returns an execution of the given name. */
+    await gapi.client.workflowexecutions.projects.locations.workflows.executions.get(
+      {
+        name: 'Test string',
+        view: 'Test string',
+      }
+    );
+    /** Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first). */
+    await gapi.client.workflowexecutions.projects.locations.workflows.executions.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        view: 'Test string',
+      }
+    );
+  }
 });

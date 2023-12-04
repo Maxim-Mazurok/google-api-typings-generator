@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://monitoring.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.monitoring
-});
+gapi.client.load(
+  'https://monitoring.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.monitoring
+  }
+);
 ```
 
 ```typescript
@@ -45,38 +48,38 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View and write monitoring data for all of your Google and third-party Cloud and API projects
-      'https://www.googleapis.com/auth/monitoring',
+    // View and write monitoring data for all of your Google and third-party Cloud and API projects
+    'https://www.googleapis.com/auth/monitoring',
 
-      // View monitoring data for all of your Google Cloud and third-party projects
-      'https://www.googleapis.com/auth/monitoring.read',
+    // View monitoring data for all of your Google Cloud and third-party projects
+    'https://www.googleapis.com/auth/monitoring.read',
 
-      // Publish metric data to your Google Cloud projects
-      'https://www.googleapis.com/auth/monitoring.write',
-    ],
-    immediate = true;
+    // Publish metric data to your Google Cloud projects
+    'https://www.googleapis.com/auth/monitoring.write',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Monitoring API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 */
-await gapi.client.monitoring.operations.get({ name: "name",  });
+await gapi.client.monitoring.operations.get({name: 'name'});
 ```

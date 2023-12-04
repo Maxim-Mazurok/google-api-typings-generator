@@ -6,1466 +6,1483 @@
 // Revision: 20231113
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://beyondcorp.googleapis.com/$discovery/rest?version=v1alpha');
-    /** now we can use gapi.client.beyondcorp */
+  await gapi.client.load(
+    'https://beyondcorp.googleapis.com/$discovery/rest?version=v1alpha'
+  );
+  /** now we can use gapi.client.beyondcorp */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Creates a new BeyondCorp Enterprise partnerTenant in a given organization and can only be called by onboarded BeyondCorp Enterprise partner. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.create({
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            group: {
-                email: "Test string",
-                id: "Test string",
-            },
-            name: "Test string",
-            partnerMetadata: {
-                internalTenantId: "Test string",
-                partnerTenantId: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Deletes a single PartnerTenant. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets details of a single PartnerTenant. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists PartnerTenants in a given organization. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a single PartnerTenant. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            group: {
-                email: "Test string",
-                id: "Test string",
-            },
-            name: "Test string",
-            partnerMetadata: {
-                internalTenantId: "Test string",
-                partnerTenantId: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a new BrowserDlpRule in a given organization and PartnerTenant. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.create({
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            group: {
-                email: "Test string",
-                id: "Test string",
-            },
-            name: "Test string",
-            ruleSetting: {
-                type: "Test string",
-                value: {
-                    A: 42
-                },
-            },
-        });
-        /** Deletes an existing BrowserDlpRule. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets details of a single BrowserDlpRule. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists BrowserDlpRules for PartnerTenant in a given organization. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.list({
-            parent: "Test string",
-        });
-        /** Update an existing BrowserDlpRule in a given organization and PartnerTenant. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            group: {
-                email: "Test string",
-                id: "Test string",
-            },
-            name: "Test string",
-            ruleSetting: {
-                type: "Test string",
-                value: {
-                    A: 42
-                },
-            },
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a new BeyondCorp Enterprise ProxyConfig in a given organization and PartnerTenant. Can only be called by on onboarded Beyondcorp Enterprise partner. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.create({
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            encryptionInfo: {
-                encryptionSaEmail: "Test string",
-                jwk: "Test string",
-            },
-            name: "Test string",
-            proxyUri: "Test string",
-            routingInfo: {
-                pacUri: "Test string",
-            },
-            transportInfo: {
-                serverCaCertPem: "Test string",
-                sslDecryptCaCertPem: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Deletes a single ProxyConfig. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets details of a single ProxyConfig. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists ProxyConfigs for PartnerTenant in a given organization. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a single proxy config. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            encryptionInfo: {
-                encryptionSaEmail: "Test string",
-                jwk: "Test string",
-            },
-            name: "Test string",
-            proxyUri: "Test string",
-            routingInfo: {
-                pacUri: "Test string",
-            },
-            transportInfo: {
-                serverCaCertPem: "Test string",
-                sslDecryptCaCertPem: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /**
-         * Gets the value for a selected particular insight based on the provided filters. Use the organization level path for fetching at org level and project level path for fetching the insight
-         * value specific to a particular project.
-         */
-        await gapi.client.beyondcorp.organizations.locations.insights.configuredInsight({
-            aggregation: "Test string",
-            "customGrouping.fieldFilter": "Test string",
-            "customGrouping.groupFields": "Test string",
-            endTime: "Test string",
-            fieldFilter: "Test string",
-            group: "Test string",
-            insight: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            startTime: "Test string",
-        });
-        /**
-         * Gets the value for a selected particular insight with default configuration. The default aggregation level is 'DAILY' and no grouping will be applied or default grouping if applicable.
-         * The data will be returned for recent 7 days starting the day before. The insight data size will be limited to 50 rows. Use the organization level path for fetching at org level and
-         * project level path for fetching the insight value specific to a particular project. Setting the `view` to `BASIC` will only return the metadata for the insight.
-         */
-        await gapi.client.beyondcorp.organizations.locations.insights.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Lists for all the available insights that could be fetched from the system. Allows to filter using category. Setting the `view` to `BASIC` will let you iterate over the list of insight
-         * metadatas.
-         */
-        await gapi.client.beyondcorp.organizations.locations.insights.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.beyondcorp.organizations.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.beyondcorp.organizations.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.beyondcorp.organizations.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.beyondcorp.organizations.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new BeyondCorp Enterprise Subscription in a given organization. Location will always be global as BeyondCorp subscriptions are per organization. */
-        await gapi.client.beyondcorp.organizations.locations.subscriptions.create({
-            parent: "Test string",
-        }, {
-            autoRenewEnabled: true,
-            createTime: "Test string",
-            endTime: "Test string",
-            name: "Test string",
-            seatCount: "Test string",
-            sku: "Test string",
-            startTime: "Test string",
-            state: "Test string",
-            type: "Test string",
-        });
-        /** Gets details of a single Subscription. */
-        await gapi.client.beyondcorp.organizations.locations.subscriptions.get({
-            name: "Test string",
-        });
-        /** Lists Subscriptions in a given organization and location. */
-        await gapi.client.beyondcorp.organizations.locations.subscriptions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets information about a location. */
-        await gapi.client.beyondcorp.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.beyondcorp.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new AppConnection in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.appConnections.create({
-            appConnectionId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            applicationEndpoint: {
-                host: "Test string",
-                port: 42,
-            },
-            connectors: [
-                "Test string"
-            ],
-            createTime: "Test string",
-            displayName: "Test string",
-            gateway: {
-                appGateway: "Test string",
-                ingressPort: 42,
-                l7psc: "Test string",
-                type: "Test string",
-                uri: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: "Test string",
-            type: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single AppConnection. */
-        await gapi.client.beyondcorp.projects.locations.appConnections.delete({
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single AppConnection. */
-        await gapi.client.beyondcorp.projects.locations.appConnections.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.appConnections.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists AppConnections in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.appConnections.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single AppConnection. */
-        await gapi.client.beyondcorp.projects.locations.appConnections.patch({
-            allowMissing: true,
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            applicationEndpoint: {
-                host: "Test string",
-                port: 42,
-            },
-            connectors: [
-                "Test string"
-            ],
-            createTime: "Test string",
-            displayName: "Test string",
-            gateway: {
-                appGateway: "Test string",
-                ingressPort: 42,
-                l7psc: "Test string",
-                type: "Test string",
-                uri: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: "Test string",
-            type: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Resolves AppConnections details for a given AppConnector. An internal method called by a connector to find AppConnections to connect to. */
-        await gapi.client.beyondcorp.projects.locations.appConnections.resolve({
-            appConnectorId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.appConnections.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.appConnections.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a new AppConnector in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.create({
-            appConnectorId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            principalInfo: {
-                serviceAccount: {
-                    email: "Test string",
-                },
-            },
-            resourceInfo: {
-                id: "Test string",
-                resource: {
-                    A: 42
-                },
-                status: "Test string",
-                sub: undefined,
-                time: "Test string",
-            },
-            state: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single AppConnector. */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.delete({
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single AppConnector. */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists AppConnectors in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single AppConnector. */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            principalInfo: {
-                serviceAccount: {
-                    email: "Test string",
-                },
-            },
-            resourceInfo: {
-                id: "Test string",
-                resource: {
-                    A: 42
-                },
-                status: "Test string",
-                sub: undefined,
-                time: "Test string",
-            },
-            state: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Report status for a given connector. */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.reportStatus({
-            appConnector: "Test string",
-        }, {
-            requestId: "Test string",
-            resourceInfo: {
-                id: "Test string",
-                resource: {
-                    A: 42
-                },
-                status: "Test string",
-                sub: undefined,
-                time: "Test string",
-            },
-            validateOnly: true,
-        });
-        /** Gets instance configuration for a given AppConnector. An internal method called by a AppConnector to get its container config. */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.resolveInstanceConfig({
-            appConnector: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.appConnectors.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a new AppGateway in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.appGateways.create({
-            appGatewayId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            allocatedConnections: [
-                {
-                    ingressPort: 42,
-                    pscUri: "Test string",
-                }
-            ],
-            createTime: "Test string",
-            displayName: "Test string",
-            hostType: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: "Test string",
-            type: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-            uri: "Test string",
-        });
-        /** Deletes a single AppGateway. */
-        await gapi.client.beyondcorp.projects.locations.appGateways.delete({
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single AppGateway. */
-        await gapi.client.beyondcorp.projects.locations.appGateways.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.appGateways.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists AppGateways in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.appGateways.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.appGateways.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.appGateways.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.applicationDomains.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.applicationDomains.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.applicationDomains.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.applications.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.applications.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.applications.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.clientConnectorServices.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.clientConnectorServices.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.clientConnectorServices.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.clientGateways.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.clientGateways.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.clientGateways.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a new Connection in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.connections.create({
-            connectionId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            applicationEndpoint: {
-                host: "Test string",
-                port: 42,
-            },
-            connectors: [
-                "Test string"
-            ],
-            createTime: "Test string",
-            displayName: "Test string",
-            gateway: {
-                type: "Test string",
-                uri: "Test string",
-                userPort: 42,
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: "Test string",
-            type: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single Connection. */
-        await gapi.client.beyondcorp.projects.locations.connections.delete({
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single Connection. */
-        await gapi.client.beyondcorp.projects.locations.connections.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.connections.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Connections in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.connections.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single Connection. */
-        await gapi.client.beyondcorp.projects.locations.connections.patch({
-            allowMissing: true,
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            applicationEndpoint: {
-                host: "Test string",
-                port: 42,
-            },
-            connectors: [
-                "Test string"
-            ],
-            createTime: "Test string",
-            displayName: "Test string",
-            gateway: {
-                type: "Test string",
-                uri: "Test string",
-                userPort: 42,
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: "Test string",
-            type: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Resolves connections details for a given connector. An internal method called by a connector to find connections to connect to. */
-        await gapi.client.beyondcorp.projects.locations.connections.resolve({
-            connectorId: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.connections.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.connections.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a new Connector in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.connectors.create({
-            connectorId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            principalInfo: {
-                serviceAccount: {
-                    email: "Test string",
-                },
-            },
-            resourceInfo: {
-                id: "Test string",
-                resource: {
-                    A: 42
-                },
-                status: "Test string",
-                sub: undefined,
-                time: "Test string",
-            },
-            state: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single Connector. */
-        await gapi.client.beyondcorp.projects.locations.connectors.delete({
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single Connector. */
-        await gapi.client.beyondcorp.projects.locations.connectors.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.connectors.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Connectors in a given project and location. */
-        await gapi.client.beyondcorp.projects.locations.connectors.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single Connector. */
-        await gapi.client.beyondcorp.projects.locations.connectors.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            principalInfo: {
-                serviceAccount: {
-                    email: "Test string",
-                },
-            },
-            resourceInfo: {
-                id: "Test string",
-                resource: {
-                    A: 42
-                },
-                status: "Test string",
-                sub: undefined,
-                time: "Test string",
-            },
-            state: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Report status for a given connector. */
-        await gapi.client.beyondcorp.projects.locations.connectors.reportStatus({
-            connector: "Test string",
-        }, {
-            requestId: "Test string",
-            resourceInfo: {
-                id: "Test string",
-                resource: {
-                    A: 42
-                },
-                status: "Test string",
-                sub: undefined,
-                time: "Test string",
-            },
-            validateOnly: true,
-        });
-        /** Gets instance configuration for a given connector. An internal method called by a connector to get its container config. */
-        await gapi.client.beyondcorp.projects.locations.connectors.resolveInstanceConfig({
-            connector: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.connectors.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.connectors.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /**
-         * Gets the value for a selected particular insight based on the provided filters. Use the organization level path for fetching at org level and project level path for fetching the insight
-         * value specific to a particular project.
-         */
-        await gapi.client.beyondcorp.projects.locations.insights.configuredInsight({
-            aggregation: "Test string",
-            "customGrouping.fieldFilter": "Test string",
-            "customGrouping.groupFields": "Test string",
-            endTime: "Test string",
-            fieldFilter: "Test string",
-            group: "Test string",
-            insight: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            startTime: "Test string",
-        });
-        /**
-         * Gets the value for a selected particular insight with default configuration. The default aggregation level is 'DAILY' and no grouping will be applied or default grouping if applicable.
-         * The data will be returned for recent 7 days starting the day before. The insight data size will be limited to 50 rows. Use the organization level path for fetching at org level and
-         * project level path for fetching the insight value specific to a particular project. Setting the `view` to `BASIC` will only return the metadata for the insight.
-         */
-        await gapi.client.beyondcorp.projects.locations.insights.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /**
-         * Lists for all the available insights that could be fetched from the system. Allows to filter using category. Setting the `view` to `BASIC` will let you iterate over the list of insight
-         * metadatas.
-         */
-        await gapi.client.beyondcorp.projects.locations.insights.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.beyondcorp.projects.locations.netConnections.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.beyondcorp.projects.locations.netConnections.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.beyondcorp.projects.locations.netConnections.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.beyondcorp.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.beyondcorp.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.beyondcorp.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.beyondcorp.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Creates a new BeyondCorp Enterprise partnerTenant in a given organization and can only be called by onboarded BeyondCorp Enterprise partner. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.create(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        group: {
+          email: 'Test string',
+          id: 'Test string',
+        },
+        name: 'Test string',
+        partnerMetadata: {
+          internalTenantId: 'Test string',
+          partnerTenantId: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single PartnerTenant. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.delete(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Gets details of a single PartnerTenant. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Lists PartnerTenants in a given organization. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a single PartnerTenant. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        group: {
+          email: 'Test string',
+          id: 'Test string',
+        },
+        name: 'Test string',
+        partnerMetadata: {
+          internalTenantId: 'Test string',
+          partnerTenantId: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a new BrowserDlpRule in a given organization and PartnerTenant. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.create(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        group: {
+          email: 'Test string',
+          id: 'Test string',
+        },
+        name: 'Test string',
+        ruleSetting: {
+          type: 'Test string',
+          value: {
+            A: 42,
+          },
+        },
+      }
+    );
+    /** Deletes an existing BrowserDlpRule. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.delete(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Gets details of a single BrowserDlpRule. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Lists BrowserDlpRules for PartnerTenant in a given organization. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.list(
+      {
+        parent: 'Test string',
+      }
+    );
+    /** Update an existing BrowserDlpRule in a given organization and PartnerTenant. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        group: {
+          email: 'Test string',
+          id: 'Test string',
+        },
+        name: 'Test string',
+        ruleSetting: {
+          type: 'Test string',
+          value: {
+            A: 42,
+          },
+        },
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.browserDlpRules.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a new BeyondCorp Enterprise ProxyConfig in a given organization and PartnerTenant. Can only be called by on onboarded Beyondcorp Enterprise partner. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.create(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        encryptionInfo: {
+          encryptionSaEmail: 'Test string',
+          jwk: 'Test string',
+        },
+        name: 'Test string',
+        proxyUri: 'Test string',
+        routingInfo: {
+          pacUri: 'Test string',
+        },
+        transportInfo: {
+          serverCaCertPem: 'Test string',
+          sslDecryptCaCertPem: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single ProxyConfig. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.delete(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Gets details of a single ProxyConfig. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Lists ProxyConfigs for PartnerTenant in a given organization. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a single proxy config. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        encryptionInfo: {
+          encryptionSaEmail: 'Test string',
+          jwk: 'Test string',
+        },
+        name: 'Test string',
+        proxyUri: 'Test string',
+        routingInfo: {
+          pacUri: 'Test string',
+        },
+        transportInfo: {
+          serverCaCertPem: 'Test string',
+          sslDecryptCaCertPem: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.organizations.locations.global.partnerTenants.proxyConfigs.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Gets the value for a selected particular insight based on the provided filters. Use the organization level path for fetching at org level and project level path for fetching the insight value specific to a particular project. */
+    await gapi.client.beyondcorp.organizations.locations.insights.configuredInsight(
+      {
+        aggregation: 'Test string',
+        'customGrouping.fieldFilter': 'Test string',
+        'customGrouping.groupFields': 'Test string',
+        endTime: 'Test string',
+        fieldFilter: 'Test string',
+        group: 'Test string',
+        insight: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        startTime: 'Test string',
+      }
+    );
+    /** Gets the value for a selected particular insight with default configuration. The default aggregation level is 'DAILY' and no grouping will be applied or default grouping if applicable. The data will be returned for recent 7 days starting the day before. The insight data size will be limited to 50 rows. Use the organization level path for fetching at org level and project level path for fetching the insight value specific to a particular project. Setting the `view` to `BASIC` will only return the metadata for the insight. */
+    await gapi.client.beyondcorp.organizations.locations.insights.get({
+      name: 'Test string',
+      view: 'Test string',
+    });
+    /** Lists for all the available insights that could be fetched from the system. Allows to filter using category. Setting the `view` to `BASIC` will let you iterate over the list of insight metadatas. */
+    await gapi.client.beyondcorp.organizations.locations.insights.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      view: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.beyondcorp.organizations.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.beyondcorp.organizations.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.beyondcorp.organizations.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.beyondcorp.organizations.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new BeyondCorp Enterprise Subscription in a given organization. Location will always be global as BeyondCorp subscriptions are per organization. */
+    await gapi.client.beyondcorp.organizations.locations.subscriptions.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        autoRenewEnabled: true,
+        createTime: 'Test string',
+        endTime: 'Test string',
+        name: 'Test string',
+        seatCount: 'Test string',
+        sku: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        type: 'Test string',
+      }
+    );
+    /** Gets details of a single Subscription. */
+    await gapi.client.beyondcorp.organizations.locations.subscriptions.get({
+      name: 'Test string',
+    });
+    /** Lists Subscriptions in a given organization and location. */
+    await gapi.client.beyondcorp.organizations.locations.subscriptions.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets information about a location. */
+    await gapi.client.beyondcorp.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.beyondcorp.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new AppConnection in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.appConnections.create(
+      {
+        appConnectionId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        applicationEndpoint: {
+          host: 'Test string',
+          port: 42,
+        },
+        connectors: ['Test string'],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        gateway: {
+          appGateway: 'Test string',
+          ingressPort: 42,
+          l7psc: 'Test string',
+          type: 'Test string',
+          uri: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        type: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single AppConnection. */
+    await gapi.client.beyondcorp.projects.locations.appConnections.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets details of a single AppConnection. */
+    await gapi.client.beyondcorp.projects.locations.appConnections.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.appConnections.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Lists AppConnections in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.appConnections.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single AppConnection. */
+    await gapi.client.beyondcorp.projects.locations.appConnections.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        applicationEndpoint: {
+          host: 'Test string',
+          port: 42,
+        },
+        connectors: ['Test string'],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        gateway: {
+          appGateway: 'Test string',
+          ingressPort: 42,
+          l7psc: 'Test string',
+          type: 'Test string',
+          uri: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        type: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Resolves AppConnections details for a given AppConnector. An internal method called by a connector to find AppConnections to connect to. */
+    await gapi.client.beyondcorp.projects.locations.appConnections.resolve({
+      appConnectorId: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.appConnections.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.appConnections.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a new AppConnector in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.create(
+      {
+        appConnectorId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        principalInfo: {
+          serviceAccount: {
+            email: 'Test string',
+          },
+        },
+        resourceInfo: {
+          id: 'Test string',
+          resource: {
+            A: 42,
+          },
+          status: 'Test string',
+          sub: undefined,
+          time: 'Test string',
+        },
+        state: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single AppConnector. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets details of a single AppConnector. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists AppConnectors in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single AppConnector. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        principalInfo: {
+          serviceAccount: {
+            email: 'Test string',
+          },
+        },
+        resourceInfo: {
+          id: 'Test string',
+          resource: {
+            A: 42,
+          },
+          status: 'Test string',
+          sub: undefined,
+          time: 'Test string',
+        },
+        state: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Report status for a given connector. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.reportStatus(
+      {
+        appConnector: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+        resourceInfo: {
+          id: 'Test string',
+          resource: {
+            A: 42,
+          },
+          status: 'Test string',
+          sub: undefined,
+          time: 'Test string',
+        },
+        validateOnly: true,
+      }
+    );
+    /** Gets instance configuration for a given AppConnector. An internal method called by a AppConnector to get its container config. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.resolveInstanceConfig(
+      {
+        appConnector: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.appConnectors.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a new AppGateway in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.appGateways.create(
+      {
+        appGatewayId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        allocatedConnections: [
+          {
+            ingressPort: 42,
+            pscUri: 'Test string',
+          },
+        ],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        hostType: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        type: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+        uri: 'Test string',
+      }
+    );
+    /** Deletes a single AppGateway. */
+    await gapi.client.beyondcorp.projects.locations.appGateways.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets details of a single AppGateway. */
+    await gapi.client.beyondcorp.projects.locations.appGateways.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.appGateways.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists AppGateways in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.appGateways.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.appGateways.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.appGateways.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.applicationDomains.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.applicationDomains.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.applicationDomains.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.applications.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.applications.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.applications.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.clientConnectorServices.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.clientConnectorServices.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.clientConnectorServices.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.clientGateways.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.clientGateways.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.clientGateways.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a new Connection in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.connections.create(
+      {
+        connectionId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        applicationEndpoint: {
+          host: 'Test string',
+          port: 42,
+        },
+        connectors: ['Test string'],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        gateway: {
+          type: 'Test string',
+          uri: 'Test string',
+          userPort: 42,
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        type: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single Connection. */
+    await gapi.client.beyondcorp.projects.locations.connections.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets details of a single Connection. */
+    await gapi.client.beyondcorp.projects.locations.connections.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.connections.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Connections in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.connections.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single Connection. */
+    await gapi.client.beyondcorp.projects.locations.connections.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        applicationEndpoint: {
+          host: 'Test string',
+          port: 42,
+        },
+        connectors: ['Test string'],
+        createTime: 'Test string',
+        displayName: 'Test string',
+        gateway: {
+          type: 'Test string',
+          uri: 'Test string',
+          userPort: 42,
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        type: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Resolves connections details for a given connector. An internal method called by a connector to find connections to connect to. */
+    await gapi.client.beyondcorp.projects.locations.connections.resolve({
+      connectorId: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.connections.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.connections.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a new Connector in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.connectors.create(
+      {
+        connectorId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        principalInfo: {
+          serviceAccount: {
+            email: 'Test string',
+          },
+        },
+        resourceInfo: {
+          id: 'Test string',
+          resource: {
+            A: 42,
+          },
+          status: 'Test string',
+          sub: undefined,
+          time: 'Test string',
+        },
+        state: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single Connector. */
+    await gapi.client.beyondcorp.projects.locations.connectors.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets details of a single Connector. */
+    await gapi.client.beyondcorp.projects.locations.connectors.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.connectors.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Connectors in a given project and location. */
+    await gapi.client.beyondcorp.projects.locations.connectors.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single Connector. */
+    await gapi.client.beyondcorp.projects.locations.connectors.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        principalInfo: {
+          serviceAccount: {
+            email: 'Test string',
+          },
+        },
+        resourceInfo: {
+          id: 'Test string',
+          resource: {
+            A: 42,
+          },
+          status: 'Test string',
+          sub: undefined,
+          time: 'Test string',
+        },
+        state: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Report status for a given connector. */
+    await gapi.client.beyondcorp.projects.locations.connectors.reportStatus(
+      {
+        connector: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+        resourceInfo: {
+          id: 'Test string',
+          resource: {
+            A: 42,
+          },
+          status: 'Test string',
+          sub: undefined,
+          time: 'Test string',
+        },
+        validateOnly: true,
+      }
+    );
+    /** Gets instance configuration for a given connector. An internal method called by a connector to get its container config. */
+    await gapi.client.beyondcorp.projects.locations.connectors.resolveInstanceConfig(
+      {
+        connector: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.connectors.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.connectors.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Gets the value for a selected particular insight based on the provided filters. Use the organization level path for fetching at org level and project level path for fetching the insight value specific to a particular project. */
+    await gapi.client.beyondcorp.projects.locations.insights.configuredInsight({
+      aggregation: 'Test string',
+      'customGrouping.fieldFilter': 'Test string',
+      'customGrouping.groupFields': 'Test string',
+      endTime: 'Test string',
+      fieldFilter: 'Test string',
+      group: 'Test string',
+      insight: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      startTime: 'Test string',
+    });
+    /** Gets the value for a selected particular insight with default configuration. The default aggregation level is 'DAILY' and no grouping will be applied or default grouping if applicable. The data will be returned for recent 7 days starting the day before. The insight data size will be limited to 50 rows. Use the organization level path for fetching at org level and project level path for fetching the insight value specific to a particular project. Setting the `view` to `BASIC` will only return the metadata for the insight. */
+    await gapi.client.beyondcorp.projects.locations.insights.get({
+      name: 'Test string',
+      view: 'Test string',
+    });
+    /** Lists for all the available insights that could be fetched from the system. Allows to filter using category. Setting the `view` to `BASIC` will let you iterate over the list of insight metadatas. */
+    await gapi.client.beyondcorp.projects.locations.insights.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      view: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.beyondcorp.projects.locations.netConnections.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.beyondcorp.projects.locations.netConnections.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.beyondcorp.projects.locations.netConnections.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.beyondcorp.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.beyondcorp.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.beyondcorp.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.beyondcorp.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+  }
 });

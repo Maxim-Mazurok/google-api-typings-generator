@@ -1,6 +1,5 @@
 # TypeScript typings for Places API (New) v1
 
-
 For detailed description please check [documentation](https://mapsplatform.google.com/maps-products/#places-section).
 
 ## Installing
@@ -25,10 +24,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://places.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.places
-});
+gapi.client.load(
+  'https://places.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.places
+  }
+);
 ```
 
 ```typescript
@@ -45,51 +47,51 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // Private Service: https://www.googleapis.com/auth/maps-platform.places
-      'https://www.googleapis.com/auth/maps-platform.places',
+    // Private Service: https://www.googleapis.com/auth/maps-platform.places
+    'https://www.googleapis.com/auth/maps-platform.places',
 
-      // Private Service: https://www.googleapis.com/auth/maps-platform.places.details
-      'https://www.googleapis.com/auth/maps-platform.places.details',
+    // Private Service: https://www.googleapis.com/auth/maps-platform.places.details
+    'https://www.googleapis.com/auth/maps-platform.places.details',
 
-      // Private Service: https://www.googleapis.com/auth/maps-platform.places.nearbysearch
-      'https://www.googleapis.com/auth/maps-platform.places.nearbysearch',
+    // Private Service: https://www.googleapis.com/auth/maps-platform.places.nearbysearch
+    'https://www.googleapis.com/auth/maps-platform.places.nearbysearch',
 
-      // Private Service: https://www.googleapis.com/auth/maps-platform.places.textsearch
-      'https://www.googleapis.com/auth/maps-platform.places.textsearch',
-    ],
-    immediate = true;
+    // Private Service: https://www.googleapis.com/auth/maps-platform.places.textsearch
+    'https://www.googleapis.com/auth/maps-platform.places.textsearch',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Places API (New) resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Get place details with a place id (in a name) string.
 */
-await gapi.client.places.places.get({ name: "name",  });
+await gapi.client.places.places.get({name: 'name'});
 
 /*
 Search for places near locations.
 */
-await gapi.client.places.places.searchNearby({  });
+await gapi.client.places.places.searchNearby({});
 
 /*
 Text query based place search.
 */
-await gapi.client.places.places.searchText({  });
+await gapi.client.places.places.searchText({});
 ```

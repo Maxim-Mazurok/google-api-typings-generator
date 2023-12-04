@@ -6,330 +6,355 @@
 // Revision: 20231127
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://cloudbuild.googleapis.com/$discovery/rest?version=v2');
-    /** now we can use gapi.client.cloudbuild */
+  await gapi.client.load(
+    'https://cloudbuild.googleapis.com/$discovery/rest?version=v2'
+  );
+  /** now we can use gapi.client.cloudbuild */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.cloudbuild.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.cloudbuild.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a Connection. */
-        await gapi.client.cloudbuild.projects.locations.connections.create({
-            connectionId: "Test string",
-            parent: "Test string",
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            createTime: "Test string",
-            disabled: true,
-            etag: "Test string",
-            githubConfig: {
-                appInstallationId: "Test string",
-                authorizerCredential: {
-                    oauthTokenSecretVersion: "Test string",
-                    username: "Test string",
-                },
-            },
-            githubEnterpriseConfig: {
-                apiKey: "Test string",
-                appId: "Test string",
-                appInstallationId: "Test string",
-                appSlug: "Test string",
-                hostUri: "Test string",
-                privateKeySecretVersion: "Test string",
-                serverVersion: "Test string",
-                serviceDirectoryConfig: {
-                    service: "Test string",
-                },
-                sslCa: "Test string",
-                webhookSecretSecretVersion: "Test string",
-            },
-            gitlabConfig: {
-                authorizerCredential: {
-                    username: "Test string",
-                    userTokenSecretVersion: "Test string",
-                },
-                hostUri: "Test string",
-                readAuthorizerCredential: {
-                    username: "Test string",
-                    userTokenSecretVersion: "Test string",
-                },
-                serverVersion: "Test string",
-                serviceDirectoryConfig: {
-                    service: "Test string",
-                },
-                sslCa: "Test string",
-                webhookSecretSecretVersion: "Test string",
-            },
-            installationState: {
-                actionUri: "Test string",
-                message: "Test string",
-                stage: "Test string",
-            },
-            name: "Test string",
-            reconciling: true,
-            updateTime: "Test string",
-        });
-        /** Deletes a single connection. */
-        await gapi.client.cloudbuild.projects.locations.connections.delete({
-            etag: "Test string",
-            name: "Test string",
-            validateOnly: true,
-        });
-        /** FetchLinkableRepositories get repositories from SCM that are accessible and could be added to the connection. */
-        await gapi.client.cloudbuild.projects.locations.connections.fetchLinkableRepositories({
-            connection: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets details of a single connection. */
-        await gapi.client.cloudbuild.projects.locations.connections.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.cloudbuild.projects.locations.connections.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Connections in a given project and location. */
-        await gapi.client.cloudbuild.projects.locations.connections.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a single connection. */
-        await gapi.client.cloudbuild.projects.locations.connections.patch({
-            allowMissing: true,
-            etag: "Test string",
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            createTime: "Test string",
-            disabled: true,
-            etag: "Test string",
-            githubConfig: {
-                appInstallationId: "Test string",
-                authorizerCredential: {
-                    oauthTokenSecretVersion: "Test string",
-                    username: "Test string",
-                },
-            },
-            githubEnterpriseConfig: {
-                apiKey: "Test string",
-                appId: "Test string",
-                appInstallationId: "Test string",
-                appSlug: "Test string",
-                hostUri: "Test string",
-                privateKeySecretVersion: "Test string",
-                serverVersion: "Test string",
-                serviceDirectoryConfig: {
-                    service: "Test string",
-                },
-                sslCa: "Test string",
-                webhookSecretSecretVersion: "Test string",
-            },
-            gitlabConfig: {
-                authorizerCredential: {
-                    username: "Test string",
-                    userTokenSecretVersion: "Test string",
-                },
-                hostUri: "Test string",
-                readAuthorizerCredential: {
-                    username: "Test string",
-                    userTokenSecretVersion: "Test string",
-                },
-                serverVersion: "Test string",
-                serviceDirectoryConfig: {
-                    service: "Test string",
-                },
-                sslCa: "Test string",
-                webhookSecretSecretVersion: "Test string",
-            },
-            installationState: {
-                actionUri: "Test string",
-                message: "Test string",
-                stage: "Test string",
-            },
-            name: "Test string",
-            reconciling: true,
-            updateTime: "Test string",
-        });
-        /** ProcessWebhook is called by the external SCM for notifying of events. */
-        await gapi.client.cloudbuild.projects.locations.connections.processWebhook({
-            parent: "Test string",
-            webhookKey: "Test string",
-        }, {
-            contentType: "Test string",
-            data: "Test string",
-            extensions: [
-                {
-                    A: 42
-                }
-            ],
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.cloudbuild.projects.locations.connections.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.cloudbuild.projects.locations.connections.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Fetches read token of a given repository. */
-        await gapi.client.cloudbuild.projects.locations.connections.repositories.accessReadToken({
-            repository: "Test string",
-        }, {
-        });
-        /** Fetches read/write token of a given repository. */
-        await gapi.client.cloudbuild.projects.locations.connections.repositories.accessReadWriteToken({
-            repository: "Test string",
-        }, {
-        });
-        /** Creates multiple repositories inside a connection. */
-        await gapi.client.cloudbuild.projects.locations.connections.repositories.batchCreate({
-            parent: "Test string",
-        }, {
-            requests: [
-                {
-                    parent: "Test string",
-                    repository: {
-                        annotations: {
-                            A: "Test string"
-                        },
-                        createTime: "Test string",
-                        etag: "Test string",
-                        name: "Test string",
-                        remoteUri: "Test string",
-                        updateTime: "Test string",
-                        webhookId: "Test string",
-                    },
-                    repositoryId: "Test string",
-                }
-            ],
-        });
-        /** Creates a Repository. */
-        await gapi.client.cloudbuild.projects.locations.connections.repositories.create({
-            parent: "Test string",
-            repositoryId: "Test string",
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            createTime: "Test string",
-            etag: "Test string",
-            name: "Test string",
-            remoteUri: "Test string",
-            updateTime: "Test string",
-            webhookId: "Test string",
-        });
-        /** Deletes a single repository. */
-        await gapi.client.cloudbuild.projects.locations.connections.repositories.delete({
-            etag: "Test string",
-            name: "Test string",
-            validateOnly: true,
-        });
-        /** Fetch the list of branches or tags for a given repository. */
-        await gapi.client.cloudbuild.projects.locations.connections.repositories.fetchGitRefs({
-            pageSize: 42,
-            pageToken: "Test string",
-            refType: "Test string",
-            repository: "Test string",
-        });
-        /** Gets details of a single repository. */
-        await gapi.client.cloudbuild.projects.locations.connections.repositories.get({
-            name: "Test string",
-        });
-        /** Lists Repositories in a given connection. */
-        await gapi.client.cloudbuild.projects.locations.connections.repositories.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.cloudbuild.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.cloudbuild.projects.locations.operations.get({
-            name: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.cloudbuild.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.cloudbuild.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a Connection. */
+    await gapi.client.cloudbuild.projects.locations.connections.create(
+      {
+        connectionId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        createTime: 'Test string',
+        disabled: true,
+        etag: 'Test string',
+        githubConfig: {
+          appInstallationId: 'Test string',
+          authorizerCredential: {
+            oauthTokenSecretVersion: 'Test string',
+            username: 'Test string',
+          },
+        },
+        githubEnterpriseConfig: {
+          apiKey: 'Test string',
+          appId: 'Test string',
+          appInstallationId: 'Test string',
+          appSlug: 'Test string',
+          hostUri: 'Test string',
+          privateKeySecretVersion: 'Test string',
+          serverVersion: 'Test string',
+          serviceDirectoryConfig: {
+            service: 'Test string',
+          },
+          sslCa: 'Test string',
+          webhookSecretSecretVersion: 'Test string',
+        },
+        gitlabConfig: {
+          authorizerCredential: {
+            username: 'Test string',
+            userTokenSecretVersion: 'Test string',
+          },
+          hostUri: 'Test string',
+          readAuthorizerCredential: {
+            username: 'Test string',
+            userTokenSecretVersion: 'Test string',
+          },
+          serverVersion: 'Test string',
+          serviceDirectoryConfig: {
+            service: 'Test string',
+          },
+          sslCa: 'Test string',
+          webhookSecretSecretVersion: 'Test string',
+        },
+        installationState: {
+          actionUri: 'Test string',
+          message: 'Test string',
+          stage: 'Test string',
+        },
+        name: 'Test string',
+        reconciling: true,
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single connection. */
+    await gapi.client.cloudbuild.projects.locations.connections.delete({
+      etag: 'Test string',
+      name: 'Test string',
+      validateOnly: true,
+    });
+    /** FetchLinkableRepositories get repositories from SCM that are accessible and could be added to the connection. */
+    await gapi.client.cloudbuild.projects.locations.connections.fetchLinkableRepositories(
+      {
+        connection: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Gets details of a single connection. */
+    await gapi.client.cloudbuild.projects.locations.connections.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.cloudbuild.projects.locations.connections.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Connections in a given project and location. */
+    await gapi.client.cloudbuild.projects.locations.connections.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a single connection. */
+    await gapi.client.cloudbuild.projects.locations.connections.patch(
+      {
+        allowMissing: true,
+        etag: 'Test string',
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        createTime: 'Test string',
+        disabled: true,
+        etag: 'Test string',
+        githubConfig: {
+          appInstallationId: 'Test string',
+          authorizerCredential: {
+            oauthTokenSecretVersion: 'Test string',
+            username: 'Test string',
+          },
+        },
+        githubEnterpriseConfig: {
+          apiKey: 'Test string',
+          appId: 'Test string',
+          appInstallationId: 'Test string',
+          appSlug: 'Test string',
+          hostUri: 'Test string',
+          privateKeySecretVersion: 'Test string',
+          serverVersion: 'Test string',
+          serviceDirectoryConfig: {
+            service: 'Test string',
+          },
+          sslCa: 'Test string',
+          webhookSecretSecretVersion: 'Test string',
+        },
+        gitlabConfig: {
+          authorizerCredential: {
+            username: 'Test string',
+            userTokenSecretVersion: 'Test string',
+          },
+          hostUri: 'Test string',
+          readAuthorizerCredential: {
+            username: 'Test string',
+            userTokenSecretVersion: 'Test string',
+          },
+          serverVersion: 'Test string',
+          serviceDirectoryConfig: {
+            service: 'Test string',
+          },
+          sslCa: 'Test string',
+          webhookSecretSecretVersion: 'Test string',
+        },
+        installationState: {
+          actionUri: 'Test string',
+          message: 'Test string',
+          stage: 'Test string',
+        },
+        name: 'Test string',
+        reconciling: true,
+        updateTime: 'Test string',
+      }
+    );
+    /** ProcessWebhook is called by the external SCM for notifying of events. */
+    await gapi.client.cloudbuild.projects.locations.connections.processWebhook(
+      {
+        parent: 'Test string',
+        webhookKey: 'Test string',
+      },
+      {
+        contentType: 'Test string',
+        data: 'Test string',
+        extensions: [
+          {
+            A: 42,
+          },
+        ],
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.cloudbuild.projects.locations.connections.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.cloudbuild.projects.locations.connections.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Fetches read token of a given repository. */
+    await gapi.client.cloudbuild.projects.locations.connections.repositories.accessReadToken(
+      {
+        repository: 'Test string',
+      },
+      {}
+    );
+    /** Fetches read/write token of a given repository. */
+    await gapi.client.cloudbuild.projects.locations.connections.repositories.accessReadWriteToken(
+      {
+        repository: 'Test string',
+      },
+      {}
+    );
+    /** Creates multiple repositories inside a connection. */
+    await gapi.client.cloudbuild.projects.locations.connections.repositories.batchCreate(
+      {
+        parent: 'Test string',
+      },
+      {
+        requests: [
+          {
+            parent: 'Test string',
+            repository: {
+              annotations: {
+                A: 'Test string',
+              },
+              createTime: 'Test string',
+              etag: 'Test string',
+              name: 'Test string',
+              remoteUri: 'Test string',
+              updateTime: 'Test string',
+              webhookId: 'Test string',
+            },
+            repositoryId: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Creates a Repository. */
+    await gapi.client.cloudbuild.projects.locations.connections.repositories.create(
+      {
+        parent: 'Test string',
+        repositoryId: 'Test string',
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        createTime: 'Test string',
+        etag: 'Test string',
+        name: 'Test string',
+        remoteUri: 'Test string',
+        updateTime: 'Test string',
+        webhookId: 'Test string',
+      }
+    );
+    /** Deletes a single repository. */
+    await gapi.client.cloudbuild.projects.locations.connections.repositories.delete(
+      {
+        etag: 'Test string',
+        name: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Fetch the list of branches or tags for a given repository. */
+    await gapi.client.cloudbuild.projects.locations.connections.repositories.fetchGitRefs(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        refType: 'Test string',
+        repository: 'Test string',
+      }
+    );
+    /** Gets details of a single repository. */
+    await gapi.client.cloudbuild.projects.locations.connections.repositories.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists Repositories in a given connection. */
+    await gapi.client.cloudbuild.projects.locations.connections.repositories.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.cloudbuild.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.cloudbuild.projects.locations.operations.get({
+      name: 'Test string',
+    });
+  }
 });

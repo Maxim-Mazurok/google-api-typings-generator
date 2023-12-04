@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://dfareporting.googleapis.com/$discovery/rest?version=v3.5', () => {
-  // now we can use:
-  // gapi.client.dfareporting
-});
+gapi.client.load(
+  'https://dfareporting.googleapis.com/$discovery/rest?version=v3.5',
+  () => {
+    // now we can use:
+    // gapi.client.dfareporting
+  }
+);
 ```
 
 ```typescript
@@ -45,29 +48,32 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns
-      'https://www.googleapis.com/auth/dfatrafficking',
-    ],
-    immediate = true;
+    // View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns
+    'https://www.googleapis.com/auth/dfatrafficking',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Campaign Manager 360 API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Inserts a new creative asset.
 */
-await gapi.client.dfareporting.media.upload({ advertiserId: "advertiserId", profileId: "profileId",  });
+await gapi.client.dfareporting.media.upload({
+  advertiserId: 'advertiserId',
+  profileId: 'profileId',
+});
 ```

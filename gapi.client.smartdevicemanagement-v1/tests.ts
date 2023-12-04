@@ -6,63 +6,68 @@
 // Revision: 20231119
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://smartdevicemanagement.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.smartdevicemanagement */
+  await gapi.client.load(
+    'https://smartdevicemanagement.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.smartdevicemanagement */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See and/or control the devices that you selected */
-        'https://www.googleapis.com/auth/sdm.service',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Executes a command to device managed by the enterprise. */
-        await gapi.client.smartdevicemanagement.enterprises.devices.executeCommand({
-            name: "Test string",
-        }, {
-            command: "Test string",
-            params: {
-                A: 42
-            },
-        });
-        /** Gets a device managed by the enterprise. */
-        await gapi.client.smartdevicemanagement.enterprises.devices.get({
-            name: "Test string",
-        });
-        /** Lists devices managed by the enterprise. */
-        await gapi.client.smartdevicemanagement.enterprises.devices.list({
-            filter: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a structure managed by the enterprise. */
-        await gapi.client.smartdevicemanagement.enterprises.structures.get({
-            name: "Test string",
-        });
-        /** Lists structures managed by the enterprise. */
-        await gapi.client.smartdevicemanagement.enterprises.structures.list({
-            filter: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a room managed by the enterprise. */
-        await gapi.client.smartdevicemanagement.enterprises.structures.rooms.get({
-            name: "Test string",
-        });
-        /** Lists rooms managed by the enterprise. */
-        await gapi.client.smartdevicemanagement.enterprises.structures.rooms.list({
-            parent: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See and/or control the devices that you selected */
+    'https://www.googleapis.com/auth/sdm.service',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Executes a command to device managed by the enterprise. */
+    await gapi.client.smartdevicemanagement.enterprises.devices.executeCommand(
+      {
+        name: 'Test string',
+      },
+      {
+        command: 'Test string',
+        params: {
+          A: 42,
+        },
+      }
+    );
+    /** Gets a device managed by the enterprise. */
+    await gapi.client.smartdevicemanagement.enterprises.devices.get({
+      name: 'Test string',
+    });
+    /** Lists devices managed by the enterprise. */
+    await gapi.client.smartdevicemanagement.enterprises.devices.list({
+      filter: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets a structure managed by the enterprise. */
+    await gapi.client.smartdevicemanagement.enterprises.structures.get({
+      name: 'Test string',
+    });
+    /** Lists structures managed by the enterprise. */
+    await gapi.client.smartdevicemanagement.enterprises.structures.list({
+      filter: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets a room managed by the enterprise. */
+    await gapi.client.smartdevicemanagement.enterprises.structures.rooms.get({
+      name: 'Test string',
+    });
+    /** Lists rooms managed by the enterprise. */
+    await gapi.client.smartdevicemanagement.enterprises.structures.rooms.list({
+      parent: 'Test string',
+    });
+  }
 });

@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://videointelligence.googleapis.com/$discovery/rest?version=v1p2beta1', () => {
-  // now we can use:
-  // gapi.client.videointelligence
-});
+gapi.client.load(
+  'https://videointelligence.googleapis.com/$discovery/rest?version=v1p2beta1',
+  () => {
+    // now we can use:
+    // gapi.client.videointelligence
+  }
+);
 ```
 
 ```typescript
@@ -45,29 +48,29 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Video Intelligence API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Performs asynchronous video annotation. Progress and results can be retrieved through the `google.longrunning.Operations` interface. `Operation.metadata` contains `AnnotateVideoProgress` (progress). `Operation.response` contains `AnnotateVideoResponse` (results).
 */
-await gapi.client.videointelligence.videos.annotate({  });
+await gapi.client.videointelligence.videos.annotate({});
 ```

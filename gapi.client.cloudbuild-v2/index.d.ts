@@ -14,2441 +14,1608 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Cloud Build API v2 */
-    function load(urlOrObject: "https://cloudbuild.googleapis.com/$discovery/rest?version=v2"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "cloudbuild", version: "v2"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "cloudbuild", version: "v2", callback: () => any): void;
+  /** Load Cloud Build API v2 */
+  function load(
+    urlOrObject: 'https://cloudbuild.googleapis.com/$discovery/rest?version=v2'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'cloudbuild', version: 'v2'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'cloudbuild', version: 'v2', callback: () => any): void;
 
-    namespace cloudbuild {
-        interface AuditConfig {
-            /** The configuration for logging of each type of permission. */
-            auditLogConfigs?:
-                AuditLogConfig[];
-            /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
-             * services.
-             */
-            service?:
-                string;
-        }
-        interface AuditLogConfig {
-            /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?:
-                string[];
-            /** The log type that this config enables. */
-            logType?:
-                string;
-        }
-        interface BatchCreateRepositoriesRequest {
-            /** Required. The request messages specifying the repositories to create. */
-            requests?:
-                CreateRepositoryRequest[];
-        }
-        interface BatchCreateRepositoriesResponse {
-            /** Repository resources created. */
-            repositories?:
-                Repository[];
-        }
-        interface Binding {
-            /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
-             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
-             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            condition?:
-                Expr;
-            /**
-             * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
-             * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
-             * account. Does not include identities that come from external identity providers (IdPs) through identity federation. * `user:{emailid}`: An email address that represents a specific
-             * Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that represents a Google service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. * `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An identifier for a [Kubernetes service
-             * account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts). For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
-             * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. * `domain:{domain}`: The G Suite domain (primary) that represents all the
-             * users of that domain. For example, `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has
-             * been recently deleted. For example, `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains
-             * the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
-             * deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and
-             * the undeleted service account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that
-             * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding.
-             */
-            members?:
-                string[];
-            /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface CancelOperationRequest {
-        }
-        interface Capabilities {
-            /** Optional. Added capabilities +optional */
-            add?:
-                string[];
-            /** Optional. Removed capabilities +optional */
-            drop?:
-                string[];
-        }
-        interface ChildStatusReference {
-            /** Name is the name of the TaskRun or Run this is referencing. */
-            name?:
-                string;
-            /** PipelineTaskName is the name of the PipelineTask this is referencing. */
-            pipelineTaskName?:
-                string;
-            /** Output only. Type of the child reference. */
-            type?:
-                string;
-            /** WhenExpressions is the list of checks guarding the execution of the PipelineTask */
-            whenExpressions?:
-                WhenExpression[];
-        }
-        interface Connection {
-            /** Allows clients to store small amounts of arbitrary data. */
-            annotations?:
-                { [P in string]: string };
-            /** Output only. Server assigned timestamp for when the connection was created. */
-            createTime?:
-                string;
-            /** If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled. */
-            disabled?:
-                boolean;
-            /**
-             * This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before
-             * proceeding.
-             */
-            etag?:
-                string;
-            /** Configuration for connections to github.com. */
-            githubConfig?:
-                GitHubConfig;
-            /** Configuration for connections to an instance of GitHub Enterprise. */
-            githubEnterpriseConfig?:
-                GoogleDevtoolsCloudbuildV2GitHubEnterpriseConfig;
-            /** Configuration for connections to gitlab.com or an instance of GitLab Enterprise. */
-            gitlabConfig?:
-                GoogleDevtoolsCloudbuildV2GitLabConfig;
-            /** Output only. Installation state of the Connection. */
-            installationState?:
-                InstallationState;
-            /** Immutable. The resource name of the connection, in the format `projects/{project}/locations/{location}/connections/{connection_id}`. */
-            name?:
-                string;
-            /** Output only. Set to true when the connection is being set up or updated in the background. */
-            reconciling?:
-                boolean;
-            /** Output only. Server assigned timestamp for when the connection was updated. */
-            updateTime?:
-                string;
-        }
-        interface CreateRepositoryRequest {
-            /** Required. The connection to contain the repository. If the request is part of a BatchCreateRepositoriesRequest, this field should be empty or match the parent specified there. */
-            parent?:
-                string;
-            /** Required. The repository to create. */
-            repository?:
-                Repository;
-            /**
-             * Required. The ID to use for the repository, which will become the final component of the repository's resource name. This ID should be unique in the connection. Allows alphanumeric
-             * characters and any of -._~%!$&'()*+,;=@.
-             */
-            repositoryId?:
-                string;
-        }
-        interface EmbeddedTask {
-            /** User annotations. See https://google.aip.dev/128#annotations */
-            annotations?:
-                { [P in string]: string };
-            /** Spec to instantiate this TaskRun. */
-            taskSpec?:
-                TaskSpec;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface Empty {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface EmptyDirVolumeSource {
-        }
-        interface EnvVar {
-            /** Name of the environment variable. */
-            name?:
-                string;
-            /** Value of the environment variable. */
-            value?:
-                string;
-        }
-        interface ExecAction {
-            /**
-             * Optional. Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply
-             * exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is
-             * treated as live/healthy and non-zero is unhealthy. +optional
-             */
-            command?:
-                string[];
-        }
-        interface Expr {
-            /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?:
-                string;
-            /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?:
-                string;
-            /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?:
-                string;
-            /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?:
-                string;
-        }
-        interface FetchGitRefsResponse {
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** Name of the refs fetched. */
-            refNames?:
-                string[];
-        }
-        interface FetchLinkableRepositoriesResponse {
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** repositories ready to be created. */
-            repositories?:
-                Repository[];
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface FetchReadTokenRequest {
-        }
-        interface FetchReadTokenResponse {
-            /** Expiration timestamp. Can be empty if unknown or non-expiring. */
-            expirationTime?:
-                string;
-            /** The token content. */
-            token?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface FetchReadWriteTokenRequest {
-        }
-        interface FetchReadWriteTokenResponse {
-            /** Expiration timestamp. Can be empty if unknown or non-expiring. */
-            expirationTime?:
-                string;
-            /** The token content. */
-            token?:
-                string;
-        }
-        interface GitHubConfig {
-            /** GitHub App installation id. */
-            appInstallationId?:
-                string;
-            /**
-             * OAuth credential of the account that authorized the Cloud Build GitHub App. It is recommended to use a robot account instead of a human user account. The OAuth token must be tied to
-             * the Cloud Build GitHub App.
-             */
-            authorizerCredential?:
-                OAuthCredential;
-        }
-        interface GoogleDevtoolsCloudbuildV2Condition {
-            /** LastTransitionTime is the last time the condition transitioned from one status to another. */
-            lastTransitionTime?:
-                string;
-            /** A human readable message indicating details about the transition. */
-            message?:
-                string;
-            /** The reason for the condition's last transition. */
-            reason?:
-                string;
-            /** Severity with which to treat failures of this type of condition. */
-            severity?:
-                string;
-            /** Status of the condition. */
-            status?:
-                string;
-            /** Type of condition. */
-            type?:
-                string;
-        }
-        interface GoogleDevtoolsCloudbuildV2GitHubEnterpriseConfig {
-            /** Required. API Key used for authentication of webhook events. */
-            apiKey?:
-                string;
-            /** Id of the GitHub App created from the manifest. */
-            appId?:
-                string;
-            /** ID of the installation of the GitHub App. */
-            appInstallationId?:
-                string;
-            /** The URL-friendly name of the GitHub App. */
-            appSlug?:
-                string;
-            /** Required. The URI of the GitHub Enterprise host this connection is for. */
-            hostUri?:
-                string;
-            /** SecretManager resource containing the private key of the GitHub App, formatted as `projects/*‍/secrets/*‍/versions/*`. */
-            privateKeySecretVersion?:
-                string;
-            /** Output only. GitHub Enterprise version installed at the host_uri. */
-            serverVersion?:
-                string;
-            /**
-             * Configuration for using Service Directory to privately connect to a GitHub Enterprise server. This should only be set if the GitHub Enterprise server is hosted on-premises and not
-             * reachable by public internet. If this field is left empty, calls to the GitHub Enterprise server will be made over the public internet.
-             */
-            serviceDirectoryConfig?:
-                GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig;
-            /** SSL certificate to use for requests to GitHub Enterprise. */
-            sslCa?:
-                string;
-            /** SecretManager resource containing the webhook secret of the GitHub App, formatted as `projects/*‍/secrets/*‍/versions/*`. */
-            webhookSecretSecretVersion?:
-                string;
-        }
-        interface GoogleDevtoolsCloudbuildV2GitLabConfig {
-            /** Required. A GitLab personal access token with the `api` scope access. */
-            authorizerCredential?:
-                UserCredential;
-            /** The URI of the GitLab Enterprise host this connection is for. If not specified, the default value is https://gitlab.com. */
-            hostUri?:
-                string;
-            /** Required. A GitLab personal access token with the minimum `read_api` scope access. */
-            readAuthorizerCredential?:
-                UserCredential;
-            /** Output only. Version of the GitLab Enterprise server running on the `host_uri`. */
-            serverVersion?:
-                string;
-            /**
-             * Configuration for using Service Directory to privately connect to a GitLab Enterprise server. This should only be set if the GitLab Enterprise server is hosted on-premises and not
-             * reachable by public internet. If this field is left empty, calls to the GitLab Enterprise server will be made over the public internet.
-             */
-            serviceDirectoryConfig?:
-                GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig;
-            /** SSL certificate to use for requests to GitLab Enterprise. */
-            sslCa?:
-                string;
-            /** Required. Immutable. SecretManager resource containing the webhook secret of a GitLab Enterprise project, formatted as `projects/*‍/secrets/*‍/versions/*`. */
-            webhookSecretSecretVersion?:
-                string;
-        }
-        interface GoogleDevtoolsCloudbuildV2OperationMetadata {
-            /** Output only. API version used to start the operation. */
-            apiVersion?:
-                string;
-            /** Output only. The time the operation was created. */
-            createTime?:
-                string;
-            /** Output only. The time the operation finished running. */
-            endTime?:
-                string;
-            /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            requestedCancellation?:
-                boolean;
-            /** Output only. Human-readable status of the operation, if any. */
-            statusMessage?:
-                string;
-            /** Output only. Server-defined resource path for the target of the operation. */
-            target?:
-                string;
-            /** Output only. Name of the verb executed by the operation. */
-            verb?:
-                string;
-        }
-        interface GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig {
-            /** Required. The Service Directory service name. Format: projects/{project}/locations/{location}/namespaces/{namespace}/services/{service}. */
-            service?:
-                string;
-        }
-        interface HttpBody {
-            /** The HTTP Content-Type header value specifying the content type of the body. */
-            contentType?:
-                string;
-            /** The HTTP request/response body as raw binary. */
-            data?:
-                string;
-            /** Application specific response metadata. Must be set in the first response for streaming APIs. */
-            extensions?:
-                Array<{ [P in string]: any }>;
-        }
-        interface InstallationState {
-            /** Output only. Link to follow for next action. Empty string if the installation is already complete. */
-            actionUri?:
-                string;
-            /** Output only. Message of what the user should do next to continue the installation. Empty string if the installation is already complete. */
-            message?:
-                string;
-            /** Output only. Current step of the installation process. */
-            stage?:
-                string;
-        }
-        interface ListConnectionsResponse {
-            /** The list of Connections. */
-            connections?:
-                Connection[];
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-        }
-        interface ListLocationsResponse {
-            /** A list of locations that matches the specified filter in the request. */
-            locations?:
-                Location[];
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-        }
-        interface ListRepositoriesResponse {
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** The list of Repositories. */
-            repositories?:
-                Repository[];
-        }
-        interface Location {
-            /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?:
-                string;
-            /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?:
-                { [P in string]: string };
-            /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?:
-                string;
-            /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?:
-                { [P in string]: any };
-            /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?:
-                string;
-        }
-        interface OAuthCredential {
-            /** A SecretManager resource containing the OAuth token that authorizes the Cloud Build connection. Format: `projects/*‍/secrets/*‍/versions/*`. */
-            oauthTokenSecretVersion?:
-                string;
-            /** Output only. The username associated to this token. */
-            username?:
-                string;
-        }
-        interface Operation {
-            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?:
-                boolean;
-            /** The error result of the operation in case of failure or cancellation. */
-            error?:
-                Status;
-            /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
-             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
-             */
-            metadata?:
-                { [P in string]: any };
-            /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
-             * with `operations/{unique_id}`.
-             */
-            name?:
-                string;
-            /**
-             * The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original
-             * method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original
-             * method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
-             */
-            response?:
-                { [P in string]: any };
-        }
-        interface OperationMetadata {
-            /** Output only. API version used to start the operation. */
-            apiVersion?:
-                string;
-            /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have been cancelled successfully have Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            cancelRequested?:
-                boolean;
-            /** Output only. The time the operation was created. */
-            createTime?:
-                string;
-            /** Output only. The time the operation finished running. */
-            endTime?:
-                string;
-            /** Output only. Human-readable status of the operation, if any. */
-            statusDetail?:
-                string;
-            /** Output only. Server-defined resource path for the target of the operation. */
-            target?:
-                string;
-            /** Output only. Name of the verb executed by the operation. */
-            verb?:
-                string;
-        }
-        interface Param {
-            /** Name of the parameter. */
-            name?:
-                string;
-            /** Value of the parameter. */
-            value?:
-                ParamValue;
-        }
-        interface ParamSpec {
-            /** The default value a parameter takes if no input value is supplied */
-            default?:
-                ParamValue;
-            /** Description of the ParamSpec */
-            description?:
-                string;
-            /** Name of the ParamSpec */
-            name?:
-                string;
-            /** Type of ParamSpec */
-            type?:
-                string;
-        }
-        interface ParamValue {
-            /** Value of the parameter if type is array. */
-            arrayVal?:
-                string[];
-            /** Value of the parameter if type is string. */
-            stringVal?:
-                string;
-            /** Type of parameter. */
-            type?:
-                string;
-        }
-        interface PipelineRef {
-            /** Name of the Pipeline. */
-            name?:
-                string;
-            /**
-             * Params contains the parameters used to identify the referenced Tekton resource. Example entries might include "repo" or "path" but the set of params ultimately depends on the chosen
-             * resolver.
-             */
-            params?:
-                Param[];
-            /** Resolver is the name of the resolver that should perform resolution of the referenced Tekton resource. */
-            resolver?:
-                string;
-        }
-        interface PipelineRun {
-            /** User annotations. See https://google.aip.dev/128#annotations */
-            annotations?:
-                { [P in string]: string };
-            /** Output only. List of TaskRun and Run names and PipelineTask names for children of this PipelineRun. */
-            childReferences?:
-                ChildStatusReference[];
-            /** Output only. Time the pipeline completed. */
-            completionTime?:
-                string;
-            /** Output only. Kubernetes Conditions convention for PipelineRun status and error. */
-            conditions?:
-                GoogleDevtoolsCloudbuildV2Condition[];
-            /** Output only. Time at which the request to create the `PipelineRun` was received. */
-            createTime?:
-                string;
-            /** Needed for declarative-friendly resources. */
-            etag?:
-                string;
-            /** Output only. FinallyStartTime is when all non-finally tasks have been completed and only finally tasks are being executed. +optional */
-            finallyStartTime?:
-                string;
-            /** Output only. The `PipelineRun` name with format `projects/{project}/locations/{location}/pipelineRuns/{pipeline_run}` */
-            name?:
-                string;
-            /** Params is a list of parameter names and values. */
-            params?:
-                Param[];
-            /** PipelineRef refer to a specific instance of a Pipeline. */
-            pipelineRef?:
-                PipelineRef;
-            /** Pipelinerun status the user can provide. Used for cancellation. */
-            pipelineRunStatus?:
-                string;
-            /** PipelineSpec defines the desired state of Pipeline. */
-            pipelineSpec?:
-                PipelineSpec;
-            /** Output only. The exact PipelineSpec used to instantiate the run. */
-            resolvedPipelineSpec?:
-                PipelineSpec;
-            /** Service account used in the Pipeline. */
-            serviceAccount?:
-                string;
-            /** Output only. List of tasks that were skipped due to when expressions evaluating to false. */
-            skippedTasks?:
-                SkippedTask[];
-            /** Output only. Time the pipeline is actually started. */
-            startTime?:
-                string;
-            /** Time after which the Pipeline times out. Currently three keys are accepted in the map pipeline, tasks and finally with Timeouts.pipeline >= Timeouts.tasks + Timeouts.finally */
-            timeouts?:
-                TimeoutFields;
-            /** Output only. A unique identifier for the `PipelineRun`. */
-            uid?:
-                string;
-            /** Output only. Time at which the request to update the `PipelineRun` was received. */
-            updateTime?:
-                string;
-            /** Output only. The WorkerPool used to run this PipelineRun. */
-            workerPool?:
-                string;
-            /** Output only. The Workflow used to create this PipelineRun. */
-            workflow?:
-                string;
-            /** Workspaces is a list of WorkspaceBindings from volumes to workspaces. */
-            workspaces?:
-                WorkspaceBinding[];
-        }
-        interface PipelineSpec {
-            /**
-             * List of Tasks that execute just before leaving the Pipeline i.e. either after all Tasks are finished executing successfully or after a failure which would result in ending the
-             * Pipeline.
-             */
-            finallyTasks?:
-                PipelineTask[];
-            /** Output only. auto-generated yaml that is output only for display purpose for workflows using pipeline_spec, used by UI/gcloud cli for Workflows. */
-            generatedYaml?:
-                string;
-            /** List of parameters. */
-            params?:
-                ParamSpec[];
-            /** List of Tasks that execute when this Pipeline is run. */
-            tasks?:
-                PipelineTask[];
-            /** Workspaces declares a set of named workspaces that are expected to be provided by a PipelineRun. */
-            workspaces?:
-                PipelineWorkspaceDeclaration[];
-        }
-        interface PipelineTask {
-            /** Name of the task. */
-            name?:
-                string;
-            /** Params is a list of parameter names and values. */
-            params?:
-                Param[];
-            /** Retries represents how many times this task should be retried in case of task failure. */
-            retries?:
-                number;
-            /** RunAfter is the list of PipelineTask names that should be executed before this Task executes. (Used to force a specific ordering in graph execution.) */
-            runAfter?:
-                string[];
-            /** Reference to a specific instance of a task. */
-            taskRef?:
-                TaskRef;
-            /** Spec to instantiate this TaskRun. */
-            taskSpec?:
-                EmbeddedTask;
-            /** Time after which the TaskRun times out. Defaults to 1 hour. Specified TaskRun timeout should be less than 24h. */
-            timeout?:
-                string;
-            /** Conditions that need to be true for the task to run. */
-            whenExpressions?:
-                WhenExpression[];
-            /** Workspaces maps workspaces from the pipeline spec to the workspaces declared in the Task. */
-            workspaces?:
-                WorkspacePipelineTaskBinding[];
-        }
-        interface PipelineWorkspaceDeclaration {
-            /** Description is a human readable string describing how the workspace will be used in the Pipeline. */
-            description?:
-                string;
-            /** Name is the name of a workspace to be provided by a PipelineRun. */
-            name?:
-                string;
-            /** Optional marks a Workspace as not being required in PipelineRuns. By default this field is false and so declared workspaces are required. */
-            optional?:
-                boolean;
-        }
-        interface Policy {
-            /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?:
-                AuditConfig[];
-            /**
-             * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
-             * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
-             * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
-             * 1,450 principals to the `bindings` in the `Policy`.
-             */
-            bindings?:
-                Binding[];
-            /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
-             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
-             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
-             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
-             * policy, and all of the conditions in the version `3` policy are lost.
-             */
-            etag?:
-                string;
-            /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
-             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
-             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
-             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
-             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
-             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            version?:
-                number;
-        }
-        interface Probe {
-            /** Optional. Exec specifies the action to take. +optional */
-            exec?:
-                ExecAction;
-            /** Optional. How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. +optional */
-            periodSeconds?:
-                number;
-        }
-        interface PropertySpec {
-            /** A type for the object. */
-            type?:
-                string;
-        }
-        interface Repository {
-            /** Allows clients to store small amounts of arbitrary data. */
-            annotations?:
-                { [P in string]: string };
-            /** Output only. Server assigned timestamp for when the connection was created. */
-            createTime?:
-                string;
-            /**
-             * This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before
-             * proceeding.
-             */
-            etag?:
-                string;
-            /** Immutable. Resource name of the repository, in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
-            name?:
-                string;
-            /** Required. Git Clone HTTPS URI. */
-            remoteUri?:
-                string;
-            /** Output only. Server assigned timestamp for when the connection was updated. */
-            updateTime?:
-                string;
-            /** Output only. External ID of the webhook created for the repository. */
-            webhookId?:
-                string;
-        }
-        interface RunWorkflowCustomOperationMetadata {
-            /** Output only. API version used to start the operation. */
-            apiVersion?:
-                string;
-            /** Output only. The time the operation was created. */
-            createTime?:
-                string;
-            /** Output only. The time the operation finished running. */
-            endTime?:
-                string;
-            /** Output only. ID of the pipeline run created by RunWorkflow. */
-            pipelineRunId?:
-                string;
-            /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            requestedCancellation?:
-                boolean;
-            /** Output only. Server-defined resource path for the target of the operation. */
-            target?:
-                string;
-            /** Output only. Name of the verb executed by the operation. */
-            verb?:
-                string;
-        }
-        interface SecretVolumeSource {
-            /** Name of the secret referenced by the WorkspaceBinding. */
-            secretName?:
-                string;
-            /** Output only. Resource name of the SecretVersion. In format: projects/*‍/secrets/*‍/versions/* */
-            secretVersion?:
-                string;
-        }
-        interface SecurityContext {
-            /**
-             * Optional. AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on
-             * the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name
-             * is windows. +optional
-             */
-            allowPrivilegeEscalation?:
-                boolean;
-            /** Optional. Adds and removes POSIX capabilities from running containers. */
-            capabilities?:
-                Capabilities;
-            /** Run container in privileged mode. */
-            privileged?:
-                boolean;
-            /**
-             * Optional. The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext. If set in both SecurityContext and
-             * PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows. +optional
-             */
-            runAsGroup?:
-                string;
-            /**
-             * Optional. Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail
-             * to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext. If set in both SecurityContext and
-             * PodSecurityContext, the value specified in SecurityContext takes precedence. +optional
-             */
-            runAsNonRoot?:
-                boolean;
-            /**
-             * Optional. The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both
-             * SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows. +optional
-             */
-            runAsUser?:
-                string;
-        }
-        interface SetIamPolicyRequest {
-            /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
-             * services (such as Projects) might reject them.
-             */
-            policy?:
-                Policy;
-            /**
-             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
-             * `paths: "bindings, etag"`
-             */
-            updateMask?:
-                string;
-        }
-        interface Sidecar {
-            /** Arguments to the entrypoint. */
-            args?:
-                string[];
-            /** Entrypoint array. */
-            command?:
-                string[];
-            /** List of environment variables to set in the container. */
-            env?:
-                EnvVar[];
-            /** Docker image name. */
-            image?:
-                string;
-            /** Name of the Sidecar. */
-            name?:
-                string;
-            /**
-             * Optional. Periodic probe of Sidecar service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info:
-             * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes +optional
-             */
-            readinessProbe?:
-                Probe;
-            /** The contents of an executable file to execute. */
-            script?:
-                string;
-            /** Optional. Security options the container should be run with. */
-            securityContext?:
-                SecurityContext;
-            /** Pod volumes to mount into the container's filesystem. */
-            volumeMounts?:
-                VolumeMount[];
-            /** Container's working directory. */
-            workingDir?:
-                string;
-        }
-        interface SkippedTask {
-            /** Name is the Pipeline Task name */
-            name?:
-                string;
-            /** Output only. Reason is the cause of the PipelineTask being skipped. */
-            reason?:
-                string;
-            /** WhenExpressions is the list of checks guarding the execution of the PipelineTask */
-            whenExpressions?:
-                WhenExpression[];
-        }
-        interface Status {
-            /** The status code, which should be an enum value of google.rpc.Code. */
-            code?:
-                number;
-            /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?:
-                Array<{ [P in string]: any }>;
-            /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
-             * client.
-             */
-            message?:
-                string;
-        }
-        interface Step {
-            /** Arguments to the entrypoint. */
-            args?:
-                string[];
-            /** Entrypoint array. */
-            command?:
-                string[];
-            /** List of environment variables to set in the container. */
-            env?:
-                EnvVar[];
-            /** Docker image name. */
-            image?:
-                string;
-            /** Name of the container specified as a DNS_LABEL. */
-            name?:
-                string;
-            /** The contents of an executable file to execute. */
-            script?:
-                string;
-            /**
-             * Optional. SecurityContext defines the security options the Step should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More
-             * info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/ +optional
-             */
-            securityContext?:
-                SecurityContext;
-            /** Time after which the Step times out. Defaults to never. */
-            timeout?:
-                string;
-            /** Pod volumes to mount into the container's filesystem. */
-            volumeMounts?:
-                VolumeMount[];
-            /** Container's working directory. */
-            workingDir?:
-                string;
-        }
-        interface StepTemplate {
-            /** Optional. List of environment variables to set in the Step. Cannot be updated. */
-            env?:
-                EnvVar[];
-        }
-        interface TaskRef {
-            /** Name of the task. */
-            name?:
-                string;
-            /**
-             * Params contains the parameters used to identify the referenced Tekton resource. Example entries might include "repo" or "path" but the set of params ultimately depends on the chosen
-             * resolver.
-             */
-            params?:
-                Param[];
-            /** Resolver is the name of the resolver that should perform resolution of the referenced Tekton resource. */
-            resolver?:
-                string;
-        }
-        interface TaskResult {
-            /** Description of the result. */
-            description?:
-                string;
-            /** Name of the result. */
-            name?:
-                string;
-            /** When type is OBJECT, this map holds the names of fields inside that object along with the type of data each field holds. */
-            properties?:
-                { [P in string]: PropertySpec };
-            /** The type of data that the result holds. */
-            type?:
-                string;
-        }
-        interface TaskSpec {
-            /** Description of the task. */
-            description?:
-                string;
-            /** Sidecars that run alongside the Task’s step containers that should be added to this Task. */
-            managedSidecars?:
-                string[];
-            /** List of parameters. */
-            params?:
-                ParamSpec[];
-            /** Values that this Task can output. */
-            results?:
-                TaskResult[];
-            /** Sidecars that run alongside the Task's step containers. */
-            sidecars?:
-                Sidecar[];
-            /** Steps of the task. */
-            steps?:
-                Step[];
-            /** Optional. StepTemplate can be used as the basis for all step containers within the Task, so that the steps inherit settings on the base container. */
-            stepTemplate?:
-                StepTemplate;
-            /** A collection of volumes that are available to mount into steps. */
-            volumes?:
-                VolumeSource[];
-            /** The volumes that this Task requires. */
-            workspaces?:
-                WorkspaceDeclaration[];
-        }
-        interface TestIamPermissionsRequest {
-            /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
-             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
-             */
-            permissions?:
-                string[];
-        }
-        interface TestIamPermissionsResponse {
-            /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?:
-                string[];
-        }
-        interface TimeoutFields {
-            /** Finally sets the maximum allowed duration of this pipeline's finally */
-            finally?:
-                string;
-            /** Pipeline sets the maximum allowed duration for execution of the entire pipeline. The sum of individual timeouts for tasks and finally must not exceed this value. */
-            pipeline?:
-                string;
-            /** Tasks sets the maximum allowed duration of this pipeline's tasks */
-            tasks?:
-                string;
-        }
-        interface UserCredential {
-            /** Output only. The username associated to this token. */
-            username?:
-                string;
-            /** Required. A SecretManager resource containing the user token that authorizes the Cloud Build connection. Format: `projects/*‍/secrets/*‍/versions/*`. */
-            userTokenSecretVersion?:
-                string;
-        }
-        interface VolumeClaim {
-            /** Volume size, e.g. 1gb. */
-            storage?:
-                string;
-        }
-        interface VolumeMount {
-            /** Path within the container at which the volume should be mounted. Must not contain ':'. */
-            mountPath?:
-                string;
-            /** Name of the volume. */
-            name?:
-                string;
-            /** Mounted read-only if true, read-write otherwise (false or unspecified). */
-            readOnly?:
-                boolean;
-            /** Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root). */
-            subPath?:
-                string;
-            /**
-             * Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using
-             * the container's environment. Defaults to "" (volume's root).
-             */
-            subPathExpr?:
-                string;
-        }
-        interface VolumeSource {
-            /** A temporary directory that shares a pod's lifetime. */
-            emptyDir?:
-                any;
-            /** Name of the Volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names */
-            name?:
-                string;
-        }
-        interface WhenExpression {
-            /** Operator that represents an Input's relationship to the values */
-            expressionOperator?:
-                string;
-            /** Input is the string for guard checking which can be a static input or an output from a parent Task. */
-            input?:
-                string;
-            /** Values is an array of strings, which is compared against the input, for guard checking. */
-            values?:
-                string[];
-        }
-        interface WorkspaceBinding {
-            /** Name of the workspace. */
-            name?:
-                string;
-            /** Secret Volume Source. */
-            secret?:
-                SecretVolumeSource;
-            /** Optional. SubPath is optionally a directory on the volume which should be used for this binding (i.e. the volume will be mounted at this sub directory). +optional */
-            subPath?:
-                string;
-            /** Volume claim that will be created in the same namespace. */
-            volumeClaim?:
-                VolumeClaim;
-        }
-        interface WorkspaceDeclaration {
-            /** Description is a human readable description of this volume. */
-            description?:
-                string;
-            /** MountPath overrides the directory that the volume will be made available at. */
-            mountPath?:
-                string;
-            /** Name is the name by which you can bind the volume at runtime. */
-            name?:
-                string;
-            /** Optional. Optional marks a Workspace as not being required in TaskRuns. By default this field is false and so declared workspaces are required. */
-            optional?:
-                boolean;
-            /** ReadOnly dictates whether a mounted volume is writable. */
-            readOnly?:
-                boolean;
-        }
-        interface WorkspacePipelineTaskBinding {
-            /** Name of the workspace as declared by the task. */
-            name?:
-                string;
-            /** Optional. SubPath is optionally a directory on the volume which should be used for this binding (i.e. the volume will be mounted at this sub directory). +optional */
-            subPath?:
-                string;
-            /** Name of the workspace declared by the pipeline. */
-            workspace?:
-                string;
-        }
-        interface RepositoriesResource {
-            /** Fetches read token of a given repository. */
-            accessReadToken(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
-                repository:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    FetchReadTokenRequest;
-            }): Request<FetchReadTokenResponse>;
-            accessReadToken(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
-                repository:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: FetchReadTokenRequest): Request<FetchReadTokenResponse>;
-            /** Fetches read/write token of a given repository. */
-            accessReadWriteToken(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
-                repository:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    FetchReadWriteTokenRequest;
-            }): Request<FetchReadWriteTokenResponse>;
-            accessReadWriteToken(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
-                repository:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: FetchReadWriteTokenRequest): Request<FetchReadWriteTokenResponse>;
-            /** Creates multiple repositories inside a connection. */
-            batchCreate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Required. The connection to contain all the repositories being created. Format: projects/*‍/locations/*‍/connections/* The parent field in the CreateRepositoryRequest messages
-                 * must either be empty or match this field.
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    BatchCreateRepositoriesRequest;
-            }): Request<Operation>;
-            batchCreate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Required. The connection to contain all the repositories being created. Format: projects/*‍/locations/*‍/connections/* The parent field in the CreateRepositoryRequest messages
-                 * must either be empty or match this field.
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: BatchCreateRepositoriesRequest): Request<Operation>;
-            /** Creates a Repository. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The connection to contain the repository. If the request is part of a BatchCreateRepositoriesRequest, this field should be empty or match the parent specified there. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. The ID to use for the repository, which will become the final component of the repository's resource name. This ID should be unique in the connection. Allows
-                 * alphanumeric characters and any of -._~%!$&'()*+,;=@.
-                 */
-                repositoryId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Repository;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The connection to contain the repository. If the request is part of a BatchCreateRepositoriesRequest, this field should be empty or match the parent specified there. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. The ID to use for the repository, which will become the final component of the repository's resource name. This ID should be unique in the connection. Allows
-                 * alphanumeric characters and any of -._~%!$&'()*+,;=@.
-                 */
-                repositoryId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Repository): Request<Operation>;
-            /** Deletes a single repository. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** The current etag of the repository. If an etag is provided and does not match the current etag of the repository, deletion will be blocked and an ABORTED error will be returned. */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the Repository to delete. Format: `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** If set, validate the request, but do not actually post it. */
-                validateOnly?:
-                    boolean;
-            }): Request<Operation>;
-            /** Fetch the list of branches or tags for a given repository. */
-            fetchGitRefs(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. Number of results to return in the list. Default to 100. */
-                pageSize?:
-                    number;
-                /** Optional. Page start. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Type of refs to fetch */
-                refType?:
-                    string;
-                /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
-                repository:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<FetchGitRefsResponse>;
-            /** Gets details of a single repository. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the Repository to retrieve. Format: `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Repository>;
-            /** Lists Repositories in a given connection. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter expression that filters resources listed in the response. Expressions must follow API improvement proposal [AIP-160](https://google.aip.dev/160). e.g.
-                 * `remote_uri:"https://github.com*"`.
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Number of results to return in the list. */
-                pageSize?:
-                    number;
-                /** Page start. */
-                pageToken?:
-                    string;
-                /** Required. The parent, which owns this collection of Repositories. Format: `projects/*‍/locations/*‍/connections/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListRepositoriesResponse>;
-        }
-        interface ConnectionsResource {
-            /** Creates a Connection. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /**
-                 * Required. The ID to use for the Connection, which will become the final component of the Connection's resource name. Names must be unique per-project per-location. Allows
-                 * alphanumeric characters and any of -._~%!$&'()*+,;=@.
-                 */
-                connectionId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Project and location where the connection will be created. Format: `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Connection;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /**
-                 * Required. The ID to use for the Connection, which will become the final component of the Connection's resource name. Names must be unique per-project per-location. Allows
-                 * alphanumeric characters and any of -._~%!$&'()*+,;=@.
-                 */
-                connectionId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Project and location where the connection will be created. Format: `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Connection): Request<Operation>;
-            /** Deletes a single connection. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** The current etag of the connection. If an etag is provided and does not match the current etag of the connection, deletion will be blocked and an ABORTED error will be returned. */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the Connection to delete. Format: `projects/*‍/locations/*‍/connections/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** If set, validate the request, but do not actually post it. */
-                validateOnly?:
-                    boolean;
-            }): Request<Operation>;
-            /** FetchLinkableRepositories get repositories from SCM that are accessible and could be added to the connection. */
-            fetchLinkableRepositories(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. The name of the Connection. Format: `projects/*‍/locations/*‍/connections/*`. */
-                connection:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Number of results to return in the list. Default to 20. */
-                pageSize?:
-                    number;
-                /** Page start. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<FetchLinkableRepositoriesResponse>;
-            /** Gets details of a single connection. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the Connection to retrieve. Format: `projects/*‍/locations/*‍/connections/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Connection>;
-            /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Policy>;
-            /** Lists Connections in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Number of results to return in the list. */
-                pageSize?:
-                    number;
-                /** Page start. */
-                pageToken?:
-                    string;
-                /** Required. The parent, which owns this collection of Connections. Format: `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListConnectionsResponse>;
-            /** Updates a single connection. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /**
-                 * If set to true, and the connection is not found a new connection will be created. In this situation `update_mask` is ignored. The creation will succeed only if the input
-                 * connection has all the necessary information (e.g a github_config with both user_oauth_token and installation_id properties).
-                 */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** The current etag of the connection. If an etag is provided and does not match the current etag of the connection, update will be blocked and an ABORTED error will be returned. */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Immutable. The resource name of the connection, in the format `projects/{project}/locations/{location}/connections/{connection_id}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** The list of fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Connection;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /**
-                 * If set to true, and the connection is not found a new connection will be created. In this situation `update_mask` is ignored. The creation will succeed only if the input
-                 * connection has all the necessary information (e.g a github_config with both user_oauth_token and installation_id properties).
-                 */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** The current etag of the connection. If an etag is provided and does not match the current etag of the connection, update will be blocked and an ABORTED error will be returned. */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Immutable. The resource name of the connection, in the format `projects/{project}/locations/{location}/connections/{connection_id}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** The list of fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Connection): Request<Operation>;
-            /** ProcessWebhook is called by the external SCM for notifying of events. */
-            processWebhook(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Project and location where the webhook will be received. Format: `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Arbitrary additional key to find the maching repository for a webhook event if needed. */
-                webhookKey?:
-                    string;
-                /** Request body */
-                resource:
-                    HttpBody;
-            }): Request<{}>;
-            processWebhook(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Project and location where the webhook will be received. Format: `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Arbitrary additional key to find the maching repository for a webhook event if needed. */
-                webhookKey?:
-                    string;
-            },
-            body: HttpBody): Request<{}>;
-            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: SetIamPolicyRequest): Request<Policy>;
-            /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-             */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            repositories:
-                RepositoriesResource;
-        }
-        interface OperationsResource {
-            /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
-             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
-             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    CancelOperationRequest;
-            }): Request<{}>;
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: CancelOperationRequest): Request<{}>;
-            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-        }
-        interface LocationsResource {
-            /** Gets information about a location. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Resource name for the location. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Location>;
-            /** Lists information about the supported locations for this service. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
-                 * [AIP-160](https://google.aip.dev/160).
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource that owns the locations collection, if applicable. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?:
-                    number;
-                /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListLocationsResponse>;
-            connections:
-                ConnectionsResource;
-            operations:
-                OperationsResource;
-        }
-        interface ProjectsResource {
-            locations:
-                LocationsResource;
-        }
-
-        const projects: ProjectsResource;
+  namespace cloudbuild {
+    interface AuditConfig {
+      /** The configuration for logging of each type of permission. */
+      auditLogConfigs?: AuditLogConfig[];
+      /** Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all services. */
+      service?: string;
     }
+    interface AuditLogConfig {
+      /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
+      exemptedMembers?: string[];
+      /** The log type that this config enables. */
+      logType?: string;
+    }
+    interface BatchCreateRepositoriesRequest {
+      /** Required. The request messages specifying the repositories to create. */
+      requests?: CreateRepositoryRequest[];
+    }
+    interface BatchCreateRepositoriesResponse {
+      /** Repository resources created. */
+      repositories?: Repository[];
+    }
+    interface Binding {
+      /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+      condition?: Expr;
+      /** Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account. Does not include identities that come from external identity providers (IdPs) through identity federation. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that represents a Google service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An identifier for a [Kubernetes service account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts). For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example, `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in the binding. */
+      members?: string[];
+      /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
+      role?: string;
+    }
+    interface CancelOperationRequest {}
+    interface Capabilities {
+      /** Optional. Added capabilities +optional */
+      add?: string[];
+      /** Optional. Removed capabilities +optional */
+      drop?: string[];
+    }
+    interface ChildStatusReference {
+      /** Name is the name of the TaskRun or Run this is referencing. */
+      name?: string;
+      /** PipelineTaskName is the name of the PipelineTask this is referencing. */
+      pipelineTaskName?: string;
+      /** Output only. Type of the child reference. */
+      type?: string;
+      /** WhenExpressions is the list of checks guarding the execution of the PipelineTask */
+      whenExpressions?: WhenExpression[];
+    }
+    interface Connection {
+      /** Allows clients to store small amounts of arbitrary data. */
+      annotations?: {[P in string]: string};
+      /** Output only. Server assigned timestamp for when the connection was created. */
+      createTime?: string;
+      /** If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled. */
+      disabled?: boolean;
+      /** This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. */
+      etag?: string;
+      /** Configuration for connections to github.com. */
+      githubConfig?: GitHubConfig;
+      /** Configuration for connections to an instance of GitHub Enterprise. */
+      githubEnterpriseConfig?: GoogleDevtoolsCloudbuildV2GitHubEnterpriseConfig;
+      /** Configuration for connections to gitlab.com or an instance of GitLab Enterprise. */
+      gitlabConfig?: GoogleDevtoolsCloudbuildV2GitLabConfig;
+      /** Output only. Installation state of the Connection. */
+      installationState?: InstallationState;
+      /** Immutable. The resource name of the connection, in the format `projects/{project}/locations/{location}/connections/{connection_id}`. */
+      name?: string;
+      /** Output only. Set to true when the connection is being set up or updated in the background. */
+      reconciling?: boolean;
+      /** Output only. Server assigned timestamp for when the connection was updated. */
+      updateTime?: string;
+    }
+    interface CreateRepositoryRequest {
+      /** Required. The connection to contain the repository. If the request is part of a BatchCreateRepositoriesRequest, this field should be empty or match the parent specified there. */
+      parent?: string;
+      /** Required. The repository to create. */
+      repository?: Repository;
+      /** Required. The ID to use for the repository, which will become the final component of the repository's resource name. This ID should be unique in the connection. Allows alphanumeric characters and any of -._~%!$&'()*+,;=@. */
+      repositoryId?: string;
+    }
+    interface EmbeddedTask {
+      /** User annotations. See https://google.aip.dev/128#annotations */
+      annotations?: {[P in string]: string};
+      /** Spec to instantiate this TaskRun. */
+      taskSpec?: TaskSpec;
+    }
+    interface Empty {}
+    interface EmptyDirVolumeSource {}
+    interface EnvVar {
+      /** Name of the environment variable. */
+      name?: string;
+      /** Value of the environment variable. */
+      value?: string;
+    }
+    interface ExecAction {
+      /** Optional. Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy. +optional */
+      command?: string[];
+    }
+    interface Expr {
+      /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
+      description?: string;
+      /** Textual representation of an expression in Common Expression Language syntax. */
+      expression?: string;
+      /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
+      location?: string;
+      /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
+      title?: string;
+    }
+    interface FetchGitRefsResponse {
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** Name of the refs fetched. */
+      refNames?: string[];
+    }
+    interface FetchLinkableRepositoriesResponse {
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** repositories ready to be created. */
+      repositories?: Repository[];
+    }
+    interface FetchReadTokenRequest {}
+    interface FetchReadTokenResponse {
+      /** Expiration timestamp. Can be empty if unknown or non-expiring. */
+      expirationTime?: string;
+      /** The token content. */
+      token?: string;
+    }
+    interface FetchReadWriteTokenRequest {}
+    interface FetchReadWriteTokenResponse {
+      /** Expiration timestamp. Can be empty if unknown or non-expiring. */
+      expirationTime?: string;
+      /** The token content. */
+      token?: string;
+    }
+    interface GitHubConfig {
+      /** GitHub App installation id. */
+      appInstallationId?: string;
+      /** OAuth credential of the account that authorized the Cloud Build GitHub App. It is recommended to use a robot account instead of a human user account. The OAuth token must be tied to the Cloud Build GitHub App. */
+      authorizerCredential?: OAuthCredential;
+    }
+    interface GoogleDevtoolsCloudbuildV2Condition {
+      /** LastTransitionTime is the last time the condition transitioned from one status to another. */
+      lastTransitionTime?: string;
+      /** A human readable message indicating details about the transition. */
+      message?: string;
+      /** The reason for the condition's last transition. */
+      reason?: string;
+      /** Severity with which to treat failures of this type of condition. */
+      severity?: string;
+      /** Status of the condition. */
+      status?: string;
+      /** Type of condition. */
+      type?: string;
+    }
+    interface GoogleDevtoolsCloudbuildV2GitHubEnterpriseConfig {
+      /** Required. API Key used for authentication of webhook events. */
+      apiKey?: string;
+      /** Id of the GitHub App created from the manifest. */
+      appId?: string;
+      /** ID of the installation of the GitHub App. */
+      appInstallationId?: string;
+      /** The URL-friendly name of the GitHub App. */
+      appSlug?: string;
+      /** Required. The URI of the GitHub Enterprise host this connection is for. */
+      hostUri?: string;
+      /** SecretManager resource containing the private key of the GitHub App, formatted as `projects/*‍/secrets/*‍/versions/*`. */
+      privateKeySecretVersion?: string;
+      /** Output only. GitHub Enterprise version installed at the host_uri. */
+      serverVersion?: string;
+      /** Configuration for using Service Directory to privately connect to a GitHub Enterprise server. This should only be set if the GitHub Enterprise server is hosted on-premises and not reachable by public internet. If this field is left empty, calls to the GitHub Enterprise server will be made over the public internet. */
+      serviceDirectoryConfig?: GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig;
+      /** SSL certificate to use for requests to GitHub Enterprise. */
+      sslCa?: string;
+      /** SecretManager resource containing the webhook secret of the GitHub App, formatted as `projects/*‍/secrets/*‍/versions/*`. */
+      webhookSecretSecretVersion?: string;
+    }
+    interface GoogleDevtoolsCloudbuildV2GitLabConfig {
+      /** Required. A GitLab personal access token with the `api` scope access. */
+      authorizerCredential?: UserCredential;
+      /** The URI of the GitLab Enterprise host this connection is for. If not specified, the default value is https://gitlab.com. */
+      hostUri?: string;
+      /** Required. A GitLab personal access token with the minimum `read_api` scope access. */
+      readAuthorizerCredential?: UserCredential;
+      /** Output only. Version of the GitLab Enterprise server running on the `host_uri`. */
+      serverVersion?: string;
+      /** Configuration for using Service Directory to privately connect to a GitLab Enterprise server. This should only be set if the GitLab Enterprise server is hosted on-premises and not reachable by public internet. If this field is left empty, calls to the GitLab Enterprise server will be made over the public internet. */
+      serviceDirectoryConfig?: GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig;
+      /** SSL certificate to use for requests to GitLab Enterprise. */
+      sslCa?: string;
+      /** Required. Immutable. SecretManager resource containing the webhook secret of a GitLab Enterprise project, formatted as `projects/*‍/secrets/*‍/versions/*`. */
+      webhookSecretSecretVersion?: string;
+    }
+    interface GoogleDevtoolsCloudbuildV2OperationMetadata {
+      /** Output only. API version used to start the operation. */
+      apiVersion?: string;
+      /** Output only. The time the operation was created. */
+      createTime?: string;
+      /** Output only. The time the operation finished running. */
+      endTime?: string;
+      /** Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      requestedCancellation?: boolean;
+      /** Output only. Human-readable status of the operation, if any. */
+      statusMessage?: string;
+      /** Output only. Server-defined resource path for the target of the operation. */
+      target?: string;
+      /** Output only. Name of the verb executed by the operation. */
+      verb?: string;
+    }
+    interface GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig {
+      /** Required. The Service Directory service name. Format: projects/{project}/locations/{location}/namespaces/{namespace}/services/{service}. */
+      service?: string;
+    }
+    interface HttpBody {
+      /** The HTTP Content-Type header value specifying the content type of the body. */
+      contentType?: string;
+      /** The HTTP request/response body as raw binary. */
+      data?: string;
+      /** Application specific response metadata. Must be set in the first response for streaming APIs. */
+      extensions?: Array<{[P in string]: any}>;
+    }
+    interface InstallationState {
+      /** Output only. Link to follow for next action. Empty string if the installation is already complete. */
+      actionUri?: string;
+      /** Output only. Message of what the user should do next to continue the installation. Empty string if the installation is already complete. */
+      message?: string;
+      /** Output only. Current step of the installation process. */
+      stage?: string;
+    }
+    interface ListConnectionsResponse {
+      /** The list of Connections. */
+      connections?: Connection[];
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+    }
+    interface ListLocationsResponse {
+      /** A list of locations that matches the specified filter in the request. */
+      locations?: Location[];
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+    }
+    interface ListRepositoriesResponse {
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** The list of Repositories. */
+      repositories?: Repository[];
+    }
+    interface Location {
+      /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
+      displayName?: string;
+      /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
+      labels?: {[P in string]: string};
+      /** The canonical id for this location. For example: `"us-east1"`. */
+      locationId?: string;
+      /** Service-specific metadata. For example the available capacity at the given location. */
+      metadata?: {[P in string]: any};
+      /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
+      name?: string;
+    }
+    interface OAuthCredential {
+      /** A SecretManager resource containing the OAuth token that authorizes the Cloud Build connection. Format: `projects/*‍/secrets/*‍/versions/*`. */
+      oauthTokenSecretVersion?: string;
+      /** Output only. The username associated to this token. */
+      username?: string;
+    }
+    interface Operation {
+      /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
+      done?: boolean;
+      /** The error result of the operation in case of failure or cancellation. */
+      error?: Status;
+      /** Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. */
+      metadata?: {[P in string]: any};
+      /** The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending with `operations/{unique_id}`. */
+      name?: string;
+      /** The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`. */
+      response?: {[P in string]: any};
+    }
+    interface OperationMetadata {
+      /** Output only. API version used to start the operation. */
+      apiVersion?: string;
+      /** Output only. Identifies whether the user has requested cancellation of the operation. Operations that have been cancelled successfully have Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      cancelRequested?: boolean;
+      /** Output only. The time the operation was created. */
+      createTime?: string;
+      /** Output only. The time the operation finished running. */
+      endTime?: string;
+      /** Output only. Human-readable status of the operation, if any. */
+      statusDetail?: string;
+      /** Output only. Server-defined resource path for the target of the operation. */
+      target?: string;
+      /** Output only. Name of the verb executed by the operation. */
+      verb?: string;
+    }
+    interface Param {
+      /** Name of the parameter. */
+      name?: string;
+      /** Value of the parameter. */
+      value?: ParamValue;
+    }
+    interface ParamSpec {
+      /** The default value a parameter takes if no input value is supplied */
+      default?: ParamValue;
+      /** Description of the ParamSpec */
+      description?: string;
+      /** Name of the ParamSpec */
+      name?: string;
+      /** Type of ParamSpec */
+      type?: string;
+    }
+    interface ParamValue {
+      /** Value of the parameter if type is array. */
+      arrayVal?: string[];
+      /** Value of the parameter if type is string. */
+      stringVal?: string;
+      /** Type of parameter. */
+      type?: string;
+    }
+    interface PipelineRef {
+      /** Name of the Pipeline. */
+      name?: string;
+      /** Params contains the parameters used to identify the referenced Tekton resource. Example entries might include "repo" or "path" but the set of params ultimately depends on the chosen resolver. */
+      params?: Param[];
+      /** Resolver is the name of the resolver that should perform resolution of the referenced Tekton resource. */
+      resolver?: string;
+    }
+    interface PipelineRun {
+      /** User annotations. See https://google.aip.dev/128#annotations */
+      annotations?: {[P in string]: string};
+      /** Output only. List of TaskRun and Run names and PipelineTask names for children of this PipelineRun. */
+      childReferences?: ChildStatusReference[];
+      /** Output only. Time the pipeline completed. */
+      completionTime?: string;
+      /** Output only. Kubernetes Conditions convention for PipelineRun status and error. */
+      conditions?: GoogleDevtoolsCloudbuildV2Condition[];
+      /** Output only. Time at which the request to create the `PipelineRun` was received. */
+      createTime?: string;
+      /** Needed for declarative-friendly resources. */
+      etag?: string;
+      /** Output only. FinallyStartTime is when all non-finally tasks have been completed and only finally tasks are being executed. +optional */
+      finallyStartTime?: string;
+      /** Output only. The `PipelineRun` name with format `projects/{project}/locations/{location}/pipelineRuns/{pipeline_run}` */
+      name?: string;
+      /** Params is a list of parameter names and values. */
+      params?: Param[];
+      /** PipelineRef refer to a specific instance of a Pipeline. */
+      pipelineRef?: PipelineRef;
+      /** Pipelinerun status the user can provide. Used for cancellation. */
+      pipelineRunStatus?: string;
+      /** PipelineSpec defines the desired state of Pipeline. */
+      pipelineSpec?: PipelineSpec;
+      /** Output only. The exact PipelineSpec used to instantiate the run. */
+      resolvedPipelineSpec?: PipelineSpec;
+      /** Service account used in the Pipeline. */
+      serviceAccount?: string;
+      /** Output only. List of tasks that were skipped due to when expressions evaluating to false. */
+      skippedTasks?: SkippedTask[];
+      /** Output only. Time the pipeline is actually started. */
+      startTime?: string;
+      /** Time after which the Pipeline times out. Currently three keys are accepted in the map pipeline, tasks and finally with Timeouts.pipeline >= Timeouts.tasks + Timeouts.finally */
+      timeouts?: TimeoutFields;
+      /** Output only. A unique identifier for the `PipelineRun`. */
+      uid?: string;
+      /** Output only. Time at which the request to update the `PipelineRun` was received. */
+      updateTime?: string;
+      /** Output only. The WorkerPool used to run this PipelineRun. */
+      workerPool?: string;
+      /** Output only. The Workflow used to create this PipelineRun. */
+      workflow?: string;
+      /** Workspaces is a list of WorkspaceBindings from volumes to workspaces. */
+      workspaces?: WorkspaceBinding[];
+    }
+    interface PipelineSpec {
+      /** List of Tasks that execute just before leaving the Pipeline i.e. either after all Tasks are finished executing successfully or after a failure which would result in ending the Pipeline. */
+      finallyTasks?: PipelineTask[];
+      /** Output only. auto-generated yaml that is output only for display purpose for workflows using pipeline_spec, used by UI/gcloud cli for Workflows. */
+      generatedYaml?: string;
+      /** List of parameters. */
+      params?: ParamSpec[];
+      /** List of Tasks that execute when this Pipeline is run. */
+      tasks?: PipelineTask[];
+      /** Workspaces declares a set of named workspaces that are expected to be provided by a PipelineRun. */
+      workspaces?: PipelineWorkspaceDeclaration[];
+    }
+    interface PipelineTask {
+      /** Name of the task. */
+      name?: string;
+      /** Params is a list of parameter names and values. */
+      params?: Param[];
+      /** Retries represents how many times this task should be retried in case of task failure. */
+      retries?: number;
+      /** RunAfter is the list of PipelineTask names that should be executed before this Task executes. (Used to force a specific ordering in graph execution.) */
+      runAfter?: string[];
+      /** Reference to a specific instance of a task. */
+      taskRef?: TaskRef;
+      /** Spec to instantiate this TaskRun. */
+      taskSpec?: EmbeddedTask;
+      /** Time after which the TaskRun times out. Defaults to 1 hour. Specified TaskRun timeout should be less than 24h. */
+      timeout?: string;
+      /** Conditions that need to be true for the task to run. */
+      whenExpressions?: WhenExpression[];
+      /** Workspaces maps workspaces from the pipeline spec to the workspaces declared in the Task. */
+      workspaces?: WorkspacePipelineTaskBinding[];
+    }
+    interface PipelineWorkspaceDeclaration {
+      /** Description is a human readable string describing how the workspace will be used in the Pipeline. */
+      description?: string;
+      /** Name is the name of a workspace to be provided by a PipelineRun. */
+      name?: string;
+      /** Optional marks a Workspace as not being required in PipelineRuns. By default this field is false and so declared workspaces are required. */
+      optional?: boolean;
+    }
+    interface Policy {
+      /** Specifies cloud audit logging configuration for this policy. */
+      auditConfigs?: AuditConfig[];
+      /** Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another 1,450 principals to the `bindings` in the `Policy`. */
+      bindings?: Binding[];
+      /** `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost. */
+      etag?: string;
+      /** Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+      version?: number;
+    }
+    interface Probe {
+      /** Optional. Exec specifies the action to take. +optional */
+      exec?: ExecAction;
+      /** Optional. How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. +optional */
+      periodSeconds?: number;
+    }
+    interface PropertySpec {
+      /** A type for the object. */
+      type?: string;
+    }
+    interface Repository {
+      /** Allows clients to store small amounts of arbitrary data. */
+      annotations?: {[P in string]: string};
+      /** Output only. Server assigned timestamp for when the connection was created. */
+      createTime?: string;
+      /** This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding. */
+      etag?: string;
+      /** Immutable. Resource name of the repository, in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
+      name?: string;
+      /** Required. Git Clone HTTPS URI. */
+      remoteUri?: string;
+      /** Output only. Server assigned timestamp for when the connection was updated. */
+      updateTime?: string;
+      /** Output only. External ID of the webhook created for the repository. */
+      webhookId?: string;
+    }
+    interface RunWorkflowCustomOperationMetadata {
+      /** Output only. API version used to start the operation. */
+      apiVersion?: string;
+      /** Output only. The time the operation was created. */
+      createTime?: string;
+      /** Output only. The time the operation finished running. */
+      endTime?: string;
+      /** Output only. ID of the pipeline run created by RunWorkflow. */
+      pipelineRunId?: string;
+      /** Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      requestedCancellation?: boolean;
+      /** Output only. Server-defined resource path for the target of the operation. */
+      target?: string;
+      /** Output only. Name of the verb executed by the operation. */
+      verb?: string;
+    }
+    interface SecretVolumeSource {
+      /** Name of the secret referenced by the WorkspaceBinding. */
+      secretName?: string;
+      /** Output only. Resource name of the SecretVersion. In format: projects/*‍/secrets/*‍/versions/* */
+      secretVersion?: string;
+    }
+    interface SecurityContext {
+      /** Optional. AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows. +optional */
+      allowPrivilegeEscalation?: boolean;
+      /** Optional. Adds and removes POSIX capabilities from running containers. */
+      capabilities?: Capabilities;
+      /** Run container in privileged mode. */
+      privileged?: boolean;
+      /** Optional. The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows. +optional */
+      runAsGroup?: string;
+      /** Optional. Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. +optional */
+      runAsNonRoot?: boolean;
+      /** Optional. The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows. +optional */
+      runAsUser?: string;
+    }
+    interface SetIamPolicyRequest {
+      /** REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud services (such as Projects) might reject them. */
+      policy?: Policy;
+      /** OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used: `paths: "bindings, etag"` */
+      updateMask?: string;
+    }
+    interface Sidecar {
+      /** Arguments to the entrypoint. */
+      args?: string[];
+      /** Entrypoint array. */
+      command?: string[];
+      /** List of environment variables to set in the container. */
+      env?: EnvVar[];
+      /** Docker image name. */
+      image?: string;
+      /** Name of the Sidecar. */
+      name?: string;
+      /** Optional. Periodic probe of Sidecar service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes +optional */
+      readinessProbe?: Probe;
+      /** The contents of an executable file to execute. */
+      script?: string;
+      /** Optional. Security options the container should be run with. */
+      securityContext?: SecurityContext;
+      /** Pod volumes to mount into the container's filesystem. */
+      volumeMounts?: VolumeMount[];
+      /** Container's working directory. */
+      workingDir?: string;
+    }
+    interface SkippedTask {
+      /** Name is the Pipeline Task name */
+      name?: string;
+      /** Output only. Reason is the cause of the PipelineTask being skipped. */
+      reason?: string;
+      /** WhenExpressions is the list of checks guarding the execution of the PipelineTask */
+      whenExpressions?: WhenExpression[];
+    }
+    interface Status {
+      /** The status code, which should be an enum value of google.rpc.Code. */
+      code?: number;
+      /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
+      details?: Array<{[P in string]: any}>;
+      /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
+      message?: string;
+    }
+    interface Step {
+      /** Arguments to the entrypoint. */
+      args?: string[];
+      /** Entrypoint array. */
+      command?: string[];
+      /** List of environment variables to set in the container. */
+      env?: EnvVar[];
+      /** Docker image name. */
+      image?: string;
+      /** Name of the container specified as a DNS_LABEL. */
+      name?: string;
+      /** The contents of an executable file to execute. */
+      script?: string;
+      /** Optional. SecurityContext defines the security options the Step should be run with. If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext. More info: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/ +optional */
+      securityContext?: SecurityContext;
+      /** Time after which the Step times out. Defaults to never. */
+      timeout?: string;
+      /** Pod volumes to mount into the container's filesystem. */
+      volumeMounts?: VolumeMount[];
+      /** Container's working directory. */
+      workingDir?: string;
+    }
+    interface StepTemplate {
+      /** Optional. List of environment variables to set in the Step. Cannot be updated. */
+      env?: EnvVar[];
+    }
+    interface TaskRef {
+      /** Name of the task. */
+      name?: string;
+      /** Params contains the parameters used to identify the referenced Tekton resource. Example entries might include "repo" or "path" but the set of params ultimately depends on the chosen resolver. */
+      params?: Param[];
+      /** Resolver is the name of the resolver that should perform resolution of the referenced Tekton resource. */
+      resolver?: string;
+    }
+    interface TaskResult {
+      /** Description of the result. */
+      description?: string;
+      /** Name of the result. */
+      name?: string;
+      /** When type is OBJECT, this map holds the names of fields inside that object along with the type of data each field holds. */
+      properties?: {[P in string]: PropertySpec};
+      /** The type of data that the result holds. */
+      type?: string;
+    }
+    interface TaskSpec {
+      /** Description of the task. */
+      description?: string;
+      /** Sidecars that run alongside the Task’s step containers that should be added to this Task. */
+      managedSidecars?: string[];
+      /** List of parameters. */
+      params?: ParamSpec[];
+      /** Values that this Task can output. */
+      results?: TaskResult[];
+      /** Sidecars that run alongside the Task's step containers. */
+      sidecars?: Sidecar[];
+      /** Steps of the task. */
+      steps?: Step[];
+      /** Optional. StepTemplate can be used as the basis for all step containers within the Task, so that the steps inherit settings on the base container. */
+      stepTemplate?: StepTemplate;
+      /** A collection of volumes that are available to mount into steps. */
+      volumes?: VolumeSource[];
+      /** The volumes that this Task requires. */
+      workspaces?: WorkspaceDeclaration[];
+    }
+    interface TestIamPermissionsRequest {
+      /** The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions). */
+      permissions?: string[];
+    }
+    interface TestIamPermissionsResponse {
+      /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
+      permissions?: string[];
+    }
+    interface TimeoutFields {
+      /** Finally sets the maximum allowed duration of this pipeline's finally */
+      finally?: string;
+      /** Pipeline sets the maximum allowed duration for execution of the entire pipeline. The sum of individual timeouts for tasks and finally must not exceed this value. */
+      pipeline?: string;
+      /** Tasks sets the maximum allowed duration of this pipeline's tasks */
+      tasks?: string;
+    }
+    interface UserCredential {
+      /** Output only. The username associated to this token. */
+      username?: string;
+      /** Required. A SecretManager resource containing the user token that authorizes the Cloud Build connection. Format: `projects/*‍/secrets/*‍/versions/*`. */
+      userTokenSecretVersion?: string;
+    }
+    interface VolumeClaim {
+      /** Volume size, e.g. 1gb. */
+      storage?: string;
+    }
+    interface VolumeMount {
+      /** Path within the container at which the volume should be mounted. Must not contain ':'. */
+      mountPath?: string;
+      /** Name of the volume. */
+      name?: string;
+      /** Mounted read-only if true, read-write otherwise (false or unspecified). */
+      readOnly?: boolean;
+      /** Path within the volume from which the container's volume should be mounted. Defaults to "" (volume's root). */
+      subPath?: string;
+      /** Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to "" (volume's root). */
+      subPathExpr?: string;
+    }
+    interface VolumeSource {
+      /** A temporary directory that shares a pod's lifetime. */
+      emptyDir?: any;
+      /** Name of the Volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names */
+      name?: string;
+    }
+    interface WhenExpression {
+      /** Operator that represents an Input's relationship to the values */
+      expressionOperator?: string;
+      /** Input is the string for guard checking which can be a static input or an output from a parent Task. */
+      input?: string;
+      /** Values is an array of strings, which is compared against the input, for guard checking. */
+      values?: string[];
+    }
+    interface WorkspaceBinding {
+      /** Name of the workspace. */
+      name?: string;
+      /** Secret Volume Source. */
+      secret?: SecretVolumeSource;
+      /** Optional. SubPath is optionally a directory on the volume which should be used for this binding (i.e. the volume will be mounted at this sub directory). +optional */
+      subPath?: string;
+      /** Volume claim that will be created in the same namespace. */
+      volumeClaim?: VolumeClaim;
+    }
+    interface WorkspaceDeclaration {
+      /** Description is a human readable description of this volume. */
+      description?: string;
+      /** MountPath overrides the directory that the volume will be made available at. */
+      mountPath?: string;
+      /** Name is the name by which you can bind the volume at runtime. */
+      name?: string;
+      /** Optional. Optional marks a Workspace as not being required in TaskRuns. By default this field is false and so declared workspaces are required. */
+      optional?: boolean;
+      /** ReadOnly dictates whether a mounted volume is writable. */
+      readOnly?: boolean;
+    }
+    interface WorkspacePipelineTaskBinding {
+      /** Name of the workspace as declared by the task. */
+      name?: string;
+      /** Optional. SubPath is optionally a directory on the volume which should be used for this binding (i.e. the volume will be mounted at this sub directory). +optional */
+      subPath?: string;
+      /** Name of the workspace declared by the pipeline. */
+      workspace?: string;
+    }
+    interface RepositoriesResource {
+      /** Fetches read token of a given repository. */
+      accessReadToken(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
+        repository: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: FetchReadTokenRequest;
+      }): Request<FetchReadTokenResponse>;
+      accessReadToken(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
+          repository: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: FetchReadTokenRequest
+      ): Request<FetchReadTokenResponse>;
+      /** Fetches read/write token of a given repository. */
+      accessReadWriteToken(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
+        repository: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: FetchReadWriteTokenRequest;
+      }): Request<FetchReadWriteTokenResponse>;
+      accessReadWriteToken(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
+          repository: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: FetchReadWriteTokenRequest
+      ): Request<FetchReadWriteTokenResponse>;
+      /** Creates multiple repositories inside a connection. */
+      batchCreate(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The connection to contain all the repositories being created. Format: projects/*‍/locations/*‍/connections/* The parent field in the CreateRepositoryRequest messages must either be empty or match this field. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: BatchCreateRepositoriesRequest;
+      }): Request<Operation>;
+      batchCreate(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The connection to contain all the repositories being created. Format: projects/*‍/locations/*‍/connections/* The parent field in the CreateRepositoryRequest messages must either be empty or match this field. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: BatchCreateRepositoriesRequest
+      ): Request<Operation>;
+      /** Creates a Repository. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The connection to contain the repository. If the request is part of a BatchCreateRepositoriesRequest, this field should be empty or match the parent specified there. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The ID to use for the repository, which will become the final component of the repository's resource name. This ID should be unique in the connection. Allows alphanumeric characters and any of -._~%!$&'()*+,;=@. */
+        repositoryId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Repository;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The connection to contain the repository. If the request is part of a BatchCreateRepositoriesRequest, this field should be empty or match the parent specified there. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The ID to use for the repository, which will become the final component of the repository's resource name. This ID should be unique in the connection. Allows alphanumeric characters and any of -._~%!$&'()*+,;=@. */
+          repositoryId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Repository
+      ): Request<Operation>;
+      /** Deletes a single repository. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** The current etag of the repository. If an etag is provided and does not match the current etag of the repository, deletion will be blocked and an ABORTED error will be returned. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the Repository to delete. Format: `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** If set, validate the request, but do not actually post it. */
+        validateOnly?: boolean;
+      }): Request<Operation>;
+      /** Fetch the list of branches or tags for a given repository. */
+      fetchGitRefs(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. Number of results to return in the list. Default to 100. */
+        pageSize?: number;
+        /** Optional. Page start. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Type of refs to fetch */
+        refType?: string;
+        /** Required. The resource name of the repository in the format `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
+        repository: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<FetchGitRefsResponse>;
+      /** Gets details of a single repository. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the Repository to retrieve. Format: `projects/*‍/locations/*‍/connections/*‍/repositories/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Repository>;
+      /** Lists Repositories in a given connection. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter expression that filters resources listed in the response. Expressions must follow API improvement proposal [AIP-160](https://google.aip.dev/160). e.g. `remote_uri:"https://github.com*"`. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Number of results to return in the list. */
+        pageSize?: number;
+        /** Page start. */
+        pageToken?: string;
+        /** Required. The parent, which owns this collection of Repositories. Format: `projects/*‍/locations/*‍/connections/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListRepositoriesResponse>;
+    }
+    interface ConnectionsResource {
+      /** Creates a Connection. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. The ID to use for the Connection, which will become the final component of the Connection's resource name. Names must be unique per-project per-location. Allows alphanumeric characters and any of -._~%!$&'()*+,;=@. */
+        connectionId?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. Project and location where the connection will be created. Format: `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Connection;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. The ID to use for the Connection, which will become the final component of the Connection's resource name. Names must be unique per-project per-location. Allows alphanumeric characters and any of -._~%!$&'()*+,;=@. */
+          connectionId?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. Project and location where the connection will be created. Format: `projects/*‍/locations/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Connection
+      ): Request<Operation>;
+      /** Deletes a single connection. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** The current etag of the connection. If an etag is provided and does not match the current etag of the connection, deletion will be blocked and an ABORTED error will be returned. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the Connection to delete. Format: `projects/*‍/locations/*‍/connections/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** If set, validate the request, but do not actually post it. */
+        validateOnly?: boolean;
+      }): Request<Operation>;
+      /** FetchLinkableRepositories get repositories from SCM that are accessible and could be added to the connection. */
+      fetchLinkableRepositories(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. The name of the Connection. Format: `projects/*‍/locations/*‍/connections/*`. */
+        connection: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Number of results to return in the list. Default to 20. */
+        pageSize?: number;
+        /** Page start. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<FetchLinkableRepositoriesResponse>;
+      /** Gets details of a single connection. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the Connection to retrieve. Format: `projects/*‍/locations/*‍/connections/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Connection>;
+      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Policy>;
+      /** Lists Connections in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Number of results to return in the list. */
+        pageSize?: number;
+        /** Page start. */
+        pageToken?: string;
+        /** Required. The parent, which owns this collection of Connections. Format: `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListConnectionsResponse>;
+      /** Updates a single connection. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** If set to true, and the connection is not found a new connection will be created. In this situation `update_mask` is ignored. The creation will succeed only if the input connection has all the necessary information (e.g a github_config with both user_oauth_token and installation_id properties). */
+        allowMissing?: boolean;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** The current etag of the connection. If an etag is provided and does not match the current etag of the connection, update will be blocked and an ABORTED error will be returned. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Immutable. The resource name of the connection, in the format `projects/{project}/locations/{location}/connections/{connection_id}`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** The list of fields to be updated. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Connection;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** If set to true, and the connection is not found a new connection will be created. In this situation `update_mask` is ignored. The creation will succeed only if the input connection has all the necessary information (e.g a github_config with both user_oauth_token and installation_id properties). */
+          allowMissing?: boolean;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** The current etag of the connection. If an etag is provided and does not match the current etag of the connection, update will be blocked and an ABORTED error will be returned. */
+          etag?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Immutable. The resource name of the connection, in the format `projects/{project}/locations/{location}/connections/{connection_id}`. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** The list of fields to be updated. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Connection
+      ): Request<Operation>;
+      /** ProcessWebhook is called by the external SCM for notifying of events. */
+      processWebhook(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. Project and location where the webhook will be received. Format: `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Arbitrary additional key to find the maching repository for a webhook event if needed. */
+        webhookKey?: string;
+        /** Request body */
+        resource: HttpBody;
+      }): Request<{}>;
+      processWebhook(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. Project and location where the webhook will be received. Format: `projects/*‍/locations/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Arbitrary additional key to find the maching repository for a webhook event if needed. */
+          webhookKey?: string;
+        },
+        body: HttpBody
+      ): Request<{}>;
+      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: SetIamPolicyRequest
+      ): Request<Policy>;
+      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: TestIamPermissionsRequest
+      ): Request<TestIamPermissionsResponse>;
+      repositories: RepositoriesResource;
+    }
+    interface OperationsResource {
+      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      cancel(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be cancelled. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CancelOperationRequest;
+      }): Request<{}>;
+      cancel(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of the operation resource to be cancelled. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CancelOperationRequest
+      ): Request<{}>;
+      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+    }
+    interface LocationsResource {
+      /** Gets information about a location. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Resource name for the location. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Location>;
+      /** Lists information about the supported locations for this service. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource that owns the locations collection, if applicable. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The maximum number of results to return. If not set, the service selects a default. */
+        pageSize?: number;
+        /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListLocationsResponse>;
+      connections: ConnectionsResource;
+      operations: OperationsResource;
+    }
+    interface ProjectsResource {
+      locations: LocationsResource;
+    }
+
+    const projects: ProjectsResource;
+  }
 }

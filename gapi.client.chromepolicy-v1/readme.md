@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://chromepolicy.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.chromepolicy
-});
+gapi.client.load(
+  'https://chromepolicy.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.chromepolicy
+  }
+);
 ```
 
 ```typescript
@@ -45,32 +48,32 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, create or delete policies applied to Chrome OS and Chrome Browsers managed within your organization
-      'https://www.googleapis.com/auth/chrome.management.policy',
+    // See, edit, create or delete policies applied to Chrome OS and Chrome Browsers managed within your organization
+    'https://www.googleapis.com/auth/chrome.management.policy',
 
-      // See policies applied to Chrome OS and Chrome Browsers managed within your organization
-      'https://www.googleapis.com/auth/chrome.management.policy.readonly',
-    ],
-    immediate = true;
+    // See policies applied to Chrome OS and Chrome Browsers managed within your organization
+    'https://www.googleapis.com/auth/chrome.management.policy.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Chrome Policy API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Creates an enterprise file from the content provided by user. Returns a public download url for end user.
 */
-await gapi.client.chromepolicy.media.upload({ customer: "customer",  });
+await gapi.client.chromepolicy.media.upload({customer: 'customer'});
 ```

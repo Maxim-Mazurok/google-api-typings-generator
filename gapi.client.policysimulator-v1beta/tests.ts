@@ -6,325 +6,348 @@
 // Revision: 20231112
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://policysimulator.googleapis.com/$discovery/rest?version=v1beta');
-    /** now we can use gapi.client.policysimulator */
+  await gapi.client.load(
+    'https://policysimulator.googleapis.com/$discovery/rest?version=v1beta'
+  );
+  /** now we can use gapi.client.policysimulator */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.policysimulator.folders.locations.orgPolicyViolationsPreviews.operations.get({
-            name: "Test string",
-        });
-        /** Creates and starts a Replay using the given ReplayConfig. */
-        await gapi.client.policysimulator.folders.locations.replays.create({
-            parent: "Test string",
-        }, {
-            config: {
-                logSource: "Test string",
-                policyOverlay: {
-                    A: {
-                        auditConfigs: [
-                            {
-                                auditLogConfigs: [
-                                    {
-                                        exemptedMembers: [
-                                            "Test string"
-                                        ],
-                                        logType: "Test string",
-                                    }
-                                ],
-                                service: "Test string",
-                            }
-                        ],
-                        bindings: [
-                            {
-                                condition: {
-                                    description: "Test string",
-                                    expression: "Test string",
-                                    location: "Test string",
-                                    title: "Test string",
-                                },
-                                members: [
-                                    "Test string"
-                                ],
-                                role: "Test string",
-                            }
-                        ],
-                        etag: "Test string",
-                        version: 42,
-                    }
-                },
-            },
-            name: "Test string",
-            resultsSummary: {
-                differenceCount: 42,
-                errorCount: 42,
-                logCount: 42,
-                newestDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                oldestDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                unchangedCount: 42,
-            },
-            state: "Test string",
-        });
-        /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
-        await gapi.client.policysimulator.folders.locations.replays.get({
-            name: "Test string",
-        });
-        /** Lists each Replay in a project, folder, or organization. Each `Replay` is available for at least 7 days. */
-        await gapi.client.policysimulator.folders.locations.replays.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.policysimulator.folders.locations.replays.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.policysimulator.folders.locations.replays.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Lists the results of running a Replay. */
-        await gapi.client.policysimulator.folders.locations.replays.results.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.policysimulator.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.policysimulator.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** GetOrgPolicyViolationsPreview gets the specified OrgPolicyViolationsPreview. Each OrgPolicyViolationsPreview is available for at least 7 days. */
-        await gapi.client.policysimulator.organizations.locations.orgPolicyViolationsPreviews.get({
-            name: "Test string",
-        });
-        /** ListOrgPolicyViolationsPreviews lists each OrgPolicyViolationsPreview in an organization. Each OrgPolicyViolationsPreview is available for at least 7 days. */
-        await gapi.client.policysimulator.organizations.locations.orgPolicyViolationsPreviews.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.policysimulator.organizations.locations.orgPolicyViolationsPreviews.operations.get({
-            name: "Test string",
-        });
-        /** ListOrgPolicyViolations lists the OrgPolicyViolations that are present in an OrgPolicyViolationsPreview. */
-        await gapi.client.policysimulator.organizations.locations.orgPolicyViolationsPreviews.orgPolicyViolations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates and starts a Replay using the given ReplayConfig. */
-        await gapi.client.policysimulator.organizations.locations.replays.create({
-            parent: "Test string",
-        }, {
-            config: {
-                logSource: "Test string",
-                policyOverlay: {
-                    A: {
-                        auditConfigs: [
-                            {
-                                auditLogConfigs: [
-                                    {
-                                        exemptedMembers: [
-                                            "Test string"
-                                        ],
-                                        logType: "Test string",
-                                    }
-                                ],
-                                service: "Test string",
-                            }
-                        ],
-                        bindings: [
-                            {
-                                condition: {
-                                    description: "Test string",
-                                    expression: "Test string",
-                                    location: "Test string",
-                                    title: "Test string",
-                                },
-                                members: [
-                                    "Test string"
-                                ],
-                                role: "Test string",
-                            }
-                        ],
-                        etag: "Test string",
-                        version: 42,
-                    }
-                },
-            },
-            name: "Test string",
-            resultsSummary: {
-                differenceCount: 42,
-                errorCount: 42,
-                logCount: 42,
-                newestDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                oldestDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                unchangedCount: 42,
-            },
-            state: "Test string",
-        });
-        /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
-        await gapi.client.policysimulator.organizations.locations.replays.get({
-            name: "Test string",
-        });
-        /** Lists each Replay in a project, folder, or organization. Each `Replay` is available for at least 7 days. */
-        await gapi.client.policysimulator.organizations.locations.replays.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.policysimulator.organizations.locations.replays.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.policysimulator.organizations.locations.replays.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Lists the results of running a Replay. */
-        await gapi.client.policysimulator.organizations.locations.replays.results.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.policysimulator.projects.locations.orgPolicyViolationsPreviews.operations.get({
-            name: "Test string",
-        });
-        /** Creates and starts a Replay using the given ReplayConfig. */
-        await gapi.client.policysimulator.projects.locations.replays.create({
-            parent: "Test string",
-        }, {
-            config: {
-                logSource: "Test string",
-                policyOverlay: {
-                    A: {
-                        auditConfigs: [
-                            {
-                                auditLogConfigs: [
-                                    {
-                                        exemptedMembers: [
-                                            "Test string"
-                                        ],
-                                        logType: "Test string",
-                                    }
-                                ],
-                                service: "Test string",
-                            }
-                        ],
-                        bindings: [
-                            {
-                                condition: {
-                                    description: "Test string",
-                                    expression: "Test string",
-                                    location: "Test string",
-                                    title: "Test string",
-                                },
-                                members: [
-                                    "Test string"
-                                ],
-                                role: "Test string",
-                            }
-                        ],
-                        etag: "Test string",
-                        version: 42,
-                    }
-                },
-            },
-            name: "Test string",
-            resultsSummary: {
-                differenceCount: 42,
-                errorCount: 42,
-                logCount: 42,
-                newestDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                oldestDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                unchangedCount: 42,
-            },
-            state: "Test string",
-        });
-        /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
-        await gapi.client.policysimulator.projects.locations.replays.get({
-            name: "Test string",
-        });
-        /** Lists each Replay in a project, folder, or organization. Each `Replay` is available for at least 7 days. */
-        await gapi.client.policysimulator.projects.locations.replays.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.policysimulator.projects.locations.replays.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.policysimulator.projects.locations.replays.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Lists the results of running a Replay. */
-        await gapi.client.policysimulator.projects.locations.replays.results.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.policysimulator.folders.locations.orgPolicyViolationsPreviews.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Creates and starts a Replay using the given ReplayConfig. */
+    await gapi.client.policysimulator.folders.locations.replays.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        config: {
+          logSource: 'Test string',
+          policyOverlay: {
+            A: {
+              auditConfigs: [
+                {
+                  auditLogConfigs: [
+                    {
+                      exemptedMembers: ['Test string'],
+                      logType: 'Test string',
+                    },
+                  ],
+                  service: 'Test string',
+                },
+              ],
+              bindings: [
+                {
+                  condition: {
+                    description: 'Test string',
+                    expression: 'Test string',
+                    location: 'Test string',
+                    title: 'Test string',
+                  },
+                  members: ['Test string'],
+                  role: 'Test string',
+                },
+              ],
+              etag: 'Test string',
+              version: 42,
+            },
+          },
+        },
+        name: 'Test string',
+        resultsSummary: {
+          differenceCount: 42,
+          errorCount: 42,
+          logCount: 42,
+          newestDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          oldestDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          unchangedCount: 42,
+        },
+        state: 'Test string',
+      }
+    );
+    /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
+    await gapi.client.policysimulator.folders.locations.replays.get({
+      name: 'Test string',
+    });
+    /** Lists each Replay in a project, folder, or organization. Each `Replay` is available for at least 7 days. */
+    await gapi.client.policysimulator.folders.locations.replays.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.policysimulator.folders.locations.replays.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.policysimulator.folders.locations.replays.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Lists the results of running a Replay. */
+    await gapi.client.policysimulator.folders.locations.replays.results.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.policysimulator.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.policysimulator.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** GetOrgPolicyViolationsPreview gets the specified OrgPolicyViolationsPreview. Each OrgPolicyViolationsPreview is available for at least 7 days. */
+    await gapi.client.policysimulator.organizations.locations.orgPolicyViolationsPreviews.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** ListOrgPolicyViolationsPreviews lists each OrgPolicyViolationsPreview in an organization. Each OrgPolicyViolationsPreview is available for at least 7 days. */
+    await gapi.client.policysimulator.organizations.locations.orgPolicyViolationsPreviews.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.policysimulator.organizations.locations.orgPolicyViolationsPreviews.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** ListOrgPolicyViolations lists the OrgPolicyViolations that are present in an OrgPolicyViolationsPreview. */
+    await gapi.client.policysimulator.organizations.locations.orgPolicyViolationsPreviews.orgPolicyViolations.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Creates and starts a Replay using the given ReplayConfig. */
+    await gapi.client.policysimulator.organizations.locations.replays.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        config: {
+          logSource: 'Test string',
+          policyOverlay: {
+            A: {
+              auditConfigs: [
+                {
+                  auditLogConfigs: [
+                    {
+                      exemptedMembers: ['Test string'],
+                      logType: 'Test string',
+                    },
+                  ],
+                  service: 'Test string',
+                },
+              ],
+              bindings: [
+                {
+                  condition: {
+                    description: 'Test string',
+                    expression: 'Test string',
+                    location: 'Test string',
+                    title: 'Test string',
+                  },
+                  members: ['Test string'],
+                  role: 'Test string',
+                },
+              ],
+              etag: 'Test string',
+              version: 42,
+            },
+          },
+        },
+        name: 'Test string',
+        resultsSummary: {
+          differenceCount: 42,
+          errorCount: 42,
+          logCount: 42,
+          newestDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          oldestDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          unchangedCount: 42,
+        },
+        state: 'Test string',
+      }
+    );
+    /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
+    await gapi.client.policysimulator.organizations.locations.replays.get({
+      name: 'Test string',
+    });
+    /** Lists each Replay in a project, folder, or organization. Each `Replay` is available for at least 7 days. */
+    await gapi.client.policysimulator.organizations.locations.replays.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.policysimulator.organizations.locations.replays.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.policysimulator.organizations.locations.replays.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Lists the results of running a Replay. */
+    await gapi.client.policysimulator.organizations.locations.replays.results.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.policysimulator.projects.locations.orgPolicyViolationsPreviews.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Creates and starts a Replay using the given ReplayConfig. */
+    await gapi.client.policysimulator.projects.locations.replays.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        config: {
+          logSource: 'Test string',
+          policyOverlay: {
+            A: {
+              auditConfigs: [
+                {
+                  auditLogConfigs: [
+                    {
+                      exemptedMembers: ['Test string'],
+                      logType: 'Test string',
+                    },
+                  ],
+                  service: 'Test string',
+                },
+              ],
+              bindings: [
+                {
+                  condition: {
+                    description: 'Test string',
+                    expression: 'Test string',
+                    location: 'Test string',
+                    title: 'Test string',
+                  },
+                  members: ['Test string'],
+                  role: 'Test string',
+                },
+              ],
+              etag: 'Test string',
+              version: 42,
+            },
+          },
+        },
+        name: 'Test string',
+        resultsSummary: {
+          differenceCount: 42,
+          errorCount: 42,
+          logCount: 42,
+          newestDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          oldestDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          unchangedCount: 42,
+        },
+        state: 'Test string',
+      }
+    );
+    /** Gets the specified Replay. Each `Replay` is available for at least 7 days. */
+    await gapi.client.policysimulator.projects.locations.replays.get({
+      name: 'Test string',
+    });
+    /** Lists each Replay in a project, folder, or organization. Each `Replay` is available for at least 7 days. */
+    await gapi.client.policysimulator.projects.locations.replays.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.policysimulator.projects.locations.replays.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.policysimulator.projects.locations.replays.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Lists the results of running a Replay. */
+    await gapi.client.policysimulator.projects.locations.replays.results.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+  }
 });

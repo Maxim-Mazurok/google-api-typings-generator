@@ -6,20 +6,21 @@
 // Revision: 20231106
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://abusiveexperiencereport.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.abusiveexperiencereport */
+  await gapi.client.load(
+    'https://abusiveexperiencereport.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.abusiveexperiencereport */
 
-    run();
+  void run();
 
-    async function run() {
-        /** Gets a site's Abusive Experience Report summary. */
-        await gapi.client.abusiveexperiencereport.sites.get({
-            name: "Test string",
-        });
-        /** Lists sites that are failing in the Abusive Experience Report. */
-        await gapi.client.abusiveexperiencereport.violatingSites.list({
-        });
-    }
+  async function run() {
+    /** Gets a site's Abusive Experience Report summary. */
+    await gapi.client.abusiveexperiencereport.sites.get({
+      name: 'Test string',
+    });
+    /** Lists sites that are failing in the Abusive Experience Report. */
+    await gapi.client.abusiveexperiencereport.violatingSites.list({});
+  }
 });

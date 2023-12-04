@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://customsearch.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.search
-});
+gapi.client.load(
+  'https://customsearch.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.search
+  }
+);
 ```
 
 ```typescript
@@ -39,14 +42,11 @@ gapi.client.load('customsearch', 'v1', () => {
 });
 ```
 
-
-
 After that you can use Custom Search API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Returns metadata about the search performed, metadata about the engine used for the search, and the search results.
 */
-await gapi.client.search.cse.list({  });
+await gapi.client.search.cse.list({});
 ```

@@ -6,70 +6,67 @@
 // Revision: 20231127
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://searchads360.googleapis.com/$discovery/rest?version=v0');
-    /** now we can use gapi.client.searchads360 */
+  await gapi.client.load(
+    'https://searchads360.googleapis.com/$discovery/rest?version=v0'
+  );
+  /** now we can use gapi.client.searchads360 */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** View and manage your advertising data in DoubleClick Search */
-        'https://www.googleapis.com/auth/doubleclicksearch',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /**
-         * Returns resource names of customers directly accessible by the user authenticating the call. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]()
-         * [InternalError]() [QuotaError]() [RequestError]()
-         */
-        await gapi.client.searchads360.customers.listAccessibleCustomers({
-        });
-        /** Returns the requested custom column in full detail. */
-        await gapi.client.searchads360.customers.customColumns.get({
-            resourceName: "Test string",
-        });
-        /** Returns all the custom columns associated with the customer in full detail. */
-        await gapi.client.searchads360.customers.customColumns.list({
-            customerId: "Test string",
-        });
-        /**
-         * Returns all rows that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]()
-         * [RequestError]()
-         */
-        await gapi.client.searchads360.customers.searchAds360.search({
-            customerId: "Test string",
-        }, {
-            pageSize: 42,
-            pageToken: "Test string",
-            query: "Test string",
-            returnTotalResultsCount: true,
-            summaryRowSetting: "Test string",
-            validateOnly: true,
-        });
-        /** Returns just the requested field. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
-        await gapi.client.searchads360.searchAds360Fields.get({
-            resourceName: "Test string",
-        });
-        /**
-         * Returns all fields that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]()
-         * [RequestError]()
-         */
-        await gapi.client.searchads360.searchAds360Fields.search({
-        }, {
-            pageSize: 42,
-            pageToken: "Test string",
-            query: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** View and manage your advertising data in DoubleClick Search */
+    'https://www.googleapis.com/auth/doubleclicksearch',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Returns resource names of customers directly accessible by the user authenticating the call. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
+    await gapi.client.searchads360.customers.listAccessibleCustomers({});
+    /** Returns the requested custom column in full detail. */
+    await gapi.client.searchads360.customers.customColumns.get({
+      resourceName: 'Test string',
+    });
+    /** Returns all the custom columns associated with the customer in full detail. */
+    await gapi.client.searchads360.customers.customColumns.list({
+      customerId: 'Test string',
+    });
+    /** Returns all rows that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]() */
+    await gapi.client.searchads360.customers.searchAds360.search(
+      {
+        customerId: 'Test string',
+      },
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        query: 'Test string',
+        returnTotalResultsCount: true,
+        summaryRowSetting: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Returns just the requested field. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]() */
+    await gapi.client.searchads360.searchAds360Fields.get({
+      resourceName: 'Test string',
+    });
+    /** Returns all fields that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]() */
+    await gapi.client.searchads360.searchAds360Fields.search(
+      {},
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        query: 'Test string',
+      }
+    );
+  }
 });

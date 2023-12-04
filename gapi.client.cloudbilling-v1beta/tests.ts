@@ -6,793 +6,796 @@
 // Revision: 20231124
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta');
-    /** now we can use gapi.client.cloudbilling */
+  await gapi.client.load(
+    'https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta'
+  );
+  /** now we can use gapi.client.cloudbilling */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** View and manage your Google Cloud Platform billing accounts */
-        'https://www.googleapis.com/auth/cloud-billing',
-        /** View your Google Cloud Platform billing accounts */
-        'https://www.googleapis.com/auth/cloud-billing.readonly',
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Use custom pricing in the estimate, using a `CostScenario` with a defined `billingAccount`. */
-        await gapi.client.cloudbilling.billingAccounts.estimateCostScenario({
-            billingAccount: "Test string",
-        }, {
-            costScenario: {
-                commitments: [
-                    {
-                        name: "Test string",
-                        vmResourceBasedCud: {
-                            guestAccelerator: {
-                                acceleratorCount: "Test string",
-                                acceleratorType: "Test string",
-                            },
-                            machineSeries: "Test string",
-                            memorySizeGb: 42,
-                            plan: "Test string",
-                            region: "Test string",
-                            virtualCpuCount: "Test string",
-                        },
-                    }
-                ],
-                scenarioConfig: {
-                    estimateDuration: "Test string",
-                },
-                workloads: [
-                    {
-                        cloudCdnEgressWorkload: {
-                            cacheEgressDestination: "Test string",
-                            cacheEgressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                        },
-                        cloudCdnWorkload: {
-                            cacheFillOriginService: "Test string",
-                            cacheFillRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            cacheFillRegions: {
-                                destinationRegion: "Test string",
-                                sourceRegion: "Test string",
-                            },
-                            cacheLookUpRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                        },
-                        cloudInterconnectEgressWorkload: {
-                            egressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            interconnectConnectionLocation: "Test string",
-                        },
-                        cloudInterconnectWorkload: {
-                            interconnectAttachments: [
-                                {
-                                    bandwidth: "Test string",
-                                    vlanCount: {
-                                        usageRateTimeline: {
-                                            unit: "Test string",
-                                            usageRateTimelineEntries: [
-                                                {
-                                                    effectiveTime: {
-                                                        estimationTimeFrameOffset: "Test string",
-                                                    },
-                                                    usageRate: 42,
-                                                }
-                                            ],
-                                        },
-                                    },
-                                }
-                            ],
-                            interconnectType: "Test string",
-                            linkType: "Test string",
-                            provisionedLinkCount: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                        },
-                        cloudStorageEgressWorkload: {
-                            destinationContinent: "Test string",
-                            egressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            sourceContinent: "Test string",
-                        },
-                        cloudStorageWorkload: {
-                            dataRetrieval: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            dataStored: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            dualRegion: {
-                                name: "Test string",
-                            },
-                            multiRegion: {
-                                name: "Test string",
-                            },
-                            operationA: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            operationB: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            region: {
-                                name: "Test string",
-                            },
-                            storageClass: "Test string",
-                        },
-                        computeVmWorkload: {
-                            enableConfidentialCompute: true,
-                            guestAccelerator: {
-                                acceleratorCount: "Test string",
-                                acceleratorType: "Test string",
-                            },
-                            instancesRunning: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            licenses: [
-                                "Test string"
-                            ],
-                            machineType: {
-                                customMachineType: {
-                                    machineSeries: "Test string",
-                                    memorySizeGb: 42,
-                                    virtualCpuCount: "Test string",
-                                },
-                                predefinedMachineType: {
-                                    machineType: "Test string",
-                                },
-                            },
-                            persistentDisks: [
-                                {
-                                    diskSize: {
-                                        usageRateTimeline: {
-                                            unit: "Test string",
-                                            usageRateTimelineEntries: [
-                                                {
-                                                    effectiveTime: {
-                                                        estimationTimeFrameOffset: "Test string",
-                                                    },
-                                                    usageRate: 42,
-                                                }
-                                            ],
-                                        },
-                                    },
-                                    diskType: "Test string",
-                                    provisionedIops: {
-                                        usageRateTimeline: {
-                                            unit: "Test string",
-                                            usageRateTimelineEntries: [
-                                                {
-                                                    effectiveTime: {
-                                                        estimationTimeFrameOffset: "Test string",
-                                                    },
-                                                    usageRate: 42,
-                                                }
-                                            ],
-                                        },
-                                    },
-                                    scope: "Test string",
-                                }
-                            ],
-                            preemptible: true,
-                            region: "Test string",
-                        },
-                        name: "Test string",
-                        premiumTierEgressWorkload: {
-                            destinationContinent: "Test string",
-                            egressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            sourceRegion: "Test string",
-                        },
-                        standardTierEgressWorkload: {
-                            egressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            sourceRegion: "Test string",
-                        },
-                        vmToVmEgressWorkload: {
-                            interRegionEgress: {
-                                destinationRegion: "Test string",
-                                egressRate: {
-                                    usageRateTimeline: {
-                                        unit: "Test string",
-                                        usageRateTimelineEntries: [
-                                            {
-                                                effectiveTime: {
-                                                    estimationTimeFrameOffset: "Test string",
-                                                },
-                                                usageRate: 42,
-                                            }
-                                        ],
-                                    },
-                                },
-                                sourceRegion: "Test string",
-                            },
-                            intraRegionEgress: {
-                                egressRate: {
-                                    usageRateTimeline: {
-                                        unit: "Test string",
-                                        usageRateTimelineEntries: [
-                                            {
-                                                effectiveTime: {
-                                                    estimationTimeFrameOffset: "Test string",
-                                                },
-                                                usageRate: 42,
-                                            }
-                                        ],
-                                    },
-                                },
-                            },
-                        },
-                    }
-                ],
-            },
-        });
-        /** Gets a Google Cloud service visible to a billing account. */
-        await gapi.client.cloudbilling.billingAccounts.services.get({
-            name: "Test string",
-        });
-        /** Lists services visible to a billing account. */
-        await gapi.client.cloudbilling.billingAccounts.services.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a SKU group visible to a billing account. */
-        await gapi.client.cloudbilling.billingAccounts.skuGroups.get({
-            name: "Test string",
-        });
-        /** Lists SKU groups visible to a billing account. */
-        await gapi.client.cloudbilling.billingAccounts.skuGroups.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a SKU that is part of a billing account SKU group. */
-        await gapi.client.cloudbilling.billingAccounts.skuGroups.skus.get({
-            name: "Test string",
-        });
-        /** Lists SKUs that is part of billing account SKU groups. */
-        await gapi.client.cloudbilling.billingAccounts.skuGroups.skus.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a SKU visible to a billing account. */
-        await gapi.client.cloudbilling.billingAccounts.skus.get({
-            name: "Test string",
-        });
-        /** Lists SKUs visible to a billing account. */
-        await gapi.client.cloudbilling.billingAccounts.skus.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the latest price for SKUs available to your Cloud Billing account. */
-        await gapi.client.cloudbilling.billingAccounts.skus.price.get({
-            currencyCode: "Test string",
-            name: "Test string",
-        });
-        /** Gets a publicly listed SKU group. */
-        await gapi.client.cloudbilling.skuGroups.get({
-            name: "Test string",
-        });
-        /** Lists all publicly listed SKU groups. */
-        await gapi.client.cloudbilling.skuGroups.list({
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets a publicly listed SKU that is part of a publicly listed SKU group. */
-        await gapi.client.cloudbilling.skuGroups.skus.get({
-            name: "Test string",
-        });
-        /** Lists all publicly listed SKUs contained by a publicly listed SKU group. */
-        await gapi.client.cloudbilling.skuGroups.skus.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets the latest price for the given SKU. */
-        await gapi.client.cloudbilling.skus.price.get({
-            currencyCode: "Test string",
-            name: "Test string",
-        });
-        /** Estimate list prices using a `CostScenario` without a defined `billingAccount`. */
-        await gapi.client.cloudbilling.v1beta.estimateCostScenario({
-        }, {
-            costScenario: {
-                commitments: [
-                    {
-                        name: "Test string",
-                        vmResourceBasedCud: {
-                            guestAccelerator: {
-                                acceleratorCount: "Test string",
-                                acceleratorType: "Test string",
-                            },
-                            machineSeries: "Test string",
-                            memorySizeGb: 42,
-                            plan: "Test string",
-                            region: "Test string",
-                            virtualCpuCount: "Test string",
-                        },
-                    }
-                ],
-                scenarioConfig: {
-                    estimateDuration: "Test string",
-                },
-                workloads: [
-                    {
-                        cloudCdnEgressWorkload: {
-                            cacheEgressDestination: "Test string",
-                            cacheEgressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                        },
-                        cloudCdnWorkload: {
-                            cacheFillOriginService: "Test string",
-                            cacheFillRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            cacheFillRegions: {
-                                destinationRegion: "Test string",
-                                sourceRegion: "Test string",
-                            },
-                            cacheLookUpRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                        },
-                        cloudInterconnectEgressWorkload: {
-                            egressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            interconnectConnectionLocation: "Test string",
-                        },
-                        cloudInterconnectWorkload: {
-                            interconnectAttachments: [
-                                {
-                                    bandwidth: "Test string",
-                                    vlanCount: {
-                                        usageRateTimeline: {
-                                            unit: "Test string",
-                                            usageRateTimelineEntries: [
-                                                {
-                                                    effectiveTime: {
-                                                        estimationTimeFrameOffset: "Test string",
-                                                    },
-                                                    usageRate: 42,
-                                                }
-                                            ],
-                                        },
-                                    },
-                                }
-                            ],
-                            interconnectType: "Test string",
-                            linkType: "Test string",
-                            provisionedLinkCount: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                        },
-                        cloudStorageEgressWorkload: {
-                            destinationContinent: "Test string",
-                            egressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            sourceContinent: "Test string",
-                        },
-                        cloudStorageWorkload: {
-                            dataRetrieval: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            dataStored: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            dualRegion: {
-                                name: "Test string",
-                            },
-                            multiRegion: {
-                                name: "Test string",
-                            },
-                            operationA: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            operationB: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            region: {
-                                name: "Test string",
-                            },
-                            storageClass: "Test string",
-                        },
-                        computeVmWorkload: {
-                            enableConfidentialCompute: true,
-                            guestAccelerator: {
-                                acceleratorCount: "Test string",
-                                acceleratorType: "Test string",
-                            },
-                            instancesRunning: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            licenses: [
-                                "Test string"
-                            ],
-                            machineType: {
-                                customMachineType: {
-                                    machineSeries: "Test string",
-                                    memorySizeGb: 42,
-                                    virtualCpuCount: "Test string",
-                                },
-                                predefinedMachineType: {
-                                    machineType: "Test string",
-                                },
-                            },
-                            persistentDisks: [
-                                {
-                                    diskSize: {
-                                        usageRateTimeline: {
-                                            unit: "Test string",
-                                            usageRateTimelineEntries: [
-                                                {
-                                                    effectiveTime: {
-                                                        estimationTimeFrameOffset: "Test string",
-                                                    },
-                                                    usageRate: 42,
-                                                }
-                                            ],
-                                        },
-                                    },
-                                    diskType: "Test string",
-                                    provisionedIops: {
-                                        usageRateTimeline: {
-                                            unit: "Test string",
-                                            usageRateTimelineEntries: [
-                                                {
-                                                    effectiveTime: {
-                                                        estimationTimeFrameOffset: "Test string",
-                                                    },
-                                                    usageRate: 42,
-                                                }
-                                            ],
-                                        },
-                                    },
-                                    scope: "Test string",
-                                }
-                            ],
-                            preemptible: true,
-                            region: "Test string",
-                        },
-                        name: "Test string",
-                        premiumTierEgressWorkload: {
-                            destinationContinent: "Test string",
-                            egressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            sourceRegion: "Test string",
-                        },
-                        standardTierEgressWorkload: {
-                            egressRate: {
-                                usageRateTimeline: {
-                                    unit: "Test string",
-                                    usageRateTimelineEntries: [
-                                        {
-                                            effectiveTime: {
-                                                estimationTimeFrameOffset: "Test string",
-                                            },
-                                            usageRate: 42,
-                                        }
-                                    ],
-                                },
-                            },
-                            sourceRegion: "Test string",
-                        },
-                        vmToVmEgressWorkload: {
-                            interRegionEgress: {
-                                destinationRegion: "Test string",
-                                egressRate: {
-                                    usageRateTimeline: {
-                                        unit: "Test string",
-                                        usageRateTimelineEntries: [
-                                            {
-                                                effectiveTime: {
-                                                    estimationTimeFrameOffset: "Test string",
-                                                },
-                                                usageRate: 42,
-                                            }
-                                        ],
-                                    },
-                                },
-                                sourceRegion: "Test string",
-                            },
-                            intraRegionEgress: {
-                                egressRate: {
-                                    usageRateTimeline: {
-                                        unit: "Test string",
-                                        usageRateTimelineEntries: [
-                                            {
-                                                effectiveTime: {
-                                                    estimationTimeFrameOffset: "Test string",
-                                                },
-                                                usageRate: 42,
-                                            }
-                                        ],
-                                    },
-                                },
-                            },
-                        },
-                    }
-                ],
-            },
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** View and manage your Google Cloud Platform billing accounts */
+    'https://www.googleapis.com/auth/cloud-billing',
+    /** View your Google Cloud Platform billing accounts */
+    'https://www.googleapis.com/auth/cloud-billing.readonly',
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Use custom pricing in the estimate, using a `CostScenario` with a defined `billingAccount`. */
+    await gapi.client.cloudbilling.billingAccounts.estimateCostScenario(
+      {
+        billingAccount: 'Test string',
+      },
+      {
+        costScenario: {
+          commitments: [
+            {
+              name: 'Test string',
+              vmResourceBasedCud: {
+                guestAccelerator: {
+                  acceleratorCount: 'Test string',
+                  acceleratorType: 'Test string',
+                },
+                machineSeries: 'Test string',
+                memorySizeGb: 42,
+                plan: 'Test string',
+                region: 'Test string',
+                virtualCpuCount: 'Test string',
+              },
+            },
+          ],
+          scenarioConfig: {
+            estimateDuration: 'Test string',
+          },
+          workloads: [
+            {
+              cloudCdnEgressWorkload: {
+                cacheEgressDestination: 'Test string',
+                cacheEgressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+              },
+              cloudCdnWorkload: {
+                cacheFillOriginService: 'Test string',
+                cacheFillRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                cacheFillRegions: {
+                  destinationRegion: 'Test string',
+                  sourceRegion: 'Test string',
+                },
+                cacheLookUpRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+              },
+              cloudInterconnectEgressWorkload: {
+                egressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                interconnectConnectionLocation: 'Test string',
+              },
+              cloudInterconnectWorkload: {
+                interconnectAttachments: [
+                  {
+                    bandwidth: 'Test string',
+                    vlanCount: {
+                      usageRateTimeline: {
+                        unit: 'Test string',
+                        usageRateTimelineEntries: [
+                          {
+                            effectiveTime: {
+                              estimationTimeFrameOffset: 'Test string',
+                            },
+                            usageRate: 42,
+                          },
+                        ],
+                      },
+                    },
+                  },
+                ],
+                interconnectType: 'Test string',
+                linkType: 'Test string',
+                provisionedLinkCount: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+              },
+              cloudStorageEgressWorkload: {
+                destinationContinent: 'Test string',
+                egressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                sourceContinent: 'Test string',
+              },
+              cloudStorageWorkload: {
+                dataRetrieval: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                dataStored: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                dualRegion: {
+                  name: 'Test string',
+                },
+                multiRegion: {
+                  name: 'Test string',
+                },
+                operationA: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                operationB: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                region: {
+                  name: 'Test string',
+                },
+                storageClass: 'Test string',
+              },
+              computeVmWorkload: {
+                enableConfidentialCompute: true,
+                guestAccelerator: {
+                  acceleratorCount: 'Test string',
+                  acceleratorType: 'Test string',
+                },
+                instancesRunning: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                licenses: ['Test string'],
+                machineType: {
+                  customMachineType: {
+                    machineSeries: 'Test string',
+                    memorySizeGb: 42,
+                    virtualCpuCount: 'Test string',
+                  },
+                  predefinedMachineType: {
+                    machineType: 'Test string',
+                  },
+                },
+                persistentDisks: [
+                  {
+                    diskSize: {
+                      usageRateTimeline: {
+                        unit: 'Test string',
+                        usageRateTimelineEntries: [
+                          {
+                            effectiveTime: {
+                              estimationTimeFrameOffset: 'Test string',
+                            },
+                            usageRate: 42,
+                          },
+                        ],
+                      },
+                    },
+                    diskType: 'Test string',
+                    provisionedIops: {
+                      usageRateTimeline: {
+                        unit: 'Test string',
+                        usageRateTimelineEntries: [
+                          {
+                            effectiveTime: {
+                              estimationTimeFrameOffset: 'Test string',
+                            },
+                            usageRate: 42,
+                          },
+                        ],
+                      },
+                    },
+                    scope: 'Test string',
+                  },
+                ],
+                preemptible: true,
+                region: 'Test string',
+              },
+              name: 'Test string',
+              premiumTierEgressWorkload: {
+                destinationContinent: 'Test string',
+                egressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                sourceRegion: 'Test string',
+              },
+              standardTierEgressWorkload: {
+                egressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                sourceRegion: 'Test string',
+              },
+              vmToVmEgressWorkload: {
+                interRegionEgress: {
+                  destinationRegion: 'Test string',
+                  egressRate: {
+                    usageRateTimeline: {
+                      unit: 'Test string',
+                      usageRateTimelineEntries: [
+                        {
+                          effectiveTime: {
+                            estimationTimeFrameOffset: 'Test string',
+                          },
+                          usageRate: 42,
+                        },
+                      ],
+                    },
+                  },
+                  sourceRegion: 'Test string',
+                },
+                intraRegionEgress: {
+                  egressRate: {
+                    usageRateTimeline: {
+                      unit: 'Test string',
+                      usageRateTimelineEntries: [
+                        {
+                          effectiveTime: {
+                            estimationTimeFrameOffset: 'Test string',
+                          },
+                          usageRate: 42,
+                        },
+                      ],
+                    },
+                  },
+                },
+              },
+            },
+          ],
+        },
+      }
+    );
+    /** Gets a Google Cloud service visible to a billing account. */
+    await gapi.client.cloudbilling.billingAccounts.services.get({
+      name: 'Test string',
+    });
+    /** Lists services visible to a billing account. */
+    await gapi.client.cloudbilling.billingAccounts.services.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets a SKU group visible to a billing account. */
+    await gapi.client.cloudbilling.billingAccounts.skuGroups.get({
+      name: 'Test string',
+    });
+    /** Lists SKU groups visible to a billing account. */
+    await gapi.client.cloudbilling.billingAccounts.skuGroups.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets a SKU that is part of a billing account SKU group. */
+    await gapi.client.cloudbilling.billingAccounts.skuGroups.skus.get({
+      name: 'Test string',
+    });
+    /** Lists SKUs that is part of billing account SKU groups. */
+    await gapi.client.cloudbilling.billingAccounts.skuGroups.skus.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets a SKU visible to a billing account. */
+    await gapi.client.cloudbilling.billingAccounts.skus.get({
+      name: 'Test string',
+    });
+    /** Lists SKUs visible to a billing account. */
+    await gapi.client.cloudbilling.billingAccounts.skus.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets the latest price for SKUs available to your Cloud Billing account. */
+    await gapi.client.cloudbilling.billingAccounts.skus.price.get({
+      currencyCode: 'Test string',
+      name: 'Test string',
+    });
+    /** Gets a publicly listed SKU group. */
+    await gapi.client.cloudbilling.skuGroups.get({
+      name: 'Test string',
+    });
+    /** Lists all publicly listed SKU groups. */
+    await gapi.client.cloudbilling.skuGroups.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Gets a publicly listed SKU that is part of a publicly listed SKU group. */
+    await gapi.client.cloudbilling.skuGroups.skus.get({
+      name: 'Test string',
+    });
+    /** Lists all publicly listed SKUs contained by a publicly listed SKU group. */
+    await gapi.client.cloudbilling.skuGroups.skus.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets the latest price for the given SKU. */
+    await gapi.client.cloudbilling.skus.price.get({
+      currencyCode: 'Test string',
+      name: 'Test string',
+    });
+    /** Estimate list prices using a `CostScenario` without a defined `billingAccount`. */
+    await gapi.client.cloudbilling.v1beta.estimateCostScenario(
+      {},
+      {
+        costScenario: {
+          commitments: [
+            {
+              name: 'Test string',
+              vmResourceBasedCud: {
+                guestAccelerator: {
+                  acceleratorCount: 'Test string',
+                  acceleratorType: 'Test string',
+                },
+                machineSeries: 'Test string',
+                memorySizeGb: 42,
+                plan: 'Test string',
+                region: 'Test string',
+                virtualCpuCount: 'Test string',
+              },
+            },
+          ],
+          scenarioConfig: {
+            estimateDuration: 'Test string',
+          },
+          workloads: [
+            {
+              cloudCdnEgressWorkload: {
+                cacheEgressDestination: 'Test string',
+                cacheEgressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+              },
+              cloudCdnWorkload: {
+                cacheFillOriginService: 'Test string',
+                cacheFillRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                cacheFillRegions: {
+                  destinationRegion: 'Test string',
+                  sourceRegion: 'Test string',
+                },
+                cacheLookUpRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+              },
+              cloudInterconnectEgressWorkload: {
+                egressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                interconnectConnectionLocation: 'Test string',
+              },
+              cloudInterconnectWorkload: {
+                interconnectAttachments: [
+                  {
+                    bandwidth: 'Test string',
+                    vlanCount: {
+                      usageRateTimeline: {
+                        unit: 'Test string',
+                        usageRateTimelineEntries: [
+                          {
+                            effectiveTime: {
+                              estimationTimeFrameOffset: 'Test string',
+                            },
+                            usageRate: 42,
+                          },
+                        ],
+                      },
+                    },
+                  },
+                ],
+                interconnectType: 'Test string',
+                linkType: 'Test string',
+                provisionedLinkCount: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+              },
+              cloudStorageEgressWorkload: {
+                destinationContinent: 'Test string',
+                egressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                sourceContinent: 'Test string',
+              },
+              cloudStorageWorkload: {
+                dataRetrieval: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                dataStored: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                dualRegion: {
+                  name: 'Test string',
+                },
+                multiRegion: {
+                  name: 'Test string',
+                },
+                operationA: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                operationB: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                region: {
+                  name: 'Test string',
+                },
+                storageClass: 'Test string',
+              },
+              computeVmWorkload: {
+                enableConfidentialCompute: true,
+                guestAccelerator: {
+                  acceleratorCount: 'Test string',
+                  acceleratorType: 'Test string',
+                },
+                instancesRunning: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                licenses: ['Test string'],
+                machineType: {
+                  customMachineType: {
+                    machineSeries: 'Test string',
+                    memorySizeGb: 42,
+                    virtualCpuCount: 'Test string',
+                  },
+                  predefinedMachineType: {
+                    machineType: 'Test string',
+                  },
+                },
+                persistentDisks: [
+                  {
+                    diskSize: {
+                      usageRateTimeline: {
+                        unit: 'Test string',
+                        usageRateTimelineEntries: [
+                          {
+                            effectiveTime: {
+                              estimationTimeFrameOffset: 'Test string',
+                            },
+                            usageRate: 42,
+                          },
+                        ],
+                      },
+                    },
+                    diskType: 'Test string',
+                    provisionedIops: {
+                      usageRateTimeline: {
+                        unit: 'Test string',
+                        usageRateTimelineEntries: [
+                          {
+                            effectiveTime: {
+                              estimationTimeFrameOffset: 'Test string',
+                            },
+                            usageRate: 42,
+                          },
+                        ],
+                      },
+                    },
+                    scope: 'Test string',
+                  },
+                ],
+                preemptible: true,
+                region: 'Test string',
+              },
+              name: 'Test string',
+              premiumTierEgressWorkload: {
+                destinationContinent: 'Test string',
+                egressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                sourceRegion: 'Test string',
+              },
+              standardTierEgressWorkload: {
+                egressRate: {
+                  usageRateTimeline: {
+                    unit: 'Test string',
+                    usageRateTimelineEntries: [
+                      {
+                        effectiveTime: {
+                          estimationTimeFrameOffset: 'Test string',
+                        },
+                        usageRate: 42,
+                      },
+                    ],
+                  },
+                },
+                sourceRegion: 'Test string',
+              },
+              vmToVmEgressWorkload: {
+                interRegionEgress: {
+                  destinationRegion: 'Test string',
+                  egressRate: {
+                    usageRateTimeline: {
+                      unit: 'Test string',
+                      usageRateTimelineEntries: [
+                        {
+                          effectiveTime: {
+                            estimationTimeFrameOffset: 'Test string',
+                          },
+                          usageRate: 42,
+                        },
+                      ],
+                    },
+                  },
+                  sourceRegion: 'Test string',
+                },
+                intraRegionEgress: {
+                  egressRate: {
+                    usageRateTimeline: {
+                      unit: 'Test string',
+                      usageRateTimelineEntries: [
+                        {
+                          effectiveTime: {
+                            estimationTimeFrameOffset: 'Test string',
+                          },
+                          usageRate: 42,
+                        },
+                      ],
+                    },
+                  },
+                },
+              },
+            },
+          ],
+        },
+      }
+    );
+  }
 });

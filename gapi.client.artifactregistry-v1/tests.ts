@@ -6,520 +6,555 @@
 // Revision: 20231114
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://artifactregistry.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.artifactregistry */
+  await gapi.client.load(
+    'https://artifactregistry.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.artifactregistry */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-        /** View your data across Google Cloud services and see the email address of your Google Account */
-        'https://www.googleapis.com/auth/cloud-platform.read-only',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Retrieves the Settings for the Project. */
-        await gapi.client.artifactregistry.projects.getProjectSettings({
-            name: "Test string",
-        });
-        /** Updates the Settings for the Project. */
-        await gapi.client.artifactregistry.projects.updateProjectSettings({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            legacyRedirectionState: "Test string",
-            name: "Test string",
-        });
-        /** Gets information about a location. */
-        await gapi.client.artifactregistry.projects.locations.get({
-            name: "Test string",
-        });
-        /** Retrieves the VPCSC Config for the Project. */
-        await gapi.client.artifactregistry.projects.locations.getVpcscConfig({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.artifactregistry.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Updates the VPCSC Config for the Project. */
-        await gapi.client.artifactregistry.projects.locations.updateVpcscConfig({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            name: "Test string",
-            vpcscPolicy: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.artifactregistry.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Creates a repository. The returned Operation will finish once the repository has been created. Its response will be the created Repository. */
-        await gapi.client.artifactregistry.projects.locations.repositories.create({
-            parent: "Test string",
-            repositoryId: "Test string",
-        }, {
-            cleanupPolicies: {
-                A: {
-                    action: "Test string",
-                    condition: {
-                        newerThan: "Test string",
-                        olderThan: "Test string",
-                        packageNamePrefixes: [
-                            "Test string"
-                        ],
-                        tagPrefixes: [
-                            "Test string"
-                        ],
-                        tagState: "Test string",
-                        versionAge: "Test string",
-                        versionNamePrefixes: [
-                            "Test string"
-                        ],
-                    },
-                    id: "Test string",
-                    mostRecentVersions: {
-                        keepCount: 42,
-                        packageNamePrefixes: [
-                            "Test string"
-                        ],
-                    },
-                }
-            },
-            cleanupPolicyDryRun: true,
-            createTime: "Test string",
-            description: "Test string",
-            dockerConfig: {
-                immutableTags: true,
-            },
-            format: "Test string",
-            kmsKeyName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            mavenConfig: {
-                allowSnapshotOverwrites: true,
-                versionPolicy: "Test string",
-            },
-            mode: "Test string",
-            name: "Test string",
-            remoteRepositoryConfig: {
-                aptRepository: {
-                    publicRepository: {
-                        repositoryBase: "Test string",
-                        repositoryPath: "Test string",
-                    },
-                },
-                description: "Test string",
-                dockerRepository: {
-                    publicRepository: "Test string",
-                },
-                mavenRepository: {
-                    publicRepository: "Test string",
-                },
-                npmRepository: {
-                    publicRepository: "Test string",
-                },
-                pythonRepository: {
-                    publicRepository: "Test string",
-                },
-                upstreamCredentials: {
-                    usernamePasswordCredentials: {
-                        passwordSecretVersion: "Test string",
-                        username: "Test string",
-                    },
-                },
-                yumRepository: {
-                    publicRepository: {
-                        repositoryBase: "Test string",
-                        repositoryPath: "Test string",
-                    },
-                },
-            },
-            satisfiesPzs: true,
-            sizeBytes: "Test string",
-            updateTime: "Test string",
-            virtualRepositoryConfig: {
-                upstreamPolicies: [
-                    {
-                        id: "Test string",
-                        priority: 42,
-                        repository: "Test string",
-                    }
-                ],
-            },
-        });
-        /**
-         * Deletes a repository and all of its contents. The returned Operation will finish once the repository has been deleted. It will not have any Operation metadata and will return a
-         * google.protobuf.Empty response.
-         */
-        await gapi.client.artifactregistry.projects.locations.repositories.delete({
-            name: "Test string",
-        });
-        /** Gets a repository. */
-        await gapi.client.artifactregistry.projects.locations.repositories.get({
-            name: "Test string",
-        });
-        /** Gets the IAM policy for a given resource. */
-        await gapi.client.artifactregistry.projects.locations.repositories.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists repositories. */
-        await gapi.client.artifactregistry.projects.locations.repositories.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a repository. */
-        await gapi.client.artifactregistry.projects.locations.repositories.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            cleanupPolicies: {
-                A: {
-                    action: "Test string",
-                    condition: {
-                        newerThan: "Test string",
-                        olderThan: "Test string",
-                        packageNamePrefixes: [
-                            "Test string"
-                        ],
-                        tagPrefixes: [
-                            "Test string"
-                        ],
-                        tagState: "Test string",
-                        versionAge: "Test string",
-                        versionNamePrefixes: [
-                            "Test string"
-                        ],
-                    },
-                    id: "Test string",
-                    mostRecentVersions: {
-                        keepCount: 42,
-                        packageNamePrefixes: [
-                            "Test string"
-                        ],
-                    },
-                }
-            },
-            cleanupPolicyDryRun: true,
-            createTime: "Test string",
-            description: "Test string",
-            dockerConfig: {
-                immutableTags: true,
-            },
-            format: "Test string",
-            kmsKeyName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            mavenConfig: {
-                allowSnapshotOverwrites: true,
-                versionPolicy: "Test string",
-            },
-            mode: "Test string",
-            name: "Test string",
-            remoteRepositoryConfig: {
-                aptRepository: {
-                    publicRepository: {
-                        repositoryBase: "Test string",
-                        repositoryPath: "Test string",
-                    },
-                },
-                description: "Test string",
-                dockerRepository: {
-                    publicRepository: "Test string",
-                },
-                mavenRepository: {
-                    publicRepository: "Test string",
-                },
-                npmRepository: {
-                    publicRepository: "Test string",
-                },
-                pythonRepository: {
-                    publicRepository: "Test string",
-                },
-                upstreamCredentials: {
-                    usernamePasswordCredentials: {
-                        passwordSecretVersion: "Test string",
-                        username: "Test string",
-                    },
-                },
-                yumRepository: {
-                    publicRepository: {
-                        repositoryBase: "Test string",
-                        repositoryPath: "Test string",
-                    },
-                },
-            },
-            satisfiesPzs: true,
-            sizeBytes: "Test string",
-            updateTime: "Test string",
-            virtualRepositoryConfig: {
-                upstreamPolicies: [
-                    {
-                        id: "Test string",
-                        priority: 42,
-                        repository: "Test string",
-                    }
-                ],
-            },
-        });
-        /** Updates the IAM policy for a given resource. */
-        await gapi.client.artifactregistry.projects.locations.repositories.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /** Tests if the caller has a list of permissions on a resource. */
-        await gapi.client.artifactregistry.projects.locations.repositories.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /**
-         * Imports Apt artifacts. The returned Operation will complete once the resources are imported. Package, Version, and File resources are created based on the imported artifacts. Imported
-         * artifacts that conflict with existing resources are ignored.
-         */
-        await gapi.client.artifactregistry.projects.locations.repositories.aptArtifacts.import({
-            parent: "Test string",
-        }, {
-            gcsSource: {
-                uris: [
-                    "Test string"
-                ],
-                useWildcards: true,
-            },
-        });
-        /**
-         * Directly uploads an Apt artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported artifact.
-         * Imported artifacts that conflict with existing resources are ignored.
-         */
-        await gapi.client.artifactregistry.projects.locations.repositories.aptArtifacts.upload({
-            parent: "Test string",
-        }, {
-        });
-        /** Gets a docker image. */
-        await gapi.client.artifactregistry.projects.locations.repositories.dockerImages.get({
-            name: "Test string",
-        });
-        /** Lists docker images. */
-        await gapi.client.artifactregistry.projects.locations.repositories.dockerImages.list({
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a file. */
-        await gapi.client.artifactregistry.projects.locations.repositories.files.get({
-            name: "Test string",
-        });
-        /** Lists files. */
-        await gapi.client.artifactregistry.projects.locations.repositories.files.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Directly uploads a Go module. The returned Operation will complete once the Go module is uploaded. Package, Version, and File resources are created based on the uploaded Go module. */
-        await gapi.client.artifactregistry.projects.locations.repositories.goModules.upload({
-            parent: "Test string",
-        }, {
-        });
-        /**
-         * Imports GooGet artifacts. The returned Operation will complete once the resources are imported. Package, Version, and File resources are created based on the imported artifacts.
-         * Imported artifacts that conflict with existing resources are ignored.
-         */
-        await gapi.client.artifactregistry.projects.locations.repositories.googetArtifacts.import({
-            parent: "Test string",
-        }, {
-            gcsSource: {
-                uris: [
-                    "Test string"
-                ],
-                useWildcards: true,
-            },
-        });
-        /**
-         * Directly uploads a GooGet artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported
-         * artifact. Imported artifacts that conflict with existing resources are ignored.
-         */
-        await gapi.client.artifactregistry.projects.locations.repositories.googetArtifacts.upload({
-            parent: "Test string",
-        }, {
-        });
-        /**
-         * Directly uploads a KFP artifact. The returned Operation will complete once the resource is uploaded. Package, Version, and File resources will be created based on the uploaded artifact.
-         * Uploaded artifacts that conflict with existing resources will be overwritten.
-         */
-        await gapi.client.artifactregistry.projects.locations.repositories.kfpArtifacts.upload({
-            parent: "Test string",
-        }, {
-            description: "Test string",
-            tags: [
-                "Test string"
-            ],
-        });
-        /** Gets a maven artifact. */
-        await gapi.client.artifactregistry.projects.locations.repositories.mavenArtifacts.get({
-            name: "Test string",
-        });
-        /** Lists maven artifacts. */
-        await gapi.client.artifactregistry.projects.locations.repositories.mavenArtifacts.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets a npm package. */
-        await gapi.client.artifactregistry.projects.locations.repositories.npmPackages.get({
-            name: "Test string",
-        });
-        /** Lists npm packages. */
-        await gapi.client.artifactregistry.projects.locations.repositories.npmPackages.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Deletes a package and all of its versions and tags. The returned operation will complete once the package has been deleted. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.delete({
-            name: "Test string",
-        });
-        /** Gets a package. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.get({
-            name: "Test string",
-        });
-        /** Lists packages. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a tag. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.create({
-            parent: "Test string",
-            tagId: "Test string",
-        }, {
-            name: "Test string",
-            version: "Test string",
-        });
-        /** Deletes a tag. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.delete({
-            name: "Test string",
-        });
-        /** Gets a tag. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.get({
-            name: "Test string",
-        });
-        /** Lists tags. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a tag. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            name: "Test string",
-            version: "Test string",
-        });
-        /** Deletes multiple versions across a repository. The returned operation will complete once the versions have been deleted. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.batchDelete({
-            parent: "Test string",
-        }, {
-            names: [
-                "Test string"
-            ],
-            validateOnly: true,
-        });
-        /** Deletes a version and all of its content. The returned operation will complete once the version has been deleted. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.delete({
-            force: true,
-            name: "Test string",
-        });
-        /** Gets a version */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** Lists versions. */
-        await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.list({
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
-        /** Gets a python package. */
-        await gapi.client.artifactregistry.projects.locations.repositories.pythonPackages.get({
-            name: "Test string",
-        });
-        /** Lists python packages. */
-        await gapi.client.artifactregistry.projects.locations.repositories.pythonPackages.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Imports Yum (RPM) artifacts. The returned Operation will complete once the resources are imported. Package, Version, and File resources are created based on the imported artifacts.
-         * Imported artifacts that conflict with existing resources are ignored.
-         */
-        await gapi.client.artifactregistry.projects.locations.repositories.yumArtifacts.import({
-            parent: "Test string",
-        }, {
-            gcsSource: {
-                uris: [
-                    "Test string"
-                ],
-                useWildcards: true,
-            },
-        });
-        /**
-         * Directly uploads a Yum artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported artifact.
-         * Imported artifacts that conflict with existing resources are ignored.
-         */
-        await gapi.client.artifactregistry.projects.locations.repositories.yumArtifacts.upload({
-            parent: "Test string",
-        }, {
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+    /** View your data across Google Cloud services and see the email address of your Google Account */
+    'https://www.googleapis.com/auth/cloud-platform.read-only',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Retrieves the Settings for the Project. */
+    await gapi.client.artifactregistry.projects.getProjectSettings({
+      name: 'Test string',
+    });
+    /** Updates the Settings for the Project. */
+    await gapi.client.artifactregistry.projects.updateProjectSettings(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        legacyRedirectionState: 'Test string',
+        name: 'Test string',
+      }
+    );
+    /** Gets information about a location. */
+    await gapi.client.artifactregistry.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Retrieves the VPCSC Config for the Project. */
+    await gapi.client.artifactregistry.projects.locations.getVpcscConfig({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.artifactregistry.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Updates the VPCSC Config for the Project. */
+    await gapi.client.artifactregistry.projects.locations.updateVpcscConfig(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        name: 'Test string',
+        vpcscPolicy: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.artifactregistry.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Creates a repository. The returned Operation will finish once the repository has been created. Its response will be the created Repository. */
+    await gapi.client.artifactregistry.projects.locations.repositories.create(
+      {
+        parent: 'Test string',
+        repositoryId: 'Test string',
+      },
+      {
+        cleanupPolicies: {
+          A: {
+            action: 'Test string',
+            condition: {
+              newerThan: 'Test string',
+              olderThan: 'Test string',
+              packageNamePrefixes: ['Test string'],
+              tagPrefixes: ['Test string'],
+              tagState: 'Test string',
+              versionAge: 'Test string',
+              versionNamePrefixes: ['Test string'],
+            },
+            id: 'Test string',
+            mostRecentVersions: {
+              keepCount: 42,
+              packageNamePrefixes: ['Test string'],
+            },
+          },
+        },
+        cleanupPolicyDryRun: true,
+        createTime: 'Test string',
+        description: 'Test string',
+        dockerConfig: {
+          immutableTags: true,
+        },
+        format: 'Test string',
+        kmsKeyName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        mavenConfig: {
+          allowSnapshotOverwrites: true,
+          versionPolicy: 'Test string',
+        },
+        mode: 'Test string',
+        name: 'Test string',
+        remoteRepositoryConfig: {
+          aptRepository: {
+            publicRepository: {
+              repositoryBase: 'Test string',
+              repositoryPath: 'Test string',
+            },
+          },
+          description: 'Test string',
+          dockerRepository: {
+            publicRepository: 'Test string',
+          },
+          mavenRepository: {
+            publicRepository: 'Test string',
+          },
+          npmRepository: {
+            publicRepository: 'Test string',
+          },
+          pythonRepository: {
+            publicRepository: 'Test string',
+          },
+          upstreamCredentials: {
+            usernamePasswordCredentials: {
+              passwordSecretVersion: 'Test string',
+              username: 'Test string',
+            },
+          },
+          yumRepository: {
+            publicRepository: {
+              repositoryBase: 'Test string',
+              repositoryPath: 'Test string',
+            },
+          },
+        },
+        satisfiesPzs: true,
+        sizeBytes: 'Test string',
+        updateTime: 'Test string',
+        virtualRepositoryConfig: {
+          upstreamPolicies: [
+            {
+              id: 'Test string',
+              priority: 42,
+              repository: 'Test string',
+            },
+          ],
+        },
+      }
+    );
+    /** Deletes a repository and all of its contents. The returned Operation will finish once the repository has been deleted. It will not have any Operation metadata and will return a google.protobuf.Empty response. */
+    await gapi.client.artifactregistry.projects.locations.repositories.delete({
+      name: 'Test string',
+    });
+    /** Gets a repository. */
+    await gapi.client.artifactregistry.projects.locations.repositories.get({
+      name: 'Test string',
+    });
+    /** Gets the IAM policy for a given resource. */
+    await gapi.client.artifactregistry.projects.locations.repositories.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Lists repositories. */
+    await gapi.client.artifactregistry.projects.locations.repositories.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a repository. */
+    await gapi.client.artifactregistry.projects.locations.repositories.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        cleanupPolicies: {
+          A: {
+            action: 'Test string',
+            condition: {
+              newerThan: 'Test string',
+              olderThan: 'Test string',
+              packageNamePrefixes: ['Test string'],
+              tagPrefixes: ['Test string'],
+              tagState: 'Test string',
+              versionAge: 'Test string',
+              versionNamePrefixes: ['Test string'],
+            },
+            id: 'Test string',
+            mostRecentVersions: {
+              keepCount: 42,
+              packageNamePrefixes: ['Test string'],
+            },
+          },
+        },
+        cleanupPolicyDryRun: true,
+        createTime: 'Test string',
+        description: 'Test string',
+        dockerConfig: {
+          immutableTags: true,
+        },
+        format: 'Test string',
+        kmsKeyName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        mavenConfig: {
+          allowSnapshotOverwrites: true,
+          versionPolicy: 'Test string',
+        },
+        mode: 'Test string',
+        name: 'Test string',
+        remoteRepositoryConfig: {
+          aptRepository: {
+            publicRepository: {
+              repositoryBase: 'Test string',
+              repositoryPath: 'Test string',
+            },
+          },
+          description: 'Test string',
+          dockerRepository: {
+            publicRepository: 'Test string',
+          },
+          mavenRepository: {
+            publicRepository: 'Test string',
+          },
+          npmRepository: {
+            publicRepository: 'Test string',
+          },
+          pythonRepository: {
+            publicRepository: 'Test string',
+          },
+          upstreamCredentials: {
+            usernamePasswordCredentials: {
+              passwordSecretVersion: 'Test string',
+              username: 'Test string',
+            },
+          },
+          yumRepository: {
+            publicRepository: {
+              repositoryBase: 'Test string',
+              repositoryPath: 'Test string',
+            },
+          },
+        },
+        satisfiesPzs: true,
+        sizeBytes: 'Test string',
+        updateTime: 'Test string',
+        virtualRepositoryConfig: {
+          upstreamPolicies: [
+            {
+              id: 'Test string',
+              priority: 42,
+              repository: 'Test string',
+            },
+          ],
+        },
+      }
+    );
+    /** Updates the IAM policy for a given resource. */
+    await gapi.client.artifactregistry.projects.locations.repositories.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Tests if the caller has a list of permissions on a resource. */
+    await gapi.client.artifactregistry.projects.locations.repositories.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Imports Apt artifacts. The returned Operation will complete once the resources are imported. Package, Version, and File resources are created based on the imported artifacts. Imported artifacts that conflict with existing resources are ignored. */
+    await gapi.client.artifactregistry.projects.locations.repositories.aptArtifacts.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        gcsSource: {
+          uris: ['Test string'],
+          useWildcards: true,
+        },
+      }
+    );
+    /** Directly uploads an Apt artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported artifact. Imported artifacts that conflict with existing resources are ignored. */
+    await gapi.client.artifactregistry.projects.locations.repositories.aptArtifacts.upload(
+      {
+        parent: 'Test string',
+      },
+      {}
+    );
+    /** Gets a docker image. */
+    await gapi.client.artifactregistry.projects.locations.repositories.dockerImages.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists docker images. */
+    await gapi.client.artifactregistry.projects.locations.repositories.dockerImages.list(
+      {
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Gets a file. */
+    await gapi.client.artifactregistry.projects.locations.repositories.files.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists files. */
+    await gapi.client.artifactregistry.projects.locations.repositories.files.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Directly uploads a Go module. The returned Operation will complete once the Go module is uploaded. Package, Version, and File resources are created based on the uploaded Go module. */
+    await gapi.client.artifactregistry.projects.locations.repositories.goModules.upload(
+      {
+        parent: 'Test string',
+      },
+      {}
+    );
+    /** Imports GooGet artifacts. The returned Operation will complete once the resources are imported. Package, Version, and File resources are created based on the imported artifacts. Imported artifacts that conflict with existing resources are ignored. */
+    await gapi.client.artifactregistry.projects.locations.repositories.googetArtifacts.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        gcsSource: {
+          uris: ['Test string'],
+          useWildcards: true,
+        },
+      }
+    );
+    /** Directly uploads a GooGet artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported artifact. Imported artifacts that conflict with existing resources are ignored. */
+    await gapi.client.artifactregistry.projects.locations.repositories.googetArtifacts.upload(
+      {
+        parent: 'Test string',
+      },
+      {}
+    );
+    /** Directly uploads a KFP artifact. The returned Operation will complete once the resource is uploaded. Package, Version, and File resources will be created based on the uploaded artifact. Uploaded artifacts that conflict with existing resources will be overwritten. */
+    await gapi.client.artifactregistry.projects.locations.repositories.kfpArtifacts.upload(
+      {
+        parent: 'Test string',
+      },
+      {
+        description: 'Test string',
+        tags: ['Test string'],
+      }
+    );
+    /** Gets a maven artifact. */
+    await gapi.client.artifactregistry.projects.locations.repositories.mavenArtifacts.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists maven artifacts. */
+    await gapi.client.artifactregistry.projects.locations.repositories.mavenArtifacts.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Gets a npm package. */
+    await gapi.client.artifactregistry.projects.locations.repositories.npmPackages.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists npm packages. */
+    await gapi.client.artifactregistry.projects.locations.repositories.npmPackages.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Deletes a package and all of its versions and tags. The returned operation will complete once the package has been deleted. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a package. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists packages. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Creates a tag. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.create(
+      {
+        parent: 'Test string',
+        tagId: 'Test string',
+      },
+      {
+        name: 'Test string',
+        version: 'Test string',
+      }
+    );
+    /** Deletes a tag. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets a tag. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists tags. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a tag. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.tags.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        name: 'Test string',
+        version: 'Test string',
+      }
+    );
+    /** Deletes multiple versions across a repository. The returned operation will complete once the versions have been deleted. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.batchDelete(
+      {
+        parent: 'Test string',
+      },
+      {
+        names: ['Test string'],
+        validateOnly: true,
+      }
+    );
+    /** Deletes a version and all of its content. The returned operation will complete once the version has been deleted. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.delete(
+      {
+        force: true,
+        name: 'Test string',
+      }
+    );
+    /** Gets a version */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.get(
+      {
+        name: 'Test string',
+        view: 'Test string',
+      }
+    );
+    /** Lists versions. */
+    await gapi.client.artifactregistry.projects.locations.repositories.packages.versions.list(
+      {
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        view: 'Test string',
+      }
+    );
+    /** Gets a python package. */
+    await gapi.client.artifactregistry.projects.locations.repositories.pythonPackages.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists python packages. */
+    await gapi.client.artifactregistry.projects.locations.repositories.pythonPackages.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Imports Yum (RPM) artifacts. The returned Operation will complete once the resources are imported. Package, Version, and File resources are created based on the imported artifacts. Imported artifacts that conflict with existing resources are ignored. */
+    await gapi.client.artifactregistry.projects.locations.repositories.yumArtifacts.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        gcsSource: {
+          uris: ['Test string'],
+          useWildcards: true,
+        },
+      }
+    );
+    /** Directly uploads a Yum artifact. The returned Operation will complete once the resources are uploaded. Package, Version, and File resources are created based on the imported artifact. Imported artifacts that conflict with existing resources are ignored. */
+    await gapi.client.artifactregistry.projects.locations.repositories.yumArtifacts.upload(
+      {
+        parent: 'Test string',
+      },
+      {}
+    );
+  }
 });

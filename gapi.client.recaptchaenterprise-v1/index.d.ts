@@ -14,1877 +14,1268 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load reCAPTCHA Enterprise API v1 */
-    function load(urlOrObject: "https://recaptchaenterprise.googleapis.com/$discovery/rest?version=v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "recaptchaenterprise", version: "v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "recaptchaenterprise", version: "v1", callback: () => any): void;
+  /** Load reCAPTCHA Enterprise API v1 */
+  function load(
+    urlOrObject: 'https://recaptchaenterprise.googleapis.com/$discovery/rest?version=v1'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'recaptchaenterprise', version: 'v1'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'recaptchaenterprise',
+    version: 'v1',
+    callback: () => any
+  ): void;
 
-    namespace recaptchaenterprise {
-        interface GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment {
-            /** Output only. Labels for this request. */
-            labels?:
-                string[];
-        }
-        interface GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo {
-            /** Optional. Endpoints that can be used for identity verification. */
-            endpoints?:
-                GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo[];
-            /** Optional. Language code preference for the verification message, set as a IETF BCP 47 language code. */
-            languageCode?:
-                string;
-            /** Output only. Result of the latest account verification challenge. */
-            latestVerificationResult?:
-                string;
-            /** Username of the account that is being verified. Deprecated. Customers should now provide the hashed account ID field in Event. */
-            username?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1AndroidKeySettings {
-            /** Optional. If set to true, allowed_package_names are not enforced. */
-            allowAllPackageNames?:
-                boolean;
-            /** Optional. Android package names of apps allowed to use the key. Example: 'com.companyname.appname' */
-            allowedPackageNames?:
-                string[];
-            /** Optional. Set to true for keys that are used in an Android application that is available for download in app stores in addition to the Google Play Store. */
-            supportNonGoogleAppStoreDistribution?:
-                boolean;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest {
-            /**
-             * Optional. A stable account identifier to apply to the assessment. This is an alternative to setting `account_id` in `CreateAssessment`, for example when a stable account identifier
-             * is not yet known in the initial request.
-             */
-            accountId?:
-                string;
-            /**
-             * Optional. The annotation that will be assigned to the Event. This field can be left empty to provide reasons that apply to an event without concluding whether the event is
-             * legitimate or fraudulent.
-             */
-            annotation?:
-                string;
-            /**
-             * Optional. A stable hashed account identifier to apply to the assessment. This is an alternative to setting `hashed_account_id` in `CreateAssessment`, for example when a stable
-             * account identifier is not yet known in the initial request.
-             */
-            hashedAccountId?:
-                string;
-            /** Optional. Reasons for the annotation that are assigned to the event. */
-            reasons?:
-                string[];
-            /** Optional. If the assessment is part of a payment transaction, provide details on payment lifecycle events that occur in the transaction. */
-            transactionEvent?:
-                GoogleCloudRecaptchaenterpriseV1TransactionEvent;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentResponse {
-        }
-        interface GoogleCloudRecaptchaenterpriseV1AppleDeveloperId {
-            /** Required. The Apple developer key ID (10-character string). */
-            keyId?:
-                string;
-            /**
-             * Required. Input only. A private key (downloaded as a text file with a .p8 file extension) generated for your Apple Developer account. Ensure that Apple DeviceCheck is enabled for
-             * the private key.
-             */
-            privateKey?:
-                string;
-            /** Required. The Apple team ID (10-character string) owning the provisioning profile used to build your application. */
-            teamId?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1Assessment {
-            /** Output only. Assessment returned by account defender when an account identifier is provided. */
-            accountDefenderAssessment?:
-                GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment;
-            /** Optional. Account verification information for identity verification. The assessment event must include a token and site key to use this feature. */
-            accountVerification?:
-                GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo;
-            /** Optional. The event being assessed. */
-            event?:
-                GoogleCloudRecaptchaenterpriseV1Event;
-            /** Output only. Assessment returned when firewall policies belonging to the project are evaluated using the field firewall_policy_evaluation. */
-            firewallPolicyAssessment?:
-                GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment;
-            /** Output only. Assessment returned by Fraud Prevention when TransactionData is provided. */
-            fraudPreventionAssessment?:
-                GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment;
-            /** Output only. Fraud Signals specific to the users involved in a payment transaction. */
-            fraudSignals?:
-                GoogleCloudRecaptchaenterpriseV1FraudSignals;
-            /** Output only. Identifier. The resource name for the Assessment in the format `projects/{project}/assessments/{assessment}`. */
-            name?:
-                string;
-            /** Optional. The private password leak verification field contains the parameters that are used to to check for leaks privately without sharing user credentials. */
-            privatePasswordLeakVerification?:
-                GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification;
-            /** Output only. The risk analysis result for the event being assessed. */
-            riskAnalysis?:
-                GoogleCloudRecaptchaenterpriseV1RiskAnalysis;
-            /** Output only. Properties of the provided event token. */
-            tokenProperties?:
-                GoogleCloudRecaptchaenterpriseV1TokenProperties;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1ChallengeMetrics {
-            /** Count of submitted challenge solutions that were incorrect or otherwise deemed suspicious such that a subsequent challenge was triggered. */
-            failedCount?:
-                string;
-            /** Count of nocaptchas (successful verification without a challenge) issued. */
-            nocaptchaCount?:
-                string;
-            /** Count of reCAPTCHA checkboxes or badges rendered. This is mostly equivalent to a count of pageloads for pages that include reCAPTCHA. */
-            pageloadCount?:
-                string;
-            /** Count of nocaptchas (successful verification without a challenge) plus submitted challenge solutions that were correct and resulted in verification. */
-            passedCount?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo {
-            /** Email address for which to trigger a verification request. */
-            emailAddress?:
-                string;
-            /** Output only. Timestamp of the last successful verification for the endpoint, if any. */
-            lastVerificationTime?:
-                string;
-            /** Phone number for which to trigger a verification request. Should be given in E.164 format. */
-            phoneNumber?:
-                string;
-            /** Output only. Token to provide to the client to trigger endpoint verification. It must be used within 15 minutes. */
-            requestToken?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1Event {
-            /**
-             * Optional. The expected action for this type of event. This should be the same action provided at token generation time on client-side platforms already integrated with recaptcha
-             * enterprise.
-             */
-            expectedAction?:
-                string;
-            /** Optional. Flag for a reCAPTCHA express request for an assessment without a token. If enabled, `site_key` must reference a SCORE key with WAF feature set to EXPRESS. */
-            express?:
-                boolean;
-            /**
-             * Optional. Flag for enabling firewall policy config assessment. If this flag is enabled, the firewall policy will be evaluated and a suggested firewall action will be returned in the
-             * response.
-             */
-            firewallPolicyEvaluation?:
-                boolean;
-            /** Optional. Deprecated: use `user_info.account_id` instead. Unique stable hashed user identifier for the request. The identifier must be hashed using hmac-sha256 with stable secret. */
-            hashedAccountId?:
-                string;
-            /** Optional. HTTP header information about the request. */
-            headers?:
-                string[];
-            /** Optional. JA3 fingerprint for SSL clients. */
-            ja3?:
-                string;
-            /** Optional. The URI resource the user requested that triggered an assessment. */
-            requestedUri?:
-                string;
-            /** Optional. The site key that was used to invoke reCAPTCHA Enterprise on your site and generate the token. */
-            siteKey?:
-                string;
-            /** Optional. The user response token provided by the reCAPTCHA Enterprise client-side integration on your site. */
-            token?:
-                string;
-            /**
-             * Optional. Data describing a payment transaction to be assessed. Sending this data enables reCAPTCHA Enterprise Fraud Prevention and the FraudPreventionAssessment component in the
-             * response.
-             */
-            transactionData?:
-                GoogleCloudRecaptchaenterpriseV1TransactionData;
-            /** Optional. The user agent present in the request from the user's device related to this event. */
-            userAgent?:
-                string;
-            /**
-             * Optional. Information about the user that generates this event, when they can be identified. They are often identified through the use of an account for logged-in requests or
-             * login/registration requests, or by providing user identifiers for guest actions like checkout.
-             */
-            userInfo?:
-                GoogleCloudRecaptchaenterpriseV1UserInfo;
-            /** Optional. The IP address in the request from the user's device related to this event. */
-            userIpAddress?:
-                string;
-            /** Optional. Flag for running WAF token assessment. If enabled, the token must be specified, and have been created by a WAF-enabled key. */
-            wafTokenAssessment?:
-                boolean;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FirewallAction {
-            /** The user request did not match any policy and should be allowed access to the requested resource. */
-            allow?:
-                any;
-            /** This action will deny access to a given page. The user will get an HTTP error code. */
-            block?:
-                any;
-            /** This action will redirect the request to a ReCaptcha interstitial to attach a token. */
-            redirect?:
-                any;
-            /** This action will set a custom header but allow the request to continue to the customer backend. */
-            setHeader?:
-                GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction;
-            /** This action will transparently serve a different page to an offending user. */
-            substitute?:
-                GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction {
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction {
-            /** Optional. The header key to set in the request to the backend server. */
-            key?:
-                string;
-            /** Optional. The header value to set in the request to the backend server. */
-            value?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction {
-            /** Optional. The address to redirect to. The target is a relative path in the current host. Example: "/blog/404.html". */
-            path?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FirewallPolicy {
-            /**
-             * Optional. The actions that the caller should take regarding user access. There should be at most one terminal action. A terminal action is any action that forces a response, such as
-             * `AllowAction`, `BlockAction` or `SubstituteAction`. Zero or more non-terminal actions such as `SetHeader` might be specified. A single policy can contain up to 16 actions.
-             */
-            actions?:
-                GoogleCloudRecaptchaenterpriseV1FirewallAction[];
-            /**
-             * Optional. A CEL (Common Expression Language) conditional expression that specifies if this policy applies to an incoming user request. If this condition evaluates to true and the
-             * requested path matched the path pattern, the associated actions should be executed by the caller. The condition string is checked for CEL syntax correctness on creation. For more
-             * information, see the [CEL spec](https://github.com/google/cel-spec) and its [language definition](https://github.com/google/cel-spec/blob/master/doc/langdef.md). A condition has a
-             * max length of 500 characters.
-             */
-            condition?:
-                string;
-            /** Optional. A description of what this policy aims to achieve, for convenience purposes. The description can at most include 256 UTF-8 characters. */
-            description?:
-                string;
-            /** Identifier. The resource name for the FirewallPolicy in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
-            name?:
-                string;
-            /**
-             * Optional. The path for which this policy applies, specified as a glob pattern. For more information on glob, see the [manual
-             * page](https://man7.org/linux/man-pages/man7/glob.7.html). A path has a max length of 200 characters.
-             */
-            path?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment {
-            /** Output only. If the processing of a policy config fails, an error will be populated and the firewall_policy will be left empty. */
-            error?:
-                GoogleRpcStatus;
-            /**
-             * Output only. The policy that matched the request. If more than one policy may match, this is the first match. If no policy matches the incoming request, the policy field will be
-             * left empty.
-             */
-            firewallPolicy?:
-                GoogleCloudRecaptchaenterpriseV1FirewallPolicy;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment {
-            /** Output only. Assessment of this transaction for behavioral trust. */
-            behavioralTrustVerdict?:
-                GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict;
-            /** Output only. Assessment of this transaction for risk of being part of a card testing attack. */
-            cardTestingVerdict?:
-                GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict;
-            /** Output only. Assessment of this transaction for risk of a stolen instrument. */
-            stolenInstrumentVerdict?:
-                GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict;
-            /** Output only. Probability of this transaction being fraudulent. Summarizes the combined risk of attack vectors below. Values are from 0.0 (lowest) to 1.0 (highest). */
-            transactionRisk?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict {
-            /** Output only. Probability of this transaction attempt being executed in a behaviorally trustworthy way. Values are from 0.0 (lowest) to 1.0 (highest). */
-            trust?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict {
-            /** Output only. Probability of this transaction attempt being part of a card testing attack. Values are from 0.0 (lowest) to 1.0 (highest). */
-            risk?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict {
-            /** Output only. Probability of this transaction being executed with a stolen instrument. Values are from 0.0 (lowest) to 1.0 (highest). */
-            risk?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FraudSignals {
-            /** Output only. Signals describing the payment card or cards used in this transaction. */
-            cardSignals?:
-                GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals;
-            /** Output only. Signals describing the end user in this transaction. */
-            userSignals?:
-                GoogleCloudRecaptchaenterpriseV1FraudSignalsUserSignals;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals {
-            /** Output only. The labels for the payment card in this transaction. */
-            cardLabels?:
-                string[];
-        }
-        interface GoogleCloudRecaptchaenterpriseV1FraudSignalsUserSignals {
-            /** Output only. This user (based on email, phone, and other identifiers) has been seen on the internet for at least this number of days. */
-            activeDaysLowerBound?:
-                number;
-            /**
-             * Output only. Likelihood (from 0.0 to 1.0) this user includes synthetic components in their identity, such as a randomly generated email address, temporary phone number, or fake
-             * shipping address.
-             */
-            syntheticRisk?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1IOSKeySettings {
-            /** Optional. If set to true, allowed_bundle_ids are not enforced. */
-            allowAllBundleIds?:
-                boolean;
-            /** Optional. iOS bundle ids of apps allowed to use the key. Example: 'com.companyname.productname.appname' */
-            allowedBundleIds?:
-                string[];
-            /**
-             * Optional. Apple Developer account details for the app that is protected by the reCAPTCHA Key. reCAPTCHA Enterprise leverages platform-specific checks like Apple App Attest and Apple
-             * DeviceCheck to protect your app from abuse. Providing these fields allows reCAPTCHA Enterprise to get a better assessment of the integrity of your app.
-             */
-            appleDeveloperId?:
-                GoogleCloudRecaptchaenterpriseV1AppleDeveloperId;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1Key {
-            /** Settings for keys that can be used by Android apps. */
-            androidSettings?:
-                GoogleCloudRecaptchaenterpriseV1AndroidKeySettings;
-            /** Output only. The timestamp corresponding to the creation of this key. */
-            createTime?:
-                string;
-            /** Required. Human-readable display name of this key. Modifiable by user. */
-            displayName?:
-                string;
-            /** Settings for keys that can be used by iOS apps. */
-            iosSettings?:
-                GoogleCloudRecaptchaenterpriseV1IOSKeySettings;
-            /** Optional. See [Creating and managing labels] (https://cloud.google.com/recaptcha-enterprise/docs/labels). */
-            labels?:
-                { [P in string]: string };
-            /** Identifier. The resource name for the Key in the format `projects/{project}/keys/{key}`. */
-            name?:
-                string;
-            /** Optional. Options for user acceptance testing. */
-            testingOptions?:
-                GoogleCloudRecaptchaenterpriseV1TestingOptions;
-            /** Optional. Settings for WAF */
-            wafSettings?:
-                GoogleCloudRecaptchaenterpriseV1WafSettings;
-            /** Settings for keys that can be used by websites. */
-            webSettings?:
-                GoogleCloudRecaptchaenterpriseV1WebKeySettings;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse {
-            /** Policy details. */
-            firewallPolicies?:
-                GoogleCloudRecaptchaenterpriseV1FirewallPolicy[];
-            /** Token to retrieve the next page of results. It is set to empty if no policies remain in results. */
-            nextPageToken?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1ListKeysResponse {
-            /** Key details. */
-            keys?:
-                GoogleCloudRecaptchaenterpriseV1Key[];
-            /** Token to retrieve the next page of results. It is set to empty if no keys remain in results. */
-            nextPageToken?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse {
-            /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** The memberships listed by the query. */
-            relatedAccountGroupMemberships?:
-                GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership[];
-        }
-        interface GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse {
-            /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** The groups of related accounts listed by the query. */
-            relatedAccountGroups?:
-                GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup[];
-        }
-        interface GoogleCloudRecaptchaenterpriseV1Metrics {
-            /** Metrics will be continuous and in order by dates, and in the granularity of day. Only challenge-based keys (CHECKBOX, INVISIBLE), will have challenge-based data. */
-            challengeMetrics?:
-                GoogleCloudRecaptchaenterpriseV1ChallengeMetrics[];
-            /** Output only. Identifier. The name of the metrics, in the format `projects/{project}/keys/{key}/metrics`. */
-            name?:
-                string;
-            /** Metrics will be continuous and in order by dates, and in the granularity of day. All Key types should have score-based data. */
-            scoreMetrics?:
-                GoogleCloudRecaptchaenterpriseV1ScoreMetrics[];
-            /** Inclusive start time aligned to a day (UTC). */
-            startTime?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest {
-            /**
-             * Optional. If true, skips the billing check. A reCAPTCHA Enterprise key or migrated key behaves differently than a reCAPTCHA (non-Enterprise version) key when you reach a quota limit
-             * (see https://cloud.google.com/recaptcha-enterprise/quotas#quota_limit). To avoid any disruption of your usage, we check that a billing account is present. If your usage of reCAPTCHA
-             * is under the free quota, you can safely skip the billing check and proceed with the migration. See https://cloud.google.com/recaptcha-enterprise/docs/billing-information.
-             */
-            skipBillingCheck?:
-                boolean;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification {
-            /**
-             * Output only. List of prefixes of the encrypted potential password leaks that matched the given parameters. They must be compared with the client-side decryption prefix of
-             * `reencrypted_user_credentials_hash`
-             */
-            encryptedLeakMatchPrefixes?:
-                string[];
-            /** Optional. Encrypted Scrypt hash of the canonicalized username+password. It is re-encrypted by the server and returned through `reencrypted_user_credentials_hash`. */
-            encryptedUserCredentialsHash?:
-                string;
-            /** Required. Exactly 26-bit prefix of the SHA-256 hash of the canonicalized username. It is used to look up password leaks associated with that hash prefix. */
-            lookupHashPrefix?:
-                string;
-            /** Output only. Corresponds to the re-encryption of the `encrypted_user_credentials_hash` field. It is used to match potential password leaks within `encrypted_leak_match_prefixes`. */
-            reencryptedUserCredentialsHash?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup {
-            /** Required. Identifier. The resource name for the related account group in the format `projects/{project}/relatedaccountgroups/{related_account_group}`. */
-            name?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership {
-            /** The unique stable hashed user identifier of the member. The identifier corresponds to a `hashed_account_id` provided in a previous `CreateAssessment` or `AnnotateAssessment` call. */
-            hashedAccountId?:
-                string;
-            /** Required. Identifier. The resource name for this membership in the format `projects/{project}/relatedaccountgroups/{relatedaccountgroup}/memberships/{membership}`. */
-            name?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse {
-            /**
-             * The secret key (also known as shared secret) authorizes communication between your application backend and the reCAPTCHA Enterprise server to create an assessment. The secret key
-             * needs to be kept safe for security purposes.
-             */
-            legacySecretKey?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1RiskAnalysis {
-            /** Output only. Extended verdict reasons to be used for experimentation only. The set of possible reasons is subject to change. */
-            extendedVerdictReasons?:
-                string[];
-            /** Output only. Reasons contributing to the risk analysis verdict. */
-            reasons?:
-                string[];
-            /** Output only. Legitimate event score from 0.0 to 1.0. (1.0 means very likely legitimate traffic while 0.0 means very likely non-legitimate traffic). */
-            score?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1ScoreDistribution {
-            /** Map key is score value multiplied by 100. The scores are discrete values between [0, 1]. The maximum number of buckets is on order of a few dozen, but typically much lower (ie. 10). */
-            scoreBuckets?:
-                { [P in string]: string };
-        }
-        interface GoogleCloudRecaptchaenterpriseV1ScoreMetrics {
-            /** Action-based metrics. The map key is the action name which specified by the site owners at time of the "execute" client-side call. */
-            actionMetrics?:
-                { [P in string]: GoogleCloudRecaptchaenterpriseV1ScoreDistribution };
-            /** Aggregated score metrics for all traffic. */
-            overallMetrics?:
-                GoogleCloudRecaptchaenterpriseV1ScoreDistribution;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest {
-            /**
-             * Optional. The unique stable hashed user identifier used to search connections. The identifier should correspond to a `hashed_account_id` provided in a previous `CreateAssessment` or
-             * `AnnotateAssessment` call.
-             */
-            hashedAccountId?:
-                string;
-            /**
-             * Optional. The maximum number of groups to return. The service might return fewer than this value. If unspecified, at most 50 groups are returned. The maximum value is 1000; values
-             * above 1000 are coerced to 1000.
-             */
-            pageSize?:
-                number;
-            /**
-             * Optional. A page token, received from a previous `SearchRelatedAccountGroupMemberships` call. Provide this to retrieve the subsequent page. When paginating, all other parameters
-             * provided to `SearchRelatedAccountGroupMemberships` must match the call that provided the page token.
-             */
-            pageToken?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse {
-            /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** The queried memberships. */
-            relatedAccountGroupMemberships?:
-                GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership[];
-        }
-        interface GoogleCloudRecaptchaenterpriseV1TestingOptions {
-            /** Optional. For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable challenge if CHALLENGE. */
-            testingChallenge?:
-                string;
-            /** Optional. All assessments for this Key will return this score. Must be between 0 (likely not legitimate) and 1 (likely legitimate) inclusive. */
-            testingScore?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1TokenProperties {
-            /** Output only. Action name provided at token generation. */
-            action?:
-                string;
-            /** Output only. The name of the Android package with which the token was generated (Android keys only). */
-            androidPackageName?:
-                string;
-            /** Output only. The timestamp corresponding to the generation of the token. */
-            createTime?:
-                string;
-            /** Output only. The hostname of the page on which the token was generated (Web keys only). */
-            hostname?:
-                string;
-            /** Output only. Reason associated with the response when valid = false. */
-            invalidReason?:
-                string;
-            /** Output only. The ID of the iOS bundle with which the token was generated (iOS keys only). */
-            iosBundleId?:
-                string;
-            /**
-             * Output only. Whether the provided user response token is valid. When valid = false, the reason could be specified in invalid_reason or it could also be due to a user failing to
-             * solve a challenge or a sitekey mismatch (i.e the sitekey used to generate the token was different than the one specified in the assessment).
-             */
-            valid?:
-                boolean;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1TransactionData {
-            /** Optional. Address associated with the payment method when applicable. */
-            billingAddress?:
-                GoogleCloudRecaptchaenterpriseV1TransactionDataAddress;
-            /** Optional. The Bank Identification Number - generally the first 6 or 8 digits of the card. */
-            cardBin?:
-                string;
-            /** Optional. The last four digits of the card. */
-            cardLastFour?:
-                string;
-            /** Optional. The currency code in ISO-4217 format. */
-            currencyCode?:
-                string;
-            /** Optional. Information about the payment gateway's response to the transaction. */
-            gatewayInfo?:
-                GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo;
-            /** Optional. Items purchased in this transaction. */
-            items?:
-                GoogleCloudRecaptchaenterpriseV1TransactionDataItem[];
-            /** Optional. Information about the user or users fulfilling the transaction. */
-            merchants?:
-                GoogleCloudRecaptchaenterpriseV1TransactionDataUser[];
-            /**
-             * Optional. The payment method for the transaction. The allowed values are: * credit-card * debit-card * gift-card * processor-{name} (If a third-party is used, for example,
-             * processor-paypal) * custom-{name} (If an alternative method is used, for example, custom-crypto)
-             */
-            paymentMethod?:
-                string;
-            /** Optional. Destination address if this transaction involves shipping a physical item. */
-            shippingAddress?:
-                GoogleCloudRecaptchaenterpriseV1TransactionDataAddress;
-            /** Optional. The value of shipping in the specified currency. 0 for free or no shipping. */
-            shippingValue?:
-                number;
-            /**
-             * Unique identifier for the transaction. This custom identifier can be used to reference this transaction in the future, for example, labeling a refund or chargeback event. Two
-             * attempts at the same transaction should use the same transaction id.
-             */
-            transactionId?:
-                string;
-            /** Optional. Information about the user paying/initiating the transaction. */
-            user?:
-                GoogleCloudRecaptchaenterpriseV1TransactionDataUser;
-            /** Optional. The decimal value of the transaction in the specified currency. */
-            value?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1TransactionDataAddress {
-            /** Optional. The first lines of the address. The first line generally contains the street name and number, and further lines may include information such as an apartment number. */
-            address?:
-                string[];
-            /** Optional. The state, province, or otherwise administrative area of the address. */
-            administrativeArea?:
-                string;
-            /** Optional. The town/city of the address. */
-            locality?:
-                string;
-            /** Optional. The postal or ZIP code of the address. */
-            postalCode?:
-                string;
-            /** Optional. The recipient name, potentially including information such as "care of". */
-            recipient?:
-                string;
-            /** Optional. The CLDR country/region of the address. */
-            regionCode?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo {
-            /** Optional. AVS response code from the gateway (available only when reCAPTCHA Enterprise is called after authorization). */
-            avsResponseCode?:
-                string;
-            /** Optional. CVV response code from the gateway (available only when reCAPTCHA Enterprise is called after authorization). */
-            cvvResponseCode?:
-                string;
-            /** Optional. Gateway response code describing the state of the transaction. */
-            gatewayResponseCode?:
-                string;
-            /** Optional. Name of the gateway service (for example, stripe, square, paypal). */
-            name?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1TransactionDataItem {
-            /** Optional. When a merchant is specified, its corresponding account_id. Necessary to populate marketplace-style transactions. */
-            merchantAccountId?:
-                string;
-            /** Optional. The full name of the item. */
-            name?:
-                string;
-            /** Optional. The quantity of this item that is being purchased. */
-            quantity?:
-                string;
-            /** Optional. The value per item that the user is paying, in the transaction currency, after discounts. */
-            value?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1TransactionDataUser {
-            /**
-             * Optional. Unique account identifier for this user. If using account defender, this should match the hashed_account_id field. Otherwise, a unique and persistent identifier for this
-             * account.
-             */
-            accountId?:
-                string;
-            /** Optional. The epoch milliseconds of the user's account creation. */
-            creationMs?:
-                string;
-            /** Optional. The email address of the user. */
-            email?:
-                string;
-            /** Optional. Whether the email has been verified to be accessible by the user (OTP or similar). */
-            emailVerified?:
-                boolean;
-            /** Optional. The phone number of the user, with country code. */
-            phoneNumber?:
-                string;
-            /** Optional. Whether the phone number has been verified to be accessible by the user (OTP or similar). */
-            phoneVerified?:
-                boolean;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1TransactionEvent {
-            /** Optional. Timestamp when this transaction event occurred; otherwise assumed to be the time of the API call. */
-            eventTime?:
-                string;
-            /** Optional. The type of this transaction event. */
-            eventType?:
-                string;
-            /** Optional. The reason or standardized code that corresponds with this transaction event, if one exists. For example, a CHARGEBACK event with code 6005. */
-            reason?:
-                string;
-            /**
-             * Optional. The value that corresponds with this transaction event, if one exists. For example, a refund event where $5.00 was refunded. Currency is obtained from the original
-             * transaction data.
-             */
-            value?:
-                number;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1UserId {
-            /** Optional. An email address. */
-            email?:
-                string;
-            /** Optional. A phone number. Should use the E.164 format. */
-            phoneNumber?:
-                string;
-            /** Optional. A unique username, if different from all the other identifiers and `account_id` that are provided. Can be a unique login handle or display name for a user. */
-            username?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1UserInfo {
-            /**
-             * Optional. For logged-in requests or login/registration requests, the unique account identifier associated with this user. You can use the username if it is stable (meaning it is the
-             * same for every request associated with the same user), or any stable user ID of your choice. Leave blank for non logged-in actions or guest checkout.
-             */
-            accountId?:
-                string;
-            /**
-             * Optional. Creation time for this account associated with this user. Leave blank for non logged-in actions, guest checkout, or when there is no account associated with the current
-             * user.
-             */
-            createAccountTime?:
-                string;
-            /** Optional. Identifiers associated with this user or request. */
-            userIds?:
-                GoogleCloudRecaptchaenterpriseV1UserId[];
-        }
-        interface GoogleCloudRecaptchaenterpriseV1WafSettings {
-            /** Required. The WAF feature for which this key is enabled. */
-            wafFeature?:
-                string;
-            /** Required. The WAF service that uses this key. */
-            wafService?:
-                string;
-        }
-        interface GoogleCloudRecaptchaenterpriseV1WebKeySettings {
-            /** Optional. If set to true, it means allowed_domains will not be enforced. */
-            allowAllDomains?:
-                boolean;
-            /** Optional. If set to true, the key can be used on AMP (Accelerated Mobile Pages) websites. This is supported only for the SCORE integration type. */
-            allowAmpTraffic?:
-                boolean;
-            /**
-             * Optional. Domains or subdomains of websites allowed to use the key. All subdomains of an allowed domain are automatically allowed. A valid domain requires a host and must not
-             * include any path, port, query or fragment. Examples: 'example.com' or 'subdomain.example.com'
-             */
-            allowedDomains?:
-                string[];
-            /** Optional. Settings for the frequency and difficulty at which this key triggers captcha challenges. This should only be specified for IntegrationTypes CHECKBOX and INVISIBLE. */
-            challengeSecurityPreference?:
-                string;
-            /** Required. Describes how this key is integrated with the website. */
-            integrationType?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleProtobufEmpty {
-        }
-        interface GoogleRpcStatus {
-            /** The status code, which should be an enum value of google.rpc.Code. */
-            code?:
-                number;
-            /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?:
-                Array<{ [P in string]: any }>;
-            /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
-             * client.
-             */
-            message?:
-                string;
-        }
-        interface AssessmentsResource {
-            /** Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent. */
-            annotate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The resource name of the Assessment, in the format `projects/{project}/assessments/{assessment}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest;
-            }): Request<{}>;
-            annotate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The resource name of the Assessment, in the format `projects/{project}/assessments/{assessment}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest): Request<{}>;
-            /** Creates an Assessment of the likelihood an event is legitimate. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the project in which the assessment will be created, in the format `projects/{project}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRecaptchaenterpriseV1Assessment;
-            }): Request<GoogleCloudRecaptchaenterpriseV1Assessment>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the project in which the assessment will be created, in the format `projects/{project}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRecaptchaenterpriseV1Assessment): Request<GoogleCloudRecaptchaenterpriseV1Assessment>;
-        }
-        interface FirewallpoliciesResource {
-            /** Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the project this policy will apply to, in the format `projects/{project}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRecaptchaenterpriseV1FirewallPolicy;
-            }): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the project this policy will apply to, in the format `projects/{project}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRecaptchaenterpriseV1FirewallPolicy): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
-            /** Deletes the specified firewall policy. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the policy to be deleted, in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<{}>;
-            /** Returns the specified firewall policy. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the requested policy, in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
-            /** Returns the list of all firewall policies that belong to a project. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. The maximum number of policies to return. Default is 10. Max limit is 1000. */
-                pageSize?:
-                    number;
-                /** Optional. The next_page_token value returned from a previous. ListFirewallPoliciesRequest, if any. */
-                pageToken?:
-                    string;
-                /** Required. The name of the project to list the policies for, in the format `projects/{project}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse>;
-            /** Updates the specified firewall policy. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Identifier. The resource name for the FirewallPolicy in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Optional. The mask to control which fields of the policy get updated. If the mask is not present, all fields will be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRecaptchaenterpriseV1FirewallPolicy;
-            }): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Identifier. The resource name for the FirewallPolicy in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Optional. The mask to control which fields of the policy get updated. If the mask is not present, all fields will be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRecaptchaenterpriseV1FirewallPolicy): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
-        }
-        interface KeysResource {
-            /** Creates a new reCAPTCHA Enterprise key. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the project in which the key will be created, in the format `projects/{project}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRecaptchaenterpriseV1Key;
-            }): Request<GoogleCloudRecaptchaenterpriseV1Key>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The name of the project in which the key will be created, in the format `projects/{project}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRecaptchaenterpriseV1Key): Request<GoogleCloudRecaptchaenterpriseV1Key>;
-            /** Deletes the specified key. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the key to be deleted, in the format `projects/{project}/keys/{key}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<{}>;
-            /** Returns the specified key. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the requested key, in the format `projects/{project}/keys/{key}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRecaptchaenterpriseV1Key>;
-            /** Get some aggregated metrics for a Key. This data can be used to build dashboards. */
-            getMetrics(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the requested metrics, in the format `projects/{project}/keys/{key}/metrics`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRecaptchaenterpriseV1Metrics>;
-            /** Returns the list of all keys that belong to a project. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. The maximum number of keys to return. Default is 10. Max limit is 1000. */
-                pageSize?:
-                    number;
-                /** Optional. The next_page_token value returned from a previous. ListKeysRequest, if any. */
-                pageToken?:
-                    string;
-                /** Required. The name of the project that contains the keys that will be listed, in the format `projects/{project}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRecaptchaenterpriseV1ListKeysResponse>;
-            /**
-             * Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment
-             * calls. You must be authenticated as one of the current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project.
-             */
-            migrate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the key to be migrated, in the format `projects/{project}/keys/{key}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest;
-            }): Request<GoogleCloudRecaptchaenterpriseV1Key>;
-            migrate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the key to be migrated, in the format `projects/{project}/keys/{key}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest): Request<GoogleCloudRecaptchaenterpriseV1Key>;
-            /** Updates the specified key. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Identifier. The resource name for the Key in the format `projects/{project}/keys/{key}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Optional. The mask to control which fields of the key get updated. If the mask is not present, all fields will be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRecaptchaenterpriseV1Key;
-            }): Request<GoogleCloudRecaptchaenterpriseV1Key>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Identifier. The resource name for the Key in the format `projects/{project}/keys/{key}`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Optional. The mask to control which fields of the key get updated. If the mask is not present, all fields will be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRecaptchaenterpriseV1Key): Request<GoogleCloudRecaptchaenterpriseV1Key>;
-            /** Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA. */
-            retrieveLegacySecretKey(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Required. The public key name linked to the requested secret key in the format `projects/{project}/keys/{key}`. */
-                key:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse>;
-        }
-        interface RelatedaccountgroupmembershipsResource {
-            /** Search group memberships related to a given account. */
-            search(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Required. The name of the project to search related account group memberships from. Specify the project name in the following format: `projects/{project}`. */
-                project:
-                    string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest;
-            }): Request<GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse>;
-            search(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Required. The name of the project to search related account group memberships from. Specify the project name in the following format: `projects/{project}`. */
-                project:
-                    string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest): Request<GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse>;
-        }
-        interface MembershipsResource {
-            /** Get memberships in a group of related accounts. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum number of accounts to return. The service might return fewer than this value. If unspecified, at most 50 accounts are returned. The maximum value is 1000;
-                 * values above 1000 are coerced to 1000.
-                 */
-                pageSize?:
-                    number;
-                /**
-                 * Optional. A page token, received from a previous `ListRelatedAccountGroupMemberships` call. When paginating, all other parameters provided to
-                 * `ListRelatedAccountGroupMemberships` must match the call that provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /** Required. The resource name for the related account group in the format `projects/{project}/relatedaccountgroups/{relatedaccountgroup}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse>;
-        }
-        interface RelatedaccountgroupsResource {
-            /** List groups of related accounts. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum number of groups to return. The service might return fewer than this value. If unspecified, at most 50 groups are returned. The maximum value is 1000;
-                 * values above 1000 are coerced to 1000.
-                 */
-                pageSize?:
-                    number;
-                /**
-                 * Optional. A page token, received from a previous `ListRelatedAccountGroups` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
-                 * `ListRelatedAccountGroups` must match the call that provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /** Required. The name of the project to list related account groups from, in the format `projects/{project}`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse>;
-            memberships:
-                MembershipsResource;
-        }
-        interface ProjectsResource {
-            assessments:
-                AssessmentsResource;
-            firewallpolicies:
-                FirewallpoliciesResource;
-            keys:
-                KeysResource;
-            relatedaccountgroupmemberships:
-                RelatedaccountgroupmembershipsResource;
-            relatedaccountgroups:
-                RelatedaccountgroupsResource;
-        }
-
-        const projects: ProjectsResource;
+  namespace recaptchaenterprise {
+    interface GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment {
+      /** Output only. Labels for this request. */
+      labels?: string[];
     }
+    interface GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo {
+      /** Optional. Endpoints that can be used for identity verification. */
+      endpoints?: GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo[];
+      /** Optional. Language code preference for the verification message, set as a IETF BCP 47 language code. */
+      languageCode?: string;
+      /** Output only. Result of the latest account verification challenge. */
+      latestVerificationResult?: string;
+      /** Username of the account that is being verified. Deprecated. Customers should now provide the hashed account ID field in Event. */
+      username?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1AndroidKeySettings {
+      /** Optional. If set to true, allowed_package_names are not enforced. */
+      allowAllPackageNames?: boolean;
+      /** Optional. Android package names of apps allowed to use the key. Example: 'com.companyname.appname' */
+      allowedPackageNames?: string[];
+      /** Optional. Set to true for keys that are used in an Android application that is available for download in app stores in addition to the Google Play Store. */
+      supportNonGoogleAppStoreDistribution?: boolean;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest {
+      /** Optional. A stable account identifier to apply to the assessment. This is an alternative to setting `account_id` in `CreateAssessment`, for example when a stable account identifier is not yet known in the initial request. */
+      accountId?: string;
+      /** Optional. The annotation that will be assigned to the Event. This field can be left empty to provide reasons that apply to an event without concluding whether the event is legitimate or fraudulent. */
+      annotation?: string;
+      /** Optional. A stable hashed account identifier to apply to the assessment. This is an alternative to setting `hashed_account_id` in `CreateAssessment`, for example when a stable account identifier is not yet known in the initial request. */
+      hashedAccountId?: string;
+      /** Optional. Reasons for the annotation that are assigned to the event. */
+      reasons?: string[];
+      /** Optional. If the assessment is part of a payment transaction, provide details on payment lifecycle events that occur in the transaction. */
+      transactionEvent?: GoogleCloudRecaptchaenterpriseV1TransactionEvent;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentResponse {}
+    interface GoogleCloudRecaptchaenterpriseV1AppleDeveloperId {
+      /** Required. The Apple developer key ID (10-character string). */
+      keyId?: string;
+      /** Required. Input only. A private key (downloaded as a text file with a .p8 file extension) generated for your Apple Developer account. Ensure that Apple DeviceCheck is enabled for the private key. */
+      privateKey?: string;
+      /** Required. The Apple team ID (10-character string) owning the provisioning profile used to build your application. */
+      teamId?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1Assessment {
+      /** Output only. Assessment returned by account defender when an account identifier is provided. */
+      accountDefenderAssessment?: GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment;
+      /** Optional. Account verification information for identity verification. The assessment event must include a token and site key to use this feature. */
+      accountVerification?: GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo;
+      /** Optional. The event being assessed. */
+      event?: GoogleCloudRecaptchaenterpriseV1Event;
+      /** Output only. Assessment returned when firewall policies belonging to the project are evaluated using the field firewall_policy_evaluation. */
+      firewallPolicyAssessment?: GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment;
+      /** Output only. Assessment returned by Fraud Prevention when TransactionData is provided. */
+      fraudPreventionAssessment?: GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment;
+      /** Output only. Fraud Signals specific to the users involved in a payment transaction. */
+      fraudSignals?: GoogleCloudRecaptchaenterpriseV1FraudSignals;
+      /** Output only. Identifier. The resource name for the Assessment in the format `projects/{project}/assessments/{assessment}`. */
+      name?: string;
+      /** Optional. The private password leak verification field contains the parameters that are used to to check for leaks privately without sharing user credentials. */
+      privatePasswordLeakVerification?: GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification;
+      /** Output only. The risk analysis result for the event being assessed. */
+      riskAnalysis?: GoogleCloudRecaptchaenterpriseV1RiskAnalysis;
+      /** Output only. Properties of the provided event token. */
+      tokenProperties?: GoogleCloudRecaptchaenterpriseV1TokenProperties;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1ChallengeMetrics {
+      /** Count of submitted challenge solutions that were incorrect or otherwise deemed suspicious such that a subsequent challenge was triggered. */
+      failedCount?: string;
+      /** Count of nocaptchas (successful verification without a challenge) issued. */
+      nocaptchaCount?: string;
+      /** Count of reCAPTCHA checkboxes or badges rendered. This is mostly equivalent to a count of pageloads for pages that include reCAPTCHA. */
+      pageloadCount?: string;
+      /** Count of nocaptchas (successful verification without a challenge) plus submitted challenge solutions that were correct and resulted in verification. */
+      passedCount?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo {
+      /** Email address for which to trigger a verification request. */
+      emailAddress?: string;
+      /** Output only. Timestamp of the last successful verification for the endpoint, if any. */
+      lastVerificationTime?: string;
+      /** Phone number for which to trigger a verification request. Should be given in E.164 format. */
+      phoneNumber?: string;
+      /** Output only. Token to provide to the client to trigger endpoint verification. It must be used within 15 minutes. */
+      requestToken?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1Event {
+      /** Optional. The expected action for this type of event. This should be the same action provided at token generation time on client-side platforms already integrated with recaptcha enterprise. */
+      expectedAction?: string;
+      /** Optional. Flag for a reCAPTCHA express request for an assessment without a token. If enabled, `site_key` must reference a SCORE key with WAF feature set to EXPRESS. */
+      express?: boolean;
+      /** Optional. Flag for enabling firewall policy config assessment. If this flag is enabled, the firewall policy will be evaluated and a suggested firewall action will be returned in the response. */
+      firewallPolicyEvaluation?: boolean;
+      /** Optional. Deprecated: use `user_info.account_id` instead. Unique stable hashed user identifier for the request. The identifier must be hashed using hmac-sha256 with stable secret. */
+      hashedAccountId?: string;
+      /** Optional. HTTP header information about the request. */
+      headers?: string[];
+      /** Optional. JA3 fingerprint for SSL clients. */
+      ja3?: string;
+      /** Optional. The URI resource the user requested that triggered an assessment. */
+      requestedUri?: string;
+      /** Optional. The site key that was used to invoke reCAPTCHA Enterprise on your site and generate the token. */
+      siteKey?: string;
+      /** Optional. The user response token provided by the reCAPTCHA Enterprise client-side integration on your site. */
+      token?: string;
+      /** Optional. Data describing a payment transaction to be assessed. Sending this data enables reCAPTCHA Enterprise Fraud Prevention and the FraudPreventionAssessment component in the response. */
+      transactionData?: GoogleCloudRecaptchaenterpriseV1TransactionData;
+      /** Optional. The user agent present in the request from the user's device related to this event. */
+      userAgent?: string;
+      /** Optional. Information about the user that generates this event, when they can be identified. They are often identified through the use of an account for logged-in requests or login/registration requests, or by providing user identifiers for guest actions like checkout. */
+      userInfo?: GoogleCloudRecaptchaenterpriseV1UserInfo;
+      /** Optional. The IP address in the request from the user's device related to this event. */
+      userIpAddress?: string;
+      /** Optional. Flag for running WAF token assessment. If enabled, the token must be specified, and have been created by a WAF-enabled key. */
+      wafTokenAssessment?: boolean;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FirewallAction {
+      /** The user request did not match any policy and should be allowed access to the requested resource. */
+      allow?: any;
+      /** This action will deny access to a given page. The user will get an HTTP error code. */
+      block?: any;
+      /** This action will redirect the request to a ReCaptcha interstitial to attach a token. */
+      redirect?: any;
+      /** This action will set a custom header but allow the request to continue to the customer backend. */
+      setHeader?: GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction;
+      /** This action will transparently serve a different page to an offending user. */
+      substitute?: GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction {}
+    interface GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction {}
+    interface GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction {}
+    interface GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction {
+      /** Optional. The header key to set in the request to the backend server. */
+      key?: string;
+      /** Optional. The header value to set in the request to the backend server. */
+      value?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction {
+      /** Optional. The address to redirect to. The target is a relative path in the current host. Example: "/blog/404.html". */
+      path?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FirewallPolicy {
+      /** Optional. The actions that the caller should take regarding user access. There should be at most one terminal action. A terminal action is any action that forces a response, such as `AllowAction`, `BlockAction` or `SubstituteAction`. Zero or more non-terminal actions such as `SetHeader` might be specified. A single policy can contain up to 16 actions. */
+      actions?: GoogleCloudRecaptchaenterpriseV1FirewallAction[];
+      /** Optional. A CEL (Common Expression Language) conditional expression that specifies if this policy applies to an incoming user request. If this condition evaluates to true and the requested path matched the path pattern, the associated actions should be executed by the caller. The condition string is checked for CEL syntax correctness on creation. For more information, see the [CEL spec](https://github.com/google/cel-spec) and its [language definition](https://github.com/google/cel-spec/blob/master/doc/langdef.md). A condition has a max length of 500 characters. */
+      condition?: string;
+      /** Optional. A description of what this policy aims to achieve, for convenience purposes. The description can at most include 256 UTF-8 characters. */
+      description?: string;
+      /** Identifier. The resource name for the FirewallPolicy in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
+      name?: string;
+      /** Optional. The path for which this policy applies, specified as a glob pattern. For more information on glob, see the [manual page](https://man7.org/linux/man-pages/man7/glob.7.html). A path has a max length of 200 characters. */
+      path?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment {
+      /** Output only. If the processing of a policy config fails, an error will be populated and the firewall_policy will be left empty. */
+      error?: GoogleRpcStatus;
+      /** Output only. The policy that matched the request. If more than one policy may match, this is the first match. If no policy matches the incoming request, the policy field will be left empty. */
+      firewallPolicy?: GoogleCloudRecaptchaenterpriseV1FirewallPolicy;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment {
+      /** Output only. Assessment of this transaction for behavioral trust. */
+      behavioralTrustVerdict?: GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict;
+      /** Output only. Assessment of this transaction for risk of being part of a card testing attack. */
+      cardTestingVerdict?: GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict;
+      /** Output only. Assessment of this transaction for risk of a stolen instrument. */
+      stolenInstrumentVerdict?: GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict;
+      /** Output only. Probability of this transaction being fraudulent. Summarizes the combined risk of attack vectors below. Values are from 0.0 (lowest) to 1.0 (highest). */
+      transactionRisk?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict {
+      /** Output only. Probability of this transaction attempt being executed in a behaviorally trustworthy way. Values are from 0.0 (lowest) to 1.0 (highest). */
+      trust?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict {
+      /** Output only. Probability of this transaction attempt being part of a card testing attack. Values are from 0.0 (lowest) to 1.0 (highest). */
+      risk?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict {
+      /** Output only. Probability of this transaction being executed with a stolen instrument. Values are from 0.0 (lowest) to 1.0 (highest). */
+      risk?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FraudSignals {
+      /** Output only. Signals describing the payment card or cards used in this transaction. */
+      cardSignals?: GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals;
+      /** Output only. Signals describing the end user in this transaction. */
+      userSignals?: GoogleCloudRecaptchaenterpriseV1FraudSignalsUserSignals;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals {
+      /** Output only. The labels for the payment card in this transaction. */
+      cardLabels?: string[];
+    }
+    interface GoogleCloudRecaptchaenterpriseV1FraudSignalsUserSignals {
+      /** Output only. This user (based on email, phone, and other identifiers) has been seen on the internet for at least this number of days. */
+      activeDaysLowerBound?: number;
+      /** Output only. Likelihood (from 0.0 to 1.0) this user includes synthetic components in their identity, such as a randomly generated email address, temporary phone number, or fake shipping address. */
+      syntheticRisk?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1IOSKeySettings {
+      /** Optional. If set to true, allowed_bundle_ids are not enforced. */
+      allowAllBundleIds?: boolean;
+      /** Optional. iOS bundle ids of apps allowed to use the key. Example: 'com.companyname.productname.appname' */
+      allowedBundleIds?: string[];
+      /** Optional. Apple Developer account details for the app that is protected by the reCAPTCHA Key. reCAPTCHA Enterprise leverages platform-specific checks like Apple App Attest and Apple DeviceCheck to protect your app from abuse. Providing these fields allows reCAPTCHA Enterprise to get a better assessment of the integrity of your app. */
+      appleDeveloperId?: GoogleCloudRecaptchaenterpriseV1AppleDeveloperId;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1Key {
+      /** Settings for keys that can be used by Android apps. */
+      androidSettings?: GoogleCloudRecaptchaenterpriseV1AndroidKeySettings;
+      /** Output only. The timestamp corresponding to the creation of this key. */
+      createTime?: string;
+      /** Required. Human-readable display name of this key. Modifiable by user. */
+      displayName?: string;
+      /** Settings for keys that can be used by iOS apps. */
+      iosSettings?: GoogleCloudRecaptchaenterpriseV1IOSKeySettings;
+      /** Optional. See [Creating and managing labels] (https://cloud.google.com/recaptcha-enterprise/docs/labels). */
+      labels?: {[P in string]: string};
+      /** Identifier. The resource name for the Key in the format `projects/{project}/keys/{key}`. */
+      name?: string;
+      /** Optional. Options for user acceptance testing. */
+      testingOptions?: GoogleCloudRecaptchaenterpriseV1TestingOptions;
+      /** Optional. Settings for WAF */
+      wafSettings?: GoogleCloudRecaptchaenterpriseV1WafSettings;
+      /** Settings for keys that can be used by websites. */
+      webSettings?: GoogleCloudRecaptchaenterpriseV1WebKeySettings;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse {
+      /** Policy details. */
+      firewallPolicies?: GoogleCloudRecaptchaenterpriseV1FirewallPolicy[];
+      /** Token to retrieve the next page of results. It is set to empty if no policies remain in results. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1ListKeysResponse {
+      /** Key details. */
+      keys?: GoogleCloudRecaptchaenterpriseV1Key[];
+      /** Token to retrieve the next page of results. It is set to empty if no keys remain in results. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse {
+      /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** The memberships listed by the query. */
+      relatedAccountGroupMemberships?: GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership[];
+    }
+    interface GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse {
+      /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** The groups of related accounts listed by the query. */
+      relatedAccountGroups?: GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup[];
+    }
+    interface GoogleCloudRecaptchaenterpriseV1Metrics {
+      /** Metrics will be continuous and in order by dates, and in the granularity of day. Only challenge-based keys (CHECKBOX, INVISIBLE), will have challenge-based data. */
+      challengeMetrics?: GoogleCloudRecaptchaenterpriseV1ChallengeMetrics[];
+      /** Output only. Identifier. The name of the metrics, in the format `projects/{project}/keys/{key}/metrics`. */
+      name?: string;
+      /** Metrics will be continuous and in order by dates, and in the granularity of day. All Key types should have score-based data. */
+      scoreMetrics?: GoogleCloudRecaptchaenterpriseV1ScoreMetrics[];
+      /** Inclusive start time aligned to a day (UTC). */
+      startTime?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest {
+      /** Optional. If true, skips the billing check. A reCAPTCHA Enterprise key or migrated key behaves differently than a reCAPTCHA (non-Enterprise version) key when you reach a quota limit (see https://cloud.google.com/recaptcha-enterprise/quotas#quota_limit). To avoid any disruption of your usage, we check that a billing account is present. If your usage of reCAPTCHA is under the free quota, you can safely skip the billing check and proceed with the migration. See https://cloud.google.com/recaptcha-enterprise/docs/billing-information. */
+      skipBillingCheck?: boolean;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification {
+      /** Output only. List of prefixes of the encrypted potential password leaks that matched the given parameters. They must be compared with the client-side decryption prefix of `reencrypted_user_credentials_hash` */
+      encryptedLeakMatchPrefixes?: string[];
+      /** Optional. Encrypted Scrypt hash of the canonicalized username+password. It is re-encrypted by the server and returned through `reencrypted_user_credentials_hash`. */
+      encryptedUserCredentialsHash?: string;
+      /** Required. Exactly 26-bit prefix of the SHA-256 hash of the canonicalized username. It is used to look up password leaks associated with that hash prefix. */
+      lookupHashPrefix?: string;
+      /** Output only. Corresponds to the re-encryption of the `encrypted_user_credentials_hash` field. It is used to match potential password leaks within `encrypted_leak_match_prefixes`. */
+      reencryptedUserCredentialsHash?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup {
+      /** Required. Identifier. The resource name for the related account group in the format `projects/{project}/relatedaccountgroups/{related_account_group}`. */
+      name?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership {
+      /** The unique stable hashed user identifier of the member. The identifier corresponds to a `hashed_account_id` provided in a previous `CreateAssessment` or `AnnotateAssessment` call. */
+      hashedAccountId?: string;
+      /** Required. Identifier. The resource name for this membership in the format `projects/{project}/relatedaccountgroups/{relatedaccountgroup}/memberships/{membership}`. */
+      name?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse {
+      /** The secret key (also known as shared secret) authorizes communication between your application backend and the reCAPTCHA Enterprise server to create an assessment. The secret key needs to be kept safe for security purposes. */
+      legacySecretKey?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1RiskAnalysis {
+      /** Output only. Extended verdict reasons to be used for experimentation only. The set of possible reasons is subject to change. */
+      extendedVerdictReasons?: string[];
+      /** Output only. Reasons contributing to the risk analysis verdict. */
+      reasons?: string[];
+      /** Output only. Legitimate event score from 0.0 to 1.0. (1.0 means very likely legitimate traffic while 0.0 means very likely non-legitimate traffic). */
+      score?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1ScoreDistribution {
+      /** Map key is score value multiplied by 100. The scores are discrete values between [0, 1]. The maximum number of buckets is on order of a few dozen, but typically much lower (ie. 10). */
+      scoreBuckets?: {[P in string]: string};
+    }
+    interface GoogleCloudRecaptchaenterpriseV1ScoreMetrics {
+      /** Action-based metrics. The map key is the action name which specified by the site owners at time of the "execute" client-side call. */
+      actionMetrics?: {
+        [P in string]: GoogleCloudRecaptchaenterpriseV1ScoreDistribution;
+      };
+      /** Aggregated score metrics for all traffic. */
+      overallMetrics?: GoogleCloudRecaptchaenterpriseV1ScoreDistribution;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest {
+      /** Optional. The unique stable hashed user identifier used to search connections. The identifier should correspond to a `hashed_account_id` provided in a previous `CreateAssessment` or `AnnotateAssessment` call. */
+      hashedAccountId?: string;
+      /** Optional. The maximum number of groups to return. The service might return fewer than this value. If unspecified, at most 50 groups are returned. The maximum value is 1000; values above 1000 are coerced to 1000. */
+      pageSize?: number;
+      /** Optional. A page token, received from a previous `SearchRelatedAccountGroupMemberships` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `SearchRelatedAccountGroupMemberships` must match the call that provided the page token. */
+      pageToken?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse {
+      /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** The queried memberships. */
+      relatedAccountGroupMemberships?: GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership[];
+    }
+    interface GoogleCloudRecaptchaenterpriseV1TestingOptions {
+      /** Optional. For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable challenge if CHALLENGE. */
+      testingChallenge?: string;
+      /** Optional. All assessments for this Key will return this score. Must be between 0 (likely not legitimate) and 1 (likely legitimate) inclusive. */
+      testingScore?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1TokenProperties {
+      /** Output only. Action name provided at token generation. */
+      action?: string;
+      /** Output only. The name of the Android package with which the token was generated (Android keys only). */
+      androidPackageName?: string;
+      /** Output only. The timestamp corresponding to the generation of the token. */
+      createTime?: string;
+      /** Output only. The hostname of the page on which the token was generated (Web keys only). */
+      hostname?: string;
+      /** Output only. Reason associated with the response when valid = false. */
+      invalidReason?: string;
+      /** Output only. The ID of the iOS bundle with which the token was generated (iOS keys only). */
+      iosBundleId?: string;
+      /** Output only. Whether the provided user response token is valid. When valid = false, the reason could be specified in invalid_reason or it could also be due to a user failing to solve a challenge or a sitekey mismatch (i.e the sitekey used to generate the token was different than the one specified in the assessment). */
+      valid?: boolean;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1TransactionData {
+      /** Optional. Address associated with the payment method when applicable. */
+      billingAddress?: GoogleCloudRecaptchaenterpriseV1TransactionDataAddress;
+      /** Optional. The Bank Identification Number - generally the first 6 or 8 digits of the card. */
+      cardBin?: string;
+      /** Optional. The last four digits of the card. */
+      cardLastFour?: string;
+      /** Optional. The currency code in ISO-4217 format. */
+      currencyCode?: string;
+      /** Optional. Information about the payment gateway's response to the transaction. */
+      gatewayInfo?: GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo;
+      /** Optional. Items purchased in this transaction. */
+      items?: GoogleCloudRecaptchaenterpriseV1TransactionDataItem[];
+      /** Optional. Information about the user or users fulfilling the transaction. */
+      merchants?: GoogleCloudRecaptchaenterpriseV1TransactionDataUser[];
+      /** Optional. The payment method for the transaction. The allowed values are: * credit-card * debit-card * gift-card * processor-{name} (If a third-party is used, for example, processor-paypal) * custom-{name} (If an alternative method is used, for example, custom-crypto) */
+      paymentMethod?: string;
+      /** Optional. Destination address if this transaction involves shipping a physical item. */
+      shippingAddress?: GoogleCloudRecaptchaenterpriseV1TransactionDataAddress;
+      /** Optional. The value of shipping in the specified currency. 0 for free or no shipping. */
+      shippingValue?: number;
+      /** Unique identifier for the transaction. This custom identifier can be used to reference this transaction in the future, for example, labeling a refund or chargeback event. Two attempts at the same transaction should use the same transaction id. */
+      transactionId?: string;
+      /** Optional. Information about the user paying/initiating the transaction. */
+      user?: GoogleCloudRecaptchaenterpriseV1TransactionDataUser;
+      /** Optional. The decimal value of the transaction in the specified currency. */
+      value?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1TransactionDataAddress {
+      /** Optional. The first lines of the address. The first line generally contains the street name and number, and further lines may include information such as an apartment number. */
+      address?: string[];
+      /** Optional. The state, province, or otherwise administrative area of the address. */
+      administrativeArea?: string;
+      /** Optional. The town/city of the address. */
+      locality?: string;
+      /** Optional. The postal or ZIP code of the address. */
+      postalCode?: string;
+      /** Optional. The recipient name, potentially including information such as "care of". */
+      recipient?: string;
+      /** Optional. The CLDR country/region of the address. */
+      regionCode?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1TransactionDataGatewayInfo {
+      /** Optional. AVS response code from the gateway (available only when reCAPTCHA Enterprise is called after authorization). */
+      avsResponseCode?: string;
+      /** Optional. CVV response code from the gateway (available only when reCAPTCHA Enterprise is called after authorization). */
+      cvvResponseCode?: string;
+      /** Optional. Gateway response code describing the state of the transaction. */
+      gatewayResponseCode?: string;
+      /** Optional. Name of the gateway service (for example, stripe, square, paypal). */
+      name?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1TransactionDataItem {
+      /** Optional. When a merchant is specified, its corresponding account_id. Necessary to populate marketplace-style transactions. */
+      merchantAccountId?: string;
+      /** Optional. The full name of the item. */
+      name?: string;
+      /** Optional. The quantity of this item that is being purchased. */
+      quantity?: string;
+      /** Optional. The value per item that the user is paying, in the transaction currency, after discounts. */
+      value?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1TransactionDataUser {
+      /** Optional. Unique account identifier for this user. If using account defender, this should match the hashed_account_id field. Otherwise, a unique and persistent identifier for this account. */
+      accountId?: string;
+      /** Optional. The epoch milliseconds of the user's account creation. */
+      creationMs?: string;
+      /** Optional. The email address of the user. */
+      email?: string;
+      /** Optional. Whether the email has been verified to be accessible by the user (OTP or similar). */
+      emailVerified?: boolean;
+      /** Optional. The phone number of the user, with country code. */
+      phoneNumber?: string;
+      /** Optional. Whether the phone number has been verified to be accessible by the user (OTP or similar). */
+      phoneVerified?: boolean;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1TransactionEvent {
+      /** Optional. Timestamp when this transaction event occurred; otherwise assumed to be the time of the API call. */
+      eventTime?: string;
+      /** Optional. The type of this transaction event. */
+      eventType?: string;
+      /** Optional. The reason or standardized code that corresponds with this transaction event, if one exists. For example, a CHARGEBACK event with code 6005. */
+      reason?: string;
+      /** Optional. The value that corresponds with this transaction event, if one exists. For example, a refund event where $5.00 was refunded. Currency is obtained from the original transaction data. */
+      value?: number;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1UserId {
+      /** Optional. An email address. */
+      email?: string;
+      /** Optional. A phone number. Should use the E.164 format. */
+      phoneNumber?: string;
+      /** Optional. A unique username, if different from all the other identifiers and `account_id` that are provided. Can be a unique login handle or display name for a user. */
+      username?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1UserInfo {
+      /** Optional. For logged-in requests or login/registration requests, the unique account identifier associated with this user. You can use the username if it is stable (meaning it is the same for every request associated with the same user), or any stable user ID of your choice. Leave blank for non logged-in actions or guest checkout. */
+      accountId?: string;
+      /** Optional. Creation time for this account associated with this user. Leave blank for non logged-in actions, guest checkout, or when there is no account associated with the current user. */
+      createAccountTime?: string;
+      /** Optional. Identifiers associated with this user or request. */
+      userIds?: GoogleCloudRecaptchaenterpriseV1UserId[];
+    }
+    interface GoogleCloudRecaptchaenterpriseV1WafSettings {
+      /** Required. The WAF feature for which this key is enabled. */
+      wafFeature?: string;
+      /** Required. The WAF service that uses this key. */
+      wafService?: string;
+    }
+    interface GoogleCloudRecaptchaenterpriseV1WebKeySettings {
+      /** Optional. If set to true, it means allowed_domains will not be enforced. */
+      allowAllDomains?: boolean;
+      /** Optional. If set to true, the key can be used on AMP (Accelerated Mobile Pages) websites. This is supported only for the SCORE integration type. */
+      allowAmpTraffic?: boolean;
+      /** Optional. Domains or subdomains of websites allowed to use the key. All subdomains of an allowed domain are automatically allowed. A valid domain requires a host and must not include any path, port, query or fragment. Examples: 'example.com' or 'subdomain.example.com' */
+      allowedDomains?: string[];
+      /** Optional. Settings for the frequency and difficulty at which this key triggers captcha challenges. This should only be specified for IntegrationTypes CHECKBOX and INVISIBLE. */
+      challengeSecurityPreference?: string;
+      /** Required. Describes how this key is integrated with the website. */
+      integrationType?: string;
+    }
+    interface GoogleProtobufEmpty {}
+    interface GoogleRpcStatus {
+      /** The status code, which should be an enum value of google.rpc.Code. */
+      code?: number;
+      /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
+      details?: Array<{[P in string]: any}>;
+      /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
+      message?: string;
+    }
+    interface AssessmentsResource {
+      /** Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent. */
+      annotate(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The resource name of the Assessment, in the format `projects/{project}/assessments/{assessment}`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest;
+      }): Request<{}>;
+      annotate(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The resource name of the Assessment, in the format `projects/{project}/assessments/{assessment}`. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest
+      ): Request<{}>;
+      /** Creates an Assessment of the likelihood an event is legitimate. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The name of the project in which the assessment will be created, in the format `projects/{project}`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRecaptchaenterpriseV1Assessment;
+      }): Request<GoogleCloudRecaptchaenterpriseV1Assessment>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The name of the project in which the assessment will be created, in the format `projects/{project}`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRecaptchaenterpriseV1Assessment
+      ): Request<GoogleCloudRecaptchaenterpriseV1Assessment>;
+    }
+    interface FirewallpoliciesResource {
+      /** Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The name of the project this policy will apply to, in the format `projects/{project}`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRecaptchaenterpriseV1FirewallPolicy;
+      }): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The name of the project this policy will apply to, in the format `projects/{project}`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRecaptchaenterpriseV1FirewallPolicy
+      ): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
+      /** Deletes the specified firewall policy. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the policy to be deleted, in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Returns the specified firewall policy. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the requested policy, in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
+      /** Returns the list of all firewall policies that belong to a project. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum number of policies to return. Default is 10. Max limit is 1000. */
+        pageSize?: number;
+        /** Optional. The next_page_token value returned from a previous. ListFirewallPoliciesRequest, if any. */
+        pageToken?: string;
+        /** Required. The name of the project to list the policies for, in the format `projects/{project}`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRecaptchaenterpriseV1ListFirewallPoliciesResponse>;
+      /** Updates the specified firewall policy. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Identifier. The resource name for the FirewallPolicy in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. The mask to control which fields of the policy get updated. If the mask is not present, all fields will be updated. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRecaptchaenterpriseV1FirewallPolicy;
+      }): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Identifier. The resource name for the FirewallPolicy in the format `projects/{project}/firewallpolicies/{firewallpolicy}`. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. The mask to control which fields of the policy get updated. If the mask is not present, all fields will be updated. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRecaptchaenterpriseV1FirewallPolicy
+      ): Request<GoogleCloudRecaptchaenterpriseV1FirewallPolicy>;
+    }
+    interface KeysResource {
+      /** Creates a new reCAPTCHA Enterprise key. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The name of the project in which the key will be created, in the format `projects/{project}`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRecaptchaenterpriseV1Key;
+      }): Request<GoogleCloudRecaptchaenterpriseV1Key>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The name of the project in which the key will be created, in the format `projects/{project}`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRecaptchaenterpriseV1Key
+      ): Request<GoogleCloudRecaptchaenterpriseV1Key>;
+      /** Deletes the specified key. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the key to be deleted, in the format `projects/{project}/keys/{key}`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Returns the specified key. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the requested key, in the format `projects/{project}/keys/{key}`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRecaptchaenterpriseV1Key>;
+      /** Get some aggregated metrics for a Key. This data can be used to build dashboards. */
+      getMetrics(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the requested metrics, in the format `projects/{project}/keys/{key}/metrics`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRecaptchaenterpriseV1Metrics>;
+      /** Returns the list of all keys that belong to a project. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum number of keys to return. Default is 10. Max limit is 1000. */
+        pageSize?: number;
+        /** Optional. The next_page_token value returned from a previous. ListKeysRequest, if any. */
+        pageToken?: string;
+        /** Required. The name of the project that contains the keys that will be listed, in the format `projects/{project}`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRecaptchaenterpriseV1ListKeysResponse>;
+      /** Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project. */
+      migrate(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the key to be migrated, in the format `projects/{project}/keys/{key}`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest;
+      }): Request<GoogleCloudRecaptchaenterpriseV1Key>;
+      migrate(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the key to be migrated, in the format `projects/{project}/keys/{key}`. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest
+      ): Request<GoogleCloudRecaptchaenterpriseV1Key>;
+      /** Updates the specified key. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Identifier. The resource name for the Key in the format `projects/{project}/keys/{key}`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. The mask to control which fields of the key get updated. If the mask is not present, all fields will be updated. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRecaptchaenterpriseV1Key;
+      }): Request<GoogleCloudRecaptchaenterpriseV1Key>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Identifier. The resource name for the Key in the format `projects/{project}/keys/{key}`. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. The mask to control which fields of the key get updated. If the mask is not present, all fields will be updated. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRecaptchaenterpriseV1Key
+      ): Request<GoogleCloudRecaptchaenterpriseV1Key>;
+      /** Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA. */
+      retrieveLegacySecretKey(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Required. The public key name linked to the requested secret key in the format `projects/{project}/keys/{key}`. */
+        key: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRecaptchaenterpriseV1RetrieveLegacySecretKeyResponse>;
+    }
+    interface RelatedaccountgroupmembershipsResource {
+      /** Search group memberships related to a given account. */
+      search(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Required. The name of the project to search related account group memberships from. Specify the project name in the following format: `projects/{project}`. */
+        project: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest;
+      }): Request<GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse>;
+      search(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Required. The name of the project to search related account group memberships from. Specify the project name in the following format: `projects/{project}`. */
+          project: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest
+      ): Request<GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse>;
+    }
+    interface MembershipsResource {
+      /** Get memberships in a group of related accounts. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum number of accounts to return. The service might return fewer than this value. If unspecified, at most 50 accounts are returned. The maximum value is 1000; values above 1000 are coerced to 1000. */
+        pageSize?: number;
+        /** Optional. A page token, received from a previous `ListRelatedAccountGroupMemberships` call. When paginating, all other parameters provided to `ListRelatedAccountGroupMemberships` must match the call that provided the page token. */
+        pageToken?: string;
+        /** Required. The resource name for the related account group in the format `projects/{project}/relatedaccountgroups/{relatedaccountgroup}`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse>;
+    }
+    interface RelatedaccountgroupsResource {
+      /** List groups of related accounts. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum number of groups to return. The service might return fewer than this value. If unspecified, at most 50 groups are returned. The maximum value is 1000; values above 1000 are coerced to 1000. */
+        pageSize?: number;
+        /** Optional. A page token, received from a previous `ListRelatedAccountGroups` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListRelatedAccountGroups` must match the call that provided the page token. */
+        pageToken?: string;
+        /** Required. The name of the project to list related account groups from, in the format `projects/{project}`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse>;
+      memberships: MembershipsResource;
+    }
+    interface ProjectsResource {
+      assessments: AssessmentsResource;
+      firewallpolicies: FirewallpoliciesResource;
+      keys: KeysResource;
+      relatedaccountgroupmemberships: RelatedaccountgroupmembershipsResource;
+      relatedaccountgroups: RelatedaccountgroupsResource;
+    }
+
+    const projects: ProjectsResource;
+  }
 }

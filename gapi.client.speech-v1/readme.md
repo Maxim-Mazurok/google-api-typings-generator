@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://speech.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.speech
-});
+gapi.client.load(
+  'https://speech.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.speech
+  }
+);
 ```
 
 ```typescript
@@ -45,44 +48,44 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Speech-to-Text API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 */
-await gapi.client.speech.operations.get({ name: "name",  });
+await gapi.client.speech.operations.get({name: 'name'});
 
 /*
 Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
 */
-await gapi.client.speech.operations.list({  });
+await gapi.client.speech.operations.list({});
 
 /*
 Performs asynchronous speech recognition: receive results via the google.longrunning.Operations interface. Returns either an `Operation.error` or an `Operation.response` which contains a `LongRunningRecognizeResponse` message. For more information on asynchronous speech recognition, see the [how-to](https://cloud.google.com/speech-to-text/docs/async-recognize).
 */
-await gapi.client.speech.speech.longrunningrecognize({  });
+await gapi.client.speech.speech.longrunningrecognize({});
 
 /*
 Performs synchronous speech recognition: receive results after all audio has been sent and processed.
 */
-await gapi.client.speech.speech.recognize({  });
+await gapi.client.speech.speech.recognize({});
 ```

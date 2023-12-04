@@ -6,599 +6,614 @@
 // Revision: 20231101
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://workstations.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.workstations */
+  await gapi.client.load(
+    'https://workstations.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.workstations */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.workstations.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.workstations.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.workstations.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.workstations.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.workstations.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.workstations.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new workstation cluster. */
-        await gapi.client.workstations.projects.locations.workstationClusters.create({
-            parent: "Test string",
-            validateOnly: true,
-            workstationClusterId: "Test string",
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            conditions: [
-                {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                }
-            ],
-            controlPlaneIp: "Test string",
-            createTime: "Test string",
-            degraded: true,
-            deleteTime: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            network: "Test string",
-            privateClusterConfig: {
-                allowedProjects: [
-                    "Test string"
-                ],
-                clusterHostname: "Test string",
-                enablePrivateEndpoint: true,
-                serviceAttachmentUri: "Test string",
-            },
-            reconciling: true,
-            subnetwork: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes the specified workstation cluster. */
-        await gapi.client.workstations.projects.locations.workstationClusters.delete({
-            etag: "Test string",
-            force: true,
-            name: "Test string",
-            validateOnly: true,
-        });
-        /** Returns the requested workstation cluster. */
-        await gapi.client.workstations.projects.locations.workstationClusters.get({
-            name: "Test string",
-        });
-        /** Returns all workstation clusters in the specified location. */
-        await gapi.client.workstations.projects.locations.workstationClusters.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing workstation cluster. */
-        await gapi.client.workstations.projects.locations.workstationClusters.patch({
-            allowMissing: true,
-            name: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            conditions: [
-                {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                }
-            ],
-            controlPlaneIp: "Test string",
-            createTime: "Test string",
-            degraded: true,
-            deleteTime: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            network: "Test string",
-            privateClusterConfig: {
-                allowedProjects: [
-                    "Test string"
-                ],
-                clusterHostname: "Test string",
-                enablePrivateEndpoint: true,
-                serviceAttachmentUri: "Test string",
-            },
-            reconciling: true,
-            subnetwork: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Creates a new workstation configuration. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.create({
-            parent: "Test string",
-            validateOnly: true,
-            workstationConfigId: "Test string",
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            conditions: [
-                {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                }
-            ],
-            container: {
-                args: [
-                    "Test string"
-                ],
-                command: [
-                    "Test string"
-                ],
-                env: {
-                    A: "Test string"
-                },
-                image: "Test string",
-                runAsUser: 42,
-                workingDir: "Test string",
-            },
-            createTime: "Test string",
-            degraded: true,
-            deleteTime: "Test string",
-            displayName: "Test string",
-            encryptionKey: {
-                kmsKey: "Test string",
-                kmsKeyServiceAccount: "Test string",
-            },
-            etag: "Test string",
-            host: {
-                gceInstance: {
-                    bootDiskSizeGb: 42,
-                    confidentialInstanceConfig: {
-                        enableConfidentialCompute: true,
-                    },
-                    disablePublicIpAddresses: true,
-                    enableNestedVirtualization: true,
-                    machineType: "Test string",
-                    pooledInstances: 42,
-                    poolSize: 42,
-                    serviceAccount: "Test string",
-                    serviceAccountScopes: [
-                        "Test string"
-                    ],
-                    shieldedInstanceConfig: {
-                        enableIntegrityMonitoring: true,
-                        enableSecureBoot: true,
-                        enableVtpm: true,
-                    },
-                    tags: [
-                        "Test string"
-                    ],
-                },
-            },
-            idleTimeout: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            persistentDirectories: [
-                {
-                    gcePd: {
-                        diskType: "Test string",
-                        fsType: "Test string",
-                        reclaimPolicy: "Test string",
-                        sizeGb: 42,
-                        sourceSnapshot: "Test string",
-                    },
-                    mountPath: "Test string",
-                }
-            ],
-            readinessChecks: [
-                {
-                    path: "Test string",
-                    port: 42,
-                }
-            ],
-            reconciling: true,
-            replicaZones: [
-                "Test string"
-            ],
-            runningTimeout: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes the specified workstation configuration. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.delete({
-            etag: "Test string",
-            force: true,
-            name: "Test string",
-            validateOnly: true,
-        });
-        /** Returns the requested workstation configuration. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Returns all workstation configurations in the specified cluster. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns all workstation configurations in the specified cluster on which the caller has the "workstations.workstation.create" permission. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.listUsable({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing workstation configuration. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.patch({
-            allowMissing: true,
-            name: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            conditions: [
-                {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                }
-            ],
-            container: {
-                args: [
-                    "Test string"
-                ],
-                command: [
-                    "Test string"
-                ],
-                env: {
-                    A: "Test string"
-                },
-                image: "Test string",
-                runAsUser: 42,
-                workingDir: "Test string",
-            },
-            createTime: "Test string",
-            degraded: true,
-            deleteTime: "Test string",
-            displayName: "Test string",
-            encryptionKey: {
-                kmsKey: "Test string",
-                kmsKeyServiceAccount: "Test string",
-            },
-            etag: "Test string",
-            host: {
-                gceInstance: {
-                    bootDiskSizeGb: 42,
-                    confidentialInstanceConfig: {
-                        enableConfidentialCompute: true,
-                    },
-                    disablePublicIpAddresses: true,
-                    enableNestedVirtualization: true,
-                    machineType: "Test string",
-                    pooledInstances: 42,
-                    poolSize: 42,
-                    serviceAccount: "Test string",
-                    serviceAccountScopes: [
-                        "Test string"
-                    ],
-                    shieldedInstanceConfig: {
-                        enableIntegrityMonitoring: true,
-                        enableSecureBoot: true,
-                        enableVtpm: true,
-                    },
-                    tags: [
-                        "Test string"
-                    ],
-                },
-            },
-            idleTimeout: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            persistentDirectories: [
-                {
-                    gcePd: {
-                        diskType: "Test string",
-                        fsType: "Test string",
-                        reclaimPolicy: "Test string",
-                        sizeGb: 42,
-                        sourceSnapshot: "Test string",
-                    },
-                    mountPath: "Test string",
-                }
-            ],
-            readinessChecks: [
-                {
-                    path: "Test string",
-                    port: 42,
-                }
-            ],
-            reconciling: true,
-            replicaZones: [
-                "Test string"
-            ],
-            runningTimeout: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a new workstation. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.create({
-            parent: "Test string",
-            validateOnly: true,
-            workstationId: "Test string",
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            createTime: "Test string",
-            deleteTime: "Test string",
-            displayName: "Test string",
-            env: {
-                A: "Test string"
-            },
-            etag: "Test string",
-            host: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            reconciling: true,
-            startTime: "Test string",
-            state: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes the specified workstation. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.delete({
-            etag: "Test string",
-            name: "Test string",
-            validateOnly: true,
-        });
-        /** Returns a short-lived credential that can be used to send authenticated and authorized traffic to a workstation. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.generateAccessToken({
-            workstation: "Test string",
-        }, {
-            expireTime: "Test string",
-            ttl: "Test string",
-        });
-        /** Returns the requested workstation. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Returns all Workstations using the specified workstation configuration. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns all workstations using the specified workstation configuration on which the caller has the "workstations.workstations.use" permission. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.listUsable({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing workstation. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.patch({
-            allowMissing: true,
-            name: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            createTime: "Test string",
-            deleteTime: "Test string",
-            displayName: "Test string",
-            env: {
-                A: "Test string"
-            },
-            etag: "Test string",
-            host: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            reconciling: true,
-            startTime: "Test string",
-            state: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /** Starts running a workstation so that users can connect to it. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.start({
-            name: "Test string",
-        }, {
-            etag: "Test string",
-            validateOnly: true,
-        });
-        /** Stops running a workstation, reducing costs. */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.stop({
-            name: "Test string",
-        }, {
-            etag: "Test string",
-            validateOnly: true,
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.workstations.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.workstations.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.workstations.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.workstations.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.workstations.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.workstations.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new workstation cluster. */
+    await gapi.client.workstations.projects.locations.workstationClusters.create(
+      {
+        parent: 'Test string',
+        validateOnly: true,
+        workstationClusterId: 'Test string',
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        conditions: [
+          {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+        ],
+        controlPlaneIp: 'Test string',
+        createTime: 'Test string',
+        degraded: true,
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        network: 'Test string',
+        privateClusterConfig: {
+          allowedProjects: ['Test string'],
+          clusterHostname: 'Test string',
+          enablePrivateEndpoint: true,
+          serviceAttachmentUri: 'Test string',
+        },
+        reconciling: true,
+        subnetwork: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes the specified workstation cluster. */
+    await gapi.client.workstations.projects.locations.workstationClusters.delete(
+      {
+        etag: 'Test string',
+        force: true,
+        name: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Returns the requested workstation cluster. */
+    await gapi.client.workstations.projects.locations.workstationClusters.get({
+      name: 'Test string',
+    });
+    /** Returns all workstation clusters in the specified location. */
+    await gapi.client.workstations.projects.locations.workstationClusters.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates an existing workstation cluster. */
+    await gapi.client.workstations.projects.locations.workstationClusters.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        conditions: [
+          {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+        ],
+        controlPlaneIp: 'Test string',
+        createTime: 'Test string',
+        degraded: true,
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        network: 'Test string',
+        privateClusterConfig: {
+          allowedProjects: ['Test string'],
+          clusterHostname: 'Test string',
+          enablePrivateEndpoint: true,
+          serviceAttachmentUri: 'Test string',
+        },
+        reconciling: true,
+        subnetwork: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a new workstation configuration. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.create(
+      {
+        parent: 'Test string',
+        validateOnly: true,
+        workstationConfigId: 'Test string',
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        conditions: [
+          {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+        ],
+        container: {
+          args: ['Test string'],
+          command: ['Test string'],
+          env: {
+            A: 'Test string',
+          },
+          image: 'Test string',
+          runAsUser: 42,
+          workingDir: 'Test string',
+        },
+        createTime: 'Test string',
+        degraded: true,
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        encryptionKey: {
+          kmsKey: 'Test string',
+          kmsKeyServiceAccount: 'Test string',
+        },
+        etag: 'Test string',
+        host: {
+          gceInstance: {
+            bootDiskSizeGb: 42,
+            confidentialInstanceConfig: {
+              enableConfidentialCompute: true,
+            },
+            disablePublicIpAddresses: true,
+            enableNestedVirtualization: true,
+            machineType: 'Test string',
+            pooledInstances: 42,
+            poolSize: 42,
+            serviceAccount: 'Test string',
+            serviceAccountScopes: ['Test string'],
+            shieldedInstanceConfig: {
+              enableIntegrityMonitoring: true,
+              enableSecureBoot: true,
+              enableVtpm: true,
+            },
+            tags: ['Test string'],
+          },
+        },
+        idleTimeout: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        persistentDirectories: [
+          {
+            gcePd: {
+              diskType: 'Test string',
+              fsType: 'Test string',
+              reclaimPolicy: 'Test string',
+              sizeGb: 42,
+              sourceSnapshot: 'Test string',
+            },
+            mountPath: 'Test string',
+          },
+        ],
+        readinessChecks: [
+          {
+            path: 'Test string',
+            port: 42,
+          },
+        ],
+        reconciling: true,
+        replicaZones: ['Test string'],
+        runningTimeout: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes the specified workstation configuration. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.delete(
+      {
+        etag: 'Test string',
+        force: true,
+        name: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Returns the requested workstation configuration. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Returns all workstation configurations in the specified cluster. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Returns all workstation configurations in the specified cluster on which the caller has the "workstations.workstation.create" permission. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.listUsable(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates an existing workstation configuration. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        conditions: [
+          {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+        ],
+        container: {
+          args: ['Test string'],
+          command: ['Test string'],
+          env: {
+            A: 'Test string',
+          },
+          image: 'Test string',
+          runAsUser: 42,
+          workingDir: 'Test string',
+        },
+        createTime: 'Test string',
+        degraded: true,
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        encryptionKey: {
+          kmsKey: 'Test string',
+          kmsKeyServiceAccount: 'Test string',
+        },
+        etag: 'Test string',
+        host: {
+          gceInstance: {
+            bootDiskSizeGb: 42,
+            confidentialInstanceConfig: {
+              enableConfidentialCompute: true,
+            },
+            disablePublicIpAddresses: true,
+            enableNestedVirtualization: true,
+            machineType: 'Test string',
+            pooledInstances: 42,
+            poolSize: 42,
+            serviceAccount: 'Test string',
+            serviceAccountScopes: ['Test string'],
+            shieldedInstanceConfig: {
+              enableIntegrityMonitoring: true,
+              enableSecureBoot: true,
+              enableVtpm: true,
+            },
+            tags: ['Test string'],
+          },
+        },
+        idleTimeout: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        persistentDirectories: [
+          {
+            gcePd: {
+              diskType: 'Test string',
+              fsType: 'Test string',
+              reclaimPolicy: 'Test string',
+              sizeGb: 42,
+              sourceSnapshot: 'Test string',
+            },
+            mountPath: 'Test string',
+          },
+        ],
+        readinessChecks: [
+          {
+            path: 'Test string',
+            port: 42,
+          },
+        ],
+        reconciling: true,
+        replicaZones: ['Test string'],
+        runningTimeout: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a new workstation. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.create(
+      {
+        parent: 'Test string',
+        validateOnly: true,
+        workstationId: 'Test string',
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        env: {
+          A: 'Test string',
+        },
+        etag: 'Test string',
+        host: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        reconciling: true,
+        startTime: 'Test string',
+        state: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes the specified workstation. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.delete(
+      {
+        etag: 'Test string',
+        name: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Returns a short-lived credential that can be used to send authenticated and authorized traffic to a workstation. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.generateAccessToken(
+      {
+        workstation: 'Test string',
+      },
+      {
+        expireTime: 'Test string',
+        ttl: 'Test string',
+      }
+    );
+    /** Returns the requested workstation. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Returns all Workstations using the specified workstation configuration. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Returns all workstations using the specified workstation configuration on which the caller has the "workstations.workstations.use" permission. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.listUsable(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates an existing workstation. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        env: {
+          A: 'Test string',
+        },
+        etag: 'Test string',
+        host: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        reconciling: true,
+        startTime: 'Test string',
+        state: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Starts running a workstation so that users can connect to it. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.start(
+      {
+        name: 'Test string',
+      },
+      {
+        etag: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Stops running a workstation, reducing costs. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.stop(
+      {
+        name: 'Test string',
+      },
+      {
+        etag: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.workstations.projects.locations.workstationClusters.workstationConfigs.workstations.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+  }
 });

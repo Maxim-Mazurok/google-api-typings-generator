@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://cloudasset.googleapis.com/$discovery/rest?version=v1p1beta1', () => {
-  // now we can use:
-  // gapi.client.cloudasset
-});
+gapi.client.load(
+  'https://cloudasset.googleapis.com/$discovery/rest?version=v1p1beta1',
+  () => {
+    // now we can use:
+    // gapi.client.cloudasset
+  }
+);
 ```
 
 ```typescript
@@ -45,34 +48,34 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Asset API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Searches all the IAM policies within a given accessible Resource Manager scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all the IAM policies within a scope, even if they don't have `.getIamPolicy` permission of all the IAM policies. Callers should have `cloud.assets.SearchAllIamPolicies` permission on the requested scope, otherwise the request will be rejected.
 */
-await gapi.client.cloudasset.iamPolicies.searchAll({ scope: "scope",  });
+await gapi.client.cloudasset.iamPolicies.searchAll({scope: 'scope'});
 
 /*
 Searches all the resources within a given accessible Resource Manager scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all the resources within a scope, even if they don't have `.get` permission of all the resources. Callers should have `cloud.assets.SearchAllResources` permission on the requested scope, otherwise the request will be rejected.
 */
-await gapi.client.cloudasset.resources.searchAll({ scope: "scope",  });
+await gapi.client.cloudasset.resources.searchAll({scope: 'scope'});
 ```

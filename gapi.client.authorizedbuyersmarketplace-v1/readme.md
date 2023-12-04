@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://authorizedbuyersmarketplace.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.authorizedbuyersmarketplace
-});
+gapi.client.load(
+  'https://authorizedbuyersmarketplace.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.authorizedbuyersmarketplace
+  }
+);
 ```
 
 ```typescript
@@ -45,24 +48,26 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, create, edit, and delete your Authorized Buyers Marketplace entities.
-      'https://www.googleapis.com/auth/authorized-buyers-marketplace',
-    ],
-    immediate = true;
+    // See, create, edit, and delete your Authorized Buyers Marketplace entities.
+    'https://www.googleapis.com/auth/authorized-buyers-marketplace',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Authorized Buyers Marketplace API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

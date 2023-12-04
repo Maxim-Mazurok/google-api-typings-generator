@@ -14,1818 +14,1247 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Cloud Billing API v1beta */
-    function load(urlOrObject: "https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "cloudbilling", version: "v1beta"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "cloudbilling", version: "v1beta", callback: () => any): void;
+  /** Load Cloud Billing API v1beta */
+  function load(
+    urlOrObject: 'https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'cloudbilling', version: 'v1beta'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'cloudbilling',
+    version: 'v1beta',
+    callback: () => any
+  ): void;
 
-    namespace cloudbilling {
-        interface CacheFillRegions {
-            /** The destination region for cache fill. */
-            destinationRegion?:
-                string;
-            /** The source region for cache fill. */
-            sourceRegion?:
-                string;
-        }
-        interface CloudCdnEgressWorkload {
-            /** The destination for the cache egress charges. */
-            cacheEgressDestination?:
-                string;
-            /** Cache egress usage. The rate of data cache egressed in the destination. For example : units such as "GiBy/s" or "TBy/mo". */
-            cacheEgressRate?:
-                Usage;
-        }
-        interface CloudCdnWorkload {
-            /** The source service for the cache fill. */
-            cacheFillOriginService?:
-                string;
-            /** Cache fill usage. The rate of data transferred between cache fill regions. For example: units such as "GiBy/s" or "TBy/mo". */
-            cacheFillRate?:
-                Usage;
-            /** The regions where data is transferred from Google data locations into Google global cache servers. The SKU prices for cache fill across services are the same. */
-            cacheFillRegions?:
-                CacheFillRegions;
-            /** Cache look up requests. This is specified to indicate the number of requests. For example: units such as "1/s". */
-            cacheLookUpRate?:
-                Usage;
-        }
-        interface CloudInterconnectEgressWorkload {
-            /** Data egress usage. This usage applies when you move or copy data from one Google Cloud service to another service. Expected units such as "GiBy/s, By/s, etc." */
-            egressRate?:
-                Usage;
-            /** Locations in the [Interconnect connection location table](https://cloud.google.com/vpc/network-pricing#interconnect-pricing). This is the interconnect egress charges. */
-            interconnectConnectionLocation?:
-                string;
-        }
-        interface CloudInterconnectWorkload {
-            /** VLAN attachment used for interconnect. */
-            interconnectAttachments?:
-                VlanAttachment[];
-            /** VLAN attachment type */
-            interconnectType?:
-                string;
-            /** Interconnect circuit link type. */
-            linkType?:
-                string;
-            /** Interconnect usage. This is specified as a unitless quantity which indicates the number of circuit provisioned in interconnect. */
-            provisionedLinkCount?:
-                Usage;
-        }
-        interface CloudStorageEgressWorkload {
-            /** Where the data is sent to. */
-            destinationContinent?:
-                string;
-            /**
-             * Egress usage rate. This usage applies when you move or copy data from one Cloud Storage bucket to another or when another Google Cloud service accesses data in your Cloud Storage
-             * bucket. Expected units such as "GiBy/s, By/s, ..."
-             */
-            egressRate?:
-                Usage;
-            /** Where the data comes from. */
-            sourceContinent?:
-                string;
-        }
-        interface CloudStorageWorkload {
-            /** Data retrieval usage. A retrieval cost applies when data or metadata is read, copied, or rewritten . For example: units such as "GiBy/s" or "By/s". */
-            dataRetrieval?:
-                Usage;
-            /** Data storage usage. The amount of data stored in buckets. For example: units such as "GiBy/s" or "TBy/mo". */
-            dataStored?:
-                Usage;
-            /** Specify dual regions. */
-            dualRegion?:
-                DualRegional;
-            /** Specify multi regions. */
-            multiRegion?:
-                MultiRegional;
-            /**
-             * Class A operation usage in Cloud Storage, such as listing the objects in buckets. See the [operations pricing](https://cloud.google.com/storage/pricing#operations-pricing) tables
-             * for a list of which operations fall into each class. For example: units such as "1/s".
-             */
-            operationA?:
-                Usage;
-            /**
-             * Class B operation usage in Cloud Storage, such as `getIamPolicy`. See the [operations pricing](https://cloud.google.com/storage/pricing#operations-pricing) tables for a list of
-             * which operations fall into each class. For example: units such as "1/s".
-             */
-            operationB?:
-                Usage;
-            /** Specify a single region. */
-            region?:
-                Regional;
-            /** The [storage class](https://cloud.google.com/storage/docs/storage-classes#classes) of the data and operation. For example: "standard" and "nearline". */
-            storageClass?:
-                string;
-        }
-        interface Commitment {
-            /** Required. A name for this commitment. All commitments in a CostScenario must have unique names. Each name may be at most 128 characters long. */
-            name?:
-                string;
-            /** A resource-based committed use discount (CUD). */
-            vmResourceBasedCud?:
-                VmResourceBasedCud;
-        }
-        interface CommitmentCostEstimate {
-            /** Total estimated costs for the commitment. */
-            commitmentTotalCostEstimate?:
-                CostEstimate;
-            /** The name of the commitment, as specified in the `CostScenario`. */
-            name?:
-                string;
-            /** Estimated costs for each SKU in the commitment. */
-            skuCostEstimates?:
-                SkuCostEstimate[];
-        }
-        interface ComputeVmWorkload {
-            /** Defines whether each instance has confidential compute enabled. */
-            enableConfidentialCompute?:
-                boolean;
-            /** Guest accelerators attached to each machine. */
-            guestAccelerator?:
-                GuestAccelerator;
-            /** VM usage. This is specified as a unitless quantity which indicates the number of instances running. */
-            instancesRunning?:
-                Usage;
-            /** Premium image licenses used by each instance. */
-            licenses?:
-                string[];
-            /** The machine type. */
-            machineType?:
-                MachineType;
-            /** Persistent disks attached to each instance. Must include a boot disk. */
-            persistentDisks?:
-                PersistentDisk[];
-            /** Defines whether each instance is preemptible. */
-            preemptible?:
-                boolean;
-            /** The [region](https://cloud.google.com/compute/docs/regions-zones) where the VMs run. For example: "us-central1". */
-            region?:
-                string;
-        }
-        interface CostEstimate {
-            /** The estimated credits applied. */
-            creditEstimates?:
-                CreditEstimate[];
-            /** The estimated net cost after applying credits. */
-            netCostEstimate?:
-                Money;
-            /** The estimated cost prior to applying credits. */
-            preCreditCostEstimate?:
-                Money;
-        }
-        interface CostEstimationResult {
-            /** Required. The ISO 4217 currency code for the cost estimate. */
-            currencyCode?:
-                string;
-            /** Required. Estimated costs for each idealized month of a `CostScenario`. */
-            segmentCostEstimates?:
-                SegmentCostEstimate[];
-            /** Required. Information about SKUs used in the estimate. */
-            skus?:
-                Sku[];
-        }
-        interface CostScenario {
-            /**
-             * New commitments to estimate the costs for. The cost of the commitments will be included in the estimate result and discounts the commitment entitles will be included in the workload
-             * cost estimates. A maximum of 100 workloads can be provided.
-             */
-            commitments?:
-                Commitment[];
-            /** Configuration for the scenario. */
-            scenarioConfig?:
-                ScenarioConfig;
-            /** The Google Cloud usage whose costs are estimated. A maximum of 100 workloads can be provided. */
-            workloads?:
-                Workload[];
-        }
-        interface CreditEstimate {
-            /** The estimated credit amount. */
-            creditAmount?:
-                Money;
-            /** The credit description. */
-            creditDescription?:
-                string;
-            /** The credit type. */
-            creditType?:
-                string;
-        }
-        interface CustomMachineType {
-            /**
-             * Required. The machine series. Only certain [machine series](https://cloud.google.com/compute/docs/general-purpose-machines#custom_machine_types) support custom configurations. For
-             * example: "n1".
-             */
-            machineSeries?:
-                string;
-            /**
-             * Required. Memory size of the VM in GB (2^30 bytes). Must be an increment of 0.25 (256 MB). Each [machine
-             * series](https://cloud.google.com/compute/docs/machine-types#machine_type_comparison) has limitations on allowed values for the ratio of memory-to-vCPU count.
-             */
-            memorySizeGb?:
-                number;
-            /** Required. The number of vCPUs. The allowed values depend on the [machine series](https://cloud.google.com/compute/docs/machine-types#machine_type_comparison). */
-            virtualCpuCount?:
-                string;
-        }
-        interface Decimal {
-            /**
-             * The decimal value, as a string. The string representation consists of an optional sign, `+` (`U+002B`) or `-` (`U+002D`), followed by a sequence of zero or more decimal digits ("the
-             * integer"), optionally followed by a fraction, optionally followed by an exponent. An empty string **should** be interpreted as `0`. The fraction consists of a decimal point followed
-             * by zero or more decimal digits. The string must contain at least one digit in either the integer or the fraction. The number formed by the sign, the integer and the fraction is
-             * referred to as the significand. The exponent consists of the character `e` (`U+0065`) or `E` (`U+0045`) followed by one or more decimal digits. Services **should** normalize decimal
-             * values before storing them by: - Removing an explicitly-provided `+` sign (`+2.5` -> `2.5`). - Replacing a zero-length integer value with `0` (`.5` -> `0.5`). - Coercing the
-             * exponent character to upper-case, with explicit sign (`2.5e8` -> `2.5E+8`). - Removing an explicitly-provided zero exponent (`2.5E0` -> `2.5`). Services **may** perform additional
-             * normalization based on its own needs and the internal decimal implementation selected, such as shifting the decimal point and exponent value together (example: `2.5E-1` <-> `0.25`).
-             * Additionally, services **may** preserve trailing zeroes in the fraction to indicate increased precision, but are not required to do so. Note that only the `.` character is supported
-             * to divide the integer and the fraction; `,` **should not** be supported regardless of locale. Additionally, thousand separators **should not** be supported. If a service does
-             * support them, values **must** be normalized. The ENBF grammar is: DecimalString = '' | [Sign] Significand [Exponent]; Sign = '+' | '-'; Significand = Digits '.' | [Digits] '.'
-             * Digits; Exponent = ('e' | 'E') [Sign] Digits; Digits = { '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' }; Services **should** clearly document the range of supported
-             * values, the maximum supported precision (total number of digits), and, if applicable, the scale (number of digits after the decimal point), as well as how it behaves when receiving
-             * out-of-bounds values. Services **may** choose to accept values passed as input even when the value has a higher precision or scale than the service supports, and **should** round
-             * the value to fit the supported scale. Alternatively, the service **may** error with `400 Bad Request` (`INVALID_ARGUMENT` in gRPC) if precision would be lost. Services **should**
-             * error with `400 Bad Request` (`INVALID_ARGUMENT` in gRPC) if the service receives a value outside of the supported range.
-             */
-            value?:
-                string;
-        }
-        interface DualRegional {
-            /** The [location name](https://cloud.google.com/storage/docs/locations#available-locations) where the data is stored. For example: "asia1" for dual region. */
-            name?:
-                string;
-        }
-        interface EstimateCostScenarioForBillingAccountRequest {
-            /** The scenario to estimate costs for. */
-            costScenario?:
-                CostScenario;
-        }
-        interface EstimateCostScenarioForBillingAccountResponse {
-            /** The result of the cost estimation. */
-            costEstimationResult?:
-                CostEstimationResult;
-        }
-        interface EstimateCostScenarioWithListPriceRequest {
-            /** The scenario to estimate costs for. */
-            costScenario?:
-                CostScenario;
-        }
-        interface EstimateCostScenarioWithListPriceResponse {
-            /** The result of the cost estimation. */
-            costEstimationResult?:
-                CostEstimationResult;
-        }
-        interface EstimationTimePoint {
-            /** The point in time, relative to the start of the time frame covered by the cost estimate. */
-            estimationTimeFrameOffset?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountpricesV1betaAggregationInfo {
-            /** Interval at which usage is aggregated to compute cost. Example: "MONTHLY" interval indicates that usage is aggregated every month. */
-            interval?:
-                string;
-            /** Level at which usage is aggregated to compute cost. Example: "ACCOUNT" level indicates that usage is aggregated across all projects in a single account. */
-            level?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountpricesV1betaBillingAccountPrice {
-            /** ISO-4217 currency code for the price. */
-            currencyCode?:
-                string;
-            /** Resource name for the latest billing account price. */
-            name?:
-                string;
-            /** Background information on the origin of the price. */
-            priceReason?:
-                GoogleCloudBillingBillingaccountpricesV1betaPriceReason;
-            /** Rate price metadata. Billing account SKUs with `Rate` price are offered by pricing tiers. The price can have 1 or more rate pricing tiers. */
-            rate?:
-                GoogleCloudBillingBillingaccountpricesV1betaRate;
-            /** Type of the price. The possible values are: ["unspecified", "rate"]. */
-            valueType?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudBillingBillingaccountpricesV1betaDefaultPrice {
-        }
-        interface GoogleCloudBillingBillingaccountpricesV1betaFixedDiscount {
-            /** Percentage of the fixed discount. */
-            discountPercent?:
-                Decimal;
-            /** Type of the fixed discount scope which indicates the source of the discount. It can have values such as 'unspecified' and 'sku-group'. */
-            discountScopeType?:
-                string;
-            /** Time that the fixed discount is anchored to. */
-            fixTime?:
-                string;
-            /** SKU group where the fixed discount comes from. */
-            skuGroup?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudBillingBillingaccountpricesV1betaFixedPrice {
-        }
-        interface GoogleCloudBillingBillingaccountpricesV1betaFloatingDiscount {
-            /** Percentage of the floating discount. */
-            discountPercent?:
-                Decimal;
-            /** Type of the floating discount scope which indicates the source of the discount. It can have values such as 'unspecified' and 'sku-group'. */
-            discountScopeType?:
-                string;
-            /** SKU group where the floating discount comes from. */
-            skuGroup?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudBillingBillingaccountpricesV1betaListPriceAsCeiling {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudBillingBillingaccountpricesV1betaMergedPrice {
-        }
-        interface GoogleCloudBillingBillingaccountpricesV1betaMigratedPrice {
-            /** Source SKU where the discount is migrated from. Format: billingAccounts/{billing_account}/skus/{sku} */
-            sourceSku?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountpricesV1betaPriceReason {
-            /** Default price which is the current list price. */
-            defaultPrice?:
-                any;
-            /** Discount off the list price, anchored to the list price as of a fixed time. */
-            fixedDiscount?:
-                GoogleCloudBillingBillingaccountpricesV1betaFixedDiscount;
-            /** Fixed price applicable during the terms of a contract agreement. */
-            fixedPrice?:
-                any;
-            /** Discount off the current list price, not anchored to any list price as of a fixed time. */
-            floatingDiscount?:
-                GoogleCloudBillingBillingaccountpricesV1betaFloatingDiscount;
-            /**
-             * Contract feature that the list price (DefaultPrice) will be used for the price if the current list price drops lower than the custom fixed price. Available to new contracts after
-             * March 21, 2022. Applies to all fixed price SKUs in the contract, including FixedPrice, FixedDiscount, MigratedPrice, and MergedPrice.
-             */
-            listPriceAsCeiling?:
-                any;
-            /** Price after merging from multiple sources. */
-            mergedPrice?:
-                any;
-            /** Price migrated from other SKUs. */
-            migratedPrice?:
-                GoogleCloudBillingBillingaccountpricesV1betaMigratedPrice;
-            /**
-             * Type of the price reason. It can have values such as 'unspecified', 'default-price', 'fixed-price', 'fixed-discount', 'floating-discount', 'migrated-price', 'merged-price',
-             * 'list-price-as-ceiling'.
-             */
-            type?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountpricesV1betaRate {
-            /** Aggregation info for tiers such as aggregation level and interval. */
-            aggregationInfo?:
-                GoogleCloudBillingBillingaccountpricesV1betaAggregationInfo;
-            /** All tiers associated with the `Rate` price. */
-            tiers?:
-                GoogleCloudBillingBillingaccountpricesV1betaRateTier[];
-            /** Unit info such as name and quantity. */
-            unitInfo?:
-                GoogleCloudBillingBillingaccountpricesV1betaUnitInfo;
-        }
-        interface GoogleCloudBillingBillingaccountpricesV1betaRateTier {
-            /** Negotiated contract price specific for a billing account. */
-            contractPrice?:
-                Money;
-            /**
-             * Percentage of effective discount calculated using the current list price per pricing tier. Formula used: effective_discount_percent = (list_price - contract_price) / list_price ×
-             * 100 If list_price and contract_price are zero, this field is the same as `discount_percent` of FixedDiscount and FloatingDiscount. If your contract does NOT have the feature
-             * LIST_PRICE_AS_CEILING enabled, the effective_discount_percent can be negative if the SKU has a FixedDiscount and the current list price is lower than the list price on the date of
-             * the contract agreement. See the `FixedDiscount.fix_time` on when the discount was set. If you have questions regarding pricing per SKU, contact your Account team for more details.
-             */
-            effectiveDiscountPercent?:
-                Decimal;
-            /** List price of one tier. */
-            listPrice?:
-                Money;
-            /** Lower bound amount for a tier. Tiers 0-100, 100-200 will be represented with two tiers with `start_amount` 0 and 100. */
-            startAmount?:
-                Decimal;
-        }
-        interface GoogleCloudBillingBillingaccountpricesV1betaUnitInfo {
-            /** Shorthand for the unit. Example: GiBy.mo. */
-            unit?:
-                string;
-            /** Human-readable description of the unit. Example: gibibyte month. */
-            unitDescription?:
-                string;
-            /** Unit quantity for the tier. Example: if the RateTier price is $1 per 1000000 Bytes, then `unit_quantity` is set to 1000000. */
-            unitQuantity?:
-                Decimal;
-        }
-        interface GoogleCloudBillingBillingaccountservicesV1betaBillingAccountService {
-            /** Description of the BillingAccountService. Example: "BigQuery", "Compute Engine". */
-            displayName?:
-                string;
-            /** Resource name for the BillingAccountService. Example: "billingAccounts/012345-567890-ABCDEF/services/DA34-426B-A397". */
-            name?:
-                string;
-            /** Identifier for the service. It is the string after the collection identifier "services/". Example: "DA34-426B-A397". */
-            serviceId?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountservicesV1betaListBillingAccountServicesResponse {
-            /** The returned billing account services. */
-            billingAccountServices?:
-                GoogleCloudBillingBillingaccountservicesV1betaBillingAccountService[];
-            /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskugroupskusV1betaBillingAccountSkuGroupSku {
-            /** BillingAccountService that the BillingAccountSkuGroupSku belongs to. */
-            billingAccountService?:
-                string;
-            /** Description of the BillingAccountSkuGroupSku. Example: "A2 Instance Core running in Hong Kong". */
-            displayName?:
-                string;
-            /** Geographic metadata that applies to the BillingAccountSkuGroupSku. */
-            geoTaxonomy?:
-                GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomy;
-            /** Resource name for the BillingAccountSkuGroupSku. Example: "billingAccounts/012345-567890-ABCDEF/skuGroups/0e6403d1-4694-44d2-a696-7a78b1a69301/skus/AA95-CD31-42FE". */
-            name?:
-                string;
-            /** List of product categories that apply to the BillingAccountSkuGroupSku. */
-            productTaxonomy?:
-                GoogleCloudBillingBillingaccountskugroupskusV1betaProductTaxonomy;
-            /** Unique identifier for the SKU. It is the string after the collection identifier "skus/" Example: "AA95-CD31-42FE". */
-            skuId?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomy {
-            /** Global geographic metadata with no regions. */
-            globalMetadata?:
-                any;
-            /** Multi-regional geographic metadata with 2 or more regions. */
-            multiRegionalMetadata?:
-                GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyMultiRegional;
-            /** Regional geographic metadata with 1 region. */
-            regionalMetadata?:
-                GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegional;
-            /** Type of geographic taxonomy associated with the billing account SKU group SKU. */
-            type?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyGlobal {
-        }
-        interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyMultiRegional {
-            /** Google Cloud regions associated with the multi-regional geographic taxonomy. */
-            regions?:
-                GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegion[];
-        }
-        interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegion {
-            /** Description of a Google Cloud region. Example: "us-west2". */
-            region?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegional {
-            /** Google Cloud region associated with the regional geographic taxonomy. */
-            region?:
-                GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegion;
-        }
-        interface GoogleCloudBillingBillingaccountskugroupskusV1betaListBillingAccountSkuGroupSkusResponse {
-            /** The returned billing account SKU group SKUs. */
-            billingAccountSkuGroupSkus?:
-                GoogleCloudBillingBillingaccountskugroupskusV1betaBillingAccountSkuGroupSku[];
-            /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskugroupskusV1betaProductTaxonomy {
-            /** All product categories that the billing account SKU group SKU belong to. */
-            taxonomyCategories?:
-                GoogleCloudBillingBillingaccountskugroupskusV1betaTaxonomyCategory[];
-        }
-        interface GoogleCloudBillingBillingaccountskugroupskusV1betaTaxonomyCategory {
-            /** Name of the product category. */
-            category?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskugroupsV1betaBillingAccountSkuGroup {
-            /** Description of the BillingAccountSkuGroup. Example: "A2 VMs (1 Year CUD)". */
-            displayName?:
-                string;
-            /** Resource name for the BillingAccountSkuGroup. Example: "billingAccounts/012345-567890-ABCDEF/skuGroups/0e6403d1-4694-44d2-a696-7a78b1a69301". */
-            name?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskugroupsV1betaListBillingAccountSkuGroupsResponse {
-            /** The returned publicly listed billing account SKU groups. */
-            billingAccountSkuGroups?:
-                GoogleCloudBillingBillingaccountskugroupsV1betaBillingAccountSkuGroup[];
-            /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskusV1betaBillingAccountSku {
-            /** BillingAccountService that the BillingAccountSku belongs to. */
-            billingAccountService?:
-                string;
-            /** Description of the BillingAccountSku. Example: "A2 Instance Core running in Hong Kong". */
-            displayName?:
-                string;
-            /** Geographic metadata that applies to the BillingAccountSku. */
-            geoTaxonomy?:
-                GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomy;
-            /** Resource name for the BillingAccountSku. Example: "billingAccounts/012345-567890-ABCDEF/skus/AA95-CD31-42FE". */
-            name?:
-                string;
-            /** List of product categories that apply to the BillingAccountSku. */
-            productTaxonomy?:
-                GoogleCloudBillingBillingaccountskusV1betaProductTaxonomy;
-            /** Unique identifier for the SKU. It is the string after the collection identifier "skus/" Example: "AA95-CD31-42FE". */
-            skuId?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomy {
-            /** Global geographic metadata with no regions. */
-            globalMetadata?:
-                any;
-            /** Multi-regional geographic metadata with 2 or more regions. */
-            multiRegionalMetadata?:
-                GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyMultiRegional;
-            /** Regional geographic metadata with 1 region. */
-            regionalMetadata?:
-                GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegional;
-            /** Type of geographic taxonomy associated with the billing account SKU. */
-            type?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyGlobal {
-        }
-        interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyMultiRegional {
-            /** Google Cloud regions associated with the multi-regional geographic taxonomy. */
-            regions?:
-                GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegion[];
-        }
-        interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegion {
-            /** Description of a Google Cloud region. Example: "us-west2". */
-            region?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegional {
-            /** Google Cloud region associated with the regional geographic taxonomy. */
-            region?:
-                GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegion;
-        }
-        interface GoogleCloudBillingBillingaccountskusV1betaListBillingAccountSkusResponse {
-            /** The returned billing account SKUs. */
-            billingAccountSkus?:
-                GoogleCloudBillingBillingaccountskusV1betaBillingAccountSku[];
-            /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-        }
-        interface GoogleCloudBillingBillingaccountskusV1betaProductTaxonomy {
-            /** All product categories that the billing account SKU belong to. */
-            taxonomyCategories?:
-                GoogleCloudBillingBillingaccountskusV1betaTaxonomyCategory[];
-        }
-        interface GoogleCloudBillingBillingaccountskusV1betaTaxonomyCategory {
-            /** Name of the product category. */
-            category?:
-                string;
-        }
-        interface GoogleCloudBillingPricesV1betaAggregationInfo {
-            /** Interval at which usage is aggregated to compute cost. Example: "MONTHLY" interval indicates that usage is aggregated every month. */
-            interval?:
-                string;
-            /** Level at which usage is aggregated to compute cost. Example: "ACCOUNT" level indicates that usage is aggregated across all projects in a single account. */
-            level?:
-                string;
-        }
-        interface GoogleCloudBillingPricesV1betaPrice {
-            /** ISO-4217 currency code for the price. */
-            currencyCode?:
-                string;
-            /** Resource name for the latest price. */
-            name?:
-                string;
-            /** Rate price metadata. SKUs with `Rate` price are offered by pricing tiers. The price can have 1 or more rate pricing tiers. */
-            rate?:
-                GoogleCloudBillingPricesV1betaRate;
-            /** Type of the price. It can have values: ["unspecified", "rate"]. */
-            valueType?:
-                string;
-        }
-        interface GoogleCloudBillingPricesV1betaRate {
-            /** Aggregation info for tiers such as aggregation level and interval. */
-            aggregationInfo?:
-                GoogleCloudBillingPricesV1betaAggregationInfo;
-            /** All tiers associated with the `Rate` price. */
-            tiers?:
-                GoogleCloudBillingPricesV1betaRateTier[];
-            /** Unit info such as name and quantity. */
-            unitInfo?:
-                GoogleCloudBillingPricesV1betaUnitInfo;
-        }
-        interface GoogleCloudBillingPricesV1betaRateTier {
-            /** List price of one tier. */
-            listPrice?:
-                Money;
-            /** Lower bound amount for a tier. Tiers 0-100, 100-200 will be represented with two tiers with `start_amount` 0 and 100. */
-            startAmount?:
-                Decimal;
-        }
-        interface GoogleCloudBillingPricesV1betaUnitInfo {
-            /** Shorthand for the unit. Example: GiBy.mo. */
-            unit?:
-                string;
-            /** Human-readable description of the unit. Example: gibibyte month. */
-            unitDescription?:
-                string;
-            /** Unit quantity for the tier. Example: if the RateTier price is $1 per 1000000 Bytes, then `unit_quantity` is set to 1000000. */
-            unitQuantity?:
-                Decimal;
-        }
-        interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomy {
-            /** Global geographic metadata with no regions. */
-            globalMetadata?:
-                any;
-            /** Multi-regional geographic metadata with 2 or more regions. */
-            multiRegionalMetadata?:
-                GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyMultiRegional;
-            /** Regional geographic metadata with 1 region. */
-            regionalMetadata?:
-                GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegional;
-            /** Type of geographic taxonomy associated with the SKU group SKU. */
-            type?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyGlobal {
-        }
-        interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyMultiRegional {
-            /** Google Cloud regions associated with the multi-regional geographic taxonomy. */
-            regions?:
-                GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegion[];
-        }
-        interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegion {
-            /** Description of a Google Cloud region. Example: "us-west2". */
-            region?:
-                string;
-        }
-        interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegional {
-            /** Google Cloud region associated with the regional geographic taxonomy. */
-            region?:
-                GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegion;
-        }
-        interface GoogleCloudBillingSkugroupskusV1betaListSkuGroupSkusResponse {
-            /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** The returned SKU group SKUs. */
-            skuGroupSkus?:
-                GoogleCloudBillingSkugroupskusV1betaSkuGroupSku[];
-        }
-        interface GoogleCloudBillingSkugroupskusV1betaProductTaxonomy {
-            /** All product categories that the SKU group SKU belongs to. */
-            taxonomyCategories?:
-                GoogleCloudBillingSkugroupskusV1betaTaxonomyCategory[];
-        }
-        interface GoogleCloudBillingSkugroupskusV1betaSkuGroupSku {
-            /** Description of the SkuGroupSku. Example: "A2 Instance Core running in Hong Kong". */
-            displayName?:
-                string;
-            /** Geographic metadata that applies to the SkuGroupSku. */
-            geoTaxonomy?:
-                GoogleCloudBillingSkugroupskusV1betaGeoTaxonomy;
-            /** Resource name for the SkuGroupSku. Example: "skuGroups/0e6403d1-4694-44d2-a696-7a78b1a69301/skus/AA95-CD31-42FE". */
-            name?:
-                string;
-            /** List of product categories that apply to the SkuGroupSku. */
-            productTaxonomy?:
-                GoogleCloudBillingSkugroupskusV1betaProductTaxonomy;
-            /** Service that the SkuGroupSku belongs to. */
-            service?:
-                string;
-            /** Unique identifier for the SKU. It is the string after the collection identifier "skus/" Example: "AA95-CD31-42FE". */
-            skuId?:
-                string;
-        }
-        interface GoogleCloudBillingSkugroupskusV1betaTaxonomyCategory {
-            /** Name of the product category. */
-            category?:
-                string;
-        }
-        interface GoogleCloudBillingSkugroupsV1betaListSkuGroupsResponse {
-            /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** The returned publicly listed SKU groups. */
-            skuGroups?:
-                GoogleCloudBillingSkugroupsV1betaSkuGroup[];
-        }
-        interface GoogleCloudBillingSkugroupsV1betaSkuGroup {
-            /** Description of the SKU group. Example: "A2 VMs (1 Year CUD)". */
-            displayName?:
-                string;
-            /** Resource name for the SKU group. Example: "skuGroups/0e6403d1-4694-44d2-a696-7a78b1a69301". */
-            name?:
-                string;
-        }
-        interface GuestAccelerator {
-            /** The number of the guest accelerator cards exposed to each instance. */
-            acceleratorCount?:
-                string;
-            /** The type of the guest accelerator cards. For example: "nvidia-tesla-t4". */
-            acceleratorType?:
-                string;
-        }
-        interface InterRegionEgress {
-            /** Which [region](https://cloud.google.com/compute/docs/regions-zones) the egress data goes to. */
-            destinationRegion?:
-                string;
-            /** VM to VM egress usage. Expected units such as "GiBy/s, By/s, etc." */
-            egressRate?:
-                Usage;
-            /** Which [region](https://cloud.google.com/compute/docs/regions-zones) the egress data comes from. */
-            sourceRegion?:
-                string;
-        }
-        interface IntraRegionEgress {
-            /** VM to VM egress usage. Expected units such as "GiBy/s, By/s, etc." */
-            egressRate?:
-                Usage;
-        }
-        interface MachineType {
-            customMachineType?:
-                CustomMachineType;
-            predefinedMachineType?:
-                PredefinedMachineType;
-        }
-        interface Money {
-            /** The three-letter currency code defined in ISO 4217. */
-            currencyCode?:
-                string;
-            /**
-             * Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units`
-             * is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and
-             * `nanos`=-750,000,000.
-             */
-            nanos?:
-                number;
-            /** The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. */
-            units?:
-                string;
-        }
-        interface MultiRegional {
-            /** The [location name](https://cloud.google.com/storage/docs/locations#available-locations) where the data is stored. For example: "us" for multi-region. */
-            name?:
-                string;
-        }
-        interface PersistentDisk {
-            /** Specifies the size of disk. Must be at least 10 GB. */
-            diskSize?:
-                Usage;
-            /** The [disk type](https://cloud.google.com/compute/docs/disks#disk-types). For example: "pd-standard". */
-            diskType?:
-                string;
-            /**
-             * Indicates how many IOPS to provision for the disk for extreme persistent disks. This sets the number of I/O operations per second that the disk can handle. Values must be between
-             * 10,000 and 120,000.
-             */
-            provisionedIops?:
-                Usage;
-            /** The geographic scope of the disk. Defaults to `SCOPE_ZONAL` if not specified. */
-            scope?:
-                string;
-        }
-        interface PredefinedMachineType {
-            /** The [machine type](https://cloud.google.com/compute/docs/machine-types). For example: "n1-standard1". */
-            machineType?:
-                string;
-        }
-        interface PremiumTierEgressWorkload {
-            /** Where the data is sent to. */
-            destinationContinent?:
-                string;
-            /** Premium Tier egress usage. Expected units such as "GiBy/s, By/s, etc." */
-            egressRate?:
-                Usage;
-            /** Which [region](https://cloud.google.com/compute/docs/regions-zones) the egress data comes from. */
-            sourceRegion?:
-                string;
-        }
-        interface Price {
-            /** The timestamp within the estimation time frame when the price was set. */
-            effectiveTime?:
-                EstimationTimePoint;
-            /** The type of price. Possible values: "RATE" */
-            priceType?:
-                string;
-            /** A set of tiered rates. */
-            rate?:
-                Rate;
-        }
-        interface Rate {
-            /** The service tiers. */
-            tiers?:
-                RateTier[];
-            /** The SKU's pricing unit. For example, if the tier price is $1 per 1000000 Bytes, then this field will show 'By'. The `start_amount` field in each tier will be in this unit. */
-            unit?:
-                string;
-            /** The SKU's count for the pricing unit. For example, if the tier price is $1 per 1000000 Bytes, then this column will show 1000000. */
-            unitCount?:
-                number;
-        }
-        interface RateTier {
-            /** The price for this tier. */
-            price?:
-                Money;
-            /** The magnitude of usage in which the tier interval begins. Example: "From 100 GiBi the price is $1 per byte" implies `start_amount` = 100 */
-            startAmount?:
-                number;
-        }
-        interface Regional {
-            /** The [location name](https://cloud.google.com/storage/docs/locations#available-locations). For example: "us-central1" for region. */
-            name?:
-                string;
-        }
-        interface ScenarioConfig {
-            /**
-             * Time frame for the estimate. Workloads must specify usage for this duration. Duration must be at least 1 hour (3,600 seconds) and at most 10 years (315,360,000 seconds). The
-             * calculations for years and months are based on a 730-hour (2,628,000-second) month. For durations longer than one month (2,628,000 seconds), the duration is rounded up to the next
-             * month, so the estimate shows you the costs for full months. For example, a duration of 3,232,800 seconds (roughly 5 weeks) is rounded up to 2 months.
-             */
-            estimateDuration?:
-                string;
-        }
-        interface SegmentCostEstimate {
-            /** Estimated costs for each commitment. */
-            commitmentCostEstimates?:
-                CommitmentCostEstimate[];
-            /** Timestamp for the start of the segment. */
-            segmentStartTime?:
-                EstimationTimePoint;
-            /** Total estimated costs for the time segment. */
-            segmentTotalCostEstimate?:
-                CostEstimate;
-            /** Estimated costs for each workload. */
-            workloadCostEstimates?:
-                WorkloadCostEstimate[];
-        }
-        interface Sku {
-            /** The display name for the SKU. Example: A2 Instance Core running in Americas */
-            displayName?:
-                string;
-            /**
-             * A timeline of prices for a SKU in chronological order. Note: The API currently only supports using a constant price for the entire estimation time frame so this list will contain a
-             * single value.
-             */
-            prices?:
-                Price[];
-            /** The resource name for the SKU. Example: "services/DA34-426B-A397/skus/AA95-CD31-42FE" */
-            sku?:
-                string;
-        }
-        interface SkuCostEstimate {
-            /** The estimated cost for the usage on this SKU. */
-            costEstimate?:
-                CostEstimate;
-            /** The resource name for the SKU. Example: "services/DA34-426B-A397/skus/AA95-CD31-42FE" More information about the SKU can be found in the `skus` field of the `CostEstimationResult`. */
-            sku?:
-                string;
-            /** The amount of usage on this SKU. */
-            usageAmount?:
-                number;
-            /** The unit for the usage on this SKU. */
-            usageUnit?:
-                string;
-        }
-        interface StandardTierEgressWorkload {
-            /** Standard tier egress usage. Expected units such as "GiBy/s, By/s, etc." */
-            egressRate?:
-                Usage;
-            /** Which [region](https://cloud.google.com/compute/docs/regions-zones) the egress data comes from. */
-            sourceRegion?:
-                string;
-        }
-        interface Usage {
-            /** A timeline of usage rates over the estimate interval. */
-            usageRateTimeline?:
-                UsageRateTimeline;
-        }
-        interface UsageRateTimeline {
-            /**
-             * The unit for the usage rate in each timeline entry. If you provide an incorrect unit for an instance, the correct unit is provided in the error message. The supported units are a
-             * subset of [The Unified Code for Units of Measure](https://ucum.org/ucum.html) standard: * **Time units (TIME-UNIT)** * `s` second * `min` minute * `h` hour * `d` day * `wk` week *
-             * `mo` month * `yr` year * `ms` millisecond * `us` microsecond * `ns` nanosecond * **Basic storage units (BASIC-STORAGE-UNIT)** * `bit` bit * `By` byte * **Count units (COUNT-UNIT)**
-             * * `count` count * **Prefixes (PREFIX)** * `k` kilo (10^3) * `M` mega (10^6) * `G` giga (10^9) * `T` tera (10^12) * `P` peta (10^15) * `Ki` kibi (2^10) * `Mi` mebi (2^20) * `Gi` gibi
-             * (2^30) * `Ti` tebi (2^40) * `Pi` pebi (2^50) **Grammar** The grammar also includes these connectors: * `/` division or ratio (as an infix operator). For example: `kBy/{email}` or
-             * `MiBy/10ms`. * `.` multiplication or composition (as an infix operator). For example: `GBy.d` or `k{watt}.h`. The grammar for a unit is as follows: ``` Expression = Component { "."
-             * Component } { "/" Component } ; Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; UNIT = TIME-UNIT | STORAGE-UNIT | DATA-UNIT | COUNT-UNIT Annotation = "{"
-             * NAME "}" ; ``` Examples: * Request per second: `1/s` or `{requests}/s` * GibiBytes: `GiBy` * GibiBytes * seconds: `GiBy.s`
-             */
-            unit?:
-                string;
-            /**
-             * The timeline entries. Each entry has a start time and usage rate. The start time specifies the effective time of the usage rate. The entries must be sorted by start time in an
-             * increasing order.
-             */
-            usageRateTimelineEntries?:
-                UsageRateTimelineEntry[];
-        }
-        interface UsageRateTimelineEntry {
-            /**
-             * The effective time for this entry. The usage rate is in effect starting at this time until the effective time of the subsequent entry in the timeline. The last entry defines the
-             * usage rate until the end of the `Usage` time frame. Must correspond to an integer number of hours.
-             */
-            effectiveTime?:
-                EstimationTimePoint;
-            /** The usage rate. */
-            usageRate?:
-                number;
-        }
-        interface VlanAttachment {
-            /** Capacities in the [pricing table](https://cloud.google.com/vpc/network-pricing#interconnect-pricing) Examples of capacity are: 50/100/200/300/400/500-Mbps, 1/2/5/10/20/50-Gbps. */
-            bandwidth?:
-                string;
-            /** VLAN usage. This is specified as a unitless quantity which indicates the number of VLAN attachment used in interconnect. */
-            vlanCount?:
-                Usage;
-        }
-        interface VmResourceBasedCud {
-            /** Guest accelerator, known as GPU. */
-            guestAccelerator?:
-                GuestAccelerator;
-            /**
-             * The machine series for CUD. For example: "n1" for general purpose N1 machine type commitments. "n2" for general purpose N2 machine type commitments. "e2" for general purpose E2
-             * machine type commitments. "n2d" for general purpose N2D machine type commitments. "t2d" for general purpose T2D machine type commitments. "c2"/"c2d" for compute-optimized
-             * commitments. "m1"/"m2" for the memory-optimized commitments. "a2' for the accelerator-optimized commitments.
-             */
-            machineSeries?:
-                string;
-            /** Memory size of the VM in GB (2^30 bytes). Must be an increment of 0.25 (256 MB). */
-            memorySizeGb?:
-                number;
-            /** Commitment usage plan. */
-            plan?:
-                string;
-            /** The region where the VM runs. For example: "us-central1" */
-            region?:
-                string;
-            /** The number of vCPUs. The number of vCPUs must be an integer of 0 or more and can be even or odd. */
-            virtualCpuCount?:
-                string;
-        }
-        interface VmToVmEgressWorkload {
-            interRegionEgress?:
-                InterRegionEgress;
-            intraRegionEgress?:
-                IntraRegionEgress;
-        }
-        interface Workload {
-            /** Usage on Google Cloud CDN Egress. */
-            cloudCdnEgressWorkload?:
-                CloudCdnEgressWorkload;
-            /** Usage on Google Cloud CDN. */
-            cloudCdnWorkload?:
-                CloudCdnWorkload;
-            /** Usage on Google Cloud Interconnect Egress. */
-            cloudInterconnectEgressWorkload?:
-                CloudInterconnectEgressWorkload;
-            /** Usage on Google Cloud Interconnect. */
-            cloudInterconnectWorkload?:
-                CloudInterconnectWorkload;
-            /** Usage on a cloud storage egress. */
-            cloudStorageEgressWorkload?:
-                CloudStorageEgressWorkload;
-            /** Usage on Google Cloud Storage. */
-            cloudStorageWorkload?:
-                CloudStorageWorkload;
-            /** Usage of a Google Compute Engine Virtual Machine. */
-            computeVmWorkload?:
-                ComputeVmWorkload;
-            /** Required. A name for this workload. All workloads in a `CostScenario` must have a unique `name`. Each `name` may be at most 128 characters long. */
-            name?:
-                string;
-            /** Usage on Premium Tier Internet Egress. */
-            premiumTierEgressWorkload?:
-                PremiumTierEgressWorkload;
-            /** Usage on Standard Tier Internet Egress. */
-            standardTierEgressWorkload?:
-                StandardTierEgressWorkload;
-            /** Usage on Vm to Vm Egress. */
-            vmToVmEgressWorkload?:
-                VmToVmEgressWorkload;
-        }
-        interface WorkloadCostEstimate {
-            /** The name of the workload, as specified in the `CostScenario`. */
-            name?:
-                string;
-            /** Estimated costs for each SKU in the workload. */
-            skuCostEstimates?:
-                SkuCostEstimate[];
-            /** Total estimated costs for the workload. */
-            workloadTotalCostEstimate?:
-                CostEstimate;
-        }
-        interface ServicesResource {
-            /** Gets a Google Cloud service visible to a billing account. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the billing account service to retrieve. Format: billingAccounts/{billing_account}/services/{service} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingBillingaccountservicesV1betaBillingAccountService>;
-            /** Lists services visible to a billing account. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of billing account service to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
-                pageSize?:
-                    number;
-                /** Page token received from a previous ListBillingAccountServices call to retrieve the next page of results. If this field is empty, the first page is returned. */
-                pageToken?:
-                    string;
-                /** Required. The billing account to list billing account service from. Format: billingAccounts/{billing_account} */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingBillingaccountservicesV1betaListBillingAccountServicesResponse>;
-        }
-        interface SkusResource {
-            /** Gets a SKU that is part of a billing account SKU group. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the billing account SKU group SKU to retrieve. Format: billingAccounts/{billing_account}/skuGroups/{sku_group}/skus/{sku} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingBillingaccountskugroupskusV1betaBillingAccountSkuGroupSku>;
-            /** Lists SKUs that is part of billing account SKU groups. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of billing account SKU group SKUs to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
-                pageSize?:
-                    number;
-                /** Page token received from a previous ListBillingAccountSkuGroupSkus call to retrieve the next page of results. If this field is empty, the first page is returned. */
-                pageToken?:
-                    string;
-                /** Required. The billing account SKU group to list billing account SKU group SKUs from. Format: billingAccounts/{billing_account}/skuGroups/{sku_group} */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingBillingaccountskugroupskusV1betaListBillingAccountSkuGroupSkusResponse>;
-        }
-        interface SkuGroupsResource {
-            /** Gets a SKU group visible to a billing account. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the BillingAccountSkuGroup to retrieve. Format: billingAccounts/{billing_account}/skuGroups/{sku_group} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingBillingaccountskugroupsV1betaBillingAccountSkuGroup>;
-            /** Lists SKU groups visible to a billing account. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of billing account SKU groups to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
-                pageSize?:
-                    number;
-                /** Page token received from a previous ListBillingAccountSkuGroups call to retrieve the next page of results. If this field is empty, the first page is returned. */
-                pageToken?:
-                    string;
-                /** Required. The billing account to list billing account SKU groups from. Format: billingAccounts/{billing_account} */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingBillingaccountskugroupsV1betaListBillingAccountSkuGroupsResponse>;
-            skus:
-                SkusResource;
-        }
-        interface PriceResource {
-            /** Gets the latest price for SKUs available to your Cloud Billing account. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Optional. ISO-4217 currency code for the price. If not specified, the currency of the billing account is used. */
-                currencyCode?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the billing account price to retrieve. Format: billingAccounts/{billing_account}/skus/{sku}/price */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingBillingaccountpricesV1betaBillingAccountPrice>;
-        }
-        interface SkusResource {
-            /** Gets a SKU visible to a billing account. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the billing account SKU to retrieve. Format: billingAccounts/{billing_account}/skus/{sku} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingBillingaccountskusV1betaBillingAccountSku>;
-            /** Lists SKUs visible to a billing account. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * Options for how to filter the billing account SKUs. Currently, only filter on `billing_account_service` is supported. Only !=, = operators are supported. Examples: -
-                 * billing_account_service = "billingAccounts/012345-567890-ABCDEF/services/DA34-426B-A397"
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of billing account SKUs to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
-                pageSize?:
-                    number;
-                /** Page token received from a previous ListBillingAccountSkus call to retrieve the next page of results. If this field is empty, the first page is returned. */
-                pageToken?:
-                    string;
-                /** Required. The billing account to list billing account SKU from. Format: billingAccounts/{billing_account} */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingBillingaccountskusV1betaListBillingAccountSkusResponse>;
-            price:
-                PriceResource;
-        }
-        interface BillingAccountsResource {
-            /** Use custom pricing in the estimate, using a `CostScenario` with a defined `billingAccount`. */
-            estimateCostScenario(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /**
-                 * Resource name of the billing account for the cost estimate. The resource name has the form `billingAccounts/{billing_account_id}`. For example,
-                 * `billingAccounts/012345-567890-ABCDEF` is the resource name for billing account `012345-567890-ABCDEF`. Must be specified.
-                 */
-                billingAccount:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    EstimateCostScenarioForBillingAccountRequest;
-            }): Request<EstimateCostScenarioForBillingAccountResponse>;
-            estimateCostScenario(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /**
-                 * Resource name of the billing account for the cost estimate. The resource name has the form `billingAccounts/{billing_account_id}`. For example,
-                 * `billingAccounts/012345-567890-ABCDEF` is the resource name for billing account `012345-567890-ABCDEF`. Must be specified.
-                 */
-                billingAccount:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: EstimateCostScenarioForBillingAccountRequest): Request<EstimateCostScenarioForBillingAccountResponse>;
-            services:
-                ServicesResource;
-            skuGroups:
-                SkuGroupsResource;
-            skus:
-                SkusResource;
-        }
-        interface SkusResource {
-            /** Gets a publicly listed SKU that is part of a publicly listed SKU group. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the SKU group SKU to retrieve. Format: skuGroups/{sku_group}/skus/{sku} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingSkugroupskusV1betaSkuGroupSku>;
-            /** Lists all publicly listed SKUs contained by a publicly listed SKU group. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of SKU group SKUs to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
-                pageSize?:
-                    number;
-                /** Page token received from a previous ListSkuGroupSkus call to retrieve the next page of results. If this field is empty, the first page is returned. */
-                pageToken?:
-                    string;
-                /** Required. The SkuGroup to list SkuGroupSku from. Format: skuGroups/{sku_group} */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingSkugroupskusV1betaListSkuGroupSkusResponse>;
-        }
-        interface SkuGroupsResource {
-            /** Gets a publicly listed SKU group. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the SKU group to retrieve. Format: skuGroups/{sku_group} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingSkugroupsV1betaSkuGroup>;
-            /** Lists all publicly listed SKU groups. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of SKU groups to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
-                pageSize?:
-                    number;
-                /** Page token received from a previous ListSkuGroups call to retrieve the next page of results. If this field is empty, the first page is returned. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingSkugroupsV1betaListSkuGroupsResponse>;
-            skus:
-                SkusResource;
-        }
-        interface PriceResource {
-            /** Gets the latest price for the given SKU. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Optional. ISO-4217 currency code for the price. If not specified, USD will be used. */
-                currencyCode?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the latest price to retrieve. Format: skus/{sku}/price */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudBillingPricesV1betaPrice>;
-        }
-        interface SkusResource {
-            price:
-                PriceResource;
-        }
-        interface V1betaResource {
-            /** Estimate list prices using a `CostScenario` without a defined `billingAccount`. */
-            estimateCostScenario(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    EstimateCostScenarioWithListPriceRequest;
-            }): Request<EstimateCostScenarioWithListPriceResponse>;
-            estimateCostScenario(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: EstimateCostScenarioWithListPriceRequest): Request<EstimateCostScenarioWithListPriceResponse>;
-        }
-
-        const billingAccounts: BillingAccountsResource;
-
-        const skuGroups: SkuGroupsResource;
-
-        const skus: SkusResource;
-
-        const v1beta: V1betaResource;
+  namespace cloudbilling {
+    interface CacheFillRegions {
+      /** The destination region for cache fill. */
+      destinationRegion?: string;
+      /** The source region for cache fill. */
+      sourceRegion?: string;
     }
+    interface CloudCdnEgressWorkload {
+      /** The destination for the cache egress charges. */
+      cacheEgressDestination?: string;
+      /** Cache egress usage. The rate of data cache egressed in the destination. For example : units such as "GiBy/s" or "TBy/mo". */
+      cacheEgressRate?: Usage;
+    }
+    interface CloudCdnWorkload {
+      /** The source service for the cache fill. */
+      cacheFillOriginService?: string;
+      /** Cache fill usage. The rate of data transferred between cache fill regions. For example: units such as "GiBy/s" or "TBy/mo". */
+      cacheFillRate?: Usage;
+      /** The regions where data is transferred from Google data locations into Google global cache servers. The SKU prices for cache fill across services are the same. */
+      cacheFillRegions?: CacheFillRegions;
+      /** Cache look up requests. This is specified to indicate the number of requests. For example: units such as "1/s". */
+      cacheLookUpRate?: Usage;
+    }
+    interface CloudInterconnectEgressWorkload {
+      /** Data egress usage. This usage applies when you move or copy data from one Google Cloud service to another service. Expected units such as "GiBy/s, By/s, etc." */
+      egressRate?: Usage;
+      /** Locations in the [Interconnect connection location table](https://cloud.google.com/vpc/network-pricing#interconnect-pricing). This is the interconnect egress charges. */
+      interconnectConnectionLocation?: string;
+    }
+    interface CloudInterconnectWorkload {
+      /** VLAN attachment used for interconnect. */
+      interconnectAttachments?: VlanAttachment[];
+      /** VLAN attachment type */
+      interconnectType?: string;
+      /** Interconnect circuit link type. */
+      linkType?: string;
+      /** Interconnect usage. This is specified as a unitless quantity which indicates the number of circuit provisioned in interconnect. */
+      provisionedLinkCount?: Usage;
+    }
+    interface CloudStorageEgressWorkload {
+      /** Where the data is sent to. */
+      destinationContinent?: string;
+      /** Egress usage rate. This usage applies when you move or copy data from one Cloud Storage bucket to another or when another Google Cloud service accesses data in your Cloud Storage bucket. Expected units such as "GiBy/s, By/s, ..." */
+      egressRate?: Usage;
+      /** Where the data comes from. */
+      sourceContinent?: string;
+    }
+    interface CloudStorageWorkload {
+      /** Data retrieval usage. A retrieval cost applies when data or metadata is read, copied, or rewritten . For example: units such as "GiBy/s" or "By/s". */
+      dataRetrieval?: Usage;
+      /** Data storage usage. The amount of data stored in buckets. For example: units such as "GiBy/s" or "TBy/mo". */
+      dataStored?: Usage;
+      /** Specify dual regions. */
+      dualRegion?: DualRegional;
+      /** Specify multi regions. */
+      multiRegion?: MultiRegional;
+      /** Class A operation usage in Cloud Storage, such as listing the objects in buckets. See the [operations pricing](https://cloud.google.com/storage/pricing#operations-pricing) tables for a list of which operations fall into each class. For example: units such as "1/s". */
+      operationA?: Usage;
+      /** Class B operation usage in Cloud Storage, such as `getIamPolicy`. See the [operations pricing](https://cloud.google.com/storage/pricing#operations-pricing) tables for a list of which operations fall into each class. For example: units such as "1/s". */
+      operationB?: Usage;
+      /** Specify a single region. */
+      region?: Regional;
+      /** The [storage class](https://cloud.google.com/storage/docs/storage-classes#classes) of the data and operation. For example: "standard" and "nearline". */
+      storageClass?: string;
+    }
+    interface Commitment {
+      /** Required. A name for this commitment. All commitments in a CostScenario must have unique names. Each name may be at most 128 characters long. */
+      name?: string;
+      /** A resource-based committed use discount (CUD). */
+      vmResourceBasedCud?: VmResourceBasedCud;
+    }
+    interface CommitmentCostEstimate {
+      /** Total estimated costs for the commitment. */
+      commitmentTotalCostEstimate?: CostEstimate;
+      /** The name of the commitment, as specified in the `CostScenario`. */
+      name?: string;
+      /** Estimated costs for each SKU in the commitment. */
+      skuCostEstimates?: SkuCostEstimate[];
+    }
+    interface ComputeVmWorkload {
+      /** Defines whether each instance has confidential compute enabled. */
+      enableConfidentialCompute?: boolean;
+      /** Guest accelerators attached to each machine. */
+      guestAccelerator?: GuestAccelerator;
+      /** VM usage. This is specified as a unitless quantity which indicates the number of instances running. */
+      instancesRunning?: Usage;
+      /** Premium image licenses used by each instance. */
+      licenses?: string[];
+      /** The machine type. */
+      machineType?: MachineType;
+      /** Persistent disks attached to each instance. Must include a boot disk. */
+      persistentDisks?: PersistentDisk[];
+      /** Defines whether each instance is preemptible. */
+      preemptible?: boolean;
+      /** The [region](https://cloud.google.com/compute/docs/regions-zones) where the VMs run. For example: "us-central1". */
+      region?: string;
+    }
+    interface CostEstimate {
+      /** The estimated credits applied. */
+      creditEstimates?: CreditEstimate[];
+      /** The estimated net cost after applying credits. */
+      netCostEstimate?: Money;
+      /** The estimated cost prior to applying credits. */
+      preCreditCostEstimate?: Money;
+    }
+    interface CostEstimationResult {
+      /** Required. The ISO 4217 currency code for the cost estimate. */
+      currencyCode?: string;
+      /** Required. Estimated costs for each idealized month of a `CostScenario`. */
+      segmentCostEstimates?: SegmentCostEstimate[];
+      /** Required. Information about SKUs used in the estimate. */
+      skus?: Sku[];
+    }
+    interface CostScenario {
+      /** New commitments to estimate the costs for. The cost of the commitments will be included in the estimate result and discounts the commitment entitles will be included in the workload cost estimates. A maximum of 100 workloads can be provided. */
+      commitments?: Commitment[];
+      /** Configuration for the scenario. */
+      scenarioConfig?: ScenarioConfig;
+      /** The Google Cloud usage whose costs are estimated. A maximum of 100 workloads can be provided. */
+      workloads?: Workload[];
+    }
+    interface CreditEstimate {
+      /** The estimated credit amount. */
+      creditAmount?: Money;
+      /** The credit description. */
+      creditDescription?: string;
+      /** The credit type. */
+      creditType?: string;
+    }
+    interface CustomMachineType {
+      /** Required. The machine series. Only certain [machine series](https://cloud.google.com/compute/docs/general-purpose-machines#custom_machine_types) support custom configurations. For example: "n1". */
+      machineSeries?: string;
+      /** Required. Memory size of the VM in GB (2^30 bytes). Must be an increment of 0.25 (256 MB). Each [machine series](https://cloud.google.com/compute/docs/machine-types#machine_type_comparison) has limitations on allowed values for the ratio of memory-to-vCPU count. */
+      memorySizeGb?: number;
+      /** Required. The number of vCPUs. The allowed values depend on the [machine series](https://cloud.google.com/compute/docs/machine-types#machine_type_comparison). */
+      virtualCpuCount?: string;
+    }
+    interface Decimal {
+      /** The decimal value, as a string. The string representation consists of an optional sign, `+` (`U+002B`) or `-` (`U+002D`), followed by a sequence of zero or more decimal digits ("the integer"), optionally followed by a fraction, optionally followed by an exponent. An empty string **should** be interpreted as `0`. The fraction consists of a decimal point followed by zero or more decimal digits. The string must contain at least one digit in either the integer or the fraction. The number formed by the sign, the integer and the fraction is referred to as the significand. The exponent consists of the character `e` (`U+0065`) or `E` (`U+0045`) followed by one or more decimal digits. Services **should** normalize decimal values before storing them by: - Removing an explicitly-provided `+` sign (`+2.5` -> `2.5`). - Replacing a zero-length integer value with `0` (`.5` -> `0.5`). - Coercing the exponent character to upper-case, with explicit sign (`2.5e8` -> `2.5E+8`). - Removing an explicitly-provided zero exponent (`2.5E0` -> `2.5`). Services **may** perform additional normalization based on its own needs and the internal decimal implementation selected, such as shifting the decimal point and exponent value together (example: `2.5E-1` <-> `0.25`). Additionally, services **may** preserve trailing zeroes in the fraction to indicate increased precision, but are not required to do so. Note that only the `.` character is supported to divide the integer and the fraction; `,` **should not** be supported regardless of locale. Additionally, thousand separators **should not** be supported. If a service does support them, values **must** be normalized. The ENBF grammar is: DecimalString = '' | [Sign] Significand [Exponent]; Sign = '+' | '-'; Significand = Digits '.' | [Digits] '.' Digits; Exponent = ('e' | 'E') [Sign] Digits; Digits = { '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' }; Services **should** clearly document the range of supported values, the maximum supported precision (total number of digits), and, if applicable, the scale (number of digits after the decimal point), as well as how it behaves when receiving out-of-bounds values. Services **may** choose to accept values passed as input even when the value has a higher precision or scale than the service supports, and **should** round the value to fit the supported scale. Alternatively, the service **may** error with `400 Bad Request` (`INVALID_ARGUMENT` in gRPC) if precision would be lost. Services **should** error with `400 Bad Request` (`INVALID_ARGUMENT` in gRPC) if the service receives a value outside of the supported range. */
+      value?: string;
+    }
+    interface DualRegional {
+      /** The [location name](https://cloud.google.com/storage/docs/locations#available-locations) where the data is stored. For example: "asia1" for dual region. */
+      name?: string;
+    }
+    interface EstimateCostScenarioForBillingAccountRequest {
+      /** The scenario to estimate costs for. */
+      costScenario?: CostScenario;
+    }
+    interface EstimateCostScenarioForBillingAccountResponse {
+      /** The result of the cost estimation. */
+      costEstimationResult?: CostEstimationResult;
+    }
+    interface EstimateCostScenarioWithListPriceRequest {
+      /** The scenario to estimate costs for. */
+      costScenario?: CostScenario;
+    }
+    interface EstimateCostScenarioWithListPriceResponse {
+      /** The result of the cost estimation. */
+      costEstimationResult?: CostEstimationResult;
+    }
+    interface EstimationTimePoint {
+      /** The point in time, relative to the start of the time frame covered by the cost estimate. */
+      estimationTimeFrameOffset?: string;
+    }
+    interface GoogleCloudBillingBillingaccountpricesV1betaAggregationInfo {
+      /** Interval at which usage is aggregated to compute cost. Example: "MONTHLY" interval indicates that usage is aggregated every month. */
+      interval?: string;
+      /** Level at which usage is aggregated to compute cost. Example: "ACCOUNT" level indicates that usage is aggregated across all projects in a single account. */
+      level?: string;
+    }
+    interface GoogleCloudBillingBillingaccountpricesV1betaBillingAccountPrice {
+      /** ISO-4217 currency code for the price. */
+      currencyCode?: string;
+      /** Resource name for the latest billing account price. */
+      name?: string;
+      /** Background information on the origin of the price. */
+      priceReason?: GoogleCloudBillingBillingaccountpricesV1betaPriceReason;
+      /** Rate price metadata. Billing account SKUs with `Rate` price are offered by pricing tiers. The price can have 1 or more rate pricing tiers. */
+      rate?: GoogleCloudBillingBillingaccountpricesV1betaRate;
+      /** Type of the price. The possible values are: ["unspecified", "rate"]. */
+      valueType?: string;
+    }
+    interface GoogleCloudBillingBillingaccountpricesV1betaDefaultPrice {}
+    interface GoogleCloudBillingBillingaccountpricesV1betaFixedDiscount {
+      /** Percentage of the fixed discount. */
+      discountPercent?: Decimal;
+      /** Type of the fixed discount scope which indicates the source of the discount. It can have values such as 'unspecified' and 'sku-group'. */
+      discountScopeType?: string;
+      /** Time that the fixed discount is anchored to. */
+      fixTime?: string;
+      /** SKU group where the fixed discount comes from. */
+      skuGroup?: string;
+    }
+    interface GoogleCloudBillingBillingaccountpricesV1betaFixedPrice {}
+    interface GoogleCloudBillingBillingaccountpricesV1betaFloatingDiscount {
+      /** Percentage of the floating discount. */
+      discountPercent?: Decimal;
+      /** Type of the floating discount scope which indicates the source of the discount. It can have values such as 'unspecified' and 'sku-group'. */
+      discountScopeType?: string;
+      /** SKU group where the floating discount comes from. */
+      skuGroup?: string;
+    }
+    interface GoogleCloudBillingBillingaccountpricesV1betaListPriceAsCeiling {}
+    interface GoogleCloudBillingBillingaccountpricesV1betaMergedPrice {}
+    interface GoogleCloudBillingBillingaccountpricesV1betaMigratedPrice {
+      /** Source SKU where the discount is migrated from. Format: billingAccounts/{billing_account}/skus/{sku} */
+      sourceSku?: string;
+    }
+    interface GoogleCloudBillingBillingaccountpricesV1betaPriceReason {
+      /** Default price which is the current list price. */
+      defaultPrice?: any;
+      /** Discount off the list price, anchored to the list price as of a fixed time. */
+      fixedDiscount?: GoogleCloudBillingBillingaccountpricesV1betaFixedDiscount;
+      /** Fixed price applicable during the terms of a contract agreement. */
+      fixedPrice?: any;
+      /** Discount off the current list price, not anchored to any list price as of a fixed time. */
+      floatingDiscount?: GoogleCloudBillingBillingaccountpricesV1betaFloatingDiscount;
+      /** Contract feature that the list price (DefaultPrice) will be used for the price if the current list price drops lower than the custom fixed price. Available to new contracts after March 21, 2022. Applies to all fixed price SKUs in the contract, including FixedPrice, FixedDiscount, MigratedPrice, and MergedPrice. */
+      listPriceAsCeiling?: any;
+      /** Price after merging from multiple sources. */
+      mergedPrice?: any;
+      /** Price migrated from other SKUs. */
+      migratedPrice?: GoogleCloudBillingBillingaccountpricesV1betaMigratedPrice;
+      /** Type of the price reason. It can have values such as 'unspecified', 'default-price', 'fixed-price', 'fixed-discount', 'floating-discount', 'migrated-price', 'merged-price', 'list-price-as-ceiling'. */
+      type?: string;
+    }
+    interface GoogleCloudBillingBillingaccountpricesV1betaRate {
+      /** Aggregation info for tiers such as aggregation level and interval. */
+      aggregationInfo?: GoogleCloudBillingBillingaccountpricesV1betaAggregationInfo;
+      /** All tiers associated with the `Rate` price. */
+      tiers?: GoogleCloudBillingBillingaccountpricesV1betaRateTier[];
+      /** Unit info such as name and quantity. */
+      unitInfo?: GoogleCloudBillingBillingaccountpricesV1betaUnitInfo;
+    }
+    interface GoogleCloudBillingBillingaccountpricesV1betaRateTier {
+      /** Negotiated contract price specific for a billing account. */
+      contractPrice?: Money;
+      /** Percentage of effective discount calculated using the current list price per pricing tier. Formula used: effective_discount_percent = (list_price - contract_price) / list_price × 100 If list_price and contract_price are zero, this field is the same as `discount_percent` of FixedDiscount and FloatingDiscount. If your contract does NOT have the feature LIST_PRICE_AS_CEILING enabled, the effective_discount_percent can be negative if the SKU has a FixedDiscount and the current list price is lower than the list price on the date of the contract agreement. See the `FixedDiscount.fix_time` on when the discount was set. If you have questions regarding pricing per SKU, contact your Account team for more details. */
+      effectiveDiscountPercent?: Decimal;
+      /** List price of one tier. */
+      listPrice?: Money;
+      /** Lower bound amount for a tier. Tiers 0-100, 100-200 will be represented with two tiers with `start_amount` 0 and 100. */
+      startAmount?: Decimal;
+    }
+    interface GoogleCloudBillingBillingaccountpricesV1betaUnitInfo {
+      /** Shorthand for the unit. Example: GiBy.mo. */
+      unit?: string;
+      /** Human-readable description of the unit. Example: gibibyte month. */
+      unitDescription?: string;
+      /** Unit quantity for the tier. Example: if the RateTier price is $1 per 1000000 Bytes, then `unit_quantity` is set to 1000000. */
+      unitQuantity?: Decimal;
+    }
+    interface GoogleCloudBillingBillingaccountservicesV1betaBillingAccountService {
+      /** Description of the BillingAccountService. Example: "BigQuery", "Compute Engine". */
+      displayName?: string;
+      /** Resource name for the BillingAccountService. Example: "billingAccounts/012345-567890-ABCDEF/services/DA34-426B-A397". */
+      name?: string;
+      /** Identifier for the service. It is the string after the collection identifier "services/". Example: "DA34-426B-A397". */
+      serviceId?: string;
+    }
+    interface GoogleCloudBillingBillingaccountservicesV1betaListBillingAccountServicesResponse {
+      /** The returned billing account services. */
+      billingAccountServices?: GoogleCloudBillingBillingaccountservicesV1betaBillingAccountService[];
+      /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskugroupskusV1betaBillingAccountSkuGroupSku {
+      /** BillingAccountService that the BillingAccountSkuGroupSku belongs to. */
+      billingAccountService?: string;
+      /** Description of the BillingAccountSkuGroupSku. Example: "A2 Instance Core running in Hong Kong". */
+      displayName?: string;
+      /** Geographic metadata that applies to the BillingAccountSkuGroupSku. */
+      geoTaxonomy?: GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomy;
+      /** Resource name for the BillingAccountSkuGroupSku. Example: "billingAccounts/012345-567890-ABCDEF/skuGroups/0e6403d1-4694-44d2-a696-7a78b1a69301/skus/AA95-CD31-42FE". */
+      name?: string;
+      /** List of product categories that apply to the BillingAccountSkuGroupSku. */
+      productTaxonomy?: GoogleCloudBillingBillingaccountskugroupskusV1betaProductTaxonomy;
+      /** Unique identifier for the SKU. It is the string after the collection identifier "skus/" Example: "AA95-CD31-42FE". */
+      skuId?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomy {
+      /** Global geographic metadata with no regions. */
+      globalMetadata?: any;
+      /** Multi-regional geographic metadata with 2 or more regions. */
+      multiRegionalMetadata?: GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyMultiRegional;
+      /** Regional geographic metadata with 1 region. */
+      regionalMetadata?: GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegional;
+      /** Type of geographic taxonomy associated with the billing account SKU group SKU. */
+      type?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyGlobal {}
+    interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyMultiRegional {
+      /** Google Cloud regions associated with the multi-regional geographic taxonomy. */
+      regions?: GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegion[];
+    }
+    interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegion {
+      /** Description of a Google Cloud region. Example: "us-west2". */
+      region?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegional {
+      /** Google Cloud region associated with the regional geographic taxonomy. */
+      region?: GoogleCloudBillingBillingaccountskugroupskusV1betaGeoTaxonomyRegion;
+    }
+    interface GoogleCloudBillingBillingaccountskugroupskusV1betaListBillingAccountSkuGroupSkusResponse {
+      /** The returned billing account SKU group SKUs. */
+      billingAccountSkuGroupSkus?: GoogleCloudBillingBillingaccountskugroupskusV1betaBillingAccountSkuGroupSku[];
+      /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskugroupskusV1betaProductTaxonomy {
+      /** All product categories that the billing account SKU group SKU belong to. */
+      taxonomyCategories?: GoogleCloudBillingBillingaccountskugroupskusV1betaTaxonomyCategory[];
+    }
+    interface GoogleCloudBillingBillingaccountskugroupskusV1betaTaxonomyCategory {
+      /** Name of the product category. */
+      category?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskugroupsV1betaBillingAccountSkuGroup {
+      /** Description of the BillingAccountSkuGroup. Example: "A2 VMs (1 Year CUD)". */
+      displayName?: string;
+      /** Resource name for the BillingAccountSkuGroup. Example: "billingAccounts/012345-567890-ABCDEF/skuGroups/0e6403d1-4694-44d2-a696-7a78b1a69301". */
+      name?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskugroupsV1betaListBillingAccountSkuGroupsResponse {
+      /** The returned publicly listed billing account SKU groups. */
+      billingAccountSkuGroups?: GoogleCloudBillingBillingaccountskugroupsV1betaBillingAccountSkuGroup[];
+      /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskusV1betaBillingAccountSku {
+      /** BillingAccountService that the BillingAccountSku belongs to. */
+      billingAccountService?: string;
+      /** Description of the BillingAccountSku. Example: "A2 Instance Core running in Hong Kong". */
+      displayName?: string;
+      /** Geographic metadata that applies to the BillingAccountSku. */
+      geoTaxonomy?: GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomy;
+      /** Resource name for the BillingAccountSku. Example: "billingAccounts/012345-567890-ABCDEF/skus/AA95-CD31-42FE". */
+      name?: string;
+      /** List of product categories that apply to the BillingAccountSku. */
+      productTaxonomy?: GoogleCloudBillingBillingaccountskusV1betaProductTaxonomy;
+      /** Unique identifier for the SKU. It is the string after the collection identifier "skus/" Example: "AA95-CD31-42FE". */
+      skuId?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomy {
+      /** Global geographic metadata with no regions. */
+      globalMetadata?: any;
+      /** Multi-regional geographic metadata with 2 or more regions. */
+      multiRegionalMetadata?: GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyMultiRegional;
+      /** Regional geographic metadata with 1 region. */
+      regionalMetadata?: GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegional;
+      /** Type of geographic taxonomy associated with the billing account SKU. */
+      type?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyGlobal {}
+    interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyMultiRegional {
+      /** Google Cloud regions associated with the multi-regional geographic taxonomy. */
+      regions?: GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegion[];
+    }
+    interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegion {
+      /** Description of a Google Cloud region. Example: "us-west2". */
+      region?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegional {
+      /** Google Cloud region associated with the regional geographic taxonomy. */
+      region?: GoogleCloudBillingBillingaccountskusV1betaGeoTaxonomyRegion;
+    }
+    interface GoogleCloudBillingBillingaccountskusV1betaListBillingAccountSkusResponse {
+      /** The returned billing account SKUs. */
+      billingAccountSkus?: GoogleCloudBillingBillingaccountskusV1betaBillingAccountSku[];
+      /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudBillingBillingaccountskusV1betaProductTaxonomy {
+      /** All product categories that the billing account SKU belong to. */
+      taxonomyCategories?: GoogleCloudBillingBillingaccountskusV1betaTaxonomyCategory[];
+    }
+    interface GoogleCloudBillingBillingaccountskusV1betaTaxonomyCategory {
+      /** Name of the product category. */
+      category?: string;
+    }
+    interface GoogleCloudBillingPricesV1betaAggregationInfo {
+      /** Interval at which usage is aggregated to compute cost. Example: "MONTHLY" interval indicates that usage is aggregated every month. */
+      interval?: string;
+      /** Level at which usage is aggregated to compute cost. Example: "ACCOUNT" level indicates that usage is aggregated across all projects in a single account. */
+      level?: string;
+    }
+    interface GoogleCloudBillingPricesV1betaPrice {
+      /** ISO-4217 currency code for the price. */
+      currencyCode?: string;
+      /** Resource name for the latest price. */
+      name?: string;
+      /** Rate price metadata. SKUs with `Rate` price are offered by pricing tiers. The price can have 1 or more rate pricing tiers. */
+      rate?: GoogleCloudBillingPricesV1betaRate;
+      /** Type of the price. It can have values: ["unspecified", "rate"]. */
+      valueType?: string;
+    }
+    interface GoogleCloudBillingPricesV1betaRate {
+      /** Aggregation info for tiers such as aggregation level and interval. */
+      aggregationInfo?: GoogleCloudBillingPricesV1betaAggregationInfo;
+      /** All tiers associated with the `Rate` price. */
+      tiers?: GoogleCloudBillingPricesV1betaRateTier[];
+      /** Unit info such as name and quantity. */
+      unitInfo?: GoogleCloudBillingPricesV1betaUnitInfo;
+    }
+    interface GoogleCloudBillingPricesV1betaRateTier {
+      /** List price of one tier. */
+      listPrice?: Money;
+      /** Lower bound amount for a tier. Tiers 0-100, 100-200 will be represented with two tiers with `start_amount` 0 and 100. */
+      startAmount?: Decimal;
+    }
+    interface GoogleCloudBillingPricesV1betaUnitInfo {
+      /** Shorthand for the unit. Example: GiBy.mo. */
+      unit?: string;
+      /** Human-readable description of the unit. Example: gibibyte month. */
+      unitDescription?: string;
+      /** Unit quantity for the tier. Example: if the RateTier price is $1 per 1000000 Bytes, then `unit_quantity` is set to 1000000. */
+      unitQuantity?: Decimal;
+    }
+    interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomy {
+      /** Global geographic metadata with no regions. */
+      globalMetadata?: any;
+      /** Multi-regional geographic metadata with 2 or more regions. */
+      multiRegionalMetadata?: GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyMultiRegional;
+      /** Regional geographic metadata with 1 region. */
+      regionalMetadata?: GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegional;
+      /** Type of geographic taxonomy associated with the SKU group SKU. */
+      type?: string;
+    }
+    interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyGlobal {}
+    interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyMultiRegional {
+      /** Google Cloud regions associated with the multi-regional geographic taxonomy. */
+      regions?: GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegion[];
+    }
+    interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegion {
+      /** Description of a Google Cloud region. Example: "us-west2". */
+      region?: string;
+    }
+    interface GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegional {
+      /** Google Cloud region associated with the regional geographic taxonomy. */
+      region?: GoogleCloudBillingSkugroupskusV1betaGeoTaxonomyRegion;
+    }
+    interface GoogleCloudBillingSkugroupskusV1betaListSkuGroupSkusResponse {
+      /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** The returned SKU group SKUs. */
+      skuGroupSkus?: GoogleCloudBillingSkugroupskusV1betaSkuGroupSku[];
+    }
+    interface GoogleCloudBillingSkugroupskusV1betaProductTaxonomy {
+      /** All product categories that the SKU group SKU belongs to. */
+      taxonomyCategories?: GoogleCloudBillingSkugroupskusV1betaTaxonomyCategory[];
+    }
+    interface GoogleCloudBillingSkugroupskusV1betaSkuGroupSku {
+      /** Description of the SkuGroupSku. Example: "A2 Instance Core running in Hong Kong". */
+      displayName?: string;
+      /** Geographic metadata that applies to the SkuGroupSku. */
+      geoTaxonomy?: GoogleCloudBillingSkugroupskusV1betaGeoTaxonomy;
+      /** Resource name for the SkuGroupSku. Example: "skuGroups/0e6403d1-4694-44d2-a696-7a78b1a69301/skus/AA95-CD31-42FE". */
+      name?: string;
+      /** List of product categories that apply to the SkuGroupSku. */
+      productTaxonomy?: GoogleCloudBillingSkugroupskusV1betaProductTaxonomy;
+      /** Service that the SkuGroupSku belongs to. */
+      service?: string;
+      /** Unique identifier for the SKU. It is the string after the collection identifier "skus/" Example: "AA95-CD31-42FE". */
+      skuId?: string;
+    }
+    interface GoogleCloudBillingSkugroupskusV1betaTaxonomyCategory {
+      /** Name of the product category. */
+      category?: string;
+    }
+    interface GoogleCloudBillingSkugroupsV1betaListSkuGroupsResponse {
+      /** Token that can be sent as `page_token` in the subsequent request to retrieve the next page. If this field is empty, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** The returned publicly listed SKU groups. */
+      skuGroups?: GoogleCloudBillingSkugroupsV1betaSkuGroup[];
+    }
+    interface GoogleCloudBillingSkugroupsV1betaSkuGroup {
+      /** Description of the SKU group. Example: "A2 VMs (1 Year CUD)". */
+      displayName?: string;
+      /** Resource name for the SKU group. Example: "skuGroups/0e6403d1-4694-44d2-a696-7a78b1a69301". */
+      name?: string;
+    }
+    interface GuestAccelerator {
+      /** The number of the guest accelerator cards exposed to each instance. */
+      acceleratorCount?: string;
+      /** The type of the guest accelerator cards. For example: "nvidia-tesla-t4". */
+      acceleratorType?: string;
+    }
+    interface InterRegionEgress {
+      /** Which [region](https://cloud.google.com/compute/docs/regions-zones) the egress data goes to. */
+      destinationRegion?: string;
+      /** VM to VM egress usage. Expected units such as "GiBy/s, By/s, etc." */
+      egressRate?: Usage;
+      /** Which [region](https://cloud.google.com/compute/docs/regions-zones) the egress data comes from. */
+      sourceRegion?: string;
+    }
+    interface IntraRegionEgress {
+      /** VM to VM egress usage. Expected units such as "GiBy/s, By/s, etc." */
+      egressRate?: Usage;
+    }
+    interface MachineType {
+      customMachineType?: CustomMachineType;
+      predefinedMachineType?: PredefinedMachineType;
+    }
+    interface Money {
+      /** The three-letter currency code defined in ISO 4217. */
+      currencyCode?: string;
+      /** Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units` is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000. */
+      nanos?: number;
+      /** The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. */
+      units?: string;
+    }
+    interface MultiRegional {
+      /** The [location name](https://cloud.google.com/storage/docs/locations#available-locations) where the data is stored. For example: "us" for multi-region. */
+      name?: string;
+    }
+    interface PersistentDisk {
+      /** Specifies the size of disk. Must be at least 10 GB. */
+      diskSize?: Usage;
+      /** The [disk type](https://cloud.google.com/compute/docs/disks#disk-types). For example: "pd-standard". */
+      diskType?: string;
+      /** Indicates how many IOPS to provision for the disk for extreme persistent disks. This sets the number of I/O operations per second that the disk can handle. Values must be between 10,000 and 120,000. */
+      provisionedIops?: Usage;
+      /** The geographic scope of the disk. Defaults to `SCOPE_ZONAL` if not specified. */
+      scope?: string;
+    }
+    interface PredefinedMachineType {
+      /** The [machine type](https://cloud.google.com/compute/docs/machine-types). For example: "n1-standard1". */
+      machineType?: string;
+    }
+    interface PremiumTierEgressWorkload {
+      /** Where the data is sent to. */
+      destinationContinent?: string;
+      /** Premium Tier egress usage. Expected units such as "GiBy/s, By/s, etc." */
+      egressRate?: Usage;
+      /** Which [region](https://cloud.google.com/compute/docs/regions-zones) the egress data comes from. */
+      sourceRegion?: string;
+    }
+    interface Price {
+      /** The timestamp within the estimation time frame when the price was set. */
+      effectiveTime?: EstimationTimePoint;
+      /** The type of price. Possible values: "RATE" */
+      priceType?: string;
+      /** A set of tiered rates. */
+      rate?: Rate;
+    }
+    interface Rate {
+      /** The service tiers. */
+      tiers?: RateTier[];
+      /** The SKU's pricing unit. For example, if the tier price is $1 per 1000000 Bytes, then this field will show 'By'. The `start_amount` field in each tier will be in this unit. */
+      unit?: string;
+      /** The SKU's count for the pricing unit. For example, if the tier price is $1 per 1000000 Bytes, then this column will show 1000000. */
+      unitCount?: number;
+    }
+    interface RateTier {
+      /** The price for this tier. */
+      price?: Money;
+      /** The magnitude of usage in which the tier interval begins. Example: "From 100 GiBi the price is $1 per byte" implies `start_amount` = 100 */
+      startAmount?: number;
+    }
+    interface Regional {
+      /** The [location name](https://cloud.google.com/storage/docs/locations#available-locations). For example: "us-central1" for region. */
+      name?: string;
+    }
+    interface ScenarioConfig {
+      /** Time frame for the estimate. Workloads must specify usage for this duration. Duration must be at least 1 hour (3,600 seconds) and at most 10 years (315,360,000 seconds). The calculations for years and months are based on a 730-hour (2,628,000-second) month. For durations longer than one month (2,628,000 seconds), the duration is rounded up to the next month, so the estimate shows you the costs for full months. For example, a duration of 3,232,800 seconds (roughly 5 weeks) is rounded up to 2 months. */
+      estimateDuration?: string;
+    }
+    interface SegmentCostEstimate {
+      /** Estimated costs for each commitment. */
+      commitmentCostEstimates?: CommitmentCostEstimate[];
+      /** Timestamp for the start of the segment. */
+      segmentStartTime?: EstimationTimePoint;
+      /** Total estimated costs for the time segment. */
+      segmentTotalCostEstimate?: CostEstimate;
+      /** Estimated costs for each workload. */
+      workloadCostEstimates?: WorkloadCostEstimate[];
+    }
+    interface Sku {
+      /** The display name for the SKU. Example: A2 Instance Core running in Americas */
+      displayName?: string;
+      /** A timeline of prices for a SKU in chronological order. Note: The API currently only supports using a constant price for the entire estimation time frame so this list will contain a single value. */
+      prices?: Price[];
+      /** The resource name for the SKU. Example: "services/DA34-426B-A397/skus/AA95-CD31-42FE" */
+      sku?: string;
+    }
+    interface SkuCostEstimate {
+      /** The estimated cost for the usage on this SKU. */
+      costEstimate?: CostEstimate;
+      /** The resource name for the SKU. Example: "services/DA34-426B-A397/skus/AA95-CD31-42FE" More information about the SKU can be found in the `skus` field of the `CostEstimationResult`. */
+      sku?: string;
+      /** The amount of usage on this SKU. */
+      usageAmount?: number;
+      /** The unit for the usage on this SKU. */
+      usageUnit?: string;
+    }
+    interface StandardTierEgressWorkload {
+      /** Standard tier egress usage. Expected units such as "GiBy/s, By/s, etc." */
+      egressRate?: Usage;
+      /** Which [region](https://cloud.google.com/compute/docs/regions-zones) the egress data comes from. */
+      sourceRegion?: string;
+    }
+    interface Usage {
+      /** A timeline of usage rates over the estimate interval. */
+      usageRateTimeline?: UsageRateTimeline;
+    }
+    interface UsageRateTimeline {
+      /** The unit for the usage rate in each timeline entry. If you provide an incorrect unit for an instance, the correct unit is provided in the error message. The supported units are a subset of [The Unified Code for Units of Measure](https://ucum.org/ucum.html) standard: * **Time units (TIME-UNIT)** * `s` second * `min` minute * `h` hour * `d` day * `wk` week * `mo` month * `yr` year * `ms` millisecond * `us` microsecond * `ns` nanosecond * **Basic storage units (BASIC-STORAGE-UNIT)** * `bit` bit * `By` byte * **Count units (COUNT-UNIT)** * `count` count * **Prefixes (PREFIX)** * `k` kilo (10^3) * `M` mega (10^6) * `G` giga (10^9) * `T` tera (10^12) * `P` peta (10^15) * `Ki` kibi (2^10) * `Mi` mebi (2^20) * `Gi` gibi (2^30) * `Ti` tebi (2^40) * `Pi` pebi (2^50) **Grammar** The grammar also includes these connectors: * `/` division or ratio (as an infix operator). For example: `kBy/{email}` or `MiBy/10ms`. * `.` multiplication or composition (as an infix operator). For example: `GBy.d` or `k{watt}.h`. The grammar for a unit is as follows: ``` Expression = Component { "." Component } { "/" Component } ; Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; UNIT = TIME-UNIT | STORAGE-UNIT | DATA-UNIT | COUNT-UNIT Annotation = "{" NAME "}" ; ``` Examples: * Request per second: `1/s` or `{requests}/s` * GibiBytes: `GiBy` * GibiBytes * seconds: `GiBy.s` */
+      unit?: string;
+      /** The timeline entries. Each entry has a start time and usage rate. The start time specifies the effective time of the usage rate. The entries must be sorted by start time in an increasing order. */
+      usageRateTimelineEntries?: UsageRateTimelineEntry[];
+    }
+    interface UsageRateTimelineEntry {
+      /** The effective time for this entry. The usage rate is in effect starting at this time until the effective time of the subsequent entry in the timeline. The last entry defines the usage rate until the end of the `Usage` time frame. Must correspond to an integer number of hours. */
+      effectiveTime?: EstimationTimePoint;
+      /** The usage rate. */
+      usageRate?: number;
+    }
+    interface VlanAttachment {
+      /** Capacities in the [pricing table](https://cloud.google.com/vpc/network-pricing#interconnect-pricing) Examples of capacity are: 50/100/200/300/400/500-Mbps, 1/2/5/10/20/50-Gbps. */
+      bandwidth?: string;
+      /** VLAN usage. This is specified as a unitless quantity which indicates the number of VLAN attachment used in interconnect. */
+      vlanCount?: Usage;
+    }
+    interface VmResourceBasedCud {
+      /** Guest accelerator, known as GPU. */
+      guestAccelerator?: GuestAccelerator;
+      /** The machine series for CUD. For example: "n1" for general purpose N1 machine type commitments. "n2" for general purpose N2 machine type commitments. "e2" for general purpose E2 machine type commitments. "n2d" for general purpose N2D machine type commitments. "t2d" for general purpose T2D machine type commitments. "c2"/"c2d" for compute-optimized commitments. "m1"/"m2" for the memory-optimized commitments. "a2' for the accelerator-optimized commitments. */
+      machineSeries?: string;
+      /** Memory size of the VM in GB (2^30 bytes). Must be an increment of 0.25 (256 MB). */
+      memorySizeGb?: number;
+      /** Commitment usage plan. */
+      plan?: string;
+      /** The region where the VM runs. For example: "us-central1" */
+      region?: string;
+      /** The number of vCPUs. The number of vCPUs must be an integer of 0 or more and can be even or odd. */
+      virtualCpuCount?: string;
+    }
+    interface VmToVmEgressWorkload {
+      interRegionEgress?: InterRegionEgress;
+      intraRegionEgress?: IntraRegionEgress;
+    }
+    interface Workload {
+      /** Usage on Google Cloud CDN Egress. */
+      cloudCdnEgressWorkload?: CloudCdnEgressWorkload;
+      /** Usage on Google Cloud CDN. */
+      cloudCdnWorkload?: CloudCdnWorkload;
+      /** Usage on Google Cloud Interconnect Egress. */
+      cloudInterconnectEgressWorkload?: CloudInterconnectEgressWorkload;
+      /** Usage on Google Cloud Interconnect. */
+      cloudInterconnectWorkload?: CloudInterconnectWorkload;
+      /** Usage on a cloud storage egress. */
+      cloudStorageEgressWorkload?: CloudStorageEgressWorkload;
+      /** Usage on Google Cloud Storage. */
+      cloudStorageWorkload?: CloudStorageWorkload;
+      /** Usage of a Google Compute Engine Virtual Machine. */
+      computeVmWorkload?: ComputeVmWorkload;
+      /** Required. A name for this workload. All workloads in a `CostScenario` must have a unique `name`. Each `name` may be at most 128 characters long. */
+      name?: string;
+      /** Usage on Premium Tier Internet Egress. */
+      premiumTierEgressWorkload?: PremiumTierEgressWorkload;
+      /** Usage on Standard Tier Internet Egress. */
+      standardTierEgressWorkload?: StandardTierEgressWorkload;
+      /** Usage on Vm to Vm Egress. */
+      vmToVmEgressWorkload?: VmToVmEgressWorkload;
+    }
+    interface WorkloadCostEstimate {
+      /** The name of the workload, as specified in the `CostScenario`. */
+      name?: string;
+      /** Estimated costs for each SKU in the workload. */
+      skuCostEstimates?: SkuCostEstimate[];
+      /** Total estimated costs for the workload. */
+      workloadTotalCostEstimate?: CostEstimate;
+    }
+    interface ServicesResource {
+      /** Gets a Google Cloud service visible to a billing account. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the billing account service to retrieve. Format: billingAccounts/{billing_account}/services/{service} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingBillingaccountservicesV1betaBillingAccountService>;
+      /** Lists services visible to a billing account. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of billing account service to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
+        pageSize?: number;
+        /** Page token received from a previous ListBillingAccountServices call to retrieve the next page of results. If this field is empty, the first page is returned. */
+        pageToken?: string;
+        /** Required. The billing account to list billing account service from. Format: billingAccounts/{billing_account} */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingBillingaccountservicesV1betaListBillingAccountServicesResponse>;
+    }
+    interface SkusResource {
+      /** Gets a SKU that is part of a billing account SKU group. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the billing account SKU group SKU to retrieve. Format: billingAccounts/{billing_account}/skuGroups/{sku_group}/skus/{sku} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingBillingaccountskugroupskusV1betaBillingAccountSkuGroupSku>;
+      /** Lists SKUs that is part of billing account SKU groups. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of billing account SKU group SKUs to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
+        pageSize?: number;
+        /** Page token received from a previous ListBillingAccountSkuGroupSkus call to retrieve the next page of results. If this field is empty, the first page is returned. */
+        pageToken?: string;
+        /** Required. The billing account SKU group to list billing account SKU group SKUs from. Format: billingAccounts/{billing_account}/skuGroups/{sku_group} */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingBillingaccountskugroupskusV1betaListBillingAccountSkuGroupSkusResponse>;
+    }
+    interface SkuGroupsResource {
+      /** Gets a SKU group visible to a billing account. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the BillingAccountSkuGroup to retrieve. Format: billingAccounts/{billing_account}/skuGroups/{sku_group} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingBillingaccountskugroupsV1betaBillingAccountSkuGroup>;
+      /** Lists SKU groups visible to a billing account. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of billing account SKU groups to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
+        pageSize?: number;
+        /** Page token received from a previous ListBillingAccountSkuGroups call to retrieve the next page of results. If this field is empty, the first page is returned. */
+        pageToken?: string;
+        /** Required. The billing account to list billing account SKU groups from. Format: billingAccounts/{billing_account} */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingBillingaccountskugroupsV1betaListBillingAccountSkuGroupsResponse>;
+      skus: SkusResource;
+    }
+    interface PriceResource {
+      /** Gets the latest price for SKUs available to your Cloud Billing account. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Optional. ISO-4217 currency code for the price. If not specified, the currency of the billing account is used. */
+        currencyCode?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the billing account price to retrieve. Format: billingAccounts/{billing_account}/skus/{sku}/price */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingBillingaccountpricesV1betaBillingAccountPrice>;
+    }
+    interface SkusResource {
+      /** Gets a SKU visible to a billing account. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the billing account SKU to retrieve. Format: billingAccounts/{billing_account}/skus/{sku} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingBillingaccountskusV1betaBillingAccountSku>;
+      /** Lists SKUs visible to a billing account. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Options for how to filter the billing account SKUs. Currently, only filter on `billing_account_service` is supported. Only !=, = operators are supported. Examples: - billing_account_service = "billingAccounts/012345-567890-ABCDEF/services/DA34-426B-A397" */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of billing account SKUs to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
+        pageSize?: number;
+        /** Page token received from a previous ListBillingAccountSkus call to retrieve the next page of results. If this field is empty, the first page is returned. */
+        pageToken?: string;
+        /** Required. The billing account to list billing account SKU from. Format: billingAccounts/{billing_account} */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingBillingaccountskusV1betaListBillingAccountSkusResponse>;
+      price: PriceResource;
+    }
+    interface BillingAccountsResource {
+      /** Use custom pricing in the estimate, using a `CostScenario` with a defined `billingAccount`. */
+      estimateCostScenario(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** Resource name of the billing account for the cost estimate. The resource name has the form `billingAccounts/{billing_account_id}`. For example, `billingAccounts/012345-567890-ABCDEF` is the resource name for billing account `012345-567890-ABCDEF`. Must be specified. */
+        billingAccount: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: EstimateCostScenarioForBillingAccountRequest;
+      }): Request<EstimateCostScenarioForBillingAccountResponse>;
+      estimateCostScenario(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** Resource name of the billing account for the cost estimate. The resource name has the form `billingAccounts/{billing_account_id}`. For example, `billingAccounts/012345-567890-ABCDEF` is the resource name for billing account `012345-567890-ABCDEF`. Must be specified. */
+          billingAccount: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: EstimateCostScenarioForBillingAccountRequest
+      ): Request<EstimateCostScenarioForBillingAccountResponse>;
+      services: ServicesResource;
+      skuGroups: SkuGroupsResource;
+      skus: SkusResource;
+    }
+    interface SkusResource {
+      /** Gets a publicly listed SKU that is part of a publicly listed SKU group. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the SKU group SKU to retrieve. Format: skuGroups/{sku_group}/skus/{sku} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingSkugroupskusV1betaSkuGroupSku>;
+      /** Lists all publicly listed SKUs contained by a publicly listed SKU group. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of SKU group SKUs to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
+        pageSize?: number;
+        /** Page token received from a previous ListSkuGroupSkus call to retrieve the next page of results. If this field is empty, the first page is returned. */
+        pageToken?: string;
+        /** Required. The SkuGroup to list SkuGroupSku from. Format: skuGroups/{sku_group} */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingSkugroupskusV1betaListSkuGroupSkusResponse>;
+    }
+    interface SkuGroupsResource {
+      /** Gets a publicly listed SKU group. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the SKU group to retrieve. Format: skuGroups/{sku_group} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingSkugroupsV1betaSkuGroup>;
+      /** Lists all publicly listed SKU groups. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of SKU groups to return. Results may return fewer than this value. Default value is 50 and maximum value is 5000. */
+        pageSize?: number;
+        /** Page token received from a previous ListSkuGroups call to retrieve the next page of results. If this field is empty, the first page is returned. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingSkugroupsV1betaListSkuGroupsResponse>;
+      skus: SkusResource;
+    }
+    interface PriceResource {
+      /** Gets the latest price for the given SKU. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Optional. ISO-4217 currency code for the price. If not specified, USD will be used. */
+        currencyCode?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the latest price to retrieve. Format: skus/{sku}/price */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudBillingPricesV1betaPrice>;
+    }
+    interface SkusResource {
+      price: PriceResource;
+    }
+    interface V1betaResource {
+      /** Estimate list prices using a `CostScenario` without a defined `billingAccount`. */
+      estimateCostScenario(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: EstimateCostScenarioWithListPriceRequest;
+      }): Request<EstimateCostScenarioWithListPriceResponse>;
+      estimateCostScenario(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: EstimateCostScenarioWithListPriceRequest
+      ): Request<EstimateCostScenarioWithListPriceResponse>;
+    }
+
+    const billingAccounts: BillingAccountsResource;
+
+    const skuGroups: SkuGroupsResource;
+
+    const skus: SkusResource;
+
+    const v1beta: V1betaResource;
+  }
 }

@@ -6,175 +6,203 @@
 // Revision: 20231103
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://rapidmigrationassessment.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.rapidmigrationassessment */
+  await gapi.client.load(
+    'https://rapidmigrationassessment.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.rapidmigrationassessment */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.rapidmigrationassessment.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.rapidmigrationassessment.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates an Annotation */
-        await gapi.client.rapidmigrationassessment.projects.locations.annotations.create({
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            type: "Test string",
-            updateTime: "Test string",
-        });
-        /** Gets details of a single Annotation. */
-        await gapi.client.rapidmigrationassessment.projects.locations.annotations.get({
-            name: "Test string",
-        });
-        /** Create a Collector to manage the on-prem appliance which collects information about Customer assets. */
-        await gapi.client.rapidmigrationassessment.projects.locations.collectors.create({
-            collectorId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            bucket: "Test string",
-            clientVersion: "Test string",
-            collectionDays: 42,
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            eulaUri: "Test string",
-            expectedAssetCount: "Test string",
-            guestOsScan: {
-                coreSource: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            vsphereScan: {
-                coreSource: "Test string",
-            },
-        });
-        /** Deletes a single Collector - changes state of collector to "Deleting". Background jobs does final deletion thorugh producer api. */
-        await gapi.client.rapidmigrationassessment.projects.locations.collectors.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets details of a single Collector. */
-        await gapi.client.rapidmigrationassessment.projects.locations.collectors.get({
-            name: "Test string",
-        });
-        /** Lists Collectors in a given project and location. */
-        await gapi.client.rapidmigrationassessment.projects.locations.collectors.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single Collector. */
-        await gapi.client.rapidmigrationassessment.projects.locations.collectors.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            bucket: "Test string",
-            clientVersion: "Test string",
-            collectionDays: 42,
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            eulaUri: "Test string",
-            expectedAssetCount: "Test string",
-            guestOsScan: {
-                coreSource: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            serviceAccount: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            vsphereScan: {
-                coreSource: "Test string",
-            },
-        });
-        /** Pauses the given collector. */
-        await gapi.client.rapidmigrationassessment.projects.locations.collectors.pause({
-            name: "Test string",
-        }, {
-            requestId: "Test string",
-        });
-        /** Registers the given collector. */
-        await gapi.client.rapidmigrationassessment.projects.locations.collectors.register({
-            name: "Test string",
-        }, {
-            requestId: "Test string",
-        });
-        /** Resumes the given collector. */
-        await gapi.client.rapidmigrationassessment.projects.locations.collectors.resume({
-            name: "Test string",
-        }, {
-            requestId: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.rapidmigrationassessment.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.rapidmigrationassessment.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.rapidmigrationassessment.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.rapidmigrationassessment.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.rapidmigrationassessment.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.rapidmigrationassessment.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates an Annotation */
+    await gapi.client.rapidmigrationassessment.projects.locations.annotations.create(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        type: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Gets details of a single Annotation. */
+    await gapi.client.rapidmigrationassessment.projects.locations.annotations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Create a Collector to manage the on-prem appliance which collects information about Customer assets. */
+    await gapi.client.rapidmigrationassessment.projects.locations.collectors.create(
+      {
+        collectorId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        bucket: 'Test string',
+        clientVersion: 'Test string',
+        collectionDays: 42,
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        eulaUri: 'Test string',
+        expectedAssetCount: 'Test string',
+        guestOsScan: {
+          coreSource: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        serviceAccount: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        vsphereScan: {
+          coreSource: 'Test string',
+        },
+      }
+    );
+    /** Deletes a single Collector - changes state of collector to "Deleting". Background jobs does final deletion thorugh producer api. */
+    await gapi.client.rapidmigrationassessment.projects.locations.collectors.delete(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Gets details of a single Collector. */
+    await gapi.client.rapidmigrationassessment.projects.locations.collectors.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists Collectors in a given project and location. */
+    await gapi.client.rapidmigrationassessment.projects.locations.collectors.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates the parameters of a single Collector. */
+    await gapi.client.rapidmigrationassessment.projects.locations.collectors.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        bucket: 'Test string',
+        clientVersion: 'Test string',
+        collectionDays: 42,
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        eulaUri: 'Test string',
+        expectedAssetCount: 'Test string',
+        guestOsScan: {
+          coreSource: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        serviceAccount: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        vsphereScan: {
+          coreSource: 'Test string',
+        },
+      }
+    );
+    /** Pauses the given collector. */
+    await gapi.client.rapidmigrationassessment.projects.locations.collectors.pause(
+      {
+        name: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+      }
+    );
+    /** Registers the given collector. */
+    await gapi.client.rapidmigrationassessment.projects.locations.collectors.register(
+      {
+        name: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+      }
+    );
+    /** Resumes the given collector. */
+    await gapi.client.rapidmigrationassessment.projects.locations.collectors.resume(
+      {
+        name: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.rapidmigrationassessment.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.rapidmigrationassessment.projects.locations.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.rapidmigrationassessment.projects.locations.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.rapidmigrationassessment.projects.locations.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+  }
 });

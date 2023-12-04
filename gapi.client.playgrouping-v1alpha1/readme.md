@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://playgrouping.googleapis.com/$discovery/rest?version=v1alpha1', () => {
-  // now we can use:
-  // gapi.client.playgrouping
-});
+gapi.client.load(
+  'https://playgrouping.googleapis.com/$discovery/rest?version=v1alpha1',
+  () => {
+    // now we can use:
+    // gapi.client.playgrouping
+  }
+);
 ```
 
 ```typescript
@@ -39,9 +42,8 @@ gapi.client.load('playgrouping', 'v1alpha1', () => {
 });
 ```
 
-
-
 After that you can use Google Play Grouping API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

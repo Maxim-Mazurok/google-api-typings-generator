@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://mybusinesslodging.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.mybusinesslodging
-});
+gapi.client.load(
+  'https://mybusinesslodging.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.mybusinesslodging
+  }
+);
 ```
 
 ```typescript
@@ -39,19 +42,16 @@ gapi.client.load('mybusinesslodging', 'v1', () => {
 });
 ```
 
-
-
 After that you can use My Business Lodging API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Returns the Lodging of a specific location.
 */
-await gapi.client.mybusinesslodging.locations.getLodging({ name: "name",  });
+await gapi.client.mybusinesslodging.locations.getLodging({name: 'name'});
 
 /*
 Updates the Lodging of a specific location.
 */
-await gapi.client.mybusinesslodging.locations.updateLodging({ name: "name",  });
+await gapi.client.mybusinesslodging.locations.updateLodging({name: 'name'});
 ```

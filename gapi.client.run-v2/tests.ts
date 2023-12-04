@@ -6,1159 +6,1128 @@
 // Revision: 20231112
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://run.googleapis.com/$discovery/rest?version=v2');
-    /** now we can use gapi.client.run */
+  await gapi.client.load(
+    'https://run.googleapis.com/$discovery/rest?version=v2'
+  );
+  /** now we can use gapi.client.run */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Creates a Job. */
-        await gapi.client.run.projects.locations.jobs.create({
-            jobId: "Test string",
-            parent: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            binaryAuthorization: {
-                breakglassJustification: "Test string",
-                useDefault: true,
-            },
-            client: "Test string",
-            clientVersion: "Test string",
-            conditions: [
-                {
-                    executionReason: "Test string",
-                    lastTransitionTime: "Test string",
-                    message: "Test string",
-                    reason: "Test string",
-                    revisionReason: "Test string",
-                    severity: "Test string",
-                    state: "Test string",
-                    type: "Test string",
-                }
-            ],
-            createTime: "Test string",
-            creator: "Test string",
-            deleteTime: "Test string",
-            etag: "Test string",
-            executionCount: 42,
-            expireTime: "Test string",
-            generation: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            lastModifier: "Test string",
-            latestCreatedExecution: {
-                completionTime: "Test string",
-                createTime: "Test string",
-                name: "Test string",
-            },
-            launchStage: "Test string",
-            name: "Test string",
-            observedGeneration: "Test string",
-            reconciling: true,
-            satisfiesPzs: true,
-            template: {
-                annotations: {
-                    A: "Test string"
-                },
-                labels: {
-                    A: "Test string"
-                },
-                parallelism: 42,
-                taskCount: 42,
-                template: {
-                    containers: [
-                        {
-                            args: [
-                                "Test string"
-                            ],
-                            command: [
-                                "Test string"
-                            ],
-                            dependsOn: [
-                                "Test string"
-                            ],
-                            env: [
-                                {
-                                    name: "Test string",
-                                    value: "Test string",
-                                    valueSource: {
-                                        secretKeyRef: {
-                                            secret: "Test string",
-                                            version: "Test string",
-                                        },
-                                    },
-                                }
-                            ],
-                            image: "Test string",
-                            livenessProbe: {
-                                failureThreshold: 42,
-                                grpc: {
-                                    port: 42,
-                                    service: "Test string",
-                                },
-                                httpGet: {
-                                    httpHeaders: [
-                                        {
-                                            name: "Test string",
-                                            value: "Test string",
-                                        }
-                                    ],
-                                    path: "Test string",
-                                    port: 42,
-                                },
-                                initialDelaySeconds: 42,
-                                periodSeconds: 42,
-                                tcpSocket: {
-                                    port: 42,
-                                },
-                                timeoutSeconds: 42,
-                            },
-                            name: "Test string",
-                            ports: [
-                                {
-                                    containerPort: 42,
-                                    name: "Test string",
-                                }
-                            ],
-                            resources: {
-                                cpuIdle: true,
-                                limits: {
-                                    A: "Test string"
-                                },
-                                startupCpuBoost: true,
-                            },
-                            startupProbe: {
-                                failureThreshold: 42,
-                                grpc: {
-                                    port: 42,
-                                    service: "Test string",
-                                },
-                                httpGet: {
-                                    httpHeaders: [
-                                        {
-                                            name: "Test string",
-                                            value: "Test string",
-                                        }
-                                    ],
-                                    path: "Test string",
-                                    port: 42,
-                                },
-                                initialDelaySeconds: 42,
-                                periodSeconds: 42,
-                                tcpSocket: {
-                                    port: 42,
-                                },
-                                timeoutSeconds: 42,
-                            },
-                            volumeMounts: [
-                                {
-                                    mountPath: "Test string",
-                                    name: "Test string",
-                                }
-                            ],
-                            workingDir: "Test string",
-                        }
-                    ],
-                    encryptionKey: "Test string",
-                    executionEnvironment: "Test string",
-                    maxRetries: 42,
-                    serviceAccount: "Test string",
-                    timeout: "Test string",
-                    volumes: [
-                        {
-                            cloudSqlInstance: {
-                                instances: [
-                                    "Test string"
-                                ],
-                            },
-                            emptyDir: {
-                                medium: "Test string",
-                                sizeLimit: "Test string",
-                            },
-                            name: "Test string",
-                            secret: {
-                                defaultMode: 42,
-                                items: [
-                                    {
-                                        mode: 42,
-                                        path: "Test string",
-                                        version: "Test string",
-                                    }
-                                ],
-                                secret: "Test string",
-                            },
-                        }
-                    ],
-                    vpcAccess: {
-                        connector: "Test string",
-                        egress: "Test string",
-                        networkInterfaces: [
-                            {
-                                network: "Test string",
-                                subnetwork: "Test string",
-                                tags: [
-                                    "Test string"
-                                ],
-                            }
-                        ],
-                    },
-                },
-            },
-            terminalCondition: {
-                executionReason: "Test string",
-                lastTransitionTime: "Test string",
-                message: "Test string",
-                reason: "Test string",
-                revisionReason: "Test string",
-                severity: "Test string",
-                state: "Test string",
-                type: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a Job. */
-        await gapi.client.run.projects.locations.jobs.delete({
-            etag: "Test string",
-            name: "Test string",
-            validateOnly: true,
-        });
-        /** Gets information about a Job. */
-        await gapi.client.run.projects.locations.jobs.get({
-            name: "Test string",
-        });
-        /** Gets the IAM Access Control policy currently in effect for the given Job. This result does not include any inherited policies. */
-        await gapi.client.run.projects.locations.jobs.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Jobs. */
-        await gapi.client.run.projects.locations.jobs.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            showDeleted: true,
-        });
-        /** Updates a Job. */
-        await gapi.client.run.projects.locations.jobs.patch({
-            allowMissing: true,
-            name: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            binaryAuthorization: {
-                breakglassJustification: "Test string",
-                useDefault: true,
-            },
-            client: "Test string",
-            clientVersion: "Test string",
-            conditions: [
-                {
-                    executionReason: "Test string",
-                    lastTransitionTime: "Test string",
-                    message: "Test string",
-                    reason: "Test string",
-                    revisionReason: "Test string",
-                    severity: "Test string",
-                    state: "Test string",
-                    type: "Test string",
-                }
-            ],
-            createTime: "Test string",
-            creator: "Test string",
-            deleteTime: "Test string",
-            etag: "Test string",
-            executionCount: 42,
-            expireTime: "Test string",
-            generation: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            lastModifier: "Test string",
-            latestCreatedExecution: {
-                completionTime: "Test string",
-                createTime: "Test string",
-                name: "Test string",
-            },
-            launchStage: "Test string",
-            name: "Test string",
-            observedGeneration: "Test string",
-            reconciling: true,
-            satisfiesPzs: true,
-            template: {
-                annotations: {
-                    A: "Test string"
-                },
-                labels: {
-                    A: "Test string"
-                },
-                parallelism: 42,
-                taskCount: 42,
-                template: {
-                    containers: [
-                        {
-                            args: [
-                                "Test string"
-                            ],
-                            command: [
-                                "Test string"
-                            ],
-                            dependsOn: [
-                                "Test string"
-                            ],
-                            env: [
-                                {
-                                    name: "Test string",
-                                    value: "Test string",
-                                    valueSource: {
-                                        secretKeyRef: {
-                                            secret: "Test string",
-                                            version: "Test string",
-                                        },
-                                    },
-                                }
-                            ],
-                            image: "Test string",
-                            livenessProbe: {
-                                failureThreshold: 42,
-                                grpc: {
-                                    port: 42,
-                                    service: "Test string",
-                                },
-                                httpGet: {
-                                    httpHeaders: [
-                                        {
-                                            name: "Test string",
-                                            value: "Test string",
-                                        }
-                                    ],
-                                    path: "Test string",
-                                    port: 42,
-                                },
-                                initialDelaySeconds: 42,
-                                periodSeconds: 42,
-                                tcpSocket: {
-                                    port: 42,
-                                },
-                                timeoutSeconds: 42,
-                            },
-                            name: "Test string",
-                            ports: [
-                                {
-                                    containerPort: 42,
-                                    name: "Test string",
-                                }
-                            ],
-                            resources: {
-                                cpuIdle: true,
-                                limits: {
-                                    A: "Test string"
-                                },
-                                startupCpuBoost: true,
-                            },
-                            startupProbe: {
-                                failureThreshold: 42,
-                                grpc: {
-                                    port: 42,
-                                    service: "Test string",
-                                },
-                                httpGet: {
-                                    httpHeaders: [
-                                        {
-                                            name: "Test string",
-                                            value: "Test string",
-                                        }
-                                    ],
-                                    path: "Test string",
-                                    port: 42,
-                                },
-                                initialDelaySeconds: 42,
-                                periodSeconds: 42,
-                                tcpSocket: {
-                                    port: 42,
-                                },
-                                timeoutSeconds: 42,
-                            },
-                            volumeMounts: [
-                                {
-                                    mountPath: "Test string",
-                                    name: "Test string",
-                                }
-                            ],
-                            workingDir: "Test string",
-                        }
-                    ],
-                    encryptionKey: "Test string",
-                    executionEnvironment: "Test string",
-                    maxRetries: 42,
-                    serviceAccount: "Test string",
-                    timeout: "Test string",
-                    volumes: [
-                        {
-                            cloudSqlInstance: {
-                                instances: [
-                                    "Test string"
-                                ],
-                            },
-                            emptyDir: {
-                                medium: "Test string",
-                                sizeLimit: "Test string",
-                            },
-                            name: "Test string",
-                            secret: {
-                                defaultMode: 42,
-                                items: [
-                                    {
-                                        mode: 42,
-                                        path: "Test string",
-                                        version: "Test string",
-                                    }
-                                ],
-                                secret: "Test string",
-                            },
-                        }
-                    ],
-                    vpcAccess: {
-                        connector: "Test string",
-                        egress: "Test string",
-                        networkInterfaces: [
-                            {
-                                network: "Test string",
-                                subnetwork: "Test string",
-                                tags: [
-                                    "Test string"
-                                ],
-                            }
-                        ],
-                    },
-                },
-            },
-            terminalCondition: {
-                executionReason: "Test string",
-                lastTransitionTime: "Test string",
-                message: "Test string",
-                reason: "Test string",
-                revisionReason: "Test string",
-                severity: "Test string",
-                state: "Test string",
-                type: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Triggers creation of a new Execution of this Job. */
-        await gapi.client.run.projects.locations.jobs.run({
-            name: "Test string",
-        }, {
-            etag: "Test string",
-            overrides: {
-                containerOverrides: [
-                    {
-                        args: [
-                            "Test string"
-                        ],
-                        clearArgs: true,
-                        env: [
-                            {
-                                name: "Test string",
-                                value: "Test string",
-                                valueSource: {
-                                    secretKeyRef: {
-                                        secret: "Test string",
-                                        version: "Test string",
-                                    },
-                                },
-                            }
-                        ],
-                        name: "Test string",
-                    }
-                ],
-                taskCount: 42,
-                timeout: "Test string",
-            },
-            validateOnly: true,
-        });
-        /** Sets the IAM Access control policy for the specified Job. Overwrites any existing policy. */
-        await gapi.client.run.projects.locations.jobs.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
-        await gapi.client.run.projects.locations.jobs.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Cancels an Execution. */
-        await gapi.client.run.projects.locations.jobs.executions.cancel({
-            name: "Test string",
-        }, {
-            etag: "Test string",
-            validateOnly: true,
-        });
-        /** Deletes an Execution. */
-        await gapi.client.run.projects.locations.jobs.executions.delete({
-            etag: "Test string",
-            name: "Test string",
-            validateOnly: true,
-        });
-        /** Gets information about an Execution. */
-        await gapi.client.run.projects.locations.jobs.executions.get({
-            name: "Test string",
-        });
-        /** Lists Executions from a Job. */
-        await gapi.client.run.projects.locations.jobs.executions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            showDeleted: true,
-        });
-        /** Gets information about a Task. */
-        await gapi.client.run.projects.locations.jobs.executions.tasks.get({
-            name: "Test string",
-        });
-        /** Lists Tasks from an Execution of a Job. */
-        await gapi.client.run.projects.locations.jobs.executions.tasks.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            showDeleted: true,
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.run.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.run.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.run.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.run.projects.locations.operations.wait({
-            name: "Test string",
-        }, {
-            timeout: "Test string",
-        });
-        /** Creates a new Service in a given project and location. */
-        await gapi.client.run.projects.locations.services.create({
-            parent: "Test string",
-            serviceId: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            binaryAuthorization: {
-                breakglassJustification: "Test string",
-                useDefault: true,
-            },
-            client: "Test string",
-            clientVersion: "Test string",
-            conditions: [
-                {
-                    executionReason: "Test string",
-                    lastTransitionTime: "Test string",
-                    message: "Test string",
-                    reason: "Test string",
-                    revisionReason: "Test string",
-                    severity: "Test string",
-                    state: "Test string",
-                    type: "Test string",
-                }
-            ],
-            createTime: "Test string",
-            creator: "Test string",
-            customAudiences: [
-                "Test string"
-            ],
-            deleteTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            expireTime: "Test string",
-            generation: "Test string",
-            ingress: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            lastModifier: "Test string",
-            latestCreatedRevision: "Test string",
-            latestReadyRevision: "Test string",
-            launchStage: "Test string",
-            name: "Test string",
-            observedGeneration: "Test string",
-            reconciling: true,
-            satisfiesPzs: true,
-            scaling: {
-                minInstanceCount: 42,
-            },
-            template: {
-                annotations: {
-                    A: "Test string"
-                },
-                containers: [
-                    {
-                        args: [
-                            "Test string"
-                        ],
-                        command: [
-                            "Test string"
-                        ],
-                        dependsOn: [
-                            "Test string"
-                        ],
-                        env: [
-                            {
-                                name: "Test string",
-                                value: "Test string",
-                                valueSource: {
-                                    secretKeyRef: {
-                                        secret: "Test string",
-                                        version: "Test string",
-                                    },
-                                },
-                            }
-                        ],
-                        image: "Test string",
-                        livenessProbe: {
-                            failureThreshold: 42,
-                            grpc: {
-                                port: 42,
-                                service: "Test string",
-                            },
-                            httpGet: {
-                                httpHeaders: [
-                                    {
-                                        name: "Test string",
-                                        value: "Test string",
-                                    }
-                                ],
-                                path: "Test string",
-                                port: 42,
-                            },
-                            initialDelaySeconds: 42,
-                            periodSeconds: 42,
-                            tcpSocket: {
-                                port: 42,
-                            },
-                            timeoutSeconds: 42,
-                        },
-                        name: "Test string",
-                        ports: [
-                            {
-                                containerPort: 42,
-                                name: "Test string",
-                            }
-                        ],
-                        resources: {
-                            cpuIdle: true,
-                            limits: {
-                                A: "Test string"
-                            },
-                            startupCpuBoost: true,
-                        },
-                        startupProbe: {
-                            failureThreshold: 42,
-                            grpc: {
-                                port: 42,
-                                service: "Test string",
-                            },
-                            httpGet: {
-                                httpHeaders: [
-                                    {
-                                        name: "Test string",
-                                        value: "Test string",
-                                    }
-                                ],
-                                path: "Test string",
-                                port: 42,
-                            },
-                            initialDelaySeconds: 42,
-                            periodSeconds: 42,
-                            tcpSocket: {
-                                port: 42,
-                            },
-                            timeoutSeconds: 42,
-                        },
-                        volumeMounts: [
-                            {
-                                mountPath: "Test string",
-                                name: "Test string",
-                            }
-                        ],
-                        workingDir: "Test string",
-                    }
-                ],
-                encryptionKey: "Test string",
-                executionEnvironment: "Test string",
-                labels: {
-                    A: "Test string"
-                },
-                maxInstanceRequestConcurrency: 42,
-                revision: "Test string",
-                scaling: {
-                    maxInstanceCount: 42,
-                    minInstanceCount: 42,
-                },
-                serviceAccount: "Test string",
-                sessionAffinity: true,
-                timeout: "Test string",
-                volumes: [
-                    {
-                        cloudSqlInstance: {
-                            instances: [
-                                "Test string"
-                            ],
-                        },
-                        emptyDir: {
-                            medium: "Test string",
-                            sizeLimit: "Test string",
-                        },
-                        name: "Test string",
-                        secret: {
-                            defaultMode: 42,
-                            items: [
-                                {
-                                    mode: 42,
-                                    path: "Test string",
-                                    version: "Test string",
-                                }
-                            ],
-                            secret: "Test string",
-                        },
-                    }
-                ],
-                vpcAccess: {
-                    connector: "Test string",
-                    egress: "Test string",
-                    networkInterfaces: [
-                        {
-                            network: "Test string",
-                            subnetwork: "Test string",
-                            tags: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                },
-            },
-            terminalCondition: {
-                executionReason: "Test string",
-                lastTransitionTime: "Test string",
-                message: "Test string",
-                reason: "Test string",
-                revisionReason: "Test string",
-                severity: "Test string",
-                state: "Test string",
-                type: "Test string",
-            },
-            traffic: [
-                {
-                    percent: 42,
-                    revision: "Test string",
-                    tag: "Test string",
-                    type: "Test string",
-                }
-            ],
-            trafficStatuses: [
-                {
-                    percent: 42,
-                    revision: "Test string",
-                    tag: "Test string",
-                    type: "Test string",
-                    uri: "Test string",
-                }
-            ],
-            uid: "Test string",
-            updateTime: "Test string",
-            uri: "Test string",
-        });
-        /** Deletes a Service. This will cause the Service to stop serving traffic and will delete all revisions. */
-        await gapi.client.run.projects.locations.services.delete({
-            etag: "Test string",
-            name: "Test string",
-            validateOnly: true,
-        });
-        /** Gets information about a Service. */
-        await gapi.client.run.projects.locations.services.get({
-            name: "Test string",
-        });
-        /** Gets the IAM Access Control policy currently in effect for the given Cloud Run Service. This result does not include any inherited policies. */
-        await gapi.client.run.projects.locations.services.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Services. */
-        await gapi.client.run.projects.locations.services.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            showDeleted: true,
-        });
-        /** Updates a Service. */
-        await gapi.client.run.projects.locations.services.patch({
-            allowMissing: true,
-            name: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            binaryAuthorization: {
-                breakglassJustification: "Test string",
-                useDefault: true,
-            },
-            client: "Test string",
-            clientVersion: "Test string",
-            conditions: [
-                {
-                    executionReason: "Test string",
-                    lastTransitionTime: "Test string",
-                    message: "Test string",
-                    reason: "Test string",
-                    revisionReason: "Test string",
-                    severity: "Test string",
-                    state: "Test string",
-                    type: "Test string",
-                }
-            ],
-            createTime: "Test string",
-            creator: "Test string",
-            customAudiences: [
-                "Test string"
-            ],
-            deleteTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            expireTime: "Test string",
-            generation: "Test string",
-            ingress: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            lastModifier: "Test string",
-            latestCreatedRevision: "Test string",
-            latestReadyRevision: "Test string",
-            launchStage: "Test string",
-            name: "Test string",
-            observedGeneration: "Test string",
-            reconciling: true,
-            satisfiesPzs: true,
-            scaling: {
-                minInstanceCount: 42,
-            },
-            template: {
-                annotations: {
-                    A: "Test string"
-                },
-                containers: [
-                    {
-                        args: [
-                            "Test string"
-                        ],
-                        command: [
-                            "Test string"
-                        ],
-                        dependsOn: [
-                            "Test string"
-                        ],
-                        env: [
-                            {
-                                name: "Test string",
-                                value: "Test string",
-                                valueSource: {
-                                    secretKeyRef: {
-                                        secret: "Test string",
-                                        version: "Test string",
-                                    },
-                                },
-                            }
-                        ],
-                        image: "Test string",
-                        livenessProbe: {
-                            failureThreshold: 42,
-                            grpc: {
-                                port: 42,
-                                service: "Test string",
-                            },
-                            httpGet: {
-                                httpHeaders: [
-                                    {
-                                        name: "Test string",
-                                        value: "Test string",
-                                    }
-                                ],
-                                path: "Test string",
-                                port: 42,
-                            },
-                            initialDelaySeconds: 42,
-                            periodSeconds: 42,
-                            tcpSocket: {
-                                port: 42,
-                            },
-                            timeoutSeconds: 42,
-                        },
-                        name: "Test string",
-                        ports: [
-                            {
-                                containerPort: 42,
-                                name: "Test string",
-                            }
-                        ],
-                        resources: {
-                            cpuIdle: true,
-                            limits: {
-                                A: "Test string"
-                            },
-                            startupCpuBoost: true,
-                        },
-                        startupProbe: {
-                            failureThreshold: 42,
-                            grpc: {
-                                port: 42,
-                                service: "Test string",
-                            },
-                            httpGet: {
-                                httpHeaders: [
-                                    {
-                                        name: "Test string",
-                                        value: "Test string",
-                                    }
-                                ],
-                                path: "Test string",
-                                port: 42,
-                            },
-                            initialDelaySeconds: 42,
-                            periodSeconds: 42,
-                            tcpSocket: {
-                                port: 42,
-                            },
-                            timeoutSeconds: 42,
-                        },
-                        volumeMounts: [
-                            {
-                                mountPath: "Test string",
-                                name: "Test string",
-                            }
-                        ],
-                        workingDir: "Test string",
-                    }
-                ],
-                encryptionKey: "Test string",
-                executionEnvironment: "Test string",
-                labels: {
-                    A: "Test string"
-                },
-                maxInstanceRequestConcurrency: 42,
-                revision: "Test string",
-                scaling: {
-                    maxInstanceCount: 42,
-                    minInstanceCount: 42,
-                },
-                serviceAccount: "Test string",
-                sessionAffinity: true,
-                timeout: "Test string",
-                volumes: [
-                    {
-                        cloudSqlInstance: {
-                            instances: [
-                                "Test string"
-                            ],
-                        },
-                        emptyDir: {
-                            medium: "Test string",
-                            sizeLimit: "Test string",
-                        },
-                        name: "Test string",
-                        secret: {
-                            defaultMode: 42,
-                            items: [
-                                {
-                                    mode: 42,
-                                    path: "Test string",
-                                    version: "Test string",
-                                }
-                            ],
-                            secret: "Test string",
-                        },
-                    }
-                ],
-                vpcAccess: {
-                    connector: "Test string",
-                    egress: "Test string",
-                    networkInterfaces: [
-                        {
-                            network: "Test string",
-                            subnetwork: "Test string",
-                            tags: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                },
-            },
-            terminalCondition: {
-                executionReason: "Test string",
-                lastTransitionTime: "Test string",
-                message: "Test string",
-                reason: "Test string",
-                revisionReason: "Test string",
-                severity: "Test string",
-                state: "Test string",
-                type: "Test string",
-            },
-            traffic: [
-                {
-                    percent: 42,
-                    revision: "Test string",
-                    tag: "Test string",
-                    type: "Test string",
-                }
-            ],
-            trafficStatuses: [
-                {
-                    percent: 42,
-                    revision: "Test string",
-                    tag: "Test string",
-                    type: "Test string",
-                    uri: "Test string",
-                }
-            ],
-            uid: "Test string",
-            updateTime: "Test string",
-            uri: "Test string",
-        });
-        /** Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. */
-        await gapi.client.run.projects.locations.services.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
-        await gapi.client.run.projects.locations.services.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Deletes a Revision. */
-        await gapi.client.run.projects.locations.services.revisions.delete({
-            etag: "Test string",
-            name: "Test string",
-            validateOnly: true,
-        });
-        /** Gets information about a Revision. */
-        await gapi.client.run.projects.locations.services.revisions.get({
-            name: "Test string",
-        });
-        /** Lists Revisions from a given Service, or from a given location. */
-        await gapi.client.run.projects.locations.services.revisions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            showDeleted: true,
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Creates a Job. */
+    await gapi.client.run.projects.locations.jobs.create(
+      {
+        jobId: 'Test string',
+        parent: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        binaryAuthorization: {
+          breakglassJustification: 'Test string',
+          useDefault: true,
+        },
+        client: 'Test string',
+        clientVersion: 'Test string',
+        conditions: [
+          {
+            executionReason: 'Test string',
+            lastTransitionTime: 'Test string',
+            message: 'Test string',
+            reason: 'Test string',
+            revisionReason: 'Test string',
+            severity: 'Test string',
+            state: 'Test string',
+            type: 'Test string',
+          },
+        ],
+        createTime: 'Test string',
+        creator: 'Test string',
+        deleteTime: 'Test string',
+        etag: 'Test string',
+        executionCount: 42,
+        expireTime: 'Test string',
+        generation: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        lastModifier: 'Test string',
+        latestCreatedExecution: {
+          completionTime: 'Test string',
+          createTime: 'Test string',
+          name: 'Test string',
+        },
+        launchStage: 'Test string',
+        name: 'Test string',
+        observedGeneration: 'Test string',
+        reconciling: true,
+        satisfiesPzs: true,
+        template: {
+          annotations: {
+            A: 'Test string',
+          },
+          labels: {
+            A: 'Test string',
+          },
+          parallelism: 42,
+          taskCount: 42,
+          template: {
+            containers: [
+              {
+                args: ['Test string'],
+                command: ['Test string'],
+                dependsOn: ['Test string'],
+                env: [
+                  {
+                    name: 'Test string',
+                    value: 'Test string',
+                    valueSource: {
+                      secretKeyRef: {
+                        secret: 'Test string',
+                        version: 'Test string',
+                      },
+                    },
+                  },
+                ],
+                image: 'Test string',
+                livenessProbe: {
+                  failureThreshold: 42,
+                  grpc: {
+                    port: 42,
+                    service: 'Test string',
+                  },
+                  httpGet: {
+                    httpHeaders: [
+                      {
+                        name: 'Test string',
+                        value: 'Test string',
+                      },
+                    ],
+                    path: 'Test string',
+                    port: 42,
+                  },
+                  initialDelaySeconds: 42,
+                  periodSeconds: 42,
+                  tcpSocket: {
+                    port: 42,
+                  },
+                  timeoutSeconds: 42,
+                },
+                name: 'Test string',
+                ports: [
+                  {
+                    containerPort: 42,
+                    name: 'Test string',
+                  },
+                ],
+                resources: {
+                  cpuIdle: true,
+                  limits: {
+                    A: 'Test string',
+                  },
+                  startupCpuBoost: true,
+                },
+                startupProbe: {
+                  failureThreshold: 42,
+                  grpc: {
+                    port: 42,
+                    service: 'Test string',
+                  },
+                  httpGet: {
+                    httpHeaders: [
+                      {
+                        name: 'Test string',
+                        value: 'Test string',
+                      },
+                    ],
+                    path: 'Test string',
+                    port: 42,
+                  },
+                  initialDelaySeconds: 42,
+                  periodSeconds: 42,
+                  tcpSocket: {
+                    port: 42,
+                  },
+                  timeoutSeconds: 42,
+                },
+                volumeMounts: [
+                  {
+                    mountPath: 'Test string',
+                    name: 'Test string',
+                  },
+                ],
+                workingDir: 'Test string',
+              },
+            ],
+            encryptionKey: 'Test string',
+            executionEnvironment: 'Test string',
+            maxRetries: 42,
+            serviceAccount: 'Test string',
+            timeout: 'Test string',
+            volumes: [
+              {
+                cloudSqlInstance: {
+                  instances: ['Test string'],
+                },
+                emptyDir: {
+                  medium: 'Test string',
+                  sizeLimit: 'Test string',
+                },
+                name: 'Test string',
+                secret: {
+                  defaultMode: 42,
+                  items: [
+                    {
+                      mode: 42,
+                      path: 'Test string',
+                      version: 'Test string',
+                    },
+                  ],
+                  secret: 'Test string',
+                },
+              },
+            ],
+            vpcAccess: {
+              connector: 'Test string',
+              egress: 'Test string',
+              networkInterfaces: [
+                {
+                  network: 'Test string',
+                  subnetwork: 'Test string',
+                  tags: ['Test string'],
+                },
+              ],
+            },
+          },
+        },
+        terminalCondition: {
+          executionReason: 'Test string',
+          lastTransitionTime: 'Test string',
+          message: 'Test string',
+          reason: 'Test string',
+          revisionReason: 'Test string',
+          severity: 'Test string',
+          state: 'Test string',
+          type: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a Job. */
+    await gapi.client.run.projects.locations.jobs.delete({
+      etag: 'Test string',
+      name: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets information about a Job. */
+    await gapi.client.run.projects.locations.jobs.get({
+      name: 'Test string',
+    });
+    /** Gets the IAM Access Control policy currently in effect for the given Job. This result does not include any inherited policies. */
+    await gapi.client.run.projects.locations.jobs.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Jobs. */
+    await gapi.client.run.projects.locations.jobs.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      showDeleted: true,
+    });
+    /** Updates a Job. */
+    await gapi.client.run.projects.locations.jobs.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        binaryAuthorization: {
+          breakglassJustification: 'Test string',
+          useDefault: true,
+        },
+        client: 'Test string',
+        clientVersion: 'Test string',
+        conditions: [
+          {
+            executionReason: 'Test string',
+            lastTransitionTime: 'Test string',
+            message: 'Test string',
+            reason: 'Test string',
+            revisionReason: 'Test string',
+            severity: 'Test string',
+            state: 'Test string',
+            type: 'Test string',
+          },
+        ],
+        createTime: 'Test string',
+        creator: 'Test string',
+        deleteTime: 'Test string',
+        etag: 'Test string',
+        executionCount: 42,
+        expireTime: 'Test string',
+        generation: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        lastModifier: 'Test string',
+        latestCreatedExecution: {
+          completionTime: 'Test string',
+          createTime: 'Test string',
+          name: 'Test string',
+        },
+        launchStage: 'Test string',
+        name: 'Test string',
+        observedGeneration: 'Test string',
+        reconciling: true,
+        satisfiesPzs: true,
+        template: {
+          annotations: {
+            A: 'Test string',
+          },
+          labels: {
+            A: 'Test string',
+          },
+          parallelism: 42,
+          taskCount: 42,
+          template: {
+            containers: [
+              {
+                args: ['Test string'],
+                command: ['Test string'],
+                dependsOn: ['Test string'],
+                env: [
+                  {
+                    name: 'Test string',
+                    value: 'Test string',
+                    valueSource: {
+                      secretKeyRef: {
+                        secret: 'Test string',
+                        version: 'Test string',
+                      },
+                    },
+                  },
+                ],
+                image: 'Test string',
+                livenessProbe: {
+                  failureThreshold: 42,
+                  grpc: {
+                    port: 42,
+                    service: 'Test string',
+                  },
+                  httpGet: {
+                    httpHeaders: [
+                      {
+                        name: 'Test string',
+                        value: 'Test string',
+                      },
+                    ],
+                    path: 'Test string',
+                    port: 42,
+                  },
+                  initialDelaySeconds: 42,
+                  periodSeconds: 42,
+                  tcpSocket: {
+                    port: 42,
+                  },
+                  timeoutSeconds: 42,
+                },
+                name: 'Test string',
+                ports: [
+                  {
+                    containerPort: 42,
+                    name: 'Test string',
+                  },
+                ],
+                resources: {
+                  cpuIdle: true,
+                  limits: {
+                    A: 'Test string',
+                  },
+                  startupCpuBoost: true,
+                },
+                startupProbe: {
+                  failureThreshold: 42,
+                  grpc: {
+                    port: 42,
+                    service: 'Test string',
+                  },
+                  httpGet: {
+                    httpHeaders: [
+                      {
+                        name: 'Test string',
+                        value: 'Test string',
+                      },
+                    ],
+                    path: 'Test string',
+                    port: 42,
+                  },
+                  initialDelaySeconds: 42,
+                  periodSeconds: 42,
+                  tcpSocket: {
+                    port: 42,
+                  },
+                  timeoutSeconds: 42,
+                },
+                volumeMounts: [
+                  {
+                    mountPath: 'Test string',
+                    name: 'Test string',
+                  },
+                ],
+                workingDir: 'Test string',
+              },
+            ],
+            encryptionKey: 'Test string',
+            executionEnvironment: 'Test string',
+            maxRetries: 42,
+            serviceAccount: 'Test string',
+            timeout: 'Test string',
+            volumes: [
+              {
+                cloudSqlInstance: {
+                  instances: ['Test string'],
+                },
+                emptyDir: {
+                  medium: 'Test string',
+                  sizeLimit: 'Test string',
+                },
+                name: 'Test string',
+                secret: {
+                  defaultMode: 42,
+                  items: [
+                    {
+                      mode: 42,
+                      path: 'Test string',
+                      version: 'Test string',
+                    },
+                  ],
+                  secret: 'Test string',
+                },
+              },
+            ],
+            vpcAccess: {
+              connector: 'Test string',
+              egress: 'Test string',
+              networkInterfaces: [
+                {
+                  network: 'Test string',
+                  subnetwork: 'Test string',
+                  tags: ['Test string'],
+                },
+              ],
+            },
+          },
+        },
+        terminalCondition: {
+          executionReason: 'Test string',
+          lastTransitionTime: 'Test string',
+          message: 'Test string',
+          reason: 'Test string',
+          revisionReason: 'Test string',
+          severity: 'Test string',
+          state: 'Test string',
+          type: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Triggers creation of a new Execution of this Job. */
+    await gapi.client.run.projects.locations.jobs.run(
+      {
+        name: 'Test string',
+      },
+      {
+        etag: 'Test string',
+        overrides: {
+          containerOverrides: [
+            {
+              args: ['Test string'],
+              clearArgs: true,
+              env: [
+                {
+                  name: 'Test string',
+                  value: 'Test string',
+                  valueSource: {
+                    secretKeyRef: {
+                      secret: 'Test string',
+                      version: 'Test string',
+                    },
+                  },
+                },
+              ],
+              name: 'Test string',
+            },
+          ],
+          taskCount: 42,
+          timeout: 'Test string',
+        },
+        validateOnly: true,
+      }
+    );
+    /** Sets the IAM Access control policy for the specified Job. Overwrites any existing policy. */
+    await gapi.client.run.projects.locations.jobs.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
+    await gapi.client.run.projects.locations.jobs.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Cancels an Execution. */
+    await gapi.client.run.projects.locations.jobs.executions.cancel(
+      {
+        name: 'Test string',
+      },
+      {
+        etag: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Deletes an Execution. */
+    await gapi.client.run.projects.locations.jobs.executions.delete({
+      etag: 'Test string',
+      name: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets information about an Execution. */
+    await gapi.client.run.projects.locations.jobs.executions.get({
+      name: 'Test string',
+    });
+    /** Lists Executions from a Job. */
+    await gapi.client.run.projects.locations.jobs.executions.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      showDeleted: true,
+    });
+    /** Gets information about a Task. */
+    await gapi.client.run.projects.locations.jobs.executions.tasks.get({
+      name: 'Test string',
+    });
+    /** Lists Tasks from an Execution of a Job. */
+    await gapi.client.run.projects.locations.jobs.executions.tasks.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      showDeleted: true,
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.run.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.run.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.run.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.run.projects.locations.operations.wait(
+      {
+        name: 'Test string',
+      },
+      {
+        timeout: 'Test string',
+      }
+    );
+    /** Creates a new Service in a given project and location. */
+    await gapi.client.run.projects.locations.services.create(
+      {
+        parent: 'Test string',
+        serviceId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        binaryAuthorization: {
+          breakglassJustification: 'Test string',
+          useDefault: true,
+        },
+        client: 'Test string',
+        clientVersion: 'Test string',
+        conditions: [
+          {
+            executionReason: 'Test string',
+            lastTransitionTime: 'Test string',
+            message: 'Test string',
+            reason: 'Test string',
+            revisionReason: 'Test string',
+            severity: 'Test string',
+            state: 'Test string',
+            type: 'Test string',
+          },
+        ],
+        createTime: 'Test string',
+        creator: 'Test string',
+        customAudiences: ['Test string'],
+        deleteTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        expireTime: 'Test string',
+        generation: 'Test string',
+        ingress: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        lastModifier: 'Test string',
+        latestCreatedRevision: 'Test string',
+        latestReadyRevision: 'Test string',
+        launchStage: 'Test string',
+        name: 'Test string',
+        observedGeneration: 'Test string',
+        reconciling: true,
+        satisfiesPzs: true,
+        scaling: {
+          minInstanceCount: 42,
+        },
+        template: {
+          annotations: {
+            A: 'Test string',
+          },
+          containers: [
+            {
+              args: ['Test string'],
+              command: ['Test string'],
+              dependsOn: ['Test string'],
+              env: [
+                {
+                  name: 'Test string',
+                  value: 'Test string',
+                  valueSource: {
+                    secretKeyRef: {
+                      secret: 'Test string',
+                      version: 'Test string',
+                    },
+                  },
+                },
+              ],
+              image: 'Test string',
+              livenessProbe: {
+                failureThreshold: 42,
+                grpc: {
+                  port: 42,
+                  service: 'Test string',
+                },
+                httpGet: {
+                  httpHeaders: [
+                    {
+                      name: 'Test string',
+                      value: 'Test string',
+                    },
+                  ],
+                  path: 'Test string',
+                  port: 42,
+                },
+                initialDelaySeconds: 42,
+                periodSeconds: 42,
+                tcpSocket: {
+                  port: 42,
+                },
+                timeoutSeconds: 42,
+              },
+              name: 'Test string',
+              ports: [
+                {
+                  containerPort: 42,
+                  name: 'Test string',
+                },
+              ],
+              resources: {
+                cpuIdle: true,
+                limits: {
+                  A: 'Test string',
+                },
+                startupCpuBoost: true,
+              },
+              startupProbe: {
+                failureThreshold: 42,
+                grpc: {
+                  port: 42,
+                  service: 'Test string',
+                },
+                httpGet: {
+                  httpHeaders: [
+                    {
+                      name: 'Test string',
+                      value: 'Test string',
+                    },
+                  ],
+                  path: 'Test string',
+                  port: 42,
+                },
+                initialDelaySeconds: 42,
+                periodSeconds: 42,
+                tcpSocket: {
+                  port: 42,
+                },
+                timeoutSeconds: 42,
+              },
+              volumeMounts: [
+                {
+                  mountPath: 'Test string',
+                  name: 'Test string',
+                },
+              ],
+              workingDir: 'Test string',
+            },
+          ],
+          encryptionKey: 'Test string',
+          executionEnvironment: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          maxInstanceRequestConcurrency: 42,
+          revision: 'Test string',
+          scaling: {
+            maxInstanceCount: 42,
+            minInstanceCount: 42,
+          },
+          serviceAccount: 'Test string',
+          sessionAffinity: true,
+          timeout: 'Test string',
+          volumes: [
+            {
+              cloudSqlInstance: {
+                instances: ['Test string'],
+              },
+              emptyDir: {
+                medium: 'Test string',
+                sizeLimit: 'Test string',
+              },
+              name: 'Test string',
+              secret: {
+                defaultMode: 42,
+                items: [
+                  {
+                    mode: 42,
+                    path: 'Test string',
+                    version: 'Test string',
+                  },
+                ],
+                secret: 'Test string',
+              },
+            },
+          ],
+          vpcAccess: {
+            connector: 'Test string',
+            egress: 'Test string',
+            networkInterfaces: [
+              {
+                network: 'Test string',
+                subnetwork: 'Test string',
+                tags: ['Test string'],
+              },
+            ],
+          },
+        },
+        terminalCondition: {
+          executionReason: 'Test string',
+          lastTransitionTime: 'Test string',
+          message: 'Test string',
+          reason: 'Test string',
+          revisionReason: 'Test string',
+          severity: 'Test string',
+          state: 'Test string',
+          type: 'Test string',
+        },
+        traffic: [
+          {
+            percent: 42,
+            revision: 'Test string',
+            tag: 'Test string',
+            type: 'Test string',
+          },
+        ],
+        trafficStatuses: [
+          {
+            percent: 42,
+            revision: 'Test string',
+            tag: 'Test string',
+            type: 'Test string',
+            uri: 'Test string',
+          },
+        ],
+        uid: 'Test string',
+        updateTime: 'Test string',
+        uri: 'Test string',
+      }
+    );
+    /** Deletes a Service. This will cause the Service to stop serving traffic and will delete all revisions. */
+    await gapi.client.run.projects.locations.services.delete({
+      etag: 'Test string',
+      name: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets information about a Service. */
+    await gapi.client.run.projects.locations.services.get({
+      name: 'Test string',
+    });
+    /** Gets the IAM Access Control policy currently in effect for the given Cloud Run Service. This result does not include any inherited policies. */
+    await gapi.client.run.projects.locations.services.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Services. */
+    await gapi.client.run.projects.locations.services.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      showDeleted: true,
+    });
+    /** Updates a Service. */
+    await gapi.client.run.projects.locations.services.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        binaryAuthorization: {
+          breakglassJustification: 'Test string',
+          useDefault: true,
+        },
+        client: 'Test string',
+        clientVersion: 'Test string',
+        conditions: [
+          {
+            executionReason: 'Test string',
+            lastTransitionTime: 'Test string',
+            message: 'Test string',
+            reason: 'Test string',
+            revisionReason: 'Test string',
+            severity: 'Test string',
+            state: 'Test string',
+            type: 'Test string',
+          },
+        ],
+        createTime: 'Test string',
+        creator: 'Test string',
+        customAudiences: ['Test string'],
+        deleteTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        expireTime: 'Test string',
+        generation: 'Test string',
+        ingress: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        lastModifier: 'Test string',
+        latestCreatedRevision: 'Test string',
+        latestReadyRevision: 'Test string',
+        launchStage: 'Test string',
+        name: 'Test string',
+        observedGeneration: 'Test string',
+        reconciling: true,
+        satisfiesPzs: true,
+        scaling: {
+          minInstanceCount: 42,
+        },
+        template: {
+          annotations: {
+            A: 'Test string',
+          },
+          containers: [
+            {
+              args: ['Test string'],
+              command: ['Test string'],
+              dependsOn: ['Test string'],
+              env: [
+                {
+                  name: 'Test string',
+                  value: 'Test string',
+                  valueSource: {
+                    secretKeyRef: {
+                      secret: 'Test string',
+                      version: 'Test string',
+                    },
+                  },
+                },
+              ],
+              image: 'Test string',
+              livenessProbe: {
+                failureThreshold: 42,
+                grpc: {
+                  port: 42,
+                  service: 'Test string',
+                },
+                httpGet: {
+                  httpHeaders: [
+                    {
+                      name: 'Test string',
+                      value: 'Test string',
+                    },
+                  ],
+                  path: 'Test string',
+                  port: 42,
+                },
+                initialDelaySeconds: 42,
+                periodSeconds: 42,
+                tcpSocket: {
+                  port: 42,
+                },
+                timeoutSeconds: 42,
+              },
+              name: 'Test string',
+              ports: [
+                {
+                  containerPort: 42,
+                  name: 'Test string',
+                },
+              ],
+              resources: {
+                cpuIdle: true,
+                limits: {
+                  A: 'Test string',
+                },
+                startupCpuBoost: true,
+              },
+              startupProbe: {
+                failureThreshold: 42,
+                grpc: {
+                  port: 42,
+                  service: 'Test string',
+                },
+                httpGet: {
+                  httpHeaders: [
+                    {
+                      name: 'Test string',
+                      value: 'Test string',
+                    },
+                  ],
+                  path: 'Test string',
+                  port: 42,
+                },
+                initialDelaySeconds: 42,
+                periodSeconds: 42,
+                tcpSocket: {
+                  port: 42,
+                },
+                timeoutSeconds: 42,
+              },
+              volumeMounts: [
+                {
+                  mountPath: 'Test string',
+                  name: 'Test string',
+                },
+              ],
+              workingDir: 'Test string',
+            },
+          ],
+          encryptionKey: 'Test string',
+          executionEnvironment: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          maxInstanceRequestConcurrency: 42,
+          revision: 'Test string',
+          scaling: {
+            maxInstanceCount: 42,
+            minInstanceCount: 42,
+          },
+          serviceAccount: 'Test string',
+          sessionAffinity: true,
+          timeout: 'Test string',
+          volumes: [
+            {
+              cloudSqlInstance: {
+                instances: ['Test string'],
+              },
+              emptyDir: {
+                medium: 'Test string',
+                sizeLimit: 'Test string',
+              },
+              name: 'Test string',
+              secret: {
+                defaultMode: 42,
+                items: [
+                  {
+                    mode: 42,
+                    path: 'Test string',
+                    version: 'Test string',
+                  },
+                ],
+                secret: 'Test string',
+              },
+            },
+          ],
+          vpcAccess: {
+            connector: 'Test string',
+            egress: 'Test string',
+            networkInterfaces: [
+              {
+                network: 'Test string',
+                subnetwork: 'Test string',
+                tags: ['Test string'],
+              },
+            ],
+          },
+        },
+        terminalCondition: {
+          executionReason: 'Test string',
+          lastTransitionTime: 'Test string',
+          message: 'Test string',
+          reason: 'Test string',
+          revisionReason: 'Test string',
+          severity: 'Test string',
+          state: 'Test string',
+          type: 'Test string',
+        },
+        traffic: [
+          {
+            percent: 42,
+            revision: 'Test string',
+            tag: 'Test string',
+            type: 'Test string',
+          },
+        ],
+        trafficStatuses: [
+          {
+            percent: 42,
+            revision: 'Test string',
+            tag: 'Test string',
+            type: 'Test string',
+            uri: 'Test string',
+          },
+        ],
+        uid: 'Test string',
+        updateTime: 'Test string',
+        uri: 'Test string',
+      }
+    );
+    /** Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. */
+    await gapi.client.run.projects.locations.services.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
+    await gapi.client.run.projects.locations.services.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Deletes a Revision. */
+    await gapi.client.run.projects.locations.services.revisions.delete({
+      etag: 'Test string',
+      name: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets information about a Revision. */
+    await gapi.client.run.projects.locations.services.revisions.get({
+      name: 'Test string',
+    });
+    /** Lists Revisions from a given Service, or from a given location. */
+    await gapi.client.run.projects.locations.services.revisions.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      showDeleted: true,
+    });
+  }
 });

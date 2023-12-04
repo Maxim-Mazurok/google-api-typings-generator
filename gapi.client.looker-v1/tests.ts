@@ -6,392 +6,392 @@
 // Revision: 20231109
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://looker.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.looker */
+  await gapi.client.load(
+    'https://looker.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.looker */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.looker.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.looker.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new Instance in a given project and location. */
-        await gapi.client.looker.projects.locations.instances.create({
-            instanceId: "Test string",
-            parent: "Test string",
-        }, {
-            adminSettings: {
-                allowedEmailDomains: [
-                    "Test string"
-                ],
-            },
-            consumerNetwork: "Test string",
-            createTime: "Test string",
-            customDomain: {
-                domain: "Test string",
-                state: "Test string",
-            },
-            denyMaintenancePeriod: {
-                endDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                startDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                time: {
-                    hours: 42,
-                    minutes: 42,
-                    nanos: 42,
-                    seconds: 42,
-                },
-            },
-            egressPublicIp: "Test string",
-            encryptionConfig: {
-                kmsKeyName: "Test string",
-                kmsKeyNameVersion: "Test string",
-                kmsKeyState: "Test string",
-            },
-            ingressPrivateIp: "Test string",
-            ingressPublicIp: "Test string",
-            lastDenyMaintenancePeriod: {
-                endDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                startDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                time: {
-                    hours: 42,
-                    minutes: 42,
-                    nanos: 42,
-                    seconds: 42,
-                },
-            },
-            lookerUri: "Test string",
-            lookerVersion: "Test string",
-            maintenanceSchedule: {
-                endTime: "Test string",
-                startTime: "Test string",
-            },
-            maintenanceWindow: {
-                dayOfWeek: "Test string",
-                startTime: {
-                    hours: 42,
-                    minutes: 42,
-                    nanos: 42,
-                    seconds: 42,
-                },
-            },
-            name: "Test string",
-            oauthConfig: {
-                clientId: "Test string",
-                clientSecret: "Test string",
-            },
-            platformEdition: "Test string",
-            privateIpEnabled: true,
-            publicIpEnabled: true,
-            reservedRange: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            userMetadata: {
-                additionalDeveloperUserCount: 42,
-                additionalStandardUserCount: 42,
-                additionalViewerUserCount: 42,
-            },
-        });
-        /** Delete instance. */
-        await gapi.client.looker.projects.locations.instances.delete({
-            force: true,
-            name: "Test string",
-        });
-        /** Export instance. */
-        await gapi.client.looker.projects.locations.instances.export({
-            name: "Test string",
-        }, {
-            encryptionConfig: {
-                kmsKeyName: "Test string",
-            },
-            gcsUri: "Test string",
-        });
-        /** Gets details of a single Instance. */
-        await gapi.client.looker.projects.locations.instances.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.looker.projects.locations.instances.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Import instance. */
-        await gapi.client.looker.projects.locations.instances.import({
-            name: "Test string",
-        }, {
-            gcsUri: "Test string",
-        });
-        /** Lists Instances in a given project and location. */
-        await gapi.client.looker.projects.locations.instances.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Update Instance. */
-        await gapi.client.looker.projects.locations.instances.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            adminSettings: {
-                allowedEmailDomains: [
-                    "Test string"
-                ],
-            },
-            consumerNetwork: "Test string",
-            createTime: "Test string",
-            customDomain: {
-                domain: "Test string",
-                state: "Test string",
-            },
-            denyMaintenancePeriod: {
-                endDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                startDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                time: {
-                    hours: 42,
-                    minutes: 42,
-                    nanos: 42,
-                    seconds: 42,
-                },
-            },
-            egressPublicIp: "Test string",
-            encryptionConfig: {
-                kmsKeyName: "Test string",
-                kmsKeyNameVersion: "Test string",
-                kmsKeyState: "Test string",
-            },
-            ingressPrivateIp: "Test string",
-            ingressPublicIp: "Test string",
-            lastDenyMaintenancePeriod: {
-                endDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                startDate: {
-                    day: 42,
-                    month: 42,
-                    year: 42,
-                },
-                time: {
-                    hours: 42,
-                    minutes: 42,
-                    nanos: 42,
-                    seconds: 42,
-                },
-            },
-            lookerUri: "Test string",
-            lookerVersion: "Test string",
-            maintenanceSchedule: {
-                endTime: "Test string",
-                startTime: "Test string",
-            },
-            maintenanceWindow: {
-                dayOfWeek: "Test string",
-                startTime: {
-                    hours: 42,
-                    minutes: 42,
-                    nanos: 42,
-                    seconds: 42,
-                },
-            },
-            name: "Test string",
-            oauthConfig: {
-                clientId: "Test string",
-                clientSecret: "Test string",
-            },
-            platformEdition: "Test string",
-            privateIpEnabled: true,
-            publicIpEnabled: true,
-            reservedRange: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            userMetadata: {
-                additionalDeveloperUserCount: 42,
-                additionalStandardUserCount: 42,
-                additionalViewerUserCount: 42,
-            },
-        });
-        /** Restart instance. */
-        await gapi.client.looker.projects.locations.instances.restart({
-            name: "Test string",
-        }, {
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.looker.projects.locations.instances.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.looker.projects.locations.instances.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.looker.projects.locations.instances.backups.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.looker.projects.locations.instances.backups.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.looker.projects.locations.instances.backups.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.looker.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.looker.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.looker.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.looker.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.looker.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.looker.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new Instance in a given project and location. */
+    await gapi.client.looker.projects.locations.instances.create(
+      {
+        instanceId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        adminSettings: {
+          allowedEmailDomains: ['Test string'],
+        },
+        consumerNetwork: 'Test string',
+        createTime: 'Test string',
+        customDomain: {
+          domain: 'Test string',
+          state: 'Test string',
+        },
+        denyMaintenancePeriod: {
+          endDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          startDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          time: {
+            hours: 42,
+            minutes: 42,
+            nanos: 42,
+            seconds: 42,
+          },
+        },
+        egressPublicIp: 'Test string',
+        encryptionConfig: {
+          kmsKeyName: 'Test string',
+          kmsKeyNameVersion: 'Test string',
+          kmsKeyState: 'Test string',
+        },
+        ingressPrivateIp: 'Test string',
+        ingressPublicIp: 'Test string',
+        lastDenyMaintenancePeriod: {
+          endDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          startDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          time: {
+            hours: 42,
+            minutes: 42,
+            nanos: 42,
+            seconds: 42,
+          },
+        },
+        lookerUri: 'Test string',
+        lookerVersion: 'Test string',
+        maintenanceSchedule: {
+          endTime: 'Test string',
+          startTime: 'Test string',
+        },
+        maintenanceWindow: {
+          dayOfWeek: 'Test string',
+          startTime: {
+            hours: 42,
+            minutes: 42,
+            nanos: 42,
+            seconds: 42,
+          },
+        },
+        name: 'Test string',
+        oauthConfig: {
+          clientId: 'Test string',
+          clientSecret: 'Test string',
+        },
+        platformEdition: 'Test string',
+        privateIpEnabled: true,
+        publicIpEnabled: true,
+        reservedRange: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        userMetadata: {
+          additionalDeveloperUserCount: 42,
+          additionalStandardUserCount: 42,
+          additionalViewerUserCount: 42,
+        },
+      }
+    );
+    /** Delete instance. */
+    await gapi.client.looker.projects.locations.instances.delete({
+      force: true,
+      name: 'Test string',
+    });
+    /** Export instance. */
+    await gapi.client.looker.projects.locations.instances.export(
+      {
+        name: 'Test string',
+      },
+      {
+        encryptionConfig: {
+          kmsKeyName: 'Test string',
+        },
+        gcsUri: 'Test string',
+      }
+    );
+    /** Gets details of a single Instance. */
+    await gapi.client.looker.projects.locations.instances.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.looker.projects.locations.instances.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Import instance. */
+    await gapi.client.looker.projects.locations.instances.import(
+      {
+        name: 'Test string',
+      },
+      {
+        gcsUri: 'Test string',
+      }
+    );
+    /** Lists Instances in a given project and location. */
+    await gapi.client.looker.projects.locations.instances.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Update Instance. */
+    await gapi.client.looker.projects.locations.instances.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        adminSettings: {
+          allowedEmailDomains: ['Test string'],
+        },
+        consumerNetwork: 'Test string',
+        createTime: 'Test string',
+        customDomain: {
+          domain: 'Test string',
+          state: 'Test string',
+        },
+        denyMaintenancePeriod: {
+          endDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          startDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          time: {
+            hours: 42,
+            minutes: 42,
+            nanos: 42,
+            seconds: 42,
+          },
+        },
+        egressPublicIp: 'Test string',
+        encryptionConfig: {
+          kmsKeyName: 'Test string',
+          kmsKeyNameVersion: 'Test string',
+          kmsKeyState: 'Test string',
+        },
+        ingressPrivateIp: 'Test string',
+        ingressPublicIp: 'Test string',
+        lastDenyMaintenancePeriod: {
+          endDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          startDate: {
+            day: 42,
+            month: 42,
+            year: 42,
+          },
+          time: {
+            hours: 42,
+            minutes: 42,
+            nanos: 42,
+            seconds: 42,
+          },
+        },
+        lookerUri: 'Test string',
+        lookerVersion: 'Test string',
+        maintenanceSchedule: {
+          endTime: 'Test string',
+          startTime: 'Test string',
+        },
+        maintenanceWindow: {
+          dayOfWeek: 'Test string',
+          startTime: {
+            hours: 42,
+            minutes: 42,
+            nanos: 42,
+            seconds: 42,
+          },
+        },
+        name: 'Test string',
+        oauthConfig: {
+          clientId: 'Test string',
+          clientSecret: 'Test string',
+        },
+        platformEdition: 'Test string',
+        privateIpEnabled: true,
+        publicIpEnabled: true,
+        reservedRange: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        userMetadata: {
+          additionalDeveloperUserCount: 42,
+          additionalStandardUserCount: 42,
+          additionalViewerUserCount: 42,
+        },
+      }
+    );
+    /** Restart instance. */
+    await gapi.client.looker.projects.locations.instances.restart(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.looker.projects.locations.instances.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.looker.projects.locations.instances.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.looker.projects.locations.instances.backups.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.looker.projects.locations.instances.backups.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.looker.projects.locations.instances.backups.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.looker.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.looker.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.looker.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.looker.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+  }
 });

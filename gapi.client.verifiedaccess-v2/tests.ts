@@ -6,38 +6,40 @@
 // Revision: 20231107
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://verifiedaccess.googleapis.com/$discovery/rest?version=v2');
-    /** now we can use gapi.client.verifiedaccess */
+  await gapi.client.load(
+    'https://verifiedaccess.googleapis.com/$discovery/rest?version=v2'
+  );
+  /** now we can use gapi.client.verifiedaccess */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** Verify your enterprise credentials */
-        'https://www.googleapis.com/auth/verifiedaccess',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Generates a new challenge. */
-        await gapi.client.verifiedaccess.challenge.generate({
-        }, {
-        });
-        /** Verifies the challenge response. */
-        await gapi.client.verifiedaccess.challenge.verify({
-        }, {
-            challengeResponse: "Test string",
-            expectedIdentity: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** Verify your enterprise credentials */
+    'https://www.googleapis.com/auth/verifiedaccess',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Generates a new challenge. */
+    await gapi.client.verifiedaccess.challenge.generate({}, {});
+    /** Verifies the challenge response. */
+    await gapi.client.verifiedaccess.challenge.verify(
+      {},
+      {
+        challengeResponse: 'Test string',
+        expectedIdentity: 'Test string',
+      }
+    );
+  }
 });

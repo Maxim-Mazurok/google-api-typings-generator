@@ -6,26 +6,25 @@
 // Revision: 20231112
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://kgsearch.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.kgsearch */
+  await gapi.client.load(
+    'https://kgsearch.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.kgsearch */
 
-    run();
+  void run();
 
-    async function run() {
-        /**
-         * Searches Knowledge Graph for entities that match the constraints. A list of matched entities will be returned in response, which will be in JSON-LD format and compatible with
-         * http://schema.org
-         */
-        await gapi.client.kgsearch.entities.search({
-            ids: "Test string",
-            indent: true,
-            languages: "Test string",
-            limit: 42,
-            prefix: true,
-            query: "Test string",
-            types: "Test string",
-        });
-    }
+  async function run() {
+    /** Searches Knowledge Graph for entities that match the constraints. A list of matched entities will be returned in response, which will be in JSON-LD format and compatible with http://schema.org */
+    await gapi.client.kgsearch.entities.search({
+      ids: 'Test string',
+      indent: true,
+      languages: 'Test string',
+      limit: 42,
+      prefix: true,
+      query: 'Test string',
+      types: 'Test string',
+    });
+  }
 });

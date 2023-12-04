@@ -6,52 +6,46 @@
 // Revision: 20231111
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://cloudasset.googleapis.com/$discovery/rest?version=v1p1beta1');
-    /** now we can use gapi.client.cloudasset */
+  await gapi.client.load(
+    'https://cloudasset.googleapis.com/$discovery/rest?version=v1p1beta1'
+  );
+  /** now we can use gapi.client.cloudasset */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /**
-         * Searches all the IAM policies within a given accessible Resource Manager scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all
-         * the IAM policies within a scope, even if they don't have `.getIamPolicy` permission of all the IAM policies. Callers should have `cloud.assets.SearchAllIamPolicies` permission on the
-         * requested scope, otherwise the request will be rejected.
-         */
-        await gapi.client.cloudasset.iamPolicies.searchAll({
-            pageSize: 42,
-            pageToken: "Test string",
-            query: "Test string",
-            scope: "Test string",
-        });
-        /**
-         * Searches all the resources within a given accessible Resource Manager scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all the
-         * resources within a scope, even if they don't have `.get` permission of all the resources. Callers should have `cloud.assets.SearchAllResources` permission on the requested scope,
-         * otherwise the request will be rejected.
-         */
-        await gapi.client.cloudasset.resources.searchAll({
-            assetTypes: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            query: "Test string",
-            scope: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Searches all the IAM policies within a given accessible Resource Manager scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all the IAM policies within a scope, even if they don't have `.getIamPolicy` permission of all the IAM policies. Callers should have `cloud.assets.SearchAllIamPolicies` permission on the requested scope, otherwise the request will be rejected. */
+    await gapi.client.cloudasset.iamPolicies.searchAll({
+      pageSize: 42,
+      pageToken: 'Test string',
+      query: 'Test string',
+      scope: 'Test string',
+    });
+    /** Searches all the resources within a given accessible Resource Manager scope (project/folder/organization). This RPC gives callers especially administrators the ability to search all the resources within a scope, even if they don't have `.get` permission of all the resources. Callers should have `cloud.assets.SearchAllResources` permission on the requested scope, otherwise the request will be rejected. */
+    await gapi.client.cloudasset.resources.searchAll({
+      assetTypes: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      query: 'Test string',
+      scope: 'Test string',
+    });
+  }
 });

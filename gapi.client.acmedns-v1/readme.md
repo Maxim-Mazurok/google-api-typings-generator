@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://acmedns.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.acmedns
-});
+gapi.client.load(
+  'https://acmedns.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.acmedns
+  }
+);
 ```
 
 ```typescript
@@ -39,19 +42,18 @@ gapi.client.load('acmedns', 'v1', () => {
 });
 ```
 
-
-
 After that you can use ACME DNS API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Gets the ACME challenge set for a given domain name. Domain names must be provided in Punycode.
 */
-await gapi.client.acmedns.acmeChallengeSets.get({ rootDomain: "rootDomain",  });
+await gapi.client.acmedns.acmeChallengeSets.get({rootDomain: 'rootDomain'});
 
 /*
 Rotate the ACME challenges for a given domain name. By default, removes any challenges that are older than 30 days. Domain names must be provided in Punycode.
 */
-await gapi.client.acmedns.acmeChallengeSets.rotateChallenges({ rootDomain: "rootDomain",  });
+await gapi.client.acmedns.acmeChallengeSets.rotateChallenges({
+  rootDomain: 'rootDomain',
+});
 ```

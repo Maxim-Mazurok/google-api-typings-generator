@@ -6,430 +6,449 @@
 // Revision: 20231105
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://composer.googleapis.com/$discovery/rest?version=v1beta1');
-    /** now we can use gapi.client.composer */
+  await gapi.client.load(
+    'https://composer.googleapis.com/$discovery/rest?version=v1beta1'
+  );
+  /** now we can use gapi.client.composer */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Check if an upgrade operation on the environment will succeed. In case of problems detailed info can be found in the returned Operation. */
-        await gapi.client.composer.projects.locations.environments.checkUpgrade({
-            environment: "Test string",
-        }, {
-            imageVersion: "Test string",
-        });
-        /** Create a new environment. */
-        await gapi.client.composer.projects.locations.environments.create({
-            parent: "Test string",
-        }, {
-            config: {
-                airflowByoidUri: "Test string",
-                airflowUri: "Test string",
-                dagGcsPrefix: "Test string",
-                databaseConfig: {
-                    machineType: "Test string",
-                    zone: "Test string",
-                },
-                encryptionConfig: {
-                    kmsKeyName: "Test string",
-                },
-                environmentSize: "Test string",
-                gkeCluster: "Test string",
-                maintenanceWindow: {
-                    endTime: "Test string",
-                    recurrence: "Test string",
-                    startTime: "Test string",
-                },
-                masterAuthorizedNetworksConfig: {
-                    cidrBlocks: [
-                        {
-                            cidrBlock: "Test string",
-                            displayName: "Test string",
-                        }
-                    ],
-                    enabled: true,
-                },
-                nodeConfig: {
-                    diskSizeGb: 42,
-                    enableIpMasqAgent: true,
-                    ipAllocationPolicy: {
-                        clusterIpv4CidrBlock: "Test string",
-                        clusterSecondaryRangeName: "Test string",
-                        servicesIpv4CidrBlock: "Test string",
-                        servicesSecondaryRangeName: "Test string",
-                        useIpAliases: true,
-                    },
-                    location: "Test string",
-                    machineType: "Test string",
-                    maxPodsPerNode: 42,
-                    network: "Test string",
-                    oauthScopes: [
-                        "Test string"
-                    ],
-                    serviceAccount: "Test string",
-                    subnetwork: "Test string",
-                    tags: [
-                        "Test string"
-                    ],
-                },
-                nodeCount: 42,
-                privateEnvironmentConfig: {
-                    cloudComposerConnectionSubnetwork: "Test string",
-                    cloudComposerNetworkIpv4CidrBlock: "Test string",
-                    cloudComposerNetworkIpv4ReservedRange: "Test string",
-                    cloudSqlIpv4CidrBlock: "Test string",
-                    enablePrivateEnvironment: true,
-                    enablePrivatelyUsedPublicIps: true,
-                    networkingConfig: {
-                        connectionType: "Test string",
-                    },
-                    privateClusterConfig: {
-                        enablePrivateEndpoint: true,
-                        masterIpv4CidrBlock: "Test string",
-                        masterIpv4ReservedRange: "Test string",
-                    },
-                    webServerIpv4CidrBlock: "Test string",
-                    webServerIpv4ReservedRange: "Test string",
-                },
-                recoveryConfig: {
-                    scheduledSnapshotsConfig: {
-                        enabled: true,
-                        snapshotCreationSchedule: "Test string",
-                        snapshotLocation: "Test string",
-                        timeZone: "Test string",
-                    },
-                },
-                resilienceMode: "Test string",
-                softwareConfig: {
-                    airflowConfigOverrides: {
-                        A: "Test string"
-                    },
-                    cloudDataLineageIntegration: {
-                        enabled: true,
-                    },
-                    envVariables: {
-                        A: "Test string"
-                    },
-                    imageVersion: "Test string",
-                    pypiPackages: {
-                        A: "Test string"
-                    },
-                    pythonVersion: "Test string",
-                    schedulerCount: 42,
-                },
-                webServerConfig: {
-                    machineType: "Test string",
-                },
-                webServerNetworkAccessControl: {
-                    allowedIpRanges: [
-                        {
-                            description: "Test string",
-                            value: "Test string",
-                        }
-                    ],
-                },
-                workloadsConfig: {
-                    scheduler: {
-                        count: 42,
-                        cpu: 42,
-                        memoryGb: 42,
-                        storageGb: 42,
-                    },
-                    triggerer: {
-                        count: 42,
-                        cpu: 42,
-                        memoryGb: 42,
-                    },
-                    webServer: {
-                        cpu: 42,
-                        memoryGb: 42,
-                        storageGb: 42,
-                    },
-                    worker: {
-                        cpu: 42,
-                        maxCount: 42,
-                        memoryGb: 42,
-                        minCount: 42,
-                        storageGb: 42,
-                    },
-                },
-            },
-            createTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            satisfiesPzs: true,
-            state: "Test string",
-            storageConfig: {
-                bucket: "Test string",
-            },
-            updateTime: "Test string",
-            uuid: "Test string",
-        });
-        /** Triggers database failover (only for highly resilient environments). */
-        await gapi.client.composer.projects.locations.environments.databaseFailover({
-            environment: "Test string",
-        }, {
-        });
-        /** Delete an environment. */
-        await gapi.client.composer.projects.locations.environments.delete({
-            name: "Test string",
-        });
-        /** Executes Airflow CLI command. */
-        await gapi.client.composer.projects.locations.environments.executeAirflowCommand({
-            environment: "Test string",
-        }, {
-            command: "Test string",
-            parameters: [
-                "Test string"
-            ],
-            subcommand: "Test string",
-        });
-        /** Fetches database properties. */
-        await gapi.client.composer.projects.locations.environments.fetchDatabaseProperties({
-            environment: "Test string",
-        });
-        /** Get an existing environment. */
-        await gapi.client.composer.projects.locations.environments.get({
-            name: "Test string",
-        });
-        /** List environments. */
-        await gapi.client.composer.projects.locations.environments.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Loads a snapshot of a Cloud Composer environment. As a result of this operation, a snapshot of environment's specified in LoadSnapshotRequest is loaded into the environment. */
-        await gapi.client.composer.projects.locations.environments.loadSnapshot({
-            environment: "Test string",
-        }, {
-            skipAirflowOverridesSetting: true,
-            skipEnvironmentVariablesSetting: true,
-            skipGcsDataCopying: true,
-            skipPypiPackagesInstallation: true,
-            snapshotPath: "Test string",
-        });
-        /** Update an environment. */
-        await gapi.client.composer.projects.locations.environments.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            config: {
-                airflowByoidUri: "Test string",
-                airflowUri: "Test string",
-                dagGcsPrefix: "Test string",
-                databaseConfig: {
-                    machineType: "Test string",
-                    zone: "Test string",
-                },
-                encryptionConfig: {
-                    kmsKeyName: "Test string",
-                },
-                environmentSize: "Test string",
-                gkeCluster: "Test string",
-                maintenanceWindow: {
-                    endTime: "Test string",
-                    recurrence: "Test string",
-                    startTime: "Test string",
-                },
-                masterAuthorizedNetworksConfig: {
-                    cidrBlocks: [
-                        {
-                            cidrBlock: "Test string",
-                            displayName: "Test string",
-                        }
-                    ],
-                    enabled: true,
-                },
-                nodeConfig: {
-                    diskSizeGb: 42,
-                    enableIpMasqAgent: true,
-                    ipAllocationPolicy: {
-                        clusterIpv4CidrBlock: "Test string",
-                        clusterSecondaryRangeName: "Test string",
-                        servicesIpv4CidrBlock: "Test string",
-                        servicesSecondaryRangeName: "Test string",
-                        useIpAliases: true,
-                    },
-                    location: "Test string",
-                    machineType: "Test string",
-                    maxPodsPerNode: 42,
-                    network: "Test string",
-                    oauthScopes: [
-                        "Test string"
-                    ],
-                    serviceAccount: "Test string",
-                    subnetwork: "Test string",
-                    tags: [
-                        "Test string"
-                    ],
-                },
-                nodeCount: 42,
-                privateEnvironmentConfig: {
-                    cloudComposerConnectionSubnetwork: "Test string",
-                    cloudComposerNetworkIpv4CidrBlock: "Test string",
-                    cloudComposerNetworkIpv4ReservedRange: "Test string",
-                    cloudSqlIpv4CidrBlock: "Test string",
-                    enablePrivateEnvironment: true,
-                    enablePrivatelyUsedPublicIps: true,
-                    networkingConfig: {
-                        connectionType: "Test string",
-                    },
-                    privateClusterConfig: {
-                        enablePrivateEndpoint: true,
-                        masterIpv4CidrBlock: "Test string",
-                        masterIpv4ReservedRange: "Test string",
-                    },
-                    webServerIpv4CidrBlock: "Test string",
-                    webServerIpv4ReservedRange: "Test string",
-                },
-                recoveryConfig: {
-                    scheduledSnapshotsConfig: {
-                        enabled: true,
-                        snapshotCreationSchedule: "Test string",
-                        snapshotLocation: "Test string",
-                        timeZone: "Test string",
-                    },
-                },
-                resilienceMode: "Test string",
-                softwareConfig: {
-                    airflowConfigOverrides: {
-                        A: "Test string"
-                    },
-                    cloudDataLineageIntegration: {
-                        enabled: true,
-                    },
-                    envVariables: {
-                        A: "Test string"
-                    },
-                    imageVersion: "Test string",
-                    pypiPackages: {
-                        A: "Test string"
-                    },
-                    pythonVersion: "Test string",
-                    schedulerCount: 42,
-                },
-                webServerConfig: {
-                    machineType: "Test string",
-                },
-                webServerNetworkAccessControl: {
-                    allowedIpRanges: [
-                        {
-                            description: "Test string",
-                            value: "Test string",
-                        }
-                    ],
-                },
-                workloadsConfig: {
-                    scheduler: {
-                        count: 42,
-                        cpu: 42,
-                        memoryGb: 42,
-                        storageGb: 42,
-                    },
-                    triggerer: {
-                        count: 42,
-                        cpu: 42,
-                        memoryGb: 42,
-                    },
-                    webServer: {
-                        cpu: 42,
-                        memoryGb: 42,
-                        storageGb: 42,
-                    },
-                    worker: {
-                        cpu: 42,
-                        maxCount: 42,
-                        memoryGb: 42,
-                        minCount: 42,
-                        storageGb: 42,
-                    },
-                },
-            },
-            createTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            satisfiesPzs: true,
-            state: "Test string",
-            storageConfig: {
-                bucket: "Test string",
-            },
-            updateTime: "Test string",
-            uuid: "Test string",
-        });
-        /** Polls Airflow CLI command execution and fetches logs. */
-        await gapi.client.composer.projects.locations.environments.pollAirflowCommand({
-            environment: "Test string",
-        }, {
-            executionId: "Test string",
-            nextLineNumber: 42,
-            pod: "Test string",
-            podNamespace: "Test string",
-        });
-        /** Restart Airflow web server. */
-        await gapi.client.composer.projects.locations.environments.restartWebServer({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a snapshots of a Cloud Composer environment. As a result of this operation, snapshot of environment's state is stored in a location specified in the SaveSnapshotRequest. */
-        await gapi.client.composer.projects.locations.environments.saveSnapshot({
-            environment: "Test string",
-        }, {
-            snapshotLocation: "Test string",
-        });
-        /** Stops Airflow CLI command execution. */
-        await gapi.client.composer.projects.locations.environments.stopAirflowCommand({
-            environment: "Test string",
-        }, {
-            executionId: "Test string",
-            force: true,
-            pod: "Test string",
-            podNamespace: "Test string",
-        });
-        /** List ImageVersions for provided location. */
-        await gapi.client.composer.projects.locations.imageVersions.list({
-            includePastReleases: true,
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.composer.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.composer.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.composer.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Check if an upgrade operation on the environment will succeed. In case of problems detailed info can be found in the returned Operation. */
+    await gapi.client.composer.projects.locations.environments.checkUpgrade(
+      {
+        environment: 'Test string',
+      },
+      {
+        imageVersion: 'Test string',
+      }
+    );
+    /** Create a new environment. */
+    await gapi.client.composer.projects.locations.environments.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        config: {
+          airflowByoidUri: 'Test string',
+          airflowUri: 'Test string',
+          dagGcsPrefix: 'Test string',
+          databaseConfig: {
+            machineType: 'Test string',
+            zone: 'Test string',
+          },
+          encryptionConfig: {
+            kmsKeyName: 'Test string',
+          },
+          environmentSize: 'Test string',
+          gkeCluster: 'Test string',
+          maintenanceWindow: {
+            endTime: 'Test string',
+            recurrence: 'Test string',
+            startTime: 'Test string',
+          },
+          masterAuthorizedNetworksConfig: {
+            cidrBlocks: [
+              {
+                cidrBlock: 'Test string',
+                displayName: 'Test string',
+              },
+            ],
+            enabled: true,
+          },
+          nodeConfig: {
+            diskSizeGb: 42,
+            enableIpMasqAgent: true,
+            ipAllocationPolicy: {
+              clusterIpv4CidrBlock: 'Test string',
+              clusterSecondaryRangeName: 'Test string',
+              servicesIpv4CidrBlock: 'Test string',
+              servicesSecondaryRangeName: 'Test string',
+              useIpAliases: true,
+            },
+            location: 'Test string',
+            machineType: 'Test string',
+            maxPodsPerNode: 42,
+            network: 'Test string',
+            oauthScopes: ['Test string'],
+            serviceAccount: 'Test string',
+            subnetwork: 'Test string',
+            tags: ['Test string'],
+          },
+          nodeCount: 42,
+          privateEnvironmentConfig: {
+            cloudComposerConnectionSubnetwork: 'Test string',
+            cloudComposerNetworkIpv4CidrBlock: 'Test string',
+            cloudComposerNetworkIpv4ReservedRange: 'Test string',
+            cloudSqlIpv4CidrBlock: 'Test string',
+            enablePrivateEnvironment: true,
+            enablePrivatelyUsedPublicIps: true,
+            networkingConfig: {
+              connectionType: 'Test string',
+            },
+            privateClusterConfig: {
+              enablePrivateEndpoint: true,
+              masterIpv4CidrBlock: 'Test string',
+              masterIpv4ReservedRange: 'Test string',
+            },
+            webServerIpv4CidrBlock: 'Test string',
+            webServerIpv4ReservedRange: 'Test string',
+          },
+          recoveryConfig: {
+            scheduledSnapshotsConfig: {
+              enabled: true,
+              snapshotCreationSchedule: 'Test string',
+              snapshotLocation: 'Test string',
+              timeZone: 'Test string',
+            },
+          },
+          resilienceMode: 'Test string',
+          softwareConfig: {
+            airflowConfigOverrides: {
+              A: 'Test string',
+            },
+            cloudDataLineageIntegration: {
+              enabled: true,
+            },
+            envVariables: {
+              A: 'Test string',
+            },
+            imageVersion: 'Test string',
+            pypiPackages: {
+              A: 'Test string',
+            },
+            pythonVersion: 'Test string',
+            schedulerCount: 42,
+          },
+          webServerConfig: {
+            machineType: 'Test string',
+          },
+          webServerNetworkAccessControl: {
+            allowedIpRanges: [
+              {
+                description: 'Test string',
+                value: 'Test string',
+              },
+            ],
+          },
+          workloadsConfig: {
+            scheduler: {
+              count: 42,
+              cpu: 42,
+              memoryGb: 42,
+              storageGb: 42,
+            },
+            triggerer: {
+              count: 42,
+              cpu: 42,
+              memoryGb: 42,
+            },
+            webServer: {
+              cpu: 42,
+              memoryGb: 42,
+              storageGb: 42,
+            },
+            worker: {
+              cpu: 42,
+              maxCount: 42,
+              memoryGb: 42,
+              minCount: 42,
+              storageGb: 42,
+            },
+          },
+        },
+        createTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        satisfiesPzs: true,
+        state: 'Test string',
+        storageConfig: {
+          bucket: 'Test string',
+        },
+        updateTime: 'Test string',
+        uuid: 'Test string',
+      }
+    );
+    /** Triggers database failover (only for highly resilient environments). */
+    await gapi.client.composer.projects.locations.environments.databaseFailover(
+      {
+        environment: 'Test string',
+      },
+      {}
+    );
+    /** Delete an environment. */
+    await gapi.client.composer.projects.locations.environments.delete({
+      name: 'Test string',
+    });
+    /** Executes Airflow CLI command. */
+    await gapi.client.composer.projects.locations.environments.executeAirflowCommand(
+      {
+        environment: 'Test string',
+      },
+      {
+        command: 'Test string',
+        parameters: ['Test string'],
+        subcommand: 'Test string',
+      }
+    );
+    /** Fetches database properties. */
+    await gapi.client.composer.projects.locations.environments.fetchDatabaseProperties(
+      {
+        environment: 'Test string',
+      }
+    );
+    /** Get an existing environment. */
+    await gapi.client.composer.projects.locations.environments.get({
+      name: 'Test string',
+    });
+    /** List environments. */
+    await gapi.client.composer.projects.locations.environments.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Loads a snapshot of a Cloud Composer environment. As a result of this operation, a snapshot of environment's specified in LoadSnapshotRequest is loaded into the environment. */
+    await gapi.client.composer.projects.locations.environments.loadSnapshot(
+      {
+        environment: 'Test string',
+      },
+      {
+        skipAirflowOverridesSetting: true,
+        skipEnvironmentVariablesSetting: true,
+        skipGcsDataCopying: true,
+        skipPypiPackagesInstallation: true,
+        snapshotPath: 'Test string',
+      }
+    );
+    /** Update an environment. */
+    await gapi.client.composer.projects.locations.environments.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        config: {
+          airflowByoidUri: 'Test string',
+          airflowUri: 'Test string',
+          dagGcsPrefix: 'Test string',
+          databaseConfig: {
+            machineType: 'Test string',
+            zone: 'Test string',
+          },
+          encryptionConfig: {
+            kmsKeyName: 'Test string',
+          },
+          environmentSize: 'Test string',
+          gkeCluster: 'Test string',
+          maintenanceWindow: {
+            endTime: 'Test string',
+            recurrence: 'Test string',
+            startTime: 'Test string',
+          },
+          masterAuthorizedNetworksConfig: {
+            cidrBlocks: [
+              {
+                cidrBlock: 'Test string',
+                displayName: 'Test string',
+              },
+            ],
+            enabled: true,
+          },
+          nodeConfig: {
+            diskSizeGb: 42,
+            enableIpMasqAgent: true,
+            ipAllocationPolicy: {
+              clusterIpv4CidrBlock: 'Test string',
+              clusterSecondaryRangeName: 'Test string',
+              servicesIpv4CidrBlock: 'Test string',
+              servicesSecondaryRangeName: 'Test string',
+              useIpAliases: true,
+            },
+            location: 'Test string',
+            machineType: 'Test string',
+            maxPodsPerNode: 42,
+            network: 'Test string',
+            oauthScopes: ['Test string'],
+            serviceAccount: 'Test string',
+            subnetwork: 'Test string',
+            tags: ['Test string'],
+          },
+          nodeCount: 42,
+          privateEnvironmentConfig: {
+            cloudComposerConnectionSubnetwork: 'Test string',
+            cloudComposerNetworkIpv4CidrBlock: 'Test string',
+            cloudComposerNetworkIpv4ReservedRange: 'Test string',
+            cloudSqlIpv4CidrBlock: 'Test string',
+            enablePrivateEnvironment: true,
+            enablePrivatelyUsedPublicIps: true,
+            networkingConfig: {
+              connectionType: 'Test string',
+            },
+            privateClusterConfig: {
+              enablePrivateEndpoint: true,
+              masterIpv4CidrBlock: 'Test string',
+              masterIpv4ReservedRange: 'Test string',
+            },
+            webServerIpv4CidrBlock: 'Test string',
+            webServerIpv4ReservedRange: 'Test string',
+          },
+          recoveryConfig: {
+            scheduledSnapshotsConfig: {
+              enabled: true,
+              snapshotCreationSchedule: 'Test string',
+              snapshotLocation: 'Test string',
+              timeZone: 'Test string',
+            },
+          },
+          resilienceMode: 'Test string',
+          softwareConfig: {
+            airflowConfigOverrides: {
+              A: 'Test string',
+            },
+            cloudDataLineageIntegration: {
+              enabled: true,
+            },
+            envVariables: {
+              A: 'Test string',
+            },
+            imageVersion: 'Test string',
+            pypiPackages: {
+              A: 'Test string',
+            },
+            pythonVersion: 'Test string',
+            schedulerCount: 42,
+          },
+          webServerConfig: {
+            machineType: 'Test string',
+          },
+          webServerNetworkAccessControl: {
+            allowedIpRanges: [
+              {
+                description: 'Test string',
+                value: 'Test string',
+              },
+            ],
+          },
+          workloadsConfig: {
+            scheduler: {
+              count: 42,
+              cpu: 42,
+              memoryGb: 42,
+              storageGb: 42,
+            },
+            triggerer: {
+              count: 42,
+              cpu: 42,
+              memoryGb: 42,
+            },
+            webServer: {
+              cpu: 42,
+              memoryGb: 42,
+              storageGb: 42,
+            },
+            worker: {
+              cpu: 42,
+              maxCount: 42,
+              memoryGb: 42,
+              minCount: 42,
+              storageGb: 42,
+            },
+          },
+        },
+        createTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        satisfiesPzs: true,
+        state: 'Test string',
+        storageConfig: {
+          bucket: 'Test string',
+        },
+        updateTime: 'Test string',
+        uuid: 'Test string',
+      }
+    );
+    /** Polls Airflow CLI command execution and fetches logs. */
+    await gapi.client.composer.projects.locations.environments.pollAirflowCommand(
+      {
+        environment: 'Test string',
+      },
+      {
+        executionId: 'Test string',
+        nextLineNumber: 42,
+        pod: 'Test string',
+        podNamespace: 'Test string',
+      }
+    );
+    /** Restart Airflow web server. */
+    await gapi.client.composer.projects.locations.environments.restartWebServer(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a snapshots of a Cloud Composer environment. As a result of this operation, snapshot of environment's state is stored in a location specified in the SaveSnapshotRequest. */
+    await gapi.client.composer.projects.locations.environments.saveSnapshot(
+      {
+        environment: 'Test string',
+      },
+      {
+        snapshotLocation: 'Test string',
+      }
+    );
+    /** Stops Airflow CLI command execution. */
+    await gapi.client.composer.projects.locations.environments.stopAirflowCommand(
+      {
+        environment: 'Test string',
+      },
+      {
+        executionId: 'Test string',
+        force: true,
+        pod: 'Test string',
+        podNamespace: 'Test string',
+      }
+    );
+    /** List ImageVersions for provided location. */
+    await gapi.client.composer.projects.locations.imageVersions.list({
+      includePastReleases: true,
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.composer.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.composer.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.composer.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+  }
 });

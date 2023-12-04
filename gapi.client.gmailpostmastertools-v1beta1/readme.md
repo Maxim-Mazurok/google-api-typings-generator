@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://gmailpostmastertools.googleapis.com/$discovery/rest?version=v1beta1', () => {
-  // now we can use:
-  // gapi.client.gmailpostmastertools
-});
+gapi.client.load(
+  'https://gmailpostmastertools.googleapis.com/$discovery/rest?version=v1beta1',
+  () => {
+    // now we can use:
+    // gapi.client.gmailpostmastertools
+  }
+);
 ```
 
 ```typescript
@@ -45,34 +48,34 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See email traffic metrics for the domains you have registered in Gmail Postmaster Tools
-      'https://www.googleapis.com/auth/postmaster.readonly',
-    ],
-    immediate = true;
+    // See email traffic metrics for the domains you have registered in Gmail Postmaster Tools
+    'https://www.googleapis.com/auth/postmaster.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Gmail Postmaster Tools API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Gets a specific domain registered by the client. Returns NOT_FOUND if the domain does not exist.
 */
-await gapi.client.gmailpostmastertools.domains.get({ name: "name",  });
+await gapi.client.gmailpostmastertools.domains.get({name: 'name'});
 
 /*
 Lists the domains that have been registered by the client. The order of domains in the response is unspecified and non-deterministic. Newly created domains will not necessarily be added to the end of this list.
 */
-await gapi.client.gmailpostmastertools.domains.list({  });
+await gapi.client.gmailpostmastertools.domains.list({});
 ```

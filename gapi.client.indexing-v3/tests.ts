@@ -6,42 +6,43 @@
 // Revision: 20231121
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://indexing.googleapis.com/$discovery/rest?version=v3');
-    /** now we can use gapi.client.indexing */
+  await gapi.client.load(
+    'https://indexing.googleapis.com/$discovery/rest?version=v3'
+  );
+  /** now we can use gapi.client.indexing */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** Submit data to Google for indexing */
-        'https://www.googleapis.com/auth/indexing',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /**
-         * Gets metadata about a Web Document. This method can _only_ be used to query URLs that were previously seen in successful Indexing API notifications. Includes the latest
-         * `UrlNotification` received via this API.
-         */
-        await gapi.client.indexing.urlNotifications.getMetadata({
-            url: "Test string",
-        });
-        /** Notifies that a URL has been updated or deleted. */
-        await gapi.client.indexing.urlNotifications.publish({
-        }, {
-            notifyTime: "Test string",
-            type: "Test string",
-            url: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** Submit data to Google for indexing */
+    'https://www.googleapis.com/auth/indexing',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets metadata about a Web Document. This method can _only_ be used to query URLs that were previously seen in successful Indexing API notifications. Includes the latest `UrlNotification` received via this API. */
+    await gapi.client.indexing.urlNotifications.getMetadata({
+      url: 'Test string',
+    });
+    /** Notifies that a URL has been updated or deleted. */
+    await gapi.client.indexing.urlNotifications.publish(
+      {},
+      {
+        notifyTime: 'Test string',
+        type: 'Test string',
+        url: 'Test string',
+      }
+    );
+  }
 });

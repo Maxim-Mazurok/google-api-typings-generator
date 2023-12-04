@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.readerrevenuesubscriptionlinking
-});
+gapi.client.load(
+  'https://readerrevenuesubscriptionlinking.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.readerrevenuesubscriptionlinking
+  }
+);
 ```
 
 ```typescript
@@ -39,9 +42,8 @@ gapi.client.load('readerrevenuesubscriptionlinking', 'v1', () => {
 });
 ```
 
-
-
 After that you can use Reader Revenue Subscription Linking API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

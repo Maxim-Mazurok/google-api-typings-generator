@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://civicinfo.googleapis.com/$discovery/rest?version=v2', () => {
-  // now we can use:
-  // gapi.client.civicinfo
-});
+gapi.client.load(
+  'https://civicinfo.googleapis.com/$discovery/rest?version=v2',
+  () => {
+    // now we can use:
+    // gapi.client.civicinfo
+  }
+);
 ```
 
 ```typescript
@@ -39,34 +42,33 @@ gapi.client.load('civicinfo', 'v2', () => {
 });
 ```
 
-
-
 After that you can use Google Civic Information API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Searches for political divisions by their natural name or OCD ID.
 */
-await gapi.client.civicinfo.divisions.search({  });
+await gapi.client.civicinfo.divisions.search({});
 
 /*
 List of available elections to query.
 */
-await gapi.client.civicinfo.elections.electionQuery({  });
+await gapi.client.civicinfo.elections.electionQuery({});
 
 /*
 Looks up information relevant to a voter based on the voter's registered address.
 */
-await gapi.client.civicinfo.elections.voterInfoQuery({ address: "address",  });
+await gapi.client.civicinfo.elections.voterInfoQuery({address: 'address'});
 
 /*
 Looks up political geography and representative information for a single address.
 */
-await gapi.client.civicinfo.representatives.representativeInfoByAddress({  });
+await gapi.client.civicinfo.representatives.representativeInfoByAddress({});
 
 /*
 Looks up representative information for a single geographic division.
 */
-await gapi.client.civicinfo.representatives.representativeInfoByDivision({ ocdId: "ocdId",  });
+await gapi.client.civicinfo.representatives.representativeInfoByDivision({
+  ocdId: 'ocdId',
+});
 ```

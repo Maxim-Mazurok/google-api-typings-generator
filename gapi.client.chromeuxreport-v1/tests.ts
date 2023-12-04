@@ -6,40 +6,36 @@
 // Revision: 20231116
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://chromeuxreport.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.chromeuxreport */
+  await gapi.client.load(
+    'https://chromeuxreport.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.chromeuxreport */
 
-    run();
+  void run();
 
-    async function run() {
-        /**
-         * Queries the Chrome User Experience Report for a timeseries `history record` for a given site. Returns a `history record` that contains one or more `metric timeseries` corresponding to
-         * performance data about the requested site.
-         */
-        await gapi.client.chromeuxreport.records.queryHistoryRecord({
-        }, {
-            formFactor: "Test string",
-            metrics: [
-                "Test string"
-            ],
-            origin: "Test string",
-            url: "Test string",
-        });
-        /**
-         * Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to performance data about the requested
-         * site.
-         */
-        await gapi.client.chromeuxreport.records.queryRecord({
-        }, {
-            effectiveConnectionType: "Test string",
-            formFactor: "Test string",
-            metrics: [
-                "Test string"
-            ],
-            origin: "Test string",
-            url: "Test string",
-        });
-    }
+  async function run() {
+    /** Queries the Chrome User Experience Report for a timeseries `history record` for a given site. Returns a `history record` that contains one or more `metric timeseries` corresponding to performance data about the requested site. */
+    await gapi.client.chromeuxreport.records.queryHistoryRecord(
+      {},
+      {
+        formFactor: 'Test string',
+        metrics: ['Test string'],
+        origin: 'Test string',
+        url: 'Test string',
+      }
+    );
+    /** Queries the Chrome User Experience for a single `record` for a given site. Returns a `record` that contains one or more `metrics` corresponding to performance data about the requested site. */
+    await gapi.client.chromeuxreport.records.queryRecord(
+      {},
+      {
+        effectiveConnectionType: 'Test string',
+        formFactor: 'Test string',
+        metrics: ['Test string'],
+        origin: 'Test string',
+        url: 'Test string',
+      }
+    );
+  }
 });

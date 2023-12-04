@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://abusiveexperiencereport.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.abusiveexperiencereport
-});
+gapi.client.load(
+  'https://abusiveexperiencereport.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.abusiveexperiencereport
+  }
+);
 ```
 
 ```typescript
@@ -39,19 +42,16 @@ gapi.client.load('abusiveexperiencereport', 'v1', () => {
 });
 ```
 
-
-
 After that you can use Abusive Experience Report API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Gets a site's Abusive Experience Report summary.
 */
-await gapi.client.abusiveexperiencereport.sites.get({ name: "name",  });
+await gapi.client.abusiveexperiencereport.sites.get({name: 'name'});
 
 /*
 Lists sites that are failing in the Abusive Experience Report.
 */
-await gapi.client.abusiveexperiencereport.violatingSites.list({  });
+await gapi.client.abusiveexperiencereport.violatingSites.list({});
 ```

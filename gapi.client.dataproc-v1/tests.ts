@@ -6,7056 +6,6238 @@
 // Revision: 20231109
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://dataproc.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.dataproc */
+  await gapi.client.load(
+    'https://dataproc.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.dataproc */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
+    }
+  });
+
+  async function run() {
+    /** Creates new autoscaling policy. */
+    await gapi.client.dataproc.projects.locations.autoscalingPolicies.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        basicAlgorithm: {
+          cooldownPeriod: 'Test string',
+          sparkStandaloneConfig: {
+            gracefulDecommissionTimeout: 'Test string',
+            removeOnlyIdleWorkers: true,
+            scaleDownFactor: 42,
+            scaleDownMinWorkerFraction: 42,
+            scaleUpFactor: 42,
+            scaleUpMinWorkerFraction: 42,
+          },
+          yarnConfig: {
+            gracefulDecommissionTimeout: 'Test string',
+            scaleDownFactor: 42,
+            scaleDownMinWorkerFraction: 42,
+            scaleUpFactor: 42,
+            scaleUpMinWorkerFraction: 42,
+          },
+        },
+        id: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        secondaryWorkerConfig: {
+          maxInstances: 42,
+          minInstances: 42,
+          weight: 42,
+        },
+        workerConfig: {
+          maxInstances: 42,
+          minInstances: 42,
+          weight: 42,
+        },
+      }
+    );
+    /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
+    await gapi.client.dataproc.projects.locations.autoscalingPolicies.delete({
+      name: 'Test string',
     });
-
-    async function run() {
-        /** Creates new autoscaling policy. */
-        await gapi.client.dataproc.projects.locations.autoscalingPolicies.create({
-            parent: "Test string",
-        }, {
-            basicAlgorithm: {
-                cooldownPeriod: "Test string",
-                sparkStandaloneConfig: {
-                    gracefulDecommissionTimeout: "Test string",
-                    removeOnlyIdleWorkers: true,
-                    scaleDownFactor: 42,
-                    scaleDownMinWorkerFraction: 42,
-                    scaleUpFactor: 42,
-                    scaleUpMinWorkerFraction: 42,
-                },
-                yarnConfig: {
-                    gracefulDecommissionTimeout: "Test string",
-                    scaleDownFactor: 42,
-                    scaleDownMinWorkerFraction: 42,
-                    scaleUpFactor: 42,
-                    scaleUpMinWorkerFraction: 42,
-                },
-            },
-            id: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            secondaryWorkerConfig: {
-                maxInstances: 42,
-                minInstances: 42,
-                weight: 42,
-            },
-            workerConfig: {
-                maxInstances: 42,
-                minInstances: 42,
-                weight: 42,
-            },
-        });
-        /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
-        await gapi.client.dataproc.projects.locations.autoscalingPolicies.delete({
-            name: "Test string",
-        });
-        /** Retrieves autoscaling policy. */
-        await gapi.client.dataproc.projects.locations.autoscalingPolicies.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataproc.projects.locations.autoscalingPolicies.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /** Lists autoscaling policies in the project. */
-        await gapi.client.dataproc.projects.locations.autoscalingPolicies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
-        await gapi.client.dataproc.projects.locations.autoscalingPolicies.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation
-         * is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataproc.projects.locations.autoscalingPolicies.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. */
-        await gapi.client.dataproc.projects.locations.autoscalingPolicies.update({
-            name: "Test string",
-        }, {
-            basicAlgorithm: {
-                cooldownPeriod: "Test string",
-                sparkStandaloneConfig: {
-                    gracefulDecommissionTimeout: "Test string",
-                    removeOnlyIdleWorkers: true,
-                    scaleDownFactor: 42,
-                    scaleDownMinWorkerFraction: 42,
-                    scaleUpFactor: 42,
-                    scaleUpMinWorkerFraction: 42,
-                },
-                yarnConfig: {
-                    gracefulDecommissionTimeout: "Test string",
-                    scaleDownFactor: 42,
-                    scaleDownMinWorkerFraction: 42,
-                    scaleUpFactor: 42,
-                    scaleUpMinWorkerFraction: 42,
-                },
-            },
-            id: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            secondaryWorkerConfig: {
-                maxInstances: 42,
-                minInstances: 42,
-                weight: 42,
-            },
-            workerConfig: {
-                maxInstances: 42,
-                minInstances: 42,
-                weight: 42,
-            },
-        });
-        /** Creates a batch workload that executes asynchronously. */
-        await gapi.client.dataproc.projects.locations.batches.create({
-            batchId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            creator: "Test string",
-            environmentConfig: {
-                executionConfig: {
-                    idleTtl: "Test string",
-                    kmsKey: "Test string",
-                    networkTags: [
-                        "Test string"
-                    ],
-                    networkUri: "Test string",
-                    serviceAccount: "Test string",
-                    stagingBucket: "Test string",
-                    subnetworkUri: "Test string",
-                    ttl: "Test string",
-                },
-                peripheralsConfig: {
-                    metastoreService: "Test string",
-                    sparkHistoryServerConfig: {
-                        dataprocCluster: "Test string",
-                    },
-                },
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            operation: "Test string",
-            pysparkBatch: {
-                archiveUris: [
-                    "Test string"
-                ],
-                args: [
-                    "Test string"
-                ],
-                fileUris: [
-                    "Test string"
-                ],
-                jarFileUris: [
-                    "Test string"
-                ],
-                mainPythonFileUri: "Test string",
-                pythonFileUris: [
-                    "Test string"
-                ],
-            },
-            runtimeConfig: {
-                containerImage: "Test string",
-                properties: {
-                    A: "Test string"
-                },
-                repositoryConfig: {
-                    pypiRepositoryConfig: {
-                        pypiRepository: "Test string",
-                    },
-                },
-                version: "Test string",
-            },
-            runtimeInfo: {
-                approximateUsage: {
-                    acceleratorType: "Test string",
-                    milliAcceleratorSeconds: "Test string",
-                    milliDcuSeconds: "Test string",
-                    shuffleStorageGbSeconds: "Test string",
-                },
-                currentUsage: {
-                    acceleratorType: "Test string",
-                    milliAccelerator: "Test string",
-                    milliDcu: "Test string",
-                    milliDcuPremium: "Test string",
-                    shuffleStorageGb: "Test string",
-                    shuffleStorageGbPremium: "Test string",
-                    snapshotTime: "Test string",
-                },
-                diagnosticOutputUri: "Test string",
-                endpoints: {
-                    A: "Test string"
-                },
-                outputUri: "Test string",
-            },
-            sparkBatch: {
-                archiveUris: [
-                    "Test string"
-                ],
-                args: [
-                    "Test string"
-                ],
-                fileUris: [
-                    "Test string"
-                ],
-                jarFileUris: [
-                    "Test string"
-                ],
-                mainClass: "Test string",
-                mainJarFileUri: "Test string",
-            },
-            sparkRBatch: {
-                archiveUris: [
-                    "Test string"
-                ],
-                args: [
-                    "Test string"
-                ],
-                fileUris: [
-                    "Test string"
-                ],
-                mainRFileUri: "Test string",
-            },
-            sparkSqlBatch: {
-                jarFileUris: [
-                    "Test string"
-                ],
-                queryFileUri: "Test string",
-                queryVariables: {
-                    A: "Test string"
-                },
-            },
-            state: "Test string",
-            stateHistory: [
-                {
-                    state: "Test string",
-                    stateMessage: "Test string",
-                    stateStartTime: "Test string",
-                }
-            ],
-            stateMessage: "Test string",
-            stateTime: "Test string",
-            uuid: "Test string",
-        });
-        /** Deletes the batch workload resource. If the batch is not in a CANCELLED, SUCCEEDED or FAILED State, the delete operation fails and the response returns FAILED_PRECONDITION. */
-        await gapi.client.dataproc.projects.locations.batches.delete({
-            name: "Test string",
-        });
-        /** Gets the batch workload resource representation. */
-        await gapi.client.dataproc.projects.locations.batches.get({
-            name: "Test string",
-        });
-        /** Lists batch workloads. */
-        await gapi.client.dataproc.projects.locations.batches.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed
-         * despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to Code.CANCELLED.
-         */
-        await gapi.client.dataproc.projects.locations.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns google.rpc.Code.UNIMPLEMENTED.
-         */
-        await gapi.client.dataproc.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.dataproc.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
-        await gapi.client.dataproc.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Create an interactive session asynchronously. */
-        await gapi.client.dataproc.projects.locations.sessions.create({
-            parent: "Test string",
-            requestId: "Test string",
-            sessionId: "Test string",
-        }, {
-            createTime: "Test string",
-            creator: "Test string",
-            environmentConfig: {
-                executionConfig: {
-                    idleTtl: "Test string",
-                    kmsKey: "Test string",
-                    networkTags: [
-                        "Test string"
-                    ],
-                    networkUri: "Test string",
-                    serviceAccount: "Test string",
-                    stagingBucket: "Test string",
-                    subnetworkUri: "Test string",
-                    ttl: "Test string",
-                },
-                peripheralsConfig: {
-                    metastoreService: "Test string",
-                    sparkHistoryServerConfig: {
-                        dataprocCluster: "Test string",
-                    },
-                },
-            },
-            jupyterSession: {
-                displayName: "Test string",
-                kernel: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            runtimeConfig: {
-                containerImage: "Test string",
-                properties: {
-                    A: "Test string"
-                },
-                repositoryConfig: {
-                    pypiRepositoryConfig: {
-                        pypiRepository: "Test string",
-                    },
-                },
-                version: "Test string",
-            },
-            runtimeInfo: {
-                approximateUsage: {
-                    acceleratorType: "Test string",
-                    milliAcceleratorSeconds: "Test string",
-                    milliDcuSeconds: "Test string",
-                    shuffleStorageGbSeconds: "Test string",
-                },
-                currentUsage: {
-                    acceleratorType: "Test string",
-                    milliAccelerator: "Test string",
-                    milliDcu: "Test string",
-                    milliDcuPremium: "Test string",
-                    shuffleStorageGb: "Test string",
-                    shuffleStorageGbPremium: "Test string",
-                    snapshotTime: "Test string",
-                },
-                diagnosticOutputUri: "Test string",
-                endpoints: {
-                    A: "Test string"
-                },
-                outputUri: "Test string",
-            },
-            sessionTemplate: "Test string",
-            state: "Test string",
-            stateHistory: [
-                {
-                    state: "Test string",
-                    stateMessage: "Test string",
-                    stateStartTime: "Test string",
-                }
-            ],
-            stateMessage: "Test string",
-            stateTime: "Test string",
-            user: "Test string",
-            uuid: "Test string",
-        });
-        /** Deletes the interactive session resource. If the session is not in terminal state, it is terminated, and then deleted. */
-        await gapi.client.dataproc.projects.locations.sessions.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets the resource representation for an interactive session. */
-        await gapi.client.dataproc.projects.locations.sessions.get({
-            name: "Test string",
-        });
-        /** Lists interactive sessions. */
-        await gapi.client.dataproc.projects.locations.sessions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Terminates the interactive session. */
-        await gapi.client.dataproc.projects.locations.sessions.terminate({
-            name: "Test string",
-        }, {
-            requestId: "Test string",
-        });
-        /** Create a session template synchronously. */
-        await gapi.client.dataproc.projects.locations.sessionTemplates.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            creator: "Test string",
-            description: "Test string",
-            environmentConfig: {
-                executionConfig: {
-                    idleTtl: "Test string",
-                    kmsKey: "Test string",
-                    networkTags: [
-                        "Test string"
-                    ],
-                    networkUri: "Test string",
-                    serviceAccount: "Test string",
-                    stagingBucket: "Test string",
-                    subnetworkUri: "Test string",
-                    ttl: "Test string",
-                },
-                peripheralsConfig: {
-                    metastoreService: "Test string",
-                    sparkHistoryServerConfig: {
-                        dataprocCluster: "Test string",
-                    },
-                },
-            },
-            jupyterSession: {
-                displayName: "Test string",
-                kernel: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            runtimeConfig: {
-                containerImage: "Test string",
-                properties: {
-                    A: "Test string"
-                },
-                repositoryConfig: {
-                    pypiRepositoryConfig: {
-                        pypiRepository: "Test string",
-                    },
-                },
-                version: "Test string",
-            },
-            updateTime: "Test string",
-            uuid: "Test string",
-        });
-        /** Deletes a session template. */
-        await gapi.client.dataproc.projects.locations.sessionTemplates.delete({
-            name: "Test string",
-        });
-        /** Gets the resource representation for a session template. */
-        await gapi.client.dataproc.projects.locations.sessionTemplates.get({
-            name: "Test string",
-        });
-        /** Lists session templates. */
-        await gapi.client.dataproc.projects.locations.sessionTemplates.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the session template synchronously. */
-        await gapi.client.dataproc.projects.locations.sessionTemplates.patch({
-            name: "Test string",
-        }, {
-            createTime: "Test string",
-            creator: "Test string",
-            description: "Test string",
-            environmentConfig: {
-                executionConfig: {
-                    idleTtl: "Test string",
-                    kmsKey: "Test string",
-                    networkTags: [
-                        "Test string"
-                    ],
-                    networkUri: "Test string",
-                    serviceAccount: "Test string",
-                    stagingBucket: "Test string",
-                    subnetworkUri: "Test string",
-                    ttl: "Test string",
-                },
-                peripheralsConfig: {
-                    metastoreService: "Test string",
-                    sparkHistoryServerConfig: {
-                        dataprocCluster: "Test string",
-                    },
-                },
-            },
-            jupyterSession: {
-                displayName: "Test string",
-                kernel: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            runtimeConfig: {
-                containerImage: "Test string",
-                properties: {
-                    A: "Test string"
-                },
-                repositoryConfig: {
-                    pypiRepositoryConfig: {
-                        pypiRepository: "Test string",
-                    },
-                },
-                version: "Test string",
-            },
-            updateTime: "Test string",
-            uuid: "Test string",
-        });
-        /** Creates new workflow template. */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            dagTimeout: "Test string",
-            encryptionConfig: {
-                kmsKey: "Test string",
-            },
-            id: "Test string",
-            jobs: [
-                {
-                    flinkJob: {
-                        args: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        savepointUri: "Test string",
-                    },
-                    hadoopJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    hiveJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                    pigJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    prerequisiteStepIds: [
-                        "Test string"
-                    ],
-                    prestoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    pysparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainPythonFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        pythonFileUris: [
-                            "Test string"
-                        ],
-                    },
-                    scheduling: {
-                        maxFailuresPerHour: 42,
-                        maxFailuresTotal: 42,
-                    },
-                    sparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkRJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainRFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkSqlJob: {
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    stepId: "Test string",
-                    trinoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            parameters: [
-                {
-                    description: "Test string",
-                    fields: [
-                        "Test string"
-                    ],
-                    name: "Test string",
-                    validation: {
-                        regex: {
-                            regexes: [
-                                "Test string"
-                            ],
-                        },
-                        values: {
-                            values: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            placement: {
-                clusterSelector: {
-                    clusterLabels: {
-                        A: "Test string"
-                    },
-                    zone: "Test string",
-                },
-                managedCluster: {
-                    clusterName: "Test string",
-                    config: {
-                        autoscalingConfig: {
-                            policyUri: "Test string",
-                        },
-                        auxiliaryNodeGroups: [
-                            {
-                                nodeGroup: {
-                                    labels: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                    nodeGroupConfig: {
-                                        accelerators: [
-                                            {
-                                                acceleratorCount: 42,
-                                                acceleratorTypeUri: "Test string",
-                                            }
-                                        ],
-                                        diskConfig: {
-                                            bootDiskSizeGb: 42,
-                                            bootDiskType: "Test string",
-                                            localSsdInterface: "Test string",
-                                            numLocalSsds: 42,
-                                        },
-                                        imageUri: "Test string",
-                                        instanceFlexibilityPolicy: {
-                                            instanceSelectionList: [
-                                                {
-                                                    machineTypes: [
-                                                        "Test string"
-                                                    ],
-                                                    rank: 42,
-                                                }
-                                            ],
-                                            instanceSelectionResults: [
-                                                {
-                                                    machineType: "Test string",
-                                                    vmCount: 42,
-                                                }
-                                            ],
-                                        },
-                                        instanceNames: [
-                                            "Test string"
-                                        ],
-                                        instanceReferences: [
-                                            {
-                                                instanceId: "Test string",
-                                                instanceName: "Test string",
-                                                publicEciesKey: "Test string",
-                                                publicKey: "Test string",
-                                            }
-                                        ],
-                                        isPreemptible: true,
-                                        machineTypeUri: "Test string",
-                                        managedGroupConfig: {
-                                            instanceGroupManagerName: "Test string",
-                                            instanceGroupManagerUri: "Test string",
-                                            instanceTemplateName: "Test string",
-                                        },
-                                        minCpuPlatform: "Test string",
-                                        minNumInstances: 42,
-                                        numInstances: 42,
-                                        preemptibility: "Test string",
-                                        startupConfig: {
-                                            requiredRegistrationFraction: 42,
-                                        },
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                },
-                                nodeGroupId: "Test string",
-                            }
-                        ],
-                        configBucket: "Test string",
-                        dataprocMetricConfig: {
-                            metrics: [
-                                {
-                                    metricOverrides: [
-                                        "Test string"
-                                    ],
-                                    metricSource: "Test string",
-                                }
-                            ],
-                        },
-                        encryptionConfig: {
-                            gcePdKmsKeyName: "Test string",
-                            kmsKey: "Test string",
-                        },
-                        endpointConfig: {
-                            enableHttpPortAccess: true,
-                            httpPorts: {
-                                A: "Test string"
-                            },
-                        },
-                        gceClusterConfig: {
-                            confidentialInstanceConfig: {
-                                enableConfidentialCompute: true,
-                            },
-                            internalIpOnly: true,
-                            metadata: {
-                                A: "Test string"
-                            },
-                            networkUri: "Test string",
-                            nodeGroupAffinity: {
-                                nodeGroupUri: "Test string",
-                            },
-                            privateIpv6GoogleAccess: "Test string",
-                            reservationAffinity: {
-                                consumeReservationType: "Test string",
-                                key: "Test string",
-                                values: [
-                                    "Test string"
-                                ],
-                            },
-                            serviceAccount: "Test string",
-                            serviceAccountScopes: [
-                                "Test string"
-                            ],
-                            shieldedInstanceConfig: {
-                                enableIntegrityMonitoring: true,
-                                enableSecureBoot: true,
-                                enableVtpm: true,
-                            },
-                            subnetworkUri: "Test string",
-                            tags: [
-                                "Test string"
-                            ],
-                            zoneUri: "Test string",
-                        },
-                        gkeClusterConfig: {
-                            gkeClusterTarget: "Test string",
-                            namespacedGkeDeploymentTarget: {
-                                clusterNamespace: "Test string",
-                                targetGkeCluster: "Test string",
-                            },
-                            nodePoolTarget: [
-                                {
-                                    nodePool: "Test string",
-                                    nodePoolConfig: {
-                                        autoscaling: {
-                                            maxNodeCount: 42,
-                                            minNodeCount: 42,
-                                        },
-                                        config: {
-                                            accelerators: [
-                                                {
-                                                    acceleratorCount: "Test string",
-                                                    acceleratorType: "Test string",
-                                                    gpuPartitionSize: "Test string",
-                                                }
-                                            ],
-                                            bootDiskKmsKey: "Test string",
-                                            localSsdCount: 42,
-                                            machineType: "Test string",
-                                            minCpuPlatform: "Test string",
-                                            preemptible: true,
-                                            spot: true,
-                                        },
-                                        locations: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                }
-                            ],
-                        },
-                        initializationActions: [
-                            {
-                                executableFile: "Test string",
-                                executionTimeout: "Test string",
-                            }
-                        ],
-                        lifecycleConfig: {
-                            autoDeleteTime: "Test string",
-                            autoDeleteTtl: "Test string",
-                            idleDeleteTtl: "Test string",
-                            idleStartTime: "Test string",
-                        },
-                        masterConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        metastoreConfig: {
-                            dataprocMetastoreService: "Test string",
-                        },
-                        secondaryWorkerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        securityConfig: {
-                            identityConfig: {
-                                userServiceAccountMapping: {
-                                    A: "Test string"
-                                },
-                            },
-                            kerberosConfig: {
-                                crossRealmTrustAdminServer: "Test string",
-                                crossRealmTrustKdc: "Test string",
-                                crossRealmTrustRealm: "Test string",
-                                crossRealmTrustSharedPasswordUri: "Test string",
-                                enableKerberos: true,
-                                kdcDbKeyUri: "Test string",
-                                keyPasswordUri: "Test string",
-                                keystorePasswordUri: "Test string",
-                                keystoreUri: "Test string",
-                                kmsKeyUri: "Test string",
-                                realm: "Test string",
-                                rootPrincipalPasswordUri: "Test string",
-                                tgtLifetimeHours: 42,
-                                truststorePasswordUri: "Test string",
-                                truststoreUri: "Test string",
-                            },
-                        },
-                        softwareConfig: {
-                            imageVersion: "Test string",
-                            optionalComponents: [
-                                "Test string"
-                            ],
-                            properties: {
-                                A: "Test string"
-                            },
-                        },
-                        tempBucket: "Test string",
-                        workerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                },
-            },
-            updateTime: "Test string",
-            version: 42,
-        });
-        /** Deletes a workflow template. It does not cancel in-progress workflows. */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.delete({
-            name: "Test string",
-            version: 42,
-        });
-        /** Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter. */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.get({
-            name: "Test string",
-            version: 42,
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /**
-         * Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire
-         * workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The
-         * Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
-         * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
-         */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.instantiate({
-            name: "Test string",
-        }, {
-            parameters: {
-                A: "Test string"
-            },
-            requestId: "Test string",
-            version: 42,
-        });
-        /**
-         * Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned
-         * Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via
-         * operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata
-         * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
-         * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
-         */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.instantiateInline({
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            dagTimeout: "Test string",
-            encryptionConfig: {
-                kmsKey: "Test string",
-            },
-            id: "Test string",
-            jobs: [
-                {
-                    flinkJob: {
-                        args: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        savepointUri: "Test string",
-                    },
-                    hadoopJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    hiveJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                    pigJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    prerequisiteStepIds: [
-                        "Test string"
-                    ],
-                    prestoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    pysparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainPythonFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        pythonFileUris: [
-                            "Test string"
-                        ],
-                    },
-                    scheduling: {
-                        maxFailuresPerHour: 42,
-                        maxFailuresTotal: 42,
-                    },
-                    sparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkRJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainRFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkSqlJob: {
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    stepId: "Test string",
-                    trinoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            parameters: [
-                {
-                    description: "Test string",
-                    fields: [
-                        "Test string"
-                    ],
-                    name: "Test string",
-                    validation: {
-                        regex: {
-                            regexes: [
-                                "Test string"
-                            ],
-                        },
-                        values: {
-                            values: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            placement: {
-                clusterSelector: {
-                    clusterLabels: {
-                        A: "Test string"
-                    },
-                    zone: "Test string",
-                },
-                managedCluster: {
-                    clusterName: "Test string",
-                    config: {
-                        autoscalingConfig: {
-                            policyUri: "Test string",
-                        },
-                        auxiliaryNodeGroups: [
-                            {
-                                nodeGroup: {
-                                    labels: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                    nodeGroupConfig: {
-                                        accelerators: [
-                                            {
-                                                acceleratorCount: 42,
-                                                acceleratorTypeUri: "Test string",
-                                            }
-                                        ],
-                                        diskConfig: {
-                                            bootDiskSizeGb: 42,
-                                            bootDiskType: "Test string",
-                                            localSsdInterface: "Test string",
-                                            numLocalSsds: 42,
-                                        },
-                                        imageUri: "Test string",
-                                        instanceFlexibilityPolicy: {
-                                            instanceSelectionList: [
-                                                {
-                                                    machineTypes: [
-                                                        "Test string"
-                                                    ],
-                                                    rank: 42,
-                                                }
-                                            ],
-                                            instanceSelectionResults: [
-                                                {
-                                                    machineType: "Test string",
-                                                    vmCount: 42,
-                                                }
-                                            ],
-                                        },
-                                        instanceNames: [
-                                            "Test string"
-                                        ],
-                                        instanceReferences: [
-                                            {
-                                                instanceId: "Test string",
-                                                instanceName: "Test string",
-                                                publicEciesKey: "Test string",
-                                                publicKey: "Test string",
-                                            }
-                                        ],
-                                        isPreemptible: true,
-                                        machineTypeUri: "Test string",
-                                        managedGroupConfig: {
-                                            instanceGroupManagerName: "Test string",
-                                            instanceGroupManagerUri: "Test string",
-                                            instanceTemplateName: "Test string",
-                                        },
-                                        minCpuPlatform: "Test string",
-                                        minNumInstances: 42,
-                                        numInstances: 42,
-                                        preemptibility: "Test string",
-                                        startupConfig: {
-                                            requiredRegistrationFraction: 42,
-                                        },
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                },
-                                nodeGroupId: "Test string",
-                            }
-                        ],
-                        configBucket: "Test string",
-                        dataprocMetricConfig: {
-                            metrics: [
-                                {
-                                    metricOverrides: [
-                                        "Test string"
-                                    ],
-                                    metricSource: "Test string",
-                                }
-                            ],
-                        },
-                        encryptionConfig: {
-                            gcePdKmsKeyName: "Test string",
-                            kmsKey: "Test string",
-                        },
-                        endpointConfig: {
-                            enableHttpPortAccess: true,
-                            httpPorts: {
-                                A: "Test string"
-                            },
-                        },
-                        gceClusterConfig: {
-                            confidentialInstanceConfig: {
-                                enableConfidentialCompute: true,
-                            },
-                            internalIpOnly: true,
-                            metadata: {
-                                A: "Test string"
-                            },
-                            networkUri: "Test string",
-                            nodeGroupAffinity: {
-                                nodeGroupUri: "Test string",
-                            },
-                            privateIpv6GoogleAccess: "Test string",
-                            reservationAffinity: {
-                                consumeReservationType: "Test string",
-                                key: "Test string",
-                                values: [
-                                    "Test string"
-                                ],
-                            },
-                            serviceAccount: "Test string",
-                            serviceAccountScopes: [
-                                "Test string"
-                            ],
-                            shieldedInstanceConfig: {
-                                enableIntegrityMonitoring: true,
-                                enableSecureBoot: true,
-                                enableVtpm: true,
-                            },
-                            subnetworkUri: "Test string",
-                            tags: [
-                                "Test string"
-                            ],
-                            zoneUri: "Test string",
-                        },
-                        gkeClusterConfig: {
-                            gkeClusterTarget: "Test string",
-                            namespacedGkeDeploymentTarget: {
-                                clusterNamespace: "Test string",
-                                targetGkeCluster: "Test string",
-                            },
-                            nodePoolTarget: [
-                                {
-                                    nodePool: "Test string",
-                                    nodePoolConfig: {
-                                        autoscaling: {
-                                            maxNodeCount: 42,
-                                            minNodeCount: 42,
-                                        },
-                                        config: {
-                                            accelerators: [
-                                                {
-                                                    acceleratorCount: "Test string",
-                                                    acceleratorType: "Test string",
-                                                    gpuPartitionSize: "Test string",
-                                                }
-                                            ],
-                                            bootDiskKmsKey: "Test string",
-                                            localSsdCount: 42,
-                                            machineType: "Test string",
-                                            minCpuPlatform: "Test string",
-                                            preemptible: true,
-                                            spot: true,
-                                        },
-                                        locations: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                }
-                            ],
-                        },
-                        initializationActions: [
-                            {
-                                executableFile: "Test string",
-                                executionTimeout: "Test string",
-                            }
-                        ],
-                        lifecycleConfig: {
-                            autoDeleteTime: "Test string",
-                            autoDeleteTtl: "Test string",
-                            idleDeleteTtl: "Test string",
-                            idleStartTime: "Test string",
-                        },
-                        masterConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        metastoreConfig: {
-                            dataprocMetastoreService: "Test string",
-                        },
-                        secondaryWorkerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        securityConfig: {
-                            identityConfig: {
-                                userServiceAccountMapping: {
-                                    A: "Test string"
-                                },
-                            },
-                            kerberosConfig: {
-                                crossRealmTrustAdminServer: "Test string",
-                                crossRealmTrustKdc: "Test string",
-                                crossRealmTrustRealm: "Test string",
-                                crossRealmTrustSharedPasswordUri: "Test string",
-                                enableKerberos: true,
-                                kdcDbKeyUri: "Test string",
-                                keyPasswordUri: "Test string",
-                                keystorePasswordUri: "Test string",
-                                keystoreUri: "Test string",
-                                kmsKeyUri: "Test string",
-                                realm: "Test string",
-                                rootPrincipalPasswordUri: "Test string",
-                                tgtLifetimeHours: 42,
-                                truststorePasswordUri: "Test string",
-                                truststoreUri: "Test string",
-                            },
-                        },
-                        softwareConfig: {
-                            imageVersion: "Test string",
-                            optionalComponents: [
-                                "Test string"
-                            ],
-                            properties: {
-                                A: "Test string"
-                            },
-                        },
-                        tempBucket: "Test string",
-                        workerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                },
-            },
-            updateTime: "Test string",
-            version: 42,
-        });
-        /** Lists workflows that match the specified filter in the request. */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation
-         * is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Updates (replaces) workflow template. The updated template must contain version that matches the current server version. */
-        await gapi.client.dataproc.projects.locations.workflowTemplates.update({
-            name: "Test string",
-        }, {
-            createTime: "Test string",
-            dagTimeout: "Test string",
-            encryptionConfig: {
-                kmsKey: "Test string",
-            },
-            id: "Test string",
-            jobs: [
-                {
-                    flinkJob: {
-                        args: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        savepointUri: "Test string",
-                    },
-                    hadoopJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    hiveJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                    pigJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    prerequisiteStepIds: [
-                        "Test string"
-                    ],
-                    prestoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    pysparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainPythonFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        pythonFileUris: [
-                            "Test string"
-                        ],
-                    },
-                    scheduling: {
-                        maxFailuresPerHour: 42,
-                        maxFailuresTotal: 42,
-                    },
-                    sparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkRJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainRFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkSqlJob: {
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    stepId: "Test string",
-                    trinoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            parameters: [
-                {
-                    description: "Test string",
-                    fields: [
-                        "Test string"
-                    ],
-                    name: "Test string",
-                    validation: {
-                        regex: {
-                            regexes: [
-                                "Test string"
-                            ],
-                        },
-                        values: {
-                            values: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            placement: {
-                clusterSelector: {
-                    clusterLabels: {
-                        A: "Test string"
-                    },
-                    zone: "Test string",
-                },
-                managedCluster: {
-                    clusterName: "Test string",
-                    config: {
-                        autoscalingConfig: {
-                            policyUri: "Test string",
-                        },
-                        auxiliaryNodeGroups: [
-                            {
-                                nodeGroup: {
-                                    labels: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                    nodeGroupConfig: {
-                                        accelerators: [
-                                            {
-                                                acceleratorCount: 42,
-                                                acceleratorTypeUri: "Test string",
-                                            }
-                                        ],
-                                        diskConfig: {
-                                            bootDiskSizeGb: 42,
-                                            bootDiskType: "Test string",
-                                            localSsdInterface: "Test string",
-                                            numLocalSsds: 42,
-                                        },
-                                        imageUri: "Test string",
-                                        instanceFlexibilityPolicy: {
-                                            instanceSelectionList: [
-                                                {
-                                                    machineTypes: [
-                                                        "Test string"
-                                                    ],
-                                                    rank: 42,
-                                                }
-                                            ],
-                                            instanceSelectionResults: [
-                                                {
-                                                    machineType: "Test string",
-                                                    vmCount: 42,
-                                                }
-                                            ],
-                                        },
-                                        instanceNames: [
-                                            "Test string"
-                                        ],
-                                        instanceReferences: [
-                                            {
-                                                instanceId: "Test string",
-                                                instanceName: "Test string",
-                                                publicEciesKey: "Test string",
-                                                publicKey: "Test string",
-                                            }
-                                        ],
-                                        isPreemptible: true,
-                                        machineTypeUri: "Test string",
-                                        managedGroupConfig: {
-                                            instanceGroupManagerName: "Test string",
-                                            instanceGroupManagerUri: "Test string",
-                                            instanceTemplateName: "Test string",
-                                        },
-                                        minCpuPlatform: "Test string",
-                                        minNumInstances: 42,
-                                        numInstances: 42,
-                                        preemptibility: "Test string",
-                                        startupConfig: {
-                                            requiredRegistrationFraction: 42,
-                                        },
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                },
-                                nodeGroupId: "Test string",
-                            }
-                        ],
-                        configBucket: "Test string",
-                        dataprocMetricConfig: {
-                            metrics: [
-                                {
-                                    metricOverrides: [
-                                        "Test string"
-                                    ],
-                                    metricSource: "Test string",
-                                }
-                            ],
-                        },
-                        encryptionConfig: {
-                            gcePdKmsKeyName: "Test string",
-                            kmsKey: "Test string",
-                        },
-                        endpointConfig: {
-                            enableHttpPortAccess: true,
-                            httpPorts: {
-                                A: "Test string"
-                            },
-                        },
-                        gceClusterConfig: {
-                            confidentialInstanceConfig: {
-                                enableConfidentialCompute: true,
-                            },
-                            internalIpOnly: true,
-                            metadata: {
-                                A: "Test string"
-                            },
-                            networkUri: "Test string",
-                            nodeGroupAffinity: {
-                                nodeGroupUri: "Test string",
-                            },
-                            privateIpv6GoogleAccess: "Test string",
-                            reservationAffinity: {
-                                consumeReservationType: "Test string",
-                                key: "Test string",
-                                values: [
-                                    "Test string"
-                                ],
-                            },
-                            serviceAccount: "Test string",
-                            serviceAccountScopes: [
-                                "Test string"
-                            ],
-                            shieldedInstanceConfig: {
-                                enableIntegrityMonitoring: true,
-                                enableSecureBoot: true,
-                                enableVtpm: true,
-                            },
-                            subnetworkUri: "Test string",
-                            tags: [
-                                "Test string"
-                            ],
-                            zoneUri: "Test string",
-                        },
-                        gkeClusterConfig: {
-                            gkeClusterTarget: "Test string",
-                            namespacedGkeDeploymentTarget: {
-                                clusterNamespace: "Test string",
-                                targetGkeCluster: "Test string",
-                            },
-                            nodePoolTarget: [
-                                {
-                                    nodePool: "Test string",
-                                    nodePoolConfig: {
-                                        autoscaling: {
-                                            maxNodeCount: 42,
-                                            minNodeCount: 42,
-                                        },
-                                        config: {
-                                            accelerators: [
-                                                {
-                                                    acceleratorCount: "Test string",
-                                                    acceleratorType: "Test string",
-                                                    gpuPartitionSize: "Test string",
-                                                }
-                                            ],
-                                            bootDiskKmsKey: "Test string",
-                                            localSsdCount: 42,
-                                            machineType: "Test string",
-                                            minCpuPlatform: "Test string",
-                                            preemptible: true,
-                                            spot: true,
-                                        },
-                                        locations: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                }
-                            ],
-                        },
-                        initializationActions: [
-                            {
-                                executableFile: "Test string",
-                                executionTimeout: "Test string",
-                            }
-                        ],
-                        lifecycleConfig: {
-                            autoDeleteTime: "Test string",
-                            autoDeleteTtl: "Test string",
-                            idleDeleteTtl: "Test string",
-                            idleStartTime: "Test string",
-                        },
-                        masterConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        metastoreConfig: {
-                            dataprocMetastoreService: "Test string",
-                        },
-                        secondaryWorkerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        securityConfig: {
-                            identityConfig: {
-                                userServiceAccountMapping: {
-                                    A: "Test string"
-                                },
-                            },
-                            kerberosConfig: {
-                                crossRealmTrustAdminServer: "Test string",
-                                crossRealmTrustKdc: "Test string",
-                                crossRealmTrustRealm: "Test string",
-                                crossRealmTrustSharedPasswordUri: "Test string",
-                                enableKerberos: true,
-                                kdcDbKeyUri: "Test string",
-                                keyPasswordUri: "Test string",
-                                keystorePasswordUri: "Test string",
-                                keystoreUri: "Test string",
-                                kmsKeyUri: "Test string",
-                                realm: "Test string",
-                                rootPrincipalPasswordUri: "Test string",
-                                tgtLifetimeHours: 42,
-                                truststorePasswordUri: "Test string",
-                                truststoreUri: "Test string",
-                            },
-                        },
-                        softwareConfig: {
-                            imageVersion: "Test string",
-                            optionalComponents: [
-                                "Test string"
-                            ],
-                            properties: {
-                                A: "Test string"
-                            },
-                        },
-                        tempBucket: "Test string",
-                        workerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                },
-            },
-            updateTime: "Test string",
-            version: 42,
-        });
-        /** Creates new autoscaling policy. */
-        await gapi.client.dataproc.projects.regions.autoscalingPolicies.create({
-            parent: "Test string",
-        }, {
-            basicAlgorithm: {
-                cooldownPeriod: "Test string",
-                sparkStandaloneConfig: {
-                    gracefulDecommissionTimeout: "Test string",
-                    removeOnlyIdleWorkers: true,
-                    scaleDownFactor: 42,
-                    scaleDownMinWorkerFraction: 42,
-                    scaleUpFactor: 42,
-                    scaleUpMinWorkerFraction: 42,
-                },
-                yarnConfig: {
-                    gracefulDecommissionTimeout: "Test string",
-                    scaleDownFactor: 42,
-                    scaleDownMinWorkerFraction: 42,
-                    scaleUpFactor: 42,
-                    scaleUpMinWorkerFraction: 42,
-                },
-            },
-            id: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            secondaryWorkerConfig: {
-                maxInstances: 42,
-                minInstances: 42,
-                weight: 42,
-            },
-            workerConfig: {
-                maxInstances: 42,
-                minInstances: 42,
-                weight: 42,
-            },
-        });
-        /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
-        await gapi.client.dataproc.projects.regions.autoscalingPolicies.delete({
-            name: "Test string",
-        });
-        /** Retrieves autoscaling policy. */
-        await gapi.client.dataproc.projects.regions.autoscalingPolicies.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataproc.projects.regions.autoscalingPolicies.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /** Lists autoscaling policies in the project. */
-        await gapi.client.dataproc.projects.regions.autoscalingPolicies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
-        await gapi.client.dataproc.projects.regions.autoscalingPolicies.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation
-         * is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataproc.projects.regions.autoscalingPolicies.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. */
-        await gapi.client.dataproc.projects.regions.autoscalingPolicies.update({
-            name: "Test string",
-        }, {
-            basicAlgorithm: {
-                cooldownPeriod: "Test string",
-                sparkStandaloneConfig: {
-                    gracefulDecommissionTimeout: "Test string",
-                    removeOnlyIdleWorkers: true,
-                    scaleDownFactor: 42,
-                    scaleDownMinWorkerFraction: 42,
-                    scaleUpFactor: 42,
-                    scaleUpMinWorkerFraction: 42,
-                },
-                yarnConfig: {
-                    gracefulDecommissionTimeout: "Test string",
-                    scaleDownFactor: 42,
-                    scaleDownMinWorkerFraction: 42,
-                    scaleUpFactor: 42,
-                    scaleUpMinWorkerFraction: 42,
-                },
-            },
-            id: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            secondaryWorkerConfig: {
-                maxInstances: 42,
-                minInstances: 42,
-                weight: 42,
-            },
-            workerConfig: {
-                maxInstances: 42,
-                minInstances: 42,
-                weight: 42,
-            },
-        });
-        /**
-         * Creates a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata
-         * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
-         */
-        await gapi.client.dataproc.projects.regions.clusters.create({
-            actionOnFailedPrimaryWorkers: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-            requestId: "Test string",
-        }, {
-            clusterName: "Test string",
-            clusterUuid: "Test string",
-            config: {
-                autoscalingConfig: {
-                    policyUri: "Test string",
-                },
-                auxiliaryNodeGroups: [
-                    {
-                        nodeGroup: {
-                            labels: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                            nodeGroupConfig: {
-                                accelerators: [
-                                    {
-                                        acceleratorCount: 42,
-                                        acceleratorTypeUri: "Test string",
-                                    }
-                                ],
-                                diskConfig: {
-                                    bootDiskSizeGb: 42,
-                                    bootDiskType: "Test string",
-                                    localSsdInterface: "Test string",
-                                    numLocalSsds: 42,
-                                },
-                                imageUri: "Test string",
-                                instanceFlexibilityPolicy: {
-                                    instanceSelectionList: [
-                                        {
-                                            machineTypes: [
-                                                "Test string"
-                                            ],
-                                            rank: 42,
-                                        }
-                                    ],
-                                    instanceSelectionResults: [
-                                        {
-                                            machineType: "Test string",
-                                            vmCount: 42,
-                                        }
-                                    ],
-                                },
-                                instanceNames: [
-                                    "Test string"
-                                ],
-                                instanceReferences: [
-                                    {
-                                        instanceId: "Test string",
-                                        instanceName: "Test string",
-                                        publicEciesKey: "Test string",
-                                        publicKey: "Test string",
-                                    }
-                                ],
-                                isPreemptible: true,
-                                machineTypeUri: "Test string",
-                                managedGroupConfig: {
-                                    instanceGroupManagerName: "Test string",
-                                    instanceGroupManagerUri: "Test string",
-                                    instanceTemplateName: "Test string",
-                                },
-                                minCpuPlatform: "Test string",
-                                minNumInstances: 42,
-                                numInstances: 42,
-                                preemptibility: "Test string",
-                                startupConfig: {
-                                    requiredRegistrationFraction: 42,
-                                },
-                            },
-                            roles: [
-                                "Test string"
-                            ],
-                        },
-                        nodeGroupId: "Test string",
-                    }
-                ],
-                configBucket: "Test string",
-                dataprocMetricConfig: {
-                    metrics: [
-                        {
-                            metricOverrides: [
-                                "Test string"
-                            ],
-                            metricSource: "Test string",
-                        }
-                    ],
-                },
-                encryptionConfig: {
-                    gcePdKmsKeyName: "Test string",
-                    kmsKey: "Test string",
-                },
-                endpointConfig: {
-                    enableHttpPortAccess: true,
-                    httpPorts: {
-                        A: "Test string"
-                    },
-                },
-                gceClusterConfig: {
-                    confidentialInstanceConfig: {
-                        enableConfidentialCompute: true,
-                    },
-                    internalIpOnly: true,
-                    metadata: {
-                        A: "Test string"
-                    },
-                    networkUri: "Test string",
-                    nodeGroupAffinity: {
-                        nodeGroupUri: "Test string",
-                    },
-                    privateIpv6GoogleAccess: "Test string",
-                    reservationAffinity: {
-                        consumeReservationType: "Test string",
-                        key: "Test string",
-                        values: [
-                            "Test string"
-                        ],
-                    },
-                    serviceAccount: "Test string",
-                    serviceAccountScopes: [
-                        "Test string"
-                    ],
-                    shieldedInstanceConfig: {
-                        enableIntegrityMonitoring: true,
-                        enableSecureBoot: true,
-                        enableVtpm: true,
-                    },
-                    subnetworkUri: "Test string",
-                    tags: [
-                        "Test string"
-                    ],
-                    zoneUri: "Test string",
-                },
-                gkeClusterConfig: {
-                    gkeClusterTarget: "Test string",
-                    namespacedGkeDeploymentTarget: {
-                        clusterNamespace: "Test string",
-                        targetGkeCluster: "Test string",
-                    },
-                    nodePoolTarget: [
-                        {
-                            nodePool: "Test string",
-                            nodePoolConfig: {
-                                autoscaling: {
-                                    maxNodeCount: 42,
-                                    minNodeCount: 42,
-                                },
-                                config: {
-                                    accelerators: [
-                                        {
-                                            acceleratorCount: "Test string",
-                                            acceleratorType: "Test string",
-                                            gpuPartitionSize: "Test string",
-                                        }
-                                    ],
-                                    bootDiskKmsKey: "Test string",
-                                    localSsdCount: 42,
-                                    machineType: "Test string",
-                                    minCpuPlatform: "Test string",
-                                    preemptible: true,
-                                    spot: true,
-                                },
-                                locations: [
-                                    "Test string"
-                                ],
-                            },
-                            roles: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                },
-                initializationActions: [
-                    {
-                        executableFile: "Test string",
-                        executionTimeout: "Test string",
-                    }
-                ],
-                lifecycleConfig: {
-                    autoDeleteTime: "Test string",
-                    autoDeleteTtl: "Test string",
-                    idleDeleteTtl: "Test string",
-                    idleStartTime: "Test string",
-                },
-                masterConfig: {
-                    accelerators: [
-                        {
-                            acceleratorCount: 42,
-                            acceleratorTypeUri: "Test string",
-                        }
-                    ],
-                    diskConfig: {
-                        bootDiskSizeGb: 42,
-                        bootDiskType: "Test string",
-                        localSsdInterface: "Test string",
-                        numLocalSsds: 42,
-                    },
-                    imageUri: "Test string",
-                    instanceFlexibilityPolicy: {
-                        instanceSelectionList: [
-                            {
-                                machineTypes: [
-                                    "Test string"
-                                ],
-                                rank: 42,
-                            }
-                        ],
-                        instanceSelectionResults: [
-                            {
-                                machineType: "Test string",
-                                vmCount: 42,
-                            }
-                        ],
-                    },
-                    instanceNames: [
-                        "Test string"
-                    ],
-                    instanceReferences: [
-                        {
-                            instanceId: "Test string",
-                            instanceName: "Test string",
-                            publicEciesKey: "Test string",
-                            publicKey: "Test string",
-                        }
-                    ],
-                    isPreemptible: true,
-                    machineTypeUri: "Test string",
-                    managedGroupConfig: {
-                        instanceGroupManagerName: "Test string",
-                        instanceGroupManagerUri: "Test string",
-                        instanceTemplateName: "Test string",
-                    },
-                    minCpuPlatform: "Test string",
-                    minNumInstances: 42,
-                    numInstances: 42,
-                    preemptibility: "Test string",
-                    startupConfig: {
-                        requiredRegistrationFraction: 42,
-                    },
-                },
-                metastoreConfig: {
-                    dataprocMetastoreService: "Test string",
-                },
-                secondaryWorkerConfig: {
-                    accelerators: [
-                        {
-                            acceleratorCount: 42,
-                            acceleratorTypeUri: "Test string",
-                        }
-                    ],
-                    diskConfig: {
-                        bootDiskSizeGb: 42,
-                        bootDiskType: "Test string",
-                        localSsdInterface: "Test string",
-                        numLocalSsds: 42,
-                    },
-                    imageUri: "Test string",
-                    instanceFlexibilityPolicy: {
-                        instanceSelectionList: [
-                            {
-                                machineTypes: [
-                                    "Test string"
-                                ],
-                                rank: 42,
-                            }
-                        ],
-                        instanceSelectionResults: [
-                            {
-                                machineType: "Test string",
-                                vmCount: 42,
-                            }
-                        ],
-                    },
-                    instanceNames: [
-                        "Test string"
-                    ],
-                    instanceReferences: [
-                        {
-                            instanceId: "Test string",
-                            instanceName: "Test string",
-                            publicEciesKey: "Test string",
-                            publicKey: "Test string",
-                        }
-                    ],
-                    isPreemptible: true,
-                    machineTypeUri: "Test string",
-                    managedGroupConfig: {
-                        instanceGroupManagerName: "Test string",
-                        instanceGroupManagerUri: "Test string",
-                        instanceTemplateName: "Test string",
-                    },
-                    minCpuPlatform: "Test string",
-                    minNumInstances: 42,
-                    numInstances: 42,
-                    preemptibility: "Test string",
-                    startupConfig: {
-                        requiredRegistrationFraction: 42,
-                    },
-                },
-                securityConfig: {
-                    identityConfig: {
-                        userServiceAccountMapping: {
-                            A: "Test string"
-                        },
-                    },
-                    kerberosConfig: {
-                        crossRealmTrustAdminServer: "Test string",
-                        crossRealmTrustKdc: "Test string",
-                        crossRealmTrustRealm: "Test string",
-                        crossRealmTrustSharedPasswordUri: "Test string",
-                        enableKerberos: true,
-                        kdcDbKeyUri: "Test string",
-                        keyPasswordUri: "Test string",
-                        keystorePasswordUri: "Test string",
-                        keystoreUri: "Test string",
-                        kmsKeyUri: "Test string",
-                        realm: "Test string",
-                        rootPrincipalPasswordUri: "Test string",
-                        tgtLifetimeHours: 42,
-                        truststorePasswordUri: "Test string",
-                        truststoreUri: "Test string",
-                    },
-                },
-                softwareConfig: {
-                    imageVersion: "Test string",
-                    optionalComponents: [
-                        "Test string"
-                    ],
-                    properties: {
-                        A: "Test string"
-                    },
-                },
-                tempBucket: "Test string",
-                workerConfig: {
-                    accelerators: [
-                        {
-                            acceleratorCount: 42,
-                            acceleratorTypeUri: "Test string",
-                        }
-                    ],
-                    diskConfig: {
-                        bootDiskSizeGb: 42,
-                        bootDiskType: "Test string",
-                        localSsdInterface: "Test string",
-                        numLocalSsds: 42,
-                    },
-                    imageUri: "Test string",
-                    instanceFlexibilityPolicy: {
-                        instanceSelectionList: [
-                            {
-                                machineTypes: [
-                                    "Test string"
-                                ],
-                                rank: 42,
-                            }
-                        ],
-                        instanceSelectionResults: [
-                            {
-                                machineType: "Test string",
-                                vmCount: 42,
-                            }
-                        ],
-                    },
-                    instanceNames: [
-                        "Test string"
-                    ],
-                    instanceReferences: [
-                        {
-                            instanceId: "Test string",
-                            instanceName: "Test string",
-                            publicEciesKey: "Test string",
-                            publicKey: "Test string",
-                        }
-                    ],
-                    isPreemptible: true,
-                    machineTypeUri: "Test string",
-                    managedGroupConfig: {
-                        instanceGroupManagerName: "Test string",
-                        instanceGroupManagerUri: "Test string",
-                        instanceTemplateName: "Test string",
-                    },
-                    minCpuPlatform: "Test string",
-                    minNumInstances: 42,
-                    numInstances: 42,
-                    preemptibility: "Test string",
-                    startupConfig: {
-                        requiredRegistrationFraction: 42,
-                    },
-                },
-            },
-            labels: {
-                A: "Test string"
-            },
-            metrics: {
-                hdfsMetrics: {
-                    A: "Test string"
-                },
-                yarnMetrics: {
-                    A: "Test string"
-                },
-            },
-            projectId: "Test string",
-            status: {
-                detail: "Test string",
-                state: "Test string",
-                stateStartTime: "Test string",
-                substate: "Test string",
-            },
-            statusHistory: [
-                {
-                    detail: "Test string",
-                    state: "Test string",
-                    stateStartTime: "Test string",
-                    substate: "Test string",
-                }
-            ],
-            virtualClusterConfig: {
-                auxiliaryServicesConfig: {
-                    metastoreConfig: {
-                        dataprocMetastoreService: "Test string",
-                    },
-                    sparkHistoryServerConfig: {
-                        dataprocCluster: "Test string",
-                    },
-                },
-                kubernetesClusterConfig: {
-                    gkeClusterConfig: {
-                        gkeClusterTarget: "Test string",
-                        namespacedGkeDeploymentTarget: {
-                            clusterNamespace: "Test string",
-                            targetGkeCluster: "Test string",
-                        },
-                        nodePoolTarget: [
-                            {
-                                nodePool: "Test string",
-                                nodePoolConfig: {
-                                    autoscaling: {
-                                        maxNodeCount: 42,
-                                        minNodeCount: 42,
-                                    },
-                                    config: {
-                                        accelerators: [
-                                            {
-                                                acceleratorCount: "Test string",
-                                                acceleratorType: "Test string",
-                                                gpuPartitionSize: "Test string",
-                                            }
-                                        ],
-                                        bootDiskKmsKey: "Test string",
-                                        localSsdCount: 42,
-                                        machineType: "Test string",
-                                        minCpuPlatform: "Test string",
-                                        preemptible: true,
-                                        spot: true,
-                                    },
-                                    locations: [
-                                        "Test string"
-                                    ],
-                                },
-                                roles: [
-                                    "Test string"
-                                ],
-                            }
-                        ],
-                    },
-                    kubernetesNamespace: "Test string",
-                    kubernetesSoftwareConfig: {
-                        componentVersion: {
-                            A: "Test string"
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                },
-                stagingBucket: "Test string",
-            },
-        });
-        /**
-         * Deletes a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata
-         * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
-         */
-        await gapi.client.dataproc.projects.regions.clusters.delete({
-            clusterName: "Test string",
-            clusterUuid: "Test string",
-            gracefulTerminationTimeout: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-            requestId: "Test string",
-        });
-        /**
-         * Gets cluster diagnostic information. The returned Operation.metadata will be ClusterOperationMetadata
-         * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). After the operation completes, Operation.response contains
-         * DiagnoseClusterResults (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#diagnoseclusterresults).
-         */
-        await gapi.client.dataproc.projects.regions.clusters.diagnose({
-            clusterName: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        }, {
-            diagnosisInterval: {
-                endTime: "Test string",
-                startTime: "Test string",
-            },
-            job: "Test string",
-            jobs: [
-                "Test string"
-            ],
-            tarballAccess: "Test string",
-            tarballGcsDir: "Test string",
-            yarnApplicationId: "Test string",
-            yarnApplicationIds: [
-                "Test string"
-            ],
-        });
-        /** Gets the resource representation for a cluster in a project. */
-        await gapi.client.dataproc.projects.regions.clusters.get({
-            clusterName: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataproc.projects.regions.clusters.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /** Inject encrypted credentials into all of the VMs in a cluster.The target cluster must be a personal auth cluster assigned to the user who is issuing the RPC. */
-        await gapi.client.dataproc.projects.regions.clusters.injectCredentials({
-            cluster: "Test string",
-            project: "Test string",
-            region: "Test string",
-        }, {
-            clusterUuid: "Test string",
-            credentialsCiphertext: "Test string",
-        });
-        /** Lists all regions/{region}/clusters in a project alphabetically. */
-        await gapi.client.dataproc.projects.regions.clusters.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        });
-        /**
-         * Updates a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata
-         * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). The cluster must be in a RUNNING state or an error is returned.
-         */
-        await gapi.client.dataproc.projects.regions.clusters.patch({
-            clusterName: "Test string",
-            gracefulDecommissionTimeout: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            clusterName: "Test string",
-            clusterUuid: "Test string",
-            config: {
-                autoscalingConfig: {
-                    policyUri: "Test string",
-                },
-                auxiliaryNodeGroups: [
-                    {
-                        nodeGroup: {
-                            labels: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                            nodeGroupConfig: {
-                                accelerators: [
-                                    {
-                                        acceleratorCount: 42,
-                                        acceleratorTypeUri: "Test string",
-                                    }
-                                ],
-                                diskConfig: {
-                                    bootDiskSizeGb: 42,
-                                    bootDiskType: "Test string",
-                                    localSsdInterface: "Test string",
-                                    numLocalSsds: 42,
-                                },
-                                imageUri: "Test string",
-                                instanceFlexibilityPolicy: {
-                                    instanceSelectionList: [
-                                        {
-                                            machineTypes: [
-                                                "Test string"
-                                            ],
-                                            rank: 42,
-                                        }
-                                    ],
-                                    instanceSelectionResults: [
-                                        {
-                                            machineType: "Test string",
-                                            vmCount: 42,
-                                        }
-                                    ],
-                                },
-                                instanceNames: [
-                                    "Test string"
-                                ],
-                                instanceReferences: [
-                                    {
-                                        instanceId: "Test string",
-                                        instanceName: "Test string",
-                                        publicEciesKey: "Test string",
-                                        publicKey: "Test string",
-                                    }
-                                ],
-                                isPreemptible: true,
-                                machineTypeUri: "Test string",
-                                managedGroupConfig: {
-                                    instanceGroupManagerName: "Test string",
-                                    instanceGroupManagerUri: "Test string",
-                                    instanceTemplateName: "Test string",
-                                },
-                                minCpuPlatform: "Test string",
-                                minNumInstances: 42,
-                                numInstances: 42,
-                                preemptibility: "Test string",
-                                startupConfig: {
-                                    requiredRegistrationFraction: 42,
-                                },
-                            },
-                            roles: [
-                                "Test string"
-                            ],
-                        },
-                        nodeGroupId: "Test string",
-                    }
-                ],
-                configBucket: "Test string",
-                dataprocMetricConfig: {
-                    metrics: [
-                        {
-                            metricOverrides: [
-                                "Test string"
-                            ],
-                            metricSource: "Test string",
-                        }
-                    ],
-                },
-                encryptionConfig: {
-                    gcePdKmsKeyName: "Test string",
-                    kmsKey: "Test string",
-                },
-                endpointConfig: {
-                    enableHttpPortAccess: true,
-                    httpPorts: {
-                        A: "Test string"
-                    },
-                },
-                gceClusterConfig: {
-                    confidentialInstanceConfig: {
-                        enableConfidentialCompute: true,
-                    },
-                    internalIpOnly: true,
-                    metadata: {
-                        A: "Test string"
-                    },
-                    networkUri: "Test string",
-                    nodeGroupAffinity: {
-                        nodeGroupUri: "Test string",
-                    },
-                    privateIpv6GoogleAccess: "Test string",
-                    reservationAffinity: {
-                        consumeReservationType: "Test string",
-                        key: "Test string",
-                        values: [
-                            "Test string"
-                        ],
-                    },
-                    serviceAccount: "Test string",
-                    serviceAccountScopes: [
-                        "Test string"
-                    ],
-                    shieldedInstanceConfig: {
-                        enableIntegrityMonitoring: true,
-                        enableSecureBoot: true,
-                        enableVtpm: true,
-                    },
-                    subnetworkUri: "Test string",
-                    tags: [
-                        "Test string"
-                    ],
-                    zoneUri: "Test string",
-                },
-                gkeClusterConfig: {
-                    gkeClusterTarget: "Test string",
-                    namespacedGkeDeploymentTarget: {
-                        clusterNamespace: "Test string",
-                        targetGkeCluster: "Test string",
-                    },
-                    nodePoolTarget: [
-                        {
-                            nodePool: "Test string",
-                            nodePoolConfig: {
-                                autoscaling: {
-                                    maxNodeCount: 42,
-                                    minNodeCount: 42,
-                                },
-                                config: {
-                                    accelerators: [
-                                        {
-                                            acceleratorCount: "Test string",
-                                            acceleratorType: "Test string",
-                                            gpuPartitionSize: "Test string",
-                                        }
-                                    ],
-                                    bootDiskKmsKey: "Test string",
-                                    localSsdCount: 42,
-                                    machineType: "Test string",
-                                    minCpuPlatform: "Test string",
-                                    preemptible: true,
-                                    spot: true,
-                                },
-                                locations: [
-                                    "Test string"
-                                ],
-                            },
-                            roles: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                },
-                initializationActions: [
-                    {
-                        executableFile: "Test string",
-                        executionTimeout: "Test string",
-                    }
-                ],
-                lifecycleConfig: {
-                    autoDeleteTime: "Test string",
-                    autoDeleteTtl: "Test string",
-                    idleDeleteTtl: "Test string",
-                    idleStartTime: "Test string",
-                },
-                masterConfig: {
-                    accelerators: [
-                        {
-                            acceleratorCount: 42,
-                            acceleratorTypeUri: "Test string",
-                        }
-                    ],
-                    diskConfig: {
-                        bootDiskSizeGb: 42,
-                        bootDiskType: "Test string",
-                        localSsdInterface: "Test string",
-                        numLocalSsds: 42,
-                    },
-                    imageUri: "Test string",
-                    instanceFlexibilityPolicy: {
-                        instanceSelectionList: [
-                            {
-                                machineTypes: [
-                                    "Test string"
-                                ],
-                                rank: 42,
-                            }
-                        ],
-                        instanceSelectionResults: [
-                            {
-                                machineType: "Test string",
-                                vmCount: 42,
-                            }
-                        ],
-                    },
-                    instanceNames: [
-                        "Test string"
-                    ],
-                    instanceReferences: [
-                        {
-                            instanceId: "Test string",
-                            instanceName: "Test string",
-                            publicEciesKey: "Test string",
-                            publicKey: "Test string",
-                        }
-                    ],
-                    isPreemptible: true,
-                    machineTypeUri: "Test string",
-                    managedGroupConfig: {
-                        instanceGroupManagerName: "Test string",
-                        instanceGroupManagerUri: "Test string",
-                        instanceTemplateName: "Test string",
-                    },
-                    minCpuPlatform: "Test string",
-                    minNumInstances: 42,
-                    numInstances: 42,
-                    preemptibility: "Test string",
-                    startupConfig: {
-                        requiredRegistrationFraction: 42,
-                    },
-                },
-                metastoreConfig: {
-                    dataprocMetastoreService: "Test string",
-                },
-                secondaryWorkerConfig: {
-                    accelerators: [
-                        {
-                            acceleratorCount: 42,
-                            acceleratorTypeUri: "Test string",
-                        }
-                    ],
-                    diskConfig: {
-                        bootDiskSizeGb: 42,
-                        bootDiskType: "Test string",
-                        localSsdInterface: "Test string",
-                        numLocalSsds: 42,
-                    },
-                    imageUri: "Test string",
-                    instanceFlexibilityPolicy: {
-                        instanceSelectionList: [
-                            {
-                                machineTypes: [
-                                    "Test string"
-                                ],
-                                rank: 42,
-                            }
-                        ],
-                        instanceSelectionResults: [
-                            {
-                                machineType: "Test string",
-                                vmCount: 42,
-                            }
-                        ],
-                    },
-                    instanceNames: [
-                        "Test string"
-                    ],
-                    instanceReferences: [
-                        {
-                            instanceId: "Test string",
-                            instanceName: "Test string",
-                            publicEciesKey: "Test string",
-                            publicKey: "Test string",
-                        }
-                    ],
-                    isPreemptible: true,
-                    machineTypeUri: "Test string",
-                    managedGroupConfig: {
-                        instanceGroupManagerName: "Test string",
-                        instanceGroupManagerUri: "Test string",
-                        instanceTemplateName: "Test string",
-                    },
-                    minCpuPlatform: "Test string",
-                    minNumInstances: 42,
-                    numInstances: 42,
-                    preemptibility: "Test string",
-                    startupConfig: {
-                        requiredRegistrationFraction: 42,
-                    },
-                },
-                securityConfig: {
-                    identityConfig: {
-                        userServiceAccountMapping: {
-                            A: "Test string"
-                        },
-                    },
-                    kerberosConfig: {
-                        crossRealmTrustAdminServer: "Test string",
-                        crossRealmTrustKdc: "Test string",
-                        crossRealmTrustRealm: "Test string",
-                        crossRealmTrustSharedPasswordUri: "Test string",
-                        enableKerberos: true,
-                        kdcDbKeyUri: "Test string",
-                        keyPasswordUri: "Test string",
-                        keystorePasswordUri: "Test string",
-                        keystoreUri: "Test string",
-                        kmsKeyUri: "Test string",
-                        realm: "Test string",
-                        rootPrincipalPasswordUri: "Test string",
-                        tgtLifetimeHours: 42,
-                        truststorePasswordUri: "Test string",
-                        truststoreUri: "Test string",
-                    },
-                },
-                softwareConfig: {
-                    imageVersion: "Test string",
-                    optionalComponents: [
-                        "Test string"
-                    ],
-                    properties: {
-                        A: "Test string"
-                    },
-                },
-                tempBucket: "Test string",
-                workerConfig: {
-                    accelerators: [
-                        {
-                            acceleratorCount: 42,
-                            acceleratorTypeUri: "Test string",
-                        }
-                    ],
-                    diskConfig: {
-                        bootDiskSizeGb: 42,
-                        bootDiskType: "Test string",
-                        localSsdInterface: "Test string",
-                        numLocalSsds: 42,
-                    },
-                    imageUri: "Test string",
-                    instanceFlexibilityPolicy: {
-                        instanceSelectionList: [
-                            {
-                                machineTypes: [
-                                    "Test string"
-                                ],
-                                rank: 42,
-                            }
-                        ],
-                        instanceSelectionResults: [
-                            {
-                                machineType: "Test string",
-                                vmCount: 42,
-                            }
-                        ],
-                    },
-                    instanceNames: [
-                        "Test string"
-                    ],
-                    instanceReferences: [
-                        {
-                            instanceId: "Test string",
-                            instanceName: "Test string",
-                            publicEciesKey: "Test string",
-                            publicKey: "Test string",
-                        }
-                    ],
-                    isPreemptible: true,
-                    machineTypeUri: "Test string",
-                    managedGroupConfig: {
-                        instanceGroupManagerName: "Test string",
-                        instanceGroupManagerUri: "Test string",
-                        instanceTemplateName: "Test string",
-                    },
-                    minCpuPlatform: "Test string",
-                    minNumInstances: 42,
-                    numInstances: 42,
-                    preemptibility: "Test string",
-                    startupConfig: {
-                        requiredRegistrationFraction: 42,
-                    },
-                },
-            },
-            labels: {
-                A: "Test string"
-            },
-            metrics: {
-                hdfsMetrics: {
-                    A: "Test string"
-                },
-                yarnMetrics: {
-                    A: "Test string"
-                },
-            },
-            projectId: "Test string",
-            status: {
-                detail: "Test string",
-                state: "Test string",
-                stateStartTime: "Test string",
-                substate: "Test string",
-            },
-            statusHistory: [
-                {
-                    detail: "Test string",
-                    state: "Test string",
-                    stateStartTime: "Test string",
-                    substate: "Test string",
-                }
-            ],
-            virtualClusterConfig: {
-                auxiliaryServicesConfig: {
-                    metastoreConfig: {
-                        dataprocMetastoreService: "Test string",
-                    },
-                    sparkHistoryServerConfig: {
-                        dataprocCluster: "Test string",
-                    },
-                },
-                kubernetesClusterConfig: {
-                    gkeClusterConfig: {
-                        gkeClusterTarget: "Test string",
-                        namespacedGkeDeploymentTarget: {
-                            clusterNamespace: "Test string",
-                            targetGkeCluster: "Test string",
-                        },
-                        nodePoolTarget: [
-                            {
-                                nodePool: "Test string",
-                                nodePoolConfig: {
-                                    autoscaling: {
-                                        maxNodeCount: 42,
-                                        minNodeCount: 42,
-                                    },
-                                    config: {
-                                        accelerators: [
-                                            {
-                                                acceleratorCount: "Test string",
-                                                acceleratorType: "Test string",
-                                                gpuPartitionSize: "Test string",
-                                            }
-                                        ],
-                                        bootDiskKmsKey: "Test string",
-                                        localSsdCount: 42,
-                                        machineType: "Test string",
-                                        minCpuPlatform: "Test string",
-                                        preemptible: true,
-                                        spot: true,
-                                    },
-                                    locations: [
-                                        "Test string"
-                                    ],
-                                },
-                                roles: [
-                                    "Test string"
-                                ],
-                            }
-                        ],
-                    },
-                    kubernetesNamespace: "Test string",
-                    kubernetesSoftwareConfig: {
-                        componentVersion: {
-                            A: "Test string"
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                },
-                stagingBucket: "Test string",
-            },
-        });
-        /** Repairs a cluster. */
-        await gapi.client.dataproc.projects.regions.clusters.repair({
-            clusterName: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        }, {
-            clusterUuid: "Test string",
-            gracefulDecommissionTimeout: "Test string",
-            nodePools: [
-                {
-                    id: "Test string",
-                    instanceNames: [
-                        "Test string"
-                    ],
-                    repairAction: "Test string",
-                }
-            ],
-            parentOperationId: "Test string",
-            requestId: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
-        await gapi.client.dataproc.projects.regions.clusters.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /** Starts a cluster in a project. */
-        await gapi.client.dataproc.projects.regions.clusters.start({
-            clusterName: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        }, {
-            clusterUuid: "Test string",
-            requestId: "Test string",
-        });
-        /** Stops a cluster in a project. */
-        await gapi.client.dataproc.projects.regions.clusters.stop({
-            clusterName: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        }, {
-            clusterUuid: "Test string",
-            requestId: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation
-         * is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataproc.projects.regions.clusters.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /**
-         * Creates a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata
-         * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata).
-         */
-        await gapi.client.dataproc.projects.regions.clusters.nodeGroups.create({
-            nodeGroupId: "Test string",
-            parent: "Test string",
-            parentOperationId: "Test string",
-            requestId: "Test string",
-        }, {
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            nodeGroupConfig: {
-                accelerators: [
-                    {
-                        acceleratorCount: 42,
-                        acceleratorTypeUri: "Test string",
-                    }
-                ],
-                diskConfig: {
-                    bootDiskSizeGb: 42,
-                    bootDiskType: "Test string",
-                    localSsdInterface: "Test string",
-                    numLocalSsds: 42,
-                },
-                imageUri: "Test string",
-                instanceFlexibilityPolicy: {
-                    instanceSelectionList: [
-                        {
-                            machineTypes: [
-                                "Test string"
-                            ],
-                            rank: 42,
-                        }
-                    ],
-                    instanceSelectionResults: [
-                        {
-                            machineType: "Test string",
-                            vmCount: 42,
-                        }
-                    ],
-                },
-                instanceNames: [
-                    "Test string"
-                ],
-                instanceReferences: [
-                    {
-                        instanceId: "Test string",
-                        instanceName: "Test string",
-                        publicEciesKey: "Test string",
-                        publicKey: "Test string",
-                    }
-                ],
-                isPreemptible: true,
-                machineTypeUri: "Test string",
-                managedGroupConfig: {
-                    instanceGroupManagerName: "Test string",
-                    instanceGroupManagerUri: "Test string",
-                    instanceTemplateName: "Test string",
-                },
-                minCpuPlatform: "Test string",
-                minNumInstances: 42,
-                numInstances: 42,
-                preemptibility: "Test string",
-                startupConfig: {
-                    requiredRegistrationFraction: 42,
-                },
-            },
-            roles: [
-                "Test string"
-            ],
-        });
-        /** Gets the resource representation for a node group in a cluster. */
-        await gapi.client.dataproc.projects.regions.clusters.nodeGroups.get({
-            name: "Test string",
-        });
-        /**
-         * Resizes a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata
-         * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata).
-         */
-        await gapi.client.dataproc.projects.regions.clusters.nodeGroups.resize({
-            name: "Test string",
-        }, {
-            gracefulDecommissionTimeout: "Test string",
-            parentOperationId: "Test string",
-            requestId: "Test string",
-            size: 42,
-        });
-        /**
-         * Starts a job cancellation request. To access the job resource after cancellation, call regions/{region}/jobs.list
-         * (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/list) or regions/{region}/jobs.get
-         * (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/get).
-         */
-        await gapi.client.dataproc.projects.regions.jobs.cancel({
-            jobId: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        }, {
-        });
-        /** Deletes the job from the project. If the job is active, the delete fails, and the response returns FAILED_PRECONDITION. */
-        await gapi.client.dataproc.projects.regions.jobs.delete({
-            jobId: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        });
-        /** Gets the resource representation for a job in a project. */
-        await gapi.client.dataproc.projects.regions.jobs.get({
-            jobId: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataproc.projects.regions.jobs.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /** Lists regions/{region}/jobs in a project. */
-        await gapi.client.dataproc.projects.regions.jobs.list({
-            clusterName: "Test string",
-            filter: "Test string",
-            jobStateMatcher: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-        });
-        /** Updates a job in a project. */
-        await gapi.client.dataproc.projects.regions.jobs.patch({
-            jobId: "Test string",
-            projectId: "Test string",
-            region: "Test string",
-            updateMask: "Test string",
-        }, {
-            done: true,
-            driverControlFilesUri: "Test string",
-            driverOutputResourceUri: "Test string",
-            driverSchedulingConfig: {
-                memoryMb: 42,
-                vcores: 42,
-            },
+    /** Retrieves autoscaling policy. */
+    await gapi.client.dataproc.projects.locations.autoscalingPolicies.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataproc.projects.locations.autoscalingPolicies.getIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        options: {
+          requestedPolicyVersion: 42,
+        },
+      }
+    );
+    /** Lists autoscaling policies in the project. */
+    await gapi.client.dataproc.projects.locations.autoscalingPolicies.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
+    await gapi.client.dataproc.projects.locations.autoscalingPolicies.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataproc.projects.locations.autoscalingPolicies.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. */
+    await gapi.client.dataproc.projects.locations.autoscalingPolicies.update(
+      {
+        name: 'Test string',
+      },
+      {
+        basicAlgorithm: {
+          cooldownPeriod: 'Test string',
+          sparkStandaloneConfig: {
+            gracefulDecommissionTimeout: 'Test string',
+            removeOnlyIdleWorkers: true,
+            scaleDownFactor: 42,
+            scaleDownMinWorkerFraction: 42,
+            scaleUpFactor: 42,
+            scaleUpMinWorkerFraction: 42,
+          },
+          yarnConfig: {
+            gracefulDecommissionTimeout: 'Test string',
+            scaleDownFactor: 42,
+            scaleDownMinWorkerFraction: 42,
+            scaleUpFactor: 42,
+            scaleUpMinWorkerFraction: 42,
+          },
+        },
+        id: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        secondaryWorkerConfig: {
+          maxInstances: 42,
+          minInstances: 42,
+          weight: 42,
+        },
+        workerConfig: {
+          maxInstances: 42,
+          minInstances: 42,
+          weight: 42,
+        },
+      }
+    );
+    /** Creates a batch workload that executes asynchronously. */
+    await gapi.client.dataproc.projects.locations.batches.create(
+      {
+        batchId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        creator: 'Test string',
+        environmentConfig: {
+          executionConfig: {
+            idleTtl: 'Test string',
+            kmsKey: 'Test string',
+            networkTags: ['Test string'],
+            networkUri: 'Test string',
+            serviceAccount: 'Test string',
+            stagingBucket: 'Test string',
+            subnetworkUri: 'Test string',
+            ttl: 'Test string',
+          },
+          peripheralsConfig: {
+            metastoreService: 'Test string',
+            sparkHistoryServerConfig: {
+              dataprocCluster: 'Test string',
+            },
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        operation: 'Test string',
+        pysparkBatch: {
+          archiveUris: ['Test string'],
+          args: ['Test string'],
+          fileUris: ['Test string'],
+          jarFileUris: ['Test string'],
+          mainPythonFileUri: 'Test string',
+          pythonFileUris: ['Test string'],
+        },
+        runtimeConfig: {
+          containerImage: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+          repositoryConfig: {
+            pypiRepositoryConfig: {
+              pypiRepository: 'Test string',
+            },
+          },
+          version: 'Test string',
+        },
+        runtimeInfo: {
+          approximateUsage: {
+            acceleratorType: 'Test string',
+            milliAcceleratorSeconds: 'Test string',
+            milliDcuSeconds: 'Test string',
+            shuffleStorageGbSeconds: 'Test string',
+          },
+          currentUsage: {
+            acceleratorType: 'Test string',
+            milliAccelerator: 'Test string',
+            milliDcu: 'Test string',
+            milliDcuPremium: 'Test string',
+            shuffleStorageGb: 'Test string',
+            shuffleStorageGbPremium: 'Test string',
+            snapshotTime: 'Test string',
+          },
+          diagnosticOutputUri: 'Test string',
+          endpoints: {
+            A: 'Test string',
+          },
+          outputUri: 'Test string',
+        },
+        sparkBatch: {
+          archiveUris: ['Test string'],
+          args: ['Test string'],
+          fileUris: ['Test string'],
+          jarFileUris: ['Test string'],
+          mainClass: 'Test string',
+          mainJarFileUri: 'Test string',
+        },
+        sparkRBatch: {
+          archiveUris: ['Test string'],
+          args: ['Test string'],
+          fileUris: ['Test string'],
+          mainRFileUri: 'Test string',
+        },
+        sparkSqlBatch: {
+          jarFileUris: ['Test string'],
+          queryFileUri: 'Test string',
+          queryVariables: {
+            A: 'Test string',
+          },
+        },
+        state: 'Test string',
+        stateHistory: [
+          {
+            state: 'Test string',
+            stateMessage: 'Test string',
+            stateStartTime: 'Test string',
+          },
+        ],
+        stateMessage: 'Test string',
+        stateTime: 'Test string',
+        uuid: 'Test string',
+      }
+    );
+    /** Deletes the batch workload resource. If the batch is not in a CANCELLED, SUCCEEDED or FAILED State, the delete operation fails and the response returns FAILED_PRECONDITION. */
+    await gapi.client.dataproc.projects.locations.batches.delete({
+      name: 'Test string',
+    });
+    /** Gets the batch workload resource representation. */
+    await gapi.client.dataproc.projects.locations.batches.get({
+      name: 'Test string',
+    });
+    /** Lists batch workloads. */
+    await gapi.client.dataproc.projects.locations.batches.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
+    await gapi.client.dataproc.projects.locations.operations.cancel({
+      name: 'Test string',
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. */
+    await gapi.client.dataproc.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.dataproc.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
+    await gapi.client.dataproc.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Create an interactive session asynchronously. */
+    await gapi.client.dataproc.projects.locations.sessions.create(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+        sessionId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        creator: 'Test string',
+        environmentConfig: {
+          executionConfig: {
+            idleTtl: 'Test string',
+            kmsKey: 'Test string',
+            networkTags: ['Test string'],
+            networkUri: 'Test string',
+            serviceAccount: 'Test string',
+            stagingBucket: 'Test string',
+            subnetworkUri: 'Test string',
+            ttl: 'Test string',
+          },
+          peripheralsConfig: {
+            metastoreService: 'Test string',
+            sparkHistoryServerConfig: {
+              dataprocCluster: 'Test string',
+            },
+          },
+        },
+        jupyterSession: {
+          displayName: 'Test string',
+          kernel: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        runtimeConfig: {
+          containerImage: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+          repositoryConfig: {
+            pypiRepositoryConfig: {
+              pypiRepository: 'Test string',
+            },
+          },
+          version: 'Test string',
+        },
+        runtimeInfo: {
+          approximateUsage: {
+            acceleratorType: 'Test string',
+            milliAcceleratorSeconds: 'Test string',
+            milliDcuSeconds: 'Test string',
+            shuffleStorageGbSeconds: 'Test string',
+          },
+          currentUsage: {
+            acceleratorType: 'Test string',
+            milliAccelerator: 'Test string',
+            milliDcu: 'Test string',
+            milliDcuPremium: 'Test string',
+            shuffleStorageGb: 'Test string',
+            shuffleStorageGbPremium: 'Test string',
+            snapshotTime: 'Test string',
+          },
+          diagnosticOutputUri: 'Test string',
+          endpoints: {
+            A: 'Test string',
+          },
+          outputUri: 'Test string',
+        },
+        sessionTemplate: 'Test string',
+        state: 'Test string',
+        stateHistory: [
+          {
+            state: 'Test string',
+            stateMessage: 'Test string',
+            stateStartTime: 'Test string',
+          },
+        ],
+        stateMessage: 'Test string',
+        stateTime: 'Test string',
+        user: 'Test string',
+        uuid: 'Test string',
+      }
+    );
+    /** Deletes the interactive session resource. If the session is not in terminal state, it is terminated, and then deleted. */
+    await gapi.client.dataproc.projects.locations.sessions.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Gets the resource representation for an interactive session. */
+    await gapi.client.dataproc.projects.locations.sessions.get({
+      name: 'Test string',
+    });
+    /** Lists interactive sessions. */
+    await gapi.client.dataproc.projects.locations.sessions.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Terminates the interactive session. */
+    await gapi.client.dataproc.projects.locations.sessions.terminate(
+      {
+        name: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+      }
+    );
+    /** Create a session template synchronously. */
+    await gapi.client.dataproc.projects.locations.sessionTemplates.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        creator: 'Test string',
+        description: 'Test string',
+        environmentConfig: {
+          executionConfig: {
+            idleTtl: 'Test string',
+            kmsKey: 'Test string',
+            networkTags: ['Test string'],
+            networkUri: 'Test string',
+            serviceAccount: 'Test string',
+            stagingBucket: 'Test string',
+            subnetworkUri: 'Test string',
+            ttl: 'Test string',
+          },
+          peripheralsConfig: {
+            metastoreService: 'Test string',
+            sparkHistoryServerConfig: {
+              dataprocCluster: 'Test string',
+            },
+          },
+        },
+        jupyterSession: {
+          displayName: 'Test string',
+          kernel: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        runtimeConfig: {
+          containerImage: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+          repositoryConfig: {
+            pypiRepositoryConfig: {
+              pypiRepository: 'Test string',
+            },
+          },
+          version: 'Test string',
+        },
+        updateTime: 'Test string',
+        uuid: 'Test string',
+      }
+    );
+    /** Deletes a session template. */
+    await gapi.client.dataproc.projects.locations.sessionTemplates.delete({
+      name: 'Test string',
+    });
+    /** Gets the resource representation for a session template. */
+    await gapi.client.dataproc.projects.locations.sessionTemplates.get({
+      name: 'Test string',
+    });
+    /** Lists session templates. */
+    await gapi.client.dataproc.projects.locations.sessionTemplates.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the session template synchronously. */
+    await gapi.client.dataproc.projects.locations.sessionTemplates.patch(
+      {
+        name: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        creator: 'Test string',
+        description: 'Test string',
+        environmentConfig: {
+          executionConfig: {
+            idleTtl: 'Test string',
+            kmsKey: 'Test string',
+            networkTags: ['Test string'],
+            networkUri: 'Test string',
+            serviceAccount: 'Test string',
+            stagingBucket: 'Test string',
+            subnetworkUri: 'Test string',
+            ttl: 'Test string',
+          },
+          peripheralsConfig: {
+            metastoreService: 'Test string',
+            sparkHistoryServerConfig: {
+              dataprocCluster: 'Test string',
+            },
+          },
+        },
+        jupyterSession: {
+          displayName: 'Test string',
+          kernel: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        runtimeConfig: {
+          containerImage: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+          repositoryConfig: {
+            pypiRepositoryConfig: {
+              pypiRepository: 'Test string',
+            },
+          },
+          version: 'Test string',
+        },
+        updateTime: 'Test string',
+        uuid: 'Test string',
+      }
+    );
+    /** Creates new workflow template. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        dagTimeout: 'Test string',
+        encryptionConfig: {
+          kmsKey: 'Test string',
+        },
+        id: 'Test string',
+        jobs: [
+          {
             flinkJob: {
-                args: [
-                    "Test string"
-                ],
-                jarFileUris: [
-                    "Test string"
-                ],
-                loggingConfig: {
-                    driverLogLevels: {
-                        A: "Test string"
-                    },
+              args: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                mainClass: "Test string",
-                mainJarFileUri: "Test string",
-                properties: {
-                    A: "Test string"
-                },
-                savepointUri: "Test string",
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              savepointUri: 'Test string',
             },
             hadoopJob: {
-                archiveUris: [
-                    "Test string"
-                ],
-                args: [
-                    "Test string"
-                ],
-                fileUris: [
-                    "Test string"
-                ],
-                jarFileUris: [
-                    "Test string"
-                ],
-                loggingConfig: {
-                    driverLogLevels: {
-                        A: "Test string"
-                    },
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                mainClass: "Test string",
-                mainJarFileUri: "Test string",
-                properties: {
-                    A: "Test string"
-                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
             },
             hiveJob: {
-                continueOnFailure: true,
-                jarFileUris: [
-                    "Test string"
-                ],
-                properties: {
-                    A: "Test string"
-                },
-                queryFileUri: "Test string",
-                queryList: {
-                    queries: [
-                        "Test string"
-                    ],
-                },
-                scriptVariables: {
-                    A: "Test string"
-                },
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
             },
-            jobUuid: "Test string",
             labels: {
-                A: "Test string"
+              A: 'Test string',
             },
             pigJob: {
-                continueOnFailure: true,
-                jarFileUris: [
-                    "Test string"
-                ],
-                loggingConfig: {
-                    driverLogLevels: {
-                        A: "Test string"
-                    },
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                properties: {
-                    A: "Test string"
-                },
-                queryFileUri: "Test string",
-                queryList: {
-                    queries: [
-                        "Test string"
-                    ],
-                },
-                scriptVariables: {
-                    A: "Test string"
-                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
             },
-            placement: {
-                clusterLabels: {
-                    A: "Test string"
-                },
-                clusterName: "Test string",
-                clusterUuid: "Test string",
-            },
+            prerequisiteStepIds: ['Test string'],
             prestoJob: {
-                clientTags: [
-                    "Test string"
-                ],
-                continueOnFailure: true,
-                loggingConfig: {
-                    driverLogLevels: {
-                        A: "Test string"
-                    },
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                outputFormat: "Test string",
-                properties: {
-                    A: "Test string"
-                },
-                queryFileUri: "Test string",
-                queryList: {
-                    queries: [
-                        "Test string"
-                    ],
-                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
             },
             pysparkJob: {
-                archiveUris: [
-                    "Test string"
-                ],
-                args: [
-                    "Test string"
-                ],
-                fileUris: [
-                    "Test string"
-                ],
-                jarFileUris: [
-                    "Test string"
-                ],
-                loggingConfig: {
-                    driverLogLevels: {
-                        A: "Test string"
-                    },
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                mainPythonFileUri: "Test string",
-                properties: {
-                    A: "Test string"
-                },
-                pythonFileUris: [
-                    "Test string"
-                ],
-            },
-            reference: {
-                jobId: "Test string",
-                projectId: "Test string",
+              },
+              mainPythonFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              pythonFileUris: ['Test string'],
             },
             scheduling: {
-                maxFailuresPerHour: 42,
-                maxFailuresTotal: 42,
+              maxFailuresPerHour: 42,
+              maxFailuresTotal: 42,
             },
             sparkJob: {
-                archiveUris: [
-                    "Test string"
-                ],
-                args: [
-                    "Test string"
-                ],
-                fileUris: [
-                    "Test string"
-                ],
-                jarFileUris: [
-                    "Test string"
-                ],
-                loggingConfig: {
-                    driverLogLevels: {
-                        A: "Test string"
-                    },
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                mainClass: "Test string",
-                mainJarFileUri: "Test string",
-                properties: {
-                    A: "Test string"
-                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
             },
             sparkRJob: {
-                archiveUris: [
-                    "Test string"
-                ],
-                args: [
-                    "Test string"
-                ],
-                fileUris: [
-                    "Test string"
-                ],
-                loggingConfig: {
-                    driverLogLevels: {
-                        A: "Test string"
-                    },
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                mainRFileUri: "Test string",
-                properties: {
-                    A: "Test string"
-                },
+              },
+              mainRFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
             },
             sparkSqlJob: {
-                jarFileUris: [
-                    "Test string"
-                ],
-                loggingConfig: {
-                    driverLogLevels: {
-                        A: "Test string"
-                    },
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                properties: {
-                    A: "Test string"
-                },
-                queryFileUri: "Test string",
-                queryList: {
-                    queries: [
-                        "Test string"
-                    ],
-                },
-                scriptVariables: {
-                    A: "Test string"
-                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
             },
-            status: {
-                details: "Test string",
-                state: "Test string",
-                stateStartTime: "Test string",
-                substate: "Test string",
-            },
-            statusHistory: [
-                {
-                    details: "Test string",
-                    state: "Test string",
-                    stateStartTime: "Test string",
-                    substate: "Test string",
-                }
-            ],
+            stepId: 'Test string',
             trinoJob: {
-                clientTags: [
-                    "Test string"
-                ],
-                continueOnFailure: true,
-                loggingConfig: {
-                    driverLogLevels: {
-                        A: "Test string"
-                    },
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                outputFormat: "Test string",
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+          },
+        ],
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        parameters: [
+          {
+            description: 'Test string',
+            fields: ['Test string'],
+            name: 'Test string',
+            validation: {
+              regex: {
+                regexes: ['Test string'],
+              },
+              values: {
+                values: ['Test string'],
+              },
+            },
+          },
+        ],
+        placement: {
+          clusterSelector: {
+            clusterLabels: {
+              A: 'Test string',
+            },
+            zone: 'Test string',
+          },
+          managedCluster: {
+            clusterName: 'Test string',
+            config: {
+              autoscalingConfig: {
+                policyUri: 'Test string',
+              },
+              auxiliaryNodeGroups: [
+                {
+                  nodeGroup: {
+                    labels: {
+                      A: 'Test string',
+                    },
+                    name: 'Test string',
+                    nodeGroupConfig: {
+                      accelerators: [
+                        {
+                          acceleratorCount: 42,
+                          acceleratorTypeUri: 'Test string',
+                        },
+                      ],
+                      diskConfig: {
+                        bootDiskSizeGb: 42,
+                        bootDiskType: 'Test string',
+                        localSsdInterface: 'Test string',
+                        numLocalSsds: 42,
+                      },
+                      imageUri: 'Test string',
+                      instanceFlexibilityPolicy: {
+                        instanceSelectionList: [
+                          {
+                            machineTypes: ['Test string'],
+                            rank: 42,
+                          },
+                        ],
+                        instanceSelectionResults: [
+                          {
+                            machineType: 'Test string',
+                            vmCount: 42,
+                          },
+                        ],
+                      },
+                      instanceNames: ['Test string'],
+                      instanceReferences: [
+                        {
+                          instanceId: 'Test string',
+                          instanceName: 'Test string',
+                          publicEciesKey: 'Test string',
+                          publicKey: 'Test string',
+                        },
+                      ],
+                      isPreemptible: true,
+                      machineTypeUri: 'Test string',
+                      managedGroupConfig: {
+                        instanceGroupManagerName: 'Test string',
+                        instanceGroupManagerUri: 'Test string',
+                        instanceTemplateName: 'Test string',
+                      },
+                      minCpuPlatform: 'Test string',
+                      minNumInstances: 42,
+                      numInstances: 42,
+                      preemptibility: 'Test string',
+                      startupConfig: {
+                        requiredRegistrationFraction: 42,
+                      },
+                    },
+                    roles: ['Test string'],
+                  },
+                  nodeGroupId: 'Test string',
+                },
+              ],
+              configBucket: 'Test string',
+              dataprocMetricConfig: {
+                metrics: [
+                  {
+                    metricOverrides: ['Test string'],
+                    metricSource: 'Test string',
+                  },
+                ],
+              },
+              encryptionConfig: {
+                gcePdKmsKeyName: 'Test string',
+                kmsKey: 'Test string',
+              },
+              endpointConfig: {
+                enableHttpPortAccess: true,
+                httpPorts: {
+                  A: 'Test string',
+                },
+              },
+              gceClusterConfig: {
+                confidentialInstanceConfig: {
+                  enableConfidentialCompute: true,
+                },
+                internalIpOnly: true,
+                metadata: {
+                  A: 'Test string',
+                },
+                networkUri: 'Test string',
+                nodeGroupAffinity: {
+                  nodeGroupUri: 'Test string',
+                },
+                privateIpv6GoogleAccess: 'Test string',
+                reservationAffinity: {
+                  consumeReservationType: 'Test string',
+                  key: 'Test string',
+                  values: ['Test string'],
+                },
+                serviceAccount: 'Test string',
+                serviceAccountScopes: ['Test string'],
+                shieldedInstanceConfig: {
+                  enableIntegrityMonitoring: true,
+                  enableSecureBoot: true,
+                  enableVtpm: true,
+                },
+                subnetworkUri: 'Test string',
+                tags: ['Test string'],
+                zoneUri: 'Test string',
+              },
+              gkeClusterConfig: {
+                gkeClusterTarget: 'Test string',
+                namespacedGkeDeploymentTarget: {
+                  clusterNamespace: 'Test string',
+                  targetGkeCluster: 'Test string',
+                },
+                nodePoolTarget: [
+                  {
+                    nodePool: 'Test string',
+                    nodePoolConfig: {
+                      autoscaling: {
+                        maxNodeCount: 42,
+                        minNodeCount: 42,
+                      },
+                      config: {
+                        accelerators: [
+                          {
+                            acceleratorCount: 'Test string',
+                            acceleratorType: 'Test string',
+                            gpuPartitionSize: 'Test string',
+                          },
+                        ],
+                        bootDiskKmsKey: 'Test string',
+                        localSsdCount: 42,
+                        machineType: 'Test string',
+                        minCpuPlatform: 'Test string',
+                        preemptible: true,
+                        spot: true,
+                      },
+                      locations: ['Test string'],
+                    },
+                    roles: ['Test string'],
+                  },
+                ],
+              },
+              initializationActions: [
+                {
+                  executableFile: 'Test string',
+                  executionTimeout: 'Test string',
+                },
+              ],
+              lifecycleConfig: {
+                autoDeleteTime: 'Test string',
+                autoDeleteTtl: 'Test string',
+                idleDeleteTtl: 'Test string',
+                idleStartTime: 'Test string',
+              },
+              masterConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              metastoreConfig: {
+                dataprocMetastoreService: 'Test string',
+              },
+              secondaryWorkerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              securityConfig: {
+                identityConfig: {
+                  userServiceAccountMapping: {
+                    A: 'Test string',
+                  },
+                },
+                kerberosConfig: {
+                  crossRealmTrustAdminServer: 'Test string',
+                  crossRealmTrustKdc: 'Test string',
+                  crossRealmTrustRealm: 'Test string',
+                  crossRealmTrustSharedPasswordUri: 'Test string',
+                  enableKerberos: true,
+                  kdcDbKeyUri: 'Test string',
+                  keyPasswordUri: 'Test string',
+                  keystorePasswordUri: 'Test string',
+                  keystoreUri: 'Test string',
+                  kmsKeyUri: 'Test string',
+                  realm: 'Test string',
+                  rootPrincipalPasswordUri: 'Test string',
+                  tgtLifetimeHours: 42,
+                  truststorePasswordUri: 'Test string',
+                  truststoreUri: 'Test string',
+                },
+              },
+              softwareConfig: {
+                imageVersion: 'Test string',
+                optionalComponents: ['Test string'],
                 properties: {
-                    A: "Test string"
+                  A: 'Test string',
                 },
-                queryFileUri: "Test string",
-                queryList: {
-                    queries: [
-                        "Test string"
-                    ],
-                },
-            },
-            yarnApplications: [
-                {
-                    name: "Test string",
-                    progress: 42,
-                    state: "Test string",
-                    trackingUrl: "Test string",
-                }
-            ],
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
-        await gapi.client.dataproc.projects.regions.jobs.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
+              },
+              tempBucket: 'Test string',
+              workerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
                 ],
-                etag: "Test string",
-                version: 42,
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
             },
-        });
-        /** Submits a job to a cluster. */
-        await gapi.client.dataproc.projects.regions.jobs.submit({
-            projectId: "Test string",
-            region: "Test string",
-        }, {
-            job: {
-                done: true,
-                driverControlFilesUri: "Test string",
-                driverOutputResourceUri: "Test string",
-                driverSchedulingConfig: {
-                    memoryMb: 42,
-                    vcores: 42,
+            labels: {
+              A: 'Test string',
+            },
+          },
+        },
+        updateTime: 'Test string',
+        version: 42,
+      }
+    );
+    /** Deletes a workflow template. It does not cancel in-progress workflows. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.delete({
+      name: 'Test string',
+      version: 42,
+    });
+    /** Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.get({
+      name: 'Test string',
+      version: 42,
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.getIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        options: {
+          requestedPolicyVersion: 42,
+        },
+      }
+    );
+    /** Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.instantiate(
+      {
+        name: 'Test string',
+      },
+      {
+        parameters: {
+          A: 'Test string',
+        },
+        requestId: 'Test string',
+        version: 42,
+      }
+    );
+    /** Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.instantiateInline(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        dagTimeout: 'Test string',
+        encryptionConfig: {
+          kmsKey: 'Test string',
+        },
+        id: 'Test string',
+        jobs: [
+          {
+            flinkJob: {
+              args: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
                 },
-                flinkJob: {
-                    args: [
-                        "Test string"
-                    ],
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              savepointUri: 'Test string',
+            },
+            hadoopJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            hiveJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            labels: {
+              A: 'Test string',
+            },
+            pigJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            prerequisiteStepIds: ['Test string'],
+            prestoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+            pysparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainPythonFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              pythonFileUris: ['Test string'],
+            },
+            scheduling: {
+              maxFailuresPerHour: 42,
+              maxFailuresTotal: 42,
+            },
+            sparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkRJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainRFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkSqlJob: {
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            stepId: 'Test string',
+            trinoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+          },
+        ],
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        parameters: [
+          {
+            description: 'Test string',
+            fields: ['Test string'],
+            name: 'Test string',
+            validation: {
+              regex: {
+                regexes: ['Test string'],
+              },
+              values: {
+                values: ['Test string'],
+              },
+            },
+          },
+        ],
+        placement: {
+          clusterSelector: {
+            clusterLabels: {
+              A: 'Test string',
+            },
+            zone: 'Test string',
+          },
+          managedCluster: {
+            clusterName: 'Test string',
+            config: {
+              autoscalingConfig: {
+                policyUri: 'Test string',
+              },
+              auxiliaryNodeGroups: [
+                {
+                  nodeGroup: {
+                    labels: {
+                      A: 'Test string',
+                    },
+                    name: 'Test string',
+                    nodeGroupConfig: {
+                      accelerators: [
+                        {
+                          acceleratorCount: 42,
+                          acceleratorTypeUri: 'Test string',
                         },
-                    },
-                    mainClass: "Test string",
-                    mainJarFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                    savepointUri: "Test string",
-                },
-                hadoopJob: {
-                    archiveUris: [
-                        "Test string"
-                    ],
-                    args: [
-                        "Test string"
-                    ],
-                    fileUris: [
-                        "Test string"
-                    ],
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    mainClass: "Test string",
-                    mainJarFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                },
-                hiveJob: {
-                    continueOnFailure: true,
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
+                      ],
+                      diskConfig: {
+                        bootDiskSizeGb: 42,
+                        bootDiskType: 'Test string',
+                        localSsdInterface: 'Test string',
+                        numLocalSsds: 42,
+                      },
+                      imageUri: 'Test string',
+                      instanceFlexibilityPolicy: {
+                        instanceSelectionList: [
+                          {
+                            machineTypes: ['Test string'],
+                            rank: 42,
+                          },
                         ],
+                        instanceSelectionResults: [
+                          {
+                            machineType: 'Test string',
+                            vmCount: 42,
+                          },
+                        ],
+                      },
+                      instanceNames: ['Test string'],
+                      instanceReferences: [
+                        {
+                          instanceId: 'Test string',
+                          instanceName: 'Test string',
+                          publicEciesKey: 'Test string',
+                          publicKey: 'Test string',
+                        },
+                      ],
+                      isPreemptible: true,
+                      machineTypeUri: 'Test string',
+                      managedGroupConfig: {
+                        instanceGroupManagerName: 'Test string',
+                        instanceGroupManagerUri: 'Test string',
+                        instanceTemplateName: 'Test string',
+                      },
+                      minCpuPlatform: 'Test string',
+                      minNumInstances: 42,
+                      numInstances: 42,
+                      preemptibility: 'Test string',
+                      startupConfig: {
+                        requiredRegistrationFraction: 42,
+                      },
                     },
-                    scriptVariables: {
-                        A: "Test string"
-                    },
+                    roles: ['Test string'],
+                  },
+                  nodeGroupId: 'Test string',
                 },
-                jobUuid: "Test string",
+              ],
+              configBucket: 'Test string',
+              dataprocMetricConfig: {
+                metrics: [
+                  {
+                    metricOverrides: ['Test string'],
+                    metricSource: 'Test string',
+                  },
+                ],
+              },
+              encryptionConfig: {
+                gcePdKmsKeyName: 'Test string',
+                kmsKey: 'Test string',
+              },
+              endpointConfig: {
+                enableHttpPortAccess: true,
+                httpPorts: {
+                  A: 'Test string',
+                },
+              },
+              gceClusterConfig: {
+                confidentialInstanceConfig: {
+                  enableConfidentialCompute: true,
+                },
+                internalIpOnly: true,
+                metadata: {
+                  A: 'Test string',
+                },
+                networkUri: 'Test string',
+                nodeGroupAffinity: {
+                  nodeGroupUri: 'Test string',
+                },
+                privateIpv6GoogleAccess: 'Test string',
+                reservationAffinity: {
+                  consumeReservationType: 'Test string',
+                  key: 'Test string',
+                  values: ['Test string'],
+                },
+                serviceAccount: 'Test string',
+                serviceAccountScopes: ['Test string'],
+                shieldedInstanceConfig: {
+                  enableIntegrityMonitoring: true,
+                  enableSecureBoot: true,
+                  enableVtpm: true,
+                },
+                subnetworkUri: 'Test string',
+                tags: ['Test string'],
+                zoneUri: 'Test string',
+              },
+              gkeClusterConfig: {
+                gkeClusterTarget: 'Test string',
+                namespacedGkeDeploymentTarget: {
+                  clusterNamespace: 'Test string',
+                  targetGkeCluster: 'Test string',
+                },
+                nodePoolTarget: [
+                  {
+                    nodePool: 'Test string',
+                    nodePoolConfig: {
+                      autoscaling: {
+                        maxNodeCount: 42,
+                        minNodeCount: 42,
+                      },
+                      config: {
+                        accelerators: [
+                          {
+                            acceleratorCount: 'Test string',
+                            acceleratorType: 'Test string',
+                            gpuPartitionSize: 'Test string',
+                          },
+                        ],
+                        bootDiskKmsKey: 'Test string',
+                        localSsdCount: 42,
+                        machineType: 'Test string',
+                        minCpuPlatform: 'Test string',
+                        preemptible: true,
+                        spot: true,
+                      },
+                      locations: ['Test string'],
+                    },
+                    roles: ['Test string'],
+                  },
+                ],
+              },
+              initializationActions: [
+                {
+                  executableFile: 'Test string',
+                  executionTimeout: 'Test string',
+                },
+              ],
+              lifecycleConfig: {
+                autoDeleteTime: 'Test string',
+                autoDeleteTtl: 'Test string',
+                idleDeleteTtl: 'Test string',
+                idleStartTime: 'Test string',
+              },
+              masterConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              metastoreConfig: {
+                dataprocMetastoreService: 'Test string',
+              },
+              secondaryWorkerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              securityConfig: {
+                identityConfig: {
+                  userServiceAccountMapping: {
+                    A: 'Test string',
+                  },
+                },
+                kerberosConfig: {
+                  crossRealmTrustAdminServer: 'Test string',
+                  crossRealmTrustKdc: 'Test string',
+                  crossRealmTrustRealm: 'Test string',
+                  crossRealmTrustSharedPasswordUri: 'Test string',
+                  enableKerberos: true,
+                  kdcDbKeyUri: 'Test string',
+                  keyPasswordUri: 'Test string',
+                  keystorePasswordUri: 'Test string',
+                  keystoreUri: 'Test string',
+                  kmsKeyUri: 'Test string',
+                  realm: 'Test string',
+                  rootPrincipalPasswordUri: 'Test string',
+                  tgtLifetimeHours: 42,
+                  truststorePasswordUri: 'Test string',
+                  truststoreUri: 'Test string',
+                },
+              },
+              softwareConfig: {
+                imageVersion: 'Test string',
+                optionalComponents: ['Test string'],
+                properties: {
+                  A: 'Test string',
+                },
+              },
+              tempBucket: 'Test string',
+              workerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+            },
+            labels: {
+              A: 'Test string',
+            },
+          },
+        },
+        updateTime: 'Test string',
+        version: 42,
+      }
+    );
+    /** Lists workflows that match the specified filter in the request. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Updates (replaces) workflow template. The updated template must contain version that matches the current server version. */
+    await gapi.client.dataproc.projects.locations.workflowTemplates.update(
+      {
+        name: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        dagTimeout: 'Test string',
+        encryptionConfig: {
+          kmsKey: 'Test string',
+        },
+        id: 'Test string',
+        jobs: [
+          {
+            flinkJob: {
+              args: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              savepointUri: 'Test string',
+            },
+            hadoopJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            hiveJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            labels: {
+              A: 'Test string',
+            },
+            pigJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            prerequisiteStepIds: ['Test string'],
+            prestoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+            pysparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainPythonFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              pythonFileUris: ['Test string'],
+            },
+            scheduling: {
+              maxFailuresPerHour: 42,
+              maxFailuresTotal: 42,
+            },
+            sparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkRJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainRFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkSqlJob: {
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            stepId: 'Test string',
+            trinoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+          },
+        ],
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        parameters: [
+          {
+            description: 'Test string',
+            fields: ['Test string'],
+            name: 'Test string',
+            validation: {
+              regex: {
+                regexes: ['Test string'],
+              },
+              values: {
+                values: ['Test string'],
+              },
+            },
+          },
+        ],
+        placement: {
+          clusterSelector: {
+            clusterLabels: {
+              A: 'Test string',
+            },
+            zone: 'Test string',
+          },
+          managedCluster: {
+            clusterName: 'Test string',
+            config: {
+              autoscalingConfig: {
+                policyUri: 'Test string',
+              },
+              auxiliaryNodeGroups: [
+                {
+                  nodeGroup: {
+                    labels: {
+                      A: 'Test string',
+                    },
+                    name: 'Test string',
+                    nodeGroupConfig: {
+                      accelerators: [
+                        {
+                          acceleratorCount: 42,
+                          acceleratorTypeUri: 'Test string',
+                        },
+                      ],
+                      diskConfig: {
+                        bootDiskSizeGb: 42,
+                        bootDiskType: 'Test string',
+                        localSsdInterface: 'Test string',
+                        numLocalSsds: 42,
+                      },
+                      imageUri: 'Test string',
+                      instanceFlexibilityPolicy: {
+                        instanceSelectionList: [
+                          {
+                            machineTypes: ['Test string'],
+                            rank: 42,
+                          },
+                        ],
+                        instanceSelectionResults: [
+                          {
+                            machineType: 'Test string',
+                            vmCount: 42,
+                          },
+                        ],
+                      },
+                      instanceNames: ['Test string'],
+                      instanceReferences: [
+                        {
+                          instanceId: 'Test string',
+                          instanceName: 'Test string',
+                          publicEciesKey: 'Test string',
+                          publicKey: 'Test string',
+                        },
+                      ],
+                      isPreemptible: true,
+                      machineTypeUri: 'Test string',
+                      managedGroupConfig: {
+                        instanceGroupManagerName: 'Test string',
+                        instanceGroupManagerUri: 'Test string',
+                        instanceTemplateName: 'Test string',
+                      },
+                      minCpuPlatform: 'Test string',
+                      minNumInstances: 42,
+                      numInstances: 42,
+                      preemptibility: 'Test string',
+                      startupConfig: {
+                        requiredRegistrationFraction: 42,
+                      },
+                    },
+                    roles: ['Test string'],
+                  },
+                  nodeGroupId: 'Test string',
+                },
+              ],
+              configBucket: 'Test string',
+              dataprocMetricConfig: {
+                metrics: [
+                  {
+                    metricOverrides: ['Test string'],
+                    metricSource: 'Test string',
+                  },
+                ],
+              },
+              encryptionConfig: {
+                gcePdKmsKeyName: 'Test string',
+                kmsKey: 'Test string',
+              },
+              endpointConfig: {
+                enableHttpPortAccess: true,
+                httpPorts: {
+                  A: 'Test string',
+                },
+              },
+              gceClusterConfig: {
+                confidentialInstanceConfig: {
+                  enableConfidentialCompute: true,
+                },
+                internalIpOnly: true,
+                metadata: {
+                  A: 'Test string',
+                },
+                networkUri: 'Test string',
+                nodeGroupAffinity: {
+                  nodeGroupUri: 'Test string',
+                },
+                privateIpv6GoogleAccess: 'Test string',
+                reservationAffinity: {
+                  consumeReservationType: 'Test string',
+                  key: 'Test string',
+                  values: ['Test string'],
+                },
+                serviceAccount: 'Test string',
+                serviceAccountScopes: ['Test string'],
+                shieldedInstanceConfig: {
+                  enableIntegrityMonitoring: true,
+                  enableSecureBoot: true,
+                  enableVtpm: true,
+                },
+                subnetworkUri: 'Test string',
+                tags: ['Test string'],
+                zoneUri: 'Test string',
+              },
+              gkeClusterConfig: {
+                gkeClusterTarget: 'Test string',
+                namespacedGkeDeploymentTarget: {
+                  clusterNamespace: 'Test string',
+                  targetGkeCluster: 'Test string',
+                },
+                nodePoolTarget: [
+                  {
+                    nodePool: 'Test string',
+                    nodePoolConfig: {
+                      autoscaling: {
+                        maxNodeCount: 42,
+                        minNodeCount: 42,
+                      },
+                      config: {
+                        accelerators: [
+                          {
+                            acceleratorCount: 'Test string',
+                            acceleratorType: 'Test string',
+                            gpuPartitionSize: 'Test string',
+                          },
+                        ],
+                        bootDiskKmsKey: 'Test string',
+                        localSsdCount: 42,
+                        machineType: 'Test string',
+                        minCpuPlatform: 'Test string',
+                        preemptible: true,
+                        spot: true,
+                      },
+                      locations: ['Test string'],
+                    },
+                    roles: ['Test string'],
+                  },
+                ],
+              },
+              initializationActions: [
+                {
+                  executableFile: 'Test string',
+                  executionTimeout: 'Test string',
+                },
+              ],
+              lifecycleConfig: {
+                autoDeleteTime: 'Test string',
+                autoDeleteTtl: 'Test string',
+                idleDeleteTtl: 'Test string',
+                idleStartTime: 'Test string',
+              },
+              masterConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              metastoreConfig: {
+                dataprocMetastoreService: 'Test string',
+              },
+              secondaryWorkerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              securityConfig: {
+                identityConfig: {
+                  userServiceAccountMapping: {
+                    A: 'Test string',
+                  },
+                },
+                kerberosConfig: {
+                  crossRealmTrustAdminServer: 'Test string',
+                  crossRealmTrustKdc: 'Test string',
+                  crossRealmTrustRealm: 'Test string',
+                  crossRealmTrustSharedPasswordUri: 'Test string',
+                  enableKerberos: true,
+                  kdcDbKeyUri: 'Test string',
+                  keyPasswordUri: 'Test string',
+                  keystorePasswordUri: 'Test string',
+                  keystoreUri: 'Test string',
+                  kmsKeyUri: 'Test string',
+                  realm: 'Test string',
+                  rootPrincipalPasswordUri: 'Test string',
+                  tgtLifetimeHours: 42,
+                  truststorePasswordUri: 'Test string',
+                  truststoreUri: 'Test string',
+                },
+              },
+              softwareConfig: {
+                imageVersion: 'Test string',
+                optionalComponents: ['Test string'],
+                properties: {
+                  A: 'Test string',
+                },
+              },
+              tempBucket: 'Test string',
+              workerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+            },
+            labels: {
+              A: 'Test string',
+            },
+          },
+        },
+        updateTime: 'Test string',
+        version: 42,
+      }
+    );
+    /** Creates new autoscaling policy. */
+    await gapi.client.dataproc.projects.regions.autoscalingPolicies.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        basicAlgorithm: {
+          cooldownPeriod: 'Test string',
+          sparkStandaloneConfig: {
+            gracefulDecommissionTimeout: 'Test string',
+            removeOnlyIdleWorkers: true,
+            scaleDownFactor: 42,
+            scaleDownMinWorkerFraction: 42,
+            scaleUpFactor: 42,
+            scaleUpMinWorkerFraction: 42,
+          },
+          yarnConfig: {
+            gracefulDecommissionTimeout: 'Test string',
+            scaleDownFactor: 42,
+            scaleDownMinWorkerFraction: 42,
+            scaleUpFactor: 42,
+            scaleUpMinWorkerFraction: 42,
+          },
+        },
+        id: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        secondaryWorkerConfig: {
+          maxInstances: 42,
+          minInstances: 42,
+          weight: 42,
+        },
+        workerConfig: {
+          maxInstances: 42,
+          minInstances: 42,
+          weight: 42,
+        },
+      }
+    );
+    /** Deletes an autoscaling policy. It is an error to delete an autoscaling policy that is in use by one or more clusters. */
+    await gapi.client.dataproc.projects.regions.autoscalingPolicies.delete({
+      name: 'Test string',
+    });
+    /** Retrieves autoscaling policy. */
+    await gapi.client.dataproc.projects.regions.autoscalingPolicies.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataproc.projects.regions.autoscalingPolicies.getIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        options: {
+          requestedPolicyVersion: 42,
+        },
+      }
+    );
+    /** Lists autoscaling policies in the project. */
+    await gapi.client.dataproc.projects.regions.autoscalingPolicies.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
+    await gapi.client.dataproc.projects.regions.autoscalingPolicies.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataproc.projects.regions.autoscalingPolicies.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Updates (replaces) autoscaling policy.Disabled check for update_mask, because all updates will be full replacements. */
+    await gapi.client.dataproc.projects.regions.autoscalingPolicies.update(
+      {
+        name: 'Test string',
+      },
+      {
+        basicAlgorithm: {
+          cooldownPeriod: 'Test string',
+          sparkStandaloneConfig: {
+            gracefulDecommissionTimeout: 'Test string',
+            removeOnlyIdleWorkers: true,
+            scaleDownFactor: 42,
+            scaleDownMinWorkerFraction: 42,
+            scaleUpFactor: 42,
+            scaleUpMinWorkerFraction: 42,
+          },
+          yarnConfig: {
+            gracefulDecommissionTimeout: 'Test string',
+            scaleDownFactor: 42,
+            scaleDownMinWorkerFraction: 42,
+            scaleUpFactor: 42,
+            scaleUpMinWorkerFraction: 42,
+          },
+        },
+        id: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        secondaryWorkerConfig: {
+          maxInstances: 42,
+          minInstances: 42,
+          weight: 42,
+        },
+        workerConfig: {
+          maxInstances: 42,
+          minInstances: 42,
+          weight: 42,
+        },
+      }
+    );
+    /** Creates a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). */
+    await gapi.client.dataproc.projects.regions.clusters.create(
+      {
+        actionOnFailedPrimaryWorkers: 'Test string',
+        projectId: 'Test string',
+        region: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        clusterName: 'Test string',
+        clusterUuid: 'Test string',
+        config: {
+          autoscalingConfig: {
+            policyUri: 'Test string',
+          },
+          auxiliaryNodeGroups: [
+            {
+              nodeGroup: {
                 labels: {
-                    A: "Test string"
+                  A: 'Test string',
                 },
-                pigJob: {
-                    continueOnFailure: true,
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
-                        ],
-                    },
-                    scriptVariables: {
-                        A: "Test string"
-                    },
-                },
-                placement: {
-                    clusterLabels: {
-                        A: "Test string"
-                    },
-                    clusterName: "Test string",
-                    clusterUuid: "Test string",
-                },
-                prestoJob: {
-                    clientTags: [
-                        "Test string"
-                    ],
-                    continueOnFailure: true,
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    outputFormat: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
-                        ],
-                    },
-                },
-                pysparkJob: {
-                    archiveUris: [
-                        "Test string"
-                    ],
-                    args: [
-                        "Test string"
-                    ],
-                    fileUris: [
-                        "Test string"
-                    ],
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    mainPythonFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                    pythonFileUris: [
-                        "Test string"
-                    ],
-                },
-                reference: {
-                    jobId: "Test string",
-                    projectId: "Test string",
-                },
-                scheduling: {
-                    maxFailuresPerHour: 42,
-                    maxFailuresTotal: 42,
-                },
-                sparkJob: {
-                    archiveUris: [
-                        "Test string"
-                    ],
-                    args: [
-                        "Test string"
-                    ],
-                    fileUris: [
-                        "Test string"
-                    ],
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    mainClass: "Test string",
-                    mainJarFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                },
-                sparkRJob: {
-                    archiveUris: [
-                        "Test string"
-                    ],
-                    args: [
-                        "Test string"
-                    ],
-                    fileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    mainRFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                },
-                sparkSqlJob: {
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
-                        ],
-                    },
-                    scriptVariables: {
-                        A: "Test string"
-                    },
-                },
-                status: {
-                    details: "Test string",
-                    state: "Test string",
-                    stateStartTime: "Test string",
-                    substate: "Test string",
-                },
-                statusHistory: [
+                name: 'Test string',
+                nodeGroupConfig: {
+                  accelerators: [
                     {
-                        details: "Test string",
-                        state: "Test string",
-                        stateStartTime: "Test string",
-                        substate: "Test string",
-                    }
-                ],
-                trinoJob: {
-                    clientTags: [
-                        "Test string"
+                      acceleratorCount: 42,
+                      acceleratorTypeUri: 'Test string',
+                    },
+                  ],
+                  diskConfig: {
+                    bootDiskSizeGb: 42,
+                    bootDiskType: 'Test string',
+                    localSsdInterface: 'Test string',
+                    numLocalSsds: 42,
+                  },
+                  imageUri: 'Test string',
+                  instanceFlexibilityPolicy: {
+                    instanceSelectionList: [
+                      {
+                        machineTypes: ['Test string'],
+                        rank: 42,
+                      },
                     ],
-                    continueOnFailure: true,
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    outputFormat: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
-                        ],
-                    },
-                },
-                yarnApplications: [
+                    instanceSelectionResults: [
+                      {
+                        machineType: 'Test string',
+                        vmCount: 42,
+                      },
+                    ],
+                  },
+                  instanceNames: ['Test string'],
+                  instanceReferences: [
                     {
-                        name: "Test string",
-                        progress: 42,
-                        state: "Test string",
-                        trackingUrl: "Test string",
-                    }
-                ],
+                      instanceId: 'Test string',
+                      instanceName: 'Test string',
+                      publicEciesKey: 'Test string',
+                      publicKey: 'Test string',
+                    },
+                  ],
+                  isPreemptible: true,
+                  machineTypeUri: 'Test string',
+                  managedGroupConfig: {
+                    instanceGroupManagerName: 'Test string',
+                    instanceGroupManagerUri: 'Test string',
+                    instanceTemplateName: 'Test string',
+                  },
+                  minCpuPlatform: 'Test string',
+                  minNumInstances: 42,
+                  numInstances: 42,
+                  preemptibility: 'Test string',
+                  startupConfig: {
+                    requiredRegistrationFraction: 42,
+                  },
+                },
+                roles: ['Test string'],
+              },
+              nodeGroupId: 'Test string',
             },
-            requestId: "Test string",
-        });
-        /** Submits job to a cluster. */
-        await gapi.client.dataproc.projects.regions.jobs.submitAsOperation({
-            projectId: "Test string",
-            region: "Test string",
-        }, {
-            job: {
-                done: true,
-                driverControlFilesUri: "Test string",
-                driverOutputResourceUri: "Test string",
-                driverSchedulingConfig: {
-                    memoryMb: 42,
-                    vcores: 42,
+          ],
+          configBucket: 'Test string',
+          dataprocMetricConfig: {
+            metrics: [
+              {
+                metricOverrides: ['Test string'],
+                metricSource: 'Test string',
+              },
+            ],
+          },
+          encryptionConfig: {
+            gcePdKmsKeyName: 'Test string',
+            kmsKey: 'Test string',
+          },
+          endpointConfig: {
+            enableHttpPortAccess: true,
+            httpPorts: {
+              A: 'Test string',
+            },
+          },
+          gceClusterConfig: {
+            confidentialInstanceConfig: {
+              enableConfidentialCompute: true,
+            },
+            internalIpOnly: true,
+            metadata: {
+              A: 'Test string',
+            },
+            networkUri: 'Test string',
+            nodeGroupAffinity: {
+              nodeGroupUri: 'Test string',
+            },
+            privateIpv6GoogleAccess: 'Test string',
+            reservationAffinity: {
+              consumeReservationType: 'Test string',
+              key: 'Test string',
+              values: ['Test string'],
+            },
+            serviceAccount: 'Test string',
+            serviceAccountScopes: ['Test string'],
+            shieldedInstanceConfig: {
+              enableIntegrityMonitoring: true,
+              enableSecureBoot: true,
+              enableVtpm: true,
+            },
+            subnetworkUri: 'Test string',
+            tags: ['Test string'],
+            zoneUri: 'Test string',
+          },
+          gkeClusterConfig: {
+            gkeClusterTarget: 'Test string',
+            namespacedGkeDeploymentTarget: {
+              clusterNamespace: 'Test string',
+              targetGkeCluster: 'Test string',
+            },
+            nodePoolTarget: [
+              {
+                nodePool: 'Test string',
+                nodePoolConfig: {
+                  autoscaling: {
+                    maxNodeCount: 42,
+                    minNodeCount: 42,
+                  },
+                  config: {
+                    accelerators: [
+                      {
+                        acceleratorCount: 'Test string',
+                        acceleratorType: 'Test string',
+                        gpuPartitionSize: 'Test string',
+                      },
+                    ],
+                    bootDiskKmsKey: 'Test string',
+                    localSsdCount: 42,
+                    machineType: 'Test string',
+                    minCpuPlatform: 'Test string',
+                    preemptible: true,
+                    spot: true,
+                  },
+                  locations: ['Test string'],
                 },
-                flinkJob: {
-                    args: [
-                        "Test string"
-                    ],
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
+                roles: ['Test string'],
+              },
+            ],
+          },
+          initializationActions: [
+            {
+              executableFile: 'Test string',
+              executionTimeout: 'Test string',
+            },
+          ],
+          lifecycleConfig: {
+            autoDeleteTime: 'Test string',
+            autoDeleteTtl: 'Test string',
+            idleDeleteTtl: 'Test string',
+            idleStartTime: 'Test string',
+          },
+          masterConfig: {
+            accelerators: [
+              {
+                acceleratorCount: 42,
+                acceleratorTypeUri: 'Test string',
+              },
+            ],
+            diskConfig: {
+              bootDiskSizeGb: 42,
+              bootDiskType: 'Test string',
+              localSsdInterface: 'Test string',
+              numLocalSsds: 42,
+            },
+            imageUri: 'Test string',
+            instanceFlexibilityPolicy: {
+              instanceSelectionList: [
+                {
+                  machineTypes: ['Test string'],
+                  rank: 42,
+                },
+              ],
+              instanceSelectionResults: [
+                {
+                  machineType: 'Test string',
+                  vmCount: 42,
+                },
+              ],
+            },
+            instanceNames: ['Test string'],
+            instanceReferences: [
+              {
+                instanceId: 'Test string',
+                instanceName: 'Test string',
+                publicEciesKey: 'Test string',
+                publicKey: 'Test string',
+              },
+            ],
+            isPreemptible: true,
+            machineTypeUri: 'Test string',
+            managedGroupConfig: {
+              instanceGroupManagerName: 'Test string',
+              instanceGroupManagerUri: 'Test string',
+              instanceTemplateName: 'Test string',
+            },
+            minCpuPlatform: 'Test string',
+            minNumInstances: 42,
+            numInstances: 42,
+            preemptibility: 'Test string',
+            startupConfig: {
+              requiredRegistrationFraction: 42,
+            },
+          },
+          metastoreConfig: {
+            dataprocMetastoreService: 'Test string',
+          },
+          secondaryWorkerConfig: {
+            accelerators: [
+              {
+                acceleratorCount: 42,
+                acceleratorTypeUri: 'Test string',
+              },
+            ],
+            diskConfig: {
+              bootDiskSizeGb: 42,
+              bootDiskType: 'Test string',
+              localSsdInterface: 'Test string',
+              numLocalSsds: 42,
+            },
+            imageUri: 'Test string',
+            instanceFlexibilityPolicy: {
+              instanceSelectionList: [
+                {
+                  machineTypes: ['Test string'],
+                  rank: 42,
+                },
+              ],
+              instanceSelectionResults: [
+                {
+                  machineType: 'Test string',
+                  vmCount: 42,
+                },
+              ],
+            },
+            instanceNames: ['Test string'],
+            instanceReferences: [
+              {
+                instanceId: 'Test string',
+                instanceName: 'Test string',
+                publicEciesKey: 'Test string',
+                publicKey: 'Test string',
+              },
+            ],
+            isPreemptible: true,
+            machineTypeUri: 'Test string',
+            managedGroupConfig: {
+              instanceGroupManagerName: 'Test string',
+              instanceGroupManagerUri: 'Test string',
+              instanceTemplateName: 'Test string',
+            },
+            minCpuPlatform: 'Test string',
+            minNumInstances: 42,
+            numInstances: 42,
+            preemptibility: 'Test string',
+            startupConfig: {
+              requiredRegistrationFraction: 42,
+            },
+          },
+          securityConfig: {
+            identityConfig: {
+              userServiceAccountMapping: {
+                A: 'Test string',
+              },
+            },
+            kerberosConfig: {
+              crossRealmTrustAdminServer: 'Test string',
+              crossRealmTrustKdc: 'Test string',
+              crossRealmTrustRealm: 'Test string',
+              crossRealmTrustSharedPasswordUri: 'Test string',
+              enableKerberos: true,
+              kdcDbKeyUri: 'Test string',
+              keyPasswordUri: 'Test string',
+              keystorePasswordUri: 'Test string',
+              keystoreUri: 'Test string',
+              kmsKeyUri: 'Test string',
+              realm: 'Test string',
+              rootPrincipalPasswordUri: 'Test string',
+              tgtLifetimeHours: 42,
+              truststorePasswordUri: 'Test string',
+              truststoreUri: 'Test string',
+            },
+          },
+          softwareConfig: {
+            imageVersion: 'Test string',
+            optionalComponents: ['Test string'],
+            properties: {
+              A: 'Test string',
+            },
+          },
+          tempBucket: 'Test string',
+          workerConfig: {
+            accelerators: [
+              {
+                acceleratorCount: 42,
+                acceleratorTypeUri: 'Test string',
+              },
+            ],
+            diskConfig: {
+              bootDiskSizeGb: 42,
+              bootDiskType: 'Test string',
+              localSsdInterface: 'Test string',
+              numLocalSsds: 42,
+            },
+            imageUri: 'Test string',
+            instanceFlexibilityPolicy: {
+              instanceSelectionList: [
+                {
+                  machineTypes: ['Test string'],
+                  rank: 42,
+                },
+              ],
+              instanceSelectionResults: [
+                {
+                  machineType: 'Test string',
+                  vmCount: 42,
+                },
+              ],
+            },
+            instanceNames: ['Test string'],
+            instanceReferences: [
+              {
+                instanceId: 'Test string',
+                instanceName: 'Test string',
+                publicEciesKey: 'Test string',
+                publicKey: 'Test string',
+              },
+            ],
+            isPreemptible: true,
+            machineTypeUri: 'Test string',
+            managedGroupConfig: {
+              instanceGroupManagerName: 'Test string',
+              instanceGroupManagerUri: 'Test string',
+              instanceTemplateName: 'Test string',
+            },
+            minCpuPlatform: 'Test string',
+            minNumInstances: 42,
+            numInstances: 42,
+            preemptibility: 'Test string',
+            startupConfig: {
+              requiredRegistrationFraction: 42,
+            },
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        metrics: {
+          hdfsMetrics: {
+            A: 'Test string',
+          },
+          yarnMetrics: {
+            A: 'Test string',
+          },
+        },
+        projectId: 'Test string',
+        status: {
+          detail: 'Test string',
+          state: 'Test string',
+          stateStartTime: 'Test string',
+          substate: 'Test string',
+        },
+        statusHistory: [
+          {
+            detail: 'Test string',
+            state: 'Test string',
+            stateStartTime: 'Test string',
+            substate: 'Test string',
+          },
+        ],
+        virtualClusterConfig: {
+          auxiliaryServicesConfig: {
+            metastoreConfig: {
+              dataprocMetastoreService: 'Test string',
+            },
+            sparkHistoryServerConfig: {
+              dataprocCluster: 'Test string',
+            },
+          },
+          kubernetesClusterConfig: {
+            gkeClusterConfig: {
+              gkeClusterTarget: 'Test string',
+              namespacedGkeDeploymentTarget: {
+                clusterNamespace: 'Test string',
+                targetGkeCluster: 'Test string',
+              },
+              nodePoolTarget: [
+                {
+                  nodePool: 'Test string',
+                  nodePoolConfig: {
+                    autoscaling: {
+                      maxNodeCount: 42,
+                      minNodeCount: 42,
+                    },
+                    config: {
+                      accelerators: [
+                        {
+                          acceleratorCount: 'Test string',
+                          acceleratorType: 'Test string',
+                          gpuPartitionSize: 'Test string',
                         },
+                      ],
+                      bootDiskKmsKey: 'Test string',
+                      localSsdCount: 42,
+                      machineType: 'Test string',
+                      minCpuPlatform: 'Test string',
+                      preemptible: true,
+                      spot: true,
                     },
-                    mainClass: "Test string",
-                    mainJarFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                    savepointUri: "Test string",
+                    locations: ['Test string'],
+                  },
+                  roles: ['Test string'],
                 },
-                hadoopJob: {
-                    archiveUris: [
-                        "Test string"
-                    ],
-                    args: [
-                        "Test string"
-                    ],
-                    fileUris: [
-                        "Test string"
-                    ],
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    mainClass: "Test string",
-                    mainJarFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                },
-                hiveJob: {
-                    continueOnFailure: true,
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
-                        ],
-                    },
-                    scriptVariables: {
-                        A: "Test string"
-                    },
-                },
-                jobUuid: "Test string",
+              ],
+            },
+            kubernetesNamespace: 'Test string',
+            kubernetesSoftwareConfig: {
+              componentVersion: {
+                A: 'Test string',
+              },
+              properties: {
+                A: 'Test string',
+              },
+            },
+          },
+          stagingBucket: 'Test string',
+        },
+      }
+    );
+    /** Deletes a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). */
+    await gapi.client.dataproc.projects.regions.clusters.delete({
+      clusterName: 'Test string',
+      clusterUuid: 'Test string',
+      gracefulTerminationTimeout: 'Test string',
+      projectId: 'Test string',
+      region: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Gets cluster diagnostic information. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). After the operation completes, Operation.response contains DiagnoseClusterResults (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#diagnoseclusterresults). */
+    await gapi.client.dataproc.projects.regions.clusters.diagnose(
+      {
+        clusterName: 'Test string',
+        projectId: 'Test string',
+        region: 'Test string',
+      },
+      {
+        diagnosisInterval: {
+          endTime: 'Test string',
+          startTime: 'Test string',
+        },
+        job: 'Test string',
+        jobs: ['Test string'],
+        tarballAccess: 'Test string',
+        tarballGcsDir: 'Test string',
+        yarnApplicationId: 'Test string',
+        yarnApplicationIds: ['Test string'],
+      }
+    );
+    /** Gets the resource representation for a cluster in a project. */
+    await gapi.client.dataproc.projects.regions.clusters.get({
+      clusterName: 'Test string',
+      projectId: 'Test string',
+      region: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataproc.projects.regions.clusters.getIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        options: {
+          requestedPolicyVersion: 42,
+        },
+      }
+    );
+    /** Inject encrypted credentials into all of the VMs in a cluster.The target cluster must be a personal auth cluster assigned to the user who is issuing the RPC. */
+    await gapi.client.dataproc.projects.regions.clusters.injectCredentials(
+      {
+        cluster: 'Test string',
+        project: 'Test string',
+        region: 'Test string',
+      },
+      {
+        clusterUuid: 'Test string',
+        credentialsCiphertext: 'Test string',
+      }
+    );
+    /** Lists all regions/{region}/clusters in a project alphabetically. */
+    await gapi.client.dataproc.projects.regions.clusters.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      projectId: 'Test string',
+      region: 'Test string',
+    });
+    /** Updates a cluster in a project. The returned Operation.metadata will be ClusterOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata). The cluster must be in a RUNNING state or an error is returned. */
+    await gapi.client.dataproc.projects.regions.clusters.patch(
+      {
+        clusterName: 'Test string',
+        gracefulDecommissionTimeout: 'Test string',
+        projectId: 'Test string',
+        region: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        clusterName: 'Test string',
+        clusterUuid: 'Test string',
+        config: {
+          autoscalingConfig: {
+            policyUri: 'Test string',
+          },
+          auxiliaryNodeGroups: [
+            {
+              nodeGroup: {
                 labels: {
-                    A: "Test string"
+                  A: 'Test string',
                 },
-                pigJob: {
-                    continueOnFailure: true,
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
-                        ],
-                    },
-                    scriptVariables: {
-                        A: "Test string"
-                    },
-                },
-                placement: {
-                    clusterLabels: {
-                        A: "Test string"
-                    },
-                    clusterName: "Test string",
-                    clusterUuid: "Test string",
-                },
-                prestoJob: {
-                    clientTags: [
-                        "Test string"
-                    ],
-                    continueOnFailure: true,
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    outputFormat: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
-                        ],
-                    },
-                },
-                pysparkJob: {
-                    archiveUris: [
-                        "Test string"
-                    ],
-                    args: [
-                        "Test string"
-                    ],
-                    fileUris: [
-                        "Test string"
-                    ],
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    mainPythonFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                    pythonFileUris: [
-                        "Test string"
-                    ],
-                },
-                reference: {
-                    jobId: "Test string",
-                    projectId: "Test string",
-                },
-                scheduling: {
-                    maxFailuresPerHour: 42,
-                    maxFailuresTotal: 42,
-                },
-                sparkJob: {
-                    archiveUris: [
-                        "Test string"
-                    ],
-                    args: [
-                        "Test string"
-                    ],
-                    fileUris: [
-                        "Test string"
-                    ],
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    mainClass: "Test string",
-                    mainJarFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                },
-                sparkRJob: {
-                    archiveUris: [
-                        "Test string"
-                    ],
-                    args: [
-                        "Test string"
-                    ],
-                    fileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    mainRFileUri: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                },
-                sparkSqlJob: {
-                    jarFileUris: [
-                        "Test string"
-                    ],
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
-                        ],
-                    },
-                    scriptVariables: {
-                        A: "Test string"
-                    },
-                },
-                status: {
-                    details: "Test string",
-                    state: "Test string",
-                    stateStartTime: "Test string",
-                    substate: "Test string",
-                },
-                statusHistory: [
+                name: 'Test string',
+                nodeGroupConfig: {
+                  accelerators: [
                     {
-                        details: "Test string",
-                        state: "Test string",
-                        stateStartTime: "Test string",
-                        substate: "Test string",
-                    }
-                ],
-                trinoJob: {
-                    clientTags: [
-                        "Test string"
+                      acceleratorCount: 42,
+                      acceleratorTypeUri: 'Test string',
+                    },
+                  ],
+                  diskConfig: {
+                    bootDiskSizeGb: 42,
+                    bootDiskType: 'Test string',
+                    localSsdInterface: 'Test string',
+                    numLocalSsds: 42,
+                  },
+                  imageUri: 'Test string',
+                  instanceFlexibilityPolicy: {
+                    instanceSelectionList: [
+                      {
+                        machineTypes: ['Test string'],
+                        rank: 42,
+                      },
                     ],
-                    continueOnFailure: true,
-                    loggingConfig: {
-                        driverLogLevels: {
-                            A: "Test string"
-                        },
-                    },
-                    outputFormat: "Test string",
-                    properties: {
-                        A: "Test string"
-                    },
-                    queryFileUri: "Test string",
-                    queryList: {
-                        queries: [
-                            "Test string"
-                        ],
-                    },
-                },
-                yarnApplications: [
+                    instanceSelectionResults: [
+                      {
+                        machineType: 'Test string',
+                        vmCount: 42,
+                      },
+                    ],
+                  },
+                  instanceNames: ['Test string'],
+                  instanceReferences: [
                     {
-                        name: "Test string",
-                        progress: 42,
-                        state: "Test string",
-                        trackingUrl: "Test string",
-                    }
-                ],
+                      instanceId: 'Test string',
+                      instanceName: 'Test string',
+                      publicEciesKey: 'Test string',
+                      publicKey: 'Test string',
+                    },
+                  ],
+                  isPreemptible: true,
+                  machineTypeUri: 'Test string',
+                  managedGroupConfig: {
+                    instanceGroupManagerName: 'Test string',
+                    instanceGroupManagerUri: 'Test string',
+                    instanceTemplateName: 'Test string',
+                  },
+                  minCpuPlatform: 'Test string',
+                  minNumInstances: 42,
+                  numInstances: 42,
+                  preemptibility: 'Test string',
+                  startupConfig: {
+                    requiredRegistrationFraction: 42,
+                  },
+                },
+                roles: ['Test string'],
+              },
+              nodeGroupId: 'Test string',
             },
-            requestId: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation
-         * is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataproc.projects.regions.jobs.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
+          ],
+          configBucket: 'Test string',
+          dataprocMetricConfig: {
+            metrics: [
+              {
+                metricOverrides: ['Test string'],
+                metricSource: 'Test string',
+              },
             ],
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed
-         * despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1,
-         * corresponding to Code.CANCELLED.
-         */
-        await gapi.client.dataproc.projects.regions.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns google.rpc.Code.UNIMPLEMENTED.
-         */
-        await gapi.client.dataproc.projects.regions.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.dataproc.projects.regions.operations.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataproc.projects.regions.operations.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
+          },
+          encryptionConfig: {
+            gcePdKmsKeyName: 'Test string',
+            kmsKey: 'Test string',
+          },
+          endpointConfig: {
+            enableHttpPortAccess: true,
+            httpPorts: {
+              A: 'Test string',
             },
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
-        await gapi.client.dataproc.projects.regions.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
-        await gapi.client.dataproc.projects.regions.operations.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
+          },
+          gceClusterConfig: {
+            confidentialInstanceConfig: {
+              enableConfidentialCompute: true,
             },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation
-         * is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataproc.projects.regions.operations.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
+            internalIpOnly: true,
+            metadata: {
+              A: 'Test string',
+            },
+            networkUri: 'Test string',
+            nodeGroupAffinity: {
+              nodeGroupUri: 'Test string',
+            },
+            privateIpv6GoogleAccess: 'Test string',
+            reservationAffinity: {
+              consumeReservationType: 'Test string',
+              key: 'Test string',
+              values: ['Test string'],
+            },
+            serviceAccount: 'Test string',
+            serviceAccountScopes: ['Test string'],
+            shieldedInstanceConfig: {
+              enableIntegrityMonitoring: true,
+              enableSecureBoot: true,
+              enableVtpm: true,
+            },
+            subnetworkUri: 'Test string',
+            tags: ['Test string'],
+            zoneUri: 'Test string',
+          },
+          gkeClusterConfig: {
+            gkeClusterTarget: 'Test string',
+            namespacedGkeDeploymentTarget: {
+              clusterNamespace: 'Test string',
+              targetGkeCluster: 'Test string',
+            },
+            nodePoolTarget: [
+              {
+                nodePool: 'Test string',
+                nodePoolConfig: {
+                  autoscaling: {
+                    maxNodeCount: 42,
+                    minNodeCount: 42,
+                  },
+                  config: {
+                    accelerators: [
+                      {
+                        acceleratorCount: 'Test string',
+                        acceleratorType: 'Test string',
+                        gpuPartitionSize: 'Test string',
+                      },
+                    ],
+                    bootDiskKmsKey: 'Test string',
+                    localSsdCount: 42,
+                    machineType: 'Test string',
+                    minCpuPlatform: 'Test string',
+                    preemptible: true,
+                    spot: true,
+                  },
+                  locations: ['Test string'],
+                },
+                roles: ['Test string'],
+              },
             ],
-        });
-        /** Creates new workflow template. */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            dagTimeout: "Test string",
-            encryptionConfig: {
-                kmsKey: "Test string",
+          },
+          initializationActions: [
+            {
+              executableFile: 'Test string',
+              executionTimeout: 'Test string',
             },
-            id: "Test string",
-            jobs: [
+          ],
+          lifecycleConfig: {
+            autoDeleteTime: 'Test string',
+            autoDeleteTtl: 'Test string',
+            idleDeleteTtl: 'Test string',
+            idleStartTime: 'Test string',
+          },
+          masterConfig: {
+            accelerators: [
+              {
+                acceleratorCount: 42,
+                acceleratorTypeUri: 'Test string',
+              },
+            ],
+            diskConfig: {
+              bootDiskSizeGb: 42,
+              bootDiskType: 'Test string',
+              localSsdInterface: 'Test string',
+              numLocalSsds: 42,
+            },
+            imageUri: 'Test string',
+            instanceFlexibilityPolicy: {
+              instanceSelectionList: [
                 {
-                    flinkJob: {
-                        args: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        savepointUri: "Test string",
-                    },
-                    hadoopJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    hiveJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                    pigJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    prerequisiteStepIds: [
-                        "Test string"
-                    ],
-                    prestoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    pysparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainPythonFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        pythonFileUris: [
-                            "Test string"
-                        ],
-                    },
-                    scheduling: {
-                        maxFailuresPerHour: 42,
-                        maxFailuresTotal: 42,
-                    },
-                    sparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkRJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainRFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkSqlJob: {
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    stepId: "Test string",
-                    trinoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            parameters: [
-                {
-                    description: "Test string",
-                    fields: [
-                        "Test string"
-                    ],
-                    name: "Test string",
-                    validation: {
-                        regex: {
-                            regexes: [
-                                "Test string"
-                            ],
-                        },
-                        values: {
-                            values: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            placement: {
-                clusterSelector: {
-                    clusterLabels: {
-                        A: "Test string"
-                    },
-                    zone: "Test string",
+                  machineTypes: ['Test string'],
+                  rank: 42,
                 },
-                managedCluster: {
-                    clusterName: "Test string",
+              ],
+              instanceSelectionResults: [
+                {
+                  machineType: 'Test string',
+                  vmCount: 42,
+                },
+              ],
+            },
+            instanceNames: ['Test string'],
+            instanceReferences: [
+              {
+                instanceId: 'Test string',
+                instanceName: 'Test string',
+                publicEciesKey: 'Test string',
+                publicKey: 'Test string',
+              },
+            ],
+            isPreemptible: true,
+            machineTypeUri: 'Test string',
+            managedGroupConfig: {
+              instanceGroupManagerName: 'Test string',
+              instanceGroupManagerUri: 'Test string',
+              instanceTemplateName: 'Test string',
+            },
+            minCpuPlatform: 'Test string',
+            minNumInstances: 42,
+            numInstances: 42,
+            preemptibility: 'Test string',
+            startupConfig: {
+              requiredRegistrationFraction: 42,
+            },
+          },
+          metastoreConfig: {
+            dataprocMetastoreService: 'Test string',
+          },
+          secondaryWorkerConfig: {
+            accelerators: [
+              {
+                acceleratorCount: 42,
+                acceleratorTypeUri: 'Test string',
+              },
+            ],
+            diskConfig: {
+              bootDiskSizeGb: 42,
+              bootDiskType: 'Test string',
+              localSsdInterface: 'Test string',
+              numLocalSsds: 42,
+            },
+            imageUri: 'Test string',
+            instanceFlexibilityPolicy: {
+              instanceSelectionList: [
+                {
+                  machineTypes: ['Test string'],
+                  rank: 42,
+                },
+              ],
+              instanceSelectionResults: [
+                {
+                  machineType: 'Test string',
+                  vmCount: 42,
+                },
+              ],
+            },
+            instanceNames: ['Test string'],
+            instanceReferences: [
+              {
+                instanceId: 'Test string',
+                instanceName: 'Test string',
+                publicEciesKey: 'Test string',
+                publicKey: 'Test string',
+              },
+            ],
+            isPreemptible: true,
+            machineTypeUri: 'Test string',
+            managedGroupConfig: {
+              instanceGroupManagerName: 'Test string',
+              instanceGroupManagerUri: 'Test string',
+              instanceTemplateName: 'Test string',
+            },
+            minCpuPlatform: 'Test string',
+            minNumInstances: 42,
+            numInstances: 42,
+            preemptibility: 'Test string',
+            startupConfig: {
+              requiredRegistrationFraction: 42,
+            },
+          },
+          securityConfig: {
+            identityConfig: {
+              userServiceAccountMapping: {
+                A: 'Test string',
+              },
+            },
+            kerberosConfig: {
+              crossRealmTrustAdminServer: 'Test string',
+              crossRealmTrustKdc: 'Test string',
+              crossRealmTrustRealm: 'Test string',
+              crossRealmTrustSharedPasswordUri: 'Test string',
+              enableKerberos: true,
+              kdcDbKeyUri: 'Test string',
+              keyPasswordUri: 'Test string',
+              keystorePasswordUri: 'Test string',
+              keystoreUri: 'Test string',
+              kmsKeyUri: 'Test string',
+              realm: 'Test string',
+              rootPrincipalPasswordUri: 'Test string',
+              tgtLifetimeHours: 42,
+              truststorePasswordUri: 'Test string',
+              truststoreUri: 'Test string',
+            },
+          },
+          softwareConfig: {
+            imageVersion: 'Test string',
+            optionalComponents: ['Test string'],
+            properties: {
+              A: 'Test string',
+            },
+          },
+          tempBucket: 'Test string',
+          workerConfig: {
+            accelerators: [
+              {
+                acceleratorCount: 42,
+                acceleratorTypeUri: 'Test string',
+              },
+            ],
+            diskConfig: {
+              bootDiskSizeGb: 42,
+              bootDiskType: 'Test string',
+              localSsdInterface: 'Test string',
+              numLocalSsds: 42,
+            },
+            imageUri: 'Test string',
+            instanceFlexibilityPolicy: {
+              instanceSelectionList: [
+                {
+                  machineTypes: ['Test string'],
+                  rank: 42,
+                },
+              ],
+              instanceSelectionResults: [
+                {
+                  machineType: 'Test string',
+                  vmCount: 42,
+                },
+              ],
+            },
+            instanceNames: ['Test string'],
+            instanceReferences: [
+              {
+                instanceId: 'Test string',
+                instanceName: 'Test string',
+                publicEciesKey: 'Test string',
+                publicKey: 'Test string',
+              },
+            ],
+            isPreemptible: true,
+            machineTypeUri: 'Test string',
+            managedGroupConfig: {
+              instanceGroupManagerName: 'Test string',
+              instanceGroupManagerUri: 'Test string',
+              instanceTemplateName: 'Test string',
+            },
+            minCpuPlatform: 'Test string',
+            minNumInstances: 42,
+            numInstances: 42,
+            preemptibility: 'Test string',
+            startupConfig: {
+              requiredRegistrationFraction: 42,
+            },
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        metrics: {
+          hdfsMetrics: {
+            A: 'Test string',
+          },
+          yarnMetrics: {
+            A: 'Test string',
+          },
+        },
+        projectId: 'Test string',
+        status: {
+          detail: 'Test string',
+          state: 'Test string',
+          stateStartTime: 'Test string',
+          substate: 'Test string',
+        },
+        statusHistory: [
+          {
+            detail: 'Test string',
+            state: 'Test string',
+            stateStartTime: 'Test string',
+            substate: 'Test string',
+          },
+        ],
+        virtualClusterConfig: {
+          auxiliaryServicesConfig: {
+            metastoreConfig: {
+              dataprocMetastoreService: 'Test string',
+            },
+            sparkHistoryServerConfig: {
+              dataprocCluster: 'Test string',
+            },
+          },
+          kubernetesClusterConfig: {
+            gkeClusterConfig: {
+              gkeClusterTarget: 'Test string',
+              namespacedGkeDeploymentTarget: {
+                clusterNamespace: 'Test string',
+                targetGkeCluster: 'Test string',
+              },
+              nodePoolTarget: [
+                {
+                  nodePool: 'Test string',
+                  nodePoolConfig: {
+                    autoscaling: {
+                      maxNodeCount: 42,
+                      minNodeCount: 42,
+                    },
                     config: {
-                        autoscalingConfig: {
-                            policyUri: "Test string",
+                      accelerators: [
+                        {
+                          acceleratorCount: 'Test string',
+                          acceleratorType: 'Test string',
+                          gpuPartitionSize: 'Test string',
                         },
-                        auxiliaryNodeGroups: [
-                            {
-                                nodeGroup: {
-                                    labels: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                    nodeGroupConfig: {
-                                        accelerators: [
-                                            {
-                                                acceleratorCount: 42,
-                                                acceleratorTypeUri: "Test string",
-                                            }
-                                        ],
-                                        diskConfig: {
-                                            bootDiskSizeGb: 42,
-                                            bootDiskType: "Test string",
-                                            localSsdInterface: "Test string",
-                                            numLocalSsds: 42,
-                                        },
-                                        imageUri: "Test string",
-                                        instanceFlexibilityPolicy: {
-                                            instanceSelectionList: [
-                                                {
-                                                    machineTypes: [
-                                                        "Test string"
-                                                    ],
-                                                    rank: 42,
-                                                }
-                                            ],
-                                            instanceSelectionResults: [
-                                                {
-                                                    machineType: "Test string",
-                                                    vmCount: 42,
-                                                }
-                                            ],
-                                        },
-                                        instanceNames: [
-                                            "Test string"
-                                        ],
-                                        instanceReferences: [
-                                            {
-                                                instanceId: "Test string",
-                                                instanceName: "Test string",
-                                                publicEciesKey: "Test string",
-                                                publicKey: "Test string",
-                                            }
-                                        ],
-                                        isPreemptible: true,
-                                        machineTypeUri: "Test string",
-                                        managedGroupConfig: {
-                                            instanceGroupManagerName: "Test string",
-                                            instanceGroupManagerUri: "Test string",
-                                            instanceTemplateName: "Test string",
-                                        },
-                                        minCpuPlatform: "Test string",
-                                        minNumInstances: 42,
-                                        numInstances: 42,
-                                        preemptibility: "Test string",
-                                        startupConfig: {
-                                            requiredRegistrationFraction: 42,
-                                        },
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                },
-                                nodeGroupId: "Test string",
-                            }
-                        ],
-                        configBucket: "Test string",
-                        dataprocMetricConfig: {
-                            metrics: [
-                                {
-                                    metricOverrides: [
-                                        "Test string"
-                                    ],
-                                    metricSource: "Test string",
-                                }
-                            ],
-                        },
-                        encryptionConfig: {
-                            gcePdKmsKeyName: "Test string",
-                            kmsKey: "Test string",
-                        },
-                        endpointConfig: {
-                            enableHttpPortAccess: true,
-                            httpPorts: {
-                                A: "Test string"
-                            },
-                        },
-                        gceClusterConfig: {
-                            confidentialInstanceConfig: {
-                                enableConfidentialCompute: true,
-                            },
-                            internalIpOnly: true,
-                            metadata: {
-                                A: "Test string"
-                            },
-                            networkUri: "Test string",
-                            nodeGroupAffinity: {
-                                nodeGroupUri: "Test string",
-                            },
-                            privateIpv6GoogleAccess: "Test string",
-                            reservationAffinity: {
-                                consumeReservationType: "Test string",
-                                key: "Test string",
-                                values: [
-                                    "Test string"
-                                ],
-                            },
-                            serviceAccount: "Test string",
-                            serviceAccountScopes: [
-                                "Test string"
-                            ],
-                            shieldedInstanceConfig: {
-                                enableIntegrityMonitoring: true,
-                                enableSecureBoot: true,
-                                enableVtpm: true,
-                            },
-                            subnetworkUri: "Test string",
-                            tags: [
-                                "Test string"
-                            ],
-                            zoneUri: "Test string",
-                        },
-                        gkeClusterConfig: {
-                            gkeClusterTarget: "Test string",
-                            namespacedGkeDeploymentTarget: {
-                                clusterNamespace: "Test string",
-                                targetGkeCluster: "Test string",
-                            },
-                            nodePoolTarget: [
-                                {
-                                    nodePool: "Test string",
-                                    nodePoolConfig: {
-                                        autoscaling: {
-                                            maxNodeCount: 42,
-                                            minNodeCount: 42,
-                                        },
-                                        config: {
-                                            accelerators: [
-                                                {
-                                                    acceleratorCount: "Test string",
-                                                    acceleratorType: "Test string",
-                                                    gpuPartitionSize: "Test string",
-                                                }
-                                            ],
-                                            bootDiskKmsKey: "Test string",
-                                            localSsdCount: 42,
-                                            machineType: "Test string",
-                                            minCpuPlatform: "Test string",
-                                            preemptible: true,
-                                            spot: true,
-                                        },
-                                        locations: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                }
-                            ],
-                        },
-                        initializationActions: [
-                            {
-                                executableFile: "Test string",
-                                executionTimeout: "Test string",
-                            }
-                        ],
-                        lifecycleConfig: {
-                            autoDeleteTime: "Test string",
-                            autoDeleteTtl: "Test string",
-                            idleDeleteTtl: "Test string",
-                            idleStartTime: "Test string",
-                        },
-                        masterConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        metastoreConfig: {
-                            dataprocMetastoreService: "Test string",
-                        },
-                        secondaryWorkerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        securityConfig: {
-                            identityConfig: {
-                                userServiceAccountMapping: {
-                                    A: "Test string"
-                                },
-                            },
-                            kerberosConfig: {
-                                crossRealmTrustAdminServer: "Test string",
-                                crossRealmTrustKdc: "Test string",
-                                crossRealmTrustRealm: "Test string",
-                                crossRealmTrustSharedPasswordUri: "Test string",
-                                enableKerberos: true,
-                                kdcDbKeyUri: "Test string",
-                                keyPasswordUri: "Test string",
-                                keystorePasswordUri: "Test string",
-                                keystoreUri: "Test string",
-                                kmsKeyUri: "Test string",
-                                realm: "Test string",
-                                rootPrincipalPasswordUri: "Test string",
-                                tgtLifetimeHours: 42,
-                                truststorePasswordUri: "Test string",
-                                truststoreUri: "Test string",
-                            },
-                        },
-                        softwareConfig: {
-                            imageVersion: "Test string",
-                            optionalComponents: [
-                                "Test string"
-                            ],
-                            properties: {
-                                A: "Test string"
-                            },
-                        },
-                        tempBucket: "Test string",
-                        workerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
+                      ],
+                      bootDiskKmsKey: 'Test string',
+                      localSsdCount: 42,
+                      machineType: 'Test string',
+                      minCpuPlatform: 'Test string',
+                      preemptible: true,
+                      spot: true,
                     },
-                    labels: {
-                        A: "Test string"
-                    },
+                    locations: ['Test string'],
+                  },
+                  roles: ['Test string'],
                 },
+              ],
             },
-            updateTime: "Test string",
-            version: 42,
-        });
-        /** Deletes a workflow template. It does not cancel in-progress workflows. */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.delete({
-            name: "Test string",
-            version: 42,
-        });
-        /** Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter. */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.get({
-            name: "Test string",
-            version: 42,
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
+            kubernetesNamespace: 'Test string',
+            kubernetesSoftwareConfig: {
+              componentVersion: {
+                A: 'Test string',
+              },
+              properties: {
+                A: 'Test string',
+              },
             },
-        });
-        /**
-         * Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire
-         * workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The
-         * Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
-         * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
-         */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.instantiate({
-            name: "Test string",
-        }, {
-            parameters: {
-                A: "Test string"
+          },
+          stagingBucket: 'Test string',
+        },
+      }
+    );
+    /** Repairs a cluster. */
+    await gapi.client.dataproc.projects.regions.clusters.repair(
+      {
+        clusterName: 'Test string',
+        projectId: 'Test string',
+        region: 'Test string',
+      },
+      {
+        clusterUuid: 'Test string',
+        gracefulDecommissionTimeout: 'Test string',
+        nodePools: [
+          {
+            id: 'Test string',
+            instanceNames: ['Test string'],
+            repairAction: 'Test string',
+          },
+        ],
+        parentOperationId: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
+    await gapi.client.dataproc.projects.regions.clusters.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
             },
-            requestId: "Test string",
-            version: 42,
-        });
-        /**
-         * Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned
-         * Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via
-         * operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata
-         * (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata
-         * (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty.
-         */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.instantiateInline({
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            dagTimeout: "Test string",
-            encryptionConfig: {
-                kmsKey: "Test string",
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Starts a cluster in a project. */
+    await gapi.client.dataproc.projects.regions.clusters.start(
+      {
+        clusterName: 'Test string',
+        projectId: 'Test string',
+        region: 'Test string',
+      },
+      {
+        clusterUuid: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Stops a cluster in a project. */
+    await gapi.client.dataproc.projects.regions.clusters.stop(
+      {
+        clusterName: 'Test string',
+        projectId: 'Test string',
+        region: 'Test string',
+      },
+      {
+        clusterUuid: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataproc.projects.regions.clusters.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata). */
+    await gapi.client.dataproc.projects.regions.clusters.nodeGroups.create(
+      {
+        nodeGroupId: 'Test string',
+        parent: 'Test string',
+        parentOperationId: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        nodeGroupConfig: {
+          accelerators: [
+            {
+              acceleratorCount: 42,
+              acceleratorTypeUri: 'Test string',
             },
-            id: "Test string",
-            jobs: [
-                {
-                    flinkJob: {
-                        args: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        savepointUri: "Test string",
-                    },
-                    hadoopJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    hiveJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                    pigJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    prerequisiteStepIds: [
-                        "Test string"
-                    ],
-                    prestoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    pysparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainPythonFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        pythonFileUris: [
-                            "Test string"
-                        ],
-                    },
-                    scheduling: {
-                        maxFailuresPerHour: 42,
-                        maxFailuresTotal: 42,
-                    },
-                    sparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkRJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainRFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkSqlJob: {
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    stepId: "Test string",
-                    trinoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
+          ],
+          diskConfig: {
+            bootDiskSizeGb: 42,
+            bootDiskType: 'Test string',
+            localSsdInterface: 'Test string',
+            numLocalSsds: 42,
+          },
+          imageUri: 'Test string',
+          instanceFlexibilityPolicy: {
+            instanceSelectionList: [
+              {
+                machineTypes: ['Test string'],
+                rank: 42,
+              },
             ],
+            instanceSelectionResults: [
+              {
+                machineType: 'Test string',
+                vmCount: 42,
+              },
+            ],
+          },
+          instanceNames: ['Test string'],
+          instanceReferences: [
+            {
+              instanceId: 'Test string',
+              instanceName: 'Test string',
+              publicEciesKey: 'Test string',
+              publicKey: 'Test string',
+            },
+          ],
+          isPreemptible: true,
+          machineTypeUri: 'Test string',
+          managedGroupConfig: {
+            instanceGroupManagerName: 'Test string',
+            instanceGroupManagerUri: 'Test string',
+            instanceTemplateName: 'Test string',
+          },
+          minCpuPlatform: 'Test string',
+          minNumInstances: 42,
+          numInstances: 42,
+          preemptibility: 'Test string',
+          startupConfig: {
+            requiredRegistrationFraction: 42,
+          },
+        },
+        roles: ['Test string'],
+      }
+    );
+    /** Gets the resource representation for a node group in a cluster. */
+    await gapi.client.dataproc.projects.regions.clusters.nodeGroups.get({
+      name: 'Test string',
+    });
+    /** Resizes a node group in a cluster. The returned Operation.metadata is NodeGroupOperationMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#nodegroupoperationmetadata). */
+    await gapi.client.dataproc.projects.regions.clusters.nodeGroups.resize(
+      {
+        name: 'Test string',
+      },
+      {
+        gracefulDecommissionTimeout: 'Test string',
+        parentOperationId: 'Test string',
+        requestId: 'Test string',
+        size: 42,
+      }
+    );
+    /** Starts a job cancellation request. To access the job resource after cancellation, call regions/{region}/jobs.list (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/list) or regions/{region}/jobs.get (https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs/get). */
+    await gapi.client.dataproc.projects.regions.jobs.cancel(
+      {
+        jobId: 'Test string',
+        projectId: 'Test string',
+        region: 'Test string',
+      },
+      {}
+    );
+    /** Deletes the job from the project. If the job is active, the delete fails, and the response returns FAILED_PRECONDITION. */
+    await gapi.client.dataproc.projects.regions.jobs.delete({
+      jobId: 'Test string',
+      projectId: 'Test string',
+      region: 'Test string',
+    });
+    /** Gets the resource representation for a job in a project. */
+    await gapi.client.dataproc.projects.regions.jobs.get({
+      jobId: 'Test string',
+      projectId: 'Test string',
+      region: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataproc.projects.regions.jobs.getIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        options: {
+          requestedPolicyVersion: 42,
+        },
+      }
+    );
+    /** Lists regions/{region}/jobs in a project. */
+    await gapi.client.dataproc.projects.regions.jobs.list({
+      clusterName: 'Test string',
+      filter: 'Test string',
+      jobStateMatcher: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      projectId: 'Test string',
+      region: 'Test string',
+    });
+    /** Updates a job in a project. */
+    await gapi.client.dataproc.projects.regions.jobs.patch(
+      {
+        jobId: 'Test string',
+        projectId: 'Test string',
+        region: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        done: true,
+        driverControlFilesUri: 'Test string',
+        driverOutputResourceUri: 'Test string',
+        driverSchedulingConfig: {
+          memoryMb: 42,
+          vcores: 42,
+        },
+        flinkJob: {
+          args: ['Test string'],
+          jarFileUris: ['Test string'],
+          loggingConfig: {
+            driverLogLevels: {
+              A: 'Test string',
+            },
+          },
+          mainClass: 'Test string',
+          mainJarFileUri: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+          savepointUri: 'Test string',
+        },
+        hadoopJob: {
+          archiveUris: ['Test string'],
+          args: ['Test string'],
+          fileUris: ['Test string'],
+          jarFileUris: ['Test string'],
+          loggingConfig: {
+            driverLogLevels: {
+              A: 'Test string',
+            },
+          },
+          mainClass: 'Test string',
+          mainJarFileUri: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+        },
+        hiveJob: {
+          continueOnFailure: true,
+          jarFileUris: ['Test string'],
+          properties: {
+            A: 'Test string',
+          },
+          queryFileUri: 'Test string',
+          queryList: {
+            queries: ['Test string'],
+          },
+          scriptVariables: {
+            A: 'Test string',
+          },
+        },
+        jobUuid: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        pigJob: {
+          continueOnFailure: true,
+          jarFileUris: ['Test string'],
+          loggingConfig: {
+            driverLogLevels: {
+              A: 'Test string',
+            },
+          },
+          properties: {
+            A: 'Test string',
+          },
+          queryFileUri: 'Test string',
+          queryList: {
+            queries: ['Test string'],
+          },
+          scriptVariables: {
+            A: 'Test string',
+          },
+        },
+        placement: {
+          clusterLabels: {
+            A: 'Test string',
+          },
+          clusterName: 'Test string',
+          clusterUuid: 'Test string',
+        },
+        prestoJob: {
+          clientTags: ['Test string'],
+          continueOnFailure: true,
+          loggingConfig: {
+            driverLogLevels: {
+              A: 'Test string',
+            },
+          },
+          outputFormat: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+          queryFileUri: 'Test string',
+          queryList: {
+            queries: ['Test string'],
+          },
+        },
+        pysparkJob: {
+          archiveUris: ['Test string'],
+          args: ['Test string'],
+          fileUris: ['Test string'],
+          jarFileUris: ['Test string'],
+          loggingConfig: {
+            driverLogLevels: {
+              A: 'Test string',
+            },
+          },
+          mainPythonFileUri: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+          pythonFileUris: ['Test string'],
+        },
+        reference: {
+          jobId: 'Test string',
+          projectId: 'Test string',
+        },
+        scheduling: {
+          maxFailuresPerHour: 42,
+          maxFailuresTotal: 42,
+        },
+        sparkJob: {
+          archiveUris: ['Test string'],
+          args: ['Test string'],
+          fileUris: ['Test string'],
+          jarFileUris: ['Test string'],
+          loggingConfig: {
+            driverLogLevels: {
+              A: 'Test string',
+            },
+          },
+          mainClass: 'Test string',
+          mainJarFileUri: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+        },
+        sparkRJob: {
+          archiveUris: ['Test string'],
+          args: ['Test string'],
+          fileUris: ['Test string'],
+          loggingConfig: {
+            driverLogLevels: {
+              A: 'Test string',
+            },
+          },
+          mainRFileUri: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+        },
+        sparkSqlJob: {
+          jarFileUris: ['Test string'],
+          loggingConfig: {
+            driverLogLevels: {
+              A: 'Test string',
+            },
+          },
+          properties: {
+            A: 'Test string',
+          },
+          queryFileUri: 'Test string',
+          queryList: {
+            queries: ['Test string'],
+          },
+          scriptVariables: {
+            A: 'Test string',
+          },
+        },
+        status: {
+          details: 'Test string',
+          state: 'Test string',
+          stateStartTime: 'Test string',
+          substate: 'Test string',
+        },
+        statusHistory: [
+          {
+            details: 'Test string',
+            state: 'Test string',
+            stateStartTime: 'Test string',
+            substate: 'Test string',
+          },
+        ],
+        trinoJob: {
+          clientTags: ['Test string'],
+          continueOnFailure: true,
+          loggingConfig: {
+            driverLogLevels: {
+              A: 'Test string',
+            },
+          },
+          outputFormat: 'Test string',
+          properties: {
+            A: 'Test string',
+          },
+          queryFileUri: 'Test string',
+          queryList: {
+            queries: ['Test string'],
+          },
+        },
+        yarnApplications: [
+          {
+            name: 'Test string',
+            progress: 42,
+            state: 'Test string',
+            trackingUrl: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
+    await gapi.client.dataproc.projects.regions.jobs.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Submits a job to a cluster. */
+    await gapi.client.dataproc.projects.regions.jobs.submit(
+      {
+        projectId: 'Test string',
+        region: 'Test string',
+      },
+      {
+        job: {
+          done: true,
+          driverControlFilesUri: 'Test string',
+          driverOutputResourceUri: 'Test string',
+          driverSchedulingConfig: {
+            memoryMb: 42,
+            vcores: 42,
+          },
+          flinkJob: {
+            args: ['Test string'],
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainClass: 'Test string',
+            mainJarFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+            savepointUri: 'Test string',
+          },
+          hadoopJob: {
+            archiveUris: ['Test string'],
+            args: ['Test string'],
+            fileUris: ['Test string'],
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainClass: 'Test string',
+            mainJarFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+          },
+          hiveJob: {
+            continueOnFailure: true,
+            jarFileUris: ['Test string'],
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+            scriptVariables: {
+              A: 'Test string',
+            },
+          },
+          jobUuid: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          pigJob: {
+            continueOnFailure: true,
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+            scriptVariables: {
+              A: 'Test string',
+            },
+          },
+          placement: {
+            clusterLabels: {
+              A: 'Test string',
+            },
+            clusterName: 'Test string',
+            clusterUuid: 'Test string',
+          },
+          prestoJob: {
+            clientTags: ['Test string'],
+            continueOnFailure: true,
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            outputFormat: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+          },
+          pysparkJob: {
+            archiveUris: ['Test string'],
+            args: ['Test string'],
+            fileUris: ['Test string'],
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainPythonFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+            pythonFileUris: ['Test string'],
+          },
+          reference: {
+            jobId: 'Test string',
+            projectId: 'Test string',
+          },
+          scheduling: {
+            maxFailuresPerHour: 42,
+            maxFailuresTotal: 42,
+          },
+          sparkJob: {
+            archiveUris: ['Test string'],
+            args: ['Test string'],
+            fileUris: ['Test string'],
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainClass: 'Test string',
+            mainJarFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+          },
+          sparkRJob: {
+            archiveUris: ['Test string'],
+            args: ['Test string'],
+            fileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainRFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+          },
+          sparkSqlJob: {
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+            scriptVariables: {
+              A: 'Test string',
+            },
+          },
+          status: {
+            details: 'Test string',
+            state: 'Test string',
+            stateStartTime: 'Test string',
+            substate: 'Test string',
+          },
+          statusHistory: [
+            {
+              details: 'Test string',
+              state: 'Test string',
+              stateStartTime: 'Test string',
+              substate: 'Test string',
+            },
+          ],
+          trinoJob: {
+            clientTags: ['Test string'],
+            continueOnFailure: true,
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            outputFormat: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+          },
+          yarnApplications: [
+            {
+              name: 'Test string',
+              progress: 42,
+              state: 'Test string',
+              trackingUrl: 'Test string',
+            },
+          ],
+        },
+        requestId: 'Test string',
+      }
+    );
+    /** Submits job to a cluster. */
+    await gapi.client.dataproc.projects.regions.jobs.submitAsOperation(
+      {
+        projectId: 'Test string',
+        region: 'Test string',
+      },
+      {
+        job: {
+          done: true,
+          driverControlFilesUri: 'Test string',
+          driverOutputResourceUri: 'Test string',
+          driverSchedulingConfig: {
+            memoryMb: 42,
+            vcores: 42,
+          },
+          flinkJob: {
+            args: ['Test string'],
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainClass: 'Test string',
+            mainJarFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+            savepointUri: 'Test string',
+          },
+          hadoopJob: {
+            archiveUris: ['Test string'],
+            args: ['Test string'],
+            fileUris: ['Test string'],
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainClass: 'Test string',
+            mainJarFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+          },
+          hiveJob: {
+            continueOnFailure: true,
+            jarFileUris: ['Test string'],
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+            scriptVariables: {
+              A: 'Test string',
+            },
+          },
+          jobUuid: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          pigJob: {
+            continueOnFailure: true,
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+            scriptVariables: {
+              A: 'Test string',
+            },
+          },
+          placement: {
+            clusterLabels: {
+              A: 'Test string',
+            },
+            clusterName: 'Test string',
+            clusterUuid: 'Test string',
+          },
+          prestoJob: {
+            clientTags: ['Test string'],
+            continueOnFailure: true,
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            outputFormat: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+          },
+          pysparkJob: {
+            archiveUris: ['Test string'],
+            args: ['Test string'],
+            fileUris: ['Test string'],
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainPythonFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+            pythonFileUris: ['Test string'],
+          },
+          reference: {
+            jobId: 'Test string',
+            projectId: 'Test string',
+          },
+          scheduling: {
+            maxFailuresPerHour: 42,
+            maxFailuresTotal: 42,
+          },
+          sparkJob: {
+            archiveUris: ['Test string'],
+            args: ['Test string'],
+            fileUris: ['Test string'],
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainClass: 'Test string',
+            mainJarFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+          },
+          sparkRJob: {
+            archiveUris: ['Test string'],
+            args: ['Test string'],
+            fileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            mainRFileUri: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+          },
+          sparkSqlJob: {
+            jarFileUris: ['Test string'],
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+            scriptVariables: {
+              A: 'Test string',
+            },
+          },
+          status: {
+            details: 'Test string',
+            state: 'Test string',
+            stateStartTime: 'Test string',
+            substate: 'Test string',
+          },
+          statusHistory: [
+            {
+              details: 'Test string',
+              state: 'Test string',
+              stateStartTime: 'Test string',
+              substate: 'Test string',
+            },
+          ],
+          trinoJob: {
+            clientTags: ['Test string'],
+            continueOnFailure: true,
+            loggingConfig: {
+              driverLogLevels: {
+                A: 'Test string',
+              },
+            },
+            outputFormat: 'Test string',
+            properties: {
+              A: 'Test string',
+            },
+            queryFileUri: 'Test string',
+            queryList: {
+              queries: ['Test string'],
+            },
+          },
+          yarnApplications: [
+            {
+              name: 'Test string',
+              progress: 42,
+              state: 'Test string',
+              trackingUrl: 'Test string',
+            },
+          ],
+        },
+        requestId: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataproc.projects.regions.jobs.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to Code.CANCELLED. */
+    await gapi.client.dataproc.projects.regions.operations.cancel({
+      name: 'Test string',
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns google.rpc.Code.UNIMPLEMENTED. */
+    await gapi.client.dataproc.projects.regions.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.dataproc.projects.regions.operations.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataproc.projects.regions.operations.getIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        options: {
+          requestedPolicyVersion: 42,
+        },
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED. */
+    await gapi.client.dataproc.projects.regions.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
+    await gapi.client.dataproc.projects.regions.operations.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataproc.projects.regions.operations.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates new workflow template. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        dagTimeout: 'Test string',
+        encryptionConfig: {
+          kmsKey: 'Test string',
+        },
+        id: 'Test string',
+        jobs: [
+          {
+            flinkJob: {
+              args: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              savepointUri: 'Test string',
+            },
+            hadoopJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            hiveJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
             labels: {
-                A: "Test string"
+              A: 'Test string',
             },
-            name: "Test string",
-            parameters: [
+            pigJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            prerequisiteStepIds: ['Test string'],
+            prestoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+            pysparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainPythonFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              pythonFileUris: ['Test string'],
+            },
+            scheduling: {
+              maxFailuresPerHour: 42,
+              maxFailuresTotal: 42,
+            },
+            sparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkRJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainRFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkSqlJob: {
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            stepId: 'Test string',
+            trinoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+          },
+        ],
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        parameters: [
+          {
+            description: 'Test string',
+            fields: ['Test string'],
+            name: 'Test string',
+            validation: {
+              regex: {
+                regexes: ['Test string'],
+              },
+              values: {
+                values: ['Test string'],
+              },
+            },
+          },
+        ],
+        placement: {
+          clusterSelector: {
+            clusterLabels: {
+              A: 'Test string',
+            },
+            zone: 'Test string',
+          },
+          managedCluster: {
+            clusterName: 'Test string',
+            config: {
+              autoscalingConfig: {
+                policyUri: 'Test string',
+              },
+              auxiliaryNodeGroups: [
                 {
-                    description: "Test string",
-                    fields: [
-                        "Test string"
-                    ],
-                    name: "Test string",
-                    validation: {
-                        regex: {
-                            regexes: [
-                                "Test string"
-                            ],
-                        },
-                        values: {
-                            values: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            placement: {
-                clusterSelector: {
-                    clusterLabels: {
-                        A: "Test string"
-                    },
-                    zone: "Test string",
-                },
-                managedCluster: {
-                    clusterName: "Test string",
-                    config: {
-                        autoscalingConfig: {
-                            policyUri: "Test string",
-                        },
-                        auxiliaryNodeGroups: [
-                            {
-                                nodeGroup: {
-                                    labels: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                    nodeGroupConfig: {
-                                        accelerators: [
-                                            {
-                                                acceleratorCount: 42,
-                                                acceleratorTypeUri: "Test string",
-                                            }
-                                        ],
-                                        diskConfig: {
-                                            bootDiskSizeGb: 42,
-                                            bootDiskType: "Test string",
-                                            localSsdInterface: "Test string",
-                                            numLocalSsds: 42,
-                                        },
-                                        imageUri: "Test string",
-                                        instanceFlexibilityPolicy: {
-                                            instanceSelectionList: [
-                                                {
-                                                    machineTypes: [
-                                                        "Test string"
-                                                    ],
-                                                    rank: 42,
-                                                }
-                                            ],
-                                            instanceSelectionResults: [
-                                                {
-                                                    machineType: "Test string",
-                                                    vmCount: 42,
-                                                }
-                                            ],
-                                        },
-                                        instanceNames: [
-                                            "Test string"
-                                        ],
-                                        instanceReferences: [
-                                            {
-                                                instanceId: "Test string",
-                                                instanceName: "Test string",
-                                                publicEciesKey: "Test string",
-                                                publicKey: "Test string",
-                                            }
-                                        ],
-                                        isPreemptible: true,
-                                        machineTypeUri: "Test string",
-                                        managedGroupConfig: {
-                                            instanceGroupManagerName: "Test string",
-                                            instanceGroupManagerUri: "Test string",
-                                            instanceTemplateName: "Test string",
-                                        },
-                                        minCpuPlatform: "Test string",
-                                        minNumInstances: 42,
-                                        numInstances: 42,
-                                        preemptibility: "Test string",
-                                        startupConfig: {
-                                            requiredRegistrationFraction: 42,
-                                        },
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                },
-                                nodeGroupId: "Test string",
-                            }
-                        ],
-                        configBucket: "Test string",
-                        dataprocMetricConfig: {
-                            metrics: [
-                                {
-                                    metricOverrides: [
-                                        "Test string"
-                                    ],
-                                    metricSource: "Test string",
-                                }
-                            ],
-                        },
-                        encryptionConfig: {
-                            gcePdKmsKeyName: "Test string",
-                            kmsKey: "Test string",
-                        },
-                        endpointConfig: {
-                            enableHttpPortAccess: true,
-                            httpPorts: {
-                                A: "Test string"
-                            },
-                        },
-                        gceClusterConfig: {
-                            confidentialInstanceConfig: {
-                                enableConfidentialCompute: true,
-                            },
-                            internalIpOnly: true,
-                            metadata: {
-                                A: "Test string"
-                            },
-                            networkUri: "Test string",
-                            nodeGroupAffinity: {
-                                nodeGroupUri: "Test string",
-                            },
-                            privateIpv6GoogleAccess: "Test string",
-                            reservationAffinity: {
-                                consumeReservationType: "Test string",
-                                key: "Test string",
-                                values: [
-                                    "Test string"
-                                ],
-                            },
-                            serviceAccount: "Test string",
-                            serviceAccountScopes: [
-                                "Test string"
-                            ],
-                            shieldedInstanceConfig: {
-                                enableIntegrityMonitoring: true,
-                                enableSecureBoot: true,
-                                enableVtpm: true,
-                            },
-                            subnetworkUri: "Test string",
-                            tags: [
-                                "Test string"
-                            ],
-                            zoneUri: "Test string",
-                        },
-                        gkeClusterConfig: {
-                            gkeClusterTarget: "Test string",
-                            namespacedGkeDeploymentTarget: {
-                                clusterNamespace: "Test string",
-                                targetGkeCluster: "Test string",
-                            },
-                            nodePoolTarget: [
-                                {
-                                    nodePool: "Test string",
-                                    nodePoolConfig: {
-                                        autoscaling: {
-                                            maxNodeCount: 42,
-                                            minNodeCount: 42,
-                                        },
-                                        config: {
-                                            accelerators: [
-                                                {
-                                                    acceleratorCount: "Test string",
-                                                    acceleratorType: "Test string",
-                                                    gpuPartitionSize: "Test string",
-                                                }
-                                            ],
-                                            bootDiskKmsKey: "Test string",
-                                            localSsdCount: 42,
-                                            machineType: "Test string",
-                                            minCpuPlatform: "Test string",
-                                            preemptible: true,
-                                            spot: true,
-                                        },
-                                        locations: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                }
-                            ],
-                        },
-                        initializationActions: [
-                            {
-                                executableFile: "Test string",
-                                executionTimeout: "Test string",
-                            }
-                        ],
-                        lifecycleConfig: {
-                            autoDeleteTime: "Test string",
-                            autoDeleteTtl: "Test string",
-                            idleDeleteTtl: "Test string",
-                            idleStartTime: "Test string",
-                        },
-                        masterConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        metastoreConfig: {
-                            dataprocMetastoreService: "Test string",
-                        },
-                        secondaryWorkerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        securityConfig: {
-                            identityConfig: {
-                                userServiceAccountMapping: {
-                                    A: "Test string"
-                                },
-                            },
-                            kerberosConfig: {
-                                crossRealmTrustAdminServer: "Test string",
-                                crossRealmTrustKdc: "Test string",
-                                crossRealmTrustRealm: "Test string",
-                                crossRealmTrustSharedPasswordUri: "Test string",
-                                enableKerberos: true,
-                                kdcDbKeyUri: "Test string",
-                                keyPasswordUri: "Test string",
-                                keystorePasswordUri: "Test string",
-                                keystoreUri: "Test string",
-                                kmsKeyUri: "Test string",
-                                realm: "Test string",
-                                rootPrincipalPasswordUri: "Test string",
-                                tgtLifetimeHours: 42,
-                                truststorePasswordUri: "Test string",
-                                truststoreUri: "Test string",
-                            },
-                        },
-                        softwareConfig: {
-                            imageVersion: "Test string",
-                            optionalComponents: [
-                                "Test string"
-                            ],
-                            properties: {
-                                A: "Test string"
-                            },
-                        },
-                        tempBucket: "Test string",
-                        workerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                    },
+                  nodeGroup: {
                     labels: {
-                        A: "Test string"
+                      A: 'Test string',
                     },
-                },
-            },
-            updateTime: "Test string",
-            version: 42,
-        });
-        /** Lists workflows that match the specified filter in the request. */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
+                    name: 'Test string',
+                    nodeGroupConfig: {
+                      accelerators: [
+                        {
+                          acceleratorCount: 42,
+                          acceleratorTypeUri: 'Test string',
                         },
-                        members: [
-                            "Test string"
+                      ],
+                      diskConfig: {
+                        bootDiskSizeGb: 42,
+                        bootDiskType: 'Test string',
+                        localSsdInterface: 'Test string',
+                        numLocalSsds: 42,
+                      },
+                      imageUri: 'Test string',
+                      instanceFlexibilityPolicy: {
+                        instanceSelectionList: [
+                          {
+                            machineTypes: ['Test string'],
+                            rank: 42,
+                          },
                         ],
-                        role: "Test string",
-                    }
+                        instanceSelectionResults: [
+                          {
+                            machineType: 'Test string',
+                            vmCount: 42,
+                          },
+                        ],
+                      },
+                      instanceNames: ['Test string'],
+                      instanceReferences: [
+                        {
+                          instanceId: 'Test string',
+                          instanceName: 'Test string',
+                          publicEciesKey: 'Test string',
+                          publicKey: 'Test string',
+                        },
+                      ],
+                      isPreemptible: true,
+                      machineTypeUri: 'Test string',
+                      managedGroupConfig: {
+                        instanceGroupManagerName: 'Test string',
+                        instanceGroupManagerUri: 'Test string',
+                        instanceTemplateName: 'Test string',
+                      },
+                      minCpuPlatform: 'Test string',
+                      minNumInstances: 42,
+                      numInstances: 42,
+                      preemptibility: 'Test string',
+                      startupConfig: {
+                        requiredRegistrationFraction: 42,
+                      },
+                    },
+                    roles: ['Test string'],
+                  },
+                  nodeGroupId: 'Test string',
+                },
+              ],
+              configBucket: 'Test string',
+              dataprocMetricConfig: {
+                metrics: [
+                  {
+                    metricOverrides: ['Test string'],
+                    metricSource: 'Test string',
+                  },
                 ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation
-         * is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Updates (replaces) workflow template. The updated template must contain version that matches the current server version. */
-        await gapi.client.dataproc.projects.regions.workflowTemplates.update({
-            name: "Test string",
-        }, {
-            createTime: "Test string",
-            dagTimeout: "Test string",
-            encryptionConfig: {
-                kmsKey: "Test string",
-            },
-            id: "Test string",
-            jobs: [
+              },
+              encryptionConfig: {
+                gcePdKmsKeyName: 'Test string',
+                kmsKey: 'Test string',
+              },
+              endpointConfig: {
+                enableHttpPortAccess: true,
+                httpPorts: {
+                  A: 'Test string',
+                },
+              },
+              gceClusterConfig: {
+                confidentialInstanceConfig: {
+                  enableConfidentialCompute: true,
+                },
+                internalIpOnly: true,
+                metadata: {
+                  A: 'Test string',
+                },
+                networkUri: 'Test string',
+                nodeGroupAffinity: {
+                  nodeGroupUri: 'Test string',
+                },
+                privateIpv6GoogleAccess: 'Test string',
+                reservationAffinity: {
+                  consumeReservationType: 'Test string',
+                  key: 'Test string',
+                  values: ['Test string'],
+                },
+                serviceAccount: 'Test string',
+                serviceAccountScopes: ['Test string'],
+                shieldedInstanceConfig: {
+                  enableIntegrityMonitoring: true,
+                  enableSecureBoot: true,
+                  enableVtpm: true,
+                },
+                subnetworkUri: 'Test string',
+                tags: ['Test string'],
+                zoneUri: 'Test string',
+              },
+              gkeClusterConfig: {
+                gkeClusterTarget: 'Test string',
+                namespacedGkeDeploymentTarget: {
+                  clusterNamespace: 'Test string',
+                  targetGkeCluster: 'Test string',
+                },
+                nodePoolTarget: [
+                  {
+                    nodePool: 'Test string',
+                    nodePoolConfig: {
+                      autoscaling: {
+                        maxNodeCount: 42,
+                        minNodeCount: 42,
+                      },
+                      config: {
+                        accelerators: [
+                          {
+                            acceleratorCount: 'Test string',
+                            acceleratorType: 'Test string',
+                            gpuPartitionSize: 'Test string',
+                          },
+                        ],
+                        bootDiskKmsKey: 'Test string',
+                        localSsdCount: 42,
+                        machineType: 'Test string',
+                        minCpuPlatform: 'Test string',
+                        preemptible: true,
+                        spot: true,
+                      },
+                      locations: ['Test string'],
+                    },
+                    roles: ['Test string'],
+                  },
+                ],
+              },
+              initializationActions: [
                 {
-                    flinkJob: {
-                        args: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        savepointUri: "Test string",
+                  executableFile: 'Test string',
+                  executionTimeout: 'Test string',
+                },
+              ],
+              lifecycleConfig: {
+                autoDeleteTime: 'Test string',
+                autoDeleteTtl: 'Test string',
+                idleDeleteTtl: 'Test string',
+                idleStartTime: 'Test string',
+              },
+              masterConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
                     },
-                    hadoopJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
                     },
-                    hiveJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              metastoreConfig: {
+                dataprocMetastoreService: 'Test string',
+              },
+              secondaryWorkerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
                     },
-                    labels: {
-                        A: "Test string"
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
                     },
-                    pigJob: {
-                        continueOnFailure: true,
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              securityConfig: {
+                identityConfig: {
+                  userServiceAccountMapping: {
+                    A: 'Test string',
+                  },
+                },
+                kerberosConfig: {
+                  crossRealmTrustAdminServer: 'Test string',
+                  crossRealmTrustKdc: 'Test string',
+                  crossRealmTrustRealm: 'Test string',
+                  crossRealmTrustSharedPasswordUri: 'Test string',
+                  enableKerberos: true,
+                  kdcDbKeyUri: 'Test string',
+                  keyPasswordUri: 'Test string',
+                  keystorePasswordUri: 'Test string',
+                  keystoreUri: 'Test string',
+                  kmsKeyUri: 'Test string',
+                  realm: 'Test string',
+                  rootPrincipalPasswordUri: 'Test string',
+                  tgtLifetimeHours: 42,
+                  truststorePasswordUri: 'Test string',
+                  truststoreUri: 'Test string',
+                },
+              },
+              softwareConfig: {
+                imageVersion: 'Test string',
+                optionalComponents: ['Test string'],
+                properties: {
+                  A: 'Test string',
+                },
+              },
+              tempBucket: 'Test string',
+              workerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
                     },
-                    prerequisiteStepIds: [
-                        "Test string"
-                    ],
-                    prestoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
                     },
-                    pysparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainPythonFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        pythonFileUris: [
-                            "Test string"
-                        ],
-                    },
-                    scheduling: {
-                        maxFailuresPerHour: 42,
-                        maxFailuresTotal: 42,
-                    },
-                    sparkJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainClass: "Test string",
-                        mainJarFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkRJob: {
-                        archiveUris: [
-                            "Test string"
-                        ],
-                        args: [
-                            "Test string"
-                        ],
-                        fileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        mainRFileUri: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                    },
-                    sparkSqlJob: {
-                        jarFileUris: [
-                            "Test string"
-                        ],
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                        scriptVariables: {
-                            A: "Test string"
-                        },
-                    },
-                    stepId: "Test string",
-                    trinoJob: {
-                        clientTags: [
-                            "Test string"
-                        ],
-                        continueOnFailure: true,
-                        loggingConfig: {
-                            driverLogLevels: {
-                                A: "Test string"
-                            },
-                        },
-                        outputFormat: "Test string",
-                        properties: {
-                            A: "Test string"
-                        },
-                        queryFileUri: "Test string",
-                        queryList: {
-                            queries: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+            },
             labels: {
-                A: "Test string"
+              A: 'Test string',
             },
-            name: "Test string",
-            parameters: [
+          },
+        },
+        updateTime: 'Test string',
+        version: 42,
+      }
+    );
+    /** Deletes a workflow template. It does not cancel in-progress workflows. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.delete({
+      name: 'Test string',
+      version: 42,
+    });
+    /** Retrieves the latest workflow template.Can retrieve previously instantiated template by specifying optional version parameter. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.get({
+      name: 'Test string',
+      version: 42,
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.getIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        options: {
+          requestedPolicyVersion: 42,
+        },
+      }
+    );
+    /** Instantiates a template and begins execution.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.instantiate(
+      {
+        name: 'Test string',
+      },
+      {
+        parameters: {
+          A: 'Test string',
+        },
+        requestId: 'Test string',
+        version: 42,
+      }
+    );
+    /** Instantiates a template and begins execution.This method is equivalent to executing the sequence CreateWorkflowTemplate, InstantiateWorkflowTemplate, DeleteWorkflowTemplate.The returned Operation can be used to track execution of workflow by polling operations.get. The Operation will complete when entire workflow is finished.The running workflow can be aborted via operations.cancel. This will cause any inflight jobs to be cancelled and workflow-owned clusters to be deleted.The Operation.metadata will be WorkflowMetadata (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#workflowmetadata). Also see Using WorkflowMetadata (https://cloud.google.com/dataproc/docs/concepts/workflows/debugging#using_workflowmetadata).On successful completion, Operation.response will be Empty. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.instantiateInline(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        dagTimeout: 'Test string',
+        encryptionConfig: {
+          kmsKey: 'Test string',
+        },
+        id: 'Test string',
+        jobs: [
+          {
+            flinkJob: {
+              args: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              savepointUri: 'Test string',
+            },
+            hadoopJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            hiveJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            labels: {
+              A: 'Test string',
+            },
+            pigJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            prerequisiteStepIds: ['Test string'],
+            prestoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+            pysparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainPythonFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              pythonFileUris: ['Test string'],
+            },
+            scheduling: {
+              maxFailuresPerHour: 42,
+              maxFailuresTotal: 42,
+            },
+            sparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkRJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainRFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkSqlJob: {
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            stepId: 'Test string',
+            trinoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+          },
+        ],
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        parameters: [
+          {
+            description: 'Test string',
+            fields: ['Test string'],
+            name: 'Test string',
+            validation: {
+              regex: {
+                regexes: ['Test string'],
+              },
+              values: {
+                values: ['Test string'],
+              },
+            },
+          },
+        ],
+        placement: {
+          clusterSelector: {
+            clusterLabels: {
+              A: 'Test string',
+            },
+            zone: 'Test string',
+          },
+          managedCluster: {
+            clusterName: 'Test string',
+            config: {
+              autoscalingConfig: {
+                policyUri: 'Test string',
+              },
+              auxiliaryNodeGroups: [
                 {
-                    description: "Test string",
-                    fields: [
-                        "Test string"
-                    ],
-                    name: "Test string",
-                    validation: {
-                        regex: {
-                            regexes: [
-                                "Test string"
-                            ],
-                        },
-                        values: {
-                            values: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                }
-            ],
-            placement: {
-                clusterSelector: {
-                    clusterLabels: {
-                        A: "Test string"
-                    },
-                    zone: "Test string",
-                },
-                managedCluster: {
-                    clusterName: "Test string",
-                    config: {
-                        autoscalingConfig: {
-                            policyUri: "Test string",
-                        },
-                        auxiliaryNodeGroups: [
-                            {
-                                nodeGroup: {
-                                    labels: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                    nodeGroupConfig: {
-                                        accelerators: [
-                                            {
-                                                acceleratorCount: 42,
-                                                acceleratorTypeUri: "Test string",
-                                            }
-                                        ],
-                                        diskConfig: {
-                                            bootDiskSizeGb: 42,
-                                            bootDiskType: "Test string",
-                                            localSsdInterface: "Test string",
-                                            numLocalSsds: 42,
-                                        },
-                                        imageUri: "Test string",
-                                        instanceFlexibilityPolicy: {
-                                            instanceSelectionList: [
-                                                {
-                                                    machineTypes: [
-                                                        "Test string"
-                                                    ],
-                                                    rank: 42,
-                                                }
-                                            ],
-                                            instanceSelectionResults: [
-                                                {
-                                                    machineType: "Test string",
-                                                    vmCount: 42,
-                                                }
-                                            ],
-                                        },
-                                        instanceNames: [
-                                            "Test string"
-                                        ],
-                                        instanceReferences: [
-                                            {
-                                                instanceId: "Test string",
-                                                instanceName: "Test string",
-                                                publicEciesKey: "Test string",
-                                                publicKey: "Test string",
-                                            }
-                                        ],
-                                        isPreemptible: true,
-                                        machineTypeUri: "Test string",
-                                        managedGroupConfig: {
-                                            instanceGroupManagerName: "Test string",
-                                            instanceGroupManagerUri: "Test string",
-                                            instanceTemplateName: "Test string",
-                                        },
-                                        minCpuPlatform: "Test string",
-                                        minNumInstances: 42,
-                                        numInstances: 42,
-                                        preemptibility: "Test string",
-                                        startupConfig: {
-                                            requiredRegistrationFraction: 42,
-                                        },
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                },
-                                nodeGroupId: "Test string",
-                            }
-                        ],
-                        configBucket: "Test string",
-                        dataprocMetricConfig: {
-                            metrics: [
-                                {
-                                    metricOverrides: [
-                                        "Test string"
-                                    ],
-                                    metricSource: "Test string",
-                                }
-                            ],
-                        },
-                        encryptionConfig: {
-                            gcePdKmsKeyName: "Test string",
-                            kmsKey: "Test string",
-                        },
-                        endpointConfig: {
-                            enableHttpPortAccess: true,
-                            httpPorts: {
-                                A: "Test string"
-                            },
-                        },
-                        gceClusterConfig: {
-                            confidentialInstanceConfig: {
-                                enableConfidentialCompute: true,
-                            },
-                            internalIpOnly: true,
-                            metadata: {
-                                A: "Test string"
-                            },
-                            networkUri: "Test string",
-                            nodeGroupAffinity: {
-                                nodeGroupUri: "Test string",
-                            },
-                            privateIpv6GoogleAccess: "Test string",
-                            reservationAffinity: {
-                                consumeReservationType: "Test string",
-                                key: "Test string",
-                                values: [
-                                    "Test string"
-                                ],
-                            },
-                            serviceAccount: "Test string",
-                            serviceAccountScopes: [
-                                "Test string"
-                            ],
-                            shieldedInstanceConfig: {
-                                enableIntegrityMonitoring: true,
-                                enableSecureBoot: true,
-                                enableVtpm: true,
-                            },
-                            subnetworkUri: "Test string",
-                            tags: [
-                                "Test string"
-                            ],
-                            zoneUri: "Test string",
-                        },
-                        gkeClusterConfig: {
-                            gkeClusterTarget: "Test string",
-                            namespacedGkeDeploymentTarget: {
-                                clusterNamespace: "Test string",
-                                targetGkeCluster: "Test string",
-                            },
-                            nodePoolTarget: [
-                                {
-                                    nodePool: "Test string",
-                                    nodePoolConfig: {
-                                        autoscaling: {
-                                            maxNodeCount: 42,
-                                            minNodeCount: 42,
-                                        },
-                                        config: {
-                                            accelerators: [
-                                                {
-                                                    acceleratorCount: "Test string",
-                                                    acceleratorType: "Test string",
-                                                    gpuPartitionSize: "Test string",
-                                                }
-                                            ],
-                                            bootDiskKmsKey: "Test string",
-                                            localSsdCount: 42,
-                                            machineType: "Test string",
-                                            minCpuPlatform: "Test string",
-                                            preemptible: true,
-                                            spot: true,
-                                        },
-                                        locations: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    roles: [
-                                        "Test string"
-                                    ],
-                                }
-                            ],
-                        },
-                        initializationActions: [
-                            {
-                                executableFile: "Test string",
-                                executionTimeout: "Test string",
-                            }
-                        ],
-                        lifecycleConfig: {
-                            autoDeleteTime: "Test string",
-                            autoDeleteTtl: "Test string",
-                            idleDeleteTtl: "Test string",
-                            idleStartTime: "Test string",
-                        },
-                        masterConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        metastoreConfig: {
-                            dataprocMetastoreService: "Test string",
-                        },
-                        secondaryWorkerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                        securityConfig: {
-                            identityConfig: {
-                                userServiceAccountMapping: {
-                                    A: "Test string"
-                                },
-                            },
-                            kerberosConfig: {
-                                crossRealmTrustAdminServer: "Test string",
-                                crossRealmTrustKdc: "Test string",
-                                crossRealmTrustRealm: "Test string",
-                                crossRealmTrustSharedPasswordUri: "Test string",
-                                enableKerberos: true,
-                                kdcDbKeyUri: "Test string",
-                                keyPasswordUri: "Test string",
-                                keystorePasswordUri: "Test string",
-                                keystoreUri: "Test string",
-                                kmsKeyUri: "Test string",
-                                realm: "Test string",
-                                rootPrincipalPasswordUri: "Test string",
-                                tgtLifetimeHours: 42,
-                                truststorePasswordUri: "Test string",
-                                truststoreUri: "Test string",
-                            },
-                        },
-                        softwareConfig: {
-                            imageVersion: "Test string",
-                            optionalComponents: [
-                                "Test string"
-                            ],
-                            properties: {
-                                A: "Test string"
-                            },
-                        },
-                        tempBucket: "Test string",
-                        workerConfig: {
-                            accelerators: [
-                                {
-                                    acceleratorCount: 42,
-                                    acceleratorTypeUri: "Test string",
-                                }
-                            ],
-                            diskConfig: {
-                                bootDiskSizeGb: 42,
-                                bootDiskType: "Test string",
-                                localSsdInterface: "Test string",
-                                numLocalSsds: 42,
-                            },
-                            imageUri: "Test string",
-                            instanceFlexibilityPolicy: {
-                                instanceSelectionList: [
-                                    {
-                                        machineTypes: [
-                                            "Test string"
-                                        ],
-                                        rank: 42,
-                                    }
-                                ],
-                                instanceSelectionResults: [
-                                    {
-                                        machineType: "Test string",
-                                        vmCount: 42,
-                                    }
-                                ],
-                            },
-                            instanceNames: [
-                                "Test string"
-                            ],
-                            instanceReferences: [
-                                {
-                                    instanceId: "Test string",
-                                    instanceName: "Test string",
-                                    publicEciesKey: "Test string",
-                                    publicKey: "Test string",
-                                }
-                            ],
-                            isPreemptible: true,
-                            machineTypeUri: "Test string",
-                            managedGroupConfig: {
-                                instanceGroupManagerName: "Test string",
-                                instanceGroupManagerUri: "Test string",
-                                instanceTemplateName: "Test string",
-                            },
-                            minCpuPlatform: "Test string",
-                            minNumInstances: 42,
-                            numInstances: 42,
-                            preemptibility: "Test string",
-                            startupConfig: {
-                                requiredRegistrationFraction: 42,
-                            },
-                        },
-                    },
+                  nodeGroup: {
                     labels: {
-                        A: "Test string"
+                      A: 'Test string',
                     },
+                    name: 'Test string',
+                    nodeGroupConfig: {
+                      accelerators: [
+                        {
+                          acceleratorCount: 42,
+                          acceleratorTypeUri: 'Test string',
+                        },
+                      ],
+                      diskConfig: {
+                        bootDiskSizeGb: 42,
+                        bootDiskType: 'Test string',
+                        localSsdInterface: 'Test string',
+                        numLocalSsds: 42,
+                      },
+                      imageUri: 'Test string',
+                      instanceFlexibilityPolicy: {
+                        instanceSelectionList: [
+                          {
+                            machineTypes: ['Test string'],
+                            rank: 42,
+                          },
+                        ],
+                        instanceSelectionResults: [
+                          {
+                            machineType: 'Test string',
+                            vmCount: 42,
+                          },
+                        ],
+                      },
+                      instanceNames: ['Test string'],
+                      instanceReferences: [
+                        {
+                          instanceId: 'Test string',
+                          instanceName: 'Test string',
+                          publicEciesKey: 'Test string',
+                          publicKey: 'Test string',
+                        },
+                      ],
+                      isPreemptible: true,
+                      machineTypeUri: 'Test string',
+                      managedGroupConfig: {
+                        instanceGroupManagerName: 'Test string',
+                        instanceGroupManagerUri: 'Test string',
+                        instanceTemplateName: 'Test string',
+                      },
+                      minCpuPlatform: 'Test string',
+                      minNumInstances: 42,
+                      numInstances: 42,
+                      preemptibility: 'Test string',
+                      startupConfig: {
+                        requiredRegistrationFraction: 42,
+                      },
+                    },
+                    roles: ['Test string'],
+                  },
+                  nodeGroupId: 'Test string',
                 },
+              ],
+              configBucket: 'Test string',
+              dataprocMetricConfig: {
+                metrics: [
+                  {
+                    metricOverrides: ['Test string'],
+                    metricSource: 'Test string',
+                  },
+                ],
+              },
+              encryptionConfig: {
+                gcePdKmsKeyName: 'Test string',
+                kmsKey: 'Test string',
+              },
+              endpointConfig: {
+                enableHttpPortAccess: true,
+                httpPorts: {
+                  A: 'Test string',
+                },
+              },
+              gceClusterConfig: {
+                confidentialInstanceConfig: {
+                  enableConfidentialCompute: true,
+                },
+                internalIpOnly: true,
+                metadata: {
+                  A: 'Test string',
+                },
+                networkUri: 'Test string',
+                nodeGroupAffinity: {
+                  nodeGroupUri: 'Test string',
+                },
+                privateIpv6GoogleAccess: 'Test string',
+                reservationAffinity: {
+                  consumeReservationType: 'Test string',
+                  key: 'Test string',
+                  values: ['Test string'],
+                },
+                serviceAccount: 'Test string',
+                serviceAccountScopes: ['Test string'],
+                shieldedInstanceConfig: {
+                  enableIntegrityMonitoring: true,
+                  enableSecureBoot: true,
+                  enableVtpm: true,
+                },
+                subnetworkUri: 'Test string',
+                tags: ['Test string'],
+                zoneUri: 'Test string',
+              },
+              gkeClusterConfig: {
+                gkeClusterTarget: 'Test string',
+                namespacedGkeDeploymentTarget: {
+                  clusterNamespace: 'Test string',
+                  targetGkeCluster: 'Test string',
+                },
+                nodePoolTarget: [
+                  {
+                    nodePool: 'Test string',
+                    nodePoolConfig: {
+                      autoscaling: {
+                        maxNodeCount: 42,
+                        minNodeCount: 42,
+                      },
+                      config: {
+                        accelerators: [
+                          {
+                            acceleratorCount: 'Test string',
+                            acceleratorType: 'Test string',
+                            gpuPartitionSize: 'Test string',
+                          },
+                        ],
+                        bootDiskKmsKey: 'Test string',
+                        localSsdCount: 42,
+                        machineType: 'Test string',
+                        minCpuPlatform: 'Test string',
+                        preemptible: true,
+                        spot: true,
+                      },
+                      locations: ['Test string'],
+                    },
+                    roles: ['Test string'],
+                  },
+                ],
+              },
+              initializationActions: [
+                {
+                  executableFile: 'Test string',
+                  executionTimeout: 'Test string',
+                },
+              ],
+              lifecycleConfig: {
+                autoDeleteTime: 'Test string',
+                autoDeleteTtl: 'Test string',
+                idleDeleteTtl: 'Test string',
+                idleStartTime: 'Test string',
+              },
+              masterConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              metastoreConfig: {
+                dataprocMetastoreService: 'Test string',
+              },
+              secondaryWorkerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              securityConfig: {
+                identityConfig: {
+                  userServiceAccountMapping: {
+                    A: 'Test string',
+                  },
+                },
+                kerberosConfig: {
+                  crossRealmTrustAdminServer: 'Test string',
+                  crossRealmTrustKdc: 'Test string',
+                  crossRealmTrustRealm: 'Test string',
+                  crossRealmTrustSharedPasswordUri: 'Test string',
+                  enableKerberos: true,
+                  kdcDbKeyUri: 'Test string',
+                  keyPasswordUri: 'Test string',
+                  keystorePasswordUri: 'Test string',
+                  keystoreUri: 'Test string',
+                  kmsKeyUri: 'Test string',
+                  realm: 'Test string',
+                  rootPrincipalPasswordUri: 'Test string',
+                  tgtLifetimeHours: 42,
+                  truststorePasswordUri: 'Test string',
+                  truststoreUri: 'Test string',
+                },
+              },
+              softwareConfig: {
+                imageVersion: 'Test string',
+                optionalComponents: ['Test string'],
+                properties: {
+                  A: 'Test string',
+                },
+              },
+              tempBucket: 'Test string',
+              workerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
             },
-            updateTime: "Test string",
-            version: 42,
-        });
-    }
+            labels: {
+              A: 'Test string',
+            },
+          },
+        },
+        updateTime: 'Test string',
+        version: 42,
+      }
+    );
+    /** Lists workflows that match the specified filter in the request. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and PERMISSION_DENIED errors. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a NOT_FOUND error.Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Updates (replaces) workflow template. The updated template must contain version that matches the current server version. */
+    await gapi.client.dataproc.projects.regions.workflowTemplates.update(
+      {
+        name: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        dagTimeout: 'Test string',
+        encryptionConfig: {
+          kmsKey: 'Test string',
+        },
+        id: 'Test string',
+        jobs: [
+          {
+            flinkJob: {
+              args: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              savepointUri: 'Test string',
+            },
+            hadoopJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            hiveJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            labels: {
+              A: 'Test string',
+            },
+            pigJob: {
+              continueOnFailure: true,
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            prerequisiteStepIds: ['Test string'],
+            prestoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+            pysparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainPythonFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              pythonFileUris: ['Test string'],
+            },
+            scheduling: {
+              maxFailuresPerHour: 42,
+              maxFailuresTotal: 42,
+            },
+            sparkJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainClass: 'Test string',
+              mainJarFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkRJob: {
+              archiveUris: ['Test string'],
+              args: ['Test string'],
+              fileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              mainRFileUri: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+            },
+            sparkSqlJob: {
+              jarFileUris: ['Test string'],
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+              scriptVariables: {
+                A: 'Test string',
+              },
+            },
+            stepId: 'Test string',
+            trinoJob: {
+              clientTags: ['Test string'],
+              continueOnFailure: true,
+              loggingConfig: {
+                driverLogLevels: {
+                  A: 'Test string',
+                },
+              },
+              outputFormat: 'Test string',
+              properties: {
+                A: 'Test string',
+              },
+              queryFileUri: 'Test string',
+              queryList: {
+                queries: ['Test string'],
+              },
+            },
+          },
+        ],
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        parameters: [
+          {
+            description: 'Test string',
+            fields: ['Test string'],
+            name: 'Test string',
+            validation: {
+              regex: {
+                regexes: ['Test string'],
+              },
+              values: {
+                values: ['Test string'],
+              },
+            },
+          },
+        ],
+        placement: {
+          clusterSelector: {
+            clusterLabels: {
+              A: 'Test string',
+            },
+            zone: 'Test string',
+          },
+          managedCluster: {
+            clusterName: 'Test string',
+            config: {
+              autoscalingConfig: {
+                policyUri: 'Test string',
+              },
+              auxiliaryNodeGroups: [
+                {
+                  nodeGroup: {
+                    labels: {
+                      A: 'Test string',
+                    },
+                    name: 'Test string',
+                    nodeGroupConfig: {
+                      accelerators: [
+                        {
+                          acceleratorCount: 42,
+                          acceleratorTypeUri: 'Test string',
+                        },
+                      ],
+                      diskConfig: {
+                        bootDiskSizeGb: 42,
+                        bootDiskType: 'Test string',
+                        localSsdInterface: 'Test string',
+                        numLocalSsds: 42,
+                      },
+                      imageUri: 'Test string',
+                      instanceFlexibilityPolicy: {
+                        instanceSelectionList: [
+                          {
+                            machineTypes: ['Test string'],
+                            rank: 42,
+                          },
+                        ],
+                        instanceSelectionResults: [
+                          {
+                            machineType: 'Test string',
+                            vmCount: 42,
+                          },
+                        ],
+                      },
+                      instanceNames: ['Test string'],
+                      instanceReferences: [
+                        {
+                          instanceId: 'Test string',
+                          instanceName: 'Test string',
+                          publicEciesKey: 'Test string',
+                          publicKey: 'Test string',
+                        },
+                      ],
+                      isPreemptible: true,
+                      machineTypeUri: 'Test string',
+                      managedGroupConfig: {
+                        instanceGroupManagerName: 'Test string',
+                        instanceGroupManagerUri: 'Test string',
+                        instanceTemplateName: 'Test string',
+                      },
+                      minCpuPlatform: 'Test string',
+                      minNumInstances: 42,
+                      numInstances: 42,
+                      preemptibility: 'Test string',
+                      startupConfig: {
+                        requiredRegistrationFraction: 42,
+                      },
+                    },
+                    roles: ['Test string'],
+                  },
+                  nodeGroupId: 'Test string',
+                },
+              ],
+              configBucket: 'Test string',
+              dataprocMetricConfig: {
+                metrics: [
+                  {
+                    metricOverrides: ['Test string'],
+                    metricSource: 'Test string',
+                  },
+                ],
+              },
+              encryptionConfig: {
+                gcePdKmsKeyName: 'Test string',
+                kmsKey: 'Test string',
+              },
+              endpointConfig: {
+                enableHttpPortAccess: true,
+                httpPorts: {
+                  A: 'Test string',
+                },
+              },
+              gceClusterConfig: {
+                confidentialInstanceConfig: {
+                  enableConfidentialCompute: true,
+                },
+                internalIpOnly: true,
+                metadata: {
+                  A: 'Test string',
+                },
+                networkUri: 'Test string',
+                nodeGroupAffinity: {
+                  nodeGroupUri: 'Test string',
+                },
+                privateIpv6GoogleAccess: 'Test string',
+                reservationAffinity: {
+                  consumeReservationType: 'Test string',
+                  key: 'Test string',
+                  values: ['Test string'],
+                },
+                serviceAccount: 'Test string',
+                serviceAccountScopes: ['Test string'],
+                shieldedInstanceConfig: {
+                  enableIntegrityMonitoring: true,
+                  enableSecureBoot: true,
+                  enableVtpm: true,
+                },
+                subnetworkUri: 'Test string',
+                tags: ['Test string'],
+                zoneUri: 'Test string',
+              },
+              gkeClusterConfig: {
+                gkeClusterTarget: 'Test string',
+                namespacedGkeDeploymentTarget: {
+                  clusterNamespace: 'Test string',
+                  targetGkeCluster: 'Test string',
+                },
+                nodePoolTarget: [
+                  {
+                    nodePool: 'Test string',
+                    nodePoolConfig: {
+                      autoscaling: {
+                        maxNodeCount: 42,
+                        minNodeCount: 42,
+                      },
+                      config: {
+                        accelerators: [
+                          {
+                            acceleratorCount: 'Test string',
+                            acceleratorType: 'Test string',
+                            gpuPartitionSize: 'Test string',
+                          },
+                        ],
+                        bootDiskKmsKey: 'Test string',
+                        localSsdCount: 42,
+                        machineType: 'Test string',
+                        minCpuPlatform: 'Test string',
+                        preemptible: true,
+                        spot: true,
+                      },
+                      locations: ['Test string'],
+                    },
+                    roles: ['Test string'],
+                  },
+                ],
+              },
+              initializationActions: [
+                {
+                  executableFile: 'Test string',
+                  executionTimeout: 'Test string',
+                },
+              ],
+              lifecycleConfig: {
+                autoDeleteTime: 'Test string',
+                autoDeleteTtl: 'Test string',
+                idleDeleteTtl: 'Test string',
+                idleStartTime: 'Test string',
+              },
+              masterConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              metastoreConfig: {
+                dataprocMetastoreService: 'Test string',
+              },
+              secondaryWorkerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+              securityConfig: {
+                identityConfig: {
+                  userServiceAccountMapping: {
+                    A: 'Test string',
+                  },
+                },
+                kerberosConfig: {
+                  crossRealmTrustAdminServer: 'Test string',
+                  crossRealmTrustKdc: 'Test string',
+                  crossRealmTrustRealm: 'Test string',
+                  crossRealmTrustSharedPasswordUri: 'Test string',
+                  enableKerberos: true,
+                  kdcDbKeyUri: 'Test string',
+                  keyPasswordUri: 'Test string',
+                  keystorePasswordUri: 'Test string',
+                  keystoreUri: 'Test string',
+                  kmsKeyUri: 'Test string',
+                  realm: 'Test string',
+                  rootPrincipalPasswordUri: 'Test string',
+                  tgtLifetimeHours: 42,
+                  truststorePasswordUri: 'Test string',
+                  truststoreUri: 'Test string',
+                },
+              },
+              softwareConfig: {
+                imageVersion: 'Test string',
+                optionalComponents: ['Test string'],
+                properties: {
+                  A: 'Test string',
+                },
+              },
+              tempBucket: 'Test string',
+              workerConfig: {
+                accelerators: [
+                  {
+                    acceleratorCount: 42,
+                    acceleratorTypeUri: 'Test string',
+                  },
+                ],
+                diskConfig: {
+                  bootDiskSizeGb: 42,
+                  bootDiskType: 'Test string',
+                  localSsdInterface: 'Test string',
+                  numLocalSsds: 42,
+                },
+                imageUri: 'Test string',
+                instanceFlexibilityPolicy: {
+                  instanceSelectionList: [
+                    {
+                      machineTypes: ['Test string'],
+                      rank: 42,
+                    },
+                  ],
+                  instanceSelectionResults: [
+                    {
+                      machineType: 'Test string',
+                      vmCount: 42,
+                    },
+                  ],
+                },
+                instanceNames: ['Test string'],
+                instanceReferences: [
+                  {
+                    instanceId: 'Test string',
+                    instanceName: 'Test string',
+                    publicEciesKey: 'Test string',
+                    publicKey: 'Test string',
+                  },
+                ],
+                isPreemptible: true,
+                machineTypeUri: 'Test string',
+                managedGroupConfig: {
+                  instanceGroupManagerName: 'Test string',
+                  instanceGroupManagerUri: 'Test string',
+                  instanceTemplateName: 'Test string',
+                },
+                minCpuPlatform: 'Test string',
+                minNumInstances: 42,
+                numInstances: 42,
+                preemptibility: 'Test string',
+                startupConfig: {
+                  requiredRegistrationFraction: 42,
+                },
+              },
+            },
+            labels: {
+              A: 'Test string',
+            },
+          },
+        },
+        updateTime: 'Test string',
+        version: 42,
+      }
+    );
+  }
 });

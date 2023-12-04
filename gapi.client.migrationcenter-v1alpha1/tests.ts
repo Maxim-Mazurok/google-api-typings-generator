@@ -6,2044 +6,2066 @@
 // Revision: 20231101
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://migrationcenter.googleapis.com/$discovery/rest?version=v1alpha1');
-    /** now we can use gapi.client.migrationcenter */
+  await gapi.client.load(
+    'https://migrationcenter.googleapis.com/$discovery/rest?version=v1alpha1'
+  );
+  /** now we can use gapi.client.migrationcenter */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
+    }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.migrationcenter.projects.locations.get({
+      name: 'Test string',
     });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.migrationcenter.projects.locations.get({
-            name: "Test string",
-        });
-        /** Gets the details of regional settings. */
-        await gapi.client.migrationcenter.projects.locations.getSettings({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.migrationcenter.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Updates the regional-level project settings. */
-        await gapi.client.migrationcenter.projects.locations.updateSettings({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            disableCloudLogging: true,
-            name: "Test string",
-            preferenceSet: "Test string",
-        });
-        /** Aggregates the requested fields based on provided function. */
-        await gapi.client.migrationcenter.projects.locations.assets.aggregateValues({
-            parent: "Test string",
-        }, {
-            aggregations: [
-                {
-                    count: {
-                    },
-                    field: "Test string",
-                    frequency: {
-                    },
-                    histogram: {
-                        lowerBounds: [
-                            42
-                        ],
-                    },
-                    sum: {
-                    },
-                }
-            ],
-            filter: "Test string",
-            showHidden: true,
-        });
-        /** Deletes list of Assets. */
-        await gapi.client.migrationcenter.projects.locations.assets.batchDelete({
-            parent: "Test string",
-        }, {
-            allowMissing: true,
-            names: [
-                "Test string"
-            ],
-        });
-        /** Updates the parameters of a list of assets. */
-        await gapi.client.migrationcenter.projects.locations.assets.batchUpdate({
-            parent: "Test string",
-        }, {
-            requests: [
-                {
-                    asset: {
-                        assignedGroups: [
-                            "Test string"
-                        ],
-                        attributes: {
-                            A: "Test string"
-                        },
-                        createTime: "Test string",
-                        hidden: true,
-                        hideReason: "Test string",
-                        hideTime: "Test string",
-                        insightList: {
-                            insights: [
-                                {
-                                    genericInsight: {
-                                        additionalInformation: [
-                                            "Test string"
-                                        ],
-                                        defaultMessage: "Test string",
-                                        messageId: "Test string",
-                                    },
-                                    migrationInsight: {
-                                        computeEngineTarget: {
-                                            shape: {
-                                                logicalCoreCount: 42,
-                                                machineType: "Test string",
-                                                memoryMb: 42,
-                                                physicalCoreCount: 42,
-                                                series: "Test string",
-                                                storage: [
-                                                    {
-                                                        sizeGb: 42,
-                                                        type: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                        },
-                                        fit: {
-                                            fitLevel: "Test string",
-                                        },
-                                        gkeTarget: {
-                                        },
-                                        vmwareEngineTarget: {
-                                        },
-                                    },
-                                    softwareInsight: {
-                                        detectedSoftware: {
-                                            softwareFamily: "Test string",
-                                            softwareName: "Test string",
-                                        },
-                                    },
-                                }
-                            ],
-                            updateTime: "Test string",
-                        },
-                        labels: {
-                            A: "Test string"
-                        },
-                        name: "Test string",
-                        performanceData: {
-                            dailyResourceUsageAggregations: [
-                                {
-                                    cpu: {
-                                        utilizationPercentage: {
-                                            average: 42,
-                                            median: 42,
-                                            ninteyFifthPercentile: 42,
-                                            peak: 42,
-                                        },
-                                    },
-                                    date: {
-                                        day: 42,
-                                        month: 42,
-                                        year: 42,
-                                    },
-                                    disk: {
-                                        iops: {
-                                            average: 42,
-                                            median: 42,
-                                            ninteyFifthPercentile: 42,
-                                            peak: 42,
-                                        },
-                                    },
-                                    memory: {
-                                        utilizationPercentage: {
-                                            average: 42,
-                                            median: 42,
-                                            ninteyFifthPercentile: 42,
-                                            peak: 42,
-                                        },
-                                    },
-                                    network: {
-                                        egressBps: {
-                                            average: 42,
-                                            median: 42,
-                                            ninteyFifthPercentile: 42,
-                                            peak: 42,
-                                        },
-                                        ingressBps: {
-                                            average: 42,
-                                            median: 42,
-                                            ninteyFifthPercentile: 42,
-                                            peak: 42,
-                                        },
-                                    },
-                                }
-                            ],
-                        },
-                        sources: [
-                            "Test string"
-                        ],
-                        updateTime: "Test string",
-                        virtualMachineDetails: {
-                            coreCount: 42,
-                            createTime: "Test string",
-                            guestOs: {
-                                config: {
-                                    fstab: {
-                                        entries: [
-                                            {
-                                                file: "Test string",
-                                                freq: 42,
-                                                mntops: "Test string",
-                                                passno: 42,
-                                                spec: "Test string",
-                                                vfstype: "Test string",
-                                            }
-                                        ],
-                                    },
-                                    hosts: {
-                                        entries: [
-                                            {
-                                                hostNames: [
-                                                    "Test string"
-                                                ],
-                                                ip: "Test string",
-                                            }
-                                        ],
-                                    },
-                                    issue: "Test string",
-                                    nfsExports: {
-                                        entries: [
-                                            {
-                                                exportDirectory: "Test string",
-                                                hosts: [
-                                                    "Test string"
-                                                ],
-                                            }
-                                        ],
-                                    },
-                                    selinux: {
-                                        enabled: true,
-                                        mode: "Test string",
-                                    },
-                                },
-                                runtime: {
-                                    domain: "Test string",
-                                    installedApps: {
-                                        entries: [
-                                            {
-                                                name: "Test string",
-                                                path: "Test string",
-                                                time: "Test string",
-                                                vendor: "Test string",
-                                                version: "Test string",
-                                            }
-                                        ],
-                                    },
-                                    lastUptime: {
-                                        day: 42,
-                                        month: 42,
-                                        year: 42,
-                                    },
-                                    machineName: "Test string",
-                                    networkInfo: {
-                                        connections: {
-                                            entries: [
-                                                {
-                                                    localIpAddress: "Test string",
-                                                    localPort: 42,
-                                                    pid: "Test string",
-                                                    processName: "Test string",
-                                                    protocol: "Test string",
-                                                    remoteIpAddress: "Test string",
-                                                    remotePort: 42,
-                                                    state: "Test string",
-                                                }
-                                            ],
-                                        },
-                                        netstat: "Test string",
-                                        netstatTime: {
-                                            day: 42,
-                                            hours: 42,
-                                            minutes: 42,
-                                            month: 42,
-                                            nanos: 42,
-                                            seconds: 42,
-                                            timeZone: {
-                                                id: "Test string",
-                                                version: "Test string",
-                                            },
-                                            utcOffset: "Test string",
-                                            year: 42,
-                                        },
-                                    },
-                                    openFileList: {
-                                        entries: [
-                                            {
-                                                command: "Test string",
-                                                filePath: "Test string",
-                                                fileType: "Test string",
-                                                user: "Test string",
-                                            }
-                                        ],
-                                    },
-                                    processes: {
-                                        processes: [
-                                            {
-                                                attributes: {
-                                                    A: "Test string"
-                                                },
-                                                cmdline: "Test string",
-                                                exePath: "Test string",
-                                                pid: "Test string",
-                                                user: "Test string",
-                                            }
-                                        ],
-                                    },
-                                    services: {
-                                        services: [
-                                            {
-                                                cmdline: "Test string",
-                                                exePath: "Test string",
-                                                name: "Test string",
-                                                pid: "Test string",
-                                                startMode: "Test string",
-                                                state: "Test string",
-                                                status: "Test string",
-                                            }
-                                        ],
-                                    },
-                                },
-                            },
-                            memoryMb: 42,
-                            osFamily: "Test string",
-                            osName: "Test string",
-                            osVersion: "Test string",
-                            platform: {
-                                awsEc2Details: {
-                                    location: "Test string",
-                                    machineTypeLabel: "Test string",
-                                },
-                                azureVmDetails: {
-                                    location: "Test string",
-                                    machineTypeLabel: "Test string",
-                                    provisioningState: "Test string",
-                                },
-                                genericDetails: {
-                                    location: "Test string",
-                                },
-                                physicalDetails: {
-                                    location: "Test string",
-                                },
-                                vmwareDetails: {
-                                    esxVersion: "Test string",
-                                    osid: "Test string",
-                                    vcenterVersion: "Test string",
-                                },
-                            },
-                            powerState: "Test string",
-                            vcenterFolder: "Test string",
-                            vcenterUrl: "Test string",
-                            vcenterVmId: "Test string",
-                            vmArchitecture: {
-                                bios: {
-                                    biosManufacturer: "Test string",
-                                    biosName: "Test string",
-                                    biosReleaseDate: "Test string",
-                                    biosVersion: "Test string",
-                                    smbiosUuid: "Test string",
-                                },
-                                cpuArchitecture: "Test string",
-                                cpuManufacturer: "Test string",
-                                cpuName: "Test string",
-                                cpuSocketCount: 42,
-                                cpuThreadCount: 42,
-                                firmware: "Test string",
-                                hyperthreading: "Test string",
-                                vendor: "Test string",
-                            },
-                            vmDisks: {
-                                disks: {
-                                    entries: [
-                                        {
-                                            diskLabel: "Test string",
-                                            diskLabelType: "Test string",
-                                            hwAddress: "Test string",
-                                            interfaceType: "Test string",
-                                            partitions: {
-                                                entries: [
-                                                    {
-                                                        capacityBytes: "Test string",
-                                                        fileSystem: "Test string",
-                                                        freeBytes: "Test string",
-                                                        mountPoint: "Test string",
-                                                        subPartitions: undefined,
-                                                        type: "Test string",
-                                                        uuid: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            status: "Test string",
-                                            totalCapacityBytes: "Test string",
-                                            totalFreeBytes: "Test string",
-                                            vmwareConfig: {
-                                                backingType: "Test string",
-                                                rdmCompatibilityMode: "Test string",
-                                                shared: true,
-                                                vmdkDiskMode: "Test string",
-                                            },
-                                        }
-                                    ],
-                                },
-                                hddTotalCapacityBytes: "Test string",
-                                hddTotalFreeBytes: "Test string",
-                                lsblkJson: "Test string",
-                            },
-                            vmName: "Test string",
-                            vmNetwork: {
-                                defaultGw: "Test string",
-                                networkAdapters: {
-                                    networkAdapters: [
-                                        {
-                                            adapterType: "Test string",
-                                            addresses: {
-                                                addresses: [
-                                                    {
-                                                        assignment: "Test string",
-                                                        bcast: "Test string",
-                                                        fqdn: "Test string",
-                                                        ipAddress: "Test string",
-                                                        subnetMask: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            macAddress: "Test string",
-                                        }
-                                    ],
-                                },
-                                primaryIpAddress: "Test string",
-                                primaryMacAddress: "Test string",
-                                publicIpAddress: "Test string",
-                            },
-                            vmUuid: "Test string",
-                        },
-                    },
-                    requestId: "Test string",
-                    updateMask: "Test string",
-                }
-            ],
-        });
-        /** Deletes an asset. */
-        await gapi.client.migrationcenter.projects.locations.assets.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets the details of an asset. */
-        await gapi.client.migrationcenter.projects.locations.assets.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** Lists all the assets in a given project and location. */
-        await gapi.client.migrationcenter.projects.locations.assets.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            showHidden: true,
-            view: "Test string",
-        });
-        /** Updates the parameters of an asset. */
-        await gapi.client.migrationcenter.projects.locations.assets.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            assignedGroups: [
-                "Test string"
-            ],
-            attributes: {
-                A: "Test string"
+    /** Gets the details of regional settings. */
+    await gapi.client.migrationcenter.projects.locations.getSettings({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.migrationcenter.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Updates the regional-level project settings. */
+    await gapi.client.migrationcenter.projects.locations.updateSettings(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        disableCloudLogging: true,
+        name: 'Test string',
+        preferenceSet: 'Test string',
+      }
+    );
+    /** Aggregates the requested fields based on provided function. */
+    await gapi.client.migrationcenter.projects.locations.assets.aggregateValues(
+      {
+        parent: 'Test string',
+      },
+      {
+        aggregations: [
+          {
+            count: {},
+            field: 'Test string',
+            frequency: {},
+            histogram: {
+              lowerBounds: [42],
             },
-            createTime: "Test string",
-            hidden: true,
-            hideReason: "Test string",
-            hideTime: "Test string",
-            insightList: {
+            sum: {},
+          },
+        ],
+        filter: 'Test string',
+        showHidden: true,
+      }
+    );
+    /** Deletes list of Assets. */
+    await gapi.client.migrationcenter.projects.locations.assets.batchDelete(
+      {
+        parent: 'Test string',
+      },
+      {
+        allowMissing: true,
+        names: ['Test string'],
+      }
+    );
+    /** Updates the parameters of a list of assets. */
+    await gapi.client.migrationcenter.projects.locations.assets.batchUpdate(
+      {
+        parent: 'Test string',
+      },
+      {
+        requests: [
+          {
+            asset: {
+              assignedGroups: ['Test string'],
+              attributes: {
+                A: 'Test string',
+              },
+              createTime: 'Test string',
+              hidden: true,
+              hideReason: 'Test string',
+              hideTime: 'Test string',
+              insightList: {
                 insights: [
-                    {
-                        genericInsight: {
-                            additionalInformation: [
-                                "Test string"
-                            ],
-                            defaultMessage: "Test string",
-                            messageId: "Test string",
+                  {
+                    genericInsight: {
+                      additionalInformation: ['Test string'],
+                      defaultMessage: 'Test string',
+                      messageId: 'Test string',
+                    },
+                    migrationInsight: {
+                      computeEngineTarget: {
+                        shape: {
+                          logicalCoreCount: 42,
+                          machineType: 'Test string',
+                          memoryMb: 42,
+                          physicalCoreCount: 42,
+                          series: 'Test string',
+                          storage: [
+                            {
+                              sizeGb: 42,
+                              type: 'Test string',
+                            },
+                          ],
                         },
-                        migrationInsight: {
-                            computeEngineTarget: {
-                                shape: {
-                                    logicalCoreCount: 42,
-                                    machineType: "Test string",
-                                    memoryMb: 42,
-                                    physicalCoreCount: 42,
-                                    series: "Test string",
-                                    storage: [
-                                        {
-                                            sizeGb: 42,
-                                            type: "Test string",
-                                        }
-                                    ],
-                                },
-                            },
-                            fit: {
-                                fitLevel: "Test string",
-                            },
-                            gkeTarget: {
-                            },
-                            vmwareEngineTarget: {
-                            },
-                        },
-                        softwareInsight: {
-                            detectedSoftware: {
-                                softwareFamily: "Test string",
-                                softwareName: "Test string",
-                            },
-                        },
-                    }
+                      },
+                      fit: {
+                        fitLevel: 'Test string',
+                      },
+                      gkeTarget: {},
+                      vmwareEngineTarget: {},
+                    },
+                    softwareInsight: {
+                      detectedSoftware: {
+                        softwareFamily: 'Test string',
+                        softwareName: 'Test string',
+                      },
+                    },
+                  },
                 ],
-                updateTime: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            performanceData: {
+                updateTime: 'Test string',
+              },
+              labels: {
+                A: 'Test string',
+              },
+              name: 'Test string',
+              performanceData: {
                 dailyResourceUsageAggregations: [
-                    {
-                        cpu: {
-                            utilizationPercentage: {
-                                average: 42,
-                                median: 42,
-                                ninteyFifthPercentile: 42,
-                                peak: 42,
-                            },
-                        },
-                        date: {
-                            day: 42,
-                            month: 42,
-                            year: 42,
-                        },
-                        disk: {
-                            iops: {
-                                average: 42,
-                                median: 42,
-                                ninteyFifthPercentile: 42,
-                                peak: 42,
-                            },
-                        },
-                        memory: {
-                            utilizationPercentage: {
-                                average: 42,
-                                median: 42,
-                                ninteyFifthPercentile: 42,
-                                peak: 42,
-                            },
-                        },
-                        network: {
-                            egressBps: {
-                                average: 42,
-                                median: 42,
-                                ninteyFifthPercentile: 42,
-                                peak: 42,
-                            },
-                            ingressBps: {
-                                average: 42,
-                                median: 42,
-                                ninteyFifthPercentile: 42,
-                                peak: 42,
-                            },
-                        },
-                    }
+                  {
+                    cpu: {
+                      utilizationPercentage: {
+                        average: 42,
+                        median: 42,
+                        ninteyFifthPercentile: 42,
+                        peak: 42,
+                      },
+                    },
+                    date: {
+                      day: 42,
+                      month: 42,
+                      year: 42,
+                    },
+                    disk: {
+                      iops: {
+                        average: 42,
+                        median: 42,
+                        ninteyFifthPercentile: 42,
+                        peak: 42,
+                      },
+                    },
+                    memory: {
+                      utilizationPercentage: {
+                        average: 42,
+                        median: 42,
+                        ninteyFifthPercentile: 42,
+                        peak: 42,
+                      },
+                    },
+                    network: {
+                      egressBps: {
+                        average: 42,
+                        median: 42,
+                        ninteyFifthPercentile: 42,
+                        peak: 42,
+                      },
+                      ingressBps: {
+                        average: 42,
+                        median: 42,
+                        ninteyFifthPercentile: 42,
+                        peak: 42,
+                      },
+                    },
+                  },
                 ],
-            },
-            sources: [
-                "Test string"
-            ],
-            updateTime: "Test string",
-            virtualMachineDetails: {
+              },
+              sources: ['Test string'],
+              updateTime: 'Test string',
+              virtualMachineDetails: {
                 coreCount: 42,
-                createTime: "Test string",
+                createTime: 'Test string',
                 guestOs: {
-                    config: {
-                        fstab: {
-                            entries: [
-                                {
-                                    file: "Test string",
-                                    freq: 42,
-                                    mntops: "Test string",
-                                    passno: 42,
-                                    spec: "Test string",
-                                    vfstype: "Test string",
-                                }
-                            ],
+                  config: {
+                    fstab: {
+                      entries: [
+                        {
+                          file: 'Test string',
+                          freq: 42,
+                          mntops: 'Test string',
+                          passno: 42,
+                          spec: 'Test string',
+                          vfstype: 'Test string',
                         },
-                        hosts: {
-                            entries: [
-                                {
-                                    hostNames: [
-                                        "Test string"
-                                    ],
-                                    ip: "Test string",
-                                }
-                            ],
-                        },
-                        issue: "Test string",
-                        nfsExports: {
-                            entries: [
-                                {
-                                    exportDirectory: "Test string",
-                                    hosts: [
-                                        "Test string"
-                                    ],
-                                }
-                            ],
-                        },
-                        selinux: {
-                            enabled: true,
-                            mode: "Test string",
-                        },
+                      ],
                     },
-                    runtime: {
-                        domain: "Test string",
-                        installedApps: {
-                            entries: [
-                                {
-                                    name: "Test string",
-                                    path: "Test string",
-                                    time: "Test string",
-                                    vendor: "Test string",
-                                    version: "Test string",
-                                }
-                            ],
+                    hosts: {
+                      entries: [
+                        {
+                          hostNames: ['Test string'],
+                          ip: 'Test string',
                         },
-                        lastUptime: {
-                            day: 42,
-                            month: 42,
-                            year: 42,
-                        },
-                        machineName: "Test string",
-                        networkInfo: {
-                            connections: {
-                                entries: [
-                                    {
-                                        localIpAddress: "Test string",
-                                        localPort: 42,
-                                        pid: "Test string",
-                                        processName: "Test string",
-                                        protocol: "Test string",
-                                        remoteIpAddress: "Test string",
-                                        remotePort: 42,
-                                        state: "Test string",
-                                    }
-                                ],
-                            },
-                            netstat: "Test string",
-                            netstatTime: {
-                                day: 42,
-                                hours: 42,
-                                minutes: 42,
-                                month: 42,
-                                nanos: 42,
-                                seconds: 42,
-                                timeZone: {
-                                    id: "Test string",
-                                    version: "Test string",
-                                },
-                                utcOffset: "Test string",
-                                year: 42,
-                            },
-                        },
-                        openFileList: {
-                            entries: [
-                                {
-                                    command: "Test string",
-                                    filePath: "Test string",
-                                    fileType: "Test string",
-                                    user: "Test string",
-                                }
-                            ],
-                        },
-                        processes: {
-                            processes: [
-                                {
-                                    attributes: {
-                                        A: "Test string"
-                                    },
-                                    cmdline: "Test string",
-                                    exePath: "Test string",
-                                    pid: "Test string",
-                                    user: "Test string",
-                                }
-                            ],
-                        },
-                        services: {
-                            services: [
-                                {
-                                    cmdline: "Test string",
-                                    exePath: "Test string",
-                                    name: "Test string",
-                                    pid: "Test string",
-                                    startMode: "Test string",
-                                    state: "Test string",
-                                    status: "Test string",
-                                }
-                            ],
-                        },
+                      ],
                     },
+                    issue: 'Test string',
+                    nfsExports: {
+                      entries: [
+                        {
+                          exportDirectory: 'Test string',
+                          hosts: ['Test string'],
+                        },
+                      ],
+                    },
+                    selinux: {
+                      enabled: true,
+                      mode: 'Test string',
+                    },
+                  },
+                  runtime: {
+                    domain: 'Test string',
+                    installedApps: {
+                      entries: [
+                        {
+                          name: 'Test string',
+                          path: 'Test string',
+                          time: 'Test string',
+                          vendor: 'Test string',
+                          version: 'Test string',
+                        },
+                      ],
+                    },
+                    lastUptime: {
+                      day: 42,
+                      month: 42,
+                      year: 42,
+                    },
+                    machineName: 'Test string',
+                    networkInfo: {
+                      connections: {
+                        entries: [
+                          {
+                            localIpAddress: 'Test string',
+                            localPort: 42,
+                            pid: 'Test string',
+                            processName: 'Test string',
+                            protocol: 'Test string',
+                            remoteIpAddress: 'Test string',
+                            remotePort: 42,
+                            state: 'Test string',
+                          },
+                        ],
+                      },
+                      netstat: 'Test string',
+                      netstatTime: {
+                        day: 42,
+                        hours: 42,
+                        minutes: 42,
+                        month: 42,
+                        nanos: 42,
+                        seconds: 42,
+                        timeZone: {
+                          id: 'Test string',
+                          version: 'Test string',
+                        },
+                        utcOffset: 'Test string',
+                        year: 42,
+                      },
+                    },
+                    openFileList: {
+                      entries: [
+                        {
+                          command: 'Test string',
+                          filePath: 'Test string',
+                          fileType: 'Test string',
+                          user: 'Test string',
+                        },
+                      ],
+                    },
+                    processes: {
+                      processes: [
+                        {
+                          attributes: {
+                            A: 'Test string',
+                          },
+                          cmdline: 'Test string',
+                          exePath: 'Test string',
+                          pid: 'Test string',
+                          user: 'Test string',
+                        },
+                      ],
+                    },
+                    services: {
+                      services: [
+                        {
+                          cmdline: 'Test string',
+                          exePath: 'Test string',
+                          name: 'Test string',
+                          pid: 'Test string',
+                          startMode: 'Test string',
+                          state: 'Test string',
+                          status: 'Test string',
+                        },
+                      ],
+                    },
+                  },
                 },
                 memoryMb: 42,
-                osFamily: "Test string",
-                osName: "Test string",
-                osVersion: "Test string",
+                osFamily: 'Test string',
+                osName: 'Test string',
+                osVersion: 'Test string',
                 platform: {
-                    awsEc2Details: {
-                        location: "Test string",
-                        machineTypeLabel: "Test string",
-                    },
-                    azureVmDetails: {
-                        location: "Test string",
-                        machineTypeLabel: "Test string",
-                        provisioningState: "Test string",
-                    },
-                    genericDetails: {
-                        location: "Test string",
-                    },
-                    physicalDetails: {
-                        location: "Test string",
-                    },
-                    vmwareDetails: {
-                        esxVersion: "Test string",
-                        osid: "Test string",
-                        vcenterVersion: "Test string",
-                    },
+                  awsEc2Details: {
+                    location: 'Test string',
+                    machineTypeLabel: 'Test string',
+                  },
+                  azureVmDetails: {
+                    location: 'Test string',
+                    machineTypeLabel: 'Test string',
+                    provisioningState: 'Test string',
+                  },
+                  genericDetails: {
+                    location: 'Test string',
+                  },
+                  physicalDetails: {
+                    location: 'Test string',
+                  },
+                  vmwareDetails: {
+                    esxVersion: 'Test string',
+                    osid: 'Test string',
+                    vcenterVersion: 'Test string',
+                  },
                 },
-                powerState: "Test string",
-                vcenterFolder: "Test string",
-                vcenterUrl: "Test string",
-                vcenterVmId: "Test string",
+                powerState: 'Test string',
+                vcenterFolder: 'Test string',
+                vcenterUrl: 'Test string',
+                vcenterVmId: 'Test string',
                 vmArchitecture: {
-                    bios: {
-                        biosManufacturer: "Test string",
-                        biosName: "Test string",
-                        biosReleaseDate: "Test string",
-                        biosVersion: "Test string",
-                        smbiosUuid: "Test string",
-                    },
-                    cpuArchitecture: "Test string",
-                    cpuManufacturer: "Test string",
-                    cpuName: "Test string",
-                    cpuSocketCount: 42,
-                    cpuThreadCount: 42,
-                    firmware: "Test string",
-                    hyperthreading: "Test string",
-                    vendor: "Test string",
+                  bios: {
+                    biosManufacturer: 'Test string',
+                    biosName: 'Test string',
+                    biosReleaseDate: 'Test string',
+                    biosVersion: 'Test string',
+                    smbiosUuid: 'Test string',
+                  },
+                  cpuArchitecture: 'Test string',
+                  cpuManufacturer: 'Test string',
+                  cpuName: 'Test string',
+                  cpuSocketCount: 42,
+                  cpuThreadCount: 42,
+                  firmware: 'Test string',
+                  hyperthreading: 'Test string',
+                  vendor: 'Test string',
                 },
                 vmDisks: {
-                    disks: {
-                        entries: [
+                  disks: {
+                    entries: [
+                      {
+                        diskLabel: 'Test string',
+                        diskLabelType: 'Test string',
+                        hwAddress: 'Test string',
+                        interfaceType: 'Test string',
+                        partitions: {
+                          entries: [
                             {
-                                diskLabel: "Test string",
-                                diskLabelType: "Test string",
-                                hwAddress: "Test string",
-                                interfaceType: "Test string",
-                                partitions: {
-                                    entries: [
-                                        {
-                                            capacityBytes: "Test string",
-                                            fileSystem: "Test string",
-                                            freeBytes: "Test string",
-                                            mountPoint: "Test string",
-                                            subPartitions: undefined,
-                                            type: "Test string",
-                                            uuid: "Test string",
-                                        }
-                                    ],
-                                },
-                                status: "Test string",
-                                totalCapacityBytes: "Test string",
-                                totalFreeBytes: "Test string",
-                                vmwareConfig: {
-                                    backingType: "Test string",
-                                    rdmCompatibilityMode: "Test string",
-                                    shared: true,
-                                    vmdkDiskMode: "Test string",
-                                },
-                            }
-                        ],
-                    },
-                    hddTotalCapacityBytes: "Test string",
-                    hddTotalFreeBytes: "Test string",
-                    lsblkJson: "Test string",
+                              capacityBytes: 'Test string',
+                              fileSystem: 'Test string',
+                              freeBytes: 'Test string',
+                              mountPoint: 'Test string',
+                              subPartitions: undefined,
+                              type: 'Test string',
+                              uuid: 'Test string',
+                            },
+                          ],
+                        },
+                        status: 'Test string',
+                        totalCapacityBytes: 'Test string',
+                        totalFreeBytes: 'Test string',
+                        vmwareConfig: {
+                          backingType: 'Test string',
+                          rdmCompatibilityMode: 'Test string',
+                          shared: true,
+                          vmdkDiskMode: 'Test string',
+                        },
+                      },
+                    ],
+                  },
+                  hddTotalCapacityBytes: 'Test string',
+                  hddTotalFreeBytes: 'Test string',
+                  lsblkJson: 'Test string',
                 },
-                vmName: "Test string",
+                vmName: 'Test string',
                 vmNetwork: {
-                    defaultGw: "Test string",
-                    networkAdapters: {
-                        networkAdapters: [
+                  defaultGw: 'Test string',
+                  networkAdapters: {
+                    networkAdapters: [
+                      {
+                        adapterType: 'Test string',
+                        addresses: {
+                          addresses: [
                             {
-                                adapterType: "Test string",
-                                addresses: {
-                                    addresses: [
-                                        {
-                                            assignment: "Test string",
-                                            bcast: "Test string",
-                                            fqdn: "Test string",
-                                            ipAddress: "Test string",
-                                            subnetMask: "Test string",
-                                        }
-                                    ],
-                                },
-                                macAddress: "Test string",
-                            }
-                        ],
-                    },
-                    primaryIpAddress: "Test string",
-                    primaryMacAddress: "Test string",
-                    publicIpAddress: "Test string",
+                              assignment: 'Test string',
+                              bcast: 'Test string',
+                              fqdn: 'Test string',
+                              ipAddress: 'Test string',
+                              subnetMask: 'Test string',
+                            },
+                          ],
+                        },
+                        macAddress: 'Test string',
+                      },
+                    ],
+                  },
+                  primaryIpAddress: 'Test string',
+                  primaryMacAddress: 'Test string',
+                  publicIpAddress: 'Test string',
                 },
-                vmUuid: "Test string",
+                vmUuid: 'Test string',
+              },
             },
-        });
-        /** Reports a set of frames. */
-        await gapi.client.migrationcenter.projects.locations.assets.reportAssetFrames({
-            parent: "Test string",
-            source: "Test string",
-        }, {
-            framesData: [
-                {
+            requestId: 'Test string',
+            updateMask: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Deletes an asset. */
+    await gapi.client.migrationcenter.projects.locations.assets.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Gets the details of an asset. */
+    await gapi.client.migrationcenter.projects.locations.assets.get({
+      name: 'Test string',
+      view: 'Test string',
+    });
+    /** Lists all the assets in a given project and location. */
+    await gapi.client.migrationcenter.projects.locations.assets.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      showHidden: true,
+      view: 'Test string',
+    });
+    /** Updates the parameters of an asset. */
+    await gapi.client.migrationcenter.projects.locations.assets.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        assignedGroups: ['Test string'],
+        attributes: {
+          A: 'Test string',
+        },
+        createTime: 'Test string',
+        hidden: true,
+        hideReason: 'Test string',
+        hideTime: 'Test string',
+        insightList: {
+          insights: [
+            {
+              genericInsight: {
+                additionalInformation: ['Test string'],
+                defaultMessage: 'Test string',
+                messageId: 'Test string',
+              },
+              migrationInsight: {
+                computeEngineTarget: {
+                  shape: {
+                    logicalCoreCount: 42,
+                    machineType: 'Test string',
+                    memoryMb: 42,
+                    physicalCoreCount: 42,
+                    series: 'Test string',
+                    storage: [
+                      {
+                        sizeGb: 42,
+                        type: 'Test string',
+                      },
+                    ],
+                  },
+                },
+                fit: {
+                  fitLevel: 'Test string',
+                },
+                gkeTarget: {},
+                vmwareEngineTarget: {},
+              },
+              softwareInsight: {
+                detectedSoftware: {
+                  softwareFamily: 'Test string',
+                  softwareName: 'Test string',
+                },
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        performanceData: {
+          dailyResourceUsageAggregations: [
+            {
+              cpu: {
+                utilizationPercentage: {
+                  average: 42,
+                  median: 42,
+                  ninteyFifthPercentile: 42,
+                  peak: 42,
+                },
+              },
+              date: {
+                day: 42,
+                month: 42,
+                year: 42,
+              },
+              disk: {
+                iops: {
+                  average: 42,
+                  median: 42,
+                  ninteyFifthPercentile: 42,
+                  peak: 42,
+                },
+              },
+              memory: {
+                utilizationPercentage: {
+                  average: 42,
+                  median: 42,
+                  ninteyFifthPercentile: 42,
+                  peak: 42,
+                },
+              },
+              network: {
+                egressBps: {
+                  average: 42,
+                  median: 42,
+                  ninteyFifthPercentile: 42,
+                  peak: 42,
+                },
+                ingressBps: {
+                  average: 42,
+                  median: 42,
+                  ninteyFifthPercentile: 42,
+                  peak: 42,
+                },
+              },
+            },
+          ],
+        },
+        sources: ['Test string'],
+        updateTime: 'Test string',
+        virtualMachineDetails: {
+          coreCount: 42,
+          createTime: 'Test string',
+          guestOs: {
+            config: {
+              fstab: {
+                entries: [
+                  {
+                    file: 'Test string',
+                    freq: 42,
+                    mntops: 'Test string',
+                    passno: 42,
+                    spec: 'Test string',
+                    vfstype: 'Test string',
+                  },
+                ],
+              },
+              hosts: {
+                entries: [
+                  {
+                    hostNames: ['Test string'],
+                    ip: 'Test string',
+                  },
+                ],
+              },
+              issue: 'Test string',
+              nfsExports: {
+                entries: [
+                  {
+                    exportDirectory: 'Test string',
+                    hosts: ['Test string'],
+                  },
+                ],
+              },
+              selinux: {
+                enabled: true,
+                mode: 'Test string',
+              },
+            },
+            runtime: {
+              domain: 'Test string',
+              installedApps: {
+                entries: [
+                  {
+                    name: 'Test string',
+                    path: 'Test string',
+                    time: 'Test string',
+                    vendor: 'Test string',
+                    version: 'Test string',
+                  },
+                ],
+              },
+              lastUptime: {
+                day: 42,
+                month: 42,
+                year: 42,
+              },
+              machineName: 'Test string',
+              networkInfo: {
+                connections: {
+                  entries: [
+                    {
+                      localIpAddress: 'Test string',
+                      localPort: 42,
+                      pid: 'Test string',
+                      processName: 'Test string',
+                      protocol: 'Test string',
+                      remoteIpAddress: 'Test string',
+                      remotePort: 42,
+                      state: 'Test string',
+                    },
+                  ],
+                },
+                netstat: 'Test string',
+                netstatTime: {
+                  day: 42,
+                  hours: 42,
+                  minutes: 42,
+                  month: 42,
+                  nanos: 42,
+                  seconds: 42,
+                  timeZone: {
+                    id: 'Test string',
+                    version: 'Test string',
+                  },
+                  utcOffset: 'Test string',
+                  year: 42,
+                },
+              },
+              openFileList: {
+                entries: [
+                  {
+                    command: 'Test string',
+                    filePath: 'Test string',
+                    fileType: 'Test string',
+                    user: 'Test string',
+                  },
+                ],
+              },
+              processes: {
+                processes: [
+                  {
                     attributes: {
-                        A: "Test string"
+                      A: 'Test string',
                     },
-                    labels: {
-                        A: "Test string"
-                    },
-                    performanceSamples: [
-                        {
-                            cpu: {
-                                utilizedPercentage: 42,
-                            },
-                            disk: {
-                                averageIops: 42,
-                            },
-                            memory: {
-                                utilizedPercentage: 42,
-                            },
-                            network: {
-                                averageEgressBps: 42,
-                                averageIngressBps: 42,
-                            },
-                            sampleTime: "Test string",
-                        }
-                    ],
-                    reportTime: "Test string",
-                    traceToken: "Test string",
-                    virtualMachineDetails: {
-                        coreCount: 42,
-                        createTime: "Test string",
-                        guestOs: {
-                            config: {
-                                fstab: {
-                                    entries: [
-                                        {
-                                            file: "Test string",
-                                            freq: 42,
-                                            mntops: "Test string",
-                                            passno: 42,
-                                            spec: "Test string",
-                                            vfstype: "Test string",
-                                        }
-                                    ],
-                                },
-                                hosts: {
-                                    entries: [
-                                        {
-                                            hostNames: [
-                                                "Test string"
-                                            ],
-                                            ip: "Test string",
-                                        }
-                                    ],
-                                },
-                                issue: "Test string",
-                                nfsExports: {
-                                    entries: [
-                                        {
-                                            exportDirectory: "Test string",
-                                            hosts: [
-                                                "Test string"
-                                            ],
-                                        }
-                                    ],
-                                },
-                                selinux: {
-                                    enabled: true,
-                                    mode: "Test string",
-                                },
-                            },
-                            runtime: {
-                                domain: "Test string",
-                                installedApps: {
-                                    entries: [
-                                        {
-                                            name: "Test string",
-                                            path: "Test string",
-                                            time: "Test string",
-                                            vendor: "Test string",
-                                            version: "Test string",
-                                        }
-                                    ],
-                                },
-                                lastUptime: {
-                                    day: 42,
-                                    month: 42,
-                                    year: 42,
-                                },
-                                machineName: "Test string",
-                                networkInfo: {
-                                    connections: {
-                                        entries: [
-                                            {
-                                                localIpAddress: "Test string",
-                                                localPort: 42,
-                                                pid: "Test string",
-                                                processName: "Test string",
-                                                protocol: "Test string",
-                                                remoteIpAddress: "Test string",
-                                                remotePort: 42,
-                                                state: "Test string",
-                                            }
-                                        ],
-                                    },
-                                    netstat: "Test string",
-                                    netstatTime: {
-                                        day: 42,
-                                        hours: 42,
-                                        minutes: 42,
-                                        month: 42,
-                                        nanos: 42,
-                                        seconds: 42,
-                                        timeZone: {
-                                            id: "Test string",
-                                            version: "Test string",
-                                        },
-                                        utcOffset: "Test string",
-                                        year: 42,
-                                    },
-                                },
-                                openFileList: {
-                                    entries: [
-                                        {
-                                            command: "Test string",
-                                            filePath: "Test string",
-                                            fileType: "Test string",
-                                            user: "Test string",
-                                        }
-                                    ],
-                                },
-                                processes: {
-                                    processes: [
-                                        {
-                                            attributes: {
-                                                A: "Test string"
-                                            },
-                                            cmdline: "Test string",
-                                            exePath: "Test string",
-                                            pid: "Test string",
-                                            user: "Test string",
-                                        }
-                                    ],
-                                },
-                                services: {
-                                    services: [
-                                        {
-                                            cmdline: "Test string",
-                                            exePath: "Test string",
-                                            name: "Test string",
-                                            pid: "Test string",
-                                            startMode: "Test string",
-                                            state: "Test string",
-                                            status: "Test string",
-                                        }
-                                    ],
-                                },
-                            },
-                        },
-                        memoryMb: 42,
-                        osFamily: "Test string",
-                        osName: "Test string",
-                        osVersion: "Test string",
-                        platform: {
-                            awsEc2Details: {
-                                location: "Test string",
-                                machineTypeLabel: "Test string",
-                            },
-                            azureVmDetails: {
-                                location: "Test string",
-                                machineTypeLabel: "Test string",
-                                provisioningState: "Test string",
-                            },
-                            genericDetails: {
-                                location: "Test string",
-                            },
-                            physicalDetails: {
-                                location: "Test string",
-                            },
-                            vmwareDetails: {
-                                esxVersion: "Test string",
-                                osid: "Test string",
-                                vcenterVersion: "Test string",
-                            },
-                        },
-                        powerState: "Test string",
-                        vcenterFolder: "Test string",
-                        vcenterUrl: "Test string",
-                        vcenterVmId: "Test string",
-                        vmArchitecture: {
-                            bios: {
-                                biosManufacturer: "Test string",
-                                biosName: "Test string",
-                                biosReleaseDate: "Test string",
-                                biosVersion: "Test string",
-                                smbiosUuid: "Test string",
-                            },
-                            cpuArchitecture: "Test string",
-                            cpuManufacturer: "Test string",
-                            cpuName: "Test string",
-                            cpuSocketCount: 42,
-                            cpuThreadCount: 42,
-                            firmware: "Test string",
-                            hyperthreading: "Test string",
-                            vendor: "Test string",
-                        },
-                        vmDisks: {
-                            disks: {
-                                entries: [
-                                    {
-                                        diskLabel: "Test string",
-                                        diskLabelType: "Test string",
-                                        hwAddress: "Test string",
-                                        interfaceType: "Test string",
-                                        partitions: {
-                                            entries: [
-                                                {
-                                                    capacityBytes: "Test string",
-                                                    fileSystem: "Test string",
-                                                    freeBytes: "Test string",
-                                                    mountPoint: "Test string",
-                                                    subPartitions: undefined,
-                                                    type: "Test string",
-                                                    uuid: "Test string",
-                                                }
-                                            ],
-                                        },
-                                        status: "Test string",
-                                        totalCapacityBytes: "Test string",
-                                        totalFreeBytes: "Test string",
-                                        vmwareConfig: {
-                                            backingType: "Test string",
-                                            rdmCompatibilityMode: "Test string",
-                                            shared: true,
-                                            vmdkDiskMode: "Test string",
-                                        },
-                                    }
-                                ],
-                            },
-                            hddTotalCapacityBytes: "Test string",
-                            hddTotalFreeBytes: "Test string",
-                            lsblkJson: "Test string",
-                        },
-                        vmName: "Test string",
-                        vmNetwork: {
-                            defaultGw: "Test string",
-                            networkAdapters: {
-                                networkAdapters: [
-                                    {
-                                        adapterType: "Test string",
-                                        addresses: {
-                                            addresses: [
-                                                {
-                                                    assignment: "Test string",
-                                                    bcast: "Test string",
-                                                    fqdn: "Test string",
-                                                    ipAddress: "Test string",
-                                                    subnetMask: "Test string",
-                                                }
-                                            ],
-                                        },
-                                        macAddress: "Test string",
-                                    }
-                                ],
-                            },
-                            primaryIpAddress: "Test string",
-                            primaryMacAddress: "Test string",
-                            publicIpAddress: "Test string",
-                        },
-                        vmUuid: "Test string",
-                    },
-                }
-            ],
-        });
-        /** Adds assets to a group. */
-        await gapi.client.migrationcenter.projects.locations.groups.addAssets({
-            group: "Test string",
-        }, {
-            allowExisting: true,
-            assets: {
-                assetIds: [
-                    "Test string"
+                    cmdline: 'Test string',
+                    exePath: 'Test string',
+                    pid: 'Test string',
+                    user: 'Test string',
+                  },
                 ],
-            },
-            requestId: "Test string",
-        });
-        /** Creates a new group in a given project and location. */
-        await gapi.client.migrationcenter.projects.locations.groups.create({
-            groupId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a group. */
-        await gapi.client.migrationcenter.projects.locations.groups.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets the details of a group. */
-        await gapi.client.migrationcenter.projects.locations.groups.get({
-            name: "Test string",
-        });
-        /** Lists all groups in a given project and location. */
-        await gapi.client.migrationcenter.projects.locations.groups.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a group. */
-        await gapi.client.migrationcenter.projects.locations.groups.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Removes assets from a group. */
-        await gapi.client.migrationcenter.projects.locations.groups.removeAssets({
-            group: "Test string",
-        }, {
-            allowMissing: true,
-            assets: {
-                assetIds: [
-                    "Test string"
+              },
+              services: {
+                services: [
+                  {
+                    cmdline: 'Test string',
+                    exePath: 'Test string',
+                    name: 'Test string',
+                    pid: 'Test string',
+                    startMode: 'Test string',
+                    state: 'Test string',
+                    status: 'Test string',
+                  },
                 ],
+              },
             },
-            requestId: "Test string",
-        });
-        /** Creates an import job. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.create({
-            importJobId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            assetSource: "Test string",
-            completeTime: "Test string",
-            createTime: "Test string",
-            displayName: "Test string",
-            executionReport: {
-                executionErrors: {
-                    fileValidations: [
-                        {
-                            fileErrors: [
-                                {
-                                    errorDetails: "Test string",
-                                    severity: "Test string",
-                                }
-                            ],
-                            fileName: "Test string",
-                            partialReport: true,
-                            rowErrors: [
-                                {
-                                    errors: [
-                                        {
-                                            errorDetails: "Test string",
-                                            severity: "Test string",
-                                        }
-                                    ],
-                                    rowNumber: 42,
-                                    vmName: "Test string",
-                                    vmUuid: "Test string",
-                                }
-                            ],
-                        }
-                    ],
-                    jobErrors: [
-                        {
-                            errorDetails: "Test string",
-                            severity: "Test string",
-                        }
-                    ],
-                },
-                framesReported: 42,
-                jobErrors: [
-                    {
-                        errorDetails: "Test string",
-                        severity: "Test string",
-                    }
-                ],
-                totalRowsCount: 42,
+          },
+          memoryMb: 42,
+          osFamily: 'Test string',
+          osName: 'Test string',
+          osVersion: 'Test string',
+          platform: {
+            awsEc2Details: {
+              location: 'Test string',
+              machineTypeLabel: 'Test string',
             },
-            gcsPayload: {
-                format: "Test string",
-                path: "Test string",
+            azureVmDetails: {
+              location: 'Test string',
+              machineTypeLabel: 'Test string',
+              provisioningState: 'Test string',
             },
-            inlinePayload: {
-                format: "Test string",
-                payload: [
-                    {
-                        data: "Test string",
-                        name: "Test string",
-                    }
-                ],
+            genericDetails: {
+              location: 'Test string',
             },
-            labels: {
-                A: "Test string"
+            physicalDetails: {
+              location: 'Test string',
             },
-            name: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            validationReport: {
-                fileValidations: [
-                    {
-                        fileErrors: [
-                            {
-                                errorDetails: "Test string",
-                                severity: "Test string",
-                            }
-                        ],
-                        fileName: "Test string",
-                        partialReport: true,
-                        rowErrors: [
-                            {
-                                errors: [
-                                    {
-                                        errorDetails: "Test string",
-                                        severity: "Test string",
-                                    }
-                                ],
-                                rowNumber: 42,
-                                vmName: "Test string",
-                                vmUuid: "Test string",
-                            }
-                        ],
-                    }
-                ],
-                jobErrors: [
-                    {
-                        errorDetails: "Test string",
-                        severity: "Test string",
-                    }
-                ],
+            vmwareDetails: {
+              esxVersion: 'Test string',
+              osid: 'Test string',
+              vcenterVersion: 'Test string',
             },
-        });
-        /** Deletes an import job. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.delete({
-            force: true,
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets the details of an import job. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** Lists all import jobs. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
-        /** Updates an import job. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            assetSource: "Test string",
-            completeTime: "Test string",
-            createTime: "Test string",
-            displayName: "Test string",
-            executionReport: {
-                executionErrors: {
-                    fileValidations: [
-                        {
-                            fileErrors: [
-                                {
-                                    errorDetails: "Test string",
-                                    severity: "Test string",
-                                }
-                            ],
-                            fileName: "Test string",
-                            partialReport: true,
-                            rowErrors: [
-                                {
-                                    errors: [
-                                        {
-                                            errorDetails: "Test string",
-                                            severity: "Test string",
-                                        }
-                                    ],
-                                    rowNumber: 42,
-                                    vmName: "Test string",
-                                    vmUuid: "Test string",
-                                }
-                            ],
-                        }
-                    ],
-                    jobErrors: [
-                        {
-                            errorDetails: "Test string",
-                            severity: "Test string",
-                        }
-                    ],
-                },
-                framesReported: 42,
-                jobErrors: [
-                    {
-                        errorDetails: "Test string",
-                        severity: "Test string",
-                    }
-                ],
-                totalRowsCount: 42,
+          },
+          powerState: 'Test string',
+          vcenterFolder: 'Test string',
+          vcenterUrl: 'Test string',
+          vcenterVmId: 'Test string',
+          vmArchitecture: {
+            bios: {
+              biosManufacturer: 'Test string',
+              biosName: 'Test string',
+              biosReleaseDate: 'Test string',
+              biosVersion: 'Test string',
+              smbiosUuid: 'Test string',
             },
-            gcsPayload: {
-                format: "Test string",
-                path: "Test string",
-            },
-            inlinePayload: {
-                format: "Test string",
-                payload: [
-                    {
-                        data: "Test string",
-                        name: "Test string",
-                    }
-                ],
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            validationReport: {
-                fileValidations: [
-                    {
-                        fileErrors: [
-                            {
-                                errorDetails: "Test string",
-                                severity: "Test string",
-                            }
-                        ],
-                        fileName: "Test string",
-                        partialReport: true,
-                        rowErrors: [
-                            {
-                                errors: [
-                                    {
-                                        errorDetails: "Test string",
-                                        severity: "Test string",
-                                    }
-                                ],
-                                rowNumber: 42,
-                                vmName: "Test string",
-                                vmUuid: "Test string",
-                            }
-                        ],
-                    }
-                ],
-                jobErrors: [
-                    {
-                        errorDetails: "Test string",
-                        severity: "Test string",
-                    }
-                ],
-            },
-        });
-        /** Runs an import job. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.run({
-            name: "Test string",
-        }, {
-            requestId: "Test string",
-        });
-        /** Validates an import job. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.validate({
-            name: "Test string",
-        }, {
-            requestId: "Test string",
-        });
-        /** Creates an import data file. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.create({
-            importDataFileId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            format: "Test string",
-            name: "Test string",
-            state: "Test string",
-            uploadFileInfo: {
-                headers: {
-                    A: "Test string"
-                },
-                signedUri: "Test string",
-                uriExpirationTime: "Test string",
-            },
-        });
-        /** Delete an import data file. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets an import data file. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.get({
-            name: "Test string",
-        });
-        /** List import data files. */
-        await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.migrationcenter.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.migrationcenter.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.migrationcenter.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.migrationcenter.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new preference set in a given project and location. */
-        await gapi.client.migrationcenter.projects.locations.preferenceSets.create({
-            parent: "Test string",
-            preferenceSetId: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-            virtualMachinePreferences: {
-                commitmentPlan: "Test string",
-                computeEnginePreferences: {
-                    licenseType: "Test string",
-                    machinePreferences: {
-                        allowedMachineSeries: [
-                            {
-                                code: "Test string",
-                            }
-                        ],
-                    },
-                    persistentDiskType: "Test string",
-                },
-                networkCostParameters: {
-                    estimatedEgressTrafficPercentage: 42,
-                },
-                regionPreferences: {
-                    preferredRegions: [
-                        "Test string"
-                    ],
-                },
-                sizingOptimizationCustomParameters: {
-                    aggregationMethod: "Test string",
-                    cpuUsagePercentage: 42,
-                    memoryUsagePercentage: 42,
-                    storageMultiplier: 42,
-                },
-                sizingOptimizationStrategy: "Test string",
-                soleTenancyPreferences: {
-                    commitmentPlan: "Test string",
-                    cpuOvercommitRatio: 42,
-                    hostMaintenancePolicy: "Test string",
-                    nodeTypes: [
-                        {
-                            nodeName: "Test string",
-                        }
-                    ],
-                },
-                targetProduct: "Test string",
-                vmwareEnginePreferences: {
-                    commitmentPlan: "Test string",
-                    cpuOvercommitRatio: 42,
-                    memoryOvercommitRatio: 42,
-                    storageDeduplicationCompressionRatio: 42,
-                },
-            },
-        });
-        /** Deletes a preference set. */
-        await gapi.client.migrationcenter.projects.locations.preferenceSets.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets the details of a preference set. */
-        await gapi.client.migrationcenter.projects.locations.preferenceSets.get({
-            name: "Test string",
-        });
-        /** Lists all the preference sets in a given project and location. */
-        await gapi.client.migrationcenter.projects.locations.preferenceSets.list({
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a preference set. */
-        await gapi.client.migrationcenter.projects.locations.preferenceSets.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            updateTime: "Test string",
-            virtualMachinePreferences: {
-                commitmentPlan: "Test string",
-                computeEnginePreferences: {
-                    licenseType: "Test string",
-                    machinePreferences: {
-                        allowedMachineSeries: [
-                            {
-                                code: "Test string",
-                            }
-                        ],
-                    },
-                    persistentDiskType: "Test string",
-                },
-                networkCostParameters: {
-                    estimatedEgressTrafficPercentage: 42,
-                },
-                regionPreferences: {
-                    preferredRegions: [
-                        "Test string"
-                    ],
-                },
-                sizingOptimizationCustomParameters: {
-                    aggregationMethod: "Test string",
-                    cpuUsagePercentage: 42,
-                    memoryUsagePercentage: 42,
-                    storageMultiplier: 42,
-                },
-                sizingOptimizationStrategy: "Test string",
-                soleTenancyPreferences: {
-                    commitmentPlan: "Test string",
-                    cpuOvercommitRatio: 42,
-                    hostMaintenancePolicy: "Test string",
-                    nodeTypes: [
-                        {
-                            nodeName: "Test string",
-                        }
-                    ],
-                },
-                targetProduct: "Test string",
-                vmwareEnginePreferences: {
-                    commitmentPlan: "Test string",
-                    cpuOvercommitRatio: 42,
-                    memoryOvercommitRatio: 42,
-                    storageDeduplicationCompressionRatio: 42,
-                },
-            },
-        });
-        /** Creates a report configuration. */
-        await gapi.client.migrationcenter.projects.locations.reportConfigs.create({
-            parent: "Test string",
-            reportConfigId: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            groupPreferencesetAssignments: [
+            cpuArchitecture: 'Test string',
+            cpuManufacturer: 'Test string',
+            cpuName: 'Test string',
+            cpuSocketCount: 42,
+            cpuThreadCount: 42,
+            firmware: 'Test string',
+            hyperthreading: 'Test string',
+            vendor: 'Test string',
+          },
+          vmDisks: {
+            disks: {
+              entries: [
                 {
-                    group: "Test string",
-                    preferenceSet: "Test string",
-                }
-            ],
-            name: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a ReportConfig. */
-        await gapi.client.migrationcenter.projects.locations.reportConfigs.delete({
-            force: true,
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets details of a single ReportConfig. */
-        await gapi.client.migrationcenter.projects.locations.reportConfigs.get({
-            name: "Test string",
-        });
-        /** Lists ReportConfigs in a given project and location. */
-        await gapi.client.migrationcenter.projects.locations.reportConfigs.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a report. */
-        await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.create({
-            parent: "Test string",
-            reportId: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            name: "Test string",
-            state: "Test string",
-            summary: {
-                allAssetsStats: {
-                    assetAge: {
-                        dataPoints: [
-                            {
-                                label: "Test string",
-                                value: 42,
-                            }
-                        ],
-                    },
-                    coreCountHistogram: {
-                        buckets: [
-                            {
-                                count: "Test string",
-                                lowerBound: "Test string",
-                                upperBound: "Test string",
-                            }
-                        ],
-                    },
-                    memoryBytesHistogram: {
-                        buckets: [
-                            {
-                                count: "Test string",
-                                lowerBound: "Test string",
-                                upperBound: "Test string",
-                            }
-                        ],
-                    },
-                    memoryUtilization: {
-                        dataPoints: [
-                            {
-                                label: "Test string",
-                                value: 42,
-                            }
-                        ],
-                    },
-                    memoryUtilizationChart: {
-                        free: "Test string",
-                        used: "Test string",
-                    },
-                    operatingSystem: {
-                        dataPoints: [
-                            {
-                                label: "Test string",
-                                value: 42,
-                            }
-                        ],
-                    },
-                    storageBytesHistogram: {
-                        buckets: [
-                            {
-                                count: "Test string",
-                                lowerBound: "Test string",
-                                upperBound: "Test string",
-                            }
-                        ],
-                    },
-                    storageUtilization: {
-                        dataPoints: [
-                            {
-                                label: "Test string",
-                                value: 42,
-                            }
-                        ],
-                    },
-                    storageUtilizationChart: {
-                        free: "Test string",
-                        used: "Test string",
-                    },
-                    totalAssets: "Test string",
-                    totalCores: "Test string",
-                    totalMemoryBytes: "Test string",
-                    totalStorageBytes: "Test string",
+                  diskLabel: 'Test string',
+                  diskLabelType: 'Test string',
+                  hwAddress: 'Test string',
+                  interfaceType: 'Test string',
+                  partitions: {
+                    entries: [
+                      {
+                        capacityBytes: 'Test string',
+                        fileSystem: 'Test string',
+                        freeBytes: 'Test string',
+                        mountPoint: 'Test string',
+                        subPartitions: undefined,
+                        type: 'Test string',
+                        uuid: 'Test string',
+                      },
+                    ],
+                  },
+                  status: 'Test string',
+                  totalCapacityBytes: 'Test string',
+                  totalFreeBytes: 'Test string',
+                  vmwareConfig: {
+                    backingType: 'Test string',
+                    rdmCompatibilityMode: 'Test string',
+                    shared: true,
+                    vmdkDiskMode: 'Test string',
+                  },
                 },
-                groupFindings: [
-                    {
-                        assetAggregateStats: {
-                            assetAge: {
-                                dataPoints: [
-                                    {
-                                        label: "Test string",
-                                        value: 42,
-                                    }
-                                ],
-                            },
-                            coreCountHistogram: {
-                                buckets: [
-                                    {
-                                        count: "Test string",
-                                        lowerBound: "Test string",
-                                        upperBound: "Test string",
-                                    }
-                                ],
-                            },
-                            memoryBytesHistogram: {
-                                buckets: [
-                                    {
-                                        count: "Test string",
-                                        lowerBound: "Test string",
-                                        upperBound: "Test string",
-                                    }
-                                ],
-                            },
-                            memoryUtilization: {
-                                dataPoints: [
-                                    {
-                                        label: "Test string",
-                                        value: 42,
-                                    }
-                                ],
-                            },
-                            memoryUtilizationChart: {
-                                free: "Test string",
-                                used: "Test string",
-                            },
-                            operatingSystem: {
-                                dataPoints: [
-                                    {
-                                        label: "Test string",
-                                        value: 42,
-                                    }
-                                ],
-                            },
-                            storageBytesHistogram: {
-                                buckets: [
-                                    {
-                                        count: "Test string",
-                                        lowerBound: "Test string",
-                                        upperBound: "Test string",
-                                    }
-                                ],
-                            },
-                            storageUtilization: {
-                                dataPoints: [
-                                    {
-                                        label: "Test string",
-                                        value: 42,
-                                    }
-                                ],
-                            },
-                            storageUtilizationChart: {
-                                free: "Test string",
-                                used: "Test string",
-                            },
-                            totalAssets: "Test string",
-                            totalCores: "Test string",
-                            totalMemoryBytes: "Test string",
-                            totalStorageBytes: "Test string",
-                        },
-                        description: "Test string",
-                        displayName: "Test string",
-                        overlappingAssetCount: "Test string",
-                        preferenceSetFindings: [
-                            {
-                                description: "Test string",
-                                displayName: "Test string",
-                                machineFinding: {
-                                    allocatedAssetCount: "Test string",
-                                    allocatedDiskTypes: [
-                                        "Test string"
-                                    ],
-                                    allocatedRegions: [
-                                        "Test string"
-                                    ],
-                                    machineSeriesAllocations: [
-                                        {
-                                            allocatedAssetCount: "Test string",
-                                            machineSeries: {
-                                                code: "Test string",
-                                            },
-                                        }
-                                    ],
-                                },
-                                machinePreferences: {
-                                    commitmentPlan: "Test string",
-                                    computeEnginePreferences: {
-                                        licenseType: "Test string",
-                                        machinePreferences: {
-                                            allowedMachineSeries: [
-                                                {
-                                                    code: "Test string",
-                                                }
-                                            ],
-                                        },
-                                        persistentDiskType: "Test string",
-                                    },
-                                    networkCostParameters: {
-                                        estimatedEgressTrafficPercentage: 42,
-                                    },
-                                    regionPreferences: {
-                                        preferredRegions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    sizingOptimizationCustomParameters: {
-                                        aggregationMethod: "Test string",
-                                        cpuUsagePercentage: 42,
-                                        memoryUsagePercentage: 42,
-                                        storageMultiplier: 42,
-                                    },
-                                    sizingOptimizationStrategy: "Test string",
-                                    soleTenancyPreferences: {
-                                        commitmentPlan: "Test string",
-                                        cpuOvercommitRatio: 42,
-                                        hostMaintenancePolicy: "Test string",
-                                        nodeTypes: [
-                                            {
-                                                nodeName: "Test string",
-                                            }
-                                        ],
-                                    },
-                                    targetProduct: "Test string",
-                                    vmwareEnginePreferences: {
-                                        commitmentPlan: "Test string",
-                                        cpuOvercommitRatio: 42,
-                                        memoryOvercommitRatio: 42,
-                                        storageDeduplicationCompressionRatio: 42,
-                                    },
-                                },
-                                monthlyCostCompute: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                                monthlyCostNetworkEgress: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                                monthlyCostOsLicense: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                                monthlyCostOther: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                                monthlyCostStorage: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                                monthlyCostTotal: {
-                                    currencyCode: "Test string",
-                                    nanos: 42,
-                                    units: "Test string",
-                                },
-                                preferredRegion: "Test string",
-                                pricingTrack: "Test string",
-                                soleTenantFinding: {
-                                    allocatedAssetCount: "Test string",
-                                    allocatedRegions: [
-                                        "Test string"
-                                    ],
-                                    nodeAllocations: [
-                                        {
-                                            allocatedAssetCount: "Test string",
-                                            node: {
-                                                nodeName: "Test string",
-                                            },
-                                            nodeCount: "Test string",
-                                        }
-                                    ],
-                                },
-                                topPriority: "Test string",
-                                vmwareEngineFinding: {
-                                    allocatedAssetCount: "Test string",
-                                    allocatedRegions: [
-                                        "Test string"
-                                    ],
-                                    nodeAllocations: [
-                                        {
-                                            allocatedAssetCount: "Test string",
-                                            nodeCount: "Test string",
-                                            vmwareNode: {
-                                                code: "Test string",
-                                            },
-                                        }
-                                    ],
-                                },
-                            }
-                        ],
-                    }
-                ],
+              ],
             },
-            type: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a Report. */
-        await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets details of a single Report. */
-        await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** Lists Reports in a given ReportConfig. */
-        await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
-        /** Creates a new source in a given project and location. */
-        await gapi.client.migrationcenter.projects.locations.sources.create({
-            parent: "Test string",
-            requestId: "Test string",
-            sourceId: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            errorFrameCount: 42,
-            isManaged: true,
-            name: "Test string",
-            pendingFrameCount: 42,
-            priority: 42,
-            state: "Test string",
-            type: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a source. */
-        await gapi.client.migrationcenter.projects.locations.sources.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets the details of a source. */
-        await gapi.client.migrationcenter.projects.locations.sources.get({
-            name: "Test string",
-        });
-        /** Lists all the sources in a given project and location. */
-        await gapi.client.migrationcenter.projects.locations.sources.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a source. */
-        await gapi.client.migrationcenter.projects.locations.sources.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            errorFrameCount: 42,
-            isManaged: true,
-            name: "Test string",
-            pendingFrameCount: 42,
-            priority: 42,
-            state: "Test string",
-            type: "Test string",
-            updateTime: "Test string",
-        });
-        /** Gets the details of an error frame. */
-        await gapi.client.migrationcenter.projects.locations.sources.errorFrames.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** Lists all error frames in a given source and location. */
-        await gapi.client.migrationcenter.projects.locations.sources.errorFrames.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
-    }
+            hddTotalCapacityBytes: 'Test string',
+            hddTotalFreeBytes: 'Test string',
+            lsblkJson: 'Test string',
+          },
+          vmName: 'Test string',
+          vmNetwork: {
+            defaultGw: 'Test string',
+            networkAdapters: {
+              networkAdapters: [
+                {
+                  adapterType: 'Test string',
+                  addresses: {
+                    addresses: [
+                      {
+                        assignment: 'Test string',
+                        bcast: 'Test string',
+                        fqdn: 'Test string',
+                        ipAddress: 'Test string',
+                        subnetMask: 'Test string',
+                      },
+                    ],
+                  },
+                  macAddress: 'Test string',
+                },
+              ],
+            },
+            primaryIpAddress: 'Test string',
+            primaryMacAddress: 'Test string',
+            publicIpAddress: 'Test string',
+          },
+          vmUuid: 'Test string',
+        },
+      }
+    );
+    /** Reports a set of frames. */
+    await gapi.client.migrationcenter.projects.locations.assets.reportAssetFrames(
+      {
+        parent: 'Test string',
+        source: 'Test string',
+      },
+      {
+        framesData: [
+          {
+            attributes: {
+              A: 'Test string',
+            },
+            labels: {
+              A: 'Test string',
+            },
+            performanceSamples: [
+              {
+                cpu: {
+                  utilizedPercentage: 42,
+                },
+                disk: {
+                  averageIops: 42,
+                },
+                memory: {
+                  utilizedPercentage: 42,
+                },
+                network: {
+                  averageEgressBps: 42,
+                  averageIngressBps: 42,
+                },
+                sampleTime: 'Test string',
+              },
+            ],
+            reportTime: 'Test string',
+            traceToken: 'Test string',
+            virtualMachineDetails: {
+              coreCount: 42,
+              createTime: 'Test string',
+              guestOs: {
+                config: {
+                  fstab: {
+                    entries: [
+                      {
+                        file: 'Test string',
+                        freq: 42,
+                        mntops: 'Test string',
+                        passno: 42,
+                        spec: 'Test string',
+                        vfstype: 'Test string',
+                      },
+                    ],
+                  },
+                  hosts: {
+                    entries: [
+                      {
+                        hostNames: ['Test string'],
+                        ip: 'Test string',
+                      },
+                    ],
+                  },
+                  issue: 'Test string',
+                  nfsExports: {
+                    entries: [
+                      {
+                        exportDirectory: 'Test string',
+                        hosts: ['Test string'],
+                      },
+                    ],
+                  },
+                  selinux: {
+                    enabled: true,
+                    mode: 'Test string',
+                  },
+                },
+                runtime: {
+                  domain: 'Test string',
+                  installedApps: {
+                    entries: [
+                      {
+                        name: 'Test string',
+                        path: 'Test string',
+                        time: 'Test string',
+                        vendor: 'Test string',
+                        version: 'Test string',
+                      },
+                    ],
+                  },
+                  lastUptime: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                  },
+                  machineName: 'Test string',
+                  networkInfo: {
+                    connections: {
+                      entries: [
+                        {
+                          localIpAddress: 'Test string',
+                          localPort: 42,
+                          pid: 'Test string',
+                          processName: 'Test string',
+                          protocol: 'Test string',
+                          remoteIpAddress: 'Test string',
+                          remotePort: 42,
+                          state: 'Test string',
+                        },
+                      ],
+                    },
+                    netstat: 'Test string',
+                    netstatTime: {
+                      day: 42,
+                      hours: 42,
+                      minutes: 42,
+                      month: 42,
+                      nanos: 42,
+                      seconds: 42,
+                      timeZone: {
+                        id: 'Test string',
+                        version: 'Test string',
+                      },
+                      utcOffset: 'Test string',
+                      year: 42,
+                    },
+                  },
+                  openFileList: {
+                    entries: [
+                      {
+                        command: 'Test string',
+                        filePath: 'Test string',
+                        fileType: 'Test string',
+                        user: 'Test string',
+                      },
+                    ],
+                  },
+                  processes: {
+                    processes: [
+                      {
+                        attributes: {
+                          A: 'Test string',
+                        },
+                        cmdline: 'Test string',
+                        exePath: 'Test string',
+                        pid: 'Test string',
+                        user: 'Test string',
+                      },
+                    ],
+                  },
+                  services: {
+                    services: [
+                      {
+                        cmdline: 'Test string',
+                        exePath: 'Test string',
+                        name: 'Test string',
+                        pid: 'Test string',
+                        startMode: 'Test string',
+                        state: 'Test string',
+                        status: 'Test string',
+                      },
+                    ],
+                  },
+                },
+              },
+              memoryMb: 42,
+              osFamily: 'Test string',
+              osName: 'Test string',
+              osVersion: 'Test string',
+              platform: {
+                awsEc2Details: {
+                  location: 'Test string',
+                  machineTypeLabel: 'Test string',
+                },
+                azureVmDetails: {
+                  location: 'Test string',
+                  machineTypeLabel: 'Test string',
+                  provisioningState: 'Test string',
+                },
+                genericDetails: {
+                  location: 'Test string',
+                },
+                physicalDetails: {
+                  location: 'Test string',
+                },
+                vmwareDetails: {
+                  esxVersion: 'Test string',
+                  osid: 'Test string',
+                  vcenterVersion: 'Test string',
+                },
+              },
+              powerState: 'Test string',
+              vcenterFolder: 'Test string',
+              vcenterUrl: 'Test string',
+              vcenterVmId: 'Test string',
+              vmArchitecture: {
+                bios: {
+                  biosManufacturer: 'Test string',
+                  biosName: 'Test string',
+                  biosReleaseDate: 'Test string',
+                  biosVersion: 'Test string',
+                  smbiosUuid: 'Test string',
+                },
+                cpuArchitecture: 'Test string',
+                cpuManufacturer: 'Test string',
+                cpuName: 'Test string',
+                cpuSocketCount: 42,
+                cpuThreadCount: 42,
+                firmware: 'Test string',
+                hyperthreading: 'Test string',
+                vendor: 'Test string',
+              },
+              vmDisks: {
+                disks: {
+                  entries: [
+                    {
+                      diskLabel: 'Test string',
+                      diskLabelType: 'Test string',
+                      hwAddress: 'Test string',
+                      interfaceType: 'Test string',
+                      partitions: {
+                        entries: [
+                          {
+                            capacityBytes: 'Test string',
+                            fileSystem: 'Test string',
+                            freeBytes: 'Test string',
+                            mountPoint: 'Test string',
+                            subPartitions: undefined,
+                            type: 'Test string',
+                            uuid: 'Test string',
+                          },
+                        ],
+                      },
+                      status: 'Test string',
+                      totalCapacityBytes: 'Test string',
+                      totalFreeBytes: 'Test string',
+                      vmwareConfig: {
+                        backingType: 'Test string',
+                        rdmCompatibilityMode: 'Test string',
+                        shared: true,
+                        vmdkDiskMode: 'Test string',
+                      },
+                    },
+                  ],
+                },
+                hddTotalCapacityBytes: 'Test string',
+                hddTotalFreeBytes: 'Test string',
+                lsblkJson: 'Test string',
+              },
+              vmName: 'Test string',
+              vmNetwork: {
+                defaultGw: 'Test string',
+                networkAdapters: {
+                  networkAdapters: [
+                    {
+                      adapterType: 'Test string',
+                      addresses: {
+                        addresses: [
+                          {
+                            assignment: 'Test string',
+                            bcast: 'Test string',
+                            fqdn: 'Test string',
+                            ipAddress: 'Test string',
+                            subnetMask: 'Test string',
+                          },
+                        ],
+                      },
+                      macAddress: 'Test string',
+                    },
+                  ],
+                },
+                primaryIpAddress: 'Test string',
+                primaryMacAddress: 'Test string',
+                publicIpAddress: 'Test string',
+              },
+              vmUuid: 'Test string',
+            },
+          },
+        ],
+      }
+    );
+    /** Adds assets to a group. */
+    await gapi.client.migrationcenter.projects.locations.groups.addAssets(
+      {
+        group: 'Test string',
+      },
+      {
+        allowExisting: true,
+        assets: {
+          assetIds: ['Test string'],
+        },
+        requestId: 'Test string',
+      }
+    );
+    /** Creates a new group in a given project and location. */
+    await gapi.client.migrationcenter.projects.locations.groups.create(
+      {
+        groupId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a group. */
+    await gapi.client.migrationcenter.projects.locations.groups.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Gets the details of a group. */
+    await gapi.client.migrationcenter.projects.locations.groups.get({
+      name: 'Test string',
+    });
+    /** Lists all groups in a given project and location. */
+    await gapi.client.migrationcenter.projects.locations.groups.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a group. */
+    await gapi.client.migrationcenter.projects.locations.groups.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Removes assets from a group. */
+    await gapi.client.migrationcenter.projects.locations.groups.removeAssets(
+      {
+        group: 'Test string',
+      },
+      {
+        allowMissing: true,
+        assets: {
+          assetIds: ['Test string'],
+        },
+        requestId: 'Test string',
+      }
+    );
+    /** Creates an import job. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.create(
+      {
+        importJobId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        assetSource: 'Test string',
+        completeTime: 'Test string',
+        createTime: 'Test string',
+        displayName: 'Test string',
+        executionReport: {
+          executionErrors: {
+            fileValidations: [
+              {
+                fileErrors: [
+                  {
+                    errorDetails: 'Test string',
+                    severity: 'Test string',
+                  },
+                ],
+                fileName: 'Test string',
+                partialReport: true,
+                rowErrors: [
+                  {
+                    errors: [
+                      {
+                        errorDetails: 'Test string',
+                        severity: 'Test string',
+                      },
+                    ],
+                    rowNumber: 42,
+                    vmName: 'Test string',
+                    vmUuid: 'Test string',
+                  },
+                ],
+              },
+            ],
+            jobErrors: [
+              {
+                errorDetails: 'Test string',
+                severity: 'Test string',
+              },
+            ],
+          },
+          framesReported: 42,
+          jobErrors: [
+            {
+              errorDetails: 'Test string',
+              severity: 'Test string',
+            },
+          ],
+          totalRowsCount: 42,
+        },
+        gcsPayload: {
+          format: 'Test string',
+          path: 'Test string',
+        },
+        inlinePayload: {
+          format: 'Test string',
+          payload: [
+            {
+              data: 'Test string',
+              name: 'Test string',
+            },
+          ],
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        validationReport: {
+          fileValidations: [
+            {
+              fileErrors: [
+                {
+                  errorDetails: 'Test string',
+                  severity: 'Test string',
+                },
+              ],
+              fileName: 'Test string',
+              partialReport: true,
+              rowErrors: [
+                {
+                  errors: [
+                    {
+                      errorDetails: 'Test string',
+                      severity: 'Test string',
+                    },
+                  ],
+                  rowNumber: 42,
+                  vmName: 'Test string',
+                  vmUuid: 'Test string',
+                },
+              ],
+            },
+          ],
+          jobErrors: [
+            {
+              errorDetails: 'Test string',
+              severity: 'Test string',
+            },
+          ],
+        },
+      }
+    );
+    /** Deletes an import job. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.delete({
+      force: true,
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Gets the details of an import job. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.get({
+      name: 'Test string',
+      view: 'Test string',
+    });
+    /** Lists all import jobs. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      view: 'Test string',
+    });
+    /** Updates an import job. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        assetSource: 'Test string',
+        completeTime: 'Test string',
+        createTime: 'Test string',
+        displayName: 'Test string',
+        executionReport: {
+          executionErrors: {
+            fileValidations: [
+              {
+                fileErrors: [
+                  {
+                    errorDetails: 'Test string',
+                    severity: 'Test string',
+                  },
+                ],
+                fileName: 'Test string',
+                partialReport: true,
+                rowErrors: [
+                  {
+                    errors: [
+                      {
+                        errorDetails: 'Test string',
+                        severity: 'Test string',
+                      },
+                    ],
+                    rowNumber: 42,
+                    vmName: 'Test string',
+                    vmUuid: 'Test string',
+                  },
+                ],
+              },
+            ],
+            jobErrors: [
+              {
+                errorDetails: 'Test string',
+                severity: 'Test string',
+              },
+            ],
+          },
+          framesReported: 42,
+          jobErrors: [
+            {
+              errorDetails: 'Test string',
+              severity: 'Test string',
+            },
+          ],
+          totalRowsCount: 42,
+        },
+        gcsPayload: {
+          format: 'Test string',
+          path: 'Test string',
+        },
+        inlinePayload: {
+          format: 'Test string',
+          payload: [
+            {
+              data: 'Test string',
+              name: 'Test string',
+            },
+          ],
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        validationReport: {
+          fileValidations: [
+            {
+              fileErrors: [
+                {
+                  errorDetails: 'Test string',
+                  severity: 'Test string',
+                },
+              ],
+              fileName: 'Test string',
+              partialReport: true,
+              rowErrors: [
+                {
+                  errors: [
+                    {
+                      errorDetails: 'Test string',
+                      severity: 'Test string',
+                    },
+                  ],
+                  rowNumber: 42,
+                  vmName: 'Test string',
+                  vmUuid: 'Test string',
+                },
+              ],
+            },
+          ],
+          jobErrors: [
+            {
+              errorDetails: 'Test string',
+              severity: 'Test string',
+            },
+          ],
+        },
+      }
+    );
+    /** Runs an import job. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.run(
+      {
+        name: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+      }
+    );
+    /** Validates an import job. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.validate(
+      {
+        name: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+      }
+    );
+    /** Creates an import data file. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.create(
+      {
+        importDataFileId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        format: 'Test string',
+        name: 'Test string',
+        state: 'Test string',
+        uploadFileInfo: {
+          headers: {
+            A: 'Test string',
+          },
+          signedUri: 'Test string',
+          uriExpirationTime: 'Test string',
+        },
+      }
+    );
+    /** Delete an import data file. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.delete(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Gets an import data file. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** List import data files. */
+    await gapi.client.migrationcenter.projects.locations.importJobs.importDataFiles.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.migrationcenter.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.migrationcenter.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.migrationcenter.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.migrationcenter.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new preference set in a given project and location. */
+    await gapi.client.migrationcenter.projects.locations.preferenceSets.create(
+      {
+        parent: 'Test string',
+        preferenceSetId: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        name: 'Test string',
+        updateTime: 'Test string',
+        virtualMachinePreferences: {
+          commitmentPlan: 'Test string',
+          computeEnginePreferences: {
+            licenseType: 'Test string',
+            machinePreferences: {
+              allowedMachineSeries: [
+                {
+                  code: 'Test string',
+                },
+              ],
+            },
+            persistentDiskType: 'Test string',
+          },
+          networkCostParameters: {
+            estimatedEgressTrafficPercentage: 42,
+          },
+          regionPreferences: {
+            preferredRegions: ['Test string'],
+          },
+          sizingOptimizationCustomParameters: {
+            aggregationMethod: 'Test string',
+            cpuUsagePercentage: 42,
+            memoryUsagePercentage: 42,
+            storageMultiplier: 42,
+          },
+          sizingOptimizationStrategy: 'Test string',
+          soleTenancyPreferences: {
+            commitmentPlan: 'Test string',
+            cpuOvercommitRatio: 42,
+            hostMaintenancePolicy: 'Test string',
+            nodeTypes: [
+              {
+                nodeName: 'Test string',
+              },
+            ],
+          },
+          targetProduct: 'Test string',
+          vmwareEnginePreferences: {
+            commitmentPlan: 'Test string',
+            cpuOvercommitRatio: 42,
+            memoryOvercommitRatio: 42,
+            storageDeduplicationCompressionRatio: 42,
+          },
+        },
+      }
+    );
+    /** Deletes a preference set. */
+    await gapi.client.migrationcenter.projects.locations.preferenceSets.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Gets the details of a preference set. */
+    await gapi.client.migrationcenter.projects.locations.preferenceSets.get({
+      name: 'Test string',
+    });
+    /** Lists all the preference sets in a given project and location. */
+    await gapi.client.migrationcenter.projects.locations.preferenceSets.list({
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a preference set. */
+    await gapi.client.migrationcenter.projects.locations.preferenceSets.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        name: 'Test string',
+        updateTime: 'Test string',
+        virtualMachinePreferences: {
+          commitmentPlan: 'Test string',
+          computeEnginePreferences: {
+            licenseType: 'Test string',
+            machinePreferences: {
+              allowedMachineSeries: [
+                {
+                  code: 'Test string',
+                },
+              ],
+            },
+            persistentDiskType: 'Test string',
+          },
+          networkCostParameters: {
+            estimatedEgressTrafficPercentage: 42,
+          },
+          regionPreferences: {
+            preferredRegions: ['Test string'],
+          },
+          sizingOptimizationCustomParameters: {
+            aggregationMethod: 'Test string',
+            cpuUsagePercentage: 42,
+            memoryUsagePercentage: 42,
+            storageMultiplier: 42,
+          },
+          sizingOptimizationStrategy: 'Test string',
+          soleTenancyPreferences: {
+            commitmentPlan: 'Test string',
+            cpuOvercommitRatio: 42,
+            hostMaintenancePolicy: 'Test string',
+            nodeTypes: [
+              {
+                nodeName: 'Test string',
+              },
+            ],
+          },
+          targetProduct: 'Test string',
+          vmwareEnginePreferences: {
+            commitmentPlan: 'Test string',
+            cpuOvercommitRatio: 42,
+            memoryOvercommitRatio: 42,
+            storageDeduplicationCompressionRatio: 42,
+          },
+        },
+      }
+    );
+    /** Creates a report configuration. */
+    await gapi.client.migrationcenter.projects.locations.reportConfigs.create(
+      {
+        parent: 'Test string',
+        reportConfigId: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        groupPreferencesetAssignments: [
+          {
+            group: 'Test string',
+            preferenceSet: 'Test string',
+          },
+        ],
+        name: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a ReportConfig. */
+    await gapi.client.migrationcenter.projects.locations.reportConfigs.delete({
+      force: true,
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Gets details of a single ReportConfig. */
+    await gapi.client.migrationcenter.projects.locations.reportConfigs.get({
+      name: 'Test string',
+    });
+    /** Lists ReportConfigs in a given project and location. */
+    await gapi.client.migrationcenter.projects.locations.reportConfigs.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Creates a report. */
+    await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.create(
+      {
+        parent: 'Test string',
+        reportId: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        name: 'Test string',
+        state: 'Test string',
+        summary: {
+          allAssetsStats: {
+            assetAge: {
+              dataPoints: [
+                {
+                  label: 'Test string',
+                  value: 42,
+                },
+              ],
+            },
+            coreCountHistogram: {
+              buckets: [
+                {
+                  count: 'Test string',
+                  lowerBound: 'Test string',
+                  upperBound: 'Test string',
+                },
+              ],
+            },
+            memoryBytesHistogram: {
+              buckets: [
+                {
+                  count: 'Test string',
+                  lowerBound: 'Test string',
+                  upperBound: 'Test string',
+                },
+              ],
+            },
+            memoryUtilization: {
+              dataPoints: [
+                {
+                  label: 'Test string',
+                  value: 42,
+                },
+              ],
+            },
+            memoryUtilizationChart: {
+              free: 'Test string',
+              used: 'Test string',
+            },
+            operatingSystem: {
+              dataPoints: [
+                {
+                  label: 'Test string',
+                  value: 42,
+                },
+              ],
+            },
+            storageBytesHistogram: {
+              buckets: [
+                {
+                  count: 'Test string',
+                  lowerBound: 'Test string',
+                  upperBound: 'Test string',
+                },
+              ],
+            },
+            storageUtilization: {
+              dataPoints: [
+                {
+                  label: 'Test string',
+                  value: 42,
+                },
+              ],
+            },
+            storageUtilizationChart: {
+              free: 'Test string',
+              used: 'Test string',
+            },
+            totalAssets: 'Test string',
+            totalCores: 'Test string',
+            totalMemoryBytes: 'Test string',
+            totalStorageBytes: 'Test string',
+          },
+          groupFindings: [
+            {
+              assetAggregateStats: {
+                assetAge: {
+                  dataPoints: [
+                    {
+                      label: 'Test string',
+                      value: 42,
+                    },
+                  ],
+                },
+                coreCountHistogram: {
+                  buckets: [
+                    {
+                      count: 'Test string',
+                      lowerBound: 'Test string',
+                      upperBound: 'Test string',
+                    },
+                  ],
+                },
+                memoryBytesHistogram: {
+                  buckets: [
+                    {
+                      count: 'Test string',
+                      lowerBound: 'Test string',
+                      upperBound: 'Test string',
+                    },
+                  ],
+                },
+                memoryUtilization: {
+                  dataPoints: [
+                    {
+                      label: 'Test string',
+                      value: 42,
+                    },
+                  ],
+                },
+                memoryUtilizationChart: {
+                  free: 'Test string',
+                  used: 'Test string',
+                },
+                operatingSystem: {
+                  dataPoints: [
+                    {
+                      label: 'Test string',
+                      value: 42,
+                    },
+                  ],
+                },
+                storageBytesHistogram: {
+                  buckets: [
+                    {
+                      count: 'Test string',
+                      lowerBound: 'Test string',
+                      upperBound: 'Test string',
+                    },
+                  ],
+                },
+                storageUtilization: {
+                  dataPoints: [
+                    {
+                      label: 'Test string',
+                      value: 42,
+                    },
+                  ],
+                },
+                storageUtilizationChart: {
+                  free: 'Test string',
+                  used: 'Test string',
+                },
+                totalAssets: 'Test string',
+                totalCores: 'Test string',
+                totalMemoryBytes: 'Test string',
+                totalStorageBytes: 'Test string',
+              },
+              description: 'Test string',
+              displayName: 'Test string',
+              overlappingAssetCount: 'Test string',
+              preferenceSetFindings: [
+                {
+                  description: 'Test string',
+                  displayName: 'Test string',
+                  machineFinding: {
+                    allocatedAssetCount: 'Test string',
+                    allocatedDiskTypes: ['Test string'],
+                    allocatedRegions: ['Test string'],
+                    machineSeriesAllocations: [
+                      {
+                        allocatedAssetCount: 'Test string',
+                        machineSeries: {
+                          code: 'Test string',
+                        },
+                      },
+                    ],
+                  },
+                  machinePreferences: {
+                    commitmentPlan: 'Test string',
+                    computeEnginePreferences: {
+                      licenseType: 'Test string',
+                      machinePreferences: {
+                        allowedMachineSeries: [
+                          {
+                            code: 'Test string',
+                          },
+                        ],
+                      },
+                      persistentDiskType: 'Test string',
+                    },
+                    networkCostParameters: {
+                      estimatedEgressTrafficPercentage: 42,
+                    },
+                    regionPreferences: {
+                      preferredRegions: ['Test string'],
+                    },
+                    sizingOptimizationCustomParameters: {
+                      aggregationMethod: 'Test string',
+                      cpuUsagePercentage: 42,
+                      memoryUsagePercentage: 42,
+                      storageMultiplier: 42,
+                    },
+                    sizingOptimizationStrategy: 'Test string',
+                    soleTenancyPreferences: {
+                      commitmentPlan: 'Test string',
+                      cpuOvercommitRatio: 42,
+                      hostMaintenancePolicy: 'Test string',
+                      nodeTypes: [
+                        {
+                          nodeName: 'Test string',
+                        },
+                      ],
+                    },
+                    targetProduct: 'Test string',
+                    vmwareEnginePreferences: {
+                      commitmentPlan: 'Test string',
+                      cpuOvercommitRatio: 42,
+                      memoryOvercommitRatio: 42,
+                      storageDeduplicationCompressionRatio: 42,
+                    },
+                  },
+                  monthlyCostCompute: {
+                    currencyCode: 'Test string',
+                    nanos: 42,
+                    units: 'Test string',
+                  },
+                  monthlyCostNetworkEgress: {
+                    currencyCode: 'Test string',
+                    nanos: 42,
+                    units: 'Test string',
+                  },
+                  monthlyCostOsLicense: {
+                    currencyCode: 'Test string',
+                    nanos: 42,
+                    units: 'Test string',
+                  },
+                  monthlyCostOther: {
+                    currencyCode: 'Test string',
+                    nanos: 42,
+                    units: 'Test string',
+                  },
+                  monthlyCostStorage: {
+                    currencyCode: 'Test string',
+                    nanos: 42,
+                    units: 'Test string',
+                  },
+                  monthlyCostTotal: {
+                    currencyCode: 'Test string',
+                    nanos: 42,
+                    units: 'Test string',
+                  },
+                  preferredRegion: 'Test string',
+                  pricingTrack: 'Test string',
+                  soleTenantFinding: {
+                    allocatedAssetCount: 'Test string',
+                    allocatedRegions: ['Test string'],
+                    nodeAllocations: [
+                      {
+                        allocatedAssetCount: 'Test string',
+                        node: {
+                          nodeName: 'Test string',
+                        },
+                        nodeCount: 'Test string',
+                      },
+                    ],
+                  },
+                  topPriority: 'Test string',
+                  vmwareEngineFinding: {
+                    allocatedAssetCount: 'Test string',
+                    allocatedRegions: ['Test string'],
+                    nodeAllocations: [
+                      {
+                        allocatedAssetCount: 'Test string',
+                        nodeCount: 'Test string',
+                        vmwareNode: {
+                          code: 'Test string',
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          ],
+        },
+        type: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a Report. */
+    await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.delete(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Gets details of a single Report. */
+    await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.get(
+      {
+        name: 'Test string',
+        view: 'Test string',
+      }
+    );
+    /** Lists Reports in a given ReportConfig. */
+    await gapi.client.migrationcenter.projects.locations.reportConfigs.reports.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        view: 'Test string',
+      }
+    );
+    /** Creates a new source in a given project and location. */
+    await gapi.client.migrationcenter.projects.locations.sources.create(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+        sourceId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        errorFrameCount: 42,
+        isManaged: true,
+        name: 'Test string',
+        pendingFrameCount: 42,
+        priority: 42,
+        state: 'Test string',
+        type: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a source. */
+    await gapi.client.migrationcenter.projects.locations.sources.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Gets the details of a source. */
+    await gapi.client.migrationcenter.projects.locations.sources.get({
+      name: 'Test string',
+    });
+    /** Lists all the sources in a given project and location. */
+    await gapi.client.migrationcenter.projects.locations.sources.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a source. */
+    await gapi.client.migrationcenter.projects.locations.sources.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        errorFrameCount: 42,
+        isManaged: true,
+        name: 'Test string',
+        pendingFrameCount: 42,
+        priority: 42,
+        state: 'Test string',
+        type: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Gets the details of an error frame. */
+    await gapi.client.migrationcenter.projects.locations.sources.errorFrames.get(
+      {
+        name: 'Test string',
+        view: 'Test string',
+      }
+    );
+    /** Lists all error frames in a given source and location. */
+    await gapi.client.migrationcenter.projects.locations.sources.errorFrames.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        view: 'Test string',
+      }
+    );
+  }
 });

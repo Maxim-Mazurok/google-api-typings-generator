@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://searchads360.googleapis.com/$discovery/rest?version=v0', () => {
-  // now we can use:
-  // gapi.client.searchads360
-});
+gapi.client.load(
+  'https://searchads360.googleapis.com/$discovery/rest?version=v0',
+  () => {
+    // now we can use:
+    // gapi.client.searchads360
+  }
+);
 ```
 
 ```typescript
@@ -45,39 +48,41 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and manage your advertising data in DoubleClick Search
-      'https://www.googleapis.com/auth/doubleclicksearch',
-    ],
-    immediate = true;
+    // View and manage your advertising data in DoubleClick Search
+    'https://www.googleapis.com/auth/doubleclicksearch',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Search Ads 360 Reporting API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Returns resource names of customers directly accessible by the user authenticating the call. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
-await gapi.client.searchads360.customers.listAccessibleCustomers({  });
+await gapi.client.searchads360.customers.listAccessibleCustomers({});
 
 /*
 Returns just the requested field. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
-await gapi.client.searchads360.searchAds360Fields.get({ resourceName: "resourceName",  });
+await gapi.client.searchads360.searchAds360Fields.get({
+  resourceName: 'resourceName',
+});
 
 /*
 Returns all fields that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]()
 */
-await gapi.client.searchads360.searchAds360Fields.search({  });
+await gapi.client.searchads360.searchAds360Fields.search({});
 ```

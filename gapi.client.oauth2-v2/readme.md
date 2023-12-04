@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://www.googleapis.com/discovery/v1/apis/oauth2/v2/rest', () => {
-  // now we can use:
-  // gapi.client.oauth2
-});
+gapi.client.load(
+  'https://www.googleapis.com/discovery/v1/apis/oauth2/v2/rest',
+  () => {
+    // now we can use:
+    // gapi.client.oauth2
+  }
+);
 ```
 
 ```typescript
@@ -45,35 +48,35 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See your primary Google Account email address
-      'https://www.googleapis.com/auth/userinfo.email',
+    // See your primary Google Account email address
+    'https://www.googleapis.com/auth/userinfo.email',
 
-      // See your personal info, including any personal info you've made publicly available
-      'https://www.googleapis.com/auth/userinfo.profile',
+    // See your personal info, including any personal info you've made publicly available
+    'https://www.googleapis.com/auth/userinfo.profile',
 
-      // Associate you with your personal info on Google
-      'openid',
-    ],
-    immediate = true;
+    // Associate you with your personal info on Google
+    'openid',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Google OAuth2 API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 undefined
 */
-await gapi.client.oauth2.userinfo.get({  });
+await gapi.client.oauth2.userinfo.get({});
 ```

@@ -6,1002 +6,997 @@
 // Revision: 20231109
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://alloydb.googleapis.com/$discovery/rest?version=v1alpha');
-    /** now we can use gapi.client.alloydb */
+  await gapi.client.load(
+    'https://alloydb.googleapis.com/$discovery/rest?version=v1alpha'
+  );
+  /** now we can use gapi.client.alloydb */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.alloydb.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.alloydb.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new Backup in a given project and location. */
-        await gapi.client.alloydb.projects.locations.backups.create({
-            backupId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            clusterName: "Test string",
-            clusterUid: "Test string",
-            createTime: "Test string",
-            databaseVersion: "Test string",
-            deleteTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            encryptionConfig: {
-                kmsKeyName: "Test string",
-            },
-            encryptionInfo: {
-                encryptionType: "Test string",
-                kmsKeyVersions: [
-                    "Test string"
-                ],
-            },
-            etag: "Test string",
-            expiryQuantity: {
-                retentionCount: 42,
-                totalRetentionCount: 42,
-            },
-            expiryTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            reconciling: true,
-            satisfiesPzs: true,
-            sizeBytes: "Test string",
-            state: "Test string",
-            type: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single Backup. */
-        await gapi.client.alloydb.projects.locations.backups.delete({
-            etag: "Test string",
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single Backup. */
-        await gapi.client.alloydb.projects.locations.backups.get({
-            name: "Test string",
-        });
-        /** Lists Backups in a given project and location. */
-        await gapi.client.alloydb.projects.locations.backups.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single Backup. */
-        await gapi.client.alloydb.projects.locations.backups.patch({
-            allowMissing: true,
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            clusterName: "Test string",
-            clusterUid: "Test string",
-            createTime: "Test string",
-            databaseVersion: "Test string",
-            deleteTime: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            encryptionConfig: {
-                kmsKeyName: "Test string",
-            },
-            encryptionInfo: {
-                encryptionType: "Test string",
-                kmsKeyVersions: [
-                    "Test string"
-                ],
-            },
-            etag: "Test string",
-            expiryQuantity: {
-                retentionCount: 42,
-                totalRetentionCount: 42,
-            },
-            expiryTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            reconciling: true,
-            satisfiesPzs: true,
-            sizeBytes: "Test string",
-            state: "Test string",
-            type: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Creates a new Cluster in a given project and location. */
-        await gapi.client.alloydb.projects.locations.clusters.create({
-            clusterId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            automatedBackupPolicy: {
-                backupWindow: "Test string",
-                enabled: true,
-                encryptionConfig: {
-                    kmsKeyName: "Test string",
-                },
-                labels: {
-                    A: "Test string"
-                },
-                location: "Test string",
-                quantityBasedRetention: {
-                    count: 42,
-                },
-                timeBasedRetention: {
-                    retentionPeriod: "Test string",
-                },
-                weeklySchedule: {
-                    daysOfWeek: [
-                        "Test string"
-                    ],
-                    startTimes: [
-                        {
-                            hours: 42,
-                            minutes: 42,
-                            nanos: 42,
-                            seconds: 42,
-                        }
-                    ],
-                },
-            },
-            backupSource: {
-                backupName: "Test string",
-                backupUid: "Test string",
-            },
-            clusterType: "Test string",
-            continuousBackupConfig: {
-                enabled: true,
-                encryptionConfig: {
-                    kmsKeyName: "Test string",
-                },
-                recoveryWindowDays: 42,
-            },
-            continuousBackupInfo: {
-                earliestRestorableTime: "Test string",
-                enabledTime: "Test string",
-                encryptionInfo: {
-                    encryptionType: "Test string",
-                    kmsKeyVersions: [
-                        "Test string"
-                    ],
-                },
-                schedule: [
-                    "Test string"
-                ],
-            },
-            createTime: "Test string",
-            databaseVersion: "Test string",
-            deleteTime: "Test string",
-            displayName: "Test string",
-            encryptionConfig: {
-                kmsKeyName: "Test string",
-            },
-            encryptionInfo: {
-                encryptionType: "Test string",
-                kmsKeyVersions: [
-                    "Test string"
-                ],
-            },
-            etag: "Test string",
-            initialUser: {
-                password: "Test string",
-                user: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            migrationSource: {
-                hostPort: "Test string",
-                referenceId: "Test string",
-                sourceType: "Test string",
-            },
-            name: "Test string",
-            network: "Test string",
-            networkConfig: {
-                allocatedIpRange: "Test string",
-                network: "Test string",
-            },
-            primaryConfig: {
-                secondaryClusterNames: [
-                    "Test string"
-                ],
-            },
-            pscConfig: {
-                pscEnabled: true,
-            },
-            reconciling: true,
-            satisfiesPzs: true,
-            secondaryConfig: {
-                primaryClusterName: "Test string",
-            },
-            sslConfig: {
-                caSource: "Test string",
-                sslMode: "Test string",
-            },
-            state: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Creates a cluster of type SECONDARY in the given location using the primary cluster as the source. */
-        await gapi.client.alloydb.projects.locations.clusters.createsecondary({
-            clusterId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            automatedBackupPolicy: {
-                backupWindow: "Test string",
-                enabled: true,
-                encryptionConfig: {
-                    kmsKeyName: "Test string",
-                },
-                labels: {
-                    A: "Test string"
-                },
-                location: "Test string",
-                quantityBasedRetention: {
-                    count: 42,
-                },
-                timeBasedRetention: {
-                    retentionPeriod: "Test string",
-                },
-                weeklySchedule: {
-                    daysOfWeek: [
-                        "Test string"
-                    ],
-                    startTimes: [
-                        {
-                            hours: 42,
-                            minutes: 42,
-                            nanos: 42,
-                            seconds: 42,
-                        }
-                    ],
-                },
-            },
-            backupSource: {
-                backupName: "Test string",
-                backupUid: "Test string",
-            },
-            clusterType: "Test string",
-            continuousBackupConfig: {
-                enabled: true,
-                encryptionConfig: {
-                    kmsKeyName: "Test string",
-                },
-                recoveryWindowDays: 42,
-            },
-            continuousBackupInfo: {
-                earliestRestorableTime: "Test string",
-                enabledTime: "Test string",
-                encryptionInfo: {
-                    encryptionType: "Test string",
-                    kmsKeyVersions: [
-                        "Test string"
-                    ],
-                },
-                schedule: [
-                    "Test string"
-                ],
-            },
-            createTime: "Test string",
-            databaseVersion: "Test string",
-            deleteTime: "Test string",
-            displayName: "Test string",
-            encryptionConfig: {
-                kmsKeyName: "Test string",
-            },
-            encryptionInfo: {
-                encryptionType: "Test string",
-                kmsKeyVersions: [
-                    "Test string"
-                ],
-            },
-            etag: "Test string",
-            initialUser: {
-                password: "Test string",
-                user: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            migrationSource: {
-                hostPort: "Test string",
-                referenceId: "Test string",
-                sourceType: "Test string",
-            },
-            name: "Test string",
-            network: "Test string",
-            networkConfig: {
-                allocatedIpRange: "Test string",
-                network: "Test string",
-            },
-            primaryConfig: {
-                secondaryClusterNames: [
-                    "Test string"
-                ],
-            },
-            pscConfig: {
-                pscEnabled: true,
-            },
-            reconciling: true,
-            satisfiesPzs: true,
-            secondaryConfig: {
-                primaryClusterName: "Test string",
-            },
-            sslConfig: {
-                caSource: "Test string",
-                sslMode: "Test string",
-            },
-            state: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single Cluster. */
-        await gapi.client.alloydb.projects.locations.clusters.delete({
-            etag: "Test string",
-            force: true,
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /**
-         * Generate a client certificate signed by a Cluster CA. The sole purpose of this endpoint is to support AlloyDB connectors and the Auth Proxy client. The endpoint's behavior is subject to
-         * change without notice, so do not rely on its behavior remaining constant. Future changes will not break AlloyDB connectors or the Auth Proxy client.
-         */
-        await gapi.client.alloydb.projects.locations.clusters.generateClientCertificate({
-            parent: "Test string",
-        }, {
-            certDuration: "Test string",
-            pemCsr: "Test string",
-            publicKey: "Test string",
-            requestId: "Test string",
-            useMetadataExchange: true,
-        });
-        /** Gets details of a single Cluster. */
-        await gapi.client.alloydb.projects.locations.clusters.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** Lists Clusters in a given project and location. */
-        await gapi.client.alloydb.projects.locations.clusters.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single Cluster. */
-        await gapi.client.alloydb.projects.locations.clusters.patch({
-            allowMissing: true,
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            automatedBackupPolicy: {
-                backupWindow: "Test string",
-                enabled: true,
-                encryptionConfig: {
-                    kmsKeyName: "Test string",
-                },
-                labels: {
-                    A: "Test string"
-                },
-                location: "Test string",
-                quantityBasedRetention: {
-                    count: 42,
-                },
-                timeBasedRetention: {
-                    retentionPeriod: "Test string",
-                },
-                weeklySchedule: {
-                    daysOfWeek: [
-                        "Test string"
-                    ],
-                    startTimes: [
-                        {
-                            hours: 42,
-                            minutes: 42,
-                            nanos: 42,
-                            seconds: 42,
-                        }
-                    ],
-                },
-            },
-            backupSource: {
-                backupName: "Test string",
-                backupUid: "Test string",
-            },
-            clusterType: "Test string",
-            continuousBackupConfig: {
-                enabled: true,
-                encryptionConfig: {
-                    kmsKeyName: "Test string",
-                },
-                recoveryWindowDays: 42,
-            },
-            continuousBackupInfo: {
-                earliestRestorableTime: "Test string",
-                enabledTime: "Test string",
-                encryptionInfo: {
-                    encryptionType: "Test string",
-                    kmsKeyVersions: [
-                        "Test string"
-                    ],
-                },
-                schedule: [
-                    "Test string"
-                ],
-            },
-            createTime: "Test string",
-            databaseVersion: "Test string",
-            deleteTime: "Test string",
-            displayName: "Test string",
-            encryptionConfig: {
-                kmsKeyName: "Test string",
-            },
-            encryptionInfo: {
-                encryptionType: "Test string",
-                kmsKeyVersions: [
-                    "Test string"
-                ],
-            },
-            etag: "Test string",
-            initialUser: {
-                password: "Test string",
-                user: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            migrationSource: {
-                hostPort: "Test string",
-                referenceId: "Test string",
-                sourceType: "Test string",
-            },
-            name: "Test string",
-            network: "Test string",
-            networkConfig: {
-                allocatedIpRange: "Test string",
-                network: "Test string",
-            },
-            primaryConfig: {
-                secondaryClusterNames: [
-                    "Test string"
-                ],
-            },
-            pscConfig: {
-                pscEnabled: true,
-            },
-            reconciling: true,
-            satisfiesPzs: true,
-            secondaryConfig: {
-                primaryClusterName: "Test string",
-            },
-            sslConfig: {
-                caSource: "Test string",
-                sslMode: "Test string",
-            },
-            state: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Promotes a SECONDARY cluster. This turns down replication from the PRIMARY cluster and promotes a secondary cluster into its own standalone cluster. Imperative only. */
-        await gapi.client.alloydb.projects.locations.clusters.promote({
-            name: "Test string",
-        }, {
-            etag: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Creates a new Cluster in a given project and location, with a volume restored from the provided source, either a backup ID or a point-in-time and a source cluster. */
-        await gapi.client.alloydb.projects.locations.clusters.restore({
-            parent: "Test string",
-        }, {
-            backupSource: {
-                backupName: "Test string",
-                backupUid: "Test string",
-            },
-            cluster: {
-                annotations: {
-                    A: "Test string"
-                },
-                automatedBackupPolicy: {
-                    backupWindow: "Test string",
-                    enabled: true,
-                    encryptionConfig: {
-                        kmsKeyName: "Test string",
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                    location: "Test string",
-                    quantityBasedRetention: {
-                        count: 42,
-                    },
-                    timeBasedRetention: {
-                        retentionPeriod: "Test string",
-                    },
-                    weeklySchedule: {
-                        daysOfWeek: [
-                            "Test string"
-                        ],
-                        startTimes: [
-                            {
-                                hours: 42,
-                                minutes: 42,
-                                nanos: 42,
-                                seconds: 42,
-                            }
-                        ],
-                    },
-                },
-                backupSource: {
-                    backupName: "Test string",
-                    backupUid: "Test string",
-                },
-                clusterType: "Test string",
-                continuousBackupConfig: {
-                    enabled: true,
-                    encryptionConfig: {
-                        kmsKeyName: "Test string",
-                    },
-                    recoveryWindowDays: 42,
-                },
-                continuousBackupInfo: {
-                    earliestRestorableTime: "Test string",
-                    enabledTime: "Test string",
-                    encryptionInfo: {
-                        encryptionType: "Test string",
-                        kmsKeyVersions: [
-                            "Test string"
-                        ],
-                    },
-                    schedule: [
-                        "Test string"
-                    ],
-                },
-                createTime: "Test string",
-                databaseVersion: "Test string",
-                deleteTime: "Test string",
-                displayName: "Test string",
-                encryptionConfig: {
-                    kmsKeyName: "Test string",
-                },
-                encryptionInfo: {
-                    encryptionType: "Test string",
-                    kmsKeyVersions: [
-                        "Test string"
-                    ],
-                },
-                etag: "Test string",
-                initialUser: {
-                    password: "Test string",
-                    user: "Test string",
-                },
-                labels: {
-                    A: "Test string"
-                },
-                migrationSource: {
-                    hostPort: "Test string",
-                    referenceId: "Test string",
-                    sourceType: "Test string",
-                },
-                name: "Test string",
-                network: "Test string",
-                networkConfig: {
-                    allocatedIpRange: "Test string",
-                    network: "Test string",
-                },
-                primaryConfig: {
-                    secondaryClusterNames: [
-                        "Test string"
-                    ],
-                },
-                pscConfig: {
-                    pscEnabled: true,
-                },
-                reconciling: true,
-                satisfiesPzs: true,
-                secondaryConfig: {
-                    primaryClusterName: "Test string",
-                },
-                sslConfig: {
-                    caSource: "Test string",
-                    sslMode: "Test string",
-                },
-                state: "Test string",
-                uid: "Test string",
-                updateTime: "Test string",
-            },
-            clusterId: "Test string",
-            continuousBackupSource: {
-                cluster: "Test string",
-                pointInTime: "Test string",
-            },
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Creates a new Instance in a given project and location. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.create({
-            instanceId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            availabilityType: "Test string",
-            clientConnectionConfig: {
-                requireConnectors: true,
-                sslConfig: {
-                    caSource: "Test string",
-                    sslMode: "Test string",
-                },
-            },
-            createTime: "Test string",
-            databaseFlags: {
-                A: "Test string"
-            },
-            deleteTime: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            gceZone: "Test string",
-            instanceType: "Test string",
-            ipAddress: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            machineConfig: {
-                cpuCount: 42,
-            },
-            name: "Test string",
-            nodes: [
-                {
-                    id: "Test string",
-                    ip: "Test string",
-                    state: "Test string",
-                    zoneId: "Test string",
-                }
-            ],
-            queryInsightsConfig: {
-                queryPlansPerMinute: 42,
-                queryStringLength: 42,
-                recordApplicationTags: true,
-                recordClientAddress: true,
-            },
-            readPoolConfig: {
-                nodeCount: 42,
-            },
-            reconciling: true,
-            satisfiesPzs: true,
-            state: "Test string",
-            uid: "Test string",
-            updatePolicy: {
-                mode: "Test string",
-            },
-            updateTime: "Test string",
-            writableNode: {
-                id: "Test string",
-                ip: "Test string",
-                state: "Test string",
-                zoneId: "Test string",
-            },
-        });
-        /** Creates a new SECONDARY Instance in a given project and location. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.createsecondary({
-            instanceId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            availabilityType: "Test string",
-            clientConnectionConfig: {
-                requireConnectors: true,
-                sslConfig: {
-                    caSource: "Test string",
-                    sslMode: "Test string",
-                },
-            },
-            createTime: "Test string",
-            databaseFlags: {
-                A: "Test string"
-            },
-            deleteTime: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            gceZone: "Test string",
-            instanceType: "Test string",
-            ipAddress: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            machineConfig: {
-                cpuCount: 42,
-            },
-            name: "Test string",
-            nodes: [
-                {
-                    id: "Test string",
-                    ip: "Test string",
-                    state: "Test string",
-                    zoneId: "Test string",
-                }
-            ],
-            queryInsightsConfig: {
-                queryPlansPerMinute: 42,
-                queryStringLength: 42,
-                recordApplicationTags: true,
-                recordClientAddress: true,
-            },
-            readPoolConfig: {
-                nodeCount: 42,
-            },
-            reconciling: true,
-            satisfiesPzs: true,
-            state: "Test string",
-            uid: "Test string",
-            updatePolicy: {
-                mode: "Test string",
-            },
-            updateTime: "Test string",
-            writableNode: {
-                id: "Test string",
-                ip: "Test string",
-                state: "Test string",
-                zoneId: "Test string",
-            },
-        });
-        /** Deletes a single Instance. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.delete({
-            etag: "Test string",
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Forces a Failover for a highly available instance. Failover promotes the HA standby instance as the new primary. Imperative only. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.failover({
-            name: "Test string",
-        }, {
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single Instance. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.get({
-            name: "Test string",
-            view: "Test string",
-        });
-        /** Get instance metadata used for a connection. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.getConnectionInfo({
-            parent: "Test string",
-            requestId: "Test string",
-        });
-        /** Injects fault in an instance. Imperative only. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.injectFault({
-            name: "Test string",
-        }, {
-            faultType: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Lists Instances in a given project and location. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single Instance. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.patch({
-            allowMissing: true,
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            availabilityType: "Test string",
-            clientConnectionConfig: {
-                requireConnectors: true,
-                sslConfig: {
-                    caSource: "Test string",
-                    sslMode: "Test string",
-                },
-            },
-            createTime: "Test string",
-            databaseFlags: {
-                A: "Test string"
-            },
-            deleteTime: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            gceZone: "Test string",
-            instanceType: "Test string",
-            ipAddress: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            machineConfig: {
-                cpuCount: 42,
-            },
-            name: "Test string",
-            nodes: [
-                {
-                    id: "Test string",
-                    ip: "Test string",
-                    state: "Test string",
-                    zoneId: "Test string",
-                }
-            ],
-            queryInsightsConfig: {
-                queryPlansPerMinute: 42,
-                queryStringLength: 42,
-                recordApplicationTags: true,
-                recordClientAddress: true,
-            },
-            readPoolConfig: {
-                nodeCount: 42,
-            },
-            reconciling: true,
-            satisfiesPzs: true,
-            state: "Test string",
-            uid: "Test string",
-            updatePolicy: {
-                mode: "Test string",
-            },
-            updateTime: "Test string",
-            writableNode: {
-                id: "Test string",
-                ip: "Test string",
-                state: "Test string",
-                zoneId: "Test string",
-            },
-        });
-        /** Restart an Instance in a cluster. Imperative only. */
-        await gapi.client.alloydb.projects.locations.clusters.instances.restart({
-            name: "Test string",
-        }, {
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Creates a new User in a given project, location, and cluster. */
-        await gapi.client.alloydb.projects.locations.clusters.users.create({
-            parent: "Test string",
-            requestId: "Test string",
-            userId: "Test string",
-            validateOnly: true,
-        }, {
-            databaseRoles: [
-                "Test string"
-            ],
-            name: "Test string",
-            password: "Test string",
-            userType: "Test string",
-        });
-        /** Deletes a single User. */
-        await gapi.client.alloydb.projects.locations.clusters.users.delete({
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single User. */
-        await gapi.client.alloydb.projects.locations.clusters.users.get({
-            name: "Test string",
-        });
-        /** Lists Users in a given project and location. */
-        await gapi.client.alloydb.projects.locations.clusters.users.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single User. */
-        await gapi.client.alloydb.projects.locations.clusters.users.patch({
-            allowMissing: true,
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            databaseRoles: [
-                "Test string"
-            ],
-            name: "Test string",
-            password: "Test string",
-            userType: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.alloydb.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.alloydb.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.alloydb.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.alloydb.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Lists SupportedDatabaseFlags for a given project and location. */
-        await gapi.client.alloydb.projects.locations.supportedDatabaseFlags.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.alloydb.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.alloydb.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new Backup in a given project and location. */
+    await gapi.client.alloydb.projects.locations.backups.create(
+      {
+        backupId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        clusterName: 'Test string',
+        clusterUid: 'Test string',
+        createTime: 'Test string',
+        databaseVersion: 'Test string',
+        deleteTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        encryptionConfig: {
+          kmsKeyName: 'Test string',
+        },
+        encryptionInfo: {
+          encryptionType: 'Test string',
+          kmsKeyVersions: ['Test string'],
+        },
+        etag: 'Test string',
+        expiryQuantity: {
+          retentionCount: 42,
+          totalRetentionCount: 42,
+        },
+        expiryTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        reconciling: true,
+        satisfiesPzs: true,
+        sizeBytes: 'Test string',
+        state: 'Test string',
+        type: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single Backup. */
+    await gapi.client.alloydb.projects.locations.backups.delete({
+      etag: 'Test string',
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets details of a single Backup. */
+    await gapi.client.alloydb.projects.locations.backups.get({
+      name: 'Test string',
+    });
+    /** Lists Backups in a given project and location. */
+    await gapi.client.alloydb.projects.locations.backups.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single Backup. */
+    await gapi.client.alloydb.projects.locations.backups.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        clusterName: 'Test string',
+        clusterUid: 'Test string',
+        createTime: 'Test string',
+        databaseVersion: 'Test string',
+        deleteTime: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        encryptionConfig: {
+          kmsKeyName: 'Test string',
+        },
+        encryptionInfo: {
+          encryptionType: 'Test string',
+          kmsKeyVersions: ['Test string'],
+        },
+        etag: 'Test string',
+        expiryQuantity: {
+          retentionCount: 42,
+          totalRetentionCount: 42,
+        },
+        expiryTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        reconciling: true,
+        satisfiesPzs: true,
+        sizeBytes: 'Test string',
+        state: 'Test string',
+        type: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a new Cluster in a given project and location. */
+    await gapi.client.alloydb.projects.locations.clusters.create(
+      {
+        clusterId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        automatedBackupPolicy: {
+          backupWindow: 'Test string',
+          enabled: true,
+          encryptionConfig: {
+            kmsKeyName: 'Test string',
+          },
+          labels: {
+            A: 'Test string',
+          },
+          location: 'Test string',
+          quantityBasedRetention: {
+            count: 42,
+          },
+          timeBasedRetention: {
+            retentionPeriod: 'Test string',
+          },
+          weeklySchedule: {
+            daysOfWeek: ['Test string'],
+            startTimes: [
+              {
+                hours: 42,
+                minutes: 42,
+                nanos: 42,
+                seconds: 42,
+              },
+            ],
+          },
+        },
+        backupSource: {
+          backupName: 'Test string',
+          backupUid: 'Test string',
+        },
+        clusterType: 'Test string',
+        continuousBackupConfig: {
+          enabled: true,
+          encryptionConfig: {
+            kmsKeyName: 'Test string',
+          },
+          recoveryWindowDays: 42,
+        },
+        continuousBackupInfo: {
+          earliestRestorableTime: 'Test string',
+          enabledTime: 'Test string',
+          encryptionInfo: {
+            encryptionType: 'Test string',
+            kmsKeyVersions: ['Test string'],
+          },
+          schedule: ['Test string'],
+        },
+        createTime: 'Test string',
+        databaseVersion: 'Test string',
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        encryptionConfig: {
+          kmsKeyName: 'Test string',
+        },
+        encryptionInfo: {
+          encryptionType: 'Test string',
+          kmsKeyVersions: ['Test string'],
+        },
+        etag: 'Test string',
+        initialUser: {
+          password: 'Test string',
+          user: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        migrationSource: {
+          hostPort: 'Test string',
+          referenceId: 'Test string',
+          sourceType: 'Test string',
+        },
+        name: 'Test string',
+        network: 'Test string',
+        networkConfig: {
+          allocatedIpRange: 'Test string',
+          network: 'Test string',
+        },
+        primaryConfig: {
+          secondaryClusterNames: ['Test string'],
+        },
+        pscConfig: {
+          pscEnabled: true,
+        },
+        reconciling: true,
+        satisfiesPzs: true,
+        secondaryConfig: {
+          primaryClusterName: 'Test string',
+        },
+        sslConfig: {
+          caSource: 'Test string',
+          sslMode: 'Test string',
+        },
+        state: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a cluster of type SECONDARY in the given location using the primary cluster as the source. */
+    await gapi.client.alloydb.projects.locations.clusters.createsecondary(
+      {
+        clusterId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        automatedBackupPolicy: {
+          backupWindow: 'Test string',
+          enabled: true,
+          encryptionConfig: {
+            kmsKeyName: 'Test string',
+          },
+          labels: {
+            A: 'Test string',
+          },
+          location: 'Test string',
+          quantityBasedRetention: {
+            count: 42,
+          },
+          timeBasedRetention: {
+            retentionPeriod: 'Test string',
+          },
+          weeklySchedule: {
+            daysOfWeek: ['Test string'],
+            startTimes: [
+              {
+                hours: 42,
+                minutes: 42,
+                nanos: 42,
+                seconds: 42,
+              },
+            ],
+          },
+        },
+        backupSource: {
+          backupName: 'Test string',
+          backupUid: 'Test string',
+        },
+        clusterType: 'Test string',
+        continuousBackupConfig: {
+          enabled: true,
+          encryptionConfig: {
+            kmsKeyName: 'Test string',
+          },
+          recoveryWindowDays: 42,
+        },
+        continuousBackupInfo: {
+          earliestRestorableTime: 'Test string',
+          enabledTime: 'Test string',
+          encryptionInfo: {
+            encryptionType: 'Test string',
+            kmsKeyVersions: ['Test string'],
+          },
+          schedule: ['Test string'],
+        },
+        createTime: 'Test string',
+        databaseVersion: 'Test string',
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        encryptionConfig: {
+          kmsKeyName: 'Test string',
+        },
+        encryptionInfo: {
+          encryptionType: 'Test string',
+          kmsKeyVersions: ['Test string'],
+        },
+        etag: 'Test string',
+        initialUser: {
+          password: 'Test string',
+          user: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        migrationSource: {
+          hostPort: 'Test string',
+          referenceId: 'Test string',
+          sourceType: 'Test string',
+        },
+        name: 'Test string',
+        network: 'Test string',
+        networkConfig: {
+          allocatedIpRange: 'Test string',
+          network: 'Test string',
+        },
+        primaryConfig: {
+          secondaryClusterNames: ['Test string'],
+        },
+        pscConfig: {
+          pscEnabled: true,
+        },
+        reconciling: true,
+        satisfiesPzs: true,
+        secondaryConfig: {
+          primaryClusterName: 'Test string',
+        },
+        sslConfig: {
+          caSource: 'Test string',
+          sslMode: 'Test string',
+        },
+        state: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single Cluster. */
+    await gapi.client.alloydb.projects.locations.clusters.delete({
+      etag: 'Test string',
+      force: true,
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Generate a client certificate signed by a Cluster CA. The sole purpose of this endpoint is to support AlloyDB connectors and the Auth Proxy client. The endpoint's behavior is subject to change without notice, so do not rely on its behavior remaining constant. Future changes will not break AlloyDB connectors or the Auth Proxy client. */
+    await gapi.client.alloydb.projects.locations.clusters.generateClientCertificate(
+      {
+        parent: 'Test string',
+      },
+      {
+        certDuration: 'Test string',
+        pemCsr: 'Test string',
+        publicKey: 'Test string',
+        requestId: 'Test string',
+        useMetadataExchange: true,
+      }
+    );
+    /** Gets details of a single Cluster. */
+    await gapi.client.alloydb.projects.locations.clusters.get({
+      name: 'Test string',
+      view: 'Test string',
+    });
+    /** Lists Clusters in a given project and location. */
+    await gapi.client.alloydb.projects.locations.clusters.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single Cluster. */
+    await gapi.client.alloydb.projects.locations.clusters.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        automatedBackupPolicy: {
+          backupWindow: 'Test string',
+          enabled: true,
+          encryptionConfig: {
+            kmsKeyName: 'Test string',
+          },
+          labels: {
+            A: 'Test string',
+          },
+          location: 'Test string',
+          quantityBasedRetention: {
+            count: 42,
+          },
+          timeBasedRetention: {
+            retentionPeriod: 'Test string',
+          },
+          weeklySchedule: {
+            daysOfWeek: ['Test string'],
+            startTimes: [
+              {
+                hours: 42,
+                minutes: 42,
+                nanos: 42,
+                seconds: 42,
+              },
+            ],
+          },
+        },
+        backupSource: {
+          backupName: 'Test string',
+          backupUid: 'Test string',
+        },
+        clusterType: 'Test string',
+        continuousBackupConfig: {
+          enabled: true,
+          encryptionConfig: {
+            kmsKeyName: 'Test string',
+          },
+          recoveryWindowDays: 42,
+        },
+        continuousBackupInfo: {
+          earliestRestorableTime: 'Test string',
+          enabledTime: 'Test string',
+          encryptionInfo: {
+            encryptionType: 'Test string',
+            kmsKeyVersions: ['Test string'],
+          },
+          schedule: ['Test string'],
+        },
+        createTime: 'Test string',
+        databaseVersion: 'Test string',
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        encryptionConfig: {
+          kmsKeyName: 'Test string',
+        },
+        encryptionInfo: {
+          encryptionType: 'Test string',
+          kmsKeyVersions: ['Test string'],
+        },
+        etag: 'Test string',
+        initialUser: {
+          password: 'Test string',
+          user: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        migrationSource: {
+          hostPort: 'Test string',
+          referenceId: 'Test string',
+          sourceType: 'Test string',
+        },
+        name: 'Test string',
+        network: 'Test string',
+        networkConfig: {
+          allocatedIpRange: 'Test string',
+          network: 'Test string',
+        },
+        primaryConfig: {
+          secondaryClusterNames: ['Test string'],
+        },
+        pscConfig: {
+          pscEnabled: true,
+        },
+        reconciling: true,
+        satisfiesPzs: true,
+        secondaryConfig: {
+          primaryClusterName: 'Test string',
+        },
+        sslConfig: {
+          caSource: 'Test string',
+          sslMode: 'Test string',
+        },
+        state: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Promotes a SECONDARY cluster. This turns down replication from the PRIMARY cluster and promotes a secondary cluster into its own standalone cluster. Imperative only. */
+    await gapi.client.alloydb.projects.locations.clusters.promote(
+      {
+        name: 'Test string',
+      },
+      {
+        etag: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Creates a new Cluster in a given project and location, with a volume restored from the provided source, either a backup ID or a point-in-time and a source cluster. */
+    await gapi.client.alloydb.projects.locations.clusters.restore(
+      {
+        parent: 'Test string',
+      },
+      {
+        backupSource: {
+          backupName: 'Test string',
+          backupUid: 'Test string',
+        },
+        cluster: {
+          annotations: {
+            A: 'Test string',
+          },
+          automatedBackupPolicy: {
+            backupWindow: 'Test string',
+            enabled: true,
+            encryptionConfig: {
+              kmsKeyName: 'Test string',
+            },
+            labels: {
+              A: 'Test string',
+            },
+            location: 'Test string',
+            quantityBasedRetention: {
+              count: 42,
+            },
+            timeBasedRetention: {
+              retentionPeriod: 'Test string',
+            },
+            weeklySchedule: {
+              daysOfWeek: ['Test string'],
+              startTimes: [
+                {
+                  hours: 42,
+                  minutes: 42,
+                  nanos: 42,
+                  seconds: 42,
+                },
+              ],
+            },
+          },
+          backupSource: {
+            backupName: 'Test string',
+            backupUid: 'Test string',
+          },
+          clusterType: 'Test string',
+          continuousBackupConfig: {
+            enabled: true,
+            encryptionConfig: {
+              kmsKeyName: 'Test string',
+            },
+            recoveryWindowDays: 42,
+          },
+          continuousBackupInfo: {
+            earliestRestorableTime: 'Test string',
+            enabledTime: 'Test string',
+            encryptionInfo: {
+              encryptionType: 'Test string',
+              kmsKeyVersions: ['Test string'],
+            },
+            schedule: ['Test string'],
+          },
+          createTime: 'Test string',
+          databaseVersion: 'Test string',
+          deleteTime: 'Test string',
+          displayName: 'Test string',
+          encryptionConfig: {
+            kmsKeyName: 'Test string',
+          },
+          encryptionInfo: {
+            encryptionType: 'Test string',
+            kmsKeyVersions: ['Test string'],
+          },
+          etag: 'Test string',
+          initialUser: {
+            password: 'Test string',
+            user: 'Test string',
+          },
+          labels: {
+            A: 'Test string',
+          },
+          migrationSource: {
+            hostPort: 'Test string',
+            referenceId: 'Test string',
+            sourceType: 'Test string',
+          },
+          name: 'Test string',
+          network: 'Test string',
+          networkConfig: {
+            allocatedIpRange: 'Test string',
+            network: 'Test string',
+          },
+          primaryConfig: {
+            secondaryClusterNames: ['Test string'],
+          },
+          pscConfig: {
+            pscEnabled: true,
+          },
+          reconciling: true,
+          satisfiesPzs: true,
+          secondaryConfig: {
+            primaryClusterName: 'Test string',
+          },
+          sslConfig: {
+            caSource: 'Test string',
+            sslMode: 'Test string',
+          },
+          state: 'Test string',
+          uid: 'Test string',
+          updateTime: 'Test string',
+        },
+        clusterId: 'Test string',
+        continuousBackupSource: {
+          cluster: 'Test string',
+          pointInTime: 'Test string',
+        },
+        requestId: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Creates a new Instance in a given project and location. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.create(
+      {
+        instanceId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        availabilityType: 'Test string',
+        clientConnectionConfig: {
+          requireConnectors: true,
+          sslConfig: {
+            caSource: 'Test string',
+            sslMode: 'Test string',
+          },
+        },
+        createTime: 'Test string',
+        databaseFlags: {
+          A: 'Test string',
+        },
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        gceZone: 'Test string',
+        instanceType: 'Test string',
+        ipAddress: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        machineConfig: {
+          cpuCount: 42,
+        },
+        name: 'Test string',
+        nodes: [
+          {
+            id: 'Test string',
+            ip: 'Test string',
+            state: 'Test string',
+            zoneId: 'Test string',
+          },
+        ],
+        queryInsightsConfig: {
+          queryPlansPerMinute: 42,
+          queryStringLength: 42,
+          recordApplicationTags: true,
+          recordClientAddress: true,
+        },
+        readPoolConfig: {
+          nodeCount: 42,
+        },
+        reconciling: true,
+        satisfiesPzs: true,
+        state: 'Test string',
+        uid: 'Test string',
+        updatePolicy: {
+          mode: 'Test string',
+        },
+        updateTime: 'Test string',
+        writableNode: {
+          id: 'Test string',
+          ip: 'Test string',
+          state: 'Test string',
+          zoneId: 'Test string',
+        },
+      }
+    );
+    /** Creates a new SECONDARY Instance in a given project and location. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.createsecondary(
+      {
+        instanceId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        availabilityType: 'Test string',
+        clientConnectionConfig: {
+          requireConnectors: true,
+          sslConfig: {
+            caSource: 'Test string',
+            sslMode: 'Test string',
+          },
+        },
+        createTime: 'Test string',
+        databaseFlags: {
+          A: 'Test string',
+        },
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        gceZone: 'Test string',
+        instanceType: 'Test string',
+        ipAddress: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        machineConfig: {
+          cpuCount: 42,
+        },
+        name: 'Test string',
+        nodes: [
+          {
+            id: 'Test string',
+            ip: 'Test string',
+            state: 'Test string',
+            zoneId: 'Test string',
+          },
+        ],
+        queryInsightsConfig: {
+          queryPlansPerMinute: 42,
+          queryStringLength: 42,
+          recordApplicationTags: true,
+          recordClientAddress: true,
+        },
+        readPoolConfig: {
+          nodeCount: 42,
+        },
+        reconciling: true,
+        satisfiesPzs: true,
+        state: 'Test string',
+        uid: 'Test string',
+        updatePolicy: {
+          mode: 'Test string',
+        },
+        updateTime: 'Test string',
+        writableNode: {
+          id: 'Test string',
+          ip: 'Test string',
+          state: 'Test string',
+          zoneId: 'Test string',
+        },
+      }
+    );
+    /** Deletes a single Instance. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.delete({
+      etag: 'Test string',
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Forces a Failover for a highly available instance. Failover promotes the HA standby instance as the new primary. Imperative only. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.failover(
+      {
+        name: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Gets details of a single Instance. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.get({
+      name: 'Test string',
+      view: 'Test string',
+    });
+    /** Get instance metadata used for a connection. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.getConnectionInfo(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Injects fault in an instance. Imperative only. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.injectFault(
+      {
+        name: 'Test string',
+      },
+      {
+        faultType: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Lists Instances in a given project and location. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single Instance. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        availabilityType: 'Test string',
+        clientConnectionConfig: {
+          requireConnectors: true,
+          sslConfig: {
+            caSource: 'Test string',
+            sslMode: 'Test string',
+          },
+        },
+        createTime: 'Test string',
+        databaseFlags: {
+          A: 'Test string',
+        },
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        gceZone: 'Test string',
+        instanceType: 'Test string',
+        ipAddress: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        machineConfig: {
+          cpuCount: 42,
+        },
+        name: 'Test string',
+        nodes: [
+          {
+            id: 'Test string',
+            ip: 'Test string',
+            state: 'Test string',
+            zoneId: 'Test string',
+          },
+        ],
+        queryInsightsConfig: {
+          queryPlansPerMinute: 42,
+          queryStringLength: 42,
+          recordApplicationTags: true,
+          recordClientAddress: true,
+        },
+        readPoolConfig: {
+          nodeCount: 42,
+        },
+        reconciling: true,
+        satisfiesPzs: true,
+        state: 'Test string',
+        uid: 'Test string',
+        updatePolicy: {
+          mode: 'Test string',
+        },
+        updateTime: 'Test string',
+        writableNode: {
+          id: 'Test string',
+          ip: 'Test string',
+          state: 'Test string',
+          zoneId: 'Test string',
+        },
+      }
+    );
+    /** Restart an Instance in a cluster. Imperative only. */
+    await gapi.client.alloydb.projects.locations.clusters.instances.restart(
+      {
+        name: 'Test string',
+      },
+      {
+        requestId: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Creates a new User in a given project, location, and cluster. */
+    await gapi.client.alloydb.projects.locations.clusters.users.create(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+        userId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        databaseRoles: ['Test string'],
+        name: 'Test string',
+        password: 'Test string',
+        userType: 'Test string',
+      }
+    );
+    /** Deletes a single User. */
+    await gapi.client.alloydb.projects.locations.clusters.users.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets details of a single User. */
+    await gapi.client.alloydb.projects.locations.clusters.users.get({
+      name: 'Test string',
+    });
+    /** Lists Users in a given project and location. */
+    await gapi.client.alloydb.projects.locations.clusters.users.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single User. */
+    await gapi.client.alloydb.projects.locations.clusters.users.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        databaseRoles: ['Test string'],
+        name: 'Test string',
+        password: 'Test string',
+        userType: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.alloydb.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.alloydb.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.alloydb.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.alloydb.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Lists SupportedDatabaseFlags for a given project and location. */
+    await gapi.client.alloydb.projects.locations.supportedDatabaseFlags.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+  }
 });

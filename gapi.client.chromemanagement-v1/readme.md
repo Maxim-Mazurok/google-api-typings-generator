@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://chromemanagement.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.chromemanagement
-});
+gapi.client.load(
+  'https://chromemanagement.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.chromemanagement
+  }
+);
 ```
 
 ```typescript
@@ -45,30 +48,32 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See detailed information about apps installed on Chrome browsers and devices managed by your organization
-      'https://www.googleapis.com/auth/chrome.management.appdetails.readonly',
+    // See detailed information about apps installed on Chrome browsers and devices managed by your organization
+    'https://www.googleapis.com/auth/chrome.management.appdetails.readonly',
 
-      // See reports about devices and Chrome browsers managed within your organization
-      'https://www.googleapis.com/auth/chrome.management.reports.readonly',
+    // See reports about devices and Chrome browsers managed within your organization
+    'https://www.googleapis.com/auth/chrome.management.reports.readonly',
 
-      // See basic device and telemetry information collected from Chrome OS devices or users managed within your organization
-      'https://www.googleapis.com/auth/chrome.management.telemetry.readonly',
-    ],
-    immediate = true;
+    // See basic device and telemetry information collected from Chrome OS devices or users managed within your organization
+    'https://www.googleapis.com/auth/chrome.management.telemetry.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Chrome Management API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

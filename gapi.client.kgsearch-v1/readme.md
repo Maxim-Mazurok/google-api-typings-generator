@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://kgsearch.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.kgsearch
-});
+gapi.client.load(
+  'https://kgsearch.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.kgsearch
+  }
+);
 ```
 
 ```typescript
@@ -39,14 +42,11 @@ gapi.client.load('kgsearch', 'v1', () => {
 });
 ```
 
-
-
 After that you can use Knowledge Graph Search API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Searches Knowledge Graph for entities that match the constraints. A list of matched entities will be returned in response, which will be in JSON-LD format and compatible with http://schema.org
 */
-await gapi.client.kgsearch.entities.search({  });
+await gapi.client.kgsearch.entities.search({});
 ```

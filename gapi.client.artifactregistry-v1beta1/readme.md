@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://artifactregistry.googleapis.com/$discovery/rest?version=v1beta1', () => {
-  // now we can use:
-  // gapi.client.artifactregistry
-});
+gapi.client.load(
+  'https://artifactregistry.googleapis.com/$discovery/rest?version=v1beta1',
+  () => {
+    // now we can use:
+    // gapi.client.artifactregistry
+  }
+);
 ```
 
 ```typescript
@@ -45,27 +48,29 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View your data across Google Cloud services and see the email address of your Google Account
-      'https://www.googleapis.com/auth/cloud-platform.read-only',
-    ],
-    immediate = true;
+    // View your data across Google Cloud services and see the email address of your Google Account
+    'https://www.googleapis.com/auth/cloud-platform.read-only',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Artifact Registry API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

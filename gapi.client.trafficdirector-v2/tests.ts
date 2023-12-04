@@ -6,86 +6,89 @@
 // Revision: 20231108
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://trafficdirector.googleapis.com/$discovery/rest?version=v2');
-    /** now we can use gapi.client.trafficdirector */
+  await gapi.client.load(
+    'https://trafficdirector.googleapis.com/$discovery/rest?version=v2'
+  );
+  /** now we can use gapi.client.trafficdirector */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        await gapi.client.trafficdirector.discovery.client_status({
-        }, {
-            nodeMatchers: [
-                {
-                    nodeId: {
-                        exact: "Test string",
-                        ignoreCase: true,
-                        prefix: "Test string",
-                        regex: "Test string",
-                        safeRegex: {
-                            googleRe2: {
-                                maxProgramSize: 42,
-                            },
-                            regex: "Test string",
-                        },
-                        suffix: "Test string",
-                    },
-                    nodeMetadatas: [
-                        {
-                            path: [
-                                {
-                                    key: "Test string",
-                                }
-                            ],
-                            value: {
-                                boolMatch: true,
-                                doubleMatch: {
-                                    exact: 42,
-                                    range: {
-                                        end: 42,
-                                        start: 42,
-                                    },
-                                },
-                                listMatch: {
-                                    oneOf: undefined,
-                                },
-                                nullMatch: {
-                                },
-                                presentMatch: true,
-                                stringMatch: {
-                                    exact: "Test string",
-                                    ignoreCase: true,
-                                    prefix: "Test string",
-                                    regex: "Test string",
-                                    safeRegex: {
-                                        googleRe2: {
-                                            maxProgramSize: 42,
-                                        },
-                                        regex: "Test string",
-                                    },
-                                    suffix: "Test string",
-                                },
-                            },
-                        }
-                    ],
-                }
-            ],
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    await gapi.client.trafficdirector.discovery.client_status(
+      {},
+      {
+        nodeMatchers: [
+          {
+            nodeId: {
+              exact: 'Test string',
+              ignoreCase: true,
+              prefix: 'Test string',
+              regex: 'Test string',
+              safeRegex: {
+                googleRe2: {
+                  maxProgramSize: 42,
+                },
+                regex: 'Test string',
+              },
+              suffix: 'Test string',
+            },
+            nodeMetadatas: [
+              {
+                path: [
+                  {
+                    key: 'Test string',
+                  },
+                ],
+                value: {
+                  boolMatch: true,
+                  doubleMatch: {
+                    exact: 42,
+                    range: {
+                      end: 42,
+                      start: 42,
+                    },
+                  },
+                  listMatch: {
+                    oneOf: undefined,
+                  },
+                  nullMatch: {},
+                  presentMatch: true,
+                  stringMatch: {
+                    exact: 'Test string',
+                    ignoreCase: true,
+                    prefix: 'Test string',
+                    regex: 'Test string',
+                    safeRegex: {
+                      googleRe2: {
+                        maxProgramSize: 42,
+                      },
+                      regex: 'Test string',
+                    },
+                    suffix: 'Test string',
+                  },
+                },
+              },
+            ],
+          },
+        ],
+      }
+    );
+  }
 });

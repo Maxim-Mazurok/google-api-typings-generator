@@ -6,125 +6,121 @@
 // Revision: 20231127
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://places.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.places */
+  await gapi.client.load(
+    'https://places.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.places */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-        /** Private Service: https://www.googleapis.com/auth/maps-platform.places */
-        'https://www.googleapis.com/auth/maps-platform.places',
-        /** Private Service: https://www.googleapis.com/auth/maps-platform.places.details */
-        'https://www.googleapis.com/auth/maps-platform.places.details',
-        /** Private Service: https://www.googleapis.com/auth/maps-platform.places.nearbysearch */
-        'https://www.googleapis.com/auth/maps-platform.places.nearbysearch',
-        /** Private Service: https://www.googleapis.com/auth/maps-platform.places.textsearch */
-        'https://www.googleapis.com/auth/maps-platform.places.textsearch',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Get place details with a place id (in a name) string. */
-        await gapi.client.places.places.get({
-            languageCode: "Test string",
-            name: "Test string",
-            regionCode: "Test string",
-        });
-        /** Search for places near locations. */
-        await gapi.client.places.places.searchNearby({
-        }, {
-            excludedPrimaryTypes: [
-                "Test string"
-            ],
-            excludedTypes: [
-                "Test string"
-            ],
-            includedPrimaryTypes: [
-                "Test string"
-            ],
-            includedTypes: [
-                "Test string"
-            ],
-            languageCode: "Test string",
-            locationRestriction: {
-                circle: {
-                    center: {
-                        latitude: 42,
-                        longitude: 42,
-                    },
-                    radius: 42,
-                },
-            },
-            maxResultCount: 42,
-            rankPreference: "Test string",
-            regionCode: "Test string",
-        });
-        /** Text query based place search. */
-        await gapi.client.places.places.searchText({
-        }, {
-            includedType: "Test string",
-            languageCode: "Test string",
-            locationBias: {
-                circle: {
-                    center: {
-                        latitude: 42,
-                        longitude: 42,
-                    },
-                    radius: 42,
-                },
-                rectangle: {
-                    high: {
-                        latitude: 42,
-                        longitude: 42,
-                    },
-                    low: {
-                        latitude: 42,
-                        longitude: 42,
-                    },
-                },
-            },
-            locationRestriction: {
-                rectangle: {
-                    high: {
-                        latitude: 42,
-                        longitude: 42,
-                    },
-                    low: {
-                        latitude: 42,
-                        longitude: 42,
-                    },
-                },
-            },
-            maxResultCount: 42,
-            minRating: 42,
-            openNow: true,
-            priceLevels: [
-                "Test string"
-            ],
-            rankPreference: "Test string",
-            regionCode: "Test string",
-            strictTypeFiltering: true,
-            textQuery: "Test string",
-        });
-        /** Get a photo media with a photo reference string. */
-        await gapi.client.places.places.photos.getMedia({
-            maxHeightPx: 42,
-            maxWidthPx: 42,
-            name: "Test string",
-            skipHttpRedirect: true,
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+    /** Private Service: https://www.googleapis.com/auth/maps-platform.places */
+    'https://www.googleapis.com/auth/maps-platform.places',
+    /** Private Service: https://www.googleapis.com/auth/maps-platform.places.details */
+    'https://www.googleapis.com/auth/maps-platform.places.details',
+    /** Private Service: https://www.googleapis.com/auth/maps-platform.places.nearbysearch */
+    'https://www.googleapis.com/auth/maps-platform.places.nearbysearch',
+    /** Private Service: https://www.googleapis.com/auth/maps-platform.places.textsearch */
+    'https://www.googleapis.com/auth/maps-platform.places.textsearch',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Get place details with a place id (in a name) string. */
+    await gapi.client.places.places.get({
+      languageCode: 'Test string',
+      name: 'Test string',
+      regionCode: 'Test string',
+    });
+    /** Search for places near locations. */
+    await gapi.client.places.places.searchNearby(
+      {},
+      {
+        excludedPrimaryTypes: ['Test string'],
+        excludedTypes: ['Test string'],
+        includedPrimaryTypes: ['Test string'],
+        includedTypes: ['Test string'],
+        languageCode: 'Test string',
+        locationRestriction: {
+          circle: {
+            center: {
+              latitude: 42,
+              longitude: 42,
+            },
+            radius: 42,
+          },
+        },
+        maxResultCount: 42,
+        rankPreference: 'Test string',
+        regionCode: 'Test string',
+      }
+    );
+    /** Text query based place search. */
+    await gapi.client.places.places.searchText(
+      {},
+      {
+        includedType: 'Test string',
+        languageCode: 'Test string',
+        locationBias: {
+          circle: {
+            center: {
+              latitude: 42,
+              longitude: 42,
+            },
+            radius: 42,
+          },
+          rectangle: {
+            high: {
+              latitude: 42,
+              longitude: 42,
+            },
+            low: {
+              latitude: 42,
+              longitude: 42,
+            },
+          },
+        },
+        locationRestriction: {
+          rectangle: {
+            high: {
+              latitude: 42,
+              longitude: 42,
+            },
+            low: {
+              latitude: 42,
+              longitude: 42,
+            },
+          },
+        },
+        maxResultCount: 42,
+        minRating: 42,
+        openNow: true,
+        priceLevels: ['Test string'],
+        rankPreference: 'Test string',
+        regionCode: 'Test string',
+        strictTypeFiltering: true,
+        textQuery: 'Test string',
+      }
+    );
+    /** Get a photo media with a photo reference string. */
+    await gapi.client.places.places.photos.getMedia({
+      maxHeightPx: 42,
+      maxWidthPx: 42,
+      name: 'Test string',
+      skipHttpRedirect: true,
+    });
+  }
 });

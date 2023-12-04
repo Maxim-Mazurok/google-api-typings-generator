@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://adexchangebuyer.googleapis.com/$discovery/rest?version=v2beta1', () => {
-  // now we can use:
-  // gapi.client.adexchangebuyer2
-});
+gapi.client.load(
+  'https://adexchangebuyer.googleapis.com/$discovery/rest?version=v2beta1',
+  () => {
+    // now we can use:
+    // gapi.client.adexchangebuyer2
+  }
+);
 ```
 
 ```typescript
@@ -45,24 +48,26 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // Manage your Ad Exchange buyer account configuration
-      'https://www.googleapis.com/auth/adexchange.buyer',
-    ],
-    immediate = true;
+    // Manage your Ad Exchange buyer account configuration
+    'https://www.googleapis.com/auth/adexchange.buyer',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Ad Exchange Buyer API II resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

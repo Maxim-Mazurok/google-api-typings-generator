@@ -14,1457 +14,996 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Workload Manager API v1 */
-    function load(urlOrObject: "https://workloadmanager.googleapis.com/$discovery/rest?version=v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "workloadmanager", version: "v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "workloadmanager", version: "v1", callback: () => any): void;
+  /** Load Workload Manager API v1 */
+  function load(
+    urlOrObject: 'https://workloadmanager.googleapis.com/$discovery/rest?version=v1'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'workloadmanager', version: 'v1'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'workloadmanager',
+    version: 'v1',
+    callback: () => any
+  ): void;
 
-    namespace workloadmanager {
-        // tslint:disable-next-line:no-empty-interface
-        interface CancelOperationRequest {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface Empty {
-        }
-        interface Evaluation {
-            /** Output only. [Output only] Create time stamp */
-            createTime?:
-                string;
-            /** The Cloud Storage bucket name for custom rules. */
-            customRulesBucket?:
-                string;
-            /** Description of the Evaluation */
-            description?:
-                string;
-            /** Labels as key value pairs */
-            labels?:
-                { [P in string]: string };
-            /** name of resource names have the form 'projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}' */
-            name?:
-                string;
-            /** annotations as key value pairs */
-            resourceFilter?:
-                ResourceFilter;
-            /** Output only. [Output only] The updated rule ids if exist. */
-            resourceStatus?:
-                ResourceStatus;
-            /** the name of the rule */
-            ruleNames?:
-                string[];
-            /** Output only. [Output only] The updated rule ids if exist. */
-            ruleVersions?:
-                string[];
-            /** crontab format schedule for scheduled evaluation, currently only support the following schedule: "0 *‍/1 * * *", "0 *‍/6 * * *", "0 *‍/12 * * *", "0 0 *‍/1 * *", "0 0 *‍/7 * *", */
-            schedule?:
-                string;
-            /** Output only. [Output only] Update time stamp */
-            updateTime?:
-                string;
-        }
-        interface Execution {
-            /** Output only. [Output only] End time stamp */
-            endTime?:
-                string;
-            /** Output only. [Output only] Evaluation ID */
-            evaluationId?:
-                string;
-            /** Output only. [Output only] Inventory time stamp */
-            inventoryTime?:
-                string;
-            /** Labels as key value pairs */
-            labels?:
-                { [P in string]: string };
-            /** The name of execution resource. The format is projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution} */
-            name?:
-                string;
-            /** type represent whether the execution executed directly by user or scheduled according evaluation.schedule field. */
-            runType?:
-                string;
-            /** Output only. [Output only] Start time stamp */
-            startTime?:
-                string;
-            /** Output only. [Output only] State */
-            state?:
-                string;
-        }
-        interface ExecutionResult {
-            /** the document url of the rule */
-            documentationUrl?:
-                string;
-            /** the violate resource */
-            resource?:
-                Resource;
-            /** the rule which violate in execution */
-            rule?:
-                string;
-            /** severity of violation */
-            severity?:
-                string;
-            /** the details of violation in result */
-            violationDetails?:
-                ViolationDetails;
-            /** the violation message of an execution */
-            violationMessage?:
-                string;
-        }
-        interface GceInstanceFilter {
-            /** Service account of compute engine */
-            serviceAccounts?:
-                string[];
-        }
-        interface Insight {
-            /** Required. The instance id where the insight is generated from */
-            instanceId?:
-                string;
-            /** The insights data for SAP system discovery. This is a copy of SAP System proto and should get updated whenever that one changes. */
-            sapDiscovery?:
-                SapDiscovery;
-            /** The insights data for the SAP workload validation. */
-            sapValidation?:
-                SapValidation;
-            /** Output only. [Output only] Create time stamp */
-            sentTime?:
-                string;
-            /** The insights data for the sqlserver workload validation. */
-            sqlserverValidation?:
-                SqlserverValidation;
-        }
-        interface ListEvaluationsResponse {
-            /** The list of Evaluation */
-            evaluations?:
-                Evaluation[];
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface ListExecutionResultsResponse {
-            /** The versions from the specified publisher. */
-            executionResults?:
-                ExecutionResult[];
-            /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-        }
-        interface ListExecutionsResponse {
-            /** The list of Execution */
-            executions?:
-                Execution[];
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface ListLocationsResponse {
-            /** A list of locations that matches the specified filter in the request. */
-            locations?:
-                Location[];
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-        }
-        interface ListOperationsResponse {
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-            /** A list of operations that matches the specified filter in the request. */
-            operations?:
-                Operation[];
-        }
-        interface ListRulesResponse {
-            /** A token identifying a page of results the server should return. */
-            nextPageToken?:
-                string;
-            /** all rules in response */
-            rules?:
-                Rule[];
-        }
-        interface ListScannedResourcesResponse {
-            /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** All scanned resources in response */
-            scannedResources?:
-                ScannedResource[];
-        }
-        interface Location {
-            /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?:
-                string;
-            /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?:
-                { [P in string]: string };
-            /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?:
-                string;
-            /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?:
-                { [P in string]: any };
-            /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?:
-                string;
-        }
-        interface Operation {
-            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?:
-                boolean;
-            /** The error result of the operation in case of failure or cancellation. */
-            error?:
-                Status;
-            /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
-             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
-             */
-            metadata?:
-                { [P in string]: any };
-            /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
-             * with `operations/{unique_id}`.
-             */
-            name?:
-                string;
-            /**
-             * The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original
-             * method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original
-             * method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
-             */
-            response?:
-                { [P in string]: any };
-        }
-        interface OperationMetadata {
-            /** Output only. API version used to start the operation. */
-            apiVersion?:
-                string;
-            /** Output only. The time the operation was created. */
-            createTime?:
-                string;
-            /** Output only. The time the operation finished running. */
-            endTime?:
-                string;
-            /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have been cancelled successfully have Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            requestedCancellation?:
-                boolean;
-            /** Output only. Human-readable status of the operation, if any. */
-            statusMessage?:
-                string;
-            /** Output only. Server-defined resource path for the target of the operation. */
-            target?:
-                string;
-            /** Output only. Name of the verb executed by the operation. */
-            verb?:
-                string;
-        }
-        interface Resource {
-            /** the name of the resource */
-            name?:
-                string;
-            /** the service account accosiate with resource */
-            serviceAccount?:
-                string;
-            /** the type of reresource */
-            type?:
-                string;
-        }
-        interface ResourceFilter {
-            /** Filter compute engine resource */
-            gceInstanceFilter?:
-                GceInstanceFilter;
-            /** The label used for filter resource */
-            inclusionLabels?:
-                { [P in string]: string };
-            /** The id pattern for filter resource */
-            resourceIdPatterns?:
-                string[];
-            /** The scopes of evaluation resource */
-            scopes?:
-                string[];
-        }
-        interface ResourceStatus {
-            /** Historical: Used before 2023-05-22 the new version of rule id if exists */
-            rulesNewerVersions?:
-                string[];
-            /** State of the resource */
-            state?:
-                string;
-        }
-        interface Rule {
-            /** descrite rule in plain language */
-            description?:
-                string;
-            /** the name display in UI */
-            displayName?:
-                string;
-            /** the message template for rule */
-            errorMessage?:
-                string;
-            /** rule name */
-            name?:
-                string;
-            /** the primary category */
-            primaryCategory?:
-                string;
-            /** the remediation for the rule */
-            remediation?:
-                string;
-            /** Output only. the version of the rule */
-            revisionId?:
-                string;
-            /** the secondary category */
-            secondaryCategory?:
-                string;
-            /** the severity of the rule */
-            severity?:
-                string;
-            /** the docuement url for the rule */
-            uri?:
-                string;
-        }
-        interface RunEvaluationRequest {
-            /** Required. The resource being created */
-            execution?:
-                Execution;
-            /** Required. Id of the requesting object If auto-generating Id server-side, remove this field and execution_id from the method_signature of Create RPC */
-            executionId?:
-                string;
-            /**
-             * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-             * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
-             * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore
-             * the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-             * (00000000-0000-0000-0000-000000000000).
-             */
-            requestId?:
-                string;
-        }
-        interface SapDiscovery {
-            /** Optional. An SAP system may run without an application layer. */
-            applicationLayer?:
-                SapDiscoveryComponent;
-            /** Required. An SAP System must have a database. */
-            databaseLayer?:
-                SapDiscoveryComponent;
-            /** Optional. The metadata for SAP system discovery data. */
-            metadata?:
-                SapDiscoveryMetadata;
-            /** Output only. A combination of database SID, database instance URI and tenant DB name to make a unique identifier per-system. */
-            systemId?:
-                string;
-            /** Required. Unix timestamp this system has been updated last. */
-            updateTime?:
-                string;
-        }
-        interface SapDiscoveryComponent {
-            /** Optional. The component is a SAP application. */
-            applicationProperties?:
-                SapDiscoveryComponentApplicationProperties;
-            /** Optional. The component is a SAP database. */
-            databaseProperties?:
-                SapDiscoveryComponentDatabaseProperties;
-            /** Required. Pantheon Project in which the resources reside. */
-            hostProject?:
-                string;
-            /** Optional. The resources in a component. */
-            resources?:
-                SapDiscoveryResource[];
-            /** Optional. The SAP identifier, used by the SAP software and helps differentiate systems for customers. */
-            sid?:
-                string;
-        }
-        interface SapDiscoveryComponentApplicationProperties {
-            /** Required. Type of the application. Netweaver, etc. */
-            applicationType?:
-                string;
-            /** Optional. Resource URI of the recognized ASCS host of the application. */
-            ascsUri?:
-                string;
-            /** Optional. Resource URI of the recognized shared NFS of the application. May be empty if the application server has only a single node. */
-            nfsUri?:
-                string;
-        }
-        interface SapDiscoveryComponentDatabaseProperties {
-            /** Required. Type of the database. HANA, DB2, etc. */
-            databaseType?:
-                string;
-            /** Required. URI of the recognized primary instance of the database. */
-            primaryInstanceUri?:
-                string;
-            /** Optional. URI of the recognized shared NFS of the database. May be empty if the database has only a single node. */
-            sharedNfsUri?:
-                string;
-        }
-        interface SapDiscoveryMetadata {
-            /** Optional. Customer region string for customer's use. Does not represent GCP region. */
-            customerRegion?:
-                string;
-            /** Optional. Customer defined, something like "E-commerce pre prod" */
-            definedSystem?:
-                string;
-            /** Optional. Should be "prod", "QA", "dev", "staging", etc. */
-            environmentType?:
-                string;
-            /** Optional. This SAP product name */
-            sapProduct?:
-                string;
-        }
-        interface SapDiscoveryResource {
-            /** Optional. A list of resource URIs related to this resource. */
-            relatedResources?:
-                string[];
-            /** Required. ComputeInstance, ComputeDisk, VPC, Bare Metal server, etc. */
-            resourceKind?:
-                string;
-            /** Required. The type of this resource. */
-            resourceType?:
-                string;
-            /** Required. URI of the resource, includes project, location, and name. */
-            resourceUri?:
-                string;
-            /** Required. Unix timestamp of when this resource last had its discovery data updated. */
-            updateTime?:
-                string;
-        }
-        interface SapValidation {
-            /** Optional. A list of SAP validation metrics data. */
-            validationDetails?:
-                SapValidationValidationDetail[];
-        }
-        interface SapValidationValidationDetail {
-            /** Optional. The pairs of metrics data: field name & field value. */
-            details?:
-                { [P in string]: string };
-            /** Optional. The SAP system that the validation data is from. */
-            sapValidationType?:
-                string;
-        }
-        interface ScannedResource {
-            /** resource name */
-            resource?:
-                string;
-        }
-        interface SqlserverValidation {
-            /** Optional. The agent version collected this data point */
-            agentVersion?:
-                string;
-            /**
-             * Required. The instance_name of the instance that the Insight data comes from. According to https://linter.aip.dev/122/name-suffix: field names should not use the _name suffix unless
-             * the field would be ambiguous without it.
-             */
-            instance?:
-                string;
-            /** Required. The project_id of the cloud project that the Insight data comes from. */
-            projectId?:
-                string;
-            /** Optional. A list of SqlServer validation metrics data. */
-            validationDetails?:
-                SqlserverValidationValidationDetail[];
-        }
-        interface SqlserverValidationDetails {
-            /** Required. Collected data is in format. */
-            fields?:
-                { [P in string]: string };
-        }
-        interface SqlserverValidationValidationDetail {
-            /** Required. Details wraps map that represents collected data names and values. */
-            details?:
-                SqlserverValidationDetails[];
-            /** Optional. The Sqlserver system that the validation data is from. */
-            type?:
-                string;
-        }
-        interface Status {
-            /** The status code, which should be an enum value of google.rpc.Code. */
-            code?:
-                number;
-            /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?:
-                Array<{ [P in string]: any }>;
-            /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
-             * client.
-             */
-            message?:
-                string;
-        }
-        interface ViolationDetails {
-            /** the name of asset */
-            asset?:
-                string;
-            /** observed */
-            observed?:
-                { [P in string]: string };
-            /** the service account associate with resource */
-            serviceAccount?:
-                string;
-        }
-        interface WriteInsightRequest {
-            /** Required. The metrics data details. */
-            insight?:
-                Insight;
-            /**
-             * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-             * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the
-             * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore
-             * the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-             * (00000000-0000-0000-0000-000000000000).
-             */
-            requestId?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface WriteInsightResponse {
-        }
-        interface ResultsResource {
-            /** List the running result of a single Execution. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Filtering results */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /** Required. The execution results. Format: {parent}/evaluations/*‍/executions/*‍/results */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListExecutionResultsResponse>;
-        }
-        interface ScannedResourcesResource {
-            /** List all scanned resources for a single Execution. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Filtering results */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Field to sort by. See https://google.aip.dev/132#ordering for more details. */
-                orderBy?:
-                    string;
-                /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /** Required. parent for ListScannedResourcesRequest */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** rule name */
-                rule?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListScannedResourcesResponse>;
-        }
-        interface ExecutionsResource {
-            /** Gets details of a single Execution. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the resource */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Execution>;
-            /** Lists Executions in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Filtering results */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Field to sort by. See https://google.aip.dev/132#ordering for more details. */
-                orderBy?:
-                    string;
-                /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /** Required. The resource prefix of the Execution using the form: 'projects/{project}/locations/{location}/evaluations/{evaluation}' */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListExecutionsResponse>;
-            /** Creates a new Execution in a given project and location. */
-            run(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The resource name of the Execution using the form: 'projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}' */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RunEvaluationRequest;
-            }): Request<Operation>;
-            run(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The resource name of the Execution using the form: 'projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}' */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RunEvaluationRequest): Request<Operation>;
-            results:
-                ResultsResource;
-            scannedResources:
-                ScannedResourcesResource;
-        }
-        interface EvaluationsResource {
-            /** Creates a new Evaluation in a given project and location. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. Id of the requesting object */
-                evaluationId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The resource prefix of the evaluation location using the form: `projects/{project_id}/locations/{location_id}` */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Evaluation;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. Id of the requesting object */
-                evaluationId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The resource prefix of the evaluation location using the form: `projects/{project_id}/locations/{location_id}` */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Evaluation): Request<Operation>;
-            /** Gets details of a single Evaluation. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the resource */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Evaluation>;
-            /** Lists Evaluations in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Filtering results */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Hint for how to order the results */
-                orderBy?:
-                    string;
-                /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /** Required. Parent value for ListEvaluationsRequest */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListEvaluationsResponse>;
-            executions:
-                ExecutionsResource;
-        }
-        interface InsightsResource {
-            /** Write the data insights to workload manager data warehouse. */
-            writeInsight(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The GCP location. The format is: projects/{project}/locations/{location}. */
-                location:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    WriteInsightRequest;
-            }): Request<{}>;
-            writeInsight(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The GCP location. The format is: projects/{project}/locations/{location}. */
-                location:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: WriteInsightRequest): Request<{}>;
-        }
-        interface OperationsResource {
-            /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
-             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
-             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    CancelOperationRequest;
-            }): Request<{}>;
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: CancelOperationRequest): Request<{}>;
-            /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
-             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-             */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be deleted. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<{}>;
-            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** The standard list filter. */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation's parent resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The standard list page size. */
-                pageSize?:
-                    number;
-                /** The standard list page token. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListOperationsResponse>;
-        }
-        interface RulesResource {
-            /** Lists rules in a given project. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** The Cloud Storage bucket name for custom rules. */
-                customRulesBucket?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Filter based on primary_category, secondary_category */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
-                pageSize?:
-                    number;
-                /** A token identifying a page of results the server should return. */
-                pageToken?:
-                    string;
-                /**
-                 * Required. The [project] on which to execute the request. The format is: projects/{project_id}/locations/{location} Currently, the pre-defined rules are global available to all
-                 * projects and all regions
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListRulesResponse>;
-        }
-        interface LocationsResource {
-            /** Gets information about a location. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Resource name for the location. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Location>;
-            /** Lists information about the supported locations for this service. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
-                 * [AIP-160](https://google.aip.dev/160).
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource that owns the locations collection, if applicable. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?:
-                    number;
-                /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListLocationsResponse>;
-            evaluations:
-                EvaluationsResource;
-            insights:
-                InsightsResource;
-            operations:
-                OperationsResource;
-            rules:
-                RulesResource;
-        }
-        interface ProjectsResource {
-            locations:
-                LocationsResource;
-        }
-
-        const projects: ProjectsResource;
+  namespace workloadmanager {
+    interface CancelOperationRequest {}
+    interface Empty {}
+    interface Evaluation {
+      /** Output only. [Output only] Create time stamp */
+      createTime?: string;
+      /** The Cloud Storage bucket name for custom rules. */
+      customRulesBucket?: string;
+      /** Description of the Evaluation */
+      description?: string;
+      /** Labels as key value pairs */
+      labels?: {[P in string]: string};
+      /** name of resource names have the form 'projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}' */
+      name?: string;
+      /** annotations as key value pairs */
+      resourceFilter?: ResourceFilter;
+      /** Output only. [Output only] The updated rule ids if exist. */
+      resourceStatus?: ResourceStatus;
+      /** the name of the rule */
+      ruleNames?: string[];
+      /** Output only. [Output only] The updated rule ids if exist. */
+      ruleVersions?: string[];
+      /** crontab format schedule for scheduled evaluation, currently only support the following schedule: "0 *‍/1 * * *", "0 *‍/6 * * *", "0 *‍/12 * * *", "0 0 *‍/1 * *", "0 0 *‍/7 * *", */
+      schedule?: string;
+      /** Output only. [Output only] Update time stamp */
+      updateTime?: string;
     }
+    interface Execution {
+      /** Output only. [Output only] End time stamp */
+      endTime?: string;
+      /** Output only. [Output only] Evaluation ID */
+      evaluationId?: string;
+      /** Output only. [Output only] Inventory time stamp */
+      inventoryTime?: string;
+      /** Labels as key value pairs */
+      labels?: {[P in string]: string};
+      /** The name of execution resource. The format is projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution} */
+      name?: string;
+      /** type represent whether the execution executed directly by user or scheduled according evaluation.schedule field. */
+      runType?: string;
+      /** Output only. [Output only] Start time stamp */
+      startTime?: string;
+      /** Output only. [Output only] State */
+      state?: string;
+    }
+    interface ExecutionResult {
+      /** the document url of the rule */
+      documentationUrl?: string;
+      /** the violate resource */
+      resource?: Resource;
+      /** the rule which violate in execution */
+      rule?: string;
+      /** severity of violation */
+      severity?: string;
+      /** the details of violation in result */
+      violationDetails?: ViolationDetails;
+      /** the violation message of an execution */
+      violationMessage?: string;
+    }
+    interface GceInstanceFilter {
+      /** Service account of compute engine */
+      serviceAccounts?: string[];
+    }
+    interface Insight {
+      /** Required. The instance id where the insight is generated from */
+      instanceId?: string;
+      /** The insights data for SAP system discovery. This is a copy of SAP System proto and should get updated whenever that one changes. */
+      sapDiscovery?: SapDiscovery;
+      /** The insights data for the SAP workload validation. */
+      sapValidation?: SapValidation;
+      /** Output only. [Output only] Create time stamp */
+      sentTime?: string;
+      /** The insights data for the sqlserver workload validation. */
+      sqlserverValidation?: SqlserverValidation;
+    }
+    interface ListEvaluationsResponse {
+      /** The list of Evaluation */
+      evaluations?: Evaluation[];
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface ListExecutionResultsResponse {
+      /** The versions from the specified publisher. */
+      executionResults?: ExecutionResult[];
+      /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+    }
+    interface ListExecutionsResponse {
+      /** The list of Execution */
+      executions?: Execution[];
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface ListLocationsResponse {
+      /** A list of locations that matches the specified filter in the request. */
+      locations?: Location[];
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+    }
+    interface ListOperationsResponse {
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+      /** A list of operations that matches the specified filter in the request. */
+      operations?: Operation[];
+    }
+    interface ListRulesResponse {
+      /** A token identifying a page of results the server should return. */
+      nextPageToken?: string;
+      /** all rules in response */
+      rules?: Rule[];
+    }
+    interface ListScannedResourcesResponse {
+      /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** All scanned resources in response */
+      scannedResources?: ScannedResource[];
+    }
+    interface Location {
+      /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
+      displayName?: string;
+      /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
+      labels?: {[P in string]: string};
+      /** The canonical id for this location. For example: `"us-east1"`. */
+      locationId?: string;
+      /** Service-specific metadata. For example the available capacity at the given location. */
+      metadata?: {[P in string]: any};
+      /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
+      name?: string;
+    }
+    interface Operation {
+      /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
+      done?: boolean;
+      /** The error result of the operation in case of failure or cancellation. */
+      error?: Status;
+      /** Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. */
+      metadata?: {[P in string]: any};
+      /** The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending with `operations/{unique_id}`. */
+      name?: string;
+      /** The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`. */
+      response?: {[P in string]: any};
+    }
+    interface OperationMetadata {
+      /** Output only. API version used to start the operation. */
+      apiVersion?: string;
+      /** Output only. The time the operation was created. */
+      createTime?: string;
+      /** Output only. The time the operation finished running. */
+      endTime?: string;
+      /** Output only. Identifies whether the user has requested cancellation of the operation. Operations that have been cancelled successfully have Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      requestedCancellation?: boolean;
+      /** Output only. Human-readable status of the operation, if any. */
+      statusMessage?: string;
+      /** Output only. Server-defined resource path for the target of the operation. */
+      target?: string;
+      /** Output only. Name of the verb executed by the operation. */
+      verb?: string;
+    }
+    interface Resource {
+      /** the name of the resource */
+      name?: string;
+      /** the service account accosiate with resource */
+      serviceAccount?: string;
+      /** the type of reresource */
+      type?: string;
+    }
+    interface ResourceFilter {
+      /** Filter compute engine resource */
+      gceInstanceFilter?: GceInstanceFilter;
+      /** The label used for filter resource */
+      inclusionLabels?: {[P in string]: string};
+      /** The id pattern for filter resource */
+      resourceIdPatterns?: string[];
+      /** The scopes of evaluation resource */
+      scopes?: string[];
+    }
+    interface ResourceStatus {
+      /** Historical: Used before 2023-05-22 the new version of rule id if exists */
+      rulesNewerVersions?: string[];
+      /** State of the resource */
+      state?: string;
+    }
+    interface Rule {
+      /** descrite rule in plain language */
+      description?: string;
+      /** the name display in UI */
+      displayName?: string;
+      /** the message template for rule */
+      errorMessage?: string;
+      /** rule name */
+      name?: string;
+      /** the primary category */
+      primaryCategory?: string;
+      /** the remediation for the rule */
+      remediation?: string;
+      /** Output only. the version of the rule */
+      revisionId?: string;
+      /** the secondary category */
+      secondaryCategory?: string;
+      /** the severity of the rule */
+      severity?: string;
+      /** the docuement url for the rule */
+      uri?: string;
+    }
+    interface RunEvaluationRequest {
+      /** Required. The resource being created */
+      execution?: Execution;
+      /** Required. Id of the requesting object If auto-generating Id server-side, remove this field and execution_id from the method_signature of Create RPC */
+      executionId?: string;
+      /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+      requestId?: string;
+    }
+    interface SapDiscovery {
+      /** Optional. An SAP system may run without an application layer. */
+      applicationLayer?: SapDiscoveryComponent;
+      /** Required. An SAP System must have a database. */
+      databaseLayer?: SapDiscoveryComponent;
+      /** Optional. The metadata for SAP system discovery data. */
+      metadata?: SapDiscoveryMetadata;
+      /** Output only. A combination of database SID, database instance URI and tenant DB name to make a unique identifier per-system. */
+      systemId?: string;
+      /** Required. Unix timestamp this system has been updated last. */
+      updateTime?: string;
+    }
+    interface SapDiscoveryComponent {
+      /** Optional. The component is a SAP application. */
+      applicationProperties?: SapDiscoveryComponentApplicationProperties;
+      /** Optional. The component is a SAP database. */
+      databaseProperties?: SapDiscoveryComponentDatabaseProperties;
+      /** Required. Pantheon Project in which the resources reside. */
+      hostProject?: string;
+      /** Optional. The resources in a component. */
+      resources?: SapDiscoveryResource[];
+      /** Optional. The SAP identifier, used by the SAP software and helps differentiate systems for customers. */
+      sid?: string;
+    }
+    interface SapDiscoveryComponentApplicationProperties {
+      /** Required. Type of the application. Netweaver, etc. */
+      applicationType?: string;
+      /** Optional. Resource URI of the recognized ASCS host of the application. */
+      ascsUri?: string;
+      /** Optional. Resource URI of the recognized shared NFS of the application. May be empty if the application server has only a single node. */
+      nfsUri?: string;
+    }
+    interface SapDiscoveryComponentDatabaseProperties {
+      /** Required. Type of the database. HANA, DB2, etc. */
+      databaseType?: string;
+      /** Required. URI of the recognized primary instance of the database. */
+      primaryInstanceUri?: string;
+      /** Optional. URI of the recognized shared NFS of the database. May be empty if the database has only a single node. */
+      sharedNfsUri?: string;
+    }
+    interface SapDiscoveryMetadata {
+      /** Optional. Customer region string for customer's use. Does not represent GCP region. */
+      customerRegion?: string;
+      /** Optional. Customer defined, something like "E-commerce pre prod" */
+      definedSystem?: string;
+      /** Optional. Should be "prod", "QA", "dev", "staging", etc. */
+      environmentType?: string;
+      /** Optional. This SAP product name */
+      sapProduct?: string;
+    }
+    interface SapDiscoveryResource {
+      /** Optional. A list of resource URIs related to this resource. */
+      relatedResources?: string[];
+      /** Required. ComputeInstance, ComputeDisk, VPC, Bare Metal server, etc. */
+      resourceKind?: string;
+      /** Required. The type of this resource. */
+      resourceType?: string;
+      /** Required. URI of the resource, includes project, location, and name. */
+      resourceUri?: string;
+      /** Required. Unix timestamp of when this resource last had its discovery data updated. */
+      updateTime?: string;
+    }
+    interface SapValidation {
+      /** Optional. A list of SAP validation metrics data. */
+      validationDetails?: SapValidationValidationDetail[];
+    }
+    interface SapValidationValidationDetail {
+      /** Optional. The pairs of metrics data: field name & field value. */
+      details?: {[P in string]: string};
+      /** Optional. The SAP system that the validation data is from. */
+      sapValidationType?: string;
+    }
+    interface ScannedResource {
+      /** resource name */
+      resource?: string;
+    }
+    interface SqlserverValidation {
+      /** Optional. The agent version collected this data point */
+      agentVersion?: string;
+      /** Required. The instance_name of the instance that the Insight data comes from. According to https://linter.aip.dev/122/name-suffix: field names should not use the _name suffix unless the field would be ambiguous without it. */
+      instance?: string;
+      /** Required. The project_id of the cloud project that the Insight data comes from. */
+      projectId?: string;
+      /** Optional. A list of SqlServer validation metrics data. */
+      validationDetails?: SqlserverValidationValidationDetail[];
+    }
+    interface SqlserverValidationDetails {
+      /** Required. Collected data is in format. */
+      fields?: {[P in string]: string};
+    }
+    interface SqlserverValidationValidationDetail {
+      /** Required. Details wraps map that represents collected data names and values. */
+      details?: SqlserverValidationDetails[];
+      /** Optional. The Sqlserver system that the validation data is from. */
+      type?: string;
+    }
+    interface Status {
+      /** The status code, which should be an enum value of google.rpc.Code. */
+      code?: number;
+      /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
+      details?: Array<{[P in string]: any}>;
+      /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
+      message?: string;
+    }
+    interface ViolationDetails {
+      /** the name of asset */
+      asset?: string;
+      /** observed */
+      observed?: {[P in string]: string};
+      /** the service account associate with resource */
+      serviceAccount?: string;
+    }
+    interface WriteInsightRequest {
+      /** Required. The metrics data details. */
+      insight?: Insight;
+      /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+      requestId?: string;
+    }
+    interface WriteInsightResponse {}
+    interface ResultsResource {
+      /** List the running result of a single Execution. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Filtering results */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. The execution results. Format: {parent}/evaluations/*‍/executions/*‍/results */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListExecutionResultsResponse>;
+    }
+    interface ScannedResourcesResource {
+      /** List all scanned resources for a single Execution. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Filtering results */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Field to sort by. See https://google.aip.dev/132#ordering for more details. */
+        orderBy?: string;
+        /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. parent for ListScannedResourcesRequest */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** rule name */
+        rule?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListScannedResourcesResponse>;
+    }
+    interface ExecutionsResource {
+      /** Gets details of a single Execution. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the resource */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Execution>;
+      /** Lists Executions in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Filtering results */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Field to sort by. See https://google.aip.dev/132#ordering for more details. */
+        orderBy?: string;
+        /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. The resource prefix of the Execution using the form: 'projects/{project}/locations/{location}/evaluations/{evaluation}' */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListExecutionsResponse>;
+      /** Creates a new Execution in a given project and location. */
+      run(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The resource name of the Execution using the form: 'projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}' */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RunEvaluationRequest;
+      }): Request<Operation>;
+      run(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The resource name of the Execution using the form: 'projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}' */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RunEvaluationRequest
+      ): Request<Operation>;
+      results: ResultsResource;
+      scannedResources: ScannedResourcesResource;
+    }
+    interface EvaluationsResource {
+      /** Creates a new Evaluation in a given project and location. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. Id of the requesting object */
+        evaluationId?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The resource prefix of the evaluation location using the form: `projects/{project_id}/locations/{location_id}` */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Evaluation;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. Id of the requesting object */
+          evaluationId?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The resource prefix of the evaluation location using the form: `projects/{project_id}/locations/{location_id}` */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Evaluation
+      ): Request<Operation>;
+      /** Gets details of a single Evaluation. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the resource */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Evaluation>;
+      /** Lists Evaluations in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Filtering results */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Hint for how to order the results */
+        orderBy?: string;
+        /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. Parent value for ListEvaluationsRequest */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListEvaluationsResponse>;
+      executions: ExecutionsResource;
+    }
+    interface InsightsResource {
+      /** Write the data insights to workload manager data warehouse. */
+      writeInsight(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The GCP location. The format is: projects/{project}/locations/{location}. */
+        location: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: WriteInsightRequest;
+      }): Request<{}>;
+      writeInsight(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The GCP location. The format is: projects/{project}/locations/{location}. */
+          location: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: WriteInsightRequest
+      ): Request<{}>;
+    }
+    interface OperationsResource {
+      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      cancel(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be cancelled. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CancelOperationRequest;
+      }): Request<{}>;
+      cancel(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of the operation resource to be cancelled. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CancelOperationRequest
+      ): Request<{}>;
+      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be deleted. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** The standard list filter. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation's parent resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The standard list page size. */
+        pageSize?: number;
+        /** The standard list page token. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListOperationsResponse>;
+    }
+    interface RulesResource {
+      /** Lists rules in a given project. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** The Cloud Storage bucket name for custom rules. */
+        customRulesBucket?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Filter based on primary_category, secondary_category */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default. */
+        pageSize?: number;
+        /** A token identifying a page of results the server should return. */
+        pageToken?: string;
+        /** Required. The [project] on which to execute the request. The format is: projects/{project_id}/locations/{location} Currently, the pre-defined rules are global available to all projects and all regions */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListRulesResponse>;
+    }
+    interface LocationsResource {
+      /** Gets information about a location. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Resource name for the location. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Location>;
+      /** Lists information about the supported locations for this service. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource that owns the locations collection, if applicable. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The maximum number of results to return. If not set, the service selects a default. */
+        pageSize?: number;
+        /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListLocationsResponse>;
+      evaluations: EvaluationsResource;
+      insights: InsightsResource;
+      operations: OperationsResource;
+      rules: RulesResource;
+    }
+    interface ProjectsResource {
+      locations: LocationsResource;
+    }
+
+    const projects: ProjectsResource;
+  }
 }

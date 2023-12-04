@@ -45,42 +45,42 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View your data across Google Cloud services and see the email address of your Google Account
-      'https://www.googleapis.com/auth/cloud-platform.read-only',
-    ],
-    immediate = true;
+    // View your data across Google Cloud services and see the email address of your Google Account
+    'https://www.googleapis.com/auth/cloud-platform.read-only',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use AI Platform Training & Prediction API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Performs explanation on the data in the request. {% dynamic include "/ai-platform/includes/___explain-request" %} 
 */
-await gapi.client.ml.projects.explain({ name: "name",  });
+await gapi.client.ml.projects.explain({name: 'name'});
 
 /*
 Get the service account information associated with your project. You need this information in order to grant the service account permissions for the Google Cloud Storage location where you put your model training code for training the model with Google Cloud Machine Learning.
 */
-await gapi.client.ml.projects.getConfig({ name: "name",  });
+await gapi.client.ml.projects.getConfig({name: 'name'});
 
 /*
 Performs online prediction on the data in the request. {% dynamic include "/ai-platform/includes/___predict-request" %} 
 */
-await gapi.client.ml.projects.predict({ name: "name",  });
+await gapi.client.ml.projects.predict({name: 'name'});
 ```

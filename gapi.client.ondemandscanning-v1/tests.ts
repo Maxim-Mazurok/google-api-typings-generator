@@ -6,146 +6,128 @@
 // Revision: 20231113
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://ondemandscanning.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.ondemandscanning */
+  await gapi.client.load(
+    'https://ondemandscanning.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.ondemandscanning */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.ondemandscanning.projects.locations.operations.cancel({
-            name: "Test string",
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.ondemandscanning.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.ondemandscanning.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.ondemandscanning.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-         * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-         * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an
-         * immediate response is no guarantee that the operation is done.
-         */
-        await gapi.client.ondemandscanning.projects.locations.operations.wait({
-            name: "Test string",
-            timeout: "Test string",
-        });
-        /** Initiates an analysis of the provided packages. */
-        await gapi.client.ondemandscanning.projects.locations.scans.analyzePackages({
-            parent: "Test string",
-        }, {
-            includeOsvData: true,
-            packages: [
-                {
-                    architecture: "Test string",
-                    binarySourceInfo: [
-                        {
-                            binaryVersion: {
-                                licenses: [
-                                    "Test string"
-                                ],
-                                name: "Test string",
-                                version: "Test string",
-                            },
-                            sourceVersion: {
-                                licenses: [
-                                    "Test string"
-                                ],
-                                name: "Test string",
-                                version: "Test string",
-                            },
-                        }
-                    ],
-                    binaryVersion: {
-                        licenses: [
-                            "Test string"
-                        ],
-                        name: "Test string",
-                        version: "Test string",
-                    },
-                    cpeUri: "Test string",
-                    dependencyChain: [
-                        {
-                            package: "Test string",
-                            version: "Test string",
-                        }
-                    ],
-                    fileLocation: [
-                        {
-                            filePath: "Test string",
-                        }
-                    ],
-                    hashDigest: "Test string",
-                    licenses: [
-                        "Test string"
-                    ],
-                    maintainer: {
-                        email: "Test string",
-                        kind: "Test string",
-                        name: "Test string",
-                        url: "Test string",
-                    },
-                    os: "Test string",
-                    osVersion: "Test string",
-                    package: "Test string",
-                    packageType: "Test string",
-                    patchedCve: [
-                        "Test string"
-                    ],
-                    sourceVersion: {
-                        licenses: [
-                            "Test string"
-                        ],
-                        name: "Test string",
-                        version: "Test string",
-                    },
-                    unused: "Test string",
-                    version: "Test string",
-                }
-            ],
-            resourceUri: "Test string",
-        });
-        /** Lists vulnerabilities resulting from a successfully completed scan. */
-        await gapi.client.ondemandscanning.projects.locations.scans.vulnerabilities.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.ondemandscanning.projects.locations.operations.cancel({
+      name: 'Test string',
+    });
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.ondemandscanning.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.ondemandscanning.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.ondemandscanning.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.ondemandscanning.projects.locations.operations.wait({
+      name: 'Test string',
+      timeout: 'Test string',
+    });
+    /** Initiates an analysis of the provided packages. */
+    await gapi.client.ondemandscanning.projects.locations.scans.analyzePackages(
+      {
+        parent: 'Test string',
+      },
+      {
+        includeOsvData: true,
+        packages: [
+          {
+            architecture: 'Test string',
+            binarySourceInfo: [
+              {
+                binaryVersion: {
+                  licenses: ['Test string'],
+                  name: 'Test string',
+                  version: 'Test string',
+                },
+                sourceVersion: {
+                  licenses: ['Test string'],
+                  name: 'Test string',
+                  version: 'Test string',
+                },
+              },
+            ],
+            binaryVersion: {
+              licenses: ['Test string'],
+              name: 'Test string',
+              version: 'Test string',
+            },
+            cpeUri: 'Test string',
+            dependencyChain: [
+              {
+                package: 'Test string',
+                version: 'Test string',
+              },
+            ],
+            fileLocation: [
+              {
+                filePath: 'Test string',
+              },
+            ],
+            hashDigest: 'Test string',
+            licenses: ['Test string'],
+            maintainer: {
+              email: 'Test string',
+              kind: 'Test string',
+              name: 'Test string',
+              url: 'Test string',
+            },
+            os: 'Test string',
+            osVersion: 'Test string',
+            package: 'Test string',
+            packageType: 'Test string',
+            patchedCve: ['Test string'],
+            sourceVersion: {
+              licenses: ['Test string'],
+              name: 'Test string',
+              version: 'Test string',
+            },
+            unused: 'Test string',
+            version: 'Test string',
+          },
+        ],
+        resourceUri: 'Test string',
+      }
+    );
+    /** Lists vulnerabilities resulting from a successfully completed scan. */
+    await gapi.client.ondemandscanning.projects.locations.scans.vulnerabilities.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+  }
 });

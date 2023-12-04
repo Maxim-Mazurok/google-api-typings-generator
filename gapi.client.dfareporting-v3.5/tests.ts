@@ -6,199 +6,200 @@
 // Revision: 20230918
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://dfareporting.googleapis.com/$discovery/rest?version=v3.5');
-    /** now we can use gapi.client.dfareporting */
+  await gapi.client.load(
+    'https://dfareporting.googleapis.com/$discovery/rest?version=v3.5'
+  );
+  /** now we can use gapi.client.dfareporting */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns */
-        'https://www.googleapis.com/auth/dfatrafficking',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Inserts a new creative asset. */
-        await gapi.client.dfareporting.media.upload({
-            advertiserId: "Test string",
-            profileId: "Test string",
-        }, {
-            assetIdentifier: {
-                name: "Test string",
-                type: "Test string",
-            },
-            clickTags: [
-                {
-                    clickThroughUrl: {
-                        computedClickThroughUrl: "Test string",
-                        customClickThroughUrl: "Test string",
-                        landingPageId: "Test string",
-                    },
-                    eventName: "Test string",
-                    name: "Test string",
-                }
-            ],
-            counterCustomEvents: [
-                {
-                    advertiserCustomEventId: "Test string",
-                    advertiserCustomEventName: "Test string",
-                    advertiserCustomEventType: "Test string",
-                    artworkLabel: "Test string",
-                    artworkType: "Test string",
-                    exitClickThroughUrl: {
-                        computedClickThroughUrl: "Test string",
-                        customClickThroughUrl: "Test string",
-                        landingPageId: "Test string",
-                    },
-                    id: "Test string",
-                    popupWindowProperties: {
-                        dimension: {
-                            height: 42,
-                            iab: true,
-                            id: "Test string",
-                            kind: "Test string",
-                            width: 42,
-                        },
-                        offset: {
-                            left: 42,
-                            top: 42,
-                        },
-                        positionType: "Test string",
-                        showAddressBar: true,
-                        showMenuBar: true,
-                        showScrollBar: true,
-                        showStatusBar: true,
-                        showToolBar: true,
-                        title: "Test string",
-                    },
-                    targetType: "Test string",
-                    videoReportingId: "Test string",
-                }
-            ],
-            detectedFeatures: [
-                "Test string"
-            ],
-            exitCustomEvents: [
-                {
-                    advertiserCustomEventId: "Test string",
-                    advertiserCustomEventName: "Test string",
-                    advertiserCustomEventType: "Test string",
-                    artworkLabel: "Test string",
-                    artworkType: "Test string",
-                    exitClickThroughUrl: {
-                        computedClickThroughUrl: "Test string",
-                        customClickThroughUrl: "Test string",
-                        landingPageId: "Test string",
-                    },
-                    id: "Test string",
-                    popupWindowProperties: {
-                        dimension: {
-                            height: 42,
-                            iab: true,
-                            id: "Test string",
-                            kind: "Test string",
-                            width: 42,
-                        },
-                        offset: {
-                            left: 42,
-                            top: 42,
-                        },
-                        positionType: "Test string",
-                        showAddressBar: true,
-                        showMenuBar: true,
-                        showScrollBar: true,
-                        showStatusBar: true,
-                        showToolBar: true,
-                        title: "Test string",
-                    },
-                    targetType: "Test string",
-                    videoReportingId: "Test string",
-                }
-            ],
-            id: "Test string",
-            idDimensionValue: {
-                dimensionName: "Test string",
-                etag: "Test string",
-                id: "Test string",
-                kind: "Test string",
-                matchType: "Test string",
-                value: "Test string",
-            },
-            kind: "Test string",
-            mediaRequestInfo: {
-                currentBytes: "Test string",
-                customData: "Test string",
-                diffObjectVersion: "Test string",
-                finalStatus: 42,
-                notificationType: "Test string",
-                requestId: "Test string",
-                requestReceivedParamsServingInfo: "Test string",
-                totalBytes: "Test string",
-                totalBytesIsEstimated: true,
-            },
-            mediaResponseInfo: {
-                customData: "Test string",
-                dataStorageTransform: "Test string",
-                dynamicDropTarget: "Test string",
-                dynamicDropzone: "Test string",
-                requestClass: "Test string",
-                scottyAgentUserId: "Test string",
-                scottyCustomerLog: "Test string",
-                trafficClassField: "Test string",
-                verifyHashFromHeader: true,
-            },
-            richMedia: true,
-            timerCustomEvents: [
-                {
-                    advertiserCustomEventId: "Test string",
-                    advertiserCustomEventName: "Test string",
-                    advertiserCustomEventType: "Test string",
-                    artworkLabel: "Test string",
-                    artworkType: "Test string",
-                    exitClickThroughUrl: {
-                        computedClickThroughUrl: "Test string",
-                        customClickThroughUrl: "Test string",
-                        landingPageId: "Test string",
-                    },
-                    id: "Test string",
-                    popupWindowProperties: {
-                        dimension: {
-                            height: 42,
-                            iab: true,
-                            id: "Test string",
-                            kind: "Test string",
-                            width: 42,
-                        },
-                        offset: {
-                            left: 42,
-                            top: 42,
-                        },
-                        positionType: "Test string",
-                        showAddressBar: true,
-                        showMenuBar: true,
-                        showScrollBar: true,
-                        showStatusBar: true,
-                        showToolBar: true,
-                        title: "Test string",
-                    },
-                    targetType: "Test string",
-                    videoReportingId: "Test string",
-                }
-            ],
-            warnedValidationRules: [
-                "Test string"
-            ],
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns */
+    'https://www.googleapis.com/auth/dfatrafficking',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Inserts a new creative asset. */
+    await gapi.client.dfareporting.media.upload(
+      {
+        advertiserId: 'Test string',
+        profileId: 'Test string',
+      },
+      {
+        assetIdentifier: {
+          name: 'Test string',
+          type: 'Test string',
+        },
+        clickTags: [
+          {
+            clickThroughUrl: {
+              computedClickThroughUrl: 'Test string',
+              customClickThroughUrl: 'Test string',
+              landingPageId: 'Test string',
+            },
+            eventName: 'Test string',
+            name: 'Test string',
+          },
+        ],
+        counterCustomEvents: [
+          {
+            advertiserCustomEventId: 'Test string',
+            advertiserCustomEventName: 'Test string',
+            advertiserCustomEventType: 'Test string',
+            artworkLabel: 'Test string',
+            artworkType: 'Test string',
+            exitClickThroughUrl: {
+              computedClickThroughUrl: 'Test string',
+              customClickThroughUrl: 'Test string',
+              landingPageId: 'Test string',
+            },
+            id: 'Test string',
+            popupWindowProperties: {
+              dimension: {
+                height: 42,
+                iab: true,
+                id: 'Test string',
+                kind: 'Test string',
+                width: 42,
+              },
+              offset: {
+                left: 42,
+                top: 42,
+              },
+              positionType: 'Test string',
+              showAddressBar: true,
+              showMenuBar: true,
+              showScrollBar: true,
+              showStatusBar: true,
+              showToolBar: true,
+              title: 'Test string',
+            },
+            targetType: 'Test string',
+            videoReportingId: 'Test string',
+          },
+        ],
+        detectedFeatures: ['Test string'],
+        exitCustomEvents: [
+          {
+            advertiserCustomEventId: 'Test string',
+            advertiserCustomEventName: 'Test string',
+            advertiserCustomEventType: 'Test string',
+            artworkLabel: 'Test string',
+            artworkType: 'Test string',
+            exitClickThroughUrl: {
+              computedClickThroughUrl: 'Test string',
+              customClickThroughUrl: 'Test string',
+              landingPageId: 'Test string',
+            },
+            id: 'Test string',
+            popupWindowProperties: {
+              dimension: {
+                height: 42,
+                iab: true,
+                id: 'Test string',
+                kind: 'Test string',
+                width: 42,
+              },
+              offset: {
+                left: 42,
+                top: 42,
+              },
+              positionType: 'Test string',
+              showAddressBar: true,
+              showMenuBar: true,
+              showScrollBar: true,
+              showStatusBar: true,
+              showToolBar: true,
+              title: 'Test string',
+            },
+            targetType: 'Test string',
+            videoReportingId: 'Test string',
+          },
+        ],
+        id: 'Test string',
+        idDimensionValue: {
+          dimensionName: 'Test string',
+          etag: 'Test string',
+          id: 'Test string',
+          kind: 'Test string',
+          matchType: 'Test string',
+          value: 'Test string',
+        },
+        kind: 'Test string',
+        mediaRequestInfo: {
+          currentBytes: 'Test string',
+          customData: 'Test string',
+          diffObjectVersion: 'Test string',
+          finalStatus: 42,
+          notificationType: 'Test string',
+          requestId: 'Test string',
+          requestReceivedParamsServingInfo: 'Test string',
+          totalBytes: 'Test string',
+          totalBytesIsEstimated: true,
+        },
+        mediaResponseInfo: {
+          customData: 'Test string',
+          dataStorageTransform: 'Test string',
+          dynamicDropTarget: 'Test string',
+          dynamicDropzone: 'Test string',
+          requestClass: 'Test string',
+          scottyAgentUserId: 'Test string',
+          scottyCustomerLog: 'Test string',
+          trafficClassField: 'Test string',
+          verifyHashFromHeader: true,
+        },
+        richMedia: true,
+        timerCustomEvents: [
+          {
+            advertiserCustomEventId: 'Test string',
+            advertiserCustomEventName: 'Test string',
+            advertiserCustomEventType: 'Test string',
+            artworkLabel: 'Test string',
+            artworkType: 'Test string',
+            exitClickThroughUrl: {
+              computedClickThroughUrl: 'Test string',
+              customClickThroughUrl: 'Test string',
+              landingPageId: 'Test string',
+            },
+            id: 'Test string',
+            popupWindowProperties: {
+              dimension: {
+                height: 42,
+                iab: true,
+                id: 'Test string',
+                kind: 'Test string',
+                width: 42,
+              },
+              offset: {
+                left: 42,
+                top: 42,
+              },
+              positionType: 'Test string',
+              showAddressBar: true,
+              showMenuBar: true,
+              showScrollBar: true,
+              showStatusBar: true,
+              showToolBar: true,
+              title: 'Test string',
+            },
+            targetType: 'Test string',
+            videoReportingId: 'Test string',
+          },
+        ],
+        warnedValidationRules: ['Test string'],
+      }
+    );
+  }
 });

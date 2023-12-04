@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://youtubeanalytics.googleapis.com/$discovery/rest?version=v2', () => {
-  // now we can use:
-  // gapi.client.youtubeAnalytics
-});
+gapi.client.load(
+  'https://youtubeanalytics.googleapis.com/$discovery/rest?version=v2',
+  () => {
+    // now we can use:
+    // gapi.client.youtubeAnalytics
+  }
+);
 ```
 
 ```typescript
@@ -45,76 +48,76 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // Manage your YouTube account
-      'https://www.googleapis.com/auth/youtube',
+    // Manage your YouTube account
+    'https://www.googleapis.com/auth/youtube',
 
-      // View your YouTube account
-      'https://www.googleapis.com/auth/youtube.readonly',
+    // View your YouTube account
+    'https://www.googleapis.com/auth/youtube.readonly',
 
-      // View and manage your assets and associated content on YouTube
-      'https://www.googleapis.com/auth/youtubepartner',
+    // View and manage your assets and associated content on YouTube
+    'https://www.googleapis.com/auth/youtubepartner',
 
-      // View monetary and non-monetary YouTube Analytics reports for your YouTube content
-      'https://www.googleapis.com/auth/yt-analytics-monetary.readonly',
+    // View monetary and non-monetary YouTube Analytics reports for your YouTube content
+    'https://www.googleapis.com/auth/yt-analytics-monetary.readonly',
 
-      // View YouTube Analytics reports for your YouTube content
-      'https://www.googleapis.com/auth/yt-analytics.readonly',
-    ],
-    immediate = true;
+    // View YouTube Analytics reports for your YouTube content
+    'https://www.googleapis.com/auth/yt-analytics.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use YouTube Analytics API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Removes an item from a group.
 */
-await gapi.client.youtubeAnalytics.groupItems.delete({  });
+await gapi.client.youtubeAnalytics.groupItems.delete({});
 
 /*
 Creates a group item.
 */
-await gapi.client.youtubeAnalytics.groupItems.insert({  });
+await gapi.client.youtubeAnalytics.groupItems.insert({});
 
 /*
 Returns a collection of group items that match the API request parameters.
 */
-await gapi.client.youtubeAnalytics.groupItems.list({  });
+await gapi.client.youtubeAnalytics.groupItems.list({});
 
 /*
 Deletes a group.
 */
-await gapi.client.youtubeAnalytics.groups.delete({  });
+await gapi.client.youtubeAnalytics.groups.delete({});
 
 /*
 Creates a group.
 */
-await gapi.client.youtubeAnalytics.groups.insert({  });
+await gapi.client.youtubeAnalytics.groups.insert({});
 
 /*
 Returns a collection of groups that match the API request parameters. For example, you can retrieve all groups that the authenticated user owns, or you can retrieve one or more groups by their unique IDs.
 */
-await gapi.client.youtubeAnalytics.groups.list({  });
+await gapi.client.youtubeAnalytics.groups.list({});
 
 /*
 Modifies a group. For example, you could change a group's title.
 */
-await gapi.client.youtubeAnalytics.groups.update({  });
+await gapi.client.youtubeAnalytics.groups.update({});
 
 /*
 Retrieve your YouTube Analytics reports.
 */
-await gapi.client.youtubeAnalytics.reports.query({  });
+await gapi.client.youtubeAnalytics.reports.query({});
 ```

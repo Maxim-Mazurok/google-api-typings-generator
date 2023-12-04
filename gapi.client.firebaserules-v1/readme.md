@@ -1,6 +1,6 @@
 # TypeScript typings for Firebase Rules API v1
 
-Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request. 
+Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request.
 For detailed description please check [documentation](https://firebase.google.com/docs/storage/security).
 
 ## Installing
@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://firebaserules.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.firebaserules
-});
+gapi.client.load(
+  'https://firebaserules.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.firebaserules
+  }
+);
 ```
 
 ```typescript
@@ -45,35 +48,35 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View and administer all your Firebase data and settings
-      'https://www.googleapis.com/auth/firebase',
+    // View and administer all your Firebase data and settings
+    'https://www.googleapis.com/auth/firebase',
 
-      // View all your Firebase data and settings
-      'https://www.googleapis.com/auth/firebase.readonly',
-    ],
-    immediate = true;
+    // View all your Firebase data and settings
+    'https://www.googleapis.com/auth/firebase.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Firebase Rules API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Test `Source` for syntactic and semantic correctness. Issues present, if any, will be returned to the caller with a description, severity, and source location. The test method may be executed with `Source` or a `Ruleset` name. Passing `Source` is useful for unit testing new rules. Passing a `Ruleset` name is useful for regression testing an existing rule. The following is an example of `Source` that permits users to upload images to a bucket bearing their user id and matching the correct metadata: _*Example*_ // Users are allowed to subscribe and unsubscribe to the blog. service firebase.storage { match /users/{userId}/images/{imageName} { allow write: if userId == request.auth.uid && (imageName.matches('*.png$') || imageName.matches('*.jpg$')) && resource.mimeType.matches('^image/') } }
 */
-await gapi.client.firebaserules.projects.test({ name: "name",  });
+await gapi.client.firebaserules.projects.test({name: 'name'});
 ```

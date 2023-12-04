@@ -14,116 +14,88 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Web Fonts Developer API v1 */
-    function load(urlOrObject: "https://webfonts.googleapis.com/$discovery/rest?version=v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "webfonts", version: "v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "webfonts", version: "v1", callback: () => any): void;
+  /** Load Web Fonts Developer API v1 */
+  function load(
+    urlOrObject: 'https://webfonts.googleapis.com/$discovery/rest?version=v1'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'webfonts', version: 'v1'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'webfonts', version: 'v1', callback: () => any): void;
 
-    namespace webfonts {
-        interface Axis {
-            /** maximum value */
-            end?:
-                number;
-            /** minimum value */
-            start?:
-                number;
-            /** tag name. */
-            tag?:
-                string;
-        }
-        interface Webfont {
-            /** Axis for variable fonts. */
-            axes?:
-                Axis[];
-            /** The category of the font. */
-            category?:
-                string;
-            /** The name of the font. */
-            family?:
-                string;
-            /** The font files (with all supported scripts) for each one of the available variants, as a key : value map. */
-            files?:
-                { [P in string]: string };
-            /** This kind represents a webfont object in the webfonts service. */
-            kind?:
-                string;
-            /** The date (format "yyyy-MM-dd") the font was modified for the last time. */
-            lastModified?:
-                string;
-            /** Font URL for menu subset, a subset of the font that is enough to display the font name */
-            menu?:
-                string;
-            /** The scripts supported by the font. */
-            subsets?:
-                string[];
-            /** The available variants for the font. */
-            variants?:
-                string[];
-            /** The font version. */
-            version?:
-                string;
-        }
-        interface WebfontList {
-            /** The list of fonts currently served by the Google Fonts API. */
-            items?:
-                Webfont[];
-            /** This kind represents a list of webfont objects in the webfonts service. */
-            kind?:
-                string;
-        }
-        interface WebfontsResource {
-            /** Retrieves the list of fonts currently served by the Google Fonts Developer API. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Controls the font urls in `Webfont.files`, by default, static ttf fonts are sent. */
-                capability?:
-                    string | string[];
-                /** Filters by Webfont.family, using literal match. If not set, returns all families */
-                family?:
-                    string | string[];
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Enables sorting of the list. */
-                sort?:
-                    string;
-                /** Filters by Webfont.subset, if subset is found in Webfont.subsets. If not set, returns all families. */
-                subset?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<WebfontList>;
-        }
-
-        const webfonts: WebfontsResource;
+  namespace webfonts {
+    interface Axis {
+      /** maximum value */
+      end?: number;
+      /** minimum value */
+      start?: number;
+      /** tag name. */
+      tag?: string;
     }
+    interface Webfont {
+      /** Axis for variable fonts. */
+      axes?: Axis[];
+      /** The category of the font. */
+      category?: string;
+      /** The name of the font. */
+      family?: string;
+      /** The font files (with all supported scripts) for each one of the available variants, as a key : value map. */
+      files?: {[P in string]: string};
+      /** This kind represents a webfont object in the webfonts service. */
+      kind?: string;
+      /** The date (format "yyyy-MM-dd") the font was modified for the last time. */
+      lastModified?: string;
+      /** Font URL for menu subset, a subset of the font that is enough to display the font name */
+      menu?: string;
+      /** The scripts supported by the font. */
+      subsets?: string[];
+      /** The available variants for the font. */
+      variants?: string[];
+      /** The font version. */
+      version?: string;
+    }
+    interface WebfontList {
+      /** The list of fonts currently served by the Google Fonts API. */
+      items?: Webfont[];
+      /** This kind represents a list of webfont objects in the webfonts service. */
+      kind?: string;
+    }
+    interface WebfontsResource {
+      /** Retrieves the list of fonts currently served by the Google Fonts Developer API. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Controls the font urls in `Webfont.files`, by default, static ttf fonts are sent. */
+        capability?: string | string[];
+        /** Filters by Webfont.family, using literal match. If not set, returns all families */
+        family?: string | string[];
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Enables sorting of the list. */
+        sort?: string;
+        /** Filters by Webfont.subset, if subset is found in Webfont.subsets. If not set, returns all families. */
+        subset?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<WebfontList>;
+    }
+
+    const webfonts: WebfontsResource;
+  }
 }

@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://youtubereporting.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.youtubereporting
-});
+gapi.client.load(
+  'https://youtubereporting.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.youtubereporting
+  }
+);
 ```
 
 ```typescript
@@ -45,57 +48,59 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View monetary and non-monetary YouTube Analytics reports for your YouTube content
-      'https://www.googleapis.com/auth/yt-analytics-monetary.readonly',
+    // View monetary and non-monetary YouTube Analytics reports for your YouTube content
+    'https://www.googleapis.com/auth/yt-analytics-monetary.readonly',
 
-      // View YouTube Analytics reports for your YouTube content
-      'https://www.googleapis.com/auth/yt-analytics.readonly',
-    ],
-    immediate = true;
+    // View YouTube Analytics reports for your YouTube content
+    'https://www.googleapis.com/auth/yt-analytics.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use YouTube Reporting API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Creates a job and returns it.
 */
-await gapi.client.youtubereporting.jobs.create({  });
+await gapi.client.youtubereporting.jobs.create({});
 
 /*
 Deletes a job.
 */
-await gapi.client.youtubereporting.jobs.delete({ jobId: "jobId",  });
+await gapi.client.youtubereporting.jobs.delete({jobId: 'jobId'});
 
 /*
 Gets a job.
 */
-await gapi.client.youtubereporting.jobs.get({ jobId: "jobId",  });
+await gapi.client.youtubereporting.jobs.get({jobId: 'jobId'});
 
 /*
 Lists jobs.
 */
-await gapi.client.youtubereporting.jobs.list({  });
+await gapi.client.youtubereporting.jobs.list({});
 
 /*
 Method for media download. Download is supported on the URI `/v1/media/{+name}?alt=media`.
 */
-await gapi.client.youtubereporting.media.download({ resourceName: "resourceName",  });
+await gapi.client.youtubereporting.media.download({
+  resourceName: 'resourceName',
+});
 
 /*
 Lists report types.
 */
-await gapi.client.youtubereporting.reportTypes.list({  });
+await gapi.client.youtubereporting.reportTypes.list({});
 ```

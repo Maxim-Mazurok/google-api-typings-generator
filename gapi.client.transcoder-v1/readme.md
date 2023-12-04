@@ -1,6 +1,6 @@
 # TypeScript typings for Transcoder API v1
 
-This API converts video files into formats suitable for consumer distribution. For more information, see the Transcoder API overview. 
+This API converts video files into formats suitable for consumer distribution. For more information, see the Transcoder API overview.
 For detailed description please check [documentation](https://cloud.google.com/transcoder/docs/).
 
 ## Installing
@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://transcoder.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.transcoder
-});
+gapi.client.load(
+  'https://transcoder.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.transcoder
+  }
+);
 ```
 
 ```typescript
@@ -45,24 +48,26 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Transcoder API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

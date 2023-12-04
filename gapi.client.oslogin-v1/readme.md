@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://oslogin.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.oslogin
-});
+gapi.client.load(
+  'https://oslogin.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.oslogin
+  }
+);
 ```
 
 ```typescript
@@ -45,43 +48,43 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View your data across Google Cloud services and see the email address of your Google Account
-      'https://www.googleapis.com/auth/cloud-platform.read-only',
+    // View your data across Google Cloud services and see the email address of your Google Account
+    'https://www.googleapis.com/auth/cloud-platform.read-only',
 
-      // View and manage your Google Compute Engine resources
-      'https://www.googleapis.com/auth/compute',
+    // View and manage your Google Compute Engine resources
+    'https://www.googleapis.com/auth/compute',
 
-      // View your Google Compute Engine resources
-      'https://www.googleapis.com/auth/compute.readonly',
-    ],
-    immediate = true;
+    // View your Google Compute Engine resources
+    'https://www.googleapis.com/auth/compute.readonly',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud OS Login API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Retrieves the profile information used for logging in to a virtual machine on Google Compute Engine.
 */
-await gapi.client.oslogin.users.getLoginProfile({ name: "name",  });
+await gapi.client.oslogin.users.getLoginProfile({name: 'name'});
 
 /*
 Adds an SSH public key and returns the profile information. Default POSIX account information is set when no username and UID exist as part of the login profile.
 */
-await gapi.client.oslogin.users.importSshPublicKey({ parent: "parent",  });
+await gapi.client.oslogin.users.importSshPublicKey({parent: 'parent'});
 ```

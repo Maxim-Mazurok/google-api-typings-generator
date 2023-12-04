@@ -6,104 +6,108 @@
 // Revision: 20231110
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://vpcaccess.googleapis.com/$discovery/rest?version=v1beta1');
-    /** now we can use gapi.client.vpcaccess */
+  await gapi.client.load(
+    'https://vpcaccess.googleapis.com/$discovery/rest?version=v1beta1'
+  );
+  /** now we can use gapi.client.vpcaccess */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.vpcaccess.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a Serverless VPC Access connector, returns an operation. */
-        await gapi.client.vpcaccess.projects.locations.connectors.create({
-            connectorId: "Test string",
-            parent: "Test string",
-        }, {
-            connectedProjects: [
-                "Test string"
-            ],
-            ipCidrRange: "Test string",
-            machineType: "Test string",
-            maxInstances: 42,
-            maxThroughput: 42,
-            minInstances: 42,
-            minThroughput: 42,
-            name: "Test string",
-            network: "Test string",
-            state: "Test string",
-            subnet: {
-                name: "Test string",
-                projectId: "Test string",
-            },
-        });
-        /** Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist. */
-        await gapi.client.vpcaccess.projects.locations.connectors.delete({
-            name: "Test string",
-        });
-        /** Gets a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist. */
-        await gapi.client.vpcaccess.projects.locations.connectors.get({
-            name: "Test string",
-        });
-        /** Lists Serverless VPC Access connectors. */
-        await gapi.client.vpcaccess.projects.locations.connectors.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a Serverless VPC Access connector, returns an operation. */
-        await gapi.client.vpcaccess.projects.locations.connectors.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            connectedProjects: [
-                "Test string"
-            ],
-            ipCidrRange: "Test string",
-            machineType: "Test string",
-            maxInstances: 42,
-            maxThroughput: 42,
-            minInstances: 42,
-            minThroughput: 42,
-            name: "Test string",
-            network: "Test string",
-            state: "Test string",
-            subnet: {
-                name: "Test string",
-                projectId: "Test string",
-            },
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.vpcaccess.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.vpcaccess.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.vpcaccess.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a Serverless VPC Access connector, returns an operation. */
+    await gapi.client.vpcaccess.projects.locations.connectors.create(
+      {
+        connectorId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        connectedProjects: ['Test string'],
+        ipCidrRange: 'Test string',
+        machineType: 'Test string',
+        maxInstances: 42,
+        maxThroughput: 42,
+        minInstances: 42,
+        minThroughput: 42,
+        name: 'Test string',
+        network: 'Test string',
+        state: 'Test string',
+        subnet: {
+          name: 'Test string',
+          projectId: 'Test string',
+        },
+      }
+    );
+    /** Deletes a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist. */
+    await gapi.client.vpcaccess.projects.locations.connectors.delete({
+      name: 'Test string',
+    });
+    /** Gets a Serverless VPC Access connector. Returns NOT_FOUND if the resource does not exist. */
+    await gapi.client.vpcaccess.projects.locations.connectors.get({
+      name: 'Test string',
+    });
+    /** Lists Serverless VPC Access connectors. */
+    await gapi.client.vpcaccess.projects.locations.connectors.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a Serverless VPC Access connector, returns an operation. */
+    await gapi.client.vpcaccess.projects.locations.connectors.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        connectedProjects: ['Test string'],
+        ipCidrRange: 'Test string',
+        machineType: 'Test string',
+        maxInstances: 42,
+        maxThroughput: 42,
+        minInstances: 42,
+        minThroughput: 42,
+        name: 'Test string',
+        network: 'Test string',
+        state: 'Test string',
+        subnet: {
+          name: 'Test string',
+          projectId: 'Test string',
+        },
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.vpcaccess.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.vpcaccess.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+  }
 });

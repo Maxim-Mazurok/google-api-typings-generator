@@ -6,32 +6,34 @@
 // Revision: 20231120
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://groupsmigration.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.groupsmigration */
+  await gapi.client.load(
+    'https://groupsmigration.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.groupsmigration */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** Upload messages to any Google group in your domain */
-        'https://www.googleapis.com/auth/apps.groups.migration',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Inserts a new mail into the archive of the Google group. */
-        await gapi.client.groupsmigration.archive.insert({
-            groupId: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** Upload messages to any Google group in your domain */
+    'https://www.googleapis.com/auth/apps.groups.migration',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Inserts a new mail into the archive of the Google group. */
+    await gapi.client.groupsmigration.archive.insert({
+      groupId: 'Test string',
+    });
+  }
 });

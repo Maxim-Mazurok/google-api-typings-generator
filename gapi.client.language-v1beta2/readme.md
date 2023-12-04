@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://language.googleapis.com/$discovery/rest?version=v1beta2', () => {
-  // now we can use:
-  // gapi.client.language
-});
+gapi.client.load(
+  'https://language.googleapis.com/$discovery/rest?version=v1beta2',
+  () => {
+    // now we can use:
+    // gapi.client.language
+  }
+);
 ```
 
 ```typescript
@@ -45,62 +48,62 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // Apply machine learning models to reveal the structure and meaning of text
-      'https://www.googleapis.com/auth/cloud-language',
+    // Apply machine learning models to reveal the structure and meaning of text
+    'https://www.googleapis.com/auth/cloud-language',
 
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Natural Language API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Finds named entities (currently proper names and common nouns) in the text along with entity types, salience, mentions for each entity, and other properties.
 */
-await gapi.client.language.documents.analyzeEntities({  });
+await gapi.client.language.documents.analyzeEntities({});
 
 /*
 Finds entities, similar to AnalyzeEntities in the text and analyzes sentiment associated with each entity and its mentions.
 */
-await gapi.client.language.documents.analyzeEntitySentiment({  });
+await gapi.client.language.documents.analyzeEntitySentiment({});
 
 /*
 Analyzes the sentiment of the provided text.
 */
-await gapi.client.language.documents.analyzeSentiment({  });
+await gapi.client.language.documents.analyzeSentiment({});
 
 /*
 Analyzes the syntax of the text and provides sentence boundaries and tokenization along with part of speech tags, dependency trees, and other properties.
 */
-await gapi.client.language.documents.analyzeSyntax({  });
+await gapi.client.language.documents.analyzeSyntax({});
 
 /*
 A convenience method that provides all syntax, sentiment, entity, and classification features in one call.
 */
-await gapi.client.language.documents.annotateText({  });
+await gapi.client.language.documents.annotateText({});
 
 /*
 Classifies a document into categories.
 */
-await gapi.client.language.documents.classifyText({  });
+await gapi.client.language.documents.classifyText({});
 
 /*
 Moderates a document for harmful and sensitive categories.
 */
-await gapi.client.language.documents.moderateText({  });
+await gapi.client.language.documents.moderateText({});
 ```

@@ -6,57 +6,68 @@
 // Revision: 20231126
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://advisorynotifications.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.advisorynotifications */
+  await gapi.client.load(
+    'https://advisorynotifications.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.advisorynotifications */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Get notification settings. */
-        await gapi.client.advisorynotifications.organizations.locations.getSettings({
-            name: "Test string",
-        });
-        /** Update notification settings. */
-        await gapi.client.advisorynotifications.organizations.locations.updateSettings({
-            name: "Test string",
-        }, {
-            etag: "Test string",
-            name: "Test string",
-            notificationSettings: {
-                A: {
-                    enabled: true,
-                }
-            },
-        });
-        /** Gets a notification. */
-        await gapi.client.advisorynotifications.organizations.locations.notifications.get({
-            languageCode: "Test string",
-            name: "Test string",
-        });
-        /** Lists notifications under a given parent. */
-        await gapi.client.advisorynotifications.organizations.locations.notifications.list({
-            languageCode: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            view: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Get notification settings. */
+    await gapi.client.advisorynotifications.organizations.locations.getSettings(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Update notification settings. */
+    await gapi.client.advisorynotifications.organizations.locations.updateSettings(
+      {
+        name: 'Test string',
+      },
+      {
+        etag: 'Test string',
+        name: 'Test string',
+        notificationSettings: {
+          A: {
+            enabled: true,
+          },
+        },
+      }
+    );
+    /** Gets a notification. */
+    await gapi.client.advisorynotifications.organizations.locations.notifications.get(
+      {
+        languageCode: 'Test string',
+        name: 'Test string',
+      }
+    );
+    /** Lists notifications under a given parent. */
+    await gapi.client.advisorynotifications.organizations.locations.notifications.list(
+      {
+        languageCode: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        view: 'Test string',
+      }
+    );
+  }
 });

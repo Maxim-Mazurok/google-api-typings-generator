@@ -6,23 +6,25 @@
 // Revision: 20200806
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://discovery.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.discovery */
+  await gapi.client.load(
+    'https://discovery.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.discovery */
 
-    run();
+  void run();
 
-    async function run() {
-        /** Retrieve the description of a particular version of an api. */
-        await gapi.client.discovery.apis.getRest({
-            api: "Test string",
-            version: "Test string",
-        });
-        /** Retrieve the list of APIs supported at this endpoint. */
-        await gapi.client.discovery.apis.list({
-            name: "Test string",
-            preferred: true,
-        });
-    }
+  async function run() {
+    /** Retrieve the description of a particular version of an api. */
+    await gapi.client.discovery.apis.getRest({
+      api: 'Test string',
+      version: 'Test string',
+    });
+    /** Retrieve the list of APIs supported at this endpoint. */
+    await gapi.client.discovery.apis.list({
+      name: 'Test string',
+      preferred: true,
+    });
+  }
 });

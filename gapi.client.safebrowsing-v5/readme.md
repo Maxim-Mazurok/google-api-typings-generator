@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://safebrowsing.googleapis.com/$discovery/rest?version=v5', () => {
-  // now we can use:
-  // gapi.client.safebrowsing
-});
+gapi.client.load(
+  'https://safebrowsing.googleapis.com/$discovery/rest?version=v5',
+  () => {
+    // now we can use:
+    // gapi.client.safebrowsing
+  }
+);
 ```
 
 ```typescript
@@ -39,14 +42,11 @@ gapi.client.load('safebrowsing', 'v5', () => {
 });
 ```
 
-
-
 After that you can use Safe Browsing API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Search for full hashes matching the specified prefixes. This is a custom method as described by guidance at https://google.aip.dev/136
 */
-await gapi.client.safebrowsing.hashes.search({  });
+await gapi.client.safebrowsing.hashes.search({});
 ```

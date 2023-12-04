@@ -1,6 +1,6 @@
 # TypeScript typings for PageSpeed Insights API v5
 
-The PageSpeed Insights API lets you analyze the performance of your website with a simple API. It offers tailored suggestions for how you can optimize your site, and lets you easily integrate PageSpeed Insights analysis into your development tools and workflow. 
+The PageSpeed Insights API lets you analyze the performance of your website with a simple API. It offers tailored suggestions for how you can optimize your site, and lets you easily integrate PageSpeed Insights analysis into your development tools and workflow.
 For detailed description please check [documentation](https://developers.google.com/speed/docs/insights/v5/about).
 
 ## Installing
@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://pagespeedonline.googleapis.com/$discovery/rest?version=v5', () => {
-  // now we can use:
-  // gapi.client.pagespeedonline
-});
+gapi.client.load(
+  'https://pagespeedonline.googleapis.com/$discovery/rest?version=v5',
+  () => {
+    // now we can use:
+    // gapi.client.pagespeedonline
+  }
+);
 ```
 
 ```typescript
@@ -45,29 +48,29 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // Associate you with your personal info on Google
-      'openid',
-    ],
-    immediate = true;
+    // Associate you with your personal info on Google
+    'openid',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use PageSpeed Insights API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Runs PageSpeed analysis on the page at the specified URL, and returns PageSpeed scores, a list of suggestions to make that page faster, and other information.
 */
-await gapi.client.pagespeedonline.pagespeedapi.runpagespeed({ url: "url",  });
+await gapi.client.pagespeedonline.pagespeedapi.runpagespeed({url: 'url'});
 ```

@@ -6,1271 +6,1316 @@
 // Revision: 20231111
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://datamigration.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.datamigration */
+  await gapi.client.load(
+    'https://datamigration.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.datamigration */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Fetches a set of static IP addresses that need to be allowlisted by the customer when using the static-IP connectivity method. */
-        await gapi.client.datamigration.projects.locations.fetchStaticIps({
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets information about a location. */
-        await gapi.client.datamigration.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.datamigration.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new connection profile in a given project and location. */
-        await gapi.client.datamigration.projects.locations.connectionProfiles.create({
-            connectionProfileId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            skipValidation: true,
-            validateOnly: true,
-        }, {
-            alloydb: {
-                clusterId: "Test string",
-                settings: {
-                    databaseVersion: "Test string",
-                    encryptionConfig: {
-                        kmsKeyName: "Test string",
-                    },
-                    initialUser: {
-                        password: "Test string",
-                        passwordSet: true,
-                        user: "Test string",
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                    primaryInstanceSettings: {
-                        databaseFlags: {
-                            A: "Test string"
-                        },
-                        id: "Test string",
-                        labels: {
-                            A: "Test string"
-                        },
-                        machineConfig: {
-                            cpuCount: 42,
-                        },
-                        privateIp: "Test string",
-                    },
-                    vpcNetwork: "Test string",
-                },
-            },
-            cloudsql: {
-                additionalPublicIp: "Test string",
-                cloudSqlId: "Test string",
-                privateIp: "Test string",
-                publicIp: "Test string",
-                settings: {
-                    activationPolicy: "Test string",
-                    autoStorageIncrease: true,
-                    availabilityType: "Test string",
-                    cmekKeyName: "Test string",
-                    collation: "Test string",
-                    databaseFlags: {
-                        A: "Test string"
-                    },
-                    databaseVersion: "Test string",
-                    dataCacheConfig: {
-                        dataCacheEnabled: true,
-                    },
-                    dataDiskSizeGb: "Test string",
-                    dataDiskType: "Test string",
-                    edition: "Test string",
-                    ipConfig: {
-                        allocatedIpRange: "Test string",
-                        authorizedNetworks: [
-                            {
-                                expireTime: "Test string",
-                                label: "Test string",
-                                ttl: "Test string",
-                                value: "Test string",
-                            }
-                        ],
-                        enableIpv4: true,
-                        privateNetwork: "Test string",
-                        requireSsl: true,
-                    },
-                    rootPassword: "Test string",
-                    rootPasswordSet: true,
-                    secondaryZone: "Test string",
-                    sourceId: "Test string",
-                    storageAutoResizeLimit: "Test string",
-                    tier: "Test string",
-                    userLabels: {
-                        A: "Test string"
-                    },
-                    zone: "Test string",
-                },
-            },
-            createTime: "Test string",
-            displayName: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            mysql: {
-                cloudSqlId: "Test string",
-                host: "Test string",
-                password: "Test string",
-                passwordSet: true,
-                port: 42,
-                ssl: {
-                    caCertificate: "Test string",
-                    clientCertificate: "Test string",
-                    clientKey: "Test string",
-                    type: "Test string",
-                },
-                username: "Test string",
-            },
-            name: "Test string",
-            oracle: {
-                databaseService: "Test string",
-                forwardSshConnectivity: {
-                    hostname: "Test string",
-                    password: "Test string",
-                    port: 42,
-                    privateKey: "Test string",
-                    username: "Test string",
-                },
-                host: "Test string",
-                password: "Test string",
-                passwordSet: true,
-                port: 42,
-                privateConnectivity: {
-                    privateConnection: "Test string",
-                },
-                ssl: {
-                    caCertificate: "Test string",
-                    clientCertificate: "Test string",
-                    clientKey: "Test string",
-                    type: "Test string",
-                },
-                staticServiceIpConnectivity: {
-                },
-                username: "Test string",
-            },
-            postgresql: {
-                alloydbClusterId: "Test string",
-                cloudSqlId: "Test string",
-                host: "Test string",
-                networkArchitecture: "Test string",
-                password: "Test string",
-                passwordSet: true,
-                port: 42,
-                privateServiceConnectConnectivity: {
-                    serviceAttachment: "Test string",
-                },
-                ssl: {
-                    caCertificate: "Test string",
-                    clientCertificate: "Test string",
-                    clientKey: "Test string",
-                    type: "Test string",
-                },
-                staticIpConnectivity: {
-                },
-                username: "Test string",
-            },
-            provider: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single Database Migration Service connection profile. A connection profile can only be deleted if it is not in use by any active migration jobs. */
-        await gapi.client.datamigration.projects.locations.connectionProfiles.delete({
-            force: true,
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets details of a single connection profile. */
-        await gapi.client.datamigration.projects.locations.connectionProfiles.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.datamigration.projects.locations.connectionProfiles.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Retrieves a list of all connection profiles in a given project and location. */
-        await gapi.client.datamigration.projects.locations.connectionProfiles.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Update the configuration of a single connection profile. */
-        await gapi.client.datamigration.projects.locations.connectionProfiles.patch({
-            name: "Test string",
-            requestId: "Test string",
-            skipValidation: true,
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            alloydb: {
-                clusterId: "Test string",
-                settings: {
-                    databaseVersion: "Test string",
-                    encryptionConfig: {
-                        kmsKeyName: "Test string",
-                    },
-                    initialUser: {
-                        password: "Test string",
-                        passwordSet: true,
-                        user: "Test string",
-                    },
-                    labels: {
-                        A: "Test string"
-                    },
-                    primaryInstanceSettings: {
-                        databaseFlags: {
-                            A: "Test string"
-                        },
-                        id: "Test string",
-                        labels: {
-                            A: "Test string"
-                        },
-                        machineConfig: {
-                            cpuCount: 42,
-                        },
-                        privateIp: "Test string",
-                    },
-                    vpcNetwork: "Test string",
-                },
-            },
-            cloudsql: {
-                additionalPublicIp: "Test string",
-                cloudSqlId: "Test string",
-                privateIp: "Test string",
-                publicIp: "Test string",
-                settings: {
-                    activationPolicy: "Test string",
-                    autoStorageIncrease: true,
-                    availabilityType: "Test string",
-                    cmekKeyName: "Test string",
-                    collation: "Test string",
-                    databaseFlags: {
-                        A: "Test string"
-                    },
-                    databaseVersion: "Test string",
-                    dataCacheConfig: {
-                        dataCacheEnabled: true,
-                    },
-                    dataDiskSizeGb: "Test string",
-                    dataDiskType: "Test string",
-                    edition: "Test string",
-                    ipConfig: {
-                        allocatedIpRange: "Test string",
-                        authorizedNetworks: [
-                            {
-                                expireTime: "Test string",
-                                label: "Test string",
-                                ttl: "Test string",
-                                value: "Test string",
-                            }
-                        ],
-                        enableIpv4: true,
-                        privateNetwork: "Test string",
-                        requireSsl: true,
-                    },
-                    rootPassword: "Test string",
-                    rootPasswordSet: true,
-                    secondaryZone: "Test string",
-                    sourceId: "Test string",
-                    storageAutoResizeLimit: "Test string",
-                    tier: "Test string",
-                    userLabels: {
-                        A: "Test string"
-                    },
-                    zone: "Test string",
-                },
-            },
-            createTime: "Test string",
-            displayName: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            mysql: {
-                cloudSqlId: "Test string",
-                host: "Test string",
-                password: "Test string",
-                passwordSet: true,
-                port: 42,
-                ssl: {
-                    caCertificate: "Test string",
-                    clientCertificate: "Test string",
-                    clientKey: "Test string",
-                    type: "Test string",
-                },
-                username: "Test string",
-            },
-            name: "Test string",
-            oracle: {
-                databaseService: "Test string",
-                forwardSshConnectivity: {
-                    hostname: "Test string",
-                    password: "Test string",
-                    port: 42,
-                    privateKey: "Test string",
-                    username: "Test string",
-                },
-                host: "Test string",
-                password: "Test string",
-                passwordSet: true,
-                port: 42,
-                privateConnectivity: {
-                    privateConnection: "Test string",
-                },
-                ssl: {
-                    caCertificate: "Test string",
-                    clientCertificate: "Test string",
-                    clientKey: "Test string",
-                    type: "Test string",
-                },
-                staticServiceIpConnectivity: {
-                },
-                username: "Test string",
-            },
-            postgresql: {
-                alloydbClusterId: "Test string",
-                cloudSqlId: "Test string",
-                host: "Test string",
-                networkArchitecture: "Test string",
-                password: "Test string",
-                passwordSet: true,
-                port: 42,
-                privateServiceConnectConnectivity: {
-                    serviceAttachment: "Test string",
-                },
-                ssl: {
-                    caCertificate: "Test string",
-                    clientCertificate: "Test string",
-                    clientKey: "Test string",
-                    type: "Test string",
-                },
-                staticIpConnectivity: {
-                },
-                username: "Test string",
-            },
-            provider: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.datamigration.projects.locations.connectionProfiles.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.datamigration.projects.locations.connectionProfiles.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Applies draft tree onto a specific destination database. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.apply({
-            name: "Test string",
-        }, {
-            autoCommit: true,
-            connectionProfile: "Test string",
-            dryRun: true,
-            filter: "Test string",
-        });
-        /** Marks all the data in the conversion workspace as committed. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.commit({
-            name: "Test string",
-        }, {
-            commitName: "Test string",
-        });
-        /** Creates a draft tree schema for the destination database. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.convert({
-            name: "Test string",
-        }, {
-            autoCommit: true,
-            convertFullPath: true,
-            filter: "Test string",
-        });
-        /** Creates a new conversion workspace in a given project and location. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.create({
-            conversionWorkspaceId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            destination: {
-                engine: "Test string",
-                version: "Test string",
-            },
-            displayName: "Test string",
-            globalSettings: {
-                A: "Test string"
-            },
-            hasUncommittedChanges: true,
-            latestCommitId: "Test string",
-            latestCommitTime: "Test string",
-            name: "Test string",
-            source: {
-                engine: "Test string",
-                version: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Deletes a single conversion workspace. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.delete({
-            force: true,
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Retrieves a list of committed revisions of a specific conversion workspace. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.describeConversionWorkspaceRevisions({
-            commitId: "Test string",
-            conversionWorkspace: "Test string",
-        });
-        /**
-         * Describes the database entities tree for a specific conversion workspace and a specific tree type. Database entities are not resources like conversion workspaces or mapping rules, and
-         * they can't be created, updated or deleted. Instead, they are simple data objects describing the structure of the client database.
-         */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.describeDatabaseEntities({
-            commitId: "Test string",
-            conversionWorkspace: "Test string",
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            tree: "Test string",
-            uncommitted: true,
-            view: "Test string",
-        });
-        /** Gets details of a single conversion workspace. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists conversion workspaces in a given project and location. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single conversion workspace. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            destination: {
-                engine: "Test string",
-                version: "Test string",
-            },
-            displayName: "Test string",
-            globalSettings: {
-                A: "Test string"
-            },
-            hasUncommittedChanges: true,
-            latestCommitId: "Test string",
-            latestCommitTime: "Test string",
-            name: "Test string",
-            source: {
-                engine: "Test string",
-                version: "Test string",
-            },
-            updateTime: "Test string",
-        });
-        /** Rolls back a conversion workspace to the last committed snapshot. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.rollback({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Searches/lists the background jobs for a specific conversion workspace. The background jobs are not resources like conversion workspaces or mapping rules, and they can't be created,
-         * updated or deleted. Instead, they are a way to expose the data plane jobs log.
-         */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.searchBackgroundJobs({
-            completedUntilTime: "Test string",
-            conversionWorkspace: "Test string",
-            maxSize: 42,
-            returnMostRecentPerJobType: true,
-        });
-        /** Imports a snapshot of the source database into the conversion workspace. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.seed({
-            name: "Test string",
-        }, {
-            autoCommit: true,
-            destinationConnectionProfile: "Test string",
-            sourceConnectionProfile: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a new mapping rule for a given conversion workspace. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.create({
-            mappingRuleId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            conditionalColumnSetValue: {
-                customFeatures: {
-                    A: 42
-                },
-                sourceNumericFilter: {
-                    numericFilterOption: "Test string",
-                    sourceMaxPrecisionFilter: 42,
-                    sourceMaxScaleFilter: 42,
-                    sourceMinPrecisionFilter: 42,
-                    sourceMinScaleFilter: 42,
-                },
-                sourceTextFilter: {
-                    sourceMaxLengthFilter: "Test string",
-                    sourceMinLengthFilter: "Test string",
-                },
-                valueTransformation: {
-                    applyHash: {
-                        uuidFromBytes: {
-                        },
-                    },
-                    assignMaxValue: {
-                    },
-                    assignMinValue: {
-                    },
-                    assignNull: {
-                    },
-                    assignSpecificValue: {
-                        value: "Test string",
-                    },
-                    doubleComparison: {
-                        value: 42,
-                        valueComparison: "Test string",
-                    },
-                    intComparison: {
-                        value: "Test string",
-                        valueComparison: "Test string",
-                    },
-                    isNull: {
-                    },
-                    roundScale: {
-                        scale: 42,
-                    },
-                    valueList: {
-                        ignoreCase: true,
-                        valuePresentList: "Test string",
-                        values: [
-                            "Test string"
-                        ],
-                    },
-                },
-            },
-            convertRowidColumn: {
-                onlyIfNoPrimaryKey: true,
-            },
-            displayName: "Test string",
-            entityMove: {
-                newSchema: "Test string",
-            },
-            filter: {
-                entities: [
-                    "Test string"
-                ],
-                entityNameContains: "Test string",
-                entityNamePrefix: "Test string",
-                entityNameSuffix: "Test string",
-                parentEntity: "Test string",
-            },
-            filterTableColumns: {
-                excludeColumns: [
-                    "Test string"
-                ],
-                includeColumns: [
-                    "Test string"
-                ],
-            },
-            multiColumnDataTypeChange: {
-                customFeatures: {
-                    A: 42
-                },
-                newDataType: "Test string",
-                overrideFractionalSecondsPrecision: 42,
-                overrideLength: "Test string",
-                overridePrecision: 42,
-                overrideScale: 42,
-                sourceDataTypeFilter: "Test string",
-                sourceNumericFilter: {
-                    numericFilterOption: "Test string",
-                    sourceMaxPrecisionFilter: 42,
-                    sourceMaxScaleFilter: 42,
-                    sourceMinPrecisionFilter: 42,
-                    sourceMinScaleFilter: 42,
-                },
-                sourceTextFilter: {
-                    sourceMaxLengthFilter: "Test string",
-                    sourceMinLengthFilter: "Test string",
-                },
-            },
-            multiEntityRename: {
-                newNamePattern: "Test string",
-                sourceNameTransformation: "Test string",
-            },
-            name: "Test string",
-            revisionCreateTime: "Test string",
-            revisionId: "Test string",
-            ruleOrder: "Test string",
-            ruleScope: "Test string",
-            setTablePrimaryKey: {
-                primaryKey: "Test string",
-                primaryKeyColumns: [
-                    "Test string"
-                ],
-            },
-            singleColumnChange: {
-                array: true,
-                arrayLength: 42,
-                autoGenerated: true,
-                charset: "Test string",
-                collation: "Test string",
-                comment: "Test string",
-                customFeatures: {
-                    A: 42
-                },
-                dataType: "Test string",
-                fractionalSecondsPrecision: 42,
-                length: "Test string",
-                nullable: true,
-                precision: 42,
-                scale: 42,
-                setValues: [
-                    "Test string"
-                ],
-                udt: true,
-            },
-            singleEntityRename: {
-                newName: "Test string",
-            },
-            singlePackageChange: {
-                packageBody: "Test string",
-                packageDescription: "Test string",
-            },
-            sourceSqlChange: {
-                sqlCode: "Test string",
-            },
-            state: "Test string",
-        });
-        /** Deletes a single mapping rule. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets the details of a mapping rule. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.get({
-            name: "Test string",
-        });
-        /** Imports the mapping rules for a given conversion workspace. Supports various formats of external rules files. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.import({
-            parent: "Test string",
-        }, {
-            autoCommit: true,
-            rulesFiles: [
-                {
-                    rulesContent: "Test string",
-                    rulesSourceFilename: "Test string",
-                }
-            ],
-            rulesFormat: "Test string",
-        });
-        /** Lists the mapping rules for a specific conversion workspace. */
-        await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new migration job in a given project and location. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.create({
-            migrationJobId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            cmekKeyName: "Test string",
-            conversionWorkspace: {
-                commitId: "Test string",
-                name: "Test string",
-            },
-            createTime: "Test string",
-            destination: "Test string",
-            destinationDatabase: {
-                engine: "Test string",
-                provider: "Test string",
-            },
-            displayName: "Test string",
-            dumpFlags: {
-                dumpFlags: [
-                    {
-                        name: "Test string",
-                        value: "Test string",
-                    }
-                ],
-            },
-            dumpPath: "Test string",
-            duration: "Test string",
-            endTime: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            filter: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            performanceConfig: {
-                dumpParallelLevel: "Test string",
-            },
-            phase: "Test string",
-            reverseSshConnectivity: {
-                vm: "Test string",
-                vmIp: "Test string",
-                vmPort: 42,
-                vpc: "Test string",
-            },
-            source: "Test string",
-            sourceDatabase: {
-                engine: "Test string",
-                provider: "Test string",
-            },
-            state: "Test string",
-            staticIpConnectivity: {
-            },
-            type: "Test string",
-            updateTime: "Test string",
-            vpcPeeringConnectivity: {
-                vpc: "Test string",
-            },
-        });
-        /** Deletes a single migration job. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.delete({
-            force: true,
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /**
-         * Demotes the destination database to become a read replica of the source. This is applicable for the following migrations: 1. MySQL to Cloud SQL (for MySQL) 2. PostgreSQL to Cloud SQL
-         * (for PostgreSQL) 3. PostgreSQL to AlloyDB.
-         */
-        await gapi.client.datamigration.projects.locations.migrationJobs.demoteDestination({
-            name: "Test string",
-        }, {
-        });
-        /** Generate a SSH configuration script to configure the reverse SSH connectivity. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.generateSshScript({
-            migrationJob: "Test string",
-        }, {
-            vm: "Test string",
-            vmCreationConfig: {
-                subnet: "Test string",
-                vmMachineType: "Test string",
-                vmZone: "Test string",
-            },
-            vmPort: 42,
-            vmSelectionConfig: {
-                vmZone: "Test string",
-            },
-        });
-        /** Generate a TCP Proxy configuration script to configure a cloud-hosted VM running a TCP Proxy. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.generateTcpProxyScript({
-            migrationJob: "Test string",
-        }, {
-            vmMachineType: "Test string",
-            vmName: "Test string",
-            vmSubnet: "Test string",
-            vmZone: "Test string",
-        });
-        /** Gets details of a single migration job. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists migration jobs in a given project and location. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single migration job. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            cmekKeyName: "Test string",
-            conversionWorkspace: {
-                commitId: "Test string",
-                name: "Test string",
-            },
-            createTime: "Test string",
-            destination: "Test string",
-            destinationDatabase: {
-                engine: "Test string",
-                provider: "Test string",
-            },
-            displayName: "Test string",
-            dumpFlags: {
-                dumpFlags: [
-                    {
-                        name: "Test string",
-                        value: "Test string",
-                    }
-                ],
-            },
-            dumpPath: "Test string",
-            duration: "Test string",
-            endTime: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            filter: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            performanceConfig: {
-                dumpParallelLevel: "Test string",
-            },
-            phase: "Test string",
-            reverseSshConnectivity: {
-                vm: "Test string",
-                vmIp: "Test string",
-                vmPort: 42,
-                vpc: "Test string",
-            },
-            source: "Test string",
-            sourceDatabase: {
-                engine: "Test string",
-                provider: "Test string",
-            },
-            state: "Test string",
-            staticIpConnectivity: {
-            },
-            type: "Test string",
-            updateTime: "Test string",
-            vpcPeeringConnectivity: {
-                vpc: "Test string",
-            },
-        });
-        /** Promote a migration job, stopping replication to the destination and promoting the destination to be a standalone database. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.promote({
-            name: "Test string",
-        }, {
-        });
-        /** Restart a stopped or failed migration job, resetting the destination instance to its original state and starting the migration process from scratch. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.restart({
-            name: "Test string",
-        }, {
-            skipValidation: true,
-        });
-        /** Resume a migration job that is currently stopped and is resumable (was stopped during CDC phase). */
-        await gapi.client.datamigration.projects.locations.migrationJobs.resume({
-            name: "Test string",
-        }, {
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /** Start an already created migration job. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.start({
-            name: "Test string",
-        }, {
-            skipValidation: true,
-        });
-        /** Stops a running migration job. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.datamigration.projects.locations.migrationJobs.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Verify a migration job, making sure the destination can reach the source and that all configuration and prerequisites are met. */
-        await gapi.client.datamigration.projects.locations.migrationJobs.verify({
-            name: "Test string",
-        }, {
-            migrationJob: {
-                cmekKeyName: "Test string",
-                conversionWorkspace: {
-                    commitId: "Test string",
-                    name: "Test string",
-                },
-                createTime: "Test string",
-                destination: "Test string",
-                destinationDatabase: {
-                    engine: "Test string",
-                    provider: "Test string",
-                },
-                displayName: "Test string",
-                dumpFlags: {
-                    dumpFlags: [
-                        {
-                            name: "Test string",
-                            value: "Test string",
-                        }
-                    ],
-                },
-                dumpPath: "Test string",
-                duration: "Test string",
-                endTime: "Test string",
-                error: {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                },
-                filter: "Test string",
-                labels: {
-                    A: "Test string"
-                },
-                name: "Test string",
-                performanceConfig: {
-                    dumpParallelLevel: "Test string",
-                },
-                phase: "Test string",
-                reverseSshConnectivity: {
-                    vm: "Test string",
-                    vmIp: "Test string",
-                    vmPort: 42,
-                    vpc: "Test string",
-                },
-                source: "Test string",
-                sourceDatabase: {
-                    engine: "Test string",
-                    provider: "Test string",
-                },
-                state: "Test string",
-                staticIpConnectivity: {
-                },
-                type: "Test string",
-                updateTime: "Test string",
-                vpcPeeringConnectivity: {
-                    vpc: "Test string",
-                },
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.datamigration.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.datamigration.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.datamigration.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.datamigration.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new private connection in a given project and location. */
-        await gapi.client.datamigration.projects.locations.privateConnections.create({
-            parent: "Test string",
-            privateConnectionId: "Test string",
-            requestId: "Test string",
-            skipValidation: true,
-        }, {
-            createTime: "Test string",
-            displayName: "Test string",
-            error: {
-                code: 42,
-                details: [
-                    {
-                        A: 42
-                    }
-                ],
-                message: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            vpcPeeringConfig: {
-                subnet: "Test string",
-                vpcName: "Test string",
-            },
-        });
-        /** Deletes a single Database Migration Service private connection. */
-        await gapi.client.datamigration.projects.locations.privateConnections.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets details of a single private connection. */
-        await gapi.client.datamigration.projects.locations.privateConnections.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.datamigration.projects.locations.privateConnections.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Retrieves a list of private connections in a given project and location. */
-        await gapi.client.datamigration.projects.locations.privateConnections.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.datamigration.projects.locations.privateConnections.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.datamigration.projects.locations.privateConnections.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Fetches a set of static IP addresses that need to be allowlisted by the customer when using the static-IP connectivity method. */
+    await gapi.client.datamigration.projects.locations.fetchStaticIps({
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Gets information about a location. */
+    await gapi.client.datamigration.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.datamigration.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new connection profile in a given project and location. */
+    await gapi.client.datamigration.projects.locations.connectionProfiles.create(
+      {
+        connectionProfileId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        skipValidation: true,
+        validateOnly: true,
+      },
+      {
+        alloydb: {
+          clusterId: 'Test string',
+          settings: {
+            databaseVersion: 'Test string',
+            encryptionConfig: {
+              kmsKeyName: 'Test string',
+            },
+            initialUser: {
+              password: 'Test string',
+              passwordSet: true,
+              user: 'Test string',
+            },
+            labels: {
+              A: 'Test string',
+            },
+            primaryInstanceSettings: {
+              databaseFlags: {
+                A: 'Test string',
+              },
+              id: 'Test string',
+              labels: {
+                A: 'Test string',
+              },
+              machineConfig: {
+                cpuCount: 42,
+              },
+              privateIp: 'Test string',
+            },
+            vpcNetwork: 'Test string',
+          },
+        },
+        cloudsql: {
+          additionalPublicIp: 'Test string',
+          cloudSqlId: 'Test string',
+          privateIp: 'Test string',
+          publicIp: 'Test string',
+          settings: {
+            activationPolicy: 'Test string',
+            autoStorageIncrease: true,
+            availabilityType: 'Test string',
+            cmekKeyName: 'Test string',
+            collation: 'Test string',
+            databaseFlags: {
+              A: 'Test string',
+            },
+            databaseVersion: 'Test string',
+            dataCacheConfig: {
+              dataCacheEnabled: true,
+            },
+            dataDiskSizeGb: 'Test string',
+            dataDiskType: 'Test string',
+            edition: 'Test string',
+            ipConfig: {
+              allocatedIpRange: 'Test string',
+              authorizedNetworks: [
+                {
+                  expireTime: 'Test string',
+                  label: 'Test string',
+                  ttl: 'Test string',
+                  value: 'Test string',
+                },
+              ],
+              enableIpv4: true,
+              privateNetwork: 'Test string',
+              requireSsl: true,
+            },
+            rootPassword: 'Test string',
+            rootPasswordSet: true,
+            secondaryZone: 'Test string',
+            sourceId: 'Test string',
+            storageAutoResizeLimit: 'Test string',
+            tier: 'Test string',
+            userLabels: {
+              A: 'Test string',
+            },
+            zone: 'Test string',
+          },
+        },
+        createTime: 'Test string',
+        displayName: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        mysql: {
+          cloudSqlId: 'Test string',
+          host: 'Test string',
+          password: 'Test string',
+          passwordSet: true,
+          port: 42,
+          ssl: {
+            caCertificate: 'Test string',
+            clientCertificate: 'Test string',
+            clientKey: 'Test string',
+            type: 'Test string',
+          },
+          username: 'Test string',
+        },
+        name: 'Test string',
+        oracle: {
+          databaseService: 'Test string',
+          forwardSshConnectivity: {
+            hostname: 'Test string',
+            password: 'Test string',
+            port: 42,
+            privateKey: 'Test string',
+            username: 'Test string',
+          },
+          host: 'Test string',
+          password: 'Test string',
+          passwordSet: true,
+          port: 42,
+          privateConnectivity: {
+            privateConnection: 'Test string',
+          },
+          ssl: {
+            caCertificate: 'Test string',
+            clientCertificate: 'Test string',
+            clientKey: 'Test string',
+            type: 'Test string',
+          },
+          staticServiceIpConnectivity: {},
+          username: 'Test string',
+        },
+        postgresql: {
+          alloydbClusterId: 'Test string',
+          cloudSqlId: 'Test string',
+          host: 'Test string',
+          networkArchitecture: 'Test string',
+          password: 'Test string',
+          passwordSet: true,
+          port: 42,
+          privateServiceConnectConnectivity: {
+            serviceAttachment: 'Test string',
+          },
+          ssl: {
+            caCertificate: 'Test string',
+            clientCertificate: 'Test string',
+            clientKey: 'Test string',
+            type: 'Test string',
+          },
+          staticIpConnectivity: {},
+          username: 'Test string',
+        },
+        provider: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single Database Migration Service connection profile. A connection profile can only be deleted if it is not in use by any active migration jobs. */
+    await gapi.client.datamigration.projects.locations.connectionProfiles.delete(
+      {
+        force: true,
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Gets details of a single connection profile. */
+    await gapi.client.datamigration.projects.locations.connectionProfiles.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.datamigration.projects.locations.connectionProfiles.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Retrieves a list of all connection profiles in a given project and location. */
+    await gapi.client.datamigration.projects.locations.connectionProfiles.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Update the configuration of a single connection profile. */
+    await gapi.client.datamigration.projects.locations.connectionProfiles.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        skipValidation: true,
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        alloydb: {
+          clusterId: 'Test string',
+          settings: {
+            databaseVersion: 'Test string',
+            encryptionConfig: {
+              kmsKeyName: 'Test string',
+            },
+            initialUser: {
+              password: 'Test string',
+              passwordSet: true,
+              user: 'Test string',
+            },
+            labels: {
+              A: 'Test string',
+            },
+            primaryInstanceSettings: {
+              databaseFlags: {
+                A: 'Test string',
+              },
+              id: 'Test string',
+              labels: {
+                A: 'Test string',
+              },
+              machineConfig: {
+                cpuCount: 42,
+              },
+              privateIp: 'Test string',
+            },
+            vpcNetwork: 'Test string',
+          },
+        },
+        cloudsql: {
+          additionalPublicIp: 'Test string',
+          cloudSqlId: 'Test string',
+          privateIp: 'Test string',
+          publicIp: 'Test string',
+          settings: {
+            activationPolicy: 'Test string',
+            autoStorageIncrease: true,
+            availabilityType: 'Test string',
+            cmekKeyName: 'Test string',
+            collation: 'Test string',
+            databaseFlags: {
+              A: 'Test string',
+            },
+            databaseVersion: 'Test string',
+            dataCacheConfig: {
+              dataCacheEnabled: true,
+            },
+            dataDiskSizeGb: 'Test string',
+            dataDiskType: 'Test string',
+            edition: 'Test string',
+            ipConfig: {
+              allocatedIpRange: 'Test string',
+              authorizedNetworks: [
+                {
+                  expireTime: 'Test string',
+                  label: 'Test string',
+                  ttl: 'Test string',
+                  value: 'Test string',
+                },
+              ],
+              enableIpv4: true,
+              privateNetwork: 'Test string',
+              requireSsl: true,
+            },
+            rootPassword: 'Test string',
+            rootPasswordSet: true,
+            secondaryZone: 'Test string',
+            sourceId: 'Test string',
+            storageAutoResizeLimit: 'Test string',
+            tier: 'Test string',
+            userLabels: {
+              A: 'Test string',
+            },
+            zone: 'Test string',
+          },
+        },
+        createTime: 'Test string',
+        displayName: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        mysql: {
+          cloudSqlId: 'Test string',
+          host: 'Test string',
+          password: 'Test string',
+          passwordSet: true,
+          port: 42,
+          ssl: {
+            caCertificate: 'Test string',
+            clientCertificate: 'Test string',
+            clientKey: 'Test string',
+            type: 'Test string',
+          },
+          username: 'Test string',
+        },
+        name: 'Test string',
+        oracle: {
+          databaseService: 'Test string',
+          forwardSshConnectivity: {
+            hostname: 'Test string',
+            password: 'Test string',
+            port: 42,
+            privateKey: 'Test string',
+            username: 'Test string',
+          },
+          host: 'Test string',
+          password: 'Test string',
+          passwordSet: true,
+          port: 42,
+          privateConnectivity: {
+            privateConnection: 'Test string',
+          },
+          ssl: {
+            caCertificate: 'Test string',
+            clientCertificate: 'Test string',
+            clientKey: 'Test string',
+            type: 'Test string',
+          },
+          staticServiceIpConnectivity: {},
+          username: 'Test string',
+        },
+        postgresql: {
+          alloydbClusterId: 'Test string',
+          cloudSqlId: 'Test string',
+          host: 'Test string',
+          networkArchitecture: 'Test string',
+          password: 'Test string',
+          passwordSet: true,
+          port: 42,
+          privateServiceConnectConnectivity: {
+            serviceAttachment: 'Test string',
+          },
+          ssl: {
+            caCertificate: 'Test string',
+            clientCertificate: 'Test string',
+            clientKey: 'Test string',
+            type: 'Test string',
+          },
+          staticIpConnectivity: {},
+          username: 'Test string',
+        },
+        provider: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.datamigration.projects.locations.connectionProfiles.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.datamigration.projects.locations.connectionProfiles.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Applies draft tree onto a specific destination database. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.apply(
+      {
+        name: 'Test string',
+      },
+      {
+        autoCommit: true,
+        connectionProfile: 'Test string',
+        dryRun: true,
+        filter: 'Test string',
+      }
+    );
+    /** Marks all the data in the conversion workspace as committed. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.commit(
+      {
+        name: 'Test string',
+      },
+      {
+        commitName: 'Test string',
+      }
+    );
+    /** Creates a draft tree schema for the destination database. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.convert(
+      {
+        name: 'Test string',
+      },
+      {
+        autoCommit: true,
+        convertFullPath: true,
+        filter: 'Test string',
+      }
+    );
+    /** Creates a new conversion workspace in a given project and location. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.create(
+      {
+        conversionWorkspaceId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        destination: {
+          engine: 'Test string',
+          version: 'Test string',
+        },
+        displayName: 'Test string',
+        globalSettings: {
+          A: 'Test string',
+        },
+        hasUncommittedChanges: true,
+        latestCommitId: 'Test string',
+        latestCommitTime: 'Test string',
+        name: 'Test string',
+        source: {
+          engine: 'Test string',
+          version: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single conversion workspace. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.delete(
+      {
+        force: true,
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Retrieves a list of committed revisions of a specific conversion workspace. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.describeConversionWorkspaceRevisions(
+      {
+        commitId: 'Test string',
+        conversionWorkspace: 'Test string',
+      }
+    );
+    /** Describes the database entities tree for a specific conversion workspace and a specific tree type. Database entities are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are simple data objects describing the structure of the client database. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.describeDatabaseEntities(
+      {
+        commitId: 'Test string',
+        conversionWorkspace: 'Test string',
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        tree: 'Test string',
+        uncommitted: true,
+        view: 'Test string',
+      }
+    );
+    /** Gets details of a single conversion workspace. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Lists conversion workspaces in a given project and location. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates the parameters of a single conversion workspace. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        destination: {
+          engine: 'Test string',
+          version: 'Test string',
+        },
+        displayName: 'Test string',
+        globalSettings: {
+          A: 'Test string',
+        },
+        hasUncommittedChanges: true,
+        latestCommitId: 'Test string',
+        latestCommitTime: 'Test string',
+        name: 'Test string',
+        source: {
+          engine: 'Test string',
+          version: 'Test string',
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Rolls back a conversion workspace to the last committed snapshot. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.rollback(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Searches/lists the background jobs for a specific conversion workspace. The background jobs are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are a way to expose the data plane jobs log. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.searchBackgroundJobs(
+      {
+        completedUntilTime: 'Test string',
+        conversionWorkspace: 'Test string',
+        maxSize: 42,
+        returnMostRecentPerJobType: true,
+      }
+    );
+    /** Imports a snapshot of the source database into the conversion workspace. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.seed(
+      {
+        name: 'Test string',
+      },
+      {
+        autoCommit: true,
+        destinationConnectionProfile: 'Test string',
+        sourceConnectionProfile: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a new mapping rule for a given conversion workspace. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.create(
+      {
+        mappingRuleId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        conditionalColumnSetValue: {
+          customFeatures: {
+            A: 42,
+          },
+          sourceNumericFilter: {
+            numericFilterOption: 'Test string',
+            sourceMaxPrecisionFilter: 42,
+            sourceMaxScaleFilter: 42,
+            sourceMinPrecisionFilter: 42,
+            sourceMinScaleFilter: 42,
+          },
+          sourceTextFilter: {
+            sourceMaxLengthFilter: 'Test string',
+            sourceMinLengthFilter: 'Test string',
+          },
+          valueTransformation: {
+            applyHash: {
+              uuidFromBytes: {},
+            },
+            assignMaxValue: {},
+            assignMinValue: {},
+            assignNull: {},
+            assignSpecificValue: {
+              value: 'Test string',
+            },
+            doubleComparison: {
+              value: 42,
+              valueComparison: 'Test string',
+            },
+            intComparison: {
+              value: 'Test string',
+              valueComparison: 'Test string',
+            },
+            isNull: {},
+            roundScale: {
+              scale: 42,
+            },
+            valueList: {
+              ignoreCase: true,
+              valuePresentList: 'Test string',
+              values: ['Test string'],
+            },
+          },
+        },
+        convertRowidColumn: {
+          onlyIfNoPrimaryKey: true,
+        },
+        displayName: 'Test string',
+        entityMove: {
+          newSchema: 'Test string',
+        },
+        filter: {
+          entities: ['Test string'],
+          entityNameContains: 'Test string',
+          entityNamePrefix: 'Test string',
+          entityNameSuffix: 'Test string',
+          parentEntity: 'Test string',
+        },
+        filterTableColumns: {
+          excludeColumns: ['Test string'],
+          includeColumns: ['Test string'],
+        },
+        multiColumnDataTypeChange: {
+          customFeatures: {
+            A: 42,
+          },
+          newDataType: 'Test string',
+          overrideFractionalSecondsPrecision: 42,
+          overrideLength: 'Test string',
+          overridePrecision: 42,
+          overrideScale: 42,
+          sourceDataTypeFilter: 'Test string',
+          sourceNumericFilter: {
+            numericFilterOption: 'Test string',
+            sourceMaxPrecisionFilter: 42,
+            sourceMaxScaleFilter: 42,
+            sourceMinPrecisionFilter: 42,
+            sourceMinScaleFilter: 42,
+          },
+          sourceTextFilter: {
+            sourceMaxLengthFilter: 'Test string',
+            sourceMinLengthFilter: 'Test string',
+          },
+        },
+        multiEntityRename: {
+          newNamePattern: 'Test string',
+          sourceNameTransformation: 'Test string',
+        },
+        name: 'Test string',
+        revisionCreateTime: 'Test string',
+        revisionId: 'Test string',
+        ruleOrder: 'Test string',
+        ruleScope: 'Test string',
+        setTablePrimaryKey: {
+          primaryKey: 'Test string',
+          primaryKeyColumns: ['Test string'],
+        },
+        singleColumnChange: {
+          array: true,
+          arrayLength: 42,
+          autoGenerated: true,
+          charset: 'Test string',
+          collation: 'Test string',
+          comment: 'Test string',
+          customFeatures: {
+            A: 42,
+          },
+          dataType: 'Test string',
+          fractionalSecondsPrecision: 42,
+          length: 'Test string',
+          nullable: true,
+          precision: 42,
+          scale: 42,
+          setValues: ['Test string'],
+          udt: true,
+        },
+        singleEntityRename: {
+          newName: 'Test string',
+        },
+        singlePackageChange: {
+          packageBody: 'Test string',
+          packageDescription: 'Test string',
+        },
+        sourceSqlChange: {
+          sqlCode: 'Test string',
+        },
+        state: 'Test string',
+      }
+    );
+    /** Deletes a single mapping rule. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.delete(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Gets the details of a mapping rule. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Imports the mapping rules for a given conversion workspace. Supports various formats of external rules files. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        autoCommit: true,
+        rulesFiles: [
+          {
+            rulesContent: 'Test string',
+            rulesSourceFilename: 'Test string',
+          },
+        ],
+        rulesFormat: 'Test string',
+      }
+    );
+    /** Lists the mapping rules for a specific conversion workspace. */
+    await gapi.client.datamigration.projects.locations.conversionWorkspaces.mappingRules.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Creates a new migration job in a given project and location. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.create(
+      {
+        migrationJobId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        cmekKeyName: 'Test string',
+        conversionWorkspace: {
+          commitId: 'Test string',
+          name: 'Test string',
+        },
+        createTime: 'Test string',
+        destination: 'Test string',
+        destinationDatabase: {
+          engine: 'Test string',
+          provider: 'Test string',
+        },
+        displayName: 'Test string',
+        dumpFlags: {
+          dumpFlags: [
+            {
+              name: 'Test string',
+              value: 'Test string',
+            },
+          ],
+        },
+        dumpPath: 'Test string',
+        duration: 'Test string',
+        endTime: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        filter: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        performanceConfig: {
+          dumpParallelLevel: 'Test string',
+        },
+        phase: 'Test string',
+        reverseSshConnectivity: {
+          vm: 'Test string',
+          vmIp: 'Test string',
+          vmPort: 42,
+          vpc: 'Test string',
+        },
+        source: 'Test string',
+        sourceDatabase: {
+          engine: 'Test string',
+          provider: 'Test string',
+        },
+        state: 'Test string',
+        staticIpConnectivity: {},
+        type: 'Test string',
+        updateTime: 'Test string',
+        vpcPeeringConnectivity: {
+          vpc: 'Test string',
+        },
+      }
+    );
+    /** Deletes a single migration job. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.delete({
+      force: true,
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Demotes the destination database to become a read replica of the source. This is applicable for the following migrations: 1. MySQL to Cloud SQL (for MySQL) 2. PostgreSQL to Cloud SQL (for PostgreSQL) 3. PostgreSQL to AlloyDB. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.demoteDestination(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Generate a SSH configuration script to configure the reverse SSH connectivity. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.generateSshScript(
+      {
+        migrationJob: 'Test string',
+      },
+      {
+        vm: 'Test string',
+        vmCreationConfig: {
+          subnet: 'Test string',
+          vmMachineType: 'Test string',
+          vmZone: 'Test string',
+        },
+        vmPort: 42,
+        vmSelectionConfig: {
+          vmZone: 'Test string',
+        },
+      }
+    );
+    /** Generate a TCP Proxy configuration script to configure a cloud-hosted VM running a TCP Proxy. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.generateTcpProxyScript(
+      {
+        migrationJob: 'Test string',
+      },
+      {
+        vmMachineType: 'Test string',
+        vmName: 'Test string',
+        vmSubnet: 'Test string',
+        vmZone: 'Test string',
+      }
+    );
+    /** Gets details of a single migration job. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Lists migration jobs in a given project and location. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single migration job. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        cmekKeyName: 'Test string',
+        conversionWorkspace: {
+          commitId: 'Test string',
+          name: 'Test string',
+        },
+        createTime: 'Test string',
+        destination: 'Test string',
+        destinationDatabase: {
+          engine: 'Test string',
+          provider: 'Test string',
+        },
+        displayName: 'Test string',
+        dumpFlags: {
+          dumpFlags: [
+            {
+              name: 'Test string',
+              value: 'Test string',
+            },
+          ],
+        },
+        dumpPath: 'Test string',
+        duration: 'Test string',
+        endTime: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        filter: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        performanceConfig: {
+          dumpParallelLevel: 'Test string',
+        },
+        phase: 'Test string',
+        reverseSshConnectivity: {
+          vm: 'Test string',
+          vmIp: 'Test string',
+          vmPort: 42,
+          vpc: 'Test string',
+        },
+        source: 'Test string',
+        sourceDatabase: {
+          engine: 'Test string',
+          provider: 'Test string',
+        },
+        state: 'Test string',
+        staticIpConnectivity: {},
+        type: 'Test string',
+        updateTime: 'Test string',
+        vpcPeeringConnectivity: {
+          vpc: 'Test string',
+        },
+      }
+    );
+    /** Promote a migration job, stopping replication to the destination and promoting the destination to be a standalone database. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.promote(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Restart a stopped or failed migration job, resetting the destination instance to its original state and starting the migration process from scratch. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.restart(
+      {
+        name: 'Test string',
+      },
+      {
+        skipValidation: true,
+      }
+    );
+    /** Resume a migration job that is currently stopped and is resumable (was stopped during CDC phase). */
+    await gapi.client.datamigration.projects.locations.migrationJobs.resume(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Start an already created migration job. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.start(
+      {
+        name: 'Test string',
+      },
+      {
+        skipValidation: true,
+      }
+    );
+    /** Stops a running migration job. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.stop(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Verify a migration job, making sure the destination can reach the source and that all configuration and prerequisites are met. */
+    await gapi.client.datamigration.projects.locations.migrationJobs.verify(
+      {
+        name: 'Test string',
+      },
+      {
+        migrationJob: {
+          cmekKeyName: 'Test string',
+          conversionWorkspace: {
+            commitId: 'Test string',
+            name: 'Test string',
+          },
+          createTime: 'Test string',
+          destination: 'Test string',
+          destinationDatabase: {
+            engine: 'Test string',
+            provider: 'Test string',
+          },
+          displayName: 'Test string',
+          dumpFlags: {
+            dumpFlags: [
+              {
+                name: 'Test string',
+                value: 'Test string',
+              },
+            ],
+          },
+          dumpPath: 'Test string',
+          duration: 'Test string',
+          endTime: 'Test string',
+          error: {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+          filter: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          name: 'Test string',
+          performanceConfig: {
+            dumpParallelLevel: 'Test string',
+          },
+          phase: 'Test string',
+          reverseSshConnectivity: {
+            vm: 'Test string',
+            vmIp: 'Test string',
+            vmPort: 42,
+            vpc: 'Test string',
+          },
+          source: 'Test string',
+          sourceDatabase: {
+            engine: 'Test string',
+            provider: 'Test string',
+          },
+          state: 'Test string',
+          staticIpConnectivity: {},
+          type: 'Test string',
+          updateTime: 'Test string',
+          vpcPeeringConnectivity: {
+            vpc: 'Test string',
+          },
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.datamigration.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.datamigration.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.datamigration.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.datamigration.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new private connection in a given project and location. */
+    await gapi.client.datamigration.projects.locations.privateConnections.create(
+      {
+        parent: 'Test string',
+        privateConnectionId: 'Test string',
+        requestId: 'Test string',
+        skipValidation: true,
+      },
+      {
+        createTime: 'Test string',
+        displayName: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        vpcPeeringConfig: {
+          subnet: 'Test string',
+          vpcName: 'Test string',
+        },
+      }
+    );
+    /** Deletes a single Database Migration Service private connection. */
+    await gapi.client.datamigration.projects.locations.privateConnections.delete(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** Gets details of a single private connection. */
+    await gapi.client.datamigration.projects.locations.privateConnections.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.datamigration.projects.locations.privateConnections.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Retrieves a list of private connections in a given project and location. */
+    await gapi.client.datamigration.projects.locations.privateConnections.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.datamigration.projects.locations.privateConnections.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.datamigration.projects.locations.privateConnections.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+  }
 });

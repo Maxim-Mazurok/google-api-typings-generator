@@ -6,448 +6,445 @@
 // Revision: 20231128
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://playdeveloperreporting.googleapis.com/$discovery/rest?version=v1alpha1');
-    /** now we can use gapi.client.playdeveloperreporting */
+  await gapi.client.load(
+    'https://playdeveloperreporting.googleapis.com/$discovery/rest?version=v1alpha1'
+  );
+  /** now we can use gapi.client.playdeveloperreporting */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See metrics and data about the apps in your Google Play Developer account */
-        'https://www.googleapis.com/auth/playdeveloperreporting',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Lists anomalies in any of the datasets. */
-        await gapi.client.playdeveloperreporting.anomalies.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Describes filtering options for releases. */
-        await gapi.client.playdeveloperreporting.apps.fetchReleaseFilterOptions({
-            name: "Test string",
-        });
-        /** Searches for Apps accessible by the user. */
-        await gapi.client.playdeveloperreporting.apps.search({
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Describes the properties of the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.anrrate.get({
-            name: "Test string",
-        });
-        /** Queries the metrics in the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.anrrate.query({
-            name: "Test string",
-        }, {
-            dimensions: [
-                "Test string"
-            ],
-            filter: "Test string",
-            metrics: [
-                "Test string"
-            ],
-            pageSize: 42,
-            pageToken: "Test string",
-            timelineSpec: {
-                aggregationPeriod: "Test string",
-                endTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-                startTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-            },
-            userCohort: "Test string",
-        });
-        /** Describes the properties of the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.crashrate.get({
-            name: "Test string",
-        });
-        /** Queries the metrics in the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.crashrate.query({
-            name: "Test string",
-        }, {
-            dimensions: [
-                "Test string"
-            ],
-            filter: "Test string",
-            metrics: [
-                "Test string"
-            ],
-            pageSize: 42,
-            pageToken: "Test string",
-            timelineSpec: {
-                aggregationPeriod: "Test string",
-                endTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-                startTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-            },
-            userCohort: "Test string",
-        });
-        /** Describes the properties of the metrics set. */
-        await gapi.client.playdeveloperreporting.vitals.errors.counts.get({
-            name: "Test string",
-        });
-        /** Queries the metrics in the metrics set. */
-        await gapi.client.playdeveloperreporting.vitals.errors.counts.query({
-            name: "Test string",
-        }, {
-            dimensions: [
-                "Test string"
-            ],
-            filter: "Test string",
-            metrics: [
-                "Test string"
-            ],
-            pageSize: 42,
-            pageToken: "Test string",
-            timelineSpec: {
-                aggregationPeriod: "Test string",
-                endTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-                startTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-            },
-        });
-        /** Searches all error issues in which reports have been grouped. */
-        await gapi.client.playdeveloperreporting.vitals.errors.issues.search({
-            filter: "Test string",
-            "interval.endTime.day": 42,
-            "interval.endTime.hours": 42,
-            "interval.endTime.minutes": 42,
-            "interval.endTime.month": 42,
-            "interval.endTime.nanos": 42,
-            "interval.endTime.seconds": 42,
-            "interval.endTime.timeZone.id": "Test string",
-            "interval.endTime.timeZone.version": "Test string",
-            "interval.endTime.utcOffset": "Test string",
-            "interval.endTime.year": 42,
-            "interval.startTime.day": 42,
-            "interval.startTime.hours": 42,
-            "interval.startTime.minutes": 42,
-            "interval.startTime.month": 42,
-            "interval.startTime.nanos": 42,
-            "interval.startTime.seconds": 42,
-            "interval.startTime.timeZone.id": "Test string",
-            "interval.startTime.timeZone.version": "Test string",
-            "interval.startTime.utcOffset": "Test string",
-            "interval.startTime.year": 42,
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Searches all error reports received for an app. */
-        await gapi.client.playdeveloperreporting.vitals.errors.reports.search({
-            filter: "Test string",
-            "interval.endTime.day": 42,
-            "interval.endTime.hours": 42,
-            "interval.endTime.minutes": 42,
-            "interval.endTime.month": 42,
-            "interval.endTime.nanos": 42,
-            "interval.endTime.seconds": 42,
-            "interval.endTime.timeZone.id": "Test string",
-            "interval.endTime.timeZone.version": "Test string",
-            "interval.endTime.utcOffset": "Test string",
-            "interval.endTime.year": 42,
-            "interval.startTime.day": 42,
-            "interval.startTime.hours": 42,
-            "interval.startTime.minutes": 42,
-            "interval.startTime.month": 42,
-            "interval.startTime.nanos": 42,
-            "interval.startTime.seconds": 42,
-            "interval.startTime.timeZone.id": "Test string",
-            "interval.startTime.timeZone.version": "Test string",
-            "interval.startTime.utcOffset": "Test string",
-            "interval.startTime.year": 42,
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Describes the properties of the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.excessivewakeuprate.get({
-            name: "Test string",
-        });
-        /** Queries the metrics in the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.excessivewakeuprate.query({
-            name: "Test string",
-        }, {
-            dimensions: [
-                "Test string"
-            ],
-            filter: "Test string",
-            metrics: [
-                "Test string"
-            ],
-            pageSize: 42,
-            pageToken: "Test string",
-            timelineSpec: {
-                aggregationPeriod: "Test string",
-                endTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-                startTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-            },
-            userCohort: "Test string",
-        });
-        /** Describes the properties of the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.slowrenderingrate.get({
-            name: "Test string",
-        });
-        /** Queries the metrics in the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.slowrenderingrate.query({
-            name: "Test string",
-        }, {
-            dimensions: [
-                "Test string"
-            ],
-            filter: "Test string",
-            metrics: [
-                "Test string"
-            ],
-            pageSize: 42,
-            pageToken: "Test string",
-            timelineSpec: {
-                aggregationPeriod: "Test string",
-                endTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-                startTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-            },
-            userCohort: "Test string",
-        });
-        /** Describes the properties of the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.slowstartrate.get({
-            name: "Test string",
-        });
-        /** Queries the metrics in the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.slowstartrate.query({
-            name: "Test string",
-        }, {
-            dimensions: [
-                "Test string"
-            ],
-            filter: "Test string",
-            metrics: [
-                "Test string"
-            ],
-            pageSize: 42,
-            pageToken: "Test string",
-            timelineSpec: {
-                aggregationPeriod: "Test string",
-                endTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-                startTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-            },
-            userCohort: "Test string",
-        });
-        /** Describes the properties of the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.stuckbackgroundwakelockrate.get({
-            name: "Test string",
-        });
-        /** Queries the metrics in the metric set. */
-        await gapi.client.playdeveloperreporting.vitals.stuckbackgroundwakelockrate.query({
-            name: "Test string",
-        }, {
-            dimensions: [
-                "Test string"
-            ],
-            filter: "Test string",
-            metrics: [
-                "Test string"
-            ],
-            pageSize: 42,
-            pageToken: "Test string",
-            timelineSpec: {
-                aggregationPeriod: "Test string",
-                endTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-                startTime: {
-                    day: 42,
-                    hours: 42,
-                    minutes: 42,
-                    month: 42,
-                    nanos: 42,
-                    seconds: 42,
-                    timeZone: {
-                        id: "Test string",
-                        version: "Test string",
-                    },
-                    utcOffset: "Test string",
-                    year: 42,
-                },
-            },
-            userCohort: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See metrics and data about the apps in your Google Play Developer account */
+    'https://www.googleapis.com/auth/playdeveloperreporting',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Lists anomalies in any of the datasets. */
+    await gapi.client.playdeveloperreporting.anomalies.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Describes filtering options for releases. */
+    await gapi.client.playdeveloperreporting.apps.fetchReleaseFilterOptions({
+      name: 'Test string',
+    });
+    /** Searches for Apps accessible by the user. */
+    await gapi.client.playdeveloperreporting.apps.search({
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Describes the properties of the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.anrrate.get({
+      name: 'Test string',
+    });
+    /** Queries the metrics in the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.anrrate.query(
+      {
+        name: 'Test string',
+      },
+      {
+        dimensions: ['Test string'],
+        filter: 'Test string',
+        metrics: ['Test string'],
+        pageSize: 42,
+        pageToken: 'Test string',
+        timelineSpec: {
+          aggregationPeriod: 'Test string',
+          endTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+          startTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+        },
+        userCohort: 'Test string',
+      }
+    );
+    /** Describes the properties of the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.crashrate.get({
+      name: 'Test string',
+    });
+    /** Queries the metrics in the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.crashrate.query(
+      {
+        name: 'Test string',
+      },
+      {
+        dimensions: ['Test string'],
+        filter: 'Test string',
+        metrics: ['Test string'],
+        pageSize: 42,
+        pageToken: 'Test string',
+        timelineSpec: {
+          aggregationPeriod: 'Test string',
+          endTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+          startTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+        },
+        userCohort: 'Test string',
+      }
+    );
+    /** Describes the properties of the metrics set. */
+    await gapi.client.playdeveloperreporting.vitals.errors.counts.get({
+      name: 'Test string',
+    });
+    /** Queries the metrics in the metrics set. */
+    await gapi.client.playdeveloperreporting.vitals.errors.counts.query(
+      {
+        name: 'Test string',
+      },
+      {
+        dimensions: ['Test string'],
+        filter: 'Test string',
+        metrics: ['Test string'],
+        pageSize: 42,
+        pageToken: 'Test string',
+        timelineSpec: {
+          aggregationPeriod: 'Test string',
+          endTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+          startTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+        },
+      }
+    );
+    /** Searches all error issues in which reports have been grouped. */
+    await gapi.client.playdeveloperreporting.vitals.errors.issues.search({
+      filter: 'Test string',
+      'interval.endTime.day': 42,
+      'interval.endTime.hours': 42,
+      'interval.endTime.minutes': 42,
+      'interval.endTime.month': 42,
+      'interval.endTime.nanos': 42,
+      'interval.endTime.seconds': 42,
+      'interval.endTime.timeZone.id': 'Test string',
+      'interval.endTime.timeZone.version': 'Test string',
+      'interval.endTime.utcOffset': 'Test string',
+      'interval.endTime.year': 42,
+      'interval.startTime.day': 42,
+      'interval.startTime.hours': 42,
+      'interval.startTime.minutes': 42,
+      'interval.startTime.month': 42,
+      'interval.startTime.nanos': 42,
+      'interval.startTime.seconds': 42,
+      'interval.startTime.timeZone.id': 'Test string',
+      'interval.startTime.timeZone.version': 'Test string',
+      'interval.startTime.utcOffset': 'Test string',
+      'interval.startTime.year': 42,
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Searches all error reports received for an app. */
+    await gapi.client.playdeveloperreporting.vitals.errors.reports.search({
+      filter: 'Test string',
+      'interval.endTime.day': 42,
+      'interval.endTime.hours': 42,
+      'interval.endTime.minutes': 42,
+      'interval.endTime.month': 42,
+      'interval.endTime.nanos': 42,
+      'interval.endTime.seconds': 42,
+      'interval.endTime.timeZone.id': 'Test string',
+      'interval.endTime.timeZone.version': 'Test string',
+      'interval.endTime.utcOffset': 'Test string',
+      'interval.endTime.year': 42,
+      'interval.startTime.day': 42,
+      'interval.startTime.hours': 42,
+      'interval.startTime.minutes': 42,
+      'interval.startTime.month': 42,
+      'interval.startTime.nanos': 42,
+      'interval.startTime.seconds': 42,
+      'interval.startTime.timeZone.id': 'Test string',
+      'interval.startTime.timeZone.version': 'Test string',
+      'interval.startTime.utcOffset': 'Test string',
+      'interval.startTime.year': 42,
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Describes the properties of the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.excessivewakeuprate.get({
+      name: 'Test string',
+    });
+    /** Queries the metrics in the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.excessivewakeuprate.query(
+      {
+        name: 'Test string',
+      },
+      {
+        dimensions: ['Test string'],
+        filter: 'Test string',
+        metrics: ['Test string'],
+        pageSize: 42,
+        pageToken: 'Test string',
+        timelineSpec: {
+          aggregationPeriod: 'Test string',
+          endTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+          startTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+        },
+        userCohort: 'Test string',
+      }
+    );
+    /** Describes the properties of the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.slowrenderingrate.get({
+      name: 'Test string',
+    });
+    /** Queries the metrics in the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.slowrenderingrate.query(
+      {
+        name: 'Test string',
+      },
+      {
+        dimensions: ['Test string'],
+        filter: 'Test string',
+        metrics: ['Test string'],
+        pageSize: 42,
+        pageToken: 'Test string',
+        timelineSpec: {
+          aggregationPeriod: 'Test string',
+          endTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+          startTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+        },
+        userCohort: 'Test string',
+      }
+    );
+    /** Describes the properties of the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.slowstartrate.get({
+      name: 'Test string',
+    });
+    /** Queries the metrics in the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.slowstartrate.query(
+      {
+        name: 'Test string',
+      },
+      {
+        dimensions: ['Test string'],
+        filter: 'Test string',
+        metrics: ['Test string'],
+        pageSize: 42,
+        pageToken: 'Test string',
+        timelineSpec: {
+          aggregationPeriod: 'Test string',
+          endTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+          startTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+        },
+        userCohort: 'Test string',
+      }
+    );
+    /** Describes the properties of the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.stuckbackgroundwakelockrate.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Queries the metrics in the metric set. */
+    await gapi.client.playdeveloperreporting.vitals.stuckbackgroundwakelockrate.query(
+      {
+        name: 'Test string',
+      },
+      {
+        dimensions: ['Test string'],
+        filter: 'Test string',
+        metrics: ['Test string'],
+        pageSize: 42,
+        pageToken: 'Test string',
+        timelineSpec: {
+          aggregationPeriod: 'Test string',
+          endTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+          startTime: {
+            day: 42,
+            hours: 42,
+            minutes: 42,
+            month: 42,
+            nanos: 42,
+            seconds: 42,
+            timeZone: {
+              id: 'Test string',
+              version: 'Test string',
+            },
+            utcOffset: 'Test string',
+            year: 42,
+          },
+        },
+        userCohort: 'Test string',
+      }
+    );
+  }
 });

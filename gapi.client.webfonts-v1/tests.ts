@@ -6,20 +6,22 @@
 // Revision: 20231115
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://webfonts.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.webfonts */
+  await gapi.client.load(
+    'https://webfonts.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.webfonts */
 
-    run();
+  void run();
 
-    async function run() {
-        /** Retrieves the list of fonts currently served by the Google Fonts Developer API. */
-        await gapi.client.webfonts.webfonts.list({
-            capability: "Test string",
-            family: "Test string",
-            sort: "Test string",
-            subset: "Test string",
-        });
-    }
+  async function run() {
+    /** Retrieves the list of fonts currently served by the Google Fonts Developer API. */
+    await gapi.client.webfonts.webfonts.list({
+      capability: 'Test string',
+      family: 'Test string',
+      sort: 'Test string',
+      subset: 'Test string',
+    });
+  }
 });

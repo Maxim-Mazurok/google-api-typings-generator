@@ -6,401 +6,390 @@
 // Revision: 20231106
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://batch.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.batch */
+  await gapi.client.load(
+    'https://batch.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.batch */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.batch.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.batch.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Create a Job. */
-        await gapi.client.batch.projects.locations.jobs.create({
-            jobId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            allocationPolicy: {
-                instances: [
-                    {
-                        installGpuDrivers: true,
-                        instanceTemplate: "Test string",
-                        policy: {
-                            accelerators: [
-                                {
-                                    count: "Test string",
-                                    driverVersion: "Test string",
-                                    installGpuDrivers: true,
-                                    type: "Test string",
-                                }
-                            ],
-                            bootDisk: {
-                                diskInterface: "Test string",
-                                image: "Test string",
-                                sizeGb: "Test string",
-                                snapshot: "Test string",
-                                type: "Test string",
-                            },
-                            disks: [
-                                {
-                                    deviceName: "Test string",
-                                    existingDisk: "Test string",
-                                    newDisk: {
-                                        diskInterface: "Test string",
-                                        image: "Test string",
-                                        sizeGb: "Test string",
-                                        snapshot: "Test string",
-                                        type: "Test string",
-                                    },
-                                }
-                            ],
-                            machineType: "Test string",
-                            minCpuPlatform: "Test string",
-                            provisioningModel: "Test string",
-                            reservation: "Test string",
-                        },
-                    }
-                ],
-                labels: {
-                    A: "Test string"
-                },
-                location: {
-                    allowedLocations: [
-                        "Test string"
-                    ],
-                },
-                network: {
-                    networkInterfaces: [
-                        {
-                            network: "Test string",
-                            noExternalIpAddress: true,
-                            subnetwork: "Test string",
-                        }
-                    ],
-                },
-                placement: {
-                    collocation: "Test string",
-                    maxDistance: "Test string",
-                },
-                serviceAccount: {
-                    email: "Test string",
-                    scopes: [
-                        "Test string"
-                    ],
-                },
-            },
-            createTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            logsPolicy: {
-                cloudLoggingOption: {
-                },
-                destination: "Test string",
-                logsPath: "Test string",
-            },
-            name: "Test string",
-            notifications: [
-                {
-                    message: {
-                        newJobState: "Test string",
-                        newTaskState: "Test string",
-                        type: "Test string",
-                    },
-                    pubsubTopic: "Test string",
-                }
-            ],
-            priority: "Test string",
-            status: {
-                runDuration: "Test string",
-                state: "Test string",
-                statusEvents: [
-                    {
-                        description: "Test string",
-                        eventTime: "Test string",
-                        taskExecution: {
-                            exitCode: 42,
-                        },
-                        taskState: "Test string",
-                        type: "Test string",
-                    }
-                ],
-                taskGroups: {
-                    A: {
-                        counts: {
-                            A: "Test string"
-                        },
-                        instances: [
-                            {
-                                bootDisk: {
-                                    diskInterface: "Test string",
-                                    image: "Test string",
-                                    sizeGb: "Test string",
-                                    snapshot: "Test string",
-                                    type: "Test string",
-                                },
-                                machineType: "Test string",
-                                provisioningModel: "Test string",
-                                taskPack: "Test string",
-                            }
-                        ],
-                    }
-                },
-            },
-            taskGroups: [
-                {
-                    name: "Test string",
-                    parallelism: "Test string",
-                    permissiveSsh: true,
-                    requireHostsFile: true,
-                    schedulingPolicy: "Test string",
-                    taskCount: "Test string",
-                    taskCountPerNode: "Test string",
-                    taskEnvironments: [
-                        {
-                            encryptedVariables: {
-                                cipherText: "Test string",
-                                keyName: "Test string",
-                            },
-                            secretVariables: {
-                                A: "Test string"
-                            },
-                            variables: {
-                                A: "Test string"
-                            },
-                        }
-                    ],
-                    taskSpec: {
-                        computeResource: {
-                            bootDiskMib: "Test string",
-                            cpuMilli: "Test string",
-                            memoryMib: "Test string",
-                        },
-                        environment: {
-                            encryptedVariables: {
-                                cipherText: "Test string",
-                                keyName: "Test string",
-                            },
-                            secretVariables: {
-                                A: "Test string"
-                            },
-                            variables: {
-                                A: "Test string"
-                            },
-                        },
-                        environments: {
-                            A: "Test string"
-                        },
-                        lifecyclePolicies: [
-                            {
-                                action: "Test string",
-                                actionCondition: {
-                                    exitCodes: [
-                                        42
-                                    ],
-                                },
-                            }
-                        ],
-                        maxRetryCount: 42,
-                        maxRunDuration: "Test string",
-                        runnables: [
-                            {
-                                alwaysRun: true,
-                                background: true,
-                                barrier: {
-                                    name: "Test string",
-                                },
-                                container: {
-                                    blockExternalNetwork: true,
-                                    commands: [
-                                        "Test string"
-                                    ],
-                                    entrypoint: "Test string",
-                                    imageUri: "Test string",
-                                    options: "Test string",
-                                    password: "Test string",
-                                    username: "Test string",
-                                    volumes: [
-                                        "Test string"
-                                    ],
-                                },
-                                displayName: "Test string",
-                                environment: {
-                                    encryptedVariables: {
-                                        cipherText: "Test string",
-                                        keyName: "Test string",
-                                    },
-                                    secretVariables: {
-                                        A: "Test string"
-                                    },
-                                    variables: {
-                                        A: "Test string"
-                                    },
-                                },
-                                ignoreExitStatus: true,
-                                labels: {
-                                    A: "Test string"
-                                },
-                                script: {
-                                    path: "Test string",
-                                    text: "Test string",
-                                },
-                                timeout: "Test string",
-                            }
-                        ],
-                        volumes: [
-                            {
-                                deviceName: "Test string",
-                                gcs: {
-                                    remotePath: "Test string",
-                                },
-                                mountOptions: [
-                                    "Test string"
-                                ],
-                                mountPath: "Test string",
-                                nfs: {
-                                    remotePath: "Test string",
-                                    server: "Test string",
-                                },
-                            }
-                        ],
-                    },
-                }
-            ],
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Delete a Job. */
-        await gapi.client.batch.projects.locations.jobs.delete({
-            name: "Test string",
-            reason: "Test string",
-            requestId: "Test string",
-        });
-        /** Get a Job specified by its resource name. */
-        await gapi.client.batch.projects.locations.jobs.get({
-            name: "Test string",
-        });
-        /** List all Jobs for a project within a region. */
-        await gapi.client.batch.projects.locations.jobs.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Return a single Task. */
-        await gapi.client.batch.projects.locations.jobs.taskGroups.tasks.get({
-            name: "Test string",
-        });
-        /** List Tasks associated with a job. */
-        await gapi.client.batch.projects.locations.jobs.taskGroups.tasks.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.batch.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.batch.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.batch.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.batch.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Report agent's state, e.g. agent status and tasks information */
-        await gapi.client.batch.projects.locations.state.report({
-            parent: "Test string",
-        }, {
-            agentInfo: {
-                jobId: "Test string",
-                reportTime: "Test string",
-                state: "Test string",
-                taskGroupId: "Test string",
-                tasks: [
-                    {
-                        runnable: "Test string",
-                        taskId: "Test string",
-                        taskStatus: {
-                            state: "Test string",
-                            statusEvents: [
-                                {
-                                    description: "Test string",
-                                    eventTime: "Test string",
-                                    taskExecution: {
-                                        exitCode: 42,
-                                    },
-                                    taskState: "Test string",
-                                    type: "Test string",
-                                }
-                            ],
-                        },
-                    }
-                ],
-            },
-            agentTimingInfo: {
-                agentStartupTime: "Test string",
-                bootTime: "Test string",
-                scriptStartupTime: "Test string",
-            },
-            metadata: {
-                creationTime: "Test string",
-                creator: "Test string",
-                imageVersion: "Test string",
-                instance: "Test string",
-                instanceId: "Test string",
-                instancePreemptionNoticeReceived: true,
-                osRelease: {
-                    A: "Test string"
-                },
-                version: "Test string",
-                zone: "Test string",
-            },
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.batch.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.batch.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Create a Job. */
+    await gapi.client.batch.projects.locations.jobs.create(
+      {
+        jobId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        allocationPolicy: {
+          instances: [
+            {
+              installGpuDrivers: true,
+              instanceTemplate: 'Test string',
+              policy: {
+                accelerators: [
+                  {
+                    count: 'Test string',
+                    driverVersion: 'Test string',
+                    installGpuDrivers: true,
+                    type: 'Test string',
+                  },
+                ],
+                bootDisk: {
+                  diskInterface: 'Test string',
+                  image: 'Test string',
+                  sizeGb: 'Test string',
+                  snapshot: 'Test string',
+                  type: 'Test string',
+                },
+                disks: [
+                  {
+                    deviceName: 'Test string',
+                    existingDisk: 'Test string',
+                    newDisk: {
+                      diskInterface: 'Test string',
+                      image: 'Test string',
+                      sizeGb: 'Test string',
+                      snapshot: 'Test string',
+                      type: 'Test string',
+                    },
+                  },
+                ],
+                machineType: 'Test string',
+                minCpuPlatform: 'Test string',
+                provisioningModel: 'Test string',
+                reservation: 'Test string',
+              },
+            },
+          ],
+          labels: {
+            A: 'Test string',
+          },
+          location: {
+            allowedLocations: ['Test string'],
+          },
+          network: {
+            networkInterfaces: [
+              {
+                network: 'Test string',
+                noExternalIpAddress: true,
+                subnetwork: 'Test string',
+              },
+            ],
+          },
+          placement: {
+            collocation: 'Test string',
+            maxDistance: 'Test string',
+          },
+          serviceAccount: {
+            email: 'Test string',
+            scopes: ['Test string'],
+          },
+        },
+        createTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        logsPolicy: {
+          cloudLoggingOption: {},
+          destination: 'Test string',
+          logsPath: 'Test string',
+        },
+        name: 'Test string',
+        notifications: [
+          {
+            message: {
+              newJobState: 'Test string',
+              newTaskState: 'Test string',
+              type: 'Test string',
+            },
+            pubsubTopic: 'Test string',
+          },
+        ],
+        priority: 'Test string',
+        status: {
+          runDuration: 'Test string',
+          state: 'Test string',
+          statusEvents: [
+            {
+              description: 'Test string',
+              eventTime: 'Test string',
+              taskExecution: {
+                exitCode: 42,
+              },
+              taskState: 'Test string',
+              type: 'Test string',
+            },
+          ],
+          taskGroups: {
+            A: {
+              counts: {
+                A: 'Test string',
+              },
+              instances: [
+                {
+                  bootDisk: {
+                    diskInterface: 'Test string',
+                    image: 'Test string',
+                    sizeGb: 'Test string',
+                    snapshot: 'Test string',
+                    type: 'Test string',
+                  },
+                  machineType: 'Test string',
+                  provisioningModel: 'Test string',
+                  taskPack: 'Test string',
+                },
+              ],
+            },
+          },
+        },
+        taskGroups: [
+          {
+            name: 'Test string',
+            parallelism: 'Test string',
+            permissiveSsh: true,
+            requireHostsFile: true,
+            schedulingPolicy: 'Test string',
+            taskCount: 'Test string',
+            taskCountPerNode: 'Test string',
+            taskEnvironments: [
+              {
+                encryptedVariables: {
+                  cipherText: 'Test string',
+                  keyName: 'Test string',
+                },
+                secretVariables: {
+                  A: 'Test string',
+                },
+                variables: {
+                  A: 'Test string',
+                },
+              },
+            ],
+            taskSpec: {
+              computeResource: {
+                bootDiskMib: 'Test string',
+                cpuMilli: 'Test string',
+                memoryMib: 'Test string',
+              },
+              environment: {
+                encryptedVariables: {
+                  cipherText: 'Test string',
+                  keyName: 'Test string',
+                },
+                secretVariables: {
+                  A: 'Test string',
+                },
+                variables: {
+                  A: 'Test string',
+                },
+              },
+              environments: {
+                A: 'Test string',
+              },
+              lifecyclePolicies: [
+                {
+                  action: 'Test string',
+                  actionCondition: {
+                    exitCodes: [42],
+                  },
+                },
+              ],
+              maxRetryCount: 42,
+              maxRunDuration: 'Test string',
+              runnables: [
+                {
+                  alwaysRun: true,
+                  background: true,
+                  barrier: {
+                    name: 'Test string',
+                  },
+                  container: {
+                    blockExternalNetwork: true,
+                    commands: ['Test string'],
+                    entrypoint: 'Test string',
+                    imageUri: 'Test string',
+                    options: 'Test string',
+                    password: 'Test string',
+                    username: 'Test string',
+                    volumes: ['Test string'],
+                  },
+                  displayName: 'Test string',
+                  environment: {
+                    encryptedVariables: {
+                      cipherText: 'Test string',
+                      keyName: 'Test string',
+                    },
+                    secretVariables: {
+                      A: 'Test string',
+                    },
+                    variables: {
+                      A: 'Test string',
+                    },
+                  },
+                  ignoreExitStatus: true,
+                  labels: {
+                    A: 'Test string',
+                  },
+                  script: {
+                    path: 'Test string',
+                    text: 'Test string',
+                  },
+                  timeout: 'Test string',
+                },
+              ],
+              volumes: [
+                {
+                  deviceName: 'Test string',
+                  gcs: {
+                    remotePath: 'Test string',
+                  },
+                  mountOptions: ['Test string'],
+                  mountPath: 'Test string',
+                  nfs: {
+                    remotePath: 'Test string',
+                    server: 'Test string',
+                  },
+                },
+              ],
+            },
+          },
+        ],
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Delete a Job. */
+    await gapi.client.batch.projects.locations.jobs.delete({
+      name: 'Test string',
+      reason: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Get a Job specified by its resource name. */
+    await gapi.client.batch.projects.locations.jobs.get({
+      name: 'Test string',
+    });
+    /** List all Jobs for a project within a region. */
+    await gapi.client.batch.projects.locations.jobs.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Return a single Task. */
+    await gapi.client.batch.projects.locations.jobs.taskGroups.tasks.get({
+      name: 'Test string',
+    });
+    /** List Tasks associated with a job. */
+    await gapi.client.batch.projects.locations.jobs.taskGroups.tasks.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.batch.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.batch.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.batch.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.batch.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Report agent's state, e.g. agent status and tasks information */
+    await gapi.client.batch.projects.locations.state.report(
+      {
+        parent: 'Test string',
+      },
+      {
+        agentInfo: {
+          jobId: 'Test string',
+          reportTime: 'Test string',
+          state: 'Test string',
+          taskGroupId: 'Test string',
+          tasks: [
+            {
+              runnable: 'Test string',
+              taskId: 'Test string',
+              taskStatus: {
+                state: 'Test string',
+                statusEvents: [
+                  {
+                    description: 'Test string',
+                    eventTime: 'Test string',
+                    taskExecution: {
+                      exitCode: 42,
+                    },
+                    taskState: 'Test string',
+                    type: 'Test string',
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        agentTimingInfo: {
+          agentStartupTime: 'Test string',
+          bootTime: 'Test string',
+          scriptStartupTime: 'Test string',
+        },
+        metadata: {
+          creationTime: 'Test string',
+          creator: 'Test string',
+          imageVersion: 'Test string',
+          instance: 'Test string',
+          instanceId: 'Test string',
+          instancePreemptionNoticeReceived: true,
+          osRelease: {
+            A: 'Test string',
+          },
+          version: 'Test string',
+          zone: 'Test string',
+        },
+      }
+    );
+  }
 });

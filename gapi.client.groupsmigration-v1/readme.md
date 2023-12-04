@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://groupsmigration.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.groupsmigration
-});
+gapi.client.load(
+  'https://groupsmigration.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.groupsmigration
+  }
+);
 ```
 
 ```typescript
@@ -45,29 +48,29 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // Upload messages to any Google group in your domain
-      'https://www.googleapis.com/auth/apps.groups.migration',
-    ],
-    immediate = true;
+    // Upload messages to any Google group in your domain
+    'https://www.googleapis.com/auth/apps.groups.migration',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Groups Migration API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Inserts a new mail into the archive of the Google group.
 */
-await gapi.client.groupsmigration.archive.insert({ groupId: "groupId",  });
+await gapi.client.groupsmigration.archive.insert({groupId: 'groupId'});
 ```

@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://mybusinessnotifications.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.mybusinessnotifications
-});
+gapi.client.load(
+  'https://mybusinessnotifications.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.mybusinessnotifications
+  }
+);
 ```
 
 ```typescript
@@ -39,19 +42,20 @@ gapi.client.load('mybusinessnotifications', 'v1', () => {
 });
 ```
 
-
-
 After that you can use My Business Notifications API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Returns the pubsub notification settings for the account.
 */
-await gapi.client.mybusinessnotifications.accounts.getNotificationSetting({ name: "name",  });
+await gapi.client.mybusinessnotifications.accounts.getNotificationSetting({
+  name: 'name',
+});
 
 /*
 Sets the pubsub notification setting for the account informing Google which topic to send pubsub notifications for. Use the notification_types field within notification_setting to manipulate the events an account wants to subscribe to. An account will only have one notification setting resource, and only one pubsub topic can be set. To delete the setting, update with an empty notification_types
 */
-await gapi.client.mybusinessnotifications.accounts.updateNotificationSetting({ name: "name",  });
+await gapi.client.mybusinessnotifications.accounts.updateNotificationSetting({
+  name: 'name',
+});
 ```

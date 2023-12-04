@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta', () => {
-  // now we can use:
-  // gapi.client.cloudbilling
-});
+gapi.client.load(
+  'https://cloudbilling.googleapis.com/$discovery/rest?version=v1beta',
+  () => {
+    // now we can use:
+    // gapi.client.cloudbilling
+  }
+);
 ```
 
 ```typescript
@@ -45,50 +48,52 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and manage your Google Cloud Platform billing accounts
-      'https://www.googleapis.com/auth/cloud-billing',
+    // View and manage your Google Cloud Platform billing accounts
+    'https://www.googleapis.com/auth/cloud-billing',
 
-      // View your Google Cloud Platform billing accounts
-      'https://www.googleapis.com/auth/cloud-billing.readonly',
+    // View your Google Cloud Platform billing accounts
+    'https://www.googleapis.com/auth/cloud-billing.readonly',
 
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Billing API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Use custom pricing in the estimate, using a `CostScenario` with a defined `billingAccount`.
 */
-await gapi.client.cloudbilling.billingAccounts.estimateCostScenario({ billingAccount: "billingAccount",  });
+await gapi.client.cloudbilling.billingAccounts.estimateCostScenario({
+  billingAccount: 'billingAccount',
+});
 
 /*
 Gets a publicly listed SKU group.
 */
-await gapi.client.cloudbilling.skuGroups.get({ name: "name",  });
+await gapi.client.cloudbilling.skuGroups.get({name: 'name'});
 
 /*
 Lists all publicly listed SKU groups.
 */
-await gapi.client.cloudbilling.skuGroups.list({  });
+await gapi.client.cloudbilling.skuGroups.list({});
 
 /*
 Estimate list prices using a `CostScenario` without a defined `billingAccount`.
 */
-await gapi.client.cloudbilling.estimateCostScenario({  });
+await gapi.client.cloudbilling.estimateCostScenario({});
 ```

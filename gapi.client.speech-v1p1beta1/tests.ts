@@ -6,422 +6,418 @@
 // Revision: 20231115
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://speech.googleapis.com/$discovery/rest?version=v1p1beta1');
-    /** now we can use gapi.client.speech */
+  await gapi.client.load(
+    'https://speech.googleapis.com/$discovery/rest?version=v1p1beta1'
+  );
+  /** now we can use gapi.client.speech */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
+    }
+  });
+
+  async function run() {
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.speech.operations.get({
+      name: 'Test string',
     });
-
-    async function run() {
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.speech.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.speech.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Create a custom class. */
-        await gapi.client.speech.projects.locations.customClasses.create({
-            parent: "Test string",
-        }, {
-            customClass: {
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.speech.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Create a custom class. */
+    await gapi.client.speech.projects.locations.customClasses.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        customClass: {
+          annotations: {
+            A: 'Test string',
+          },
+          customClassId: 'Test string',
+          deleteTime: 'Test string',
+          displayName: 'Test string',
+          etag: 'Test string',
+          expireTime: 'Test string',
+          items: [
+            {
+              value: 'Test string',
+            },
+          ],
+          kmsKeyName: 'Test string',
+          kmsKeyVersionName: 'Test string',
+          name: 'Test string',
+          reconciling: true,
+          state: 'Test string',
+          uid: 'Test string',
+        },
+        customClassId: 'Test string',
+      }
+    );
+    /** Delete a custom class. */
+    await gapi.client.speech.projects.locations.customClasses.delete({
+      name: 'Test string',
+    });
+    /** Get a custom class. */
+    await gapi.client.speech.projects.locations.customClasses.get({
+      name: 'Test string',
+    });
+    /** List custom classes. */
+    await gapi.client.speech.projects.locations.customClasses.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Update a custom class. */
+    await gapi.client.speech.projects.locations.customClasses.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        customClassId: 'Test string',
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        expireTime: 'Test string',
+        items: [
+          {
+            value: 'Test string',
+          },
+        ],
+        kmsKeyName: 'Test string',
+        kmsKeyVersionName: 'Test string',
+        name: 'Test string',
+        reconciling: true,
+        state: 'Test string',
+        uid: 'Test string',
+      }
+    );
+    /** Create a set of phrase hints. Each item in the set can be a single word or a multi-word phrase. The items in the PhraseSet are favored by the recognition model when you send a call that includes the PhraseSet. */
+    await gapi.client.speech.projects.locations.phraseSets.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        phraseSet: {
+          annotations: {
+            A: 'Test string',
+          },
+          boost: 42,
+          deleteTime: 'Test string',
+          displayName: 'Test string',
+          etag: 'Test string',
+          expireTime: 'Test string',
+          kmsKeyName: 'Test string',
+          kmsKeyVersionName: 'Test string',
+          name: 'Test string',
+          phrases: [
+            {
+              boost: 42,
+              value: 'Test string',
+            },
+          ],
+          reconciling: true,
+          state: 'Test string',
+          uid: 'Test string',
+        },
+        phraseSetId: 'Test string',
+      }
+    );
+    /** Delete a phrase set. */
+    await gapi.client.speech.projects.locations.phraseSets.delete({
+      name: 'Test string',
+    });
+    /** Get a phrase set. */
+    await gapi.client.speech.projects.locations.phraseSets.get({
+      name: 'Test string',
+    });
+    /** List phrase sets. */
+    await gapi.client.speech.projects.locations.phraseSets.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Update a phrase set. */
+    await gapi.client.speech.projects.locations.phraseSets.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        boost: 42,
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        etag: 'Test string',
+        expireTime: 'Test string',
+        kmsKeyName: 'Test string',
+        kmsKeyVersionName: 'Test string',
+        name: 'Test string',
+        phrases: [
+          {
+            boost: 42,
+            value: 'Test string',
+          },
+        ],
+        reconciling: true,
+        state: 'Test string',
+        uid: 'Test string',
+      }
+    );
+    /** Performs asynchronous speech recognition: receive results via the google.longrunning.Operations interface. Returns either an `Operation.error` or an `Operation.response` which contains a `LongRunningRecognizeResponse` message. For more information on asynchronous speech recognition, see the [how-to](https://cloud.google.com/speech-to-text/docs/async-recognize). */
+    await gapi.client.speech.speech.longrunningrecognize(
+      {},
+      {
+        audio: {
+          content: 'Test string',
+          uri: 'Test string',
+        },
+        config: {
+          adaptation: {
+            abnfGrammar: {
+              abnfStrings: ['Test string'],
+            },
+            customClasses: [
+              {
                 annotations: {
-                    A: "Test string"
+                  A: 'Test string',
                 },
-                customClassId: "Test string",
-                deleteTime: "Test string",
-                displayName: "Test string",
-                etag: "Test string",
-                expireTime: "Test string",
+                customClassId: 'Test string',
+                deleteTime: 'Test string',
+                displayName: 'Test string',
+                etag: 'Test string',
+                expireTime: 'Test string',
                 items: [
-                    {
-                        value: "Test string",
-                    }
+                  {
+                    value: 'Test string',
+                  },
                 ],
-                kmsKeyName: "Test string",
-                kmsKeyVersionName: "Test string",
-                name: "Test string",
+                kmsKeyName: 'Test string',
+                kmsKeyVersionName: 'Test string',
+                name: 'Test string',
                 reconciling: true,
-                state: "Test string",
-                uid: "Test string",
-            },
-            customClassId: "Test string",
-        });
-        /** Delete a custom class. */
-        await gapi.client.speech.projects.locations.customClasses.delete({
-            name: "Test string",
-        });
-        /** Get a custom class. */
-        await gapi.client.speech.projects.locations.customClasses.get({
-            name: "Test string",
-        });
-        /** List custom classes. */
-        await gapi.client.speech.projects.locations.customClasses.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Update a custom class. */
-        await gapi.client.speech.projects.locations.customClasses.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            customClassId: "Test string",
-            deleteTime: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            expireTime: "Test string",
-            items: [
-                {
-                    value: "Test string",
-                }
+                state: 'Test string',
+                uid: 'Test string',
+              },
             ],
-            kmsKeyName: "Test string",
-            kmsKeyVersionName: "Test string",
-            name: "Test string",
-            reconciling: true,
-            state: "Test string",
-            uid: "Test string",
-        });
-        /**
-         * Create a set of phrase hints. Each item in the set can be a single word or a multi-word phrase. The items in the PhraseSet are favored by the recognition model when you send a call that
-         * includes the PhraseSet.
-         */
-        await gapi.client.speech.projects.locations.phraseSets.create({
-            parent: "Test string",
-        }, {
-            phraseSet: {
+            phraseSetReferences: ['Test string'],
+            phraseSets: [
+              {
                 annotations: {
-                    A: "Test string"
+                  A: 'Test string',
                 },
                 boost: 42,
-                deleteTime: "Test string",
-                displayName: "Test string",
-                etag: "Test string",
-                expireTime: "Test string",
-                kmsKeyName: "Test string",
-                kmsKeyVersionName: "Test string",
-                name: "Test string",
+                deleteTime: 'Test string',
+                displayName: 'Test string',
+                etag: 'Test string',
+                expireTime: 'Test string',
+                kmsKeyName: 'Test string',
+                kmsKeyVersionName: 'Test string',
+                name: 'Test string',
                 phrases: [
-                    {
-                        boost: 42,
-                        value: "Test string",
-                    }
+                  {
+                    boost: 42,
+                    value: 'Test string',
+                  },
                 ],
                 reconciling: true,
-                state: "Test string",
-                uid: "Test string",
-            },
-            phraseSetId: "Test string",
-        });
-        /** Delete a phrase set. */
-        await gapi.client.speech.projects.locations.phraseSets.delete({
-            name: "Test string",
-        });
-        /** Get a phrase set. */
-        await gapi.client.speech.projects.locations.phraseSets.get({
-            name: "Test string",
-        });
-        /** List phrase sets. */
-        await gapi.client.speech.projects.locations.phraseSets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Update a phrase set. */
-        await gapi.client.speech.projects.locations.phraseSets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            boost: 42,
-            deleteTime: "Test string",
-            displayName: "Test string",
-            etag: "Test string",
-            expireTime: "Test string",
-            kmsKeyName: "Test string",
-            kmsKeyVersionName: "Test string",
-            name: "Test string",
-            phrases: [
-                {
-                    boost: 42,
-                    value: "Test string",
-                }
+                state: 'Test string',
+                uid: 'Test string',
+              },
             ],
-            reconciling: true,
-            state: "Test string",
-            uid: "Test string",
-        });
-        /**
-         * Performs asynchronous speech recognition: receive results via the google.longrunning.Operations interface. Returns either an `Operation.error` or an `Operation.response` which contains
-         * a `LongRunningRecognizeResponse` message. For more information on asynchronous speech recognition, see the [how-to](https://cloud.google.com/speech-to-text/docs/async-recognize).
-         */
-        await gapi.client.speech.speech.longrunningrecognize({
-        }, {
-            audio: {
-                content: "Test string",
-                uri: "Test string",
+          },
+          alternativeLanguageCodes: ['Test string'],
+          audioChannelCount: 42,
+          diarizationConfig: {
+            enableSpeakerDiarization: true,
+            maxSpeakerCount: 42,
+            minSpeakerCount: 42,
+            speakerTag: 42,
+          },
+          diarizationSpeakerCount: 42,
+          enableAutomaticPunctuation: true,
+          enableSeparateRecognitionPerChannel: true,
+          enableSpeakerDiarization: true,
+          enableSpokenEmojis: true,
+          enableSpokenPunctuation: true,
+          enableWordConfidence: true,
+          enableWordTimeOffsets: true,
+          encoding: 'Test string',
+          languageCode: 'Test string',
+          maxAlternatives: 42,
+          metadata: {
+            audioTopic: 'Test string',
+            industryNaicsCodeOfAudio: 42,
+            interactionType: 'Test string',
+            microphoneDistance: 'Test string',
+            obfuscatedId: 'Test string',
+            originalMediaType: 'Test string',
+            originalMimeType: 'Test string',
+            recordingDeviceName: 'Test string',
+            recordingDeviceType: 'Test string',
+          },
+          model: 'Test string',
+          profanityFilter: true,
+          sampleRateHertz: 42,
+          speechContexts: [
+            {
+              boost: 42,
+              phrases: ['Test string'],
             },
-            config: {
-                adaptation: {
-                    abnfGrammar: {
-                        abnfStrings: [
-                            "Test string"
-                        ],
-                    },
-                    customClasses: [
-                        {
-                            annotations: {
-                                A: "Test string"
-                            },
-                            customClassId: "Test string",
-                            deleteTime: "Test string",
-                            displayName: "Test string",
-                            etag: "Test string",
-                            expireTime: "Test string",
-                            items: [
-                                {
-                                    value: "Test string",
-                                }
-                            ],
-                            kmsKeyName: "Test string",
-                            kmsKeyVersionName: "Test string",
-                            name: "Test string",
-                            reconciling: true,
-                            state: "Test string",
-                            uid: "Test string",
-                        }
-                    ],
-                    phraseSetReferences: [
-                        "Test string"
-                    ],
-                    phraseSets: [
-                        {
-                            annotations: {
-                                A: "Test string"
-                            },
-                            boost: 42,
-                            deleteTime: "Test string",
-                            displayName: "Test string",
-                            etag: "Test string",
-                            expireTime: "Test string",
-                            kmsKeyName: "Test string",
-                            kmsKeyVersionName: "Test string",
-                            name: "Test string",
-                            phrases: [
-                                {
-                                    boost: 42,
-                                    value: "Test string",
-                                }
-                            ],
-                            reconciling: true,
-                            state: "Test string",
-                            uid: "Test string",
-                        }
-                    ],
+          ],
+          transcriptNormalization: {
+            entries: [
+              {
+                caseSensitive: true,
+                replace: 'Test string',
+                search: 'Test string',
+              },
+            ],
+          },
+          useEnhanced: true,
+        },
+        outputConfig: {
+          gcsUri: 'Test string',
+        },
+      }
+    );
+    /** Performs synchronous speech recognition: receive results after all audio has been sent and processed. */
+    await gapi.client.speech.speech.recognize(
+      {},
+      {
+        audio: {
+          content: 'Test string',
+          uri: 'Test string',
+        },
+        config: {
+          adaptation: {
+            abnfGrammar: {
+              abnfStrings: ['Test string'],
+            },
+            customClasses: [
+              {
+                annotations: {
+                  A: 'Test string',
                 },
-                alternativeLanguageCodes: [
-                    "Test string"
+                customClassId: 'Test string',
+                deleteTime: 'Test string',
+                displayName: 'Test string',
+                etag: 'Test string',
+                expireTime: 'Test string',
+                items: [
+                  {
+                    value: 'Test string',
+                  },
                 ],
-                audioChannelCount: 42,
-                diarizationConfig: {
-                    enableSpeakerDiarization: true,
-                    maxSpeakerCount: 42,
-                    minSpeakerCount: 42,
-                    speakerTag: 42,
+                kmsKeyName: 'Test string',
+                kmsKeyVersionName: 'Test string',
+                name: 'Test string',
+                reconciling: true,
+                state: 'Test string',
+                uid: 'Test string',
+              },
+            ],
+            phraseSetReferences: ['Test string'],
+            phraseSets: [
+              {
+                annotations: {
+                  A: 'Test string',
                 },
-                diarizationSpeakerCount: 42,
-                enableAutomaticPunctuation: true,
-                enableSeparateRecognitionPerChannel: true,
-                enableSpeakerDiarization: true,
-                enableSpokenEmojis: true,
-                enableSpokenPunctuation: true,
-                enableWordConfidence: true,
-                enableWordTimeOffsets: true,
-                encoding: "Test string",
-                languageCode: "Test string",
-                maxAlternatives: 42,
-                metadata: {
-                    audioTopic: "Test string",
-                    industryNaicsCodeOfAudio: 42,
-                    interactionType: "Test string",
-                    microphoneDistance: "Test string",
-                    obfuscatedId: "Test string",
-                    originalMediaType: "Test string",
-                    originalMimeType: "Test string",
-                    recordingDeviceName: "Test string",
-                    recordingDeviceType: "Test string",
-                },
-                model: "Test string",
-                profanityFilter: true,
-                sampleRateHertz: 42,
-                speechContexts: [
-                    {
-                        boost: 42,
-                        phrases: [
-                            "Test string"
-                        ],
-                    }
+                boost: 42,
+                deleteTime: 'Test string',
+                displayName: 'Test string',
+                etag: 'Test string',
+                expireTime: 'Test string',
+                kmsKeyName: 'Test string',
+                kmsKeyVersionName: 'Test string',
+                name: 'Test string',
+                phrases: [
+                  {
+                    boost: 42,
+                    value: 'Test string',
+                  },
                 ],
-                transcriptNormalization: {
-                    entries: [
-                        {
-                            caseSensitive: true,
-                            replace: "Test string",
-                            search: "Test string",
-                        }
-                    ],
-                },
-                useEnhanced: true,
+                reconciling: true,
+                state: 'Test string',
+                uid: 'Test string',
+              },
+            ],
+          },
+          alternativeLanguageCodes: ['Test string'],
+          audioChannelCount: 42,
+          diarizationConfig: {
+            enableSpeakerDiarization: true,
+            maxSpeakerCount: 42,
+            minSpeakerCount: 42,
+            speakerTag: 42,
+          },
+          diarizationSpeakerCount: 42,
+          enableAutomaticPunctuation: true,
+          enableSeparateRecognitionPerChannel: true,
+          enableSpeakerDiarization: true,
+          enableSpokenEmojis: true,
+          enableSpokenPunctuation: true,
+          enableWordConfidence: true,
+          enableWordTimeOffsets: true,
+          encoding: 'Test string',
+          languageCode: 'Test string',
+          maxAlternatives: 42,
+          metadata: {
+            audioTopic: 'Test string',
+            industryNaicsCodeOfAudio: 42,
+            interactionType: 'Test string',
+            microphoneDistance: 'Test string',
+            obfuscatedId: 'Test string',
+            originalMediaType: 'Test string',
+            originalMimeType: 'Test string',
+            recordingDeviceName: 'Test string',
+            recordingDeviceType: 'Test string',
+          },
+          model: 'Test string',
+          profanityFilter: true,
+          sampleRateHertz: 42,
+          speechContexts: [
+            {
+              boost: 42,
+              phrases: ['Test string'],
             },
-            outputConfig: {
-                gcsUri: "Test string",
-            },
-        });
-        /** Performs synchronous speech recognition: receive results after all audio has been sent and processed. */
-        await gapi.client.speech.speech.recognize({
-        }, {
-            audio: {
-                content: "Test string",
-                uri: "Test string",
-            },
-            config: {
-                adaptation: {
-                    abnfGrammar: {
-                        abnfStrings: [
-                            "Test string"
-                        ],
-                    },
-                    customClasses: [
-                        {
-                            annotations: {
-                                A: "Test string"
-                            },
-                            customClassId: "Test string",
-                            deleteTime: "Test string",
-                            displayName: "Test string",
-                            etag: "Test string",
-                            expireTime: "Test string",
-                            items: [
-                                {
-                                    value: "Test string",
-                                }
-                            ],
-                            kmsKeyName: "Test string",
-                            kmsKeyVersionName: "Test string",
-                            name: "Test string",
-                            reconciling: true,
-                            state: "Test string",
-                            uid: "Test string",
-                        }
-                    ],
-                    phraseSetReferences: [
-                        "Test string"
-                    ],
-                    phraseSets: [
-                        {
-                            annotations: {
-                                A: "Test string"
-                            },
-                            boost: 42,
-                            deleteTime: "Test string",
-                            displayName: "Test string",
-                            etag: "Test string",
-                            expireTime: "Test string",
-                            kmsKeyName: "Test string",
-                            kmsKeyVersionName: "Test string",
-                            name: "Test string",
-                            phrases: [
-                                {
-                                    boost: 42,
-                                    value: "Test string",
-                                }
-                            ],
-                            reconciling: true,
-                            state: "Test string",
-                            uid: "Test string",
-                        }
-                    ],
-                },
-                alternativeLanguageCodes: [
-                    "Test string"
-                ],
-                audioChannelCount: 42,
-                diarizationConfig: {
-                    enableSpeakerDiarization: true,
-                    maxSpeakerCount: 42,
-                    minSpeakerCount: 42,
-                    speakerTag: 42,
-                },
-                diarizationSpeakerCount: 42,
-                enableAutomaticPunctuation: true,
-                enableSeparateRecognitionPerChannel: true,
-                enableSpeakerDiarization: true,
-                enableSpokenEmojis: true,
-                enableSpokenPunctuation: true,
-                enableWordConfidence: true,
-                enableWordTimeOffsets: true,
-                encoding: "Test string",
-                languageCode: "Test string",
-                maxAlternatives: 42,
-                metadata: {
-                    audioTopic: "Test string",
-                    industryNaicsCodeOfAudio: 42,
-                    interactionType: "Test string",
-                    microphoneDistance: "Test string",
-                    obfuscatedId: "Test string",
-                    originalMediaType: "Test string",
-                    originalMimeType: "Test string",
-                    recordingDeviceName: "Test string",
-                    recordingDeviceType: "Test string",
-                },
-                model: "Test string",
-                profanityFilter: true,
-                sampleRateHertz: 42,
-                speechContexts: [
-                    {
-                        boost: 42,
-                        phrases: [
-                            "Test string"
-                        ],
-                    }
-                ],
-                transcriptNormalization: {
-                    entries: [
-                        {
-                            caseSensitive: true,
-                            replace: "Test string",
-                            search: "Test string",
-                        }
-                    ],
-                },
-                useEnhanced: true,
-            },
-        });
-    }
+          ],
+          transcriptNormalization: {
+            entries: [
+              {
+                caseSensitive: true,
+                replace: 'Test string',
+                search: 'Test string',
+              },
+            ],
+          },
+          useEnhanced: true,
+        },
+      }
+    );
+  }
 });

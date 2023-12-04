@@ -6,165 +6,164 @@
 // Revision: 20231108
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://trafficdirector.googleapis.com/$discovery/rest?version=v3');
-    /** now we can use gapi.client.trafficdirector */
+  await gapi.client.load(
+    'https://trafficdirector.googleapis.com/$discovery/rest?version=v3'
+  );
+  /** now we can use gapi.client.trafficdirector */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        await gapi.client.trafficdirector.discovery.client_status({
-        }, {
-            excludeResourceContents: true,
-            node: {
-                clientFeatures: [
-                    "Test string"
-                ],
-                cluster: "Test string",
-                dynamicParameters: {
-                    A: {
-                        params: {
-                            A: "Test string"
-                        },
-                    }
-                },
-                extensions: [
-                    {
-                        category: "Test string",
-                        disabled: true,
-                        name: "Test string",
-                        typeDescriptor: "Test string",
-                        typeUrls: [
-                            "Test string"
-                        ],
-                        version: {
-                            metadata: {
-                                A: 42
-                            },
-                            version: {
-                                majorNumber: 42,
-                                minorNumber: 42,
-                                patch: 42,
-                            },
-                        },
-                    }
-                ],
-                id: "Test string",
-                listeningAddresses: [
-                    {
-                        envoyInternalAddress: {
-                            endpointId: "Test string",
-                            serverListenerName: "Test string",
-                        },
-                        pipe: {
-                            mode: 42,
-                            path: "Test string",
-                        },
-                        socketAddress: {
-                            address: "Test string",
-                            ipv4Compat: true,
-                            namedPort: "Test string",
-                            portValue: 42,
-                            protocol: "Test string",
-                            resolverName: "Test string",
-                        },
-                    }
-                ],
-                locality: {
-                    region: "Test string",
-                    subZone: "Test string",
-                    zone: "Test string",
-                },
-                metadata: {
-                    A: 42
-                },
-                userAgentBuildVersion: {
-                    metadata: {
-                        A: 42
-                    },
-                    version: {
-                        majorNumber: 42,
-                        minorNumber: 42,
-                        patch: 42,
-                    },
-                },
-                userAgentName: "Test string",
-                userAgentVersion: "Test string",
-            },
-            nodeMatchers: [
-                {
-                    nodeId: {
-                        contains: "Test string",
-                        exact: "Test string",
-                        ignoreCase: true,
-                        prefix: "Test string",
-                        safeRegex: {
-                            googleRe2: {
-                                maxProgramSize: 42,
-                            },
-                            regex: "Test string",
-                        },
-                        suffix: "Test string",
-                    },
-                    nodeMetadatas: [
-                        {
-                            path: [
-                                {
-                                    key: "Test string",
-                                }
-                            ],
-                            value: {
-                                boolMatch: true,
-                                doubleMatch: {
-                                    exact: 42,
-                                    range: {
-                                        end: 42,
-                                        start: 42,
-                                    },
-                                },
-                                listMatch: {
-                                    oneOf: undefined,
-                                },
-                                nullMatch: {
-                                },
-                                orMatch: {
-                                    valueMatchers: undefined,
-                                },
-                                presentMatch: true,
-                                stringMatch: {
-                                    contains: "Test string",
-                                    exact: "Test string",
-                                    ignoreCase: true,
-                                    prefix: "Test string",
-                                    safeRegex: {
-                                        googleRe2: {
-                                            maxProgramSize: 42,
-                                        },
-                                        regex: "Test string",
-                                    },
-                                    suffix: "Test string",
-                                },
-                            },
-                        }
-                    ],
-                }
-            ],
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    await gapi.client.trafficdirector.discovery.client_status(
+      {},
+      {
+        excludeResourceContents: true,
+        node: {
+          clientFeatures: ['Test string'],
+          cluster: 'Test string',
+          dynamicParameters: {
+            A: {
+              params: {
+                A: 'Test string',
+              },
+            },
+          },
+          extensions: [
+            {
+              category: 'Test string',
+              disabled: true,
+              name: 'Test string',
+              typeDescriptor: 'Test string',
+              typeUrls: ['Test string'],
+              version: {
+                metadata: {
+                  A: 42,
+                },
+                version: {
+                  majorNumber: 42,
+                  minorNumber: 42,
+                  patch: 42,
+                },
+              },
+            },
+          ],
+          id: 'Test string',
+          listeningAddresses: [
+            {
+              envoyInternalAddress: {
+                endpointId: 'Test string',
+                serverListenerName: 'Test string',
+              },
+              pipe: {
+                mode: 42,
+                path: 'Test string',
+              },
+              socketAddress: {
+                address: 'Test string',
+                ipv4Compat: true,
+                namedPort: 'Test string',
+                portValue: 42,
+                protocol: 'Test string',
+                resolverName: 'Test string',
+              },
+            },
+          ],
+          locality: {
+            region: 'Test string',
+            subZone: 'Test string',
+            zone: 'Test string',
+          },
+          metadata: {
+            A: 42,
+          },
+          userAgentBuildVersion: {
+            metadata: {
+              A: 42,
+            },
+            version: {
+              majorNumber: 42,
+              minorNumber: 42,
+              patch: 42,
+            },
+          },
+          userAgentName: 'Test string',
+          userAgentVersion: 'Test string',
+        },
+        nodeMatchers: [
+          {
+            nodeId: {
+              contains: 'Test string',
+              exact: 'Test string',
+              ignoreCase: true,
+              prefix: 'Test string',
+              safeRegex: {
+                googleRe2: {
+                  maxProgramSize: 42,
+                },
+                regex: 'Test string',
+              },
+              suffix: 'Test string',
+            },
+            nodeMetadatas: [
+              {
+                path: [
+                  {
+                    key: 'Test string',
+                  },
+                ],
+                value: {
+                  boolMatch: true,
+                  doubleMatch: {
+                    exact: 42,
+                    range: {
+                      end: 42,
+                      start: 42,
+                    },
+                  },
+                  listMatch: {
+                    oneOf: undefined,
+                  },
+                  nullMatch: {},
+                  orMatch: {
+                    valueMatchers: undefined,
+                  },
+                  presentMatch: true,
+                  stringMatch: {
+                    contains: 'Test string',
+                    exact: 'Test string',
+                    ignoreCase: true,
+                    prefix: 'Test string',
+                    safeRegex: {
+                      googleRe2: {
+                        maxProgramSize: 42,
+                      },
+                      regex: 'Test string',
+                    },
+                    suffix: 'Test string',
+                  },
+                },
+              },
+            ],
+          },
+        ],
+      }
+    );
+  }
 });

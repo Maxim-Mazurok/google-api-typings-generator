@@ -14,5799 +14,3822 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Database Migration API v1 */
-    function load(urlOrObject: "https://datamigration.googleapis.com/$discovery/rest?version=v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "datamigration", version: "v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "datamigration", version: "v1", callback: () => any): void;
+  /** Load Database Migration API v1 */
+  function load(
+    urlOrObject: 'https://datamigration.googleapis.com/$discovery/rest?version=v1'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'datamigration', version: 'v1'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(
+    name: 'datamigration',
+    version: 'v1',
+    callback: () => any
+  ): void;
 
-    namespace datamigration {
-        interface AlloyDbConnectionProfile {
-            /** Required. The AlloyDB cluster ID that this connection profile is associated with. */
-            clusterId?:
-                string;
-            /** Immutable. Metadata used to create the destination AlloyDB cluster. */
-            settings?:
-                AlloyDbSettings;
-        }
-        interface AlloyDbSettings {
-            /** Optional. The database engine major version. This is an optional field. If a database version is not supplied at cluster creation time, then a default database version will be used. */
-            databaseVersion?:
-                string;
-            /**
-             * Optional. The encryption config can be specified to encrypt the data disks and other persistent data resources of a cluster with a customer-managed encryption key (CMEK). When this
-             * field is not specified, the cluster will then use default encryption scheme to protect the user data.
-             */
-            encryptionConfig?:
-                EncryptionConfig;
-            /** Required. Input only. Initial user to setup during cluster creation. Required. */
-            initialUser?:
-                UserPassword;
-            /** Labels for the AlloyDB cluster created by DMS. An object containing a list of 'key', 'value' pairs. */
-            labels?:
-                { [P in string]: string };
-            primaryInstanceSettings?:
-                PrimaryInstanceSettings;
-            /**
-             * Required. The resource link for the VPC network in which cluster resources are created and from which they are accessible via Private IP. The network must belong to the same project
-             * as the cluster. It is specified in the form: "projects/{project_number}/global/networks/{network_id}". This is required to create a cluster.
-             */
-            vpcNetwork?:
-                string;
-        }
-        interface ApplyConversionWorkspaceRequest {
-            /** Optional. Specifies whether the conversion workspace is to be committed automatically after the apply. */
-            autoCommit?:
-                boolean;
-            /** Optional. Fully qualified (Uri) name of the destination connection profile. */
-            connectionProfile?:
-                string;
-            /** Optional. Only validates the apply process, but doesn't change the destination database. Only works for PostgreSQL destination connection profile. */
-            dryRun?:
-                boolean;
-            /** Filter which entities to apply. Leaving this field empty will apply all of the entities. Supports Google AIP 160 based filtering. */
-            filter?:
-                string;
-        }
-        interface ApplyHash {
-            /** Optional. Generate UUID from the data's byte array */
-            uuidFromBytes?:
-                any;
-        }
-        interface ApplyJobDetails {
-            /** Output only. The connection profile which was used for the apply job. */
-            connectionProfile?:
-                string;
-            /** Output only. AIP-160 based filter used to specify the entities to apply */
-            filter?:
-                string;
-        }
-        interface AssignSpecificValue {
-            /** Required. Specific value to be assigned */
-            value?:
-                string;
-        }
-        interface AuditConfig {
-            /** The configuration for logging of each type of permission. */
-            auditLogConfigs?:
-                AuditLogConfig[];
-            /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
-             * services.
-             */
-            service?:
-                string;
-        }
-        interface AuditLogConfig {
-            /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?:
-                string[];
-            /** The log type that this config enables. */
-            logType?:
-                string;
-        }
-        interface BackgroundJobLogEntry {
-            /** Output only. Apply job details. */
-            applyJobDetails?:
-                ApplyJobDetails;
-            /** Output only. Job completion comment, such as how many entities were seeded, how many warnings were found during conversion, and similar information. */
-            completionComment?:
-                string;
-            /** Output only. Job completion state, i.e. the final state after the job completed. */
-            completionState?:
-                string;
-            /** Output only. Convert job details. */
-            convertJobDetails?:
-                ConvertJobDetails;
-            /** The timestamp when the background job was finished. */
-            finishTime?:
-                string;
-            /** The background job log entry ID. */
-            id?:
-                string;
-            /** Output only. Import rules job details. */
-            importRulesJobDetails?:
-                ImportRulesJobDetails;
-            /** The type of job that was executed. */
-            jobType?:
-                string;
-            /** Output only. Whether the client requested the conversion workspace to be committed after a successful completion of the job. */
-            requestAutocommit?:
-                boolean;
-            /** Output only. Seed job details. */
-            seedJobDetails?:
-                SeedJobDetails;
-            /** The timestamp when the background job was started. */
-            startTime?:
-                string;
-        }
-        interface Binding {
-            /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
-             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
-             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            condition?:
-                Expr;
-            /**
-             * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
-             * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
-             * account. Does not include identities that come from external identity providers (IdPs) through identity federation. * `user:{emailid}`: An email address that represents a specific
-             * Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that represents a Google service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. * `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An identifier for a [Kubernetes service
-             * account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts). For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
-             * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. * `domain:{domain}`: The G Suite domain (primary) that represents all the
-             * users of that domain. For example, `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has
-             * been recently deleted. For example, `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains
-             * the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
-             * deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and
-             * the undeleted service account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that
-             * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding.
-             */
-            members?:
-                string[];
-            /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface CancelOperationRequest {
-        }
-        interface CloudSqlConnectionProfile {
-            /**
-             * Output only. The Cloud SQL database instance's additional (outgoing) public IP. Used when the Cloud SQL database availability type is REGIONAL (i.e. multiple zones / highly
-             * available).
-             */
-            additionalPublicIp?:
-                string;
-            /** Output only. The Cloud SQL instance ID that this connection profile is associated with. */
-            cloudSqlId?:
-                string;
-            /** Output only. The Cloud SQL database instance's private IP. */
-            privateIp?:
-                string;
-            /** Output only. The Cloud SQL database instance's public IP. */
-            publicIp?:
-                string;
-            /** Immutable. Metadata used to create the destination Cloud SQL database. */
-            settings?:
-                CloudSqlSettings;
-        }
-        interface CloudSqlSettings {
-            /**
-             * The activation policy specifies when the instance is activated; it is applicable only when the instance state is 'RUNNABLE'. Valid values: 'ALWAYS': The instance is on, and remains
-             * so even in the absence of connection requests. `NEVER`: The instance is off; it is not activated, even if a connection request arrives.
-             */
-            activationPolicy?:
-                string;
-            /**
-             * [default: ON] If you enable this setting, Cloud SQL checks your available storage every 30 seconds. If the available storage falls below a threshold size, Cloud SQL automatically
-             * adds additional storage capacity. If the available storage repeatedly falls below the threshold size, Cloud SQL continues to add storage until it reaches the maximum of 30 TB.
-             */
-            autoStorageIncrease?:
-                boolean;
-            /**
-             * Optional. Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data availability. * `REGIONAL`: The instance can
-             * serve data from more than one zone in a region (it is highly available).
-             */
-            availabilityType?:
-                string;
-            /** The KMS key name used for the csql instance. */
-            cmekKeyName?:
-                string;
-            /** The Cloud SQL default instance level collation. */
-            collation?:
-                string;
-            /** The database flags passed to the Cloud SQL instance at startup. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }. */
-            databaseFlags?:
-                { [P in string]: string };
-            /** The database engine type and version. */
-            databaseVersion?:
-                string;
-            /**
-             * Optional. Data cache is an optional feature available for Cloud SQL for MySQL Enterprise Plus edition only. For more information on data cache, see [Data cache
-             * overview](https://cloud.google.com/sql/help/mysql-data-cache) in Cloud SQL documentation.
-             */
-            dataCacheConfig?:
-                DataCacheConfig;
-            /** The storage capacity available to the database, in GB. The minimum (and default) size is 10GB. */
-            dataDiskSizeGb?:
-                string;
-            /** The type of storage: `PD_SSD` (default) or `PD_HDD`. */
-            dataDiskType?:
-                string;
-            /** Optional. The edition of the given Cloud SQL instance. */
-            edition?:
-                string;
-            /** The settings for IP Management. This allows to enable or disable the instance IP and manage which external networks can connect to the instance. The IPv4 address cannot be disabled. */
-            ipConfig?:
-                SqlIpConfig;
-            /** Input only. Initial root password. */
-            rootPassword?:
-                string;
-            /** Output only. Indicates If this connection profile root password is stored. */
-            rootPasswordSet?:
-                boolean;
-            /**
-             * Optional. The Google Cloud Platform zone where the failover Cloud SQL database instance is located. Used when the Cloud SQL database availability type is REGIONAL (i.e. multiple
-             * zones / highly available).
-             */
-            secondaryZone?:
-                string;
-            /** The Database Migration Service source connection profile ID, in the format: `projects/my_project_name/locations/us-central1/connectionProfiles/connection_profile_ID` */
-            sourceId?:
-                string;
-            /** The maximum size to which storage capacity can be automatically increased. The default value is 0, which specifies that there is no limit. */
-            storageAutoResizeLimit?:
-                string;
-            /**
-             * The tier (or machine type) for this instance, for example: `db-n1-standard-1` (MySQL instances) or `db-custom-1-3840` (PostgreSQL instances). For more information, see [Cloud SQL
-             * Instance Settings](https://cloud.google.com/sql/docs/mysql/instance-settings).
-             */
-            tier?:
-                string;
-            /**
-             * The resource labels for a Cloud SQL instance to use to annotate any related underlying resources such as Compute Engine VMs. An object containing a list of "key": "value" pairs.
-             * Example: `{ "name": "wrench", "mass": "18kg", "count": "3" }`.
-             */
-            userLabels?:
-                { [P in string]: string };
-            /** The Google Cloud Platform zone where your Cloud SQL database instance is located. */
-            zone?:
-                string;
-        }
-        interface ColumnEntity {
-            /** Is the column of array type. */
-            array?:
-                boolean;
-            /** If the column is array, of which length. */
-            arrayLength?:
-                number;
-            /** Is the column auto-generated/identity. */
-            autoGenerated?:
-                boolean;
-            /** Charset override - instead of table level charset. */
-            charset?:
-                string;
-            /** Collation override - instead of table level collation. */
-            collation?:
-                string;
-            /** Comment associated with the column. */
-            comment?:
-                string;
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** Column data type. */
-            dataType?:
-                string;
-            /** Default value of the column. */
-            defaultValue?:
-                string;
-            /** Column fractional second precision - used for timestamp based datatypes. */
-            fractionalSecondsPrecision?:
-                number;
-            /** Column length - e.g. varchar (50). */
-            length?:
-                string;
-            /** Column name. */
-            name?:
-                string;
-            /** Is the column nullable. */
-            nullable?:
-                boolean;
-            /** Column order in the table. */
-            ordinalPosition?:
-                number;
-            /** Column precision - when relevant. */
-            precision?:
-                number;
-            /** Column scale - when relevant. */
-            scale?:
-                number;
-            /** Specifies the list of values allowed in the column. Only used for set data type. */
-            setValues?:
-                string[];
-            /** Is the column a UDT. */
-            udt?:
-                boolean;
-        }
-        interface CommitConversionWorkspaceRequest {
-            /** Optional. Optional name of the commit. */
-            commitName?:
-                string;
-        }
-        interface ConditionalColumnSetValue {
-            /** Optional. Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** Optional. Optional filter on source column precision and scale. Used for fixed point numbers such as NUMERIC/NUMBER data types. */
-            sourceNumericFilter?:
-                SourceNumericFilter;
-            /** Optional. Optional filter on source column length. Used for text based data types like varchar. */
-            sourceTextFilter?:
-                SourceTextFilter;
-            /** Required. Description of data transformation during migration. */
-            valueTransformation?:
-                ValueTransformation;
-        }
-        interface ConnectionProfile {
-            /** An AlloyDB cluster connection profile. */
-            alloydb?:
-                AlloyDbConnectionProfile;
-            /** A CloudSQL database connection profile. */
-            cloudsql?:
-                CloudSqlConnectionProfile;
-            /** Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". */
-            createTime?:
-                string;
-            /** The connection profile display name. */
-            displayName?:
-                string;
-            /** Output only. The error details in case of state FAILED. */
-            error?:
-                Status;
-            /**
-             * The resource labels for connection profile to use to annotate any related underlying resources such as Compute Engine VMs. An object containing a list of "key": "value" pairs.
-             * Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.
-             */
-            labels?:
-                { [P in string]: string };
-            /** A MySQL database connection profile. */
-            mysql?:
-                MySqlConnectionProfile;
-            /** The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}. */
-            name?:
-                string;
-            /** An Oracle database connection profile. */
-            oracle?:
-                OracleConnectionProfile;
-            /** A PostgreSQL database connection profile. */
-            postgresql?:
-                PostgreSqlConnectionProfile;
-            /** The database provider. */
-            provider?:
-                string;
-            /** The current connection profile state (e.g. DRAFT, READY, or FAILED). */
-            state?:
-                string;
-            /** Output only. The timestamp when the resource was last updated. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". */
-            updateTime?:
-                string;
-        }
-        interface ConstraintEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The name of the table constraint. */
-            name?:
-                string;
-            /**
-             * Reference columns which may be associated with the constraint. For example, if the constraint is a FOREIGN_KEY, this represents the list of full names of referenced columns by the
-             * foreign key.
-             */
-            referenceColumns?:
-                string[];
-            /**
-             * Reference table which may be associated with the constraint. For example, if the constraint is a FOREIGN_KEY, this represents the list of full name of the referenced table by the
-             * foreign key.
-             */
-            referenceTable?:
-                string;
-            /** Table columns used as part of the Constraint, for example primary key constraint should list the columns which constitutes the key. */
-            tableColumns?:
-                string[];
-            /**
-             * Table which is associated with the constraint. In case the constraint is defined on a table, this field is left empty as this information is stored in parent_name. However, if
-             * constraint is defined on a view, this field stores the table name on which the view is defined.
-             */
-            tableName?:
-                string;
-            /** Type of constraint, for example unique, primary key, foreign key (currently only primary key is supported). */
-            type?:
-                string;
-        }
-        interface ConversionWorkspace {
-            /** Output only. The timestamp when the workspace resource was created. */
-            createTime?:
-                string;
-            /** Required. The destination engine details. */
-            destination?:
-                DatabaseEngineInfo;
-            /** Optional. The display name for the workspace. */
-            displayName?:
-                string;
-            /**
-             * Optional. A generic list of settings for the workspace. The settings are database pair dependant and can indicate default behavior for the mapping rules engine or turn on or off
-             * specific features. Such examples can be: convert_foreign_key_to_interleave=true, skip_triggers=false, ignore_non_table_synonyms=true
-             */
-            globalSettings?:
-                { [P in string]: string };
-            /** Output only. Whether the workspace has uncommitted changes (changes which were made after the workspace was committed). */
-            hasUncommittedChanges?:
-                boolean;
-            /** Output only. The latest commit ID. */
-            latestCommitId?:
-                string;
-            /** Output only. The timestamp when the workspace was committed. */
-            latestCommitTime?:
-                string;
-            /** Full name of the workspace resource, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
-            name?:
-                string;
-            /** Required. The source engine details. */
-            source?:
-                DatabaseEngineInfo;
-            /** Output only. The timestamp when the workspace resource was last updated. */
-            updateTime?:
-                string;
-        }
-        interface ConversionWorkspaceInfo {
-            /** The commit ID of the conversion workspace. */
-            commitId?:
-                string;
-            /** The resource name (URI) of the conversion workspace. */
-            name?:
-                string;
-        }
-        interface ConvertConversionWorkspaceRequest {
-            /** Optional. Specifies whether the conversion workspace is to be committed automatically after the conversion. */
-            autoCommit?:
-                boolean;
-            /**
-             * Optional. Automatically convert the full entity path for each entity specified by the filter. For example, if the filter specifies a table, that table schema (and database if there
-             * is one) will also be converted.
-             */
-            convertFullPath?:
-                boolean;
-            /** Optional. Filter the entities to convert. Leaving this field empty will convert all of the entities. Supports Google AIP-160 style filtering. */
-            filter?:
-                string;
-        }
-        interface ConvertJobDetails {
-            /** Output only. AIP-160 based filter used to specify the entities to convert */
-            filter?:
-                string;
-        }
-        interface ConvertRowIdToColumn {
-            /** Required. Only work on tables without primary key defined */
-            onlyIfNoPrimaryKey?:
-                boolean;
-        }
-        interface DatabaseEngineInfo {
-            /** Required. Engine type. */
-            engine?:
-                string;
-            /** Required. Engine version, for example "12.c.1". */
-            version?:
-                string;
-        }
-        interface DatabaseEntity {
-            /** Database. */
-            database?:
-                DatabaseInstanceEntity;
-            /** Function. */
-            databaseFunction?:
-                FunctionEntity;
-            /** Package. */
-            databasePackage?:
-                PackageEntity;
-            /**
-             * Details about the entity DDL script. Multiple DDL scripts are provided for child entities such as a table entity will have one DDL for the table with additional DDLs for each index,
-             * constraint and such.
-             */
-            entityDdl?:
-                EntityDdl[];
-            /** The type of the database entity (table, view, index, ...). */
-            entityType?:
-                string;
-            /** Details about the various issues found for the entity. */
-            issues?:
-                EntityIssue[];
-            /**
-             * Details about entity mappings. For source tree entities, this holds the draft entities which were generated by the mapping rules. For draft tree entities, this holds the source
-             * entities which were converted to form the draft entity. Destination entities will have no mapping details.
-             */
-            mappings?:
-                EntityMapping[];
-            /** Materialized view. */
-            materializedView?:
-                MaterializedViewEntity;
-            /** The full name of the parent entity (e.g. schema name). */
-            parentEntity?:
-                string;
-            /** Schema. */
-            schema?:
-                SchemaEntity;
-            /** Sequence. */
-            sequence?:
-                SequenceEntity;
-            /** The short name (e.g. table name) of the entity. */
-            shortName?:
-                string;
-            /** Stored procedure. */
-            storedProcedure?:
-                StoredProcedureEntity;
-            /** Synonym. */
-            synonym?:
-                SynonymEntity;
-            /** Table. */
-            table?:
-                TableEntity;
-            /** The type of tree the entity belongs to. */
-            tree?:
-                string;
-            /** UDT. */
-            udt?:
-                UDTEntity;
-            /** View. */
-            view?:
-                ViewEntity;
-        }
-        interface DatabaseInstanceEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-        }
-        interface DatabaseType {
-            /** The database engine. */
-            engine?:
-                string;
-            /** The database provider. */
-            provider?:
-                string;
-        }
-        interface DataCacheConfig {
-            /** Optional. Whether data cache is enabled for the instance. */
-            dataCacheEnabled?:
-                boolean;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface DemoteDestinationRequest {
-        }
-        interface DescribeConversionWorkspaceRevisionsResponse {
-            /** The list of conversion workspace revisions. */
-            revisions?:
-                ConversionWorkspace[];
-        }
-        interface DescribeDatabaseEntitiesResponse {
-            /** The list of database entities for the conversion workspace. */
-            databaseEntities?:
-                DatabaseEntity[];
-            /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-        }
-        interface DoubleComparisonFilter {
-            /** Required. Double compare value to be used */
-            value?:
-                number;
-            /** Required. Relation between source value and compare value */
-            valueComparison?:
-                string;
-        }
-        interface DumpFlag {
-            /** The name of the flag */
-            name?:
-                string;
-            /** The value of the flag. */
-            value?:
-                string;
-        }
-        interface DumpFlags {
-            /** The flags for the initial dump. */
-            dumpFlags?:
-                DumpFlag[];
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface Empty {
-        }
-        interface EncryptionConfig {
-            /**
-             * The fully-qualified resource name of the KMS key. Each Cloud KMS key is regionalized and has the following format:
-             * projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME]
-             */
-            kmsKeyName?:
-                string;
-        }
-        interface EntityDdl {
-            /** The actual ddl code. */
-            ddl?:
-                string;
-            /** Type of DDL (Create, Alter). */
-            ddlType?:
-                string;
-            /** The name of the database entity the ddl refers to. */
-            entity?:
-                string;
-            /** The entity type (if the DDL is for a sub entity). */
-            entityType?:
-                string;
-            /** EntityIssues found for this ddl. */
-            issueId?:
-                string[];
-        }
-        interface EntityIssue {
-            /** Error/Warning code */
-            code?:
-                string;
-            /** The ddl which caused the issue, if relevant. */
-            ddl?:
-                string;
-            /** The entity type (if the DDL is for a sub entity). */
-            entityType?:
-                string;
-            /** Unique Issue ID. */
-            id?:
-                string;
-            /** Issue detailed message */
-            message?:
-                string;
-            /** The position of the issue found, if relevant. */
-            position?:
-                Position;
-            /** Severity of the issue */
-            severity?:
-                string;
-            /** The type of the issue. */
-            type?:
-                string;
-        }
-        interface EntityMapping {
-            /** Target entity full name. The draft entity can also include a column, index or constraint using the same naming notation schema.table.column. */
-            draftEntity?:
-                string;
-            /** Type of draft entity. */
-            draftType?:
-                string;
-            /**
-             * Entity mapping log entries. Multiple rules can be effective and contribute changes to a converted entity, such as a rule can handle the entity name, another rule can handle an
-             * entity type. In addition, rules which did not change the entity are also logged along with the reason preventing them to do so.
-             */
-            mappingLog?:
-                EntityMappingLogEntry[];
-            /** Source entity full name. The source entity can also be a column, index or constraint using the same naming notation schema.table.column. */
-            sourceEntity?:
-                string;
-            /** Type of source entity. */
-            sourceType?:
-                string;
-        }
-        interface EntityMappingLogEntry {
-            /** Comment. */
-            mappingComment?:
-                string;
-            /** Which rule caused this log entry. */
-            ruleId?:
-                string;
-            /** Rule revision ID. */
-            ruleRevisionId?:
-                string;
-        }
-        interface EntityMove {
-            /** Required. The new schema */
-            newSchema?:
-                string;
-        }
-        interface Expr {
-            /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?:
-                string;
-            /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?:
-                string;
-            /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?:
-                string;
-            /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?:
-                string;
-        }
-        interface FetchStaticIpsResponse {
-            /** A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** List of static IPs. */
-            staticIps?:
-                string[];
-        }
-        interface FilterTableColumns {
-            /** Optional. List of columns to be excluded for a particular table. */
-            excludeColumns?:
-                string[];
-            /** Optional. List of columns to be included for a particular table. */
-            includeColumns?:
-                string[];
-        }
-        interface ForwardSshTunnelConnectivity {
-            /** Required. Hostname for the SSH tunnel. */
-            hostname?:
-                string;
-            /** Input only. SSH password. */
-            password?:
-                string;
-            /** Port for the SSH tunnel, default value is 22. */
-            port?:
-                number;
-            /** Input only. SSH private key. */
-            privateKey?:
-                string;
-            /** Required. Username for the SSH tunnel. */
-            username?:
-                string;
-        }
-        interface FunctionEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The SQL code which creates the function. */
-            sqlCode?:
-                string;
-        }
-        interface GenerateSshScriptRequest {
-            /** Required. Bastion VM Instance name to use or to create. */
-            vm?:
-                string;
-            /** The VM creation configuration */
-            vmCreationConfig?:
-                VmCreationConfig;
-            /** The port that will be open on the bastion host. */
-            vmPort?:
-                number;
-            /** The VM selection configuration */
-            vmSelectionConfig?:
-                VmSelectionConfig;
-        }
-        interface GenerateTcpProxyScriptRequest {
-            /** Required. The type of the Compute instance that will host the proxy. */
-            vmMachineType?:
-                string;
-            /** Required. The name of the Compute instance that will host the proxy. */
-            vmName?:
-                string;
-            /**
-             * Required. The name of the subnet the Compute instance will use for private connectivity. Must be supplied in the form of
-             * projects/{project}/regions/{region}/subnetworks/{subnetwork}. Note: the region for the subnet must match the Compute instance region.
-             */
-            vmSubnet?:
-                string;
-            /**
-             * Optional. The Google Cloud Platform zone to create the VM in. The fully qualified name of the zone must be specified, including the region name, for example "us-central1-b". If not
-             * specified, uses the "-b" zone of the destination Connection Profile's region.
-             */
-            vmZone?:
-                string;
-        }
-        interface GoogleCloudClouddmsV1OperationMetadata {
-            /** Output only. API version used to start the operation. */
-            apiVersion?:
-                string;
-            /** Output only. The time the operation was created. */
-            createTime?:
-                string;
-            /** Output only. The time the operation finished running. */
-            endTime?:
-                string;
-            /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            requestedCancellation?:
-                boolean;
-            /** Output only. Human-readable status of the operation, if any. */
-            statusMessage?:
-                string;
-            /** Output only. Server-defined resource path for the target of the operation. */
-            target?:
-                string;
-            /** Output only. Name of the verb executed by the operation. */
-            verb?:
-                string;
-        }
-        interface ImportMappingRulesRequest {
-            /** Required. Should the conversion workspace be committed automatically after the import operation. */
-            autoCommit?:
-                boolean;
-            /** Required. One or more rules files. */
-            rulesFiles?:
-                RulesFile[];
-            /** Required. The format of the rules content file. */
-            rulesFormat?:
-                string;
-        }
-        interface ImportRulesJobDetails {
-            /** Output only. The requested file format. */
-            fileFormat?:
-                string;
-            /** Output only. File names used for the import rules job. */
-            files?:
-                string[];
-        }
-        interface IndexEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The name of the index. */
-            name?:
-                string;
-            /** Table columns used as part of the Index, for example B-TREE index should list the columns which constitutes the index. */
-            tableColumns?:
-                string[];
-            /** Type of index, for example B-TREE. */
-            type?:
-                string;
-            /** Boolean value indicating whether the index is unique. */
-            unique?:
-                boolean;
-        }
-        interface IntComparisonFilter {
-            /** Required. Integer compare value to be used */
-            value?:
-                string;
-            /** Required. Relation between source value and compare value */
-            valueComparison?:
-                string;
-        }
-        interface ListConnectionProfilesResponse {
-            /** The response list of connection profiles. */
-            connectionProfiles?:
-                ConnectionProfile[];
-            /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface ListConversionWorkspacesResponse {
-            /** The list of conversion workspace objects. */
-            conversionWorkspaces?:
-                ConversionWorkspace[];
-            /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface ListLocationsResponse {
-            /** A list of locations that matches the specified filter in the request. */
-            locations?:
-                Location[];
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-        }
-        interface ListMappingRulesResponse {
-            /** The list of conversion workspace mapping rules. */
-            mappingRules?:
-                MappingRule[];
-            /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-        }
-        interface ListMigrationJobsResponse {
-            /** The list of migration jobs objects. */
-            migrationJobs?:
-                MigrationJob[];
-            /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface ListOperationsResponse {
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-            /** A list of operations that matches the specified filter in the request. */
-            operations?:
-                Operation[];
-        }
-        interface ListPrivateConnectionsResponse {
-            /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
-            nextPageToken?:
-                string;
-            /** List of private connections. */
-            privateConnections?:
-                PrivateConnection[];
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface Location {
-            /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?:
-                string;
-            /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?:
-                { [P in string]: string };
-            /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?:
-                string;
-            /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?:
-                { [P in string]: any };
-            /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?:
-                string;
-        }
-        interface MachineConfig {
-            /** The number of CPU's in the VM instance. */
-            cpuCount?:
-                number;
-        }
-        interface MappingRule {
-            /** Optional. Rule to specify how the data contained in a column should be transformed (such as trimmed, rounded, etc) provided that the data meets certain criteria. */
-            conditionalColumnSetValue?:
-                ConditionalColumnSetValue;
-            /** Optional. Rule to specify how multiple tables should be converted with an additional rowid column. */
-            convertRowidColumn?:
-                ConvertRowIdToColumn;
-            /** Optional. A human readable name */
-            displayName?:
-                string;
-            /** Optional. Rule to specify how multiple entities should be relocated into a different schema. */
-            entityMove?:
-                EntityMove;
-            /** Required. The rule filter */
-            filter?:
-                MappingRuleFilter;
-            /** Optional. Rule to specify the list of columns to include or exclude from a table. */
-            filterTableColumns?:
-                FilterTableColumns;
-            /** Optional. Rule to specify how multiple columns should be converted to a different data type. */
-            multiColumnDataTypeChange?:
-                MultiColumnDatatypeChange;
-            /** Optional. Rule to specify how multiple entities should be renamed. */
-            multiEntityRename?:
-                MultiEntityRename;
-            /** Full name of the mapping rule resource, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{set}/mappingRule/{rule}. */
-            name?:
-                string;
-            /** Output only. The timestamp that the revision was created. */
-            revisionCreateTime?:
-                string;
-            /** Output only. The revision ID of the mapping rule. A new revision is committed whenever the mapping rule is changed in any way. The format is an 8-character hexadecimal string. */
-            revisionId?:
-                string;
-            /** Required. The order in which the rule is applied. Lower order rules are applied before higher value rules so they may end up being overridden. */
-            ruleOrder?:
-                string;
-            /** Required. The rule scope */
-            ruleScope?:
-                string;
-            /** Optional. Rule to specify the primary key for a table */
-            setTablePrimaryKey?:
-                SetTablePrimaryKey;
-            /** Optional. Rule to specify how a single column is converted. */
-            singleColumnChange?:
-                SingleColumnChange;
-            /** Optional. Rule to specify how a single entity should be renamed. */
-            singleEntityRename?:
-                SingleEntityRename;
-            /** Optional. Rule to specify how a single package is converted. */
-            singlePackageChange?:
-                SinglePackageChange;
-            /** Optional. Rule to change the sql code for an entity, for example, function, procedure. */
-            sourceSqlChange?:
-                SourceSqlChange;
-            /** Optional. The mapping rule state */
-            state?:
-                string;
-        }
-        interface MappingRuleFilter {
-            /** Optional. The rule should be applied to specific entities defined by their fully qualified names. */
-            entities?:
-                string[];
-            /** Optional. The rule should be applied to entities whose non-qualified name contains the given string. */
-            entityNameContains?:
-                string;
-            /** Optional. The rule should be applied to entities whose non-qualified name starts with the given prefix. */
-            entityNamePrefix?:
-                string;
-            /** Optional. The rule should be applied to entities whose non-qualified name ends with the given suffix. */
-            entityNameSuffix?:
-                string;
-            /**
-             * Optional. The rule should be applied to entities whose parent entity (fully qualified name) matches the given value. For example, if the rule applies to a table entity, the expected
-             * value should be a schema (schema). If the rule applies to a column or index entity, the expected value can be either a schema (schema) or a table (schema.table)
-             */
-            parentEntity?:
-                string;
-        }
-        interface MaterializedViewEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The SQL code which creates the view. */
-            sqlCode?:
-                string;
-        }
-        interface MigrationJob {
-            /**
-             * The CMEK (customer-managed encryption key) fully qualified key name used for the migration job. This field supports all migration jobs types except for: * Mysql to Mysql (use the
-             * cmek field in the cloudsql connection profile instead). * PostrgeSQL to PostgreSQL (use the cmek field in the cloudsql connection profile instead). * PostgreSQL to AlloyDB (use the
-             * kms_key_name field in the alloydb connection profile instead). Each Cloud CMEK key has the following format:
-             * projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME]
-             */
-            cmekKeyName?:
-                string;
-            /** The conversion workspace used by the migration. */
-            conversionWorkspace?:
-                ConversionWorkspaceInfo;
-            /** Output only. The timestamp when the migration job resource was created. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". */
-            createTime?:
-                string;
-            /** Required. The resource name (URI) of the destination connection profile. */
-            destination?:
-                string;
-            /** The database engine type and provider of the destination. */
-            destinationDatabase?:
-                DatabaseType;
-            /** The migration job display name. */
-            displayName?:
-                string;
-            /** The initial dump flags. This field and the "dump_path" field are mutually exclusive. */
-            dumpFlags?:
-                DumpFlags;
-            /** The path to the dump file in Google Cloud Storage, in the format: (gs://[BUCKET_NAME]/[OBJECT_NAME]). This field and the "dump_flags" field are mutually exclusive. */
-            dumpPath?:
-                string;
-            /** Output only. The duration of the migration job (in seconds). A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s". */
-            duration?:
-                string;
-            /** Output only. If the migration job is completed, the time when it was completed. */
-            endTime?:
-                string;
-            /** Output only. The error details in case of state FAILED. */
-            error?:
-                Status;
-            /**
-             * This field can be used to select the entities to migrate as part of the migration job. It uses AIP-160 notation to select a subset of the entities configured on the associated
-             * conversion-workspace. This field should not be set on migration-jobs that are not associated with a conversion workspace.
-             */
-            filter?:
-                string;
-            /**
-             * The resource labels for migration job to use to annotate any related underlying resources such as Compute Engine VMs. An object containing a list of "key": "value" pairs. Example:
-             * `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.
-             */
-            labels?:
-                { [P in string]: string };
-            /** The name (URI) of this migration job resource, in the form of: projects/{project}/locations/{location}/migrationJobs/{migrationJob}. */
-            name?:
-                string;
-            /** Optional. Data dump parallelism settings used by the migration. Currently applicable only for MySQL to Cloud SQL for MySQL migrations only. */
-            performanceConfig?:
-                PerformanceConfig;
-            /** Output only. The current migration job phase. */
-            phase?:
-                string;
-            /** The details needed to communicate to the source over Reverse SSH tunnel connectivity. */
-            reverseSshConnectivity?:
-                ReverseSshConnectivity;
-            /** Required. The resource name (URI) of the source connection profile. */
-            source?:
-                string;
-            /** The database engine type and provider of the source. */
-            sourceDatabase?:
-                DatabaseType;
-            /** The current migration job state. */
-            state?:
-                string;
-            /** static ip connectivity data (default, no additional details needed). */
-            staticIpConnectivity?:
-                any;
-            /** Required. The migration job type. */
-            type?:
-                string;
-            /**
-             * Output only. The timestamp when the migration job resource was last updated. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example:
-             * "2014-10-02T15:01:23.045123456Z".
-             */
-            updateTime?:
-                string;
-            /** The details of the VPC network that the source database is located in. */
-            vpcPeeringConnectivity?:
-                VpcPeeringConnectivity;
-        }
-        interface MigrationJobVerificationError {
-            /** Output only. An instance of ErrorCode specifying the error that occurred. */
-            errorCode?:
-                string;
-            /** Output only. A specific detailed error message, if supplied by the engine. */
-            errorDetailMessage?:
-                string;
-            /** Output only. A formatted message with further details about the error and a CTA. */
-            errorMessage?:
-                string;
-        }
-        interface MultiColumnDatatypeChange {
-            /** Optional. Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** Required. New data type. */
-            newDataType?:
-                string;
-            /** Optional. Column fractional seconds precision - used only for timestamp based datatypes - if not specified and relevant uses the source column fractional seconds precision. */
-            overrideFractionalSecondsPrecision?:
-                number;
-            /** Optional. Column length - e.g. varchar (50) - if not specified and relevant uses the source column length. */
-            overrideLength?:
-                string;
-            /** Optional. Column precision - when relevant - if not specified and relevant uses the source column precision. */
-            overridePrecision?:
-                number;
-            /** Optional. Column scale - when relevant - if not specified and relevant uses the source column scale. */
-            overrideScale?:
-                number;
-            /** Required. Filter on source data type. */
-            sourceDataTypeFilter?:
-                string;
-            /** Optional. Filter for fixed point number data types such as NUMERIC/NUMBER. */
-            sourceNumericFilter?:
-                SourceNumericFilter;
-            /** Optional. Filter for text-based data types like varchar. */
-            sourceTextFilter?:
-                SourceTextFilter;
-        }
-        interface MultiEntityRename {
-            /**
-             * Optional. The pattern used to generate the new entity's name. This pattern must include the characters '{name}', which will be replaced with the name of the original entity. For
-             * example, the pattern 't_{name}' for an entity name jobs would be converted to 't_jobs'. If unspecified, the default value for this field is '{name}'
-             */
-            newNamePattern?:
-                string;
-            /**
-             * Optional. Additional transformation that can be done on the source entity name before it is being used by the new_name_pattern, for example lower case. If no transformation is
-             * desired, use NO_TRANSFORMATION
-             */
-            sourceNameTransformation?:
-                string;
-        }
-        interface MySqlConnectionProfile {
-            /** If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source. */
-            cloudSqlId?:
-                string;
-            /** Required. The IP or hostname of the source MySQL database. */
-            host?:
-                string;
-            /**
-             * Required. Input only. The password for the user that Database Migration Service will be using to connect to the database. This field is not returned on request, and the value is
-             * encrypted when stored in Database Migration Service.
-             */
-            password?:
-                string;
-            /** Output only. Indicates If this connection profile password is stored. */
-            passwordSet?:
-                boolean;
-            /** Required. The network port of the source MySQL database. */
-            port?:
-                number;
-            /** SSL configuration for the destination to connect to the source database. */
-            ssl?:
-                SslConfig;
-            /** Required. The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service. */
-            username?:
-                string;
-        }
-        interface Operation {
-            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?:
-                boolean;
-            /** The error result of the operation in case of failure or cancellation. */
-            error?:
-                Status;
-            /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
-             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
-             */
-            metadata?:
-                { [P in string]: any };
-            /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
-             * with `operations/{unique_id}`.
-             */
-            name?:
-                string;
-            /**
-             * The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original
-             * method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original
-             * method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
-             */
-            response?:
-                { [P in string]: any };
-        }
-        interface OracleConnectionProfile {
-            /** Required. Database service for the Oracle connection. */
-            databaseService?:
-                string;
-            /** Forward SSH tunnel connectivity. */
-            forwardSshConnectivity?:
-                ForwardSshTunnelConnectivity;
-            /** Required. The IP or hostname of the source Oracle database. */
-            host?:
-                string;
-            /**
-             * Required. Input only. The password for the user that Database Migration Service will be using to connect to the database. This field is not returned on request, and the value is
-             * encrypted when stored in Database Migration Service.
-             */
-            password?:
-                string;
-            /** Output only. Indicates whether a new password is included in the request. */
-            passwordSet?:
-                boolean;
-            /** Required. The network port of the source Oracle database. */
-            port?:
-                number;
-            /** Private connectivity. */
-            privateConnectivity?:
-                PrivateConnectivity;
-            /**
-             * SSL configuration for the connection to the source Oracle database. * Only `SERVER_ONLY` configuration is supported for Oracle SSL. * SSL is supported for Oracle versions 12 and
-             * above.
-             */
-            ssl?:
-                SslConfig;
-            /** Static Service IP connectivity. */
-            staticServiceIpConnectivity?:
-                any;
-            /** Required. The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service. */
-            username?:
-                string;
-        }
-        interface PackageEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The SQL code which creates the package body. If the package specification has cursors or subprograms, then the package body is mandatory. */
-            packageBody?:
-                string;
-            /** The SQL code which creates the package. */
-            packageSqlCode?:
-                string;
-        }
-        interface PerformanceConfig {
-            /** Initial dump parallelism level. */
-            dumpParallelLevel?:
-                string;
-        }
-        interface Policy {
-            /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?:
-                AuditConfig[];
-            /**
-             * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
-             * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
-             * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
-             * 1,450 principals to the `bindings` in the `Policy`.
-             */
-            bindings?:
-                Binding[];
-            /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
-             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
-             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
-             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
-             * policy, and all of the conditions in the version `3` policy are lost.
-             */
-            etag?:
-                string;
-            /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
-             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
-             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
-             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
-             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
-             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            version?:
-                number;
-        }
-        interface Position {
-            /** Issue column number */
-            column?:
-                number;
-            /** Issue length */
-            length?:
-                number;
-            /** Issue line number */
-            line?:
-                number;
-            /** Issue offset */
-            offset?:
-                number;
-        }
-        interface PostgreSqlConnectionProfile {
-            /** Optional. If the destination is an AlloyDB database, use this field to provide the AlloyDB cluster ID. */
-            alloydbClusterId?:
-                string;
-            /** If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source. */
-            cloudSqlId?:
-                string;
-            /** Required. The IP or hostname of the source PostgreSQL database. */
-            host?:
-                string;
-            /** Output only. If the source is a Cloud SQL database, this field indicates the network architecture it's associated with. */
-            networkArchitecture?:
-                string;
-            /**
-             * Required. Input only. The password for the user that Database Migration Service will be using to connect to the database. This field is not returned on request, and the value is
-             * encrypted when stored in Database Migration Service.
-             */
-            password?:
-                string;
-            /** Output only. Indicates If this connection profile password is stored. */
-            passwordSet?:
-                boolean;
-            /** Required. The network port of the source PostgreSQL database. */
-            port?:
-                number;
-            /** Private service connect connectivity. */
-            privateServiceConnectConnectivity?:
-                PrivateServiceConnectConnectivity;
-            /** SSL configuration for the destination to connect to the source database. */
-            ssl?:
-                SslConfig;
-            /** Static ip connectivity data (default, no additional details needed). */
-            staticIpConnectivity?:
-                any;
-            /** Required. The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service. */
-            username?:
-                string;
-        }
-        interface PrimaryInstanceSettings {
-            /** Database flags to pass to AlloyDB when DMS is creating the AlloyDB cluster and instances. See the AlloyDB documentation for how these can be used. */
-            databaseFlags?:
-                { [P in string]: string };
-            /** Required. The ID of the AlloyDB primary instance. The ID must satisfy the regex expression "[a-z0-9-]+". */
-            id?:
-                string;
-            /** Labels for the AlloyDB primary instance created by DMS. An object containing a list of 'key', 'value' pairs. */
-            labels?:
-                { [P in string]: string };
-            /** Configuration for the machines that host the underlying database engine. */
-            machineConfig?:
-                MachineConfig;
-            /** Output only. The private IP address for the Instance. This is the connection endpoint for an end-user application. */
-            privateIp?:
-                string;
-        }
-        interface PrivateConnection {
-            /** Output only. The create time of the resource. */
-            createTime?:
-                string;
-            /** The private connection display name. */
-            displayName?:
-                string;
-            /** Output only. The error details in case of state FAILED. */
-            error?:
-                Status;
-            /**
-             * The resource labels for private connections to use to annotate any related underlying resources such as Compute Engine VMs. An object containing a list of "key": "value" pairs.
-             * Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.
-             */
-            labels?:
-                { [P in string]: string };
-            /** The name of the resource. */
-            name?:
-                string;
-            /** Output only. The state of the private connection. */
-            state?:
-                string;
-            /** Output only. The last update time of the resource. */
-            updateTime?:
-                string;
-            /** VPC peering configuration. */
-            vpcPeeringConfig?:
-                VpcPeeringConfig;
-        }
-        interface PrivateConnectivity {
-            /** Required. The resource name (URI) of the private connection. */
-            privateConnection?:
-                string;
-        }
-        interface PrivateServiceConnectConnectivity {
-            /** Required. A service attachment that exposes a database, and has the following format: projects/{project}/regions/{region}/serviceAttachments/{service_attachment_name} */
-            serviceAttachment?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface PromoteMigrationJobRequest {
-        }
-        interface RestartMigrationJobRequest {
-            /** Optional. Restart the migration job without running prior configuration verification. Defaults to `false`. */
-            skipValidation?:
-                boolean;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface ResumeMigrationJobRequest {
-        }
-        interface ReverseSshConnectivity {
-            /** The name of the virtual machine (Compute Engine) used as the bastion server for the SSH tunnel. */
-            vm?:
-                string;
-            /** Required. The IP of the virtual machine (Compute Engine) used as the bastion server for the SSH tunnel. */
-            vmIp?:
-                string;
-            /** Required. The forwarding port of the virtual machine (Compute Engine) used as the bastion server for the SSH tunnel. */
-            vmPort?:
-                number;
-            /** The name of the VPC to peer with the Cloud SQL private network. */
-            vpc?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface RollbackConversionWorkspaceRequest {
-        }
-        interface RoundToScale {
-            /** Required. Scale value to be used */
-            scale?:
-                number;
-        }
-        interface RulesFile {
-            /** Required. The text content of the rules that needs to be converted. */
-            rulesContent?:
-                string;
-            /**
-             * Required. The filename of the rules that needs to be converted. The filename is used mainly so that future logs of the import rules job contain it, and can therefore be searched by
-             * it.
-             */
-            rulesSourceFilename?:
-                string;
-        }
-        interface SchemaEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-        }
-        interface SearchBackgroundJobsResponse {
-            /** The list of conversion workspace mapping rules. */
-            jobs?:
-                BackgroundJobLogEntry[];
-        }
-        interface SeedConversionWorkspaceRequest {
-            /** Should the conversion workspace be committed automatically after the seed operation. */
-            autoCommit?:
-                boolean;
-            /** Optional. Fully qualified (Uri) name of the destination connection profile. */
-            destinationConnectionProfile?:
-                string;
-            /** Optional. Fully qualified (Uri) name of the source connection profile. */
-            sourceConnectionProfile?:
-                string;
-        }
-        interface SeedJobDetails {
-            /** Output only. The connection profile which was used for the seed job. */
-            connectionProfile?:
-                string;
-        }
-        interface SequenceEntity {
-            /** Indicates number of entries to cache / precreate. */
-            cache?:
-                string;
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** Indicates whether the sequence value should cycle through. */
-            cycle?:
-                boolean;
-            /** Increment value for the sequence. */
-            increment?:
-                string;
-            /** Maximum number for the sequence represented as bytes to accommodate large. numbers */
-            maxValue?:
-                string;
-            /** Minimum number for the sequence represented as bytes to accommodate large. numbers */
-            minValue?:
-                string;
-            /** Start number for the sequence represented as bytes to accommodate large. numbers */
-            startValue?:
-                string;
-        }
-        interface SetIamPolicyRequest {
-            /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
-             * services (such as Projects) might reject them.
-             */
-            policy?:
-                Policy;
-            /**
-             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
-             * `paths: "bindings, etag"`
-             */
-            updateMask?:
-                string;
-        }
-        interface SetTablePrimaryKey {
-            /** Optional. Name for the primary key */
-            primaryKey?:
-                string;
-            /** Required. List of column names for the primary key */
-            primaryKeyColumns?:
-                string[];
-        }
-        interface SingleColumnChange {
-            /** Optional. Is the column of array type. */
-            array?:
-                boolean;
-            /** Optional. The length of the array, only relevant if the column type is an array. */
-            arrayLength?:
-                number;
-            /** Optional. Is the column auto-generated/identity. */
-            autoGenerated?:
-                boolean;
-            /** Optional. Charset override - instead of table level charset. */
-            charset?:
-                string;
-            /** Optional. Collation override - instead of table level collation. */
-            collation?:
-                string;
-            /** Optional. Comment associated with the column. */
-            comment?:
-                string;
-            /** Optional. Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** Optional. Column data type name. */
-            dataType?:
-                string;
-            /** Optional. Column fractional seconds precision - e.g. 2 as in timestamp (2) - when relevant. */
-            fractionalSecondsPrecision?:
-                number;
-            /** Optional. Column length - e.g. 50 as in varchar (50) - when relevant. */
-            length?:
-                string;
-            /** Optional. Is the column nullable. */
-            nullable?:
-                boolean;
-            /** Optional. Column precision - e.g. 8 as in double (8,2) - when relevant. */
-            precision?:
-                number;
-            /** Optional. Column scale - e.g. 2 as in double (8,2) - when relevant. */
-            scale?:
-                number;
-            /** Optional. Specifies the list of values allowed in the column. */
-            setValues?:
-                string[];
-            /** Optional. Is the column a UDT (User-defined Type). */
-            udt?:
-                boolean;
-        }
-        interface SingleEntityRename {
-            /** Required. The new name of the destination entity */
-            newName?:
-                string;
-        }
-        interface SinglePackageChange {
-            /** Optional. Sql code for package body */
-            packageBody?:
-                string;
-            /** Optional. Sql code for package description */
-            packageDescription?:
-                string;
-        }
-        interface SourceNumericFilter {
-            /** Required. Enum to set the option defining the datatypes numeric filter has to be applied to */
-            numericFilterOption?:
-                string;
-            /** Optional. The filter will match columns with precision smaller than or equal to this number. */
-            sourceMaxPrecisionFilter?:
-                number;
-            /** Optional. The filter will match columns with scale smaller than or equal to this number. */
-            sourceMaxScaleFilter?:
-                number;
-            /** Optional. The filter will match columns with precision greater than or equal to this number. */
-            sourceMinPrecisionFilter?:
-                number;
-            /** Optional. The filter will match columns with scale greater than or equal to this number. */
-            sourceMinScaleFilter?:
-                number;
-        }
-        interface SourceSqlChange {
-            /** Required. Sql code for source (stored procedure, function, trigger or view) */
-            sqlCode?:
-                string;
-        }
-        interface SourceTextFilter {
-            /** Optional. The filter will match columns with length smaller than or equal to this number. */
-            sourceMaxLengthFilter?:
-                string;
-            /** Optional. The filter will match columns with length greater than or equal to this number. */
-            sourceMinLengthFilter?:
-                string;
-        }
-        interface SqlAclEntry {
-            /** The time when this access control entry expires in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example: `2012-11-15T16:19:00.094Z`. */
-            expireTime?:
-                string;
-            /** A label to identify this entry. */
-            label?:
-                string;
-            /** Input only. The time-to-leave of this access control entry. */
-            ttl?:
-                string;
-            /** The allowlisted value for the access control list. */
-            value?:
-                string;
-        }
-        interface SqlIpConfig {
-            /**
-             * Optional. The name of the allocated IP address range for the private IP Cloud SQL instance. This name refers to an already allocated IP range address. If set, the instance IP
-             * address will be created in the allocated range. Note that this IP address range can't be modified after the instance is created. If you change the VPC when configuring connectivity
-             * settings for the migration job, this field is not relevant.
-             */
-            allocatedIpRange?:
-                string;
-            /**
-             * The list of external networks that are allowed to connect to the instance using the IP. See https://en.wikipedia.org/wiki/CIDR_notation#CIDR_notation, also known as 'slash' notation
-             * (e.g. `192.168.100.0/24`).
-             */
-            authorizedNetworks?:
-                SqlAclEntry[];
-            /** Whether the instance should be assigned an IPv4 address or not. */
-            enableIpv4?:
-                boolean;
-            /**
-             * The resource link for the VPC network from which the Cloud SQL instance is accessible for private IP. For example, `projects/myProject/global/networks/default`. This setting can be
-             * updated, but it cannot be removed after it is set.
-             */
-            privateNetwork?:
-                string;
-            /** Whether SSL connections over IP should be enforced or not. */
-            requireSsl?:
-                boolean;
-        }
-        interface SshScript {
-            /** The ssh configuration script. */
-            script?:
-                string;
-        }
-        interface SslConfig {
-            /**
-             * Required. Input only. The x509 PEM-encoded certificate of the CA that signed the source database server's certificate. The replica will use this certificate to verify it's
-             * connecting to the right host.
-             */
-            caCertificate?:
-                string;
-            /**
-             * Input only. The x509 PEM-encoded certificate that will be used by the replica to authenticate against the source database server.If this field is used then the 'client_key' field is
-             * mandatory.
-             */
-            clientCertificate?:
-                string;
-            /** Input only. The unencrypted PKCS#1 or PKCS#8 PEM-encoded private key associated with the Client Certificate. If this field is used then the 'client_certificate' field is mandatory. */
-            clientKey?:
-                string;
-            /** Output only. The ssl config type according to 'client_key', 'client_certificate' and 'ca_certificate'. */
-            type?:
-                string;
-        }
-        interface StartMigrationJobRequest {
-            /** Optional. Start the migration job without running prior configuration verification. Defaults to `false`. */
-            skipValidation?:
-                boolean;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface StaticIpConnectivity {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface StaticServiceIpConnectivity {
-        }
-        interface Status {
-            /** The status code, which should be an enum value of google.rpc.Code. */
-            code?:
-                number;
-            /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?:
-                Array<{ [P in string]: any }>;
-            /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
-             * client.
-             */
-            message?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface StopMigrationJobRequest {
-        }
-        interface StoredProcedureEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The SQL code which creates the stored procedure. */
-            sqlCode?:
-                string;
-        }
-        interface SynonymEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The name of the entity for which the synonym is being created (the source). */
-            sourceEntity?:
-                string;
-            /** The type of the entity for which the synonym is being created (usually a table or a sequence). */
-            sourceType?:
-                string;
-        }
-        interface TableEntity {
-            /** Table columns. */
-            columns?:
-                ColumnEntity[];
-            /** Comment associated with the table. */
-            comment?:
-                string;
-            /** Table constraints. */
-            constraints?:
-                ConstraintEntity[];
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** Table indices. */
-            indices?:
-                IndexEntity[];
-            /** Table triggers. */
-            triggers?:
-                TriggerEntity[];
-        }
-        interface TcpProxyScript {
-            /** The TCP Proxy configuration script. */
-            script?:
-                string;
-        }
-        interface TestIamPermissionsRequest {
-            /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
-             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
-             */
-            permissions?:
-                string[];
-        }
-        interface TestIamPermissionsResponse {
-            /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?:
-                string[];
-        }
-        interface TriggerEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The name of the trigger. */
-            name?:
-                string;
-            /** The SQL code which creates the trigger. */
-            sqlCode?:
-                string;
-            /** The DML, DDL, or database events that fire the trigger, for example INSERT, UPDATE. */
-            triggeringEvents?:
-                string[];
-            /** Indicates when the trigger fires, for example BEFORE STATEMENT, AFTER EACH ROW. */
-            triggerType?:
-                string;
-        }
-        interface UDTEntity {
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The SQL code which creates the udt body. */
-            udtBody?:
-                string;
-            /** The SQL code which creates the udt. */
-            udtSqlCode?:
-                string;
-        }
-        interface UserPassword {
-            /** The initial password for the user. */
-            password?:
-                string;
-            /** Output only. Indicates if the initial_user.password field has been set. */
-            passwordSet?:
-                boolean;
-            /** The database username. */
-            user?:
-                string;
-        }
-        interface ValueListFilter {
-            /** Required. Whether to ignore case when filtering by values. Defaults to false */
-            ignoreCase?:
-                boolean;
-            /** Required. Indicates whether the filter matches rows with values that are present in the list or those with values not present in it. */
-            valuePresentList?:
-                string;
-            /** Required. The list to be used to filter by */
-            values?:
-                string[];
-        }
-        interface ValueTransformation {
-            /** Optional. Applies a hash function on the data */
-            applyHash?:
-                ApplyHash;
-            /** Optional. Set to max_value - if integer or numeric, will use int.maxvalue, etc */
-            assignMaxValue?:
-                any;
-            /** Optional. Set to min_value - if integer or numeric, will use int.minvalue, etc */
-            assignMinValue?:
-                any;
-            /** Optional. Set to null */
-            assignNull?:
-                any;
-            /** Optional. Set to a specific value (value is converted to fit the target data type) */
-            assignSpecificValue?:
-                AssignSpecificValue;
-            /** Optional. Filter on relation between source value and compare value of type double. */
-            doubleComparison?:
-                DoubleComparisonFilter;
-            /** Optional. Filter on relation between source value and compare value of type integer. */
-            intComparison?:
-                IntComparisonFilter;
-            /** Optional. Value is null */
-            isNull?:
-                any;
-            /** Optional. Allows the data to change scale */
-            roundScale?:
-                RoundToScale;
-            /** Optional. Value is found in the specified list. */
-            valueList?:
-                ValueListFilter;
-        }
-        interface VerifyMigrationJobRequest {
-            /** Optional. The changed migration job parameters to verify. It will not update the migration job. */
-            migrationJob?:
-                MigrationJob;
-            /** Optional. Field mask is used to specify the changed fields to be verified. It will not update the migration job. */
-            updateMask?:
-                string;
-        }
-        interface ViewEntity {
-            /** View constraints. */
-            constraints?:
-                ConstraintEntity[];
-            /** Custom engine specific features. */
-            customFeatures?:
-                { [P in string]: any };
-            /** The SQL code which creates the view. */
-            sqlCode?:
-                string;
-        }
-        interface VmCreationConfig {
-            /** The subnet name the vm needs to be created in. */
-            subnet?:
-                string;
-            /** Required. VM instance machine type to create. */
-            vmMachineType?:
-                string;
-            /** The Google Cloud Platform zone to create the VM in. */
-            vmZone?:
-                string;
-        }
-        interface VmSelectionConfig {
-            /** Required. The Google Cloud Platform zone the VM is located. */
-            vmZone?:
-                string;
-        }
-        interface VpcPeeringConfig {
-            /** Required. A free subnet for peering. (CIDR of /29) */
-            subnet?:
-                string;
-            /** Required. Fully qualified name of the VPC that Database Migration Service will peer to. */
-            vpcName?:
-                string;
-        }
-        interface VpcPeeringConnectivity {
-            /** The name of the VPC network to peer with the Cloud SQL private network. */
-            vpc?:
-                string;
-        }
-        interface ConnectionProfilesResource {
-            /** Creates a new connection profile in a given project and location. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. The connection profile identifier. */
-                connectionProfileId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent which owns this collection of connection profiles. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Optional. Create the connection profile without validating it. The default is false. Only supported for Oracle connection profiles. */
-                skipValidation?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. Only validate the connection profile, but don't create any resources. The default is false. Only supported for Oracle connection profiles. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    ConnectionProfile;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. The connection profile identifier. */
-                connectionProfileId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent which owns this collection of connection profiles. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Optional. Create the connection profile without validating it. The default is false. Only supported for Oracle connection profiles. */
-                skipValidation?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. Only validate the connection profile, but don't create any resources. The default is false. Only supported for Oracle connection profiles. */
-                validateOnly?:
-                    boolean;
-            },
-            body: ConnectionProfile): Request<Operation>;
-            /** Deletes a single Database Migration Service connection profile. A connection profile can only be deleted if it is not in use by any active migration jobs. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** In case of force delete, the CloudSQL replica database is also deleted (only for CloudSQL connection profile). */
-                force?:
-                    boolean;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the connection profile resource to delete. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Gets details of a single connection profile. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the connection profile resource to get. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ConnectionProfile>;
-            /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Policy>;
-            /** Retrieves a list of all connection profiles in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter expression that filters connection profiles listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to
-                 * use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <. For example, list connection profiles created this
-                 * year by specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z**. You can also filter nested fields. For example, you could specify **mySql.username = %lt;my_username%gt;**
-                 * to list all connection profiles configured to connect with a specific username.
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** A comma-separated list of fields to order results according to. */
-                orderBy?:
-                    string;
-                /**
-                 * The maximum number of connection profiles to return. The service may return fewer than this value. If unspecified, at most 50 connection profiles will be returned. The maximum
-                 * value is 1000; values above 1000 are coerced to 1000.
-                 */
-                pageSize?:
-                    number;
-                /**
-                 * A page token, received from a previous `ListConnectionProfiles` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
-                 * `ListConnectionProfiles` must match the call that provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /** Required. The parent which owns this collection of connection profiles. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListConnectionProfilesResponse>;
-            /** Update the configuration of a single connection profile. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Optional. Update the connection profile without validating it. The default is false. Only supported for Oracle connection profiles. */
-                skipValidation?:
-                    boolean;
-                /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. Only validate the connection profile, but don't update any resources. The default is false. Only supported for Oracle connection profiles. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    ConnectionProfile;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Optional. Update the connection profile without validating it. The default is false. Only supported for Oracle connection profiles. */
-                skipValidation?:
-                    boolean;
-                /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. Only validate the connection profile, but don't update any resources. The default is false. Only supported for Oracle connection profiles. */
-                validateOnly?:
-                    boolean;
-            },
-            body: ConnectionProfile): Request<Operation>;
-            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: SetIamPolicyRequest): Request<Policy>;
-            /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-             */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-        }
-        interface MappingRulesResource {
-            /** Creates a new mapping rule for a given conversion workspace. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The ID of the rule to create. */
-                mappingRuleId?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent which owns this collection of mapping rules. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    MappingRule;
-            }): Request<MappingRule>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The ID of the rule to create. */
-                mappingRuleId?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent which owns this collection of mapping rules. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: MappingRule): Request<MappingRule>;
-            /** Deletes a single mapping rule. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the mapping rule resource to delete. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<{}>;
-            /** Gets the details of a mapping rule. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Required. Name of the mapping rule resource to get. Example: conversionWorkspaces/123/mappingRules/rule123 In order to retrieve a previous revision of the mapping rule, also
-                 * provide the revision ID. Example: conversionWorkspace/123/mappingRules/rule123@c7cfa2a8c7cfa2a8c7cfa2a8c7cfa2a8
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<MappingRule>;
-            /** Imports the mapping rules for a given conversion workspace. Supports various formats of external rules files. */
-            import(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Name of the conversion workspace resource to import the rules to in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    ImportMappingRulesRequest;
-            }): Request<Operation>;
-            import(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Name of the conversion workspace resource to import the rules to in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: ImportMappingRulesRequest): Request<Operation>;
-            /** Lists the mapping rules for a specific conversion workspace. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The maximum number of rules to return. The service may return fewer than this value. */
-                pageSize?:
-                    number;
-                /**
-                 * The nextPageToken value received in the previous call to mappingRules.list, used in the subsequent request to retrieve the next page of results. On first call this should be
-                 * left blank. When paginating, all other parameters provided to mappingRules.list must match the call that provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /**
-                 * Required. Name of the conversion workspace resource whose mapping rules are listed in the form of:
-                 * projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListMappingRulesResponse>;
-        }
-        interface ConversionWorkspacesResource {
-            /** Applies draft tree onto a specific destination database. */
-            apply(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Required. The name of the conversion workspace resource for which to apply the draft tree. Must be in the form of:
-                 * projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    ApplyConversionWorkspaceRequest;
-            }): Request<Operation>;
-            apply(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Required. The name of the conversion workspace resource for which to apply the draft tree. Must be in the form of:
-                 * projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: ApplyConversionWorkspaceRequest): Request<Operation>;
-            /** Marks all the data in the conversion workspace as committed. */
-            commit(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the conversion workspace resource to commit. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    CommitConversionWorkspaceRequest;
-            }): Request<Operation>;
-            commit(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the conversion workspace resource to commit. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: CommitConversionWorkspaceRequest): Request<Operation>;
-            /** Creates a draft tree schema for the destination database. */
-            convert(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the conversion workspace resource to convert in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    ConvertConversionWorkspaceRequest;
-            }): Request<Operation>;
-            convert(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the conversion workspace resource to convert in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: ConvertConversionWorkspaceRequest): Request<Operation>;
-            /** Creates a new conversion workspace in a given project and location. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. The ID of the conversion workspace to create. */
-                conversionWorkspaceId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent which owns this collection of conversion workspaces. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    ConversionWorkspace;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Required. The ID of the conversion workspace to create. */
-                conversionWorkspaceId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent which owns this collection of conversion workspaces. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: ConversionWorkspace): Request<Operation>;
-            /** Deletes a single conversion workspace. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Force delete the conversion workspace, even if there's a running migration that is using the workspace. */
-                force?:
-                    boolean;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the conversion workspace resource to delete. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Retrieves a list of committed revisions of a specific conversion workspace. */
-            describeConversionWorkspaceRevisions(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Optional. Optional filter to request a specific commit ID. */
-                commitId?:
-                    string;
-                /**
-                 * Required. Name of the conversion workspace resource whose revisions are listed. Must be in the form of:
-                 * projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
-                 */
-                conversionWorkspace:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<DescribeConversionWorkspaceRevisionsResponse>;
-            /**
-             * Describes the database entities tree for a specific conversion workspace and a specific tree type. Database entities are not resources like conversion workspaces or mapping rules,
-             * and they can't be created, updated or deleted. Instead, they are simple data objects describing the structure of the client database.
-             */
-            describeDatabaseEntities(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Optional. Request a specific commit ID. If not specified, the entities from the latest commit are returned. */
-                commitId?:
-                    string;
-                /**
-                 * Required. Name of the conversion workspace resource whose database entities are described. Must be in the form of:
-                 * projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
-                 */
-                conversionWorkspace:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Optional. Filter the returned entities based on AIP-160 standard. */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. The maximum number of entities to return. The service may return fewer entities than the value specifies. */
-                pageSize?:
-                    number;
-                /**
-                 * Optional. The nextPageToken value received in the previous call to conversionWorkspace.describeDatabaseEntities, used in the subsequent request to retrieve the next page of
-                 * results. On first call this should be left blank. When paginating, all other parameters provided to conversionWorkspace.describeDatabaseEntities must match the call that
-                 * provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The tree to fetch. */
-                tree?:
-                    string;
-                /** Optional. Whether to retrieve the latest committed version of the entities or the latest version. This field is ignored if a specific commit_id is specified. */
-                uncommitted?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. Results view based on AIP-157 */
-                view?:
-                    string;
-            }): Request<DescribeDatabaseEntitiesResponse>;
-            /** Gets details of a single conversion workspace. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the conversion workspace resource to get. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ConversionWorkspace>;
-            /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Policy>;
-            /** Lists conversion workspaces in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter expression that filters conversion workspaces listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to
-                 * use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <. For example, list conversion workspaces created
-                 * this year by specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z.** You can also filter nested fields. For example, you could specify **source.version = "12.c.1"** to
-                 * select all conversion workspaces with source database version equal to 12.c.1.
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The maximum number of conversion workspaces to return. The service may return fewer than this value. If unspecified, at most 50 sets are returned. */
-                pageSize?:
-                    number;
-                /**
-                 * The nextPageToken value received in the previous call to conversionWorkspaces.list, used in the subsequent request to retrieve the next page of results. On first call this
-                 * should be left blank. When paginating, all other parameters provided to conversionWorkspaces.list must match the call that provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /** Required. The parent which owns this collection of conversion workspaces. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListConversionWorkspacesResponse>;
-            /** Updates the parameters of a single conversion workspace. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Full name of the workspace resource, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    ConversionWorkspace;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Full name of the workspace resource, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: ConversionWorkspace): Request<Operation>;
-            /** Rolls back a conversion workspace to the last committed snapshot. */
-            rollback(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the conversion workspace resource to roll back to. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RollbackConversionWorkspaceRequest;
-            }): Request<Operation>;
-            rollback(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the conversion workspace resource to roll back to. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RollbackConversionWorkspaceRequest): Request<Operation>;
-            /**
-             * Searches/lists the background jobs for a specific conversion workspace. The background jobs are not resources like conversion workspaces or mapping rules, and they can't be created,
-             * updated or deleted. Instead, they are a way to expose the data plane jobs log.
-             */
-            searchBackgroundJobs(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Optional. If provided, only returns jobs that completed until (not including) the given timestamp. */
-                completedUntilTime?:
-                    string;
-                /** Required. Name of the conversion workspace resource whose jobs are listed, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
-                conversionWorkspace:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Optional. The maximum number of jobs to return. The service may return fewer than this value. If unspecified, at most 100 jobs are returned. The maximum value is 100; values
-                 * above 100 are coerced to 100.
-                 */
-                maxSize?:
-                    number;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Optional. Whether or not to return just the most recent job per job type, */
-                returnMostRecentPerJobType?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<SearchBackgroundJobsResponse>;
-            /** Imports a snapshot of the source database into the conversion workspace. */
-            seed(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Name of the conversion workspace resource to seed with new database structure, in the form of:
-                 * projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    SeedConversionWorkspaceRequest;
-            }): Request<Operation>;
-            seed(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Name of the conversion workspace resource to seed with new database structure, in the form of:
-                 * projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}.
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: SeedConversionWorkspaceRequest): Request<Operation>;
-            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: SetIamPolicyRequest): Request<Policy>;
-            /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-             */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            mappingRules:
-                MappingRulesResource;
-        }
-        interface MigrationJobsResource {
-            /** Creates a new migration job in a given project and location. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The ID of the instance to create. */
-                migrationJobId?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent which owns this collection of migration jobs. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    MigrationJob;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The ID of the instance to create. */
-                migrationJobId?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent which owns this collection of migration jobs. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: MigrationJob): Request<Operation>;
-            /** Deletes a single migration job. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** The destination CloudSQL connection profile is always deleted with the migration job. In case of force delete, the destination CloudSQL replica database is also deleted. */
-                force?:
-                    boolean;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the migration job resource to delete. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /**
-             * Demotes the destination database to become a read replica of the source. This is applicable for the following migrations: 1. MySQL to Cloud SQL (for MySQL) 2. PostgreSQL to Cloud
-             * SQL (for PostgreSQL) 3. PostgreSQL to AlloyDB.
-             */
-            demoteDestination(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to demote its destination. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    DemoteDestinationRequest;
-            }): Request<Operation>;
-            demoteDestination(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to demote its destination. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: DemoteDestinationRequest): Request<Operation>;
-            /** Generate a SSH configuration script to configure the reverse SSH connectivity. */
-            generateSshScript(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to generate the SSH script. */
-                migrationJob:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GenerateSshScriptRequest;
-            }): Request<SshScript>;
-            generateSshScript(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to generate the SSH script. */
-                migrationJob:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GenerateSshScriptRequest): Request<SshScript>;
-            /** Generate a TCP Proxy configuration script to configure a cloud-hosted VM running a TCP Proxy. */
-            generateTcpProxyScript(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to generate the TCP Proxy script. */
-                migrationJob:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GenerateTcpProxyScriptRequest;
-            }): Request<TcpProxyScript>;
-            generateTcpProxyScript(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to generate the TCP Proxy script. */
-                migrationJob:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GenerateTcpProxyScriptRequest): Request<TcpProxyScript>;
-            /** Gets details of a single migration job. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Name of the migration job resource to get. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<MigrationJob>;
-            /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Policy>;
-            /** Lists migration jobs in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter expression that filters migration jobs listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for
-                 * filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <. For example, list migration jobs created this year by
-                 * specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z.** You can also filter nested fields. For example, you could specify **reverseSshConnectivity.vmIp = "1.2.3.4"** to
-                 * select all migration jobs connecting through the specific SSH tunnel bastion.
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Sort the results based on the migration job name. Valid values are: "name", "name asc", and "name desc". */
-                orderBy?:
-                    string;
-                /**
-                 * The maximum number of migration jobs to return. The service may return fewer than this value. If unspecified, at most 50 migration jobs will be returned. The maximum value is
-                 * 1000; values above 1000 are coerced to 1000.
-                 */
-                pageSize?:
-                    number;
-                /**
-                 * The nextPageToken value received in the previous call to migrationJobs.list, used in the subsequent request to retrieve the next page of results. On first call this should be
-                 * left blank. When paginating, all other parameters provided to migrationJobs.list must match the call that provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /** Required. The parent which owns this collection of migrationJobs. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListMigrationJobsResponse>;
-            /** Updates the parameters of a single migration job. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name (URI) of this migration job resource, in the form of: projects/{project}/locations/{location}/migrationJobs/{migrationJob}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    MigrationJob;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name (URI) of this migration job resource, in the form of: projects/{project}/locations/{location}/migrationJobs/{migrationJob}. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to
-                 * a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: MigrationJob): Request<Operation>;
-            /** Promote a migration job, stopping replication to the destination and promoting the destination to be a standalone database. */
-            promote(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to promote. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    PromoteMigrationJobRequest;
-            }): Request<Operation>;
-            promote(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to promote. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: PromoteMigrationJobRequest): Request<Operation>;
-            /** Restart a stopped or failed migration job, resetting the destination instance to its original state and starting the migration process from scratch. */
-            restart(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to restart. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RestartMigrationJobRequest;
-            }): Request<Operation>;
-            restart(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to restart. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RestartMigrationJobRequest): Request<Operation>;
-            /** Resume a migration job that is currently stopped and is resumable (was stopped during CDC phase). */
-            resume(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to resume. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    ResumeMigrationJobRequest;
-            }): Request<Operation>;
-            resume(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to resume. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: ResumeMigrationJobRequest): Request<Operation>;
-            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: SetIamPolicyRequest): Request<Policy>;
-            /** Start an already created migration job. */
-            start(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to start. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    StartMigrationJobRequest;
-            }): Request<Operation>;
-            start(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to start. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: StartMigrationJobRequest): Request<Operation>;
-            /** Stops a running migration job. */
-            stop(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to stop. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    StopMigrationJobRequest;
-            }): Request<Operation>;
-            stop(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to stop. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: StopMigrationJobRequest): Request<Operation>;
-            /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-             */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            /** Verify a migration job, making sure the destination can reach the source and that all configuration and prerequisites are met. */
-            verify(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to verify. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    VerifyMigrationJobRequest;
-            }): Request<Operation>;
-            verify(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Name of the migration job resource to verify. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: VerifyMigrationJobRequest): Request<Operation>;
-        }
-        interface OperationsResource {
-            /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
-             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
-             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    CancelOperationRequest;
-            }): Request<{}>;
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: CancelOperationRequest): Request<{}>;
-            /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
-             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-             */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be deleted. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<{}>;
-            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** The standard list filter. */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation's parent resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The standard list page size. */
-                pageSize?:
-                    number;
-                /** The standard list page token. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListOperationsResponse>;
-        }
-        interface PrivateConnectionsResource {
-            /** Creates a new private connection in a given project and location. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent that owns the collection of PrivateConnections. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Required. The private connection identifier. */
-                privateConnectionId?:
-                    string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Optional. If set to true, will skip validations. */
-                skipValidation?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    PrivateConnection;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent that owns the collection of PrivateConnections. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Required. The private connection identifier. */
-                privateConnectionId?:
-                    string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Optional. If set to true, will skip validations. */
-                skipValidation?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: PrivateConnection): Request<Operation>;
-            /** Deletes a single Database Migration Service private connection. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the private connection to delete. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set
-                 * this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters.
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Gets details of a single private connection. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the private connection to get. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<PrivateConnection>;
-            /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Policy>;
-            /** Retrieves a list of private connections in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter expression that filters private connections listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to
-                 * use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <. For example, list private connections created this
-                 * year by specifying **createTime %gt; 2021-01-01T00:00:00.000000000Z**.
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Order by fields for the result. */
-                orderBy?:
-                    string;
-                /**
-                 * Maximum number of private connections to return. If unspecified, at most 50 private connections that are returned. The maximum value is 1000; values above 1000 are coerced to
-                 * 1000.
-                 */
-                pageSize?:
-                    number;
-                /**
-                 * Page token received from a previous `ListPrivateConnections` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to
-                 * `ListPrivateConnections` must match the call that provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /** Required. The parent that owns the collection of private connections. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListPrivateConnectionsResponse>;
-            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: SetIamPolicyRequest): Request<Policy>;
-            /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-             */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-        }
-        interface LocationsResource {
-            /** Fetches a set of static IP addresses that need to be allowlisted by the customer when using the static-IP connectivity method. */
-            fetchStaticIps(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The resource name for the location for which static IPs should be returned. Must be in the format `projects/*‍/locations/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of IPs to return. */
-                pageSize?:
-                    number;
-                /** A page token, received from a previous `FetchStaticIps` call. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<FetchStaticIpsResponse>;
-            /** Gets information about a location. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Resource name for the location. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Location>;
-            /** Lists information about the supported locations for this service. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
-                 * [AIP-160](https://google.aip.dev/160).
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource that owns the locations collection, if applicable. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?:
-                    number;
-                /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListLocationsResponse>;
-            connectionProfiles:
-                ConnectionProfilesResource;
-            conversionWorkspaces:
-                ConversionWorkspacesResource;
-            migrationJobs:
-                MigrationJobsResource;
-            operations:
-                OperationsResource;
-            privateConnections:
-                PrivateConnectionsResource;
-        }
-        interface ProjectsResource {
-            locations:
-                LocationsResource;
-        }
-
-        const projects: ProjectsResource;
+  namespace datamigration {
+    interface AlloyDbConnectionProfile {
+      /** Required. The AlloyDB cluster ID that this connection profile is associated with. */
+      clusterId?: string;
+      /** Immutable. Metadata used to create the destination AlloyDB cluster. */
+      settings?: AlloyDbSettings;
     }
+    interface AlloyDbSettings {
+      /** Optional. The database engine major version. This is an optional field. If a database version is not supplied at cluster creation time, then a default database version will be used. */
+      databaseVersion?: string;
+      /** Optional. The encryption config can be specified to encrypt the data disks and other persistent data resources of a cluster with a customer-managed encryption key (CMEK). When this field is not specified, the cluster will then use default encryption scheme to protect the user data. */
+      encryptionConfig?: EncryptionConfig;
+      /** Required. Input only. Initial user to setup during cluster creation. Required. */
+      initialUser?: UserPassword;
+      /** Labels for the AlloyDB cluster created by DMS. An object containing a list of 'key', 'value' pairs. */
+      labels?: {[P in string]: string};
+      primaryInstanceSettings?: PrimaryInstanceSettings;
+      /** Required. The resource link for the VPC network in which cluster resources are created and from which they are accessible via Private IP. The network must belong to the same project as the cluster. It is specified in the form: "projects/{project_number}/global/networks/{network_id}". This is required to create a cluster. */
+      vpcNetwork?: string;
+    }
+    interface ApplyConversionWorkspaceRequest {
+      /** Optional. Specifies whether the conversion workspace is to be committed automatically after the apply. */
+      autoCommit?: boolean;
+      /** Optional. Fully qualified (Uri) name of the destination connection profile. */
+      connectionProfile?: string;
+      /** Optional. Only validates the apply process, but doesn't change the destination database. Only works for PostgreSQL destination connection profile. */
+      dryRun?: boolean;
+      /** Filter which entities to apply. Leaving this field empty will apply all of the entities. Supports Google AIP 160 based filtering. */
+      filter?: string;
+    }
+    interface ApplyHash {
+      /** Optional. Generate UUID from the data's byte array */
+      uuidFromBytes?: any;
+    }
+    interface ApplyJobDetails {
+      /** Output only. The connection profile which was used for the apply job. */
+      connectionProfile?: string;
+      /** Output only. AIP-160 based filter used to specify the entities to apply */
+      filter?: string;
+    }
+    interface AssignSpecificValue {
+      /** Required. Specific value to be assigned */
+      value?: string;
+    }
+    interface AuditConfig {
+      /** The configuration for logging of each type of permission. */
+      auditLogConfigs?: AuditLogConfig[];
+      /** Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all services. */
+      service?: string;
+    }
+    interface AuditLogConfig {
+      /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
+      exemptedMembers?: string[];
+      /** The log type that this config enables. */
+      logType?: string;
+    }
+    interface BackgroundJobLogEntry {
+      /** Output only. Apply job details. */
+      applyJobDetails?: ApplyJobDetails;
+      /** Output only. Job completion comment, such as how many entities were seeded, how many warnings were found during conversion, and similar information. */
+      completionComment?: string;
+      /** Output only. Job completion state, i.e. the final state after the job completed. */
+      completionState?: string;
+      /** Output only. Convert job details. */
+      convertJobDetails?: ConvertJobDetails;
+      /** The timestamp when the background job was finished. */
+      finishTime?: string;
+      /** The background job log entry ID. */
+      id?: string;
+      /** Output only. Import rules job details. */
+      importRulesJobDetails?: ImportRulesJobDetails;
+      /** The type of job that was executed. */
+      jobType?: string;
+      /** Output only. Whether the client requested the conversion workspace to be committed after a successful completion of the job. */
+      requestAutocommit?: boolean;
+      /** Output only. Seed job details. */
+      seedJobDetails?: SeedJobDetails;
+      /** The timestamp when the background job was started. */
+      startTime?: string;
+    }
+    interface Binding {
+      /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+      condition?: Expr;
+      /** Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account. Does not include identities that come from external identity providers (IdPs) through identity federation. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that represents a Google service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An identifier for a [Kubernetes service account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts). For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example, `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in the binding. */
+      members?: string[];
+      /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
+      role?: string;
+    }
+    interface CancelOperationRequest {}
+    interface CloudSqlConnectionProfile {
+      /** Output only. The Cloud SQL database instance's additional (outgoing) public IP. Used when the Cloud SQL database availability type is REGIONAL (i.e. multiple zones / highly available). */
+      additionalPublicIp?: string;
+      /** Output only. The Cloud SQL instance ID that this connection profile is associated with. */
+      cloudSqlId?: string;
+      /** Output only. The Cloud SQL database instance's private IP. */
+      privateIp?: string;
+      /** Output only. The Cloud SQL database instance's public IP. */
+      publicIp?: string;
+      /** Immutable. Metadata used to create the destination Cloud SQL database. */
+      settings?: CloudSqlSettings;
+    }
+    interface CloudSqlSettings {
+      /** The activation policy specifies when the instance is activated; it is applicable only when the instance state is 'RUNNABLE'. Valid values: 'ALWAYS': The instance is on, and remains so even in the absence of connection requests. `NEVER`: The instance is off; it is not activated, even if a connection request arrives. */
+      activationPolicy?: string;
+      /** [default: ON] If you enable this setting, Cloud SQL checks your available storage every 30 seconds. If the available storage falls below a threshold size, Cloud SQL automatically adds additional storage capacity. If the available storage repeatedly falls below the threshold size, Cloud SQL continues to add storage until it reaches the maximum of 30 TB. */
+      autoStorageIncrease?: boolean;
+      /** Optional. Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data availability. * `REGIONAL`: The instance can serve data from more than one zone in a region (it is highly available). */
+      availabilityType?: string;
+      /** The KMS key name used for the csql instance. */
+      cmekKeyName?: string;
+      /** The Cloud SQL default instance level collation. */
+      collation?: string;
+      /** The database flags passed to the Cloud SQL instance at startup. An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }. */
+      databaseFlags?: {[P in string]: string};
+      /** The database engine type and version. */
+      databaseVersion?: string;
+      /** Optional. Data cache is an optional feature available for Cloud SQL for MySQL Enterprise Plus edition only. For more information on data cache, see [Data cache overview](https://cloud.google.com/sql/help/mysql-data-cache) in Cloud SQL documentation. */
+      dataCacheConfig?: DataCacheConfig;
+      /** The storage capacity available to the database, in GB. The minimum (and default) size is 10GB. */
+      dataDiskSizeGb?: string;
+      /** The type of storage: `PD_SSD` (default) or `PD_HDD`. */
+      dataDiskType?: string;
+      /** Optional. The edition of the given Cloud SQL instance. */
+      edition?: string;
+      /** The settings for IP Management. This allows to enable or disable the instance IP and manage which external networks can connect to the instance. The IPv4 address cannot be disabled. */
+      ipConfig?: SqlIpConfig;
+      /** Input only. Initial root password. */
+      rootPassword?: string;
+      /** Output only. Indicates If this connection profile root password is stored. */
+      rootPasswordSet?: boolean;
+      /** Optional. The Google Cloud Platform zone where the failover Cloud SQL database instance is located. Used when the Cloud SQL database availability type is REGIONAL (i.e. multiple zones / highly available). */
+      secondaryZone?: string;
+      /** The Database Migration Service source connection profile ID, in the format: `projects/my_project_name/locations/us-central1/connectionProfiles/connection_profile_ID` */
+      sourceId?: string;
+      /** The maximum size to which storage capacity can be automatically increased. The default value is 0, which specifies that there is no limit. */
+      storageAutoResizeLimit?: string;
+      /** The tier (or machine type) for this instance, for example: `db-n1-standard-1` (MySQL instances) or `db-custom-1-3840` (PostgreSQL instances). For more information, see [Cloud SQL Instance Settings](https://cloud.google.com/sql/docs/mysql/instance-settings). */
+      tier?: string;
+      /** The resource labels for a Cloud SQL instance to use to annotate any related underlying resources such as Compute Engine VMs. An object containing a list of "key": "value" pairs. Example: `{ "name": "wrench", "mass": "18kg", "count": "3" }`. */
+      userLabels?: {[P in string]: string};
+      /** The Google Cloud Platform zone where your Cloud SQL database instance is located. */
+      zone?: string;
+    }
+    interface ColumnEntity {
+      /** Is the column of array type. */
+      array?: boolean;
+      /** If the column is array, of which length. */
+      arrayLength?: number;
+      /** Is the column auto-generated/identity. */
+      autoGenerated?: boolean;
+      /** Charset override - instead of table level charset. */
+      charset?: string;
+      /** Collation override - instead of table level collation. */
+      collation?: string;
+      /** Comment associated with the column. */
+      comment?: string;
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** Column data type. */
+      dataType?: string;
+      /** Default value of the column. */
+      defaultValue?: string;
+      /** Column fractional second precision - used for timestamp based datatypes. */
+      fractionalSecondsPrecision?: number;
+      /** Column length - e.g. varchar (50). */
+      length?: string;
+      /** Column name. */
+      name?: string;
+      /** Is the column nullable. */
+      nullable?: boolean;
+      /** Column order in the table. */
+      ordinalPosition?: number;
+      /** Column precision - when relevant. */
+      precision?: number;
+      /** Column scale - when relevant. */
+      scale?: number;
+      /** Specifies the list of values allowed in the column. Only used for set data type. */
+      setValues?: string[];
+      /** Is the column a UDT. */
+      udt?: boolean;
+    }
+    interface CommitConversionWorkspaceRequest {
+      /** Optional. Optional name of the commit. */
+      commitName?: string;
+    }
+    interface ConditionalColumnSetValue {
+      /** Optional. Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** Optional. Optional filter on source column precision and scale. Used for fixed point numbers such as NUMERIC/NUMBER data types. */
+      sourceNumericFilter?: SourceNumericFilter;
+      /** Optional. Optional filter on source column length. Used for text based data types like varchar. */
+      sourceTextFilter?: SourceTextFilter;
+      /** Required. Description of data transformation during migration. */
+      valueTransformation?: ValueTransformation;
+    }
+    interface ConnectionProfile {
+      /** An AlloyDB cluster connection profile. */
+      alloydb?: AlloyDbConnectionProfile;
+      /** A CloudSQL database connection profile. */
+      cloudsql?: CloudSqlConnectionProfile;
+      /** Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". */
+      createTime?: string;
+      /** The connection profile display name. */
+      displayName?: string;
+      /** Output only. The error details in case of state FAILED. */
+      error?: Status;
+      /** The resource labels for connection profile to use to annotate any related underlying resources such as Compute Engine VMs. An object containing a list of "key": "value" pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`. */
+      labels?: {[P in string]: string};
+      /** A MySQL database connection profile. */
+      mysql?: MySqlConnectionProfile;
+      /** The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}. */
+      name?: string;
+      /** An Oracle database connection profile. */
+      oracle?: OracleConnectionProfile;
+      /** A PostgreSQL database connection profile. */
+      postgresql?: PostgreSqlConnectionProfile;
+      /** The database provider. */
+      provider?: string;
+      /** The current connection profile state (e.g. DRAFT, READY, or FAILED). */
+      state?: string;
+      /** Output only. The timestamp when the resource was last updated. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". */
+      updateTime?: string;
+    }
+    interface ConstraintEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The name of the table constraint. */
+      name?: string;
+      /** Reference columns which may be associated with the constraint. For example, if the constraint is a FOREIGN_KEY, this represents the list of full names of referenced columns by the foreign key. */
+      referenceColumns?: string[];
+      /** Reference table which may be associated with the constraint. For example, if the constraint is a FOREIGN_KEY, this represents the list of full name of the referenced table by the foreign key. */
+      referenceTable?: string;
+      /** Table columns used as part of the Constraint, for example primary key constraint should list the columns which constitutes the key. */
+      tableColumns?: string[];
+      /** Table which is associated with the constraint. In case the constraint is defined on a table, this field is left empty as this information is stored in parent_name. However, if constraint is defined on a view, this field stores the table name on which the view is defined. */
+      tableName?: string;
+      /** Type of constraint, for example unique, primary key, foreign key (currently only primary key is supported). */
+      type?: string;
+    }
+    interface ConversionWorkspace {
+      /** Output only. The timestamp when the workspace resource was created. */
+      createTime?: string;
+      /** Required. The destination engine details. */
+      destination?: DatabaseEngineInfo;
+      /** Optional. The display name for the workspace. */
+      displayName?: string;
+      /** Optional. A generic list of settings for the workspace. The settings are database pair dependant and can indicate default behavior for the mapping rules engine or turn on or off specific features. Such examples can be: convert_foreign_key_to_interleave=true, skip_triggers=false, ignore_non_table_synonyms=true */
+      globalSettings?: {[P in string]: string};
+      /** Output only. Whether the workspace has uncommitted changes (changes which were made after the workspace was committed). */
+      hasUncommittedChanges?: boolean;
+      /** Output only. The latest commit ID. */
+      latestCommitId?: string;
+      /** Output only. The timestamp when the workspace was committed. */
+      latestCommitTime?: string;
+      /** Full name of the workspace resource, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+      name?: string;
+      /** Required. The source engine details. */
+      source?: DatabaseEngineInfo;
+      /** Output only. The timestamp when the workspace resource was last updated. */
+      updateTime?: string;
+    }
+    interface ConversionWorkspaceInfo {
+      /** The commit ID of the conversion workspace. */
+      commitId?: string;
+      /** The resource name (URI) of the conversion workspace. */
+      name?: string;
+    }
+    interface ConvertConversionWorkspaceRequest {
+      /** Optional. Specifies whether the conversion workspace is to be committed automatically after the conversion. */
+      autoCommit?: boolean;
+      /** Optional. Automatically convert the full entity path for each entity specified by the filter. For example, if the filter specifies a table, that table schema (and database if there is one) will also be converted. */
+      convertFullPath?: boolean;
+      /** Optional. Filter the entities to convert. Leaving this field empty will convert all of the entities. Supports Google AIP-160 style filtering. */
+      filter?: string;
+    }
+    interface ConvertJobDetails {
+      /** Output only. AIP-160 based filter used to specify the entities to convert */
+      filter?: string;
+    }
+    interface ConvertRowIdToColumn {
+      /** Required. Only work on tables without primary key defined */
+      onlyIfNoPrimaryKey?: boolean;
+    }
+    interface DatabaseEngineInfo {
+      /** Required. Engine type. */
+      engine?: string;
+      /** Required. Engine version, for example "12.c.1". */
+      version?: string;
+    }
+    interface DatabaseEntity {
+      /** Database. */
+      database?: DatabaseInstanceEntity;
+      /** Function. */
+      databaseFunction?: FunctionEntity;
+      /** Package. */
+      databasePackage?: PackageEntity;
+      /** Details about the entity DDL script. Multiple DDL scripts are provided for child entities such as a table entity will have one DDL for the table with additional DDLs for each index, constraint and such. */
+      entityDdl?: EntityDdl[];
+      /** The type of the database entity (table, view, index, ...). */
+      entityType?: string;
+      /** Details about the various issues found for the entity. */
+      issues?: EntityIssue[];
+      /** Details about entity mappings. For source tree entities, this holds the draft entities which were generated by the mapping rules. For draft tree entities, this holds the source entities which were converted to form the draft entity. Destination entities will have no mapping details. */
+      mappings?: EntityMapping[];
+      /** Materialized view. */
+      materializedView?: MaterializedViewEntity;
+      /** The full name of the parent entity (e.g. schema name). */
+      parentEntity?: string;
+      /** Schema. */
+      schema?: SchemaEntity;
+      /** Sequence. */
+      sequence?: SequenceEntity;
+      /** The short name (e.g. table name) of the entity. */
+      shortName?: string;
+      /** Stored procedure. */
+      storedProcedure?: StoredProcedureEntity;
+      /** Synonym. */
+      synonym?: SynonymEntity;
+      /** Table. */
+      table?: TableEntity;
+      /** The type of tree the entity belongs to. */
+      tree?: string;
+      /** UDT. */
+      udt?: UDTEntity;
+      /** View. */
+      view?: ViewEntity;
+    }
+    interface DatabaseInstanceEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+    }
+    interface DatabaseType {
+      /** The database engine. */
+      engine?: string;
+      /** The database provider. */
+      provider?: string;
+    }
+    interface DataCacheConfig {
+      /** Optional. Whether data cache is enabled for the instance. */
+      dataCacheEnabled?: boolean;
+    }
+    interface DemoteDestinationRequest {}
+    interface DescribeConversionWorkspaceRevisionsResponse {
+      /** The list of conversion workspace revisions. */
+      revisions?: ConversionWorkspace[];
+    }
+    interface DescribeDatabaseEntitiesResponse {
+      /** The list of database entities for the conversion workspace. */
+      databaseEntities?: DatabaseEntity[];
+      /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+    }
+    interface DoubleComparisonFilter {
+      /** Required. Double compare value to be used */
+      value?: number;
+      /** Required. Relation between source value and compare value */
+      valueComparison?: string;
+    }
+    interface DumpFlag {
+      /** The name of the flag */
+      name?: string;
+      /** The value of the flag. */
+      value?: string;
+    }
+    interface DumpFlags {
+      /** The flags for the initial dump. */
+      dumpFlags?: DumpFlag[];
+    }
+    interface Empty {}
+    interface EncryptionConfig {
+      /** The fully-qualified resource name of the KMS key. Each Cloud KMS key is regionalized and has the following format: projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME] */
+      kmsKeyName?: string;
+    }
+    interface EntityDdl {
+      /** The actual ddl code. */
+      ddl?: string;
+      /** Type of DDL (Create, Alter). */
+      ddlType?: string;
+      /** The name of the database entity the ddl refers to. */
+      entity?: string;
+      /** The entity type (if the DDL is for a sub entity). */
+      entityType?: string;
+      /** EntityIssues found for this ddl. */
+      issueId?: string[];
+    }
+    interface EntityIssue {
+      /** Error/Warning code */
+      code?: string;
+      /** The ddl which caused the issue, if relevant. */
+      ddl?: string;
+      /** The entity type (if the DDL is for a sub entity). */
+      entityType?: string;
+      /** Unique Issue ID. */
+      id?: string;
+      /** Issue detailed message */
+      message?: string;
+      /** The position of the issue found, if relevant. */
+      position?: Position;
+      /** Severity of the issue */
+      severity?: string;
+      /** The type of the issue. */
+      type?: string;
+    }
+    interface EntityMapping {
+      /** Target entity full name. The draft entity can also include a column, index or constraint using the same naming notation schema.table.column. */
+      draftEntity?: string;
+      /** Type of draft entity. */
+      draftType?: string;
+      /** Entity mapping log entries. Multiple rules can be effective and contribute changes to a converted entity, such as a rule can handle the entity name, another rule can handle an entity type. In addition, rules which did not change the entity are also logged along with the reason preventing them to do so. */
+      mappingLog?: EntityMappingLogEntry[];
+      /** Source entity full name. The source entity can also be a column, index or constraint using the same naming notation schema.table.column. */
+      sourceEntity?: string;
+      /** Type of source entity. */
+      sourceType?: string;
+    }
+    interface EntityMappingLogEntry {
+      /** Comment. */
+      mappingComment?: string;
+      /** Which rule caused this log entry. */
+      ruleId?: string;
+      /** Rule revision ID. */
+      ruleRevisionId?: string;
+    }
+    interface EntityMove {
+      /** Required. The new schema */
+      newSchema?: string;
+    }
+    interface Expr {
+      /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
+      description?: string;
+      /** Textual representation of an expression in Common Expression Language syntax. */
+      expression?: string;
+      /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
+      location?: string;
+      /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
+      title?: string;
+    }
+    interface FetchStaticIpsResponse {
+      /** A token that can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** List of static IPs. */
+      staticIps?: string[];
+    }
+    interface FilterTableColumns {
+      /** Optional. List of columns to be excluded for a particular table. */
+      excludeColumns?: string[];
+      /** Optional. List of columns to be included for a particular table. */
+      includeColumns?: string[];
+    }
+    interface ForwardSshTunnelConnectivity {
+      /** Required. Hostname for the SSH tunnel. */
+      hostname?: string;
+      /** Input only. SSH password. */
+      password?: string;
+      /** Port for the SSH tunnel, default value is 22. */
+      port?: number;
+      /** Input only. SSH private key. */
+      privateKey?: string;
+      /** Required. Username for the SSH tunnel. */
+      username?: string;
+    }
+    interface FunctionEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The SQL code which creates the function. */
+      sqlCode?: string;
+    }
+    interface GenerateSshScriptRequest {
+      /** Required. Bastion VM Instance name to use or to create. */
+      vm?: string;
+      /** The VM creation configuration */
+      vmCreationConfig?: VmCreationConfig;
+      /** The port that will be open on the bastion host. */
+      vmPort?: number;
+      /** The VM selection configuration */
+      vmSelectionConfig?: VmSelectionConfig;
+    }
+    interface GenerateTcpProxyScriptRequest {
+      /** Required. The type of the Compute instance that will host the proxy. */
+      vmMachineType?: string;
+      /** Required. The name of the Compute instance that will host the proxy. */
+      vmName?: string;
+      /** Required. The name of the subnet the Compute instance will use for private connectivity. Must be supplied in the form of projects/{project}/regions/{region}/subnetworks/{subnetwork}. Note: the region for the subnet must match the Compute instance region. */
+      vmSubnet?: string;
+      /** Optional. The Google Cloud Platform zone to create the VM in. The fully qualified name of the zone must be specified, including the region name, for example "us-central1-b". If not specified, uses the "-b" zone of the destination Connection Profile's region. */
+      vmZone?: string;
+    }
+    interface GoogleCloudClouddmsV1OperationMetadata {
+      /** Output only. API version used to start the operation. */
+      apiVersion?: string;
+      /** Output only. The time the operation was created. */
+      createTime?: string;
+      /** Output only. The time the operation finished running. */
+      endTime?: string;
+      /** Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      requestedCancellation?: boolean;
+      /** Output only. Human-readable status of the operation, if any. */
+      statusMessage?: string;
+      /** Output only. Server-defined resource path for the target of the operation. */
+      target?: string;
+      /** Output only. Name of the verb executed by the operation. */
+      verb?: string;
+    }
+    interface ImportMappingRulesRequest {
+      /** Required. Should the conversion workspace be committed automatically after the import operation. */
+      autoCommit?: boolean;
+      /** Required. One or more rules files. */
+      rulesFiles?: RulesFile[];
+      /** Required. The format of the rules content file. */
+      rulesFormat?: string;
+    }
+    interface ImportRulesJobDetails {
+      /** Output only. The requested file format. */
+      fileFormat?: string;
+      /** Output only. File names used for the import rules job. */
+      files?: string[];
+    }
+    interface IndexEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The name of the index. */
+      name?: string;
+      /** Table columns used as part of the Index, for example B-TREE index should list the columns which constitutes the index. */
+      tableColumns?: string[];
+      /** Type of index, for example B-TREE. */
+      type?: string;
+      /** Boolean value indicating whether the index is unique. */
+      unique?: boolean;
+    }
+    interface IntComparisonFilter {
+      /** Required. Integer compare value to be used */
+      value?: string;
+      /** Required. Relation between source value and compare value */
+      valueComparison?: string;
+    }
+    interface ListConnectionProfilesResponse {
+      /** The response list of connection profiles. */
+      connectionProfiles?: ConnectionProfile[];
+      /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface ListConversionWorkspacesResponse {
+      /** The list of conversion workspace objects. */
+      conversionWorkspaces?: ConversionWorkspace[];
+      /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface ListLocationsResponse {
+      /** A list of locations that matches the specified filter in the request. */
+      locations?: Location[];
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+    }
+    interface ListMappingRulesResponse {
+      /** The list of conversion workspace mapping rules. */
+      mappingRules?: MappingRule[];
+      /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+    }
+    interface ListMigrationJobsResponse {
+      /** The list of migration jobs objects. */
+      migrationJobs?: MigrationJob[];
+      /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface ListOperationsResponse {
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+      /** A list of operations that matches the specified filter in the request. */
+      operations?: Operation[];
+    }
+    interface ListPrivateConnectionsResponse {
+      /** A token which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. */
+      nextPageToken?: string;
+      /** List of private connections. */
+      privateConnections?: PrivateConnection[];
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface Location {
+      /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
+      displayName?: string;
+      /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
+      labels?: {[P in string]: string};
+      /** The canonical id for this location. For example: `"us-east1"`. */
+      locationId?: string;
+      /** Service-specific metadata. For example the available capacity at the given location. */
+      metadata?: {[P in string]: any};
+      /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
+      name?: string;
+    }
+    interface MachineConfig {
+      /** The number of CPU's in the VM instance. */
+      cpuCount?: number;
+    }
+    interface MappingRule {
+      /** Optional. Rule to specify how the data contained in a column should be transformed (such as trimmed, rounded, etc) provided that the data meets certain criteria. */
+      conditionalColumnSetValue?: ConditionalColumnSetValue;
+      /** Optional. Rule to specify how multiple tables should be converted with an additional rowid column. */
+      convertRowidColumn?: ConvertRowIdToColumn;
+      /** Optional. A human readable name */
+      displayName?: string;
+      /** Optional. Rule to specify how multiple entities should be relocated into a different schema. */
+      entityMove?: EntityMove;
+      /** Required. The rule filter */
+      filter?: MappingRuleFilter;
+      /** Optional. Rule to specify the list of columns to include or exclude from a table. */
+      filterTableColumns?: FilterTableColumns;
+      /** Optional. Rule to specify how multiple columns should be converted to a different data type. */
+      multiColumnDataTypeChange?: MultiColumnDatatypeChange;
+      /** Optional. Rule to specify how multiple entities should be renamed. */
+      multiEntityRename?: MultiEntityRename;
+      /** Full name of the mapping rule resource, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{set}/mappingRule/{rule}. */
+      name?: string;
+      /** Output only. The timestamp that the revision was created. */
+      revisionCreateTime?: string;
+      /** Output only. The revision ID of the mapping rule. A new revision is committed whenever the mapping rule is changed in any way. The format is an 8-character hexadecimal string. */
+      revisionId?: string;
+      /** Required. The order in which the rule is applied. Lower order rules are applied before higher value rules so they may end up being overridden. */
+      ruleOrder?: string;
+      /** Required. The rule scope */
+      ruleScope?: string;
+      /** Optional. Rule to specify the primary key for a table */
+      setTablePrimaryKey?: SetTablePrimaryKey;
+      /** Optional. Rule to specify how a single column is converted. */
+      singleColumnChange?: SingleColumnChange;
+      /** Optional. Rule to specify how a single entity should be renamed. */
+      singleEntityRename?: SingleEntityRename;
+      /** Optional. Rule to specify how a single package is converted. */
+      singlePackageChange?: SinglePackageChange;
+      /** Optional. Rule to change the sql code for an entity, for example, function, procedure. */
+      sourceSqlChange?: SourceSqlChange;
+      /** Optional. The mapping rule state */
+      state?: string;
+    }
+    interface MappingRuleFilter {
+      /** Optional. The rule should be applied to specific entities defined by their fully qualified names. */
+      entities?: string[];
+      /** Optional. The rule should be applied to entities whose non-qualified name contains the given string. */
+      entityNameContains?: string;
+      /** Optional. The rule should be applied to entities whose non-qualified name starts with the given prefix. */
+      entityNamePrefix?: string;
+      /** Optional. The rule should be applied to entities whose non-qualified name ends with the given suffix. */
+      entityNameSuffix?: string;
+      /** Optional. The rule should be applied to entities whose parent entity (fully qualified name) matches the given value. For example, if the rule applies to a table entity, the expected value should be a schema (schema). If the rule applies to a column or index entity, the expected value can be either a schema (schema) or a table (schema.table) */
+      parentEntity?: string;
+    }
+    interface MaterializedViewEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The SQL code which creates the view. */
+      sqlCode?: string;
+    }
+    interface MigrationJob {
+      /** The CMEK (customer-managed encryption key) fully qualified key name used for the migration job. This field supports all migration jobs types except for: * Mysql to Mysql (use the cmek field in the cloudsql connection profile instead). * PostrgeSQL to PostgreSQL (use the cmek field in the cloudsql connection profile instead). * PostgreSQL to AlloyDB (use the kms_key_name field in the alloydb connection profile instead). Each Cloud CMEK key has the following format: projects/[PROJECT]/locations/[REGION]/keyRings/[RING]/cryptoKeys/[KEY_NAME] */
+      cmekKeyName?: string;
+      /** The conversion workspace used by the migration. */
+      conversionWorkspace?: ConversionWorkspaceInfo;
+      /** Output only. The timestamp when the migration job resource was created. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". */
+      createTime?: string;
+      /** Required. The resource name (URI) of the destination connection profile. */
+      destination?: string;
+      /** The database engine type and provider of the destination. */
+      destinationDatabase?: DatabaseType;
+      /** The migration job display name. */
+      displayName?: string;
+      /** The initial dump flags. This field and the "dump_path" field are mutually exclusive. */
+      dumpFlags?: DumpFlags;
+      /** The path to the dump file in Google Cloud Storage, in the format: (gs://[BUCKET_NAME]/[OBJECT_NAME]). This field and the "dump_flags" field are mutually exclusive. */
+      dumpPath?: string;
+      /** Output only. The duration of the migration job (in seconds). A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s". */
+      duration?: string;
+      /** Output only. If the migration job is completed, the time when it was completed. */
+      endTime?: string;
+      /** Output only. The error details in case of state FAILED. */
+      error?: Status;
+      /** This field can be used to select the entities to migrate as part of the migration job. It uses AIP-160 notation to select a subset of the entities configured on the associated conversion-workspace. This field should not be set on migration-jobs that are not associated with a conversion workspace. */
+      filter?: string;
+      /** The resource labels for migration job to use to annotate any related underlying resources such as Compute Engine VMs. An object containing a list of "key": "value" pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`. */
+      labels?: {[P in string]: string};
+      /** The name (URI) of this migration job resource, in the form of: projects/{project}/locations/{location}/migrationJobs/{migrationJob}. */
+      name?: string;
+      /** Optional. Data dump parallelism settings used by the migration. Currently applicable only for MySQL to Cloud SQL for MySQL migrations only. */
+      performanceConfig?: PerformanceConfig;
+      /** Output only. The current migration job phase. */
+      phase?: string;
+      /** The details needed to communicate to the source over Reverse SSH tunnel connectivity. */
+      reverseSshConnectivity?: ReverseSshConnectivity;
+      /** Required. The resource name (URI) of the source connection profile. */
+      source?: string;
+      /** The database engine type and provider of the source. */
+      sourceDatabase?: DatabaseType;
+      /** The current migration job state. */
+      state?: string;
+      /** static ip connectivity data (default, no additional details needed). */
+      staticIpConnectivity?: any;
+      /** Required. The migration job type. */
+      type?: string;
+      /** Output only. The timestamp when the migration job resource was last updated. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds. Example: "2014-10-02T15:01:23.045123456Z". */
+      updateTime?: string;
+      /** The details of the VPC network that the source database is located in. */
+      vpcPeeringConnectivity?: VpcPeeringConnectivity;
+    }
+    interface MigrationJobVerificationError {
+      /** Output only. An instance of ErrorCode specifying the error that occurred. */
+      errorCode?: string;
+      /** Output only. A specific detailed error message, if supplied by the engine. */
+      errorDetailMessage?: string;
+      /** Output only. A formatted message with further details about the error and a CTA. */
+      errorMessage?: string;
+    }
+    interface MultiColumnDatatypeChange {
+      /** Optional. Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** Required. New data type. */
+      newDataType?: string;
+      /** Optional. Column fractional seconds precision - used only for timestamp based datatypes - if not specified and relevant uses the source column fractional seconds precision. */
+      overrideFractionalSecondsPrecision?: number;
+      /** Optional. Column length - e.g. varchar (50) - if not specified and relevant uses the source column length. */
+      overrideLength?: string;
+      /** Optional. Column precision - when relevant - if not specified and relevant uses the source column precision. */
+      overridePrecision?: number;
+      /** Optional. Column scale - when relevant - if not specified and relevant uses the source column scale. */
+      overrideScale?: number;
+      /** Required. Filter on source data type. */
+      sourceDataTypeFilter?: string;
+      /** Optional. Filter for fixed point number data types such as NUMERIC/NUMBER. */
+      sourceNumericFilter?: SourceNumericFilter;
+      /** Optional. Filter for text-based data types like varchar. */
+      sourceTextFilter?: SourceTextFilter;
+    }
+    interface MultiEntityRename {
+      /** Optional. The pattern used to generate the new entity's name. This pattern must include the characters '{name}', which will be replaced with the name of the original entity. For example, the pattern 't_{name}' for an entity name jobs would be converted to 't_jobs'. If unspecified, the default value for this field is '{name}' */
+      newNamePattern?: string;
+      /** Optional. Additional transformation that can be done on the source entity name before it is being used by the new_name_pattern, for example lower case. If no transformation is desired, use NO_TRANSFORMATION */
+      sourceNameTransformation?: string;
+    }
+    interface MySqlConnectionProfile {
+      /** If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source. */
+      cloudSqlId?: string;
+      /** Required. The IP or hostname of the source MySQL database. */
+      host?: string;
+      /** Required. Input only. The password for the user that Database Migration Service will be using to connect to the database. This field is not returned on request, and the value is encrypted when stored in Database Migration Service. */
+      password?: string;
+      /** Output only. Indicates If this connection profile password is stored. */
+      passwordSet?: boolean;
+      /** Required. The network port of the source MySQL database. */
+      port?: number;
+      /** SSL configuration for the destination to connect to the source database. */
+      ssl?: SslConfig;
+      /** Required. The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service. */
+      username?: string;
+    }
+    interface Operation {
+      /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
+      done?: boolean;
+      /** The error result of the operation in case of failure or cancellation. */
+      error?: Status;
+      /** Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. */
+      metadata?: {[P in string]: any};
+      /** The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending with `operations/{unique_id}`. */
+      name?: string;
+      /** The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`. */
+      response?: {[P in string]: any};
+    }
+    interface OracleConnectionProfile {
+      /** Required. Database service for the Oracle connection. */
+      databaseService?: string;
+      /** Forward SSH tunnel connectivity. */
+      forwardSshConnectivity?: ForwardSshTunnelConnectivity;
+      /** Required. The IP or hostname of the source Oracle database. */
+      host?: string;
+      /** Required. Input only. The password for the user that Database Migration Service will be using to connect to the database. This field is not returned on request, and the value is encrypted when stored in Database Migration Service. */
+      password?: string;
+      /** Output only. Indicates whether a new password is included in the request. */
+      passwordSet?: boolean;
+      /** Required. The network port of the source Oracle database. */
+      port?: number;
+      /** Private connectivity. */
+      privateConnectivity?: PrivateConnectivity;
+      /** SSL configuration for the connection to the source Oracle database. * Only `SERVER_ONLY` configuration is supported for Oracle SSL. * SSL is supported for Oracle versions 12 and above. */
+      ssl?: SslConfig;
+      /** Static Service IP connectivity. */
+      staticServiceIpConnectivity?: any;
+      /** Required. The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service. */
+      username?: string;
+    }
+    interface PackageEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The SQL code which creates the package body. If the package specification has cursors or subprograms, then the package body is mandatory. */
+      packageBody?: string;
+      /** The SQL code which creates the package. */
+      packageSqlCode?: string;
+    }
+    interface PerformanceConfig {
+      /** Initial dump parallelism level. */
+      dumpParallelLevel?: string;
+    }
+    interface Policy {
+      /** Specifies cloud audit logging configuration for this policy. */
+      auditConfigs?: AuditConfig[];
+      /** Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another 1,450 principals to the `bindings` in the `Policy`. */
+      bindings?: Binding[];
+      /** `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost. */
+      etag?: string;
+      /** Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+      version?: number;
+    }
+    interface Position {
+      /** Issue column number */
+      column?: number;
+      /** Issue length */
+      length?: number;
+      /** Issue line number */
+      line?: number;
+      /** Issue offset */
+      offset?: number;
+    }
+    interface PostgreSqlConnectionProfile {
+      /** Optional. If the destination is an AlloyDB database, use this field to provide the AlloyDB cluster ID. */
+      alloydbClusterId?: string;
+      /** If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source. */
+      cloudSqlId?: string;
+      /** Required. The IP or hostname of the source PostgreSQL database. */
+      host?: string;
+      /** Output only. If the source is a Cloud SQL database, this field indicates the network architecture it's associated with. */
+      networkArchitecture?: string;
+      /** Required. Input only. The password for the user that Database Migration Service will be using to connect to the database. This field is not returned on request, and the value is encrypted when stored in Database Migration Service. */
+      password?: string;
+      /** Output only. Indicates If this connection profile password is stored. */
+      passwordSet?: boolean;
+      /** Required. The network port of the source PostgreSQL database. */
+      port?: number;
+      /** Private service connect connectivity. */
+      privateServiceConnectConnectivity?: PrivateServiceConnectConnectivity;
+      /** SSL configuration for the destination to connect to the source database. */
+      ssl?: SslConfig;
+      /** Static ip connectivity data (default, no additional details needed). */
+      staticIpConnectivity?: any;
+      /** Required. The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service. */
+      username?: string;
+    }
+    interface PrimaryInstanceSettings {
+      /** Database flags to pass to AlloyDB when DMS is creating the AlloyDB cluster and instances. See the AlloyDB documentation for how these can be used. */
+      databaseFlags?: {[P in string]: string};
+      /** Required. The ID of the AlloyDB primary instance. The ID must satisfy the regex expression "[a-z0-9-]+". */
+      id?: string;
+      /** Labels for the AlloyDB primary instance created by DMS. An object containing a list of 'key', 'value' pairs. */
+      labels?: {[P in string]: string};
+      /** Configuration for the machines that host the underlying database engine. */
+      machineConfig?: MachineConfig;
+      /** Output only. The private IP address for the Instance. This is the connection endpoint for an end-user application. */
+      privateIp?: string;
+    }
+    interface PrivateConnection {
+      /** Output only. The create time of the resource. */
+      createTime?: string;
+      /** The private connection display name. */
+      displayName?: string;
+      /** Output only. The error details in case of state FAILED. */
+      error?: Status;
+      /** The resource labels for private connections to use to annotate any related underlying resources such as Compute Engine VMs. An object containing a list of "key": "value" pairs. Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`. */
+      labels?: {[P in string]: string};
+      /** The name of the resource. */
+      name?: string;
+      /** Output only. The state of the private connection. */
+      state?: string;
+      /** Output only. The last update time of the resource. */
+      updateTime?: string;
+      /** VPC peering configuration. */
+      vpcPeeringConfig?: VpcPeeringConfig;
+    }
+    interface PrivateConnectivity {
+      /** Required. The resource name (URI) of the private connection. */
+      privateConnection?: string;
+    }
+    interface PrivateServiceConnectConnectivity {
+      /** Required. A service attachment that exposes a database, and has the following format: projects/{project}/regions/{region}/serviceAttachments/{service_attachment_name} */
+      serviceAttachment?: string;
+    }
+    interface PromoteMigrationJobRequest {}
+    interface RestartMigrationJobRequest {
+      /** Optional. Restart the migration job without running prior configuration verification. Defaults to `false`. */
+      skipValidation?: boolean;
+    }
+    interface ResumeMigrationJobRequest {}
+    interface ReverseSshConnectivity {
+      /** The name of the virtual machine (Compute Engine) used as the bastion server for the SSH tunnel. */
+      vm?: string;
+      /** Required. The IP of the virtual machine (Compute Engine) used as the bastion server for the SSH tunnel. */
+      vmIp?: string;
+      /** Required. The forwarding port of the virtual machine (Compute Engine) used as the bastion server for the SSH tunnel. */
+      vmPort?: number;
+      /** The name of the VPC to peer with the Cloud SQL private network. */
+      vpc?: string;
+    }
+    interface RollbackConversionWorkspaceRequest {}
+    interface RoundToScale {
+      /** Required. Scale value to be used */
+      scale?: number;
+    }
+    interface RulesFile {
+      /** Required. The text content of the rules that needs to be converted. */
+      rulesContent?: string;
+      /** Required. The filename of the rules that needs to be converted. The filename is used mainly so that future logs of the import rules job contain it, and can therefore be searched by it. */
+      rulesSourceFilename?: string;
+    }
+    interface SchemaEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+    }
+    interface SearchBackgroundJobsResponse {
+      /** The list of conversion workspace mapping rules. */
+      jobs?: BackgroundJobLogEntry[];
+    }
+    interface SeedConversionWorkspaceRequest {
+      /** Should the conversion workspace be committed automatically after the seed operation. */
+      autoCommit?: boolean;
+      /** Optional. Fully qualified (Uri) name of the destination connection profile. */
+      destinationConnectionProfile?: string;
+      /** Optional. Fully qualified (Uri) name of the source connection profile. */
+      sourceConnectionProfile?: string;
+    }
+    interface SeedJobDetails {
+      /** Output only. The connection profile which was used for the seed job. */
+      connectionProfile?: string;
+    }
+    interface SequenceEntity {
+      /** Indicates number of entries to cache / precreate. */
+      cache?: string;
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** Indicates whether the sequence value should cycle through. */
+      cycle?: boolean;
+      /** Increment value for the sequence. */
+      increment?: string;
+      /** Maximum number for the sequence represented as bytes to accommodate large. numbers */
+      maxValue?: string;
+      /** Minimum number for the sequence represented as bytes to accommodate large. numbers */
+      minValue?: string;
+      /** Start number for the sequence represented as bytes to accommodate large. numbers */
+      startValue?: string;
+    }
+    interface SetIamPolicyRequest {
+      /** REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud services (such as Projects) might reject them. */
+      policy?: Policy;
+      /** OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used: `paths: "bindings, etag"` */
+      updateMask?: string;
+    }
+    interface SetTablePrimaryKey {
+      /** Optional. Name for the primary key */
+      primaryKey?: string;
+      /** Required. List of column names for the primary key */
+      primaryKeyColumns?: string[];
+    }
+    interface SingleColumnChange {
+      /** Optional. Is the column of array type. */
+      array?: boolean;
+      /** Optional. The length of the array, only relevant if the column type is an array. */
+      arrayLength?: number;
+      /** Optional. Is the column auto-generated/identity. */
+      autoGenerated?: boolean;
+      /** Optional. Charset override - instead of table level charset. */
+      charset?: string;
+      /** Optional. Collation override - instead of table level collation. */
+      collation?: string;
+      /** Optional. Comment associated with the column. */
+      comment?: string;
+      /** Optional. Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** Optional. Column data type name. */
+      dataType?: string;
+      /** Optional. Column fractional seconds precision - e.g. 2 as in timestamp (2) - when relevant. */
+      fractionalSecondsPrecision?: number;
+      /** Optional. Column length - e.g. 50 as in varchar (50) - when relevant. */
+      length?: string;
+      /** Optional. Is the column nullable. */
+      nullable?: boolean;
+      /** Optional. Column precision - e.g. 8 as in double (8,2) - when relevant. */
+      precision?: number;
+      /** Optional. Column scale - e.g. 2 as in double (8,2) - when relevant. */
+      scale?: number;
+      /** Optional. Specifies the list of values allowed in the column. */
+      setValues?: string[];
+      /** Optional. Is the column a UDT (User-defined Type). */
+      udt?: boolean;
+    }
+    interface SingleEntityRename {
+      /** Required. The new name of the destination entity */
+      newName?: string;
+    }
+    interface SinglePackageChange {
+      /** Optional. Sql code for package body */
+      packageBody?: string;
+      /** Optional. Sql code for package description */
+      packageDescription?: string;
+    }
+    interface SourceNumericFilter {
+      /** Required. Enum to set the option defining the datatypes numeric filter has to be applied to */
+      numericFilterOption?: string;
+      /** Optional. The filter will match columns with precision smaller than or equal to this number. */
+      sourceMaxPrecisionFilter?: number;
+      /** Optional. The filter will match columns with scale smaller than or equal to this number. */
+      sourceMaxScaleFilter?: number;
+      /** Optional. The filter will match columns with precision greater than or equal to this number. */
+      sourceMinPrecisionFilter?: number;
+      /** Optional. The filter will match columns with scale greater than or equal to this number. */
+      sourceMinScaleFilter?: number;
+    }
+    interface SourceSqlChange {
+      /** Required. Sql code for source (stored procedure, function, trigger or view) */
+      sqlCode?: string;
+    }
+    interface SourceTextFilter {
+      /** Optional. The filter will match columns with length smaller than or equal to this number. */
+      sourceMaxLengthFilter?: string;
+      /** Optional. The filter will match columns with length greater than or equal to this number. */
+      sourceMinLengthFilter?: string;
+    }
+    interface SqlAclEntry {
+      /** The time when this access control entry expires in [RFC 3339](https://tools.ietf.org/html/rfc3339) format, for example: `2012-11-15T16:19:00.094Z`. */
+      expireTime?: string;
+      /** A label to identify this entry. */
+      label?: string;
+      /** Input only. The time-to-leave of this access control entry. */
+      ttl?: string;
+      /** The allowlisted value for the access control list. */
+      value?: string;
+    }
+    interface SqlIpConfig {
+      /** Optional. The name of the allocated IP address range for the private IP Cloud SQL instance. This name refers to an already allocated IP range address. If set, the instance IP address will be created in the allocated range. Note that this IP address range can't be modified after the instance is created. If you change the VPC when configuring connectivity settings for the migration job, this field is not relevant. */
+      allocatedIpRange?: string;
+      /** The list of external networks that are allowed to connect to the instance using the IP. See https://en.wikipedia.org/wiki/CIDR_notation#CIDR_notation, also known as 'slash' notation (e.g. `192.168.100.0/24`). */
+      authorizedNetworks?: SqlAclEntry[];
+      /** Whether the instance should be assigned an IPv4 address or not. */
+      enableIpv4?: boolean;
+      /** The resource link for the VPC network from which the Cloud SQL instance is accessible for private IP. For example, `projects/myProject/global/networks/default`. This setting can be updated, but it cannot be removed after it is set. */
+      privateNetwork?: string;
+      /** Whether SSL connections over IP should be enforced or not. */
+      requireSsl?: boolean;
+    }
+    interface SshScript {
+      /** The ssh configuration script. */
+      script?: string;
+    }
+    interface SslConfig {
+      /** Required. Input only. The x509 PEM-encoded certificate of the CA that signed the source database server's certificate. The replica will use this certificate to verify it's connecting to the right host. */
+      caCertificate?: string;
+      /** Input only. The x509 PEM-encoded certificate that will be used by the replica to authenticate against the source database server.If this field is used then the 'client_key' field is mandatory. */
+      clientCertificate?: string;
+      /** Input only. The unencrypted PKCS#1 or PKCS#8 PEM-encoded private key associated with the Client Certificate. If this field is used then the 'client_certificate' field is mandatory. */
+      clientKey?: string;
+      /** Output only. The ssl config type according to 'client_key', 'client_certificate' and 'ca_certificate'. */
+      type?: string;
+    }
+    interface StartMigrationJobRequest {
+      /** Optional. Start the migration job without running prior configuration verification. Defaults to `false`. */
+      skipValidation?: boolean;
+    }
+    interface StaticIpConnectivity {}
+    interface StaticServiceIpConnectivity {}
+    interface Status {
+      /** The status code, which should be an enum value of google.rpc.Code. */
+      code?: number;
+      /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
+      details?: Array<{[P in string]: any}>;
+      /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
+      message?: string;
+    }
+    interface StopMigrationJobRequest {}
+    interface StoredProcedureEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The SQL code which creates the stored procedure. */
+      sqlCode?: string;
+    }
+    interface SynonymEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The name of the entity for which the synonym is being created (the source). */
+      sourceEntity?: string;
+      /** The type of the entity for which the synonym is being created (usually a table or a sequence). */
+      sourceType?: string;
+    }
+    interface TableEntity {
+      /** Table columns. */
+      columns?: ColumnEntity[];
+      /** Comment associated with the table. */
+      comment?: string;
+      /** Table constraints. */
+      constraints?: ConstraintEntity[];
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** Table indices. */
+      indices?: IndexEntity[];
+      /** Table triggers. */
+      triggers?: TriggerEntity[];
+    }
+    interface TcpProxyScript {
+      /** The TCP Proxy configuration script. */
+      script?: string;
+    }
+    interface TestIamPermissionsRequest {
+      /** The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions). */
+      permissions?: string[];
+    }
+    interface TestIamPermissionsResponse {
+      /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
+      permissions?: string[];
+    }
+    interface TriggerEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The name of the trigger. */
+      name?: string;
+      /** The SQL code which creates the trigger. */
+      sqlCode?: string;
+      /** The DML, DDL, or database events that fire the trigger, for example INSERT, UPDATE. */
+      triggeringEvents?: string[];
+      /** Indicates when the trigger fires, for example BEFORE STATEMENT, AFTER EACH ROW. */
+      triggerType?: string;
+    }
+    interface UDTEntity {
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The SQL code which creates the udt body. */
+      udtBody?: string;
+      /** The SQL code which creates the udt. */
+      udtSqlCode?: string;
+    }
+    interface UserPassword {
+      /** The initial password for the user. */
+      password?: string;
+      /** Output only. Indicates if the initial_user.password field has been set. */
+      passwordSet?: boolean;
+      /** The database username. */
+      user?: string;
+    }
+    interface ValueListFilter {
+      /** Required. Whether to ignore case when filtering by values. Defaults to false */
+      ignoreCase?: boolean;
+      /** Required. Indicates whether the filter matches rows with values that are present in the list or those with values not present in it. */
+      valuePresentList?: string;
+      /** Required. The list to be used to filter by */
+      values?: string[];
+    }
+    interface ValueTransformation {
+      /** Optional. Applies a hash function on the data */
+      applyHash?: ApplyHash;
+      /** Optional. Set to max_value - if integer or numeric, will use int.maxvalue, etc */
+      assignMaxValue?: any;
+      /** Optional. Set to min_value - if integer or numeric, will use int.minvalue, etc */
+      assignMinValue?: any;
+      /** Optional. Set to null */
+      assignNull?: any;
+      /** Optional. Set to a specific value (value is converted to fit the target data type) */
+      assignSpecificValue?: AssignSpecificValue;
+      /** Optional. Filter on relation between source value and compare value of type double. */
+      doubleComparison?: DoubleComparisonFilter;
+      /** Optional. Filter on relation between source value and compare value of type integer. */
+      intComparison?: IntComparisonFilter;
+      /** Optional. Value is null */
+      isNull?: any;
+      /** Optional. Allows the data to change scale */
+      roundScale?: RoundToScale;
+      /** Optional. Value is found in the specified list. */
+      valueList?: ValueListFilter;
+    }
+    interface VerifyMigrationJobRequest {
+      /** Optional. The changed migration job parameters to verify. It will not update the migration job. */
+      migrationJob?: MigrationJob;
+      /** Optional. Field mask is used to specify the changed fields to be verified. It will not update the migration job. */
+      updateMask?: string;
+    }
+    interface ViewEntity {
+      /** View constraints. */
+      constraints?: ConstraintEntity[];
+      /** Custom engine specific features. */
+      customFeatures?: {[P in string]: any};
+      /** The SQL code which creates the view. */
+      sqlCode?: string;
+    }
+    interface VmCreationConfig {
+      /** The subnet name the vm needs to be created in. */
+      subnet?: string;
+      /** Required. VM instance machine type to create. */
+      vmMachineType?: string;
+      /** The Google Cloud Platform zone to create the VM in. */
+      vmZone?: string;
+    }
+    interface VmSelectionConfig {
+      /** Required. The Google Cloud Platform zone the VM is located. */
+      vmZone?: string;
+    }
+    interface VpcPeeringConfig {
+      /** Required. A free subnet for peering. (CIDR of /29) */
+      subnet?: string;
+      /** Required. Fully qualified name of the VPC that Database Migration Service will peer to. */
+      vpcName?: string;
+    }
+    interface VpcPeeringConnectivity {
+      /** The name of the VPC network to peer with the Cloud SQL private network. */
+      vpc?: string;
+    }
+    interface ConnectionProfilesResource {
+      /** Creates a new connection profile in a given project and location. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. The connection profile identifier. */
+        connectionProfileId?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent which owns this collection of connection profiles. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Optional. Create the connection profile without validating it. The default is false. Only supported for Oracle connection profiles. */
+        skipValidation?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. Only validate the connection profile, but don't create any resources. The default is false. Only supported for Oracle connection profiles. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: ConnectionProfile;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. The connection profile identifier. */
+          connectionProfileId?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent which owns this collection of connection profiles. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+          requestId?: string;
+          /** Optional. Create the connection profile without validating it. The default is false. Only supported for Oracle connection profiles. */
+          skipValidation?: boolean;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. Only validate the connection profile, but don't create any resources. The default is false. Only supported for Oracle connection profiles. */
+          validateOnly?: boolean;
+        },
+        body: ConnectionProfile
+      ): Request<Operation>;
+      /** Deletes a single Database Migration Service connection profile. A connection profile can only be deleted if it is not in use by any active migration jobs. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** In case of force delete, the CloudSQL replica database is also deleted (only for CloudSQL connection profile). */
+        force?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the connection profile resource to delete. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Gets details of a single connection profile. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the connection profile resource to get. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ConnectionProfile>;
+      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Policy>;
+      /** Retrieves a list of all connection profiles in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter expression that filters connection profiles listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <. For example, list connection profiles created this year by specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z**. You can also filter nested fields. For example, you could specify **mySql.username = %lt;my_username%gt;** to list all connection profiles configured to connect with a specific username. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** A comma-separated list of fields to order results according to. */
+        orderBy?: string;
+        /** The maximum number of connection profiles to return. The service may return fewer than this value. If unspecified, at most 50 connection profiles will be returned. The maximum value is 1000; values above 1000 are coerced to 1000. */
+        pageSize?: number;
+        /** A page token, received from a previous `ListConnectionProfiles` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListConnectionProfiles` must match the call that provided the page token. */
+        pageToken?: string;
+        /** Required. The parent which owns this collection of connection profiles. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListConnectionProfilesResponse>;
+      /** Update the configuration of a single connection profile. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Optional. Update the connection profile without validating it. The default is false. Only supported for Oracle connection profiles. */
+        skipValidation?: boolean;
+        /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. Only validate the connection profile, but don't update any resources. The default is false. Only supported for Oracle connection profiles. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: ConnectionProfile;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+          requestId?: string;
+          /** Optional. Update the connection profile without validating it. The default is false. Only supported for Oracle connection profiles. */
+          skipValidation?: boolean;
+          /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Optional. Only validate the connection profile, but don't update any resources. The default is false. Only supported for Oracle connection profiles. */
+          validateOnly?: boolean;
+        },
+        body: ConnectionProfile
+      ): Request<Operation>;
+      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: SetIamPolicyRequest
+      ): Request<Policy>;
+      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: TestIamPermissionsRequest
+      ): Request<TestIamPermissionsResponse>;
+    }
+    interface MappingRulesResource {
+      /** Creates a new mapping rule for a given conversion workspace. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The ID of the rule to create. */
+        mappingRuleId?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent which owns this collection of mapping rules. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: MappingRule;
+      }): Request<MappingRule>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The ID of the rule to create. */
+          mappingRuleId?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent which owns this collection of mapping rules. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: MappingRule
+      ): Request<MappingRule>;
+      /** Deletes a single mapping rule. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the mapping rule resource to delete. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Gets the details of a mapping rule. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the mapping rule resource to get. Example: conversionWorkspaces/123/mappingRules/rule123 In order to retrieve a previous revision of the mapping rule, also provide the revision ID. Example: conversionWorkspace/123/mappingRules/rule123@c7cfa2a8c7cfa2a8c7cfa2a8c7cfa2a8 */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<MappingRule>;
+      /** Imports the mapping rules for a given conversion workspace. Supports various formats of external rules files. */
+      import(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. Name of the conversion workspace resource to import the rules to in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: ImportMappingRulesRequest;
+      }): Request<Operation>;
+      import(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. Name of the conversion workspace resource to import the rules to in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: ImportMappingRulesRequest
+      ): Request<Operation>;
+      /** Lists the mapping rules for a specific conversion workspace. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The maximum number of rules to return. The service may return fewer than this value. */
+        pageSize?: number;
+        /** The nextPageToken value received in the previous call to mappingRules.list, used in the subsequent request to retrieve the next page of results. On first call this should be left blank. When paginating, all other parameters provided to mappingRules.list must match the call that provided the page token. */
+        pageToken?: string;
+        /** Required. Name of the conversion workspace resource whose mapping rules are listed in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListMappingRulesResponse>;
+    }
+    interface ConversionWorkspacesResource {
+      /** Applies draft tree onto a specific destination database. */
+      apply(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the conversion workspace resource for which to apply the draft tree. Must be in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: ApplyConversionWorkspaceRequest;
+      }): Request<Operation>;
+      apply(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the conversion workspace resource for which to apply the draft tree. Must be in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: ApplyConversionWorkspaceRequest
+      ): Request<Operation>;
+      /** Marks all the data in the conversion workspace as committed. */
+      commit(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the conversion workspace resource to commit. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CommitConversionWorkspaceRequest;
+      }): Request<Operation>;
+      commit(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. Name of the conversion workspace resource to commit. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CommitConversionWorkspaceRequest
+      ): Request<Operation>;
+      /** Creates a draft tree schema for the destination database. */
+      convert(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the conversion workspace resource to convert in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: ConvertConversionWorkspaceRequest;
+      }): Request<Operation>;
+      convert(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the conversion workspace resource to convert in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: ConvertConversionWorkspaceRequest
+      ): Request<Operation>;
+      /** Creates a new conversion workspace in a given project and location. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. The ID of the conversion workspace to create. */
+        conversionWorkspaceId?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent which owns this collection of conversion workspaces. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: ConversionWorkspace;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. The ID of the conversion workspace to create. */
+          conversionWorkspaceId?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent which owns this collection of conversion workspaces. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: ConversionWorkspace
+      ): Request<Operation>;
+      /** Deletes a single conversion workspace. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Force delete the conversion workspace, even if there's a running migration that is using the workspace. */
+        force?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the conversion workspace resource to delete. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Retrieves a list of committed revisions of a specific conversion workspace. */
+      describeConversionWorkspaceRevisions(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Optional. Optional filter to request a specific commit ID. */
+        commitId?: string;
+        /** Required. Name of the conversion workspace resource whose revisions are listed. Must be in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+        conversionWorkspace: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<DescribeConversionWorkspaceRevisionsResponse>;
+      /** Describes the database entities tree for a specific conversion workspace and a specific tree type. Database entities are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are simple data objects describing the structure of the client database. */
+      describeDatabaseEntities(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Optional. Request a specific commit ID. If not specified, the entities from the latest commit are returned. */
+        commitId?: string;
+        /** Required. Name of the conversion workspace resource whose database entities are described. Must be in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+        conversionWorkspace: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Filter the returned entities based on AIP-160 standard. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum number of entities to return. The service may return fewer entities than the value specifies. */
+        pageSize?: number;
+        /** Optional. The nextPageToken value received in the previous call to conversionWorkspace.describeDatabaseEntities, used in the subsequent request to retrieve the next page of results. On first call this should be left blank. When paginating, all other parameters provided to conversionWorkspace.describeDatabaseEntities must match the call that provided the page token. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The tree to fetch. */
+        tree?: string;
+        /** Optional. Whether to retrieve the latest committed version of the entities or the latest version. This field is ignored if a specific commit_id is specified. */
+        uncommitted?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. Results view based on AIP-157 */
+        view?: string;
+      }): Request<DescribeDatabaseEntitiesResponse>;
+      /** Gets details of a single conversion workspace. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the conversion workspace resource to get. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ConversionWorkspace>;
+      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Policy>;
+      /** Lists conversion workspaces in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter expression that filters conversion workspaces listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <. For example, list conversion workspaces created this year by specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z.** You can also filter nested fields. For example, you could specify **source.version = "12.c.1"** to select all conversion workspaces with source database version equal to 12.c.1. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The maximum number of conversion workspaces to return. The service may return fewer than this value. If unspecified, at most 50 sets are returned. */
+        pageSize?: number;
+        /** The nextPageToken value received in the previous call to conversionWorkspaces.list, used in the subsequent request to retrieve the next page of results. On first call this should be left blank. When paginating, all other parameters provided to conversionWorkspaces.list must match the call that provided the page token. */
+        pageToken?: string;
+        /** Required. The parent which owns this collection of conversion workspaces. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListConversionWorkspacesResponse>;
+      /** Updates the parameters of a single conversion workspace. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Full name of the workspace resource, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: ConversionWorkspace;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Full name of the workspace resource, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+          requestId?: string;
+          /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: ConversionWorkspace
+      ): Request<Operation>;
+      /** Rolls back a conversion workspace to the last committed snapshot. */
+      rollback(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the conversion workspace resource to roll back to. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RollbackConversionWorkspaceRequest;
+      }): Request<Operation>;
+      rollback(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. Name of the conversion workspace resource to roll back to. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RollbackConversionWorkspaceRequest
+      ): Request<Operation>;
+      /** Searches/lists the background jobs for a specific conversion workspace. The background jobs are not resources like conversion workspaces or mapping rules, and they can't be created, updated or deleted. Instead, they are a way to expose the data plane jobs log. */
+      searchBackgroundJobs(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Optional. If provided, only returns jobs that completed until (not including) the given timestamp. */
+        completedUntilTime?: string;
+        /** Required. Name of the conversion workspace resource whose jobs are listed, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+        conversionWorkspace: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Optional. The maximum number of jobs to return. The service may return fewer than this value. If unspecified, at most 100 jobs are returned. The maximum value is 100; values above 100 are coerced to 100. */
+        maxSize?: number;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. Whether or not to return just the most recent job per job type, */
+        returnMostRecentPerJobType?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<SearchBackgroundJobsResponse>;
+      /** Imports a snapshot of the source database into the conversion workspace. */
+      seed(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the conversion workspace resource to seed with new database structure, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: SeedConversionWorkspaceRequest;
+      }): Request<Operation>;
+      seed(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the conversion workspace resource to seed with new database structure, in the form of: projects/{project}/locations/{location}/conversionWorkspaces/{conversion_workspace}. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: SeedConversionWorkspaceRequest
+      ): Request<Operation>;
+      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: SetIamPolicyRequest
+      ): Request<Policy>;
+      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: TestIamPermissionsRequest
+      ): Request<TestIamPermissionsResponse>;
+      mappingRules: MappingRulesResource;
+    }
+    interface MigrationJobsResource {
+      /** Creates a new migration job in a given project and location. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The ID of the instance to create. */
+        migrationJobId?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent which owns this collection of migration jobs. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: MigrationJob;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The ID of the instance to create. */
+          migrationJobId?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent which owns this collection of migration jobs. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: MigrationJob
+      ): Request<Operation>;
+      /** Deletes a single migration job. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** The destination CloudSQL connection profile is always deleted with the migration job. In case of force delete, the destination CloudSQL replica database is also deleted. */
+        force?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the migration job resource to delete. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Demotes the destination database to become a read replica of the source. This is applicable for the following migrations: 1. MySQL to Cloud SQL (for MySQL) 2. PostgreSQL to Cloud SQL (for PostgreSQL) 3. PostgreSQL to AlloyDB. */
+      demoteDestination(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the migration job resource to demote its destination. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: DemoteDestinationRequest;
+      }): Request<Operation>;
+      demoteDestination(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the migration job resource to demote its destination. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: DemoteDestinationRequest
+      ): Request<Operation>;
+      /** Generate a SSH configuration script to configure the reverse SSH connectivity. */
+      generateSshScript(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the migration job resource to generate the SSH script. */
+        migrationJob: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GenerateSshScriptRequest;
+      }): Request<SshScript>;
+      generateSshScript(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the migration job resource to generate the SSH script. */
+          migrationJob: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GenerateSshScriptRequest
+      ): Request<SshScript>;
+      /** Generate a TCP Proxy configuration script to configure a cloud-hosted VM running a TCP Proxy. */
+      generateTcpProxyScript(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the migration job resource to generate the TCP Proxy script. */
+        migrationJob: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GenerateTcpProxyScriptRequest;
+      }): Request<TcpProxyScript>;
+      generateTcpProxyScript(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the migration job resource to generate the TCP Proxy script. */
+          migrationJob: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GenerateTcpProxyScriptRequest
+      ): Request<TcpProxyScript>;
+      /** Gets details of a single migration job. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name of the migration job resource to get. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<MigrationJob>;
+      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Policy>;
+      /** Lists migration jobs in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter expression that filters migration jobs listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <. For example, list migration jobs created this year by specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z.** You can also filter nested fields. For example, you could specify **reverseSshConnectivity.vmIp = "1.2.3.4"** to select all migration jobs connecting through the specific SSH tunnel bastion. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Sort the results based on the migration job name. Valid values are: "name", "name asc", and "name desc". */
+        orderBy?: string;
+        /** The maximum number of migration jobs to return. The service may return fewer than this value. If unspecified, at most 50 migration jobs will be returned. The maximum value is 1000; values above 1000 are coerced to 1000. */
+        pageSize?: number;
+        /** The nextPageToken value received in the previous call to migrationJobs.list, used in the subsequent request to retrieve the next page of results. On first call this should be left blank. When paginating, all other parameters provided to migrationJobs.list must match the call that provided the page token. */
+        pageToken?: string;
+        /** Required. The parent which owns this collection of migrationJobs. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListMigrationJobsResponse>;
+      /** Updates the parameters of a single migration job. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name (URI) of this migration job resource, in the form of: projects/{project}/locations/{location}/migrationJobs/{migrationJob}. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: MigrationJob;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name (URI) of this migration job resource, in the form of: projects/{project}/locations/{location}/migrationJobs/{migrationJob}. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+          requestId?: string;
+          /** Required. Field mask is used to specify the fields to be overwritten by the update in the conversion workspace resource. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: MigrationJob
+      ): Request<Operation>;
+      /** Promote a migration job, stopping replication to the destination and promoting the destination to be a standalone database. */
+      promote(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the migration job resource to promote. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: PromoteMigrationJobRequest;
+      }): Request<Operation>;
+      promote(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the migration job resource to promote. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: PromoteMigrationJobRequest
+      ): Request<Operation>;
+      /** Restart a stopped or failed migration job, resetting the destination instance to its original state and starting the migration process from scratch. */
+      restart(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the migration job resource to restart. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RestartMigrationJobRequest;
+      }): Request<Operation>;
+      restart(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the migration job resource to restart. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RestartMigrationJobRequest
+      ): Request<Operation>;
+      /** Resume a migration job that is currently stopped and is resumable (was stopped during CDC phase). */
+      resume(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the migration job resource to resume. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: ResumeMigrationJobRequest;
+      }): Request<Operation>;
+      resume(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the migration job resource to resume. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: ResumeMigrationJobRequest
+      ): Request<Operation>;
+      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: SetIamPolicyRequest
+      ): Request<Policy>;
+      /** Start an already created migration job. */
+      start(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the migration job resource to start. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: StartMigrationJobRequest;
+      }): Request<Operation>;
+      start(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the migration job resource to start. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: StartMigrationJobRequest
+      ): Request<Operation>;
+      /** Stops a running migration job. */
+      stop(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the migration job resource to stop. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: StopMigrationJobRequest;
+      }): Request<Operation>;
+      stop(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the migration job resource to stop. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: StopMigrationJobRequest
+      ): Request<Operation>;
+      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: TestIamPermissionsRequest
+      ): Request<TestIamPermissionsResponse>;
+      /** Verify a migration job, making sure the destination can reach the source and that all configuration and prerequisites are met. */
+      verify(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Name of the migration job resource to verify. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: VerifyMigrationJobRequest;
+      }): Request<Operation>;
+      verify(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Name of the migration job resource to verify. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: VerifyMigrationJobRequest
+      ): Request<Operation>;
+    }
+    interface OperationsResource {
+      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      cancel(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be cancelled. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CancelOperationRequest;
+      }): Request<{}>;
+      cancel(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of the operation resource to be cancelled. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CancelOperationRequest
+      ): Request<{}>;
+      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be deleted. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** The standard list filter. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation's parent resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The standard list page size. */
+        pageSize?: number;
+        /** The standard list page token. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListOperationsResponse>;
+    }
+    interface PrivateConnectionsResource {
+      /** Creates a new private connection in a given project and location. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent that owns the collection of PrivateConnections. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Required. The private connection identifier. */
+        privateConnectionId?: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Optional. If set to true, will skip validations. */
+        skipValidation?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: PrivateConnection;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent that owns the collection of PrivateConnections. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Required. The private connection identifier. */
+          privateConnectionId?: string;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+          requestId?: string;
+          /** Optional. If set to true, will skip validations. */
+          skipValidation?: boolean;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: PrivateConnection
+      ): Request<Operation>;
+      /** Deletes a single Database Migration Service private connection. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the private connection to delete. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A unique ID used to identify the request. If the server receives two requests with the same ID, then the second request is ignored. It is recommended to always set this value to a UUID. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The maximum length is 40 characters. */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Gets details of a single private connection. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the private connection to get. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<PrivateConnection>;
+      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Policy>;
+      /** Retrieves a list of private connections in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter expression that filters private connections listed in the response. The expression must specify the field name, a comparison operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The comparison operator must be either =, !=, >, or <. For example, list private connections created this year by specifying **createTime %gt; 2021-01-01T00:00:00.000000000Z**. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Order by fields for the result. */
+        orderBy?: string;
+        /** Maximum number of private connections to return. If unspecified, at most 50 private connections that are returned. The maximum value is 1000; values above 1000 are coerced to 1000. */
+        pageSize?: number;
+        /** Page token received from a previous `ListPrivateConnections` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListPrivateConnections` must match the call that provided the page token. */
+        pageToken?: string;
+        /** Required. The parent that owns the collection of private connections. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListPrivateConnectionsResponse>;
+      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: SetIamPolicyRequest
+      ): Request<Policy>;
+      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: TestIamPermissionsRequest
+      ): Request<TestIamPermissionsResponse>;
+    }
+    interface LocationsResource {
+      /** Fetches a set of static IP addresses that need to be allowlisted by the customer when using the static-IP connectivity method. */
+      fetchStaticIps(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The resource name for the location for which static IPs should be returned. Must be in the format `projects/*‍/locations/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of IPs to return. */
+        pageSize?: number;
+        /** A page token, received from a previous `FetchStaticIps` call. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<FetchStaticIpsResponse>;
+      /** Gets information about a location. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Resource name for the location. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Location>;
+      /** Lists information about the supported locations for this service. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource that owns the locations collection, if applicable. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The maximum number of results to return. If not set, the service selects a default. */
+        pageSize?: number;
+        /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListLocationsResponse>;
+      connectionProfiles: ConnectionProfilesResource;
+      conversionWorkspaces: ConversionWorkspacesResource;
+      migrationJobs: MigrationJobsResource;
+      operations: OperationsResource;
+      privateConnections: PrivateConnectionsResource;
+    }
+    interface ProjectsResource {
+      locations: LocationsResource;
+    }
+
+    const projects: ProjectsResource;
+  }
 }

@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://siteverification.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.siteVerification
-});
+gapi.client.load(
+  'https://siteverification.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.siteVerification
+  }
+);
 ```
 
 ```typescript
@@ -45,62 +48,64 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // Manage the list of sites and domains you control
-      'https://www.googleapis.com/auth/siteverification',
+    // Manage the list of sites and domains you control
+    'https://www.googleapis.com/auth/siteverification',
 
-      // Manage your new site verifications with Google
-      'https://www.googleapis.com/auth/siteverification.verify_only',
-    ],
-    immediate = true;
+    // Manage your new site verifications with Google
+    'https://www.googleapis.com/auth/siteverification.verify_only',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Google Site Verification API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Relinquish ownership of a website or domain.
 */
-await gapi.client.siteVerification.webResource.delete({ id: "id",  });
+await gapi.client.siteVerification.webResource.delete({id: 'id'});
 
 /*
 Get the most current data for a website or domain.
 */
-await gapi.client.siteVerification.webResource.get({ id: "id",  });
+await gapi.client.siteVerification.webResource.get({id: 'id'});
 
 /*
 Get a verification token for placing on a website or domain.
 */
-await gapi.client.siteVerification.webResource.getToken({  });
+await gapi.client.siteVerification.webResource.getToken({});
 
 /*
 Attempt verification of a website or domain.
 */
-await gapi.client.siteVerification.webResource.insert({ verificationMethod: "verificationMethod",  });
+await gapi.client.siteVerification.webResource.insert({
+  verificationMethod: 'verificationMethod',
+});
 
 /*
 Get the list of your verified websites and domains.
 */
-await gapi.client.siteVerification.webResource.list({  });
+await gapi.client.siteVerification.webResource.list({});
 
 /*
 Modify the list of owners for your website or domain. This method supports patch semantics.
 */
-await gapi.client.siteVerification.webResource.patch({ id: "id",  });
+await gapi.client.siteVerification.webResource.patch({id: 'id'});
 
 /*
 Modify the list of owners for your website or domain.
 */
-await gapi.client.siteVerification.webResource.update({ id: "id",  });
+await gapi.client.siteVerification.webResource.update({id: 'id'});
 ```

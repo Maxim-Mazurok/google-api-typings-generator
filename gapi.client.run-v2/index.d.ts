@@ -14,3071 +14,1898 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Cloud Run Admin API v2 */
-    function load(urlOrObject: "https://run.googleapis.com/$discovery/rest?version=v2"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "run", version: "v2"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "run", version: "v2", callback: () => any): void;
+  /** Load Cloud Run Admin API v2 */
+  function load(
+    urlOrObject: 'https://run.googleapis.com/$discovery/rest?version=v2'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'run', version: 'v2'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'run', version: 'v2', callback: () => any): void;
 
-    namespace run {
-        interface GoogleCloudRunV2BinaryAuthorization {
-            /**
-             * If present, indicates to use Breakglass using this justification. If use_default is False, then it must be empty. For more information on breakglass, see
-             * https://cloud.google.com/binary-authorization/docs/using-breakglass
-             */
-            breakglassJustification?:
-                string;
-            /** If True, indicates to use the default project's binary authorization policy. If False, binary authorization will be disabled. */
-            useDefault?:
-                boolean;
-        }
-        interface GoogleCloudRunV2CancelExecutionRequest {
-            /** A system-generated fingerprint for this version of the resource. This may be used to detect modification conflict during updates. */
-            etag?:
-                string;
-            /** Indicates that the request should be validated without actually cancelling any resources. */
-            validateOnly?:
-                boolean;
-        }
-        interface GoogleCloudRunV2CloudSqlInstance {
-            /**
-             * The Cloud SQL instance connection names, as can be found in https://console.cloud.google.com/sql/instances. Visit https://cloud.google.com/sql/docs/mysql/connect-run for more
-             * information on how to connect Cloud SQL and Cloud Run. Format: {project}:{location}:{instance}
-             */
-            instances?:
-                string[];
-        }
-        interface GoogleCloudRunV2Condition {
-            /** A reason for the execution condition. */
-            executionReason?:
-                string;
-            /** Last time the condition transitioned from one status to another. */
-            lastTransitionTime?:
-                string;
-            /** Human readable message indicating details about the current status. */
-            message?:
-                string;
-            /** A common (service-level) reason for this condition. */
-            reason?:
-                string;
-            /** A reason for the revision condition. */
-            revisionReason?:
-                string;
-            /** How to interpret failures of this condition, one of Error, Warning, Info */
-            severity?:
-                string;
-            /** State of the condition. */
-            state?:
-                string;
-            /**
-             * type is used to communicate the status of the reconciliation process. See also: https://github.com/knative/serving/blob/main/docs/spec/errors.md#error-conditions-and-reporting Types
-             * common to all resources include: * "Ready": True when the Resource is ready.
-             */
-            type?:
-                string;
-        }
-        interface GoogleCloudRunV2Container {
-            /** Arguments to the entrypoint. The docker image's CMD is used if this is not provided. */
-            args?:
-                string[];
-            /** Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. */
-            command?:
-                string[];
-            /** Names of the containers that must start before this container. */
-            dependsOn?:
-                string[];
-            /** List of environment variables to set in the container. */
-            env?:
-                GoogleCloudRunV2EnvVar[];
-            /** Required. Name of the container image in Dockerhub, Google Artifact Registry, or Google Container Registry. If the host is not provided, Dockerhub is assumed. */
-            image?:
-                string;
-            /** Periodic probe of container liveness. Container will be restarted if the probe fails. */
-            livenessProbe?:
-                GoogleCloudRunV2Probe;
-            /** Name of the container specified as a DNS_LABEL (RFC 1123). */
-            name?:
-                string;
-            /**
-             * List of ports to expose from the container. Only a single port can be specified. The specified ports must be listening on all interfaces (0.0.0.0) within the container to be
-             * accessible. If omitted, a port number will be chosen and passed to the container through the PORT environment variable for the container to listen on.
-             */
-            ports?:
-                GoogleCloudRunV2ContainerPort[];
-            /** Compute Resource requirements by this container. */
-            resources?:
-                GoogleCloudRunV2ResourceRequirements;
-            /**
-             * Startup probe of application within the container. All other probes are disabled if a startup probe is provided, until it succeeds. Container will not be added to service endpoints
-             * if the probe fails.
-             */
-            startupProbe?:
-                GoogleCloudRunV2Probe;
-            /** Volume to mount into the container's filesystem. */
-            volumeMounts?:
-                GoogleCloudRunV2VolumeMount[];
-            /** Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. */
-            workingDir?:
-                string;
-        }
-        interface GoogleCloudRunV2ContainerOverride {
-            /** Optional. Arguments to the entrypoint. Will replace existing args for override. */
-            args?:
-                string[];
-            /** Optional. True if the intention is to clear out existing args list. */
-            clearArgs?:
-                boolean;
-            /** List of environment variables to set in the container. Will be merged with existing env for override. */
-            env?:
-                GoogleCloudRunV2EnvVar[];
-            /** The name of the container specified as a DNS_LABEL. */
-            name?:
-                string;
-        }
-        interface GoogleCloudRunV2ContainerPort {
-            /** Port number the container listens on. This must be a valid TCP port number, 0 < container_port < 65536. */
-            containerPort?:
-                number;
-            /** If specified, used to specify which protocol to use. Allowed values are "http1" and "h2c". */
-            name?:
-                string;
-        }
-        interface GoogleCloudRunV2EmptyDirVolumeSource {
-            /**
-             * The medium on which the data is stored. Acceptable values today is only MEMORY or none. When none, the default will currently be backed by memory but could change over time.
-             * +optional
-             */
-            medium?:
-                string;
-            /**
-             * Limit on the storage usable by this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value
-             * between the SizeLimit specified here and the sum of memory limits of all containers. The default is nil which means that the limit is undefined. More info:
-             * https://cloud.google.com/run/docs/configuring/in-memory-volumes#configure-volume. Info in Kubernetes: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
-             */
-            sizeLimit?:
-                string;
-        }
-        interface GoogleCloudRunV2EnvVar {
-            /** Required. Name of the environment variable. Must not exceed 32768 characters. */
-            name?:
-                string;
-            /**
-             * Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any route environment variables. If a variable cannot be resolved,
-             * the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless
-             * of whether the variable exists or not. Defaults to "", and the maximum length is 32768 bytes.
-             */
-            value?:
-                string;
-            /** Source for the environment variable's value. */
-            valueSource?:
-                GoogleCloudRunV2EnvVarSource;
-        }
-        interface GoogleCloudRunV2EnvVarSource {
-            /** Selects a secret and a specific version from Cloud Secret Manager. */
-            secretKeyRef?:
-                GoogleCloudRunV2SecretKeySelector;
-        }
-        interface GoogleCloudRunV2Execution {
-            /** Output only. Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. */
-            annotations?:
-                { [P in string]: string };
-            /** Output only. The number of tasks which reached phase Cancelled. */
-            cancelledCount?:
-                number;
-            /** Output only. Represents time when the execution was completed. It is not guaranteed to be set in happens-before order across separate operations. */
-            completionTime?:
-                string;
-            /** Output only. The Condition of this Execution, containing its readiness status, and detailed error information in case it did not reach the desired state. */
-            conditions?:
-                GoogleCloudRunV2Condition[];
-            /** Output only. Represents time when the execution was acknowledged by the execution controller. It is not guaranteed to be set in happens-before order across separate operations. */
-            createTime?:
-                string;
-            /** Output only. For a deleted resource, the deletion time. It is only populated as a response to a Delete request. */
-            deleteTime?:
-                string;
-            /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
-            etag?:
-                string;
-            /** Output only. For a deleted resource, the time after which it will be permamently deleted. It is only populated as a response to a Delete request. */
-            expireTime?:
-                string;
-            /** Output only. The number of tasks which reached phase Failed. */
-            failedCount?:
-                number;
-            /** Output only. A number that monotonically increases every time the user modifies the desired state. */
-            generation?:
-                string;
-            /** Output only. The name of the parent Job. */
-            job?:
-                string;
-            /**
-             * Output only. Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to
-             * filter, or break down billing charges by team, component, environment, state, etc. For more information, visit
-             * https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels
-             */
-            labels?:
-                { [P in string]: string };
-            /**
-             * The least stable launch stage needed to create this resource, as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
-             * `ALPHA`, `BETA`, and `GA`. Note that this value might not be what was used as input. For example, if ALPHA was provided as input in the parent resource, but only BETA and GA-level
-             * features are were, this field will be BETA.
-             */
-            launchStage?:
-                string;
-            /** Output only. URI where logs for this execution can be found in Cloud Console. */
-            logUri?:
-                string;
-            /** Output only. The unique name of this Execution. */
-            name?:
-                string;
-            /** Output only. The generation of this Execution. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
-            observedGeneration?:
-                string;
-            /**
-             * Output only. Specifies the maximum desired number of tasks the execution should run at any given time. Must be <= task_count. The actual number of tasks running in steady state will
-             * be less than this number when ((.spec.task_count - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism.
-             */
-            parallelism?:
-                number;
-            /**
-             * Output only. Indicates whether the resource's reconciliation is still in progress. See comments in `Job.reconciling` for additional information on reconciliation process in Cloud
-             * Run.
-             */
-            reconciling?:
-                boolean;
-            /** Output only. The number of tasks which have retried at least once. */
-            retriedCount?:
-                number;
-            /** Output only. The number of actively running tasks. */
-            runningCount?:
-                number;
-            /** Output only. Reserved for future use. */
-            satisfiesPzs?:
-                boolean;
-            /** Output only. Represents time when the execution started to run. It is not guaranteed to be set in happens-before order across separate operations. */
-            startTime?:
-                string;
-            /** Output only. The number of tasks which reached phase Succeeded. */
-            succeededCount?:
-                number;
-            /**
-             * Output only. Specifies the desired number of tasks the execution should run. Setting to 1 means that parallelism is limited to 1 and the success of that task signals the success of
-             * the execution.
-             */
-            taskCount?:
-                number;
-            /** Output only. The template used to create tasks for this execution. */
-            template?:
-                GoogleCloudRunV2TaskTemplate;
-            /** Output only. Server assigned unique identifier for the Execution. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
-            uid?:
-                string;
-            /** Output only. The last-modified time. */
-            updateTime?:
-                string;
-        }
-        interface GoogleCloudRunV2ExecutionReference {
-            /** Creation timestamp of the execution. */
-            completionTime?:
-                string;
-            /** Creation timestamp of the execution. */
-            createTime?:
-                string;
-            /** Name of the execution. */
-            name?:
-                string;
-        }
-        interface GoogleCloudRunV2ExecutionTemplate {
-            /**
-             * Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2
-             * does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system
-             * annotations in v1 now have a corresponding field in v2 ExecutionTemplate. This field follows Kubernetes annotations' namespacing, limits, and rules.
-             */
-            annotations?:
-                { [P in string]: string };
-            /**
-             * Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break
-             * down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
-             * https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does not support labels with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
-             * `autoscaling.knative.dev` namespaces, and they will be rejected. All system labels in v1 now have a corresponding field in v2 ExecutionTemplate.
-             */
-            labels?:
-                { [P in string]: string };
-            /**
-             * Specifies the maximum desired number of tasks the execution should run at given time. Must be <= task_count. When the job is run, if this field is 0 or unset, the maximum possible
-             * value will be used for that execution. The actual number of tasks running in steady state will be less than this number when there are fewer tasks waiting to be completed remaining,
-             * i.e. when the work left to do is less than max parallelism.
-             */
-            parallelism?:
-                number;
-            /**
-             * Specifies the desired number of tasks the execution should run. Setting to 1 means that parallelism is limited to 1 and the success of that task signals the success of the
-             * execution. Defaults to 1.
-             */
-            taskCount?:
-                number;
-            /** Required. Describes the task(s) that will be created when executing an execution. */
-            template?:
-                GoogleCloudRunV2TaskTemplate;
-        }
-        interface GoogleCloudRunV2GRPCAction {
-            /**
-             * Port number of the gRPC service. Number must be in the range 1 to 65535. If not specified, defaults to the exposed port of the container, which is the value of
-             * container.ports[0].containerPort.
-             */
-            port?:
-                number;
-            /**
-             * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md ). If this is not specified, the
-             * default behavior is defined by gRPC.
-             */
-            service?:
-                string;
-        }
-        interface GoogleCloudRunV2HTTPGetAction {
-            /** Custom headers to set in the request. HTTP allows repeated headers. */
-            httpHeaders?:
-                GoogleCloudRunV2HTTPHeader[];
-            /** Path to access on the HTTP server. Defaults to '/'. */
-            path?:
-                string;
-            /**
-             * Port number to access on the container. Must be in the range 1 to 65535. If not specified, defaults to the exposed port of the container, which is the value of
-             * container.ports[0].containerPort.
-             */
-            port?:
-                number;
-        }
-        interface GoogleCloudRunV2HTTPHeader {
-            /** Required. The header field name */
-            name?:
-                string;
-            /** The header field value */
-            value?:
-                string;
-        }
-        interface GoogleCloudRunV2Job {
-            /**
-             * Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2
-             * does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected on new
-             * resources. All system annotations in v1 now have a corresponding field in v2 Job. This field follows Kubernetes annotations' namespacing, limits, and rules.
-             */
-            annotations?:
-                { [P in string]: string };
-            /** Settings for the Binary Authorization feature. */
-            binaryAuthorization?:
-                GoogleCloudRunV2BinaryAuthorization;
-            /** Arbitrary identifier for the API client. */
-            client?:
-                string;
-            /** Arbitrary version identifier for the API client. */
-            clientVersion?:
-                string;
-            /**
-             * Output only. The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Job does not reach its desired state. See comments in
-             * `reconciling` for additional information on reconciliation process in Cloud Run.
-             */
-            conditions?:
-                GoogleCloudRunV2Condition[];
-            /** Output only. The creation time. */
-            createTime?:
-                string;
-            /** Output only. Email address of the authenticated creator. */
-            creator?:
-                string;
-            /** Output only. The deletion time. */
-            deleteTime?:
-                string;
-            /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
-            etag?:
-                string;
-            /** Output only. Number of executions created for this job. */
-            executionCount?:
-                number;
-            /** Output only. For a deleted resource, the time after which it will be permamently deleted. */
-            expireTime?:
-                string;
-            /** Output only. A number that monotonically increases every time the user modifies the desired state. */
-            generation?:
-                string;
-            /**
-             * Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break
-             * down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
-             * https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does not support labels with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
-             * `autoscaling.knative.dev` namespaces, and they will be rejected. All system labels in v1 now have a corresponding field in v2 Job.
-             */
-            labels?:
-                { [P in string]: string };
-            /** Output only. Email address of the last authenticated modifier. */
-            lastModifier?:
-                string;
-            /** Output only. Name of the last created execution. */
-            latestCreatedExecution?:
-                GoogleCloudRunV2ExecutionReference;
-            /**
-             * The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports `ALPHA`, `BETA`, and `GA`. If no value is
-             * specified, GA is assumed. Set the launch stage to a preview stage on input to allow use of preview features in that stage. On read (or output), describes whether the resource uses
-             * preview features. For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output.
-             */
-            launchStage?:
-                string;
-            /** The fully qualified name of this Job. Format: projects/{project}/locations/{location}/jobs/{job} */
-            name?:
-                string;
-            /** Output only. The generation of this Job. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
-            observedGeneration?:
-                string;
-            /**
-             * Output only. Returns true if the Job is currently being acted upon by the system to bring it into the desired state. When a new Job is created, or an existing one is updated, Cloud
-             * Run will asynchronously perform all necessary steps to bring the Job to the desired state. This process is called reconciliation. While reconciliation is in process,
-             * `observed_generation` and `latest_succeeded_execution`, will have transient values that might mismatch the intended state: Once reconciliation is over (and this field is false),
-             * there are two possible outcomes: reconciliation succeeded and the state matches the Job, or there was an error, and reconciliation failed. This state can be found in
-             * `terminal_condition.state`. If reconciliation succeeded, the following fields will match: `observed_generation` and `generation`, `latest_succeeded_execution` and
-             * `latest_created_execution`. If reconciliation failed, `observed_generation` and `latest_succeeded_execution` will have the state of the last succeeded execution or empty for newly
-             * created Job. Additional information on the failure can be found in `terminal_condition` and `conditions`.
-             */
-            reconciling?:
-                boolean;
-            /** Output only. Reserved for future use. */
-            satisfiesPzs?:
-                boolean;
-            /** Required. The template used to create executions for this Job. */
-            template?:
-                GoogleCloudRunV2ExecutionTemplate;
-            /** Output only. The Condition of this Job, containing its readiness status, and detailed error information in case it did not reach the desired state. */
-            terminalCondition?:
-                GoogleCloudRunV2Condition;
-            /** Output only. Server assigned unique identifier for the Execution. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
-            uid?:
-                string;
-            /** Output only. The last-modified time. */
-            updateTime?:
-                string;
-        }
-        interface GoogleCloudRunV2ListExecutionsResponse {
-            /** The resulting list of Executions. */
-            executions?:
-                GoogleCloudRunV2Execution[];
-            /** A token indicating there are more items than page_size. Use it in the next ListExecutions request to continue. */
-            nextPageToken?:
-                string;
-        }
-        interface GoogleCloudRunV2ListJobsResponse {
-            /** The resulting list of Jobs. */
-            jobs?:
-                GoogleCloudRunV2Job[];
-            /** A token indicating there are more items than page_size. Use it in the next ListJobs request to continue. */
-            nextPageToken?:
-                string;
-        }
-        interface GoogleCloudRunV2ListRevisionsResponse {
-            /** A token indicating there are more items than page_size. Use it in the next ListRevisions request to continue. */
-            nextPageToken?:
-                string;
-            /** The resulting list of Revisions. */
-            revisions?:
-                GoogleCloudRunV2Revision[];
-        }
-        interface GoogleCloudRunV2ListServicesResponse {
-            /** A token indicating there are more items than page_size. Use it in the next ListServices request to continue. */
-            nextPageToken?:
-                string;
-            /** The resulting list of Services. */
-            services?:
-                GoogleCloudRunV2Service[];
-        }
-        interface GoogleCloudRunV2ListTasksResponse {
-            /** A token indicating there are more items than page_size. Use it in the next ListTasks request to continue. */
-            nextPageToken?:
-                string;
-            /** The resulting list of Tasks. */
-            tasks?:
-                GoogleCloudRunV2Task[];
-        }
-        interface GoogleCloudRunV2NetworkInterface {
-            /**
-             * The VPC network that the Cloud Run resource will be able to send traffic to. At least one of network or subnetwork must be specified. If both network and subnetwork are specified,
-             * the given VPC subnetwork must belong to the given VPC network. If network is not specified, it will be looked up from the subnetwork.
-             */
-            network?:
-                string;
-            /**
-             * The VPC subnetwork that the Cloud Run resource will get IPs from. At least one of network or subnetwork must be specified. If both network and subnetwork are specified, the given
-             * VPC subnetwork must belong to the given VPC network. If subnetwork is not specified, the subnetwork with the same name with the network will be used.
-             */
-            subnetwork?:
-                string;
-            /** Network tags applied to this Cloud Run resource. */
-            tags?:
-                string[];
-        }
-        interface GoogleCloudRunV2Overrides {
-            /** Per container override specification. */
-            containerOverrides?:
-                GoogleCloudRunV2ContainerOverride[];
-            /** Optional. The desired number of tasks the execution should run. Will replace existing task_count value. */
-            taskCount?:
-                number;
-            /** Duration in seconds the task may be active before the system will actively try to mark it failed and kill associated containers. Will replace existing timeout_seconds value. */
-            timeout?:
-                string;
-        }
-        interface GoogleCloudRunV2Probe {
-            /** Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1. */
-            failureThreshold?:
-                number;
-            /** GRPC specifies an action involving a gRPC port. Exactly one of httpGet, tcpSocket, or grpc must be specified. */
-            grpc?:
-                GoogleCloudRunV2GRPCAction;
-            /** HTTPGet specifies the http request to perform. Exactly one of httpGet, tcpSocket, or grpc must be specified. */
-            httpGet?:
-                GoogleCloudRunV2HTTPGetAction;
-            /**
-             * Number of seconds after the container has started before the probe is initiated. Defaults to 0 seconds. Minimum value is 0. Maximum value for liveness probe is 3600. Maximum value
-             * for startup probe is 240.
-             */
-            initialDelaySeconds?:
-                number;
-            /**
-             * How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. Maximum value for liveness probe is 3600. Maximum value for startup probe is 240. Must be
-             * greater or equal than timeout_seconds.
-             */
-            periodSeconds?:
-                number;
-            /** TCPSocket specifies an action involving a TCP port. Exactly one of httpGet, tcpSocket, or grpc must be specified. */
-            tcpSocket?:
-                GoogleCloudRunV2TCPSocketAction;
-            /** Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. Maximum value is 3600. Must be smaller than period_seconds. */
-            timeoutSeconds?:
-                number;
-        }
-        interface GoogleCloudRunV2ResourceRequirements {
-            /** Determines whether CPU should be throttled or not outside of requests. */
-            cpuIdle?:
-                boolean;
-            /**
-             * Only ´memory´ and 'cpu' are supported. Notes: * The only supported values for CPU are '1', '2', '4', and '8'. Setting 4 CPU requires at least 2Gi of memory. For more information, go
-             * to https://cloud.google.com/run/docs/configuring/cpu. * For supported 'memory' values and syntax, go to https://cloud.google.com/run/docs/configuring/memory-limits
-             */
-            limits?:
-                { [P in string]: string };
-            /** Determines whether CPU should be boosted on startup of a new container instance above the requested CPU threshold, this can help reduce cold-start latency. */
-            startupCpuBoost?:
-                boolean;
-        }
-        interface GoogleCloudRunV2Revision {
-            /** Output only. Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. */
-            annotations?:
-                { [P in string]: string };
-            /** Output only. The Condition of this Revision, containing its readiness status, and detailed error information in case it did not reach a serving state. */
-            conditions?:
-                GoogleCloudRunV2Condition[];
-            /** Holds the single container that defines the unit of execution for this Revision. */
-            containers?:
-                GoogleCloudRunV2Container[];
-            /** Output only. The creation time. */
-            createTime?:
-                string;
-            /** Output only. For a deleted resource, the deletion time. It is only populated as a response to a Delete request. */
-            deleteTime?:
-                string;
-            /** A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek */
-            encryptionKey?:
-                string;
-            /** The action to take if the encryption key is revoked. */
-            encryptionKeyRevocationAction?:
-                string;
-            /** If encryption_key_revocation_action is SHUTDOWN, the duration before shutting down all instances. The minimum increment is 1 hour. */
-            encryptionKeyShutdownDuration?:
-                string;
-            /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
-            etag?:
-                string;
-            /** The execution environment being used to host this Revision. */
-            executionEnvironment?:
-                string;
-            /** Output only. For a deleted resource, the time after which it will be permamently deleted. It is only populated as a response to a Delete request. */
-            expireTime?:
-                string;
-            /** Output only. A number that monotonically increases every time the user modifies the desired state. */
-            generation?:
-                string;
-            /**
-             * Output only. Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to
-             * filter, or break down billing charges by team, component, environment, state, etc. For more information, visit
-             * https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels.
-             */
-            labels?:
-                { [P in string]: string };
-            /**
-             * The least stable launch stage needed to create this resource, as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
-             * `ALPHA`, `BETA`, and `GA`. Note that this value might not be what was used as input. For example, if ALPHA was provided as input in the parent resource, but only BETA and GA-level
-             * features are were, this field will be BETA.
-             */
-            launchStage?:
-                string;
-            /** Output only. The Google Console URI to obtain logs for the Revision. */
-            logUri?:
-                string;
-            /** Sets the maximum number of requests that each serving instance can receive. */
-            maxInstanceRequestConcurrency?:
-                number;
-            /** Output only. The unique name of this Revision. */
-            name?:
-                string;
-            /** Output only. The generation of this Revision currently serving traffic. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
-            observedGeneration?:
-                string;
-            /**
-             * Output only. Indicates whether the resource's reconciliation is still in progress. See comments in `Service.reconciling` for additional information on reconciliation process in
-             * Cloud Run.
-             */
-            reconciling?:
-                boolean;
-            /** Output only. Reserved for future use. */
-            satisfiesPzs?:
-                boolean;
-            /** Scaling settings for this revision. */
-            scaling?:
-                GoogleCloudRunV2RevisionScaling;
-            /** Output only. The current effective scaling settings for the revision. */
-            scalingStatus?:
-                GoogleCloudRunV2RevisionScalingStatus;
-            /** Output only. The name of the parent service. */
-            service?:
-                string;
-            /**
-             * Email address of the IAM service account associated with the revision of the service. The service account represents the identity of the running revision, and determines what
-             * permissions the revision has.
-             */
-            serviceAccount?:
-                string;
-            /** Enable session affinity. */
-            sessionAffinity?:
-                boolean;
-            /** Max allowed time for an instance to respond to a request. */
-            timeout?:
-                string;
-            /** Output only. Server assigned unique identifier for the Revision. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
-            uid?:
-                string;
-            /** Output only. The last-modified time. */
-            updateTime?:
-                string;
-            /** A list of Volumes to make available to containers. */
-            volumes?:
-                GoogleCloudRunV2Volume[];
-            /** VPC Access configuration for this Revision. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. */
-            vpcAccess?:
-                GoogleCloudRunV2VpcAccess;
-        }
-        interface GoogleCloudRunV2RevisionScaling {
-            /** Maximum number of serving instances that this resource should have. */
-            maxInstanceCount?:
-                number;
-            /** Minimum number of serving instances that this resource should have. */
-            minInstanceCount?:
-                number;
-        }
-        interface GoogleCloudRunV2RevisionScalingStatus {
-            /** The current number of min instances provisioned for this revision. */
-            desiredMinInstanceCount?:
-                number;
-        }
-        interface GoogleCloudRunV2RevisionTemplate {
-            /**
-             * Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2
-             * does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system
-             * annotations in v1 now have a corresponding field in v2 RevisionTemplate. This field follows Kubernetes annotations' namespacing, limits, and rules.
-             */
-            annotations?:
-                { [P in string]: string };
-            /** Holds the single container that defines the unit of execution for this Revision. */
-            containers?:
-                GoogleCloudRunV2Container[];
-            /** A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek */
-            encryptionKey?:
-                string;
-            /** The sandbox environment to host this Revision. */
-            executionEnvironment?:
-                string;
-            /**
-             * Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break
-             * down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
-             * https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does not support labels with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
-             * `autoscaling.knative.dev` namespaces, and they will be rejected. All system labels in v1 now have a corresponding field in v2 RevisionTemplate.
-             */
-            labels?:
-                { [P in string]: string };
-            /** Sets the maximum number of requests that each serving instance can receive. */
-            maxInstanceRequestConcurrency?:
-                number;
-            /** The unique name for the revision. If this field is omitted, it will be automatically generated based on the Service name. */
-            revision?:
-                string;
-            /** Scaling settings for this Revision. */
-            scaling?:
-                GoogleCloudRunV2RevisionScaling;
-            /**
-             * Email address of the IAM service account associated with the revision of the service. The service account represents the identity of the running revision, and determines what
-             * permissions the revision has. If not provided, the revision will use the project's default service account.
-             */
-            serviceAccount?:
-                string;
-            /** Enable session affinity. */
-            sessionAffinity?:
-                boolean;
-            /** Max allowed time for an instance to respond to a request. */
-            timeout?:
-                string;
-            /** A list of Volumes to make available to containers. */
-            volumes?:
-                GoogleCloudRunV2Volume[];
-            /** VPC Access configuration to use for this Revision. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. */
-            vpcAccess?:
-                GoogleCloudRunV2VpcAccess;
-        }
-        interface GoogleCloudRunV2RunJobRequest {
-            /** A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
-            etag?:
-                string;
-            /** Overrides specification for a given execution of a job. If provided, overrides will be applied to update the execution or task spec. */
-            overrides?:
-                GoogleCloudRunV2Overrides;
-            /** Indicates that the request should be validated without actually deleting any resources. */
-            validateOnly?:
-                boolean;
-        }
-        interface GoogleCloudRunV2SecretKeySelector {
-            /**
-             * Required. The name of the secret in Cloud Secret Manager. Format: {secret_name} if the secret is in the same project. projects/{project}/secrets/{secret_name} if the secret is in a
-             * different project.
-             */
-            secret?:
-                string;
-            /** The Cloud Secret Manager secret version. Can be 'latest' for the latest version, an integer for a specific version, or a version alias. */
-            version?:
-                string;
-        }
-        interface GoogleCloudRunV2SecretVolumeSource {
-            /**
-             * Integer representation of mode bits to use on created files by default. Must be a value between 0000 and 0777 (octal), defaulting to 0444. Directories within the path are not
-             * affected by this setting. Notes * Internally, a umask of 0222 will be applied to any non-zero value. * This is an integer representation of the mode bits. So, the octal integer
-             * value should look exactly as the chmod numeric notation with a leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For chmod 640 (u=rw,g=r),
-             * set to 0640 (octal) or 416 (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in conflict with other options that affect the file
-             * mode, like fsGroup, and the result can be other mode bits set. This might be in conflict with other options that affect the file mode, like fsGroup, and as a result, other mode bits
-             * could be set.
-             */
-            defaultMode?:
-                number;
-            /**
-             * If unspecified, the volume will expose a file whose name is the secret, relative to VolumeMount.mount_path. If specified, the key will be used as the version to fetch from Cloud
-             * Secret Manager and the path will be the name of the file exposed in the volume. When items are defined, they must specify a path and a version.
-             */
-            items?:
-                GoogleCloudRunV2VersionToPath[];
-            /**
-             * Required. The name of the secret in Cloud Secret Manager. Format: {secret} if the secret is in the same project. projects/{project}/secrets/{secret} if the secret is in a different
-             * project.
-             */
-            secret?:
-                string;
-        }
-        interface GoogleCloudRunV2Service {
-            /**
-             * Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2
-             * does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected in new
-             * resources. All system annotations in v1 now have a corresponding field in v2 Service. This field follows Kubernetes annotations' namespacing, limits, and rules.
-             */
-            annotations?:
-                { [P in string]: string };
-            /** Settings for the Binary Authorization feature. */
-            binaryAuthorization?:
-                GoogleCloudRunV2BinaryAuthorization;
-            /** Arbitrary identifier for the API client. */
-            client?:
-                string;
-            /** Arbitrary version identifier for the API client. */
-            clientVersion?:
-                string;
-            /**
-             * Output only. The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Service does not reach its Serving state. See comments
-             * in `reconciling` for additional information on reconciliation process in Cloud Run.
-             */
-            conditions?:
-                GoogleCloudRunV2Condition[];
-            /** Output only. The creation time. */
-            createTime?:
-                string;
-            /** Output only. Email address of the authenticated creator. */
-            creator?:
-                string;
-            /**
-             * One or more custom audiences that you want this service to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used
-             * to authenticate requests. For more information, see https://cloud.google.com/run/docs/configuring/custom-audiences.
-             */
-            customAudiences?:
-                string[];
-            /** Output only. The deletion time. */
-            deleteTime?:
-                string;
-            /** User-provided description of the Service. This field currently has a 512-character limit. */
-            description?:
-                string;
-            /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
-            etag?:
-                string;
-            /** Output only. For a deleted resource, the time after which it will be permamently deleted. */
-            expireTime?:
-                string;
-            /**
-             * Output only. A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its
-             * JSON representation will be a `string` instead of an `integer`.
-             */
-            generation?:
-                string;
-            /** Provides the ingress settings for this Service. On output, returns the currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if no revision is active. */
-            ingress?:
-                string;
-            /**
-             * Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break
-             * down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
-             * https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does not support labels with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
-             * `autoscaling.knative.dev` namespaces, and they will be rejected. All system labels in v1 now have a corresponding field in v2 Service.
-             */
-            labels?:
-                { [P in string]: string };
-            /** Output only. Email address of the last authenticated modifier. */
-            lastModifier?:
-                string;
-            /** Output only. Name of the last created revision. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
-            latestCreatedRevision?:
-                string;
-            /** Output only. Name of the latest revision that is serving traffic. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
-            latestReadyRevision?:
-                string;
-            /**
-             * The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports `ALPHA`, `BETA`, and `GA`. If no value is
-             * specified, GA is assumed. Set the launch stage to a preview stage on input to allow use of preview features in that stage. On read (or output), describes whether the resource uses
-             * preview features. For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output.
-             */
-            launchStage?:
-                string;
-            /**
-             * The fully qualified name of this Service. In CreateServiceRequest, this field is ignored, and instead composed from CreateServiceRequest.parent and CreateServiceRequest.service_id.
-             * Format: projects/{project}/locations/{location}/services/{service_id}
-             */
-            name?:
-                string;
-            /**
-             * Output only. The generation of this Service currently serving traffic. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. Please note
-             * that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a `string` instead of an `integer`.
-             */
-            observedGeneration?:
-                string;
-            /**
-             * Output only. Returns true if the Service is currently being acted upon by the system to bring it into the desired state. When a new Service is created, or an existing one is
-             * updated, Cloud Run will asynchronously perform all necessary steps to bring the Service to the desired serving state. This process is called reconciliation. While reconciliation is
-             * in process, `observed_generation`, `latest_ready_revison`, `traffic_statuses`, and `uri` will have transient values that might mismatch the intended state: Once reconciliation is
-             * over (and this field is false), there are two possible outcomes: reconciliation succeeded and the serving state matches the Service, or there was an error, and reconciliation
-             * failed. This state can be found in `terminal_condition.state`. If reconciliation succeeded, the following fields will match: `traffic` and `traffic_statuses`, `observed_generation`
-             * and `generation`, `latest_ready_revision` and `latest_created_revision`. If reconciliation failed, `traffic_statuses`, `observed_generation`, and `latest_ready_revision` will have
-             * the state of the last serving revision, or empty for newly created Services. Additional information on the failure can be found in `terminal_condition` and `conditions`.
-             */
-            reconciling?:
-                boolean;
-            /** Output only. Reserved for future use. */
-            satisfiesPzs?:
-                boolean;
-            /** Optional. Specifies service-level scaling settings */
-            scaling?:
-                GoogleCloudRunV2ServiceScaling;
-            /** Required. The template used to create revisions for this Service. */
-            template?:
-                GoogleCloudRunV2RevisionTemplate;
-            /**
-             * Output only. The Condition of this Service, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in `reconciling`
-             * for additional information on reconciliation process in Cloud Run.
-             */
-            terminalCondition?:
-                GoogleCloudRunV2Condition;
-            /**
-             * Specifies how to distribute traffic over a collection of Revisions belonging to the Service. If traffic is empty or not provided, defaults to 100% traffic to the latest `Ready`
-             * Revision.
-             */
-            traffic?:
-                GoogleCloudRunV2TrafficTarget[];
-            /** Output only. Detailed status information for corresponding traffic targets. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
-            trafficStatuses?:
-                GoogleCloudRunV2TrafficTargetStatus[];
-            /** Output only. Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
-            uid?:
-                string;
-            /** Output only. The last-modified time. */
-            updateTime?:
-                string;
-            /** Output only. The main URI in which this Service is serving traffic. */
-            uri?:
-                string;
-        }
-        interface GoogleCloudRunV2ServiceScaling {
-            /** total min instances for the service. This number of instances is divided among all revisions with specified traffic based on the percent of traffic they are receiving. (ALPHA) */
-            minInstanceCount?:
-                number;
-        }
-        interface GoogleCloudRunV2Task {
-            /** Output only. Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. */
-            annotations?:
-                { [P in string]: string };
-            /** Output only. Represents time when the Task was completed. It is not guaranteed to be set in happens-before order across separate operations. */
-            completionTime?:
-                string;
-            /** Output only. The Condition of this Task, containing its readiness status, and detailed error information in case it did not reach the desired state. */
-            conditions?:
-                GoogleCloudRunV2Condition[];
-            /** Holds the single container that defines the unit of execution for this task. */
-            containers?:
-                GoogleCloudRunV2Container[];
-            /** Output only. Represents time when the task was created by the system. It is not guaranteed to be set in happens-before order across separate operations. */
-            createTime?:
-                string;
-            /** Output only. For a deleted resource, the deletion time. It is only populated as a response to a Delete request. */
-            deleteTime?:
-                string;
-            /**
-             * Output only. A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to
-             * https://cloud.google.com/run/docs/securing/using-cmek
-             */
-            encryptionKey?:
-                string;
-            /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
-            etag?:
-                string;
-            /** Output only. The name of the parent Execution. */
-            execution?:
-                string;
-            /** The execution environment being used to host this Task. */
-            executionEnvironment?:
-                string;
-            /** Output only. For a deleted resource, the time after which it will be permamently deleted. It is only populated as a response to a Delete request. */
-            expireTime?:
-                string;
-            /** Output only. A number that monotonically increases every time the user modifies the desired state. */
-            generation?:
-                string;
-            /** Output only. Index of the Task, unique per execution, and beginning at 0. */
-            index?:
-                number;
-            /** Output only. The name of the parent Job. */
-            job?:
-                string;
-            /**
-             * Output only. Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to
-             * filter, or break down billing charges by team, component, environment, state, etc. For more information, visit
-             * https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels
-             */
-            labels?:
-                { [P in string]: string };
-            /** Output only. Result of the last attempt of this Task. */
-            lastAttemptResult?:
-                GoogleCloudRunV2TaskAttemptResult;
-            /** Output only. URI where logs for this execution can be found in Cloud Console. */
-            logUri?:
-                string;
-            /** Number of retries allowed per Task, before marking this Task failed. */
-            maxRetries?:
-                number;
-            /** Output only. The unique name of this Task. */
-            name?:
-                string;
-            /** Output only. The generation of this Task. See comments in `Job.reconciling` for additional information on reconciliation process in Cloud Run. */
-            observedGeneration?:
-                string;
-            /**
-             * Output only. Indicates whether the resource's reconciliation is still in progress. See comments in `Job.reconciling` for additional information on reconciliation process in Cloud
-             * Run.
-             */
-            reconciling?:
-                boolean;
-            /** Output only. The number of times this Task was retried. Tasks are retried when they fail up to the maxRetries limit. */
-            retried?:
-                number;
-            /** Output only. Reserved for future use. */
-            satisfiesPzs?:
-                boolean;
-            /** Output only. Represents time when the task was scheduled to run by the system. It is not guaranteed to be set in happens-before order across separate operations. */
-            scheduledTime?:
-                string;
-            /**
-             * Email address of the IAM service account associated with the Task of a Job. The service account represents the identity of the running task, and determines what permissions the task
-             * has. If not provided, the task will use the project's default service account.
-             */
-            serviceAccount?:
-                string;
-            /** Output only. Represents time when the task started to run. It is not guaranteed to be set in happens-before order across separate operations. */
-            startTime?:
-                string;
-            /**
-             * Max allowed time duration the Task may be active before the system will actively try to mark it failed and kill associated containers. This applies per attempt of a task, meaning
-             * each retry can run for the full timeout.
-             */
-            timeout?:
-                string;
-            /** Output only. Server assigned unique identifier for the Task. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
-            uid?:
-                string;
-            /** Output only. The last-modified time. */
-            updateTime?:
-                string;
-            /** A list of Volumes to make available to containers. */
-            volumes?:
-                GoogleCloudRunV2Volume[];
-            /** Output only. VPC Access configuration to use for this Task. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. */
-            vpcAccess?:
-                GoogleCloudRunV2VpcAccess;
-        }
-        interface GoogleCloudRunV2TaskAttemptResult {
-            /**
-             * Output only. The exit code of this attempt. This may be unset if the container was unable to exit cleanly with a code due to some other failure. See status field for possible
-             * failure details.
-             */
-            exitCode?:
-                number;
-            /** Output only. The status of this attempt. If the status code is OK, then the attempt succeeded. */
-            status?:
-                GoogleRpcStatus;
-        }
-        interface GoogleCloudRunV2TaskTemplate {
-            /** Holds the single container that defines the unit of execution for this task. */
-            containers?:
-                GoogleCloudRunV2Container[];
-            /** A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek */
-            encryptionKey?:
-                string;
-            /** The execution environment being used to host this Task. */
-            executionEnvironment?:
-                string;
-            /** Number of retries allowed per Task, before marking this Task failed. Defaults to 3. */
-            maxRetries?:
-                number;
-            /**
-             * Email address of the IAM service account associated with the Task of a Job. The service account represents the identity of the running task, and determines what permissions the task
-             * has. If not provided, the task will use the project's default service account.
-             */
-            serviceAccount?:
-                string;
-            /**
-             * Max allowed time duration the Task may be active before the system will actively try to mark it failed and kill associated containers. This applies per attempt of a task, meaning
-             * each retry can run for the full timeout. Defaults to 600 seconds.
-             */
-            timeout?:
-                string;
-            /** A list of Volumes to make available to containers. */
-            volumes?:
-                GoogleCloudRunV2Volume[];
-            /** VPC Access configuration to use for this Task. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. */
-            vpcAccess?:
-                GoogleCloudRunV2VpcAccess;
-        }
-        interface GoogleCloudRunV2TCPSocketAction {
-            /**
-             * Port number to access on the container. Must be in the range 1 to 65535. If not specified, defaults to the exposed port of the container, which is the value of
-             * container.ports[0].containerPort.
-             */
-            port?:
-                number;
-        }
-        interface GoogleCloudRunV2TrafficTarget {
-            /** Specifies percent of the traffic to this Revision. This defaults to zero if unspecified. */
-            percent?:
-                number;
-            /** Revision to which to send this portion of traffic, if traffic allocation is by revision. */
-            revision?:
-                string;
-            /** Indicates a string to be part of the URI to exclusively reference this target. */
-            tag?:
-                string;
-            /** The allocation type for this traffic target. */
-            type?:
-                string;
-        }
-        interface GoogleCloudRunV2TrafficTargetStatus {
-            /** Specifies percent of the traffic to this Revision. */
-            percent?:
-                number;
-            /** Revision to which this traffic is sent. */
-            revision?:
-                string;
-            /** Indicates the string used in the URI to exclusively reference this target. */
-            tag?:
-                string;
-            /** The allocation type for this traffic target. */
-            type?:
-                string;
-            /** Displays the target URI. */
-            uri?:
-                string;
-        }
-        interface GoogleCloudRunV2VersionToPath {
-            /**
-             * Integer octal mode bits to use on this file, must be a value between 01 and 0777 (octal). If 0 or not set, the Volume's default mode will be used. Notes * Internally, a umask of
-             * 0222 will be applied to any non-zero value. * This is an integer representation of the mode bits. So, the octal integer value should look exactly as the chmod numeric notation with
-             * a leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755
-             * (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode
-             * bits set.
-             */
-            mode?:
-                number;
-            /** Required. The relative path of the secret in the container. */
-            path?:
-                string;
-            /** The Cloud Secret Manager secret version. Can be 'latest' for the latest value, or an integer or a secret alias for a specific version. */
-            version?:
-                string;
-        }
-        interface GoogleCloudRunV2Volume {
-            /**
-             * For Cloud SQL volumes, contains the specific instances that should be mounted. Visit https://cloud.google.com/sql/docs/mysql/connect-run for more information on how to connect Cloud
-             * SQL and Cloud Run.
-             */
-            cloudSqlInstance?:
-                GoogleCloudRunV2CloudSqlInstance;
-            /** Ephemeral storage used as a shared volume. */
-            emptyDir?:
-                GoogleCloudRunV2EmptyDirVolumeSource;
-            /** Required. Volume's name. */
-            name?:
-                string;
-            /** Secret represents a secret that should populate this volume. */
-            secret?:
-                GoogleCloudRunV2SecretVolumeSource;
-        }
-        interface GoogleCloudRunV2VolumeMount {
-            /**
-             * Required. Path within the container at which the volume should be mounted. Must not contain ':'. For Cloud SQL volumes, it can be left empty, or must otherwise be `/cloudsql`. All
-             * instances defined in the Volume will be available as `/cloudsql/[instance]`. For more information on Cloud SQL volumes, visit https://cloud.google.com/sql/docs/mysql/connect-run
-             */
-            mountPath?:
-                string;
-            /** Required. This must match the Name of a Volume. */
-            name?:
-                string;
-        }
-        interface GoogleCloudRunV2VpcAccess {
-            /**
-             * VPC Access connector name. Format: projects/{project}/locations/{location}/connectors/{connector}, where {project} can be project id or number. For more information on sending
-             * traffic to a VPC network via a connector, visit https://cloud.google.com/run/docs/configuring/vpc-connectors.
-             */
-            connector?:
-                string;
-            /** Traffic VPC egress settings. If not provided, it defaults to PRIVATE_RANGES_ONLY. */
-            egress?:
-                string;
-            /** Direct VPC egress settings. Currently only single network interface is supported. */
-            networkInterfaces?:
-                GoogleCloudRunV2NetworkInterface[];
-        }
-        interface GoogleIamV1AuditConfig {
-            /** The configuration for logging of each type of permission. */
-            auditLogConfigs?:
-                GoogleIamV1AuditLogConfig[];
-            /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
-             * services.
-             */
-            service?:
-                string;
-        }
-        interface GoogleIamV1AuditLogConfig {
-            /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?:
-                string[];
-            /** The log type that this config enables. */
-            logType?:
-                string;
-        }
-        interface GoogleIamV1Binding {
-            /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
-             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
-             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            condition?:
-                GoogleTypeExpr;
-            /**
-             * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
-             * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
-             * account. Does not include identities that come from external identity providers (IdPs) through identity federation. * `user:{emailid}`: An email address that represents a specific
-             * Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that represents a Google service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. * `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An identifier for a [Kubernetes service
-             * account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts). For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
-             * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. * `domain:{domain}`: The G Suite domain (primary) that represents all the
-             * users of that domain. For example, `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has
-             * been recently deleted. For example, `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains
-             * the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
-             * deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and
-             * the undeleted service account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that
-             * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding.
-             */
-            members?:
-                string[];
-            /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?:
-                string;
-        }
-        interface GoogleIamV1Policy {
-            /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?:
-                GoogleIamV1AuditConfig[];
-            /**
-             * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
-             * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
-             * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
-             * 1,450 principals to the `bindings` in the `Policy`.
-             */
-            bindings?:
-                GoogleIamV1Binding[];
-            /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
-             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
-             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
-             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
-             * policy, and all of the conditions in the version `3` policy are lost.
-             */
-            etag?:
-                string;
-            /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
-             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
-             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
-             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
-             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
-             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            version?:
-                number;
-        }
-        interface GoogleIamV1SetIamPolicyRequest {
-            /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
-             * services (such as Projects) might reject them.
-             */
-            policy?:
-                GoogleIamV1Policy;
-            /**
-             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
-             * `paths: "bindings, etag"`
-             */
-            updateMask?:
-                string;
-        }
-        interface GoogleIamV1TestIamPermissionsRequest {
-            /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
-             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
-             */
-            permissions?:
-                string[];
-        }
-        interface GoogleIamV1TestIamPermissionsResponse {
-            /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?:
-                string[];
-        }
-        interface GoogleLongrunningListOperationsResponse {
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-            /** A list of operations that matches the specified filter in the request. */
-            operations?:
-                GoogleLongrunningOperation[];
-        }
-        interface GoogleLongrunningOperation {
-            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?:
-                boolean;
-            /** The error result of the operation in case of failure or cancellation. */
-            error?:
-                GoogleRpcStatus;
-            /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
-             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
-             */
-            metadata?:
-                { [P in string]: any };
-            /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
-             * with `operations/{unique_id}`.
-             */
-            name?:
-                string;
-            /**
-             * The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original
-             * method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original
-             * method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
-             */
-            response?:
-                { [P in string]: any };
-        }
-        interface GoogleLongrunningWaitOperationRequest {
-            /**
-             * The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also
-             * specified, the shorter one will be used.
-             */
-            timeout?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface GoogleProtobufEmpty {
-        }
-        interface GoogleRpcStatus {
-            /** The status code, which should be an enum value of google.rpc.Code. */
-            code?:
-                number;
-            /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?:
-                Array<{ [P in string]: any }>;
-            /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
-             * client.
-             */
-            message?:
-                string;
-        }
-        interface GoogleTypeExpr {
-            /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?:
-                string;
-            /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?:
-                string;
-            /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?:
-                string;
-            /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?:
-                string;
-        }
-        interface TasksResource {
-            /** Gets information about a Task. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The full name of the Task. Format: projects/{project}/locations/{location}/jobs/{job}/executions/{execution}/tasks/{task} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2Task>;
-            /** Lists Tasks from an Execution of a Job. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of Tasks to return in this call. */
-                pageSize?:
-                    number;
-                /** A page token received from a previous call to ListTasks. All other parameters must match. */
-                pageToken?:
-                    string;
-                /**
-                 * Required. The Execution from which the Tasks should be listed. To list all Tasks across Executions of a Job, use "-" instead of Execution name. To list all Tasks across Jobs,
-                 * use "-" instead of Job name. Format: projects/{project}/locations/{location}/jobs/{job}/executions/{execution}
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** If true, returns deleted (but unexpired) resources along with active ones. */
-                showDeleted?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2ListTasksResponse>;
-        }
-        interface ExecutionsResource {
-            /** Cancels an Execution. */
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Required. The name of the Execution to cancel. Format: `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`, where `{project}` can be project id or
-                 * number.
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRunV2CancelExecutionRequest;
-            }): Request<GoogleLongrunningOperation>;
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Required. The name of the Execution to cancel. Format: `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`, where `{project}` can be project id or
-                 * number.
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRunV2CancelExecutionRequest): Request<GoogleLongrunningOperation>;
-            /** Deletes an Execution. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** A system-generated fingerprint for this version of the resource. This may be used to detect modification conflict during updates. */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Required. The name of the Execution to delete. Format: `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`, where `{project}` can be project id or
-                 * number.
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated without actually deleting any resources. */
-                validateOnly?:
-                    boolean;
-            }): Request<GoogleLongrunningOperation>;
-            /** Gets information about an Execution. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The full name of the Execution. Format: `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`, where `{project}` can be project id or number. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2Execution>;
-            /** Lists Executions from a Job. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of Executions to return in this call. */
-                pageSize?:
-                    number;
-                /** A page token received from a previous call to ListExecutions. All other parameters must match. */
-                pageToken?:
-                    string;
-                /**
-                 * Required. The Execution from which the Executions should be listed. To list all Executions across Jobs, use "-" instead of Job name. Format:
-                 * `projects/{project}/locations/{location}/jobs/{job}`, where `{project}` can be project id or number.
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** If true, returns deleted (but unexpired) resources along with active ones. */
-                showDeleted?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2ListExecutionsResponse>;
-            tasks:
-                TasksResource;
-        }
-        interface JobsResource {
-            /** Creates a Job. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Required. The unique identifier for the Job. The name of the job becomes {parent}/jobs/{job_id}. */
-                jobId?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The location and project in which this Job should be created. Format: projects/{project}/locations/{location}, where {project} can be project id or number. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    GoogleCloudRunV2Job;
-            }): Request<GoogleLongrunningOperation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Required. The unique identifier for the Job. The name of the job becomes {parent}/jobs/{job_id}. */
-                jobId?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The location and project in which this Job should be created. Format: projects/{project}/locations/{location}, where {project} can be project id or number. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
-                validateOnly?:
-                    boolean;
-            },
-            body: GoogleCloudRunV2Job): Request<GoogleLongrunningOperation>;
-            /** Deletes a Job. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The full name of the Job. Format: projects/{project}/locations/{location}/jobs/{job}, where {project} can be project id or number. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated without actually deleting any resources. */
-                validateOnly?:
-                    boolean;
-            }): Request<GoogleLongrunningOperation>;
-            /** Gets information about a Job. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The full name of the Job. Format: projects/{project}/locations/{location}/jobs/{job}, where {project} can be project id or number. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2Job>;
-            /** Gets the IAM Access Control policy currently in effect for the given Job. This result does not include any inherited policies. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleIamV1Policy>;
-            /** Lists Jobs. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of Jobs to return in this call. */
-                pageSize?:
-                    number;
-                /** A page token received from a previous call to ListJobs. All other parameters must match. */
-                pageToken?:
-                    string;
-                /** Required. The location and project to list resources on. Format: projects/{project}/locations/{location}, where {project} can be project id or number. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** If true, returns deleted (but unexpired) resources along with active ones. */
-                showDeleted?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2ListJobsResponse>;
-            /** Updates a Job. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** If set to true, and if the Job does not exist, it will create a new one. Caller must have both create and update permissions for this call if this is set to true. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The fully qualified name of this Job. Format: projects/{project}/locations/{location}/jobs/{job} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    GoogleCloudRunV2Job;
-            }): Request<GoogleLongrunningOperation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** If set to true, and if the Job does not exist, it will create a new one. Caller must have both create and update permissions for this call if this is set to true. */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The fully qualified name of this Job. Format: projects/{project}/locations/{location}/jobs/{job} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
-                validateOnly?:
-                    boolean;
-            },
-            body: GoogleCloudRunV2Job): Request<GoogleLongrunningOperation>;
-            /** Triggers creation of a new Execution of this Job. */
-            run(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The full name of the Job. Format: projects/{project}/locations/{location}/jobs/{job}, where {project} can be project id or number. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleCloudRunV2RunJobRequest;
-            }): Request<GoogleLongrunningOperation>;
-            run(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The full name of the Job. Format: projects/{project}/locations/{location}/jobs/{job}, where {project} can be project id or number. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleCloudRunV2RunJobRequest): Request<GoogleLongrunningOperation>;
-            /** Sets the IAM Access control policy for the specified Job. Overwrites any existing policy. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleIamV1SetIamPolicyRequest): Request<GoogleIamV1Policy>;
-            /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleIamV1TestIamPermissionsRequest): Request<GoogleIamV1TestIamPermissionsResponse>;
-            executions:
-                ExecutionsResource;
-        }
-        interface OperationsResource {
-            /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
-             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-             */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be deleted. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<{}>;
-            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleLongrunningOperation>;
-            /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * Optional. A filter for matching the completed or in-progress operations. The supported formats of *filter* are: To query for only completed operations: done:true To query for
-                 * only ongoing operations: done:false Must be empty to query for all of the latest operations for the given parent project.
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. To query for all of the operations for a project. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The maximum number of records that should be returned. Requested page size cannot exceed 100. If not set or set to less than or equal to 0, the default page size is 100. . */
-                pageSize?:
-                    number;
-                /** Token identifying which result to start with, which is returned by a previous list call. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleLongrunningListOperationsResponse>;
-            /**
-             * Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is
-             * immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns
-             * `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even
-             * an immediate response is no guarantee that the operation is done.
-             */
-            wait(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to wait on. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleLongrunningWaitOperationRequest;
-            }): Request<GoogleLongrunningOperation>;
-            wait(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to wait on. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleLongrunningWaitOperationRequest): Request<GoogleLongrunningOperation>;
-        }
-        interface RevisionsResource {
-            /** Deletes a Revision. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** A system-generated fingerprint for this version of the resource. This may be used to detect modification conflict during updates. */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The name of the Revision to delete. Format: projects/{project}/locations/{location}/services/{service}/revisions/{revision} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated without actually deleting any resources. */
-                validateOnly?:
-                    boolean;
-            }): Request<GoogleLongrunningOperation>;
-            /** Gets information about a Revision. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The full name of the Revision. Format: projects/{project}/locations/{location}/services/{service}/revisions/{revision} */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2Revision>;
-            /** Lists Revisions from a given Service, or from a given location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of revisions to return in this call. */
-                pageSize?:
-                    number;
-                /** A page token received from a previous call to ListRevisions. All other parameters must match. */
-                pageToken?:
-                    string;
-                /**
-                 * Required. The Service from which the Revisions should be listed. To list all Revisions across Services, use "-" instead of Service name. Format:
-                 * projects/{project}/locations/{location}/services/{service}
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** If true, returns deleted (but unexpired) resources along with active ones. */
-                showDeleted?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2ListRevisionsResponse>;
-        }
-        interface ServicesResource {
-            /** Creates a new Service in a given project and location. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Required. The location and project in which this service should be created. Format: projects/{project}/locations/{location}, where {project} can be project id or number. Only
-                 * lowercase characters, digits, and hyphens.
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. The unique identifier for the Service. It must begin with letter, and cannot end with hyphen; must contain fewer than 50 characters. The name of the service becomes
-                 * {parent}/services/{service_id}.
-                 */
-                serviceId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    GoogleCloudRunV2Service;
-            }): Request<GoogleLongrunningOperation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Required. The location and project in which this service should be created. Format: projects/{project}/locations/{location}, where {project} can be project id or number. Only
-                 * lowercase characters, digits, and hyphens.
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. The unique identifier for the Service. It must begin with letter, and cannot end with hyphen; must contain fewer than 50 characters. The name of the service becomes
-                 * {parent}/services/{service_id}.
-                 */
-                serviceId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
-                validateOnly?:
-                    boolean;
-            },
-            body: GoogleCloudRunV2Service): Request<GoogleLongrunningOperation>;
-            /** Deletes a Service. This will cause the Service to stop serving traffic and will delete all revisions. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
-                etag?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The full name of the Service. Format: projects/{project}/locations/{location}/services/{service}, where {project} can be project id or number. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated without actually deleting any resources. */
-                validateOnly?:
-                    boolean;
-            }): Request<GoogleLongrunningOperation>;
-            /** Gets information about a Service. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The full name of the Service. Format: projects/{project}/locations/{location}/services/{service}, where {project} can be project id or number. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2Service>;
-            /** Gets the IAM Access Control policy currently in effect for the given Cloud Run Service. This result does not include any inherited policies. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleIamV1Policy>;
-            /** Lists Services. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Maximum number of Services to return in this call. */
-                pageSize?:
-                    number;
-                /** A page token received from a previous call to ListServices. All other parameters must match. */
-                pageToken?:
-                    string;
-                /**
-                 * Required. The location and project to list resources on. Location must be a valid Google Cloud region, and cannot be the "-" wildcard. Format:
-                 * projects/{project}/locations/{location}, where {project} can be project id or number.
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** If true, returns deleted (but unexpired) resources along with active ones. */
-                showDeleted?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleCloudRunV2ListServicesResponse>;
-            /** Updates a Service. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /**
-                 * If set to true, and if the Service does not exist, it will create a new one. The caller must have 'run.services.create' permissions if this is set to true and the Service does
-                 * not exist.
-                 */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * The fully qualified name of this Service. In CreateServiceRequest, this field is ignored, and instead composed from CreateServiceRequest.parent and
-                 * CreateServiceRequest.service_id. Format: projects/{project}/locations/{location}/services/{service_id}
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
-                validateOnly?:
-                    boolean;
-                /** Request body */
-                resource:
-                    GoogleCloudRunV2Service;
-            }): Request<GoogleLongrunningOperation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /**
-                 * If set to true, and if the Service does not exist, it will create a new one. The caller must have 'run.services.create' permissions if this is set to true and the Service does
-                 * not exist.
-                 */
-                allowMissing?:
-                    boolean;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * The fully qualified name of this Service. In CreateServiceRequest, this field is ignored, and instead composed from CreateServiceRequest.parent and
-                 * CreateServiceRequest.service_id. Format: projects/{project}/locations/{location}/services/{service_id}
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
-                validateOnly?:
-                    boolean;
-            },
-            body: GoogleCloudRunV2Service): Request<GoogleLongrunningOperation>;
-            /** Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleIamV1SetIamPolicyRequest): Request<GoogleIamV1Policy>;
-            /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleIamV1TestIamPermissionsRequest): Request<GoogleIamV1TestIamPermissionsResponse>;
-            revisions:
-                RevisionsResource;
-        }
-        interface LocationsResource {
-            jobs:
-                JobsResource;
-            operations:
-                OperationsResource;
-            services:
-                ServicesResource;
-        }
-        interface ProjectsResource {
-            locations:
-                LocationsResource;
-        }
-
-        const projects: ProjectsResource;
+  namespace run {
+    interface GoogleCloudRunV2BinaryAuthorization {
+      /** If present, indicates to use Breakglass using this justification. If use_default is False, then it must be empty. For more information on breakglass, see https://cloud.google.com/binary-authorization/docs/using-breakglass */
+      breakglassJustification?: string;
+      /** If True, indicates to use the default project's binary authorization policy. If False, binary authorization will be disabled. */
+      useDefault?: boolean;
     }
+    interface GoogleCloudRunV2CancelExecutionRequest {
+      /** A system-generated fingerprint for this version of the resource. This may be used to detect modification conflict during updates. */
+      etag?: string;
+      /** Indicates that the request should be validated without actually cancelling any resources. */
+      validateOnly?: boolean;
+    }
+    interface GoogleCloudRunV2CloudSqlInstance {
+      /** The Cloud SQL instance connection names, as can be found in https://console.cloud.google.com/sql/instances. Visit https://cloud.google.com/sql/docs/mysql/connect-run for more information on how to connect Cloud SQL and Cloud Run. Format: {project}:{location}:{instance} */
+      instances?: string[];
+    }
+    interface GoogleCloudRunV2Condition {
+      /** A reason for the execution condition. */
+      executionReason?: string;
+      /** Last time the condition transitioned from one status to another. */
+      lastTransitionTime?: string;
+      /** Human readable message indicating details about the current status. */
+      message?: string;
+      /** A common (service-level) reason for this condition. */
+      reason?: string;
+      /** A reason for the revision condition. */
+      revisionReason?: string;
+      /** How to interpret failures of this condition, one of Error, Warning, Info */
+      severity?: string;
+      /** State of the condition. */
+      state?: string;
+      /** type is used to communicate the status of the reconciliation process. See also: https://github.com/knative/serving/blob/main/docs/spec/errors.md#error-conditions-and-reporting Types common to all resources include: * "Ready": True when the Resource is ready. */
+      type?: string;
+    }
+    interface GoogleCloudRunV2Container {
+      /** Arguments to the entrypoint. The docker image's CMD is used if this is not provided. */
+      args?: string[];
+      /** Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. */
+      command?: string[];
+      /** Names of the containers that must start before this container. */
+      dependsOn?: string[];
+      /** List of environment variables to set in the container. */
+      env?: GoogleCloudRunV2EnvVar[];
+      /** Required. Name of the container image in Dockerhub, Google Artifact Registry, or Google Container Registry. If the host is not provided, Dockerhub is assumed. */
+      image?: string;
+      /** Periodic probe of container liveness. Container will be restarted if the probe fails. */
+      livenessProbe?: GoogleCloudRunV2Probe;
+      /** Name of the container specified as a DNS_LABEL (RFC 1123). */
+      name?: string;
+      /** List of ports to expose from the container. Only a single port can be specified. The specified ports must be listening on all interfaces (0.0.0.0) within the container to be accessible. If omitted, a port number will be chosen and passed to the container through the PORT environment variable for the container to listen on. */
+      ports?: GoogleCloudRunV2ContainerPort[];
+      /** Compute Resource requirements by this container. */
+      resources?: GoogleCloudRunV2ResourceRequirements;
+      /** Startup probe of application within the container. All other probes are disabled if a startup probe is provided, until it succeeds. Container will not be added to service endpoints if the probe fails. */
+      startupProbe?: GoogleCloudRunV2Probe;
+      /** Volume to mount into the container's filesystem. */
+      volumeMounts?: GoogleCloudRunV2VolumeMount[];
+      /** Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. */
+      workingDir?: string;
+    }
+    interface GoogleCloudRunV2ContainerOverride {
+      /** Optional. Arguments to the entrypoint. Will replace existing args for override. */
+      args?: string[];
+      /** Optional. True if the intention is to clear out existing args list. */
+      clearArgs?: boolean;
+      /** List of environment variables to set in the container. Will be merged with existing env for override. */
+      env?: GoogleCloudRunV2EnvVar[];
+      /** The name of the container specified as a DNS_LABEL. */
+      name?: string;
+    }
+    interface GoogleCloudRunV2ContainerPort {
+      /** Port number the container listens on. This must be a valid TCP port number, 0 < container_port < 65536. */
+      containerPort?: number;
+      /** If specified, used to specify which protocol to use. Allowed values are "http1" and "h2c". */
+      name?: string;
+    }
+    interface GoogleCloudRunV2EmptyDirVolumeSource {
+      /** The medium on which the data is stored. Acceptable values today is only MEMORY or none. When none, the default will currently be backed by memory but could change over time. +optional */
+      medium?: string;
+      /** Limit on the storage usable by this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers. The default is nil which means that the limit is undefined. More info: https://cloud.google.com/run/docs/configuring/in-memory-volumes#configure-volume. Info in Kubernetes: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir */
+      sizeLimit?: string;
+    }
+    interface GoogleCloudRunV2EnvVar {
+      /** Required. Name of the environment variable. Must not exceed 32768 characters. */
+      name?: string;
+      /** Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any route environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to "", and the maximum length is 32768 bytes. */
+      value?: string;
+      /** Source for the environment variable's value. */
+      valueSource?: GoogleCloudRunV2EnvVarSource;
+    }
+    interface GoogleCloudRunV2EnvVarSource {
+      /** Selects a secret and a specific version from Cloud Secret Manager. */
+      secretKeyRef?: GoogleCloudRunV2SecretKeySelector;
+    }
+    interface GoogleCloudRunV2Execution {
+      /** Output only. Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. */
+      annotations?: {[P in string]: string};
+      /** Output only. The number of tasks which reached phase Cancelled. */
+      cancelledCount?: number;
+      /** Output only. Represents time when the execution was completed. It is not guaranteed to be set in happens-before order across separate operations. */
+      completionTime?: string;
+      /** Output only. The Condition of this Execution, containing its readiness status, and detailed error information in case it did not reach the desired state. */
+      conditions?: GoogleCloudRunV2Condition[];
+      /** Output only. Represents time when the execution was acknowledged by the execution controller. It is not guaranteed to be set in happens-before order across separate operations. */
+      createTime?: string;
+      /** Output only. For a deleted resource, the deletion time. It is only populated as a response to a Delete request. */
+      deleteTime?: string;
+      /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
+      etag?: string;
+      /** Output only. For a deleted resource, the time after which it will be permamently deleted. It is only populated as a response to a Delete request. */
+      expireTime?: string;
+      /** Output only. The number of tasks which reached phase Failed. */
+      failedCount?: number;
+      /** Output only. A number that monotonically increases every time the user modifies the desired state. */
+      generation?: string;
+      /** Output only. The name of the parent Job. */
+      job?: string;
+      /** Output only. Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels */
+      labels?: {[P in string]: string};
+      /** The least stable launch stage needed to create this resource, as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports `ALPHA`, `BETA`, and `GA`. Note that this value might not be what was used as input. For example, if ALPHA was provided as input in the parent resource, but only BETA and GA-level features are were, this field will be BETA. */
+      launchStage?: string;
+      /** Output only. URI where logs for this execution can be found in Cloud Console. */
+      logUri?: string;
+      /** Output only. The unique name of this Execution. */
+      name?: string;
+      /** Output only. The generation of this Execution. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
+      observedGeneration?: string;
+      /** Output only. Specifies the maximum desired number of tasks the execution should run at any given time. Must be <= task_count. The actual number of tasks running in steady state will be less than this number when ((.spec.task_count - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism. */
+      parallelism?: number;
+      /** Output only. Indicates whether the resource's reconciliation is still in progress. See comments in `Job.reconciling` for additional information on reconciliation process in Cloud Run. */
+      reconciling?: boolean;
+      /** Output only. The number of tasks which have retried at least once. */
+      retriedCount?: number;
+      /** Output only. The number of actively running tasks. */
+      runningCount?: number;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
+      /** Output only. Represents time when the execution started to run. It is not guaranteed to be set in happens-before order across separate operations. */
+      startTime?: string;
+      /** Output only. The number of tasks which reached phase Succeeded. */
+      succeededCount?: number;
+      /** Output only. Specifies the desired number of tasks the execution should run. Setting to 1 means that parallelism is limited to 1 and the success of that task signals the success of the execution. */
+      taskCount?: number;
+      /** Output only. The template used to create tasks for this execution. */
+      template?: GoogleCloudRunV2TaskTemplate;
+      /** Output only. Server assigned unique identifier for the Execution. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
+      uid?: string;
+      /** Output only. The last-modified time. */
+      updateTime?: string;
+    }
+    interface GoogleCloudRunV2ExecutionReference {
+      /** Creation timestamp of the execution. */
+      completionTime?: string;
+      /** Creation timestamp of the execution. */
+      createTime?: string;
+      /** Name of the execution. */
+      name?: string;
+    }
+    interface GoogleCloudRunV2ExecutionTemplate {
+      /** Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2 does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system annotations in v1 now have a corresponding field in v2 ExecutionTemplate. This field follows Kubernetes annotations' namespacing, limits, and rules. */
+      annotations?: {[P in string]: string};
+      /** Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does not support labels with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system labels in v1 now have a corresponding field in v2 ExecutionTemplate. */
+      labels?: {[P in string]: string};
+      /** Specifies the maximum desired number of tasks the execution should run at given time. Must be <= task_count. When the job is run, if this field is 0 or unset, the maximum possible value will be used for that execution. The actual number of tasks running in steady state will be less than this number when there are fewer tasks waiting to be completed remaining, i.e. when the work left to do is less than max parallelism. */
+      parallelism?: number;
+      /** Specifies the desired number of tasks the execution should run. Setting to 1 means that parallelism is limited to 1 and the success of that task signals the success of the execution. Defaults to 1. */
+      taskCount?: number;
+      /** Required. Describes the task(s) that will be created when executing an execution. */
+      template?: GoogleCloudRunV2TaskTemplate;
+    }
+    interface GoogleCloudRunV2GRPCAction {
+      /** Port number of the gRPC service. Number must be in the range 1 to 65535. If not specified, defaults to the exposed port of the container, which is the value of container.ports[0].containerPort. */
+      port?: number;
+      /** Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md ). If this is not specified, the default behavior is defined by gRPC. */
+      service?: string;
+    }
+    interface GoogleCloudRunV2HTTPGetAction {
+      /** Custom headers to set in the request. HTTP allows repeated headers. */
+      httpHeaders?: GoogleCloudRunV2HTTPHeader[];
+      /** Path to access on the HTTP server. Defaults to '/'. */
+      path?: string;
+      /** Port number to access on the container. Must be in the range 1 to 65535. If not specified, defaults to the exposed port of the container, which is the value of container.ports[0].containerPort. */
+      port?: number;
+    }
+    interface GoogleCloudRunV2HTTPHeader {
+      /** Required. The header field name */
+      name?: string;
+      /** The header field value */
+      value?: string;
+    }
+    interface GoogleCloudRunV2Job {
+      /** Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2 does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected on new resources. All system annotations in v1 now have a corresponding field in v2 Job. This field follows Kubernetes annotations' namespacing, limits, and rules. */
+      annotations?: {[P in string]: string};
+      /** Settings for the Binary Authorization feature. */
+      binaryAuthorization?: GoogleCloudRunV2BinaryAuthorization;
+      /** Arbitrary identifier for the API client. */
+      client?: string;
+      /** Arbitrary version identifier for the API client. */
+      clientVersion?: string;
+      /** Output only. The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Job does not reach its desired state. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
+      conditions?: GoogleCloudRunV2Condition[];
+      /** Output only. The creation time. */
+      createTime?: string;
+      /** Output only. Email address of the authenticated creator. */
+      creator?: string;
+      /** Output only. The deletion time. */
+      deleteTime?: string;
+      /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
+      etag?: string;
+      /** Output only. Number of executions created for this job. */
+      executionCount?: number;
+      /** Output only. For a deleted resource, the time after which it will be permamently deleted. */
+      expireTime?: string;
+      /** Output only. A number that monotonically increases every time the user modifies the desired state. */
+      generation?: string;
+      /** Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does not support labels with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system labels in v1 now have a corresponding field in v2 Job. */
+      labels?: {[P in string]: string};
+      /** Output only. Email address of the last authenticated modifier. */
+      lastModifier?: string;
+      /** Output only. Name of the last created execution. */
+      latestCreatedExecution?: GoogleCloudRunV2ExecutionReference;
+      /** The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed. Set the launch stage to a preview stage on input to allow use of preview features in that stage. On read (or output), describes whether the resource uses preview features. For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. */
+      launchStage?: string;
+      /** The fully qualified name of this Job. Format: projects/{project}/locations/{location}/jobs/{job} */
+      name?: string;
+      /** Output only. The generation of this Job. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
+      observedGeneration?: string;
+      /** Output only. Returns true if the Job is currently being acted upon by the system to bring it into the desired state. When a new Job is created, or an existing one is updated, Cloud Run will asynchronously perform all necessary steps to bring the Job to the desired state. This process is called reconciliation. While reconciliation is in process, `observed_generation` and `latest_succeeded_execution`, will have transient values that might mismatch the intended state: Once reconciliation is over (and this field is false), there are two possible outcomes: reconciliation succeeded and the state matches the Job, or there was an error, and reconciliation failed. This state can be found in `terminal_condition.state`. If reconciliation succeeded, the following fields will match: `observed_generation` and `generation`, `latest_succeeded_execution` and `latest_created_execution`. If reconciliation failed, `observed_generation` and `latest_succeeded_execution` will have the state of the last succeeded execution or empty for newly created Job. Additional information on the failure can be found in `terminal_condition` and `conditions`. */
+      reconciling?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
+      /** Required. The template used to create executions for this Job. */
+      template?: GoogleCloudRunV2ExecutionTemplate;
+      /** Output only. The Condition of this Job, containing its readiness status, and detailed error information in case it did not reach the desired state. */
+      terminalCondition?: GoogleCloudRunV2Condition;
+      /** Output only. Server assigned unique identifier for the Execution. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
+      uid?: string;
+      /** Output only. The last-modified time. */
+      updateTime?: string;
+    }
+    interface GoogleCloudRunV2ListExecutionsResponse {
+      /** The resulting list of Executions. */
+      executions?: GoogleCloudRunV2Execution[];
+      /** A token indicating there are more items than page_size. Use it in the next ListExecutions request to continue. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudRunV2ListJobsResponse {
+      /** The resulting list of Jobs. */
+      jobs?: GoogleCloudRunV2Job[];
+      /** A token indicating there are more items than page_size. Use it in the next ListJobs request to continue. */
+      nextPageToken?: string;
+    }
+    interface GoogleCloudRunV2ListRevisionsResponse {
+      /** A token indicating there are more items than page_size. Use it in the next ListRevisions request to continue. */
+      nextPageToken?: string;
+      /** The resulting list of Revisions. */
+      revisions?: GoogleCloudRunV2Revision[];
+    }
+    interface GoogleCloudRunV2ListServicesResponse {
+      /** A token indicating there are more items than page_size. Use it in the next ListServices request to continue. */
+      nextPageToken?: string;
+      /** The resulting list of Services. */
+      services?: GoogleCloudRunV2Service[];
+    }
+    interface GoogleCloudRunV2ListTasksResponse {
+      /** A token indicating there are more items than page_size. Use it in the next ListTasks request to continue. */
+      nextPageToken?: string;
+      /** The resulting list of Tasks. */
+      tasks?: GoogleCloudRunV2Task[];
+    }
+    interface GoogleCloudRunV2NetworkInterface {
+      /** The VPC network that the Cloud Run resource will be able to send traffic to. At least one of network or subnetwork must be specified. If both network and subnetwork are specified, the given VPC subnetwork must belong to the given VPC network. If network is not specified, it will be looked up from the subnetwork. */
+      network?: string;
+      /** The VPC subnetwork that the Cloud Run resource will get IPs from. At least one of network or subnetwork must be specified. If both network and subnetwork are specified, the given VPC subnetwork must belong to the given VPC network. If subnetwork is not specified, the subnetwork with the same name with the network will be used. */
+      subnetwork?: string;
+      /** Network tags applied to this Cloud Run resource. */
+      tags?: string[];
+    }
+    interface GoogleCloudRunV2Overrides {
+      /** Per container override specification. */
+      containerOverrides?: GoogleCloudRunV2ContainerOverride[];
+      /** Optional. The desired number of tasks the execution should run. Will replace existing task_count value. */
+      taskCount?: number;
+      /** Duration in seconds the task may be active before the system will actively try to mark it failed and kill associated containers. Will replace existing timeout_seconds value. */
+      timeout?: string;
+    }
+    interface GoogleCloudRunV2Probe {
+      /** Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1. */
+      failureThreshold?: number;
+      /** GRPC specifies an action involving a gRPC port. Exactly one of httpGet, tcpSocket, or grpc must be specified. */
+      grpc?: GoogleCloudRunV2GRPCAction;
+      /** HTTPGet specifies the http request to perform. Exactly one of httpGet, tcpSocket, or grpc must be specified. */
+      httpGet?: GoogleCloudRunV2HTTPGetAction;
+      /** Number of seconds after the container has started before the probe is initiated. Defaults to 0 seconds. Minimum value is 0. Maximum value for liveness probe is 3600. Maximum value for startup probe is 240. */
+      initialDelaySeconds?: number;
+      /** How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1. Maximum value for liveness probe is 3600. Maximum value for startup probe is 240. Must be greater or equal than timeout_seconds. */
+      periodSeconds?: number;
+      /** TCPSocket specifies an action involving a TCP port. Exactly one of httpGet, tcpSocket, or grpc must be specified. */
+      tcpSocket?: GoogleCloudRunV2TCPSocketAction;
+      /** Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. Maximum value is 3600. Must be smaller than period_seconds. */
+      timeoutSeconds?: number;
+    }
+    interface GoogleCloudRunV2ResourceRequirements {
+      /** Determines whether CPU should be throttled or not outside of requests. */
+      cpuIdle?: boolean;
+      /** Only ´memory´ and 'cpu' are supported. Notes: * The only supported values for CPU are '1', '2', '4', and '8'. Setting 4 CPU requires at least 2Gi of memory. For more information, go to https://cloud.google.com/run/docs/configuring/cpu. * For supported 'memory' values and syntax, go to https://cloud.google.com/run/docs/configuring/memory-limits */
+      limits?: {[P in string]: string};
+      /** Determines whether CPU should be boosted on startup of a new container instance above the requested CPU threshold, this can help reduce cold-start latency. */
+      startupCpuBoost?: boolean;
+    }
+    interface GoogleCloudRunV2Revision {
+      /** Output only. Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. */
+      annotations?: {[P in string]: string};
+      /** Output only. The Condition of this Revision, containing its readiness status, and detailed error information in case it did not reach a serving state. */
+      conditions?: GoogleCloudRunV2Condition[];
+      /** Holds the single container that defines the unit of execution for this Revision. */
+      containers?: GoogleCloudRunV2Container[];
+      /** Output only. The creation time. */
+      createTime?: string;
+      /** Output only. For a deleted resource, the deletion time. It is only populated as a response to a Delete request. */
+      deleteTime?: string;
+      /** A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek */
+      encryptionKey?: string;
+      /** The action to take if the encryption key is revoked. */
+      encryptionKeyRevocationAction?: string;
+      /** If encryption_key_revocation_action is SHUTDOWN, the duration before shutting down all instances. The minimum increment is 1 hour. */
+      encryptionKeyShutdownDuration?: string;
+      /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
+      etag?: string;
+      /** The execution environment being used to host this Revision. */
+      executionEnvironment?: string;
+      /** Output only. For a deleted resource, the time after which it will be permamently deleted. It is only populated as a response to a Delete request. */
+      expireTime?: string;
+      /** Output only. A number that monotonically increases every time the user modifies the desired state. */
+      generation?: string;
+      /** Output only. Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels. */
+      labels?: {[P in string]: string};
+      /** The least stable launch stage needed to create this resource, as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports `ALPHA`, `BETA`, and `GA`. Note that this value might not be what was used as input. For example, if ALPHA was provided as input in the parent resource, but only BETA and GA-level features are were, this field will be BETA. */
+      launchStage?: string;
+      /** Output only. The Google Console URI to obtain logs for the Revision. */
+      logUri?: string;
+      /** Sets the maximum number of requests that each serving instance can receive. */
+      maxInstanceRequestConcurrency?: number;
+      /** Output only. The unique name of this Revision. */
+      name?: string;
+      /** Output only. The generation of this Revision currently serving traffic. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
+      observedGeneration?: string;
+      /** Output only. Indicates whether the resource's reconciliation is still in progress. See comments in `Service.reconciling` for additional information on reconciliation process in Cloud Run. */
+      reconciling?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
+      /** Scaling settings for this revision. */
+      scaling?: GoogleCloudRunV2RevisionScaling;
+      /** Output only. The current effective scaling settings for the revision. */
+      scalingStatus?: GoogleCloudRunV2RevisionScalingStatus;
+      /** Output only. The name of the parent service. */
+      service?: string;
+      /** Email address of the IAM service account associated with the revision of the service. The service account represents the identity of the running revision, and determines what permissions the revision has. */
+      serviceAccount?: string;
+      /** Enable session affinity. */
+      sessionAffinity?: boolean;
+      /** Max allowed time for an instance to respond to a request. */
+      timeout?: string;
+      /** Output only. Server assigned unique identifier for the Revision. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
+      uid?: string;
+      /** Output only. The last-modified time. */
+      updateTime?: string;
+      /** A list of Volumes to make available to containers. */
+      volumes?: GoogleCloudRunV2Volume[];
+      /** VPC Access configuration for this Revision. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. */
+      vpcAccess?: GoogleCloudRunV2VpcAccess;
+    }
+    interface GoogleCloudRunV2RevisionScaling {
+      /** Maximum number of serving instances that this resource should have. */
+      maxInstanceCount?: number;
+      /** Minimum number of serving instances that this resource should have. */
+      minInstanceCount?: number;
+    }
+    interface GoogleCloudRunV2RevisionScalingStatus {
+      /** The current number of min instances provisioned for this revision. */
+      desiredMinInstanceCount?: number;
+    }
+    interface GoogleCloudRunV2RevisionTemplate {
+      /** Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2 does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system annotations in v1 now have a corresponding field in v2 RevisionTemplate. This field follows Kubernetes annotations' namespacing, limits, and rules. */
+      annotations?: {[P in string]: string};
+      /** Holds the single container that defines the unit of execution for this Revision. */
+      containers?: GoogleCloudRunV2Container[];
+      /** A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek */
+      encryptionKey?: string;
+      /** The sandbox environment to host this Revision. */
+      executionEnvironment?: string;
+      /** Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does not support labels with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system labels in v1 now have a corresponding field in v2 RevisionTemplate. */
+      labels?: {[P in string]: string};
+      /** Sets the maximum number of requests that each serving instance can receive. */
+      maxInstanceRequestConcurrency?: number;
+      /** The unique name for the revision. If this field is omitted, it will be automatically generated based on the Service name. */
+      revision?: string;
+      /** Scaling settings for this Revision. */
+      scaling?: GoogleCloudRunV2RevisionScaling;
+      /** Email address of the IAM service account associated with the revision of the service. The service account represents the identity of the running revision, and determines what permissions the revision has. If not provided, the revision will use the project's default service account. */
+      serviceAccount?: string;
+      /** Enable session affinity. */
+      sessionAffinity?: boolean;
+      /** Max allowed time for an instance to respond to a request. */
+      timeout?: string;
+      /** A list of Volumes to make available to containers. */
+      volumes?: GoogleCloudRunV2Volume[];
+      /** VPC Access configuration to use for this Revision. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. */
+      vpcAccess?: GoogleCloudRunV2VpcAccess;
+    }
+    interface GoogleCloudRunV2RunJobRequest {
+      /** A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
+      etag?: string;
+      /** Overrides specification for a given execution of a job. If provided, overrides will be applied to update the execution or task spec. */
+      overrides?: GoogleCloudRunV2Overrides;
+      /** Indicates that the request should be validated without actually deleting any resources. */
+      validateOnly?: boolean;
+    }
+    interface GoogleCloudRunV2SecretKeySelector {
+      /** Required. The name of the secret in Cloud Secret Manager. Format: {secret_name} if the secret is in the same project. projects/{project}/secrets/{secret_name} if the secret is in a different project. */
+      secret?: string;
+      /** The Cloud Secret Manager secret version. Can be 'latest' for the latest version, an integer for a specific version, or a version alias. */
+      version?: string;
+    }
+    interface GoogleCloudRunV2SecretVolumeSource {
+      /** Integer representation of mode bits to use on created files by default. Must be a value between 0000 and 0777 (octal), defaulting to 0444. Directories within the path are not affected by this setting. Notes * Internally, a umask of 0222 will be applied to any non-zero value. * This is an integer representation of the mode bits. So, the octal integer value should look exactly as the chmod numeric notation with a leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set. This might be in conflict with other options that affect the file mode, like fsGroup, and as a result, other mode bits could be set. */
+      defaultMode?: number;
+      /** If unspecified, the volume will expose a file whose name is the secret, relative to VolumeMount.mount_path. If specified, the key will be used as the version to fetch from Cloud Secret Manager and the path will be the name of the file exposed in the volume. When items are defined, they must specify a path and a version. */
+      items?: GoogleCloudRunV2VersionToPath[];
+      /** Required. The name of the secret in Cloud Secret Manager. Format: {secret} if the secret is in the same project. projects/{project}/secrets/{secret} if the secret is in a different project. */
+      secret?: string;
+    }
+    interface GoogleCloudRunV2Service {
+      /** Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. Cloud Run API v2 does not support annotations with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected in new resources. All system annotations in v1 now have a corresponding field in v2 Service. This field follows Kubernetes annotations' namespacing, limits, and rules. */
+      annotations?: {[P in string]: string};
+      /** Settings for the Binary Authorization feature. */
+      binaryAuthorization?: GoogleCloudRunV2BinaryAuthorization;
+      /** Arbitrary identifier for the API client. */
+      client?: string;
+      /** Arbitrary version identifier for the API client. */
+      clientVersion?: string;
+      /** Output only. The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Service does not reach its Serving state. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
+      conditions?: GoogleCloudRunV2Condition[];
+      /** Output only. The creation time. */
+      createTime?: string;
+      /** Output only. Email address of the authenticated creator. */
+      creator?: string;
+      /** One or more custom audiences that you want this service to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests. For more information, see https://cloud.google.com/run/docs/configuring/custom-audiences. */
+      customAudiences?: string[];
+      /** Output only. The deletion time. */
+      deleteTime?: string;
+      /** User-provided description of the Service. This field currently has a 512-character limit. */
+      description?: string;
+      /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
+      etag?: string;
+      /** Output only. For a deleted resource, the time after which it will be permamently deleted. */
+      expireTime?: string;
+      /** Output only. A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a `string` instead of an `integer`. */
+      generation?: string;
+      /** Provides the ingress settings for this Service. On output, returns the currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if no revision is active. */
+      ingress?: string;
+      /** Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does not support labels with `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they will be rejected. All system labels in v1 now have a corresponding field in v2 Service. */
+      labels?: {[P in string]: string};
+      /** Output only. Email address of the last authenticated modifier. */
+      lastModifier?: string;
+      /** Output only. Name of the last created revision. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
+      latestCreatedRevision?: string;
+      /** Output only. Name of the latest revision that is serving traffic. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
+      latestReadyRevision?: string;
+      /** The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed. Set the launch stage to a preview stage on input to allow use of preview features in that stage. On read (or output), describes whether the resource uses preview features. For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. */
+      launchStage?: string;
+      /** The fully qualified name of this Service. In CreateServiceRequest, this field is ignored, and instead composed from CreateServiceRequest.parent and CreateServiceRequest.service_id. Format: projects/{project}/locations/{location}/services/{service_id} */
+      name?: string;
+      /** Output only. The generation of this Service currently serving traffic. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a `string` instead of an `integer`. */
+      observedGeneration?: string;
+      /** Output only. Returns true if the Service is currently being acted upon by the system to bring it into the desired state. When a new Service is created, or an existing one is updated, Cloud Run will asynchronously perform all necessary steps to bring the Service to the desired serving state. This process is called reconciliation. While reconciliation is in process, `observed_generation`, `latest_ready_revison`, `traffic_statuses`, and `uri` will have transient values that might mismatch the intended state: Once reconciliation is over (and this field is false), there are two possible outcomes: reconciliation succeeded and the serving state matches the Service, or there was an error, and reconciliation failed. This state can be found in `terminal_condition.state`. If reconciliation succeeded, the following fields will match: `traffic` and `traffic_statuses`, `observed_generation` and `generation`, `latest_ready_revision` and `latest_created_revision`. If reconciliation failed, `traffic_statuses`, `observed_generation`, and `latest_ready_revision` will have the state of the last serving revision, or empty for newly created Services. Additional information on the failure can be found in `terminal_condition` and `conditions`. */
+      reconciling?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
+      /** Optional. Specifies service-level scaling settings */
+      scaling?: GoogleCloudRunV2ServiceScaling;
+      /** Required. The template used to create revisions for this Service. */
+      template?: GoogleCloudRunV2RevisionTemplate;
+      /** Output only. The Condition of this Service, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
+      terminalCondition?: GoogleCloudRunV2Condition;
+      /** Specifies how to distribute traffic over a collection of Revisions belonging to the Service. If traffic is empty or not provided, defaults to 100% traffic to the latest `Ready` Revision. */
+      traffic?: GoogleCloudRunV2TrafficTarget[];
+      /** Output only. Detailed status information for corresponding traffic targets. See comments in `reconciling` for additional information on reconciliation process in Cloud Run. */
+      trafficStatuses?: GoogleCloudRunV2TrafficTargetStatus[];
+      /** Output only. Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
+      uid?: string;
+      /** Output only. The last-modified time. */
+      updateTime?: string;
+      /** Output only. The main URI in which this Service is serving traffic. */
+      uri?: string;
+    }
+    interface GoogleCloudRunV2ServiceScaling {
+      /** total min instances for the service. This number of instances is divided among all revisions with specified traffic based on the percent of traffic they are receiving. (ALPHA) */
+      minInstanceCount?: number;
+    }
+    interface GoogleCloudRunV2Task {
+      /** Output only. Unstructured key value map that may be set by external tools to store and arbitrary metadata. They are not queryable and should be preserved when modifying objects. */
+      annotations?: {[P in string]: string};
+      /** Output only. Represents time when the Task was completed. It is not guaranteed to be set in happens-before order across separate operations. */
+      completionTime?: string;
+      /** Output only. The Condition of this Task, containing its readiness status, and detailed error information in case it did not reach the desired state. */
+      conditions?: GoogleCloudRunV2Condition[];
+      /** Holds the single container that defines the unit of execution for this task. */
+      containers?: GoogleCloudRunV2Container[];
+      /** Output only. Represents time when the task was created by the system. It is not guaranteed to be set in happens-before order across separate operations. */
+      createTime?: string;
+      /** Output only. For a deleted resource, the deletion time. It is only populated as a response to a Delete request. */
+      deleteTime?: string;
+      /** Output only. A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek */
+      encryptionKey?: string;
+      /** Output only. A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
+      etag?: string;
+      /** Output only. The name of the parent Execution. */
+      execution?: string;
+      /** The execution environment being used to host this Task. */
+      executionEnvironment?: string;
+      /** Output only. For a deleted resource, the time after which it will be permamently deleted. It is only populated as a response to a Delete request. */
+      expireTime?: string;
+      /** Output only. A number that monotonically increases every time the user modifies the desired state. */
+      generation?: string;
+      /** Output only. Index of the Task, unique per execution, and beginning at 0. */
+      index?: number;
+      /** Output only. The name of the parent Job. */
+      job?: string;
+      /** Output only. Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment, state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or https://cloud.google.com/run/docs/configuring/labels */
+      labels?: {[P in string]: string};
+      /** Output only. Result of the last attempt of this Task. */
+      lastAttemptResult?: GoogleCloudRunV2TaskAttemptResult;
+      /** Output only. URI where logs for this execution can be found in Cloud Console. */
+      logUri?: string;
+      /** Number of retries allowed per Task, before marking this Task failed. */
+      maxRetries?: number;
+      /** Output only. The unique name of this Task. */
+      name?: string;
+      /** Output only. The generation of this Task. See comments in `Job.reconciling` for additional information on reconciliation process in Cloud Run. */
+      observedGeneration?: string;
+      /** Output only. Indicates whether the resource's reconciliation is still in progress. See comments in `Job.reconciling` for additional information on reconciliation process in Cloud Run. */
+      reconciling?: boolean;
+      /** Output only. The number of times this Task was retried. Tasks are retried when they fail up to the maxRetries limit. */
+      retried?: number;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
+      /** Output only. Represents time when the task was scheduled to run by the system. It is not guaranteed to be set in happens-before order across separate operations. */
+      scheduledTime?: string;
+      /** Email address of the IAM service account associated with the Task of a Job. The service account represents the identity of the running task, and determines what permissions the task has. If not provided, the task will use the project's default service account. */
+      serviceAccount?: string;
+      /** Output only. Represents time when the task started to run. It is not guaranteed to be set in happens-before order across separate operations. */
+      startTime?: string;
+      /** Max allowed time duration the Task may be active before the system will actively try to mark it failed and kill associated containers. This applies per attempt of a task, meaning each retry can run for the full timeout. */
+      timeout?: string;
+      /** Output only. Server assigned unique identifier for the Task. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted. */
+      uid?: string;
+      /** Output only. The last-modified time. */
+      updateTime?: string;
+      /** A list of Volumes to make available to containers. */
+      volumes?: GoogleCloudRunV2Volume[];
+      /** Output only. VPC Access configuration to use for this Task. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. */
+      vpcAccess?: GoogleCloudRunV2VpcAccess;
+    }
+    interface GoogleCloudRunV2TaskAttemptResult {
+      /** Output only. The exit code of this attempt. This may be unset if the container was unable to exit cleanly with a code due to some other failure. See status field for possible failure details. */
+      exitCode?: number;
+      /** Output only. The status of this attempt. If the status code is OK, then the attempt succeeded. */
+      status?: GoogleRpcStatus;
+    }
+    interface GoogleCloudRunV2TaskTemplate {
+      /** Holds the single container that defines the unit of execution for this task. */
+      containers?: GoogleCloudRunV2Container[];
+      /** A reference to a customer managed encryption key (CMEK) to use to encrypt this container image. For more information, go to https://cloud.google.com/run/docs/securing/using-cmek */
+      encryptionKey?: string;
+      /** The execution environment being used to host this Task. */
+      executionEnvironment?: string;
+      /** Number of retries allowed per Task, before marking this Task failed. Defaults to 3. */
+      maxRetries?: number;
+      /** Email address of the IAM service account associated with the Task of a Job. The service account represents the identity of the running task, and determines what permissions the task has. If not provided, the task will use the project's default service account. */
+      serviceAccount?: string;
+      /** Max allowed time duration the Task may be active before the system will actively try to mark it failed and kill associated containers. This applies per attempt of a task, meaning each retry can run for the full timeout. Defaults to 600 seconds. */
+      timeout?: string;
+      /** A list of Volumes to make available to containers. */
+      volumes?: GoogleCloudRunV2Volume[];
+      /** VPC Access configuration to use for this Task. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc. */
+      vpcAccess?: GoogleCloudRunV2VpcAccess;
+    }
+    interface GoogleCloudRunV2TCPSocketAction {
+      /** Port number to access on the container. Must be in the range 1 to 65535. If not specified, defaults to the exposed port of the container, which is the value of container.ports[0].containerPort. */
+      port?: number;
+    }
+    interface GoogleCloudRunV2TrafficTarget {
+      /** Specifies percent of the traffic to this Revision. This defaults to zero if unspecified. */
+      percent?: number;
+      /** Revision to which to send this portion of traffic, if traffic allocation is by revision. */
+      revision?: string;
+      /** Indicates a string to be part of the URI to exclusively reference this target. */
+      tag?: string;
+      /** The allocation type for this traffic target. */
+      type?: string;
+    }
+    interface GoogleCloudRunV2TrafficTargetStatus {
+      /** Specifies percent of the traffic to this Revision. */
+      percent?: number;
+      /** Revision to which this traffic is sent. */
+      revision?: string;
+      /** Indicates the string used in the URI to exclusively reference this target. */
+      tag?: string;
+      /** The allocation type for this traffic target. */
+      type?: string;
+      /** Displays the target URI. */
+      uri?: string;
+    }
+    interface GoogleCloudRunV2VersionToPath {
+      /** Integer octal mode bits to use on this file, must be a value between 01 and 0777 (octal). If 0 or not set, the Volume's default mode will be used. Notes * Internally, a umask of 0222 will be applied to any non-zero value. * This is an integer representation of the mode bits. So, the octal integer value should look exactly as the chmod numeric notation with a leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set. */
+      mode?: number;
+      /** Required. The relative path of the secret in the container. */
+      path?: string;
+      /** The Cloud Secret Manager secret version. Can be 'latest' for the latest value, or an integer or a secret alias for a specific version. */
+      version?: string;
+    }
+    interface GoogleCloudRunV2Volume {
+      /** For Cloud SQL volumes, contains the specific instances that should be mounted. Visit https://cloud.google.com/sql/docs/mysql/connect-run for more information on how to connect Cloud SQL and Cloud Run. */
+      cloudSqlInstance?: GoogleCloudRunV2CloudSqlInstance;
+      /** Ephemeral storage used as a shared volume. */
+      emptyDir?: GoogleCloudRunV2EmptyDirVolumeSource;
+      /** Required. Volume's name. */
+      name?: string;
+      /** Secret represents a secret that should populate this volume. */
+      secret?: GoogleCloudRunV2SecretVolumeSource;
+    }
+    interface GoogleCloudRunV2VolumeMount {
+      /** Required. Path within the container at which the volume should be mounted. Must not contain ':'. For Cloud SQL volumes, it can be left empty, or must otherwise be `/cloudsql`. All instances defined in the Volume will be available as `/cloudsql/[instance]`. For more information on Cloud SQL volumes, visit https://cloud.google.com/sql/docs/mysql/connect-run */
+      mountPath?: string;
+      /** Required. This must match the Name of a Volume. */
+      name?: string;
+    }
+    interface GoogleCloudRunV2VpcAccess {
+      /** VPC Access connector name. Format: projects/{project}/locations/{location}/connectors/{connector}, where {project} can be project id or number. For more information on sending traffic to a VPC network via a connector, visit https://cloud.google.com/run/docs/configuring/vpc-connectors. */
+      connector?: string;
+      /** Traffic VPC egress settings. If not provided, it defaults to PRIVATE_RANGES_ONLY. */
+      egress?: string;
+      /** Direct VPC egress settings. Currently only single network interface is supported. */
+      networkInterfaces?: GoogleCloudRunV2NetworkInterface[];
+    }
+    interface GoogleIamV1AuditConfig {
+      /** The configuration for logging of each type of permission. */
+      auditLogConfigs?: GoogleIamV1AuditLogConfig[];
+      /** Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all services. */
+      service?: string;
+    }
+    interface GoogleIamV1AuditLogConfig {
+      /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
+      exemptedMembers?: string[];
+      /** The log type that this config enables. */
+      logType?: string;
+    }
+    interface GoogleIamV1Binding {
+      /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+      condition?: GoogleTypeExpr;
+      /** Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account. Does not include identities that come from external identity providers (IdPs) through identity federation. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that represents a Google service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An identifier for a [Kubernetes service account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts). For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example, `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in the binding. */
+      members?: string[];
+      /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
+      role?: string;
+    }
+    interface GoogleIamV1Policy {
+      /** Specifies cloud audit logging configuration for this policy. */
+      auditConfigs?: GoogleIamV1AuditConfig[];
+      /** Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another 1,450 principals to the `bindings` in the `Policy`. */
+      bindings?: GoogleIamV1Binding[];
+      /** `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost. */
+      etag?: string;
+      /** Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+      version?: number;
+    }
+    interface GoogleIamV1SetIamPolicyRequest {
+      /** REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud services (such as Projects) might reject them. */
+      policy?: GoogleIamV1Policy;
+      /** OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used: `paths: "bindings, etag"` */
+      updateMask?: string;
+    }
+    interface GoogleIamV1TestIamPermissionsRequest {
+      /** The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions). */
+      permissions?: string[];
+    }
+    interface GoogleIamV1TestIamPermissionsResponse {
+      /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
+      permissions?: string[];
+    }
+    interface GoogleLongrunningListOperationsResponse {
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+      /** A list of operations that matches the specified filter in the request. */
+      operations?: GoogleLongrunningOperation[];
+    }
+    interface GoogleLongrunningOperation {
+      /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
+      done?: boolean;
+      /** The error result of the operation in case of failure or cancellation. */
+      error?: GoogleRpcStatus;
+      /** Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. */
+      metadata?: {[P in string]: any};
+      /** The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending with `operations/{unique_id}`. */
+      name?: string;
+      /** The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`. */
+      response?: {[P in string]: any};
+    }
+    interface GoogleLongrunningWaitOperationRequest {
+      /** The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used. */
+      timeout?: string;
+    }
+    interface GoogleProtobufEmpty {}
+    interface GoogleRpcStatus {
+      /** The status code, which should be an enum value of google.rpc.Code. */
+      code?: number;
+      /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
+      details?: Array<{[P in string]: any}>;
+      /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
+      message?: string;
+    }
+    interface GoogleTypeExpr {
+      /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
+      description?: string;
+      /** Textual representation of an expression in Common Expression Language syntax. */
+      expression?: string;
+      /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
+      location?: string;
+      /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
+      title?: string;
+    }
+    interface TasksResource {
+      /** Gets information about a Task. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The full name of the Task. Format: projects/{project}/locations/{location}/jobs/{job}/executions/{execution}/tasks/{task} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2Task>;
+      /** Lists Tasks from an Execution of a Job. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of Tasks to return in this call. */
+        pageSize?: number;
+        /** A page token received from a previous call to ListTasks. All other parameters must match. */
+        pageToken?: string;
+        /** Required. The Execution from which the Tasks should be listed. To list all Tasks across Executions of a Job, use "-" instead of Execution name. To list all Tasks across Jobs, use "-" instead of Job name. Format: projects/{project}/locations/{location}/jobs/{job}/executions/{execution} */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** If true, returns deleted (but unexpired) resources along with active ones. */
+        showDeleted?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2ListTasksResponse>;
+    }
+    interface ExecutionsResource {
+      /** Cancels an Execution. */
+      cancel(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the Execution to cancel. Format: `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`, where `{project}` can be project id or number. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRunV2CancelExecutionRequest;
+      }): Request<GoogleLongrunningOperation>;
+      cancel(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the Execution to cancel. Format: `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`, where `{project}` can be project id or number. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRunV2CancelExecutionRequest
+      ): Request<GoogleLongrunningOperation>;
+      /** Deletes an Execution. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** A system-generated fingerprint for this version of the resource. This may be used to detect modification conflict during updates. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the Execution to delete. Format: `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`, where `{project}` can be project id or number. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Indicates that the request should be validated without actually deleting any resources. */
+        validateOnly?: boolean;
+      }): Request<GoogleLongrunningOperation>;
+      /** Gets information about an Execution. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The full name of the Execution. Format: `projects/{project}/locations/{location}/jobs/{job}/executions/{execution}`, where `{project}` can be project id or number. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2Execution>;
+      /** Lists Executions from a Job. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of Executions to return in this call. */
+        pageSize?: number;
+        /** A page token received from a previous call to ListExecutions. All other parameters must match. */
+        pageToken?: string;
+        /** Required. The Execution from which the Executions should be listed. To list all Executions across Jobs, use "-" instead of Job name. Format: `projects/{project}/locations/{location}/jobs/{job}`, where `{project}` can be project id or number. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** If true, returns deleted (but unexpired) resources along with active ones. */
+        showDeleted?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2ListExecutionsResponse>;
+      tasks: TasksResource;
+    }
+    interface JobsResource {
+      /** Creates a Job. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Required. The unique identifier for the Job. The name of the job becomes {parent}/jobs/{job_id}. */
+        jobId?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The location and project in which this Job should be created. Format: projects/{project}/locations/{location}, where {project} can be project id or number. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: GoogleCloudRunV2Job;
+      }): Request<GoogleLongrunningOperation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** Required. The unique identifier for the Job. The name of the job becomes {parent}/jobs/{job_id}. */
+          jobId?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The location and project in which this Job should be created. Format: projects/{project}/locations/{location}, where {project} can be project id or number. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
+          validateOnly?: boolean;
+        },
+        body: GoogleCloudRunV2Job
+      ): Request<GoogleLongrunningOperation>;
+      /** Deletes a Job. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The full name of the Job. Format: projects/{project}/locations/{location}/jobs/{job}, where {project} can be project id or number. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Indicates that the request should be validated without actually deleting any resources. */
+        validateOnly?: boolean;
+      }): Request<GoogleLongrunningOperation>;
+      /** Gets information about a Job. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The full name of the Job. Format: projects/{project}/locations/{location}/jobs/{job}, where {project} can be project id or number. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2Job>;
+      /** Gets the IAM Access Control policy currently in effect for the given Job. This result does not include any inherited policies. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleIamV1Policy>;
+      /** Lists Jobs. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of Jobs to return in this call. */
+        pageSize?: number;
+        /** A page token received from a previous call to ListJobs. All other parameters must match. */
+        pageToken?: string;
+        /** Required. The location and project to list resources on. Format: projects/{project}/locations/{location}, where {project} can be project id or number. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** If true, returns deleted (but unexpired) resources along with active ones. */
+        showDeleted?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2ListJobsResponse>;
+      /** Updates a Job. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** If set to true, and if the Job does not exist, it will create a new one. Caller must have both create and update permissions for this call if this is set to true. */
+        allowMissing?: boolean;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The fully qualified name of this Job. Format: projects/{project}/locations/{location}/jobs/{job} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: GoogleCloudRunV2Job;
+      }): Request<GoogleLongrunningOperation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** If set to true, and if the Job does not exist, it will create a new one. Caller must have both create and update permissions for this call if this is set to true. */
+          allowMissing?: boolean;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The fully qualified name of this Job. Format: projects/{project}/locations/{location}/jobs/{job} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
+          validateOnly?: boolean;
+        },
+        body: GoogleCloudRunV2Job
+      ): Request<GoogleLongrunningOperation>;
+      /** Triggers creation of a new Execution of this Job. */
+      run(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The full name of the Job. Format: projects/{project}/locations/{location}/jobs/{job}, where {project} can be project id or number. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudRunV2RunJobRequest;
+      }): Request<GoogleLongrunningOperation>;
+      run(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The full name of the Job. Format: projects/{project}/locations/{location}/jobs/{job}, where {project} can be project id or number. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudRunV2RunJobRequest
+      ): Request<GoogleLongrunningOperation>;
+      /** Sets the IAM Access control policy for the specified Job. Overwrites any existing policy. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleIamV1SetIamPolicyRequest
+      ): Request<GoogleIamV1Policy>;
+      /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleIamV1TestIamPermissionsRequest
+      ): Request<GoogleIamV1TestIamPermissionsResponse>;
+      executions: ExecutionsResource;
+    }
+    interface OperationsResource {
+      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be deleted. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleLongrunningOperation>;
+      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. A filter for matching the completed or in-progress operations. The supported formats of *filter* are: To query for only completed operations: done:true To query for only ongoing operations: done:false Must be empty to query for all of the latest operations for the given parent project. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. To query for all of the operations for a project. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The maximum number of records that should be returned. Requested page size cannot exceed 100. If not set or set to less than or equal to 0, the default page size is 100. . */
+        pageSize?: number;
+        /** Token identifying which result to start with, which is returned by a previous list call. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleLongrunningListOperationsResponse>;
+      /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+      wait(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to wait on. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleLongrunningWaitOperationRequest;
+      }): Request<GoogleLongrunningOperation>;
+      wait(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of the operation resource to wait on. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleLongrunningWaitOperationRequest
+      ): Request<GoogleLongrunningOperation>;
+    }
+    interface RevisionsResource {
+      /** Deletes a Revision. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** A system-generated fingerprint for this version of the resource. This may be used to detect modification conflict during updates. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the Revision to delete. Format: projects/{project}/locations/{location}/services/{service}/revisions/{revision} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Indicates that the request should be validated without actually deleting any resources. */
+        validateOnly?: boolean;
+      }): Request<GoogleLongrunningOperation>;
+      /** Gets information about a Revision. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The full name of the Revision. Format: projects/{project}/locations/{location}/services/{service}/revisions/{revision} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2Revision>;
+      /** Lists Revisions from a given Service, or from a given location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of revisions to return in this call. */
+        pageSize?: number;
+        /** A page token received from a previous call to ListRevisions. All other parameters must match. */
+        pageToken?: string;
+        /** Required. The Service from which the Revisions should be listed. To list all Revisions across Services, use "-" instead of Service name. Format: projects/{project}/locations/{location}/services/{service} */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** If true, returns deleted (but unexpired) resources along with active ones. */
+        showDeleted?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2ListRevisionsResponse>;
+    }
+    interface ServicesResource {
+      /** Creates a new Service in a given project and location. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The location and project in which this service should be created. Format: projects/{project}/locations/{location}, where {project} can be project id or number. Only lowercase characters, digits, and hyphens. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The unique identifier for the Service. It must begin with letter, and cannot end with hyphen; must contain fewer than 50 characters. The name of the service becomes {parent}/services/{service_id}. */
+        serviceId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: GoogleCloudRunV2Service;
+      }): Request<GoogleLongrunningOperation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The location and project in which this service should be created. Format: projects/{project}/locations/{location}, where {project} can be project id or number. Only lowercase characters, digits, and hyphens. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The unique identifier for the Service. It must begin with letter, and cannot end with hyphen; must contain fewer than 50 characters. The name of the service becomes {parent}/services/{service_id}. */
+          serviceId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Indicates that the request should be validated and default values populated, without persisting the request or creating any resources. */
+          validateOnly?: boolean;
+        },
+        body: GoogleCloudRunV2Service
+      ): Request<GoogleLongrunningOperation>;
+      /** Deletes a Service. This will cause the Service to stop serving traffic and will delete all revisions. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates. */
+        etag?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The full name of the Service. Format: projects/{project}/locations/{location}/services/{service}, where {project} can be project id or number. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Indicates that the request should be validated without actually deleting any resources. */
+        validateOnly?: boolean;
+      }): Request<GoogleLongrunningOperation>;
+      /** Gets information about a Service. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The full name of the Service. Format: projects/{project}/locations/{location}/services/{service}, where {project} can be project id or number. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2Service>;
+      /** Gets the IAM Access Control policy currently in effect for the given Cloud Run Service. This result does not include any inherited policies. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleIamV1Policy>;
+      /** Lists Services. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Maximum number of Services to return in this call. */
+        pageSize?: number;
+        /** A page token received from a previous call to ListServices. All other parameters must match. */
+        pageToken?: string;
+        /** Required. The location and project to list resources on. Location must be a valid Google Cloud region, and cannot be the "-" wildcard. Format: projects/{project}/locations/{location}, where {project} can be project id or number. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** If true, returns deleted (but unexpired) resources along with active ones. */
+        showDeleted?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleCloudRunV2ListServicesResponse>;
+      /** Updates a Service. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** If set to true, and if the Service does not exist, it will create a new one. The caller must have 'run.services.create' permissions if this is set to true and the Service does not exist. */
+        allowMissing?: boolean;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The fully qualified name of this Service. In CreateServiceRequest, this field is ignored, and instead composed from CreateServiceRequest.parent and CreateServiceRequest.service_id. Format: projects/{project}/locations/{location}/services/{service_id} */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
+        validateOnly?: boolean;
+        /** Request body */
+        resource: GoogleCloudRunV2Service;
+      }): Request<GoogleLongrunningOperation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** If set to true, and if the Service does not exist, it will create a new one. The caller must have 'run.services.create' permissions if this is set to true and the Service does not exist. */
+          allowMissing?: boolean;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The fully qualified name of this Service. In CreateServiceRequest, this field is ignored, and instead composed from CreateServiceRequest.parent and CreateServiceRequest.service_id. Format: projects/{project}/locations/{location}/services/{service_id} */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+          /** Indicates that the request should be validated and default values populated, without persisting the request or updating any resources. */
+          validateOnly?: boolean;
+        },
+        body: GoogleCloudRunV2Service
+      ): Request<GoogleLongrunningOperation>;
+      /** Sets the IAM Access control policy for the specified Service. Overwrites any existing policy. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleIamV1SetIamPolicyRequest
+      ): Request<GoogleIamV1Policy>;
+      /** Returns permissions that a caller has on the specified Project. There are no permissions required for making this API call. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleIamV1TestIamPermissionsRequest
+      ): Request<GoogleIamV1TestIamPermissionsResponse>;
+      revisions: RevisionsResource;
+    }
+    interface LocationsResource {
+      jobs: JobsResource;
+      operations: OperationsResource;
+      services: ServicesResource;
+    }
+    interface ProjectsResource {
+      locations: LocationsResource;
+    }
+
+    const projects: ProjectsResource;
+  }
 }

@@ -2,15 +2,15 @@
   "name": "@maxim_mazurok/gapi.client.games_management-v1management",
   "version": "0.0.20231127",
   "description": "TypeScript typings for Google Play Game Management v1management",
-  "license": "MIT",
-  "author": {
-    "email": "maxim@mazurok.com",
-    "name": "Maxim Mazurok",
-    "url": "https://maxim.mazurok.com"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Maxim Mazurok",
+    "email": "maxim@mazurok.com",
+    "url": "https://maxim.mazurok.com"
   },
   "types": "index.d.ts",
   "dependencies": {

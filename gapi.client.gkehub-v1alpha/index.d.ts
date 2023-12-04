@@ -14,5814 +14,3808 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load GKE Hub API v1alpha */
-    function load(urlOrObject: "https://gkehub.googleapis.com/$discovery/rest?version=v1alpha"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "gkehub", version: "v1alpha"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "gkehub", version: "v1alpha", callback: () => any): void;
+  /** Load GKE Hub API v1alpha */
+  function load(
+    urlOrObject: 'https://gkehub.googleapis.com/$discovery/rest?version=v1alpha'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'gkehub', version: 'v1alpha'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'gkehub', version: 'v1alpha', callback: () => any): void;
 
-    namespace gkehub {
-        interface AnthosObservabilityFeatureSpec {
-            /** Default membership spec for unconfigured memberships */
-            defaultMembershipSpec?:
-                AnthosObservabilityMembershipSpec;
-        }
-        interface AnthosObservabilityMembershipSpec {
-            /** Use full of metrics rather than optimized metrics. See https://cloud.google.com/anthos/clusters/docs/on-prem/1.8/concepts/logging-and-monitoring#optimized_metrics_default_metrics */
-            doNotOptimizeMetrics?:
-                boolean;
-            /** Enable collecting and reporting metrics and logs from user apps. */
-            enableStackdriverOnApplications?:
-                boolean;
-            /** the version of stackdriver operator used by this feature */
-            version?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface AppDevExperienceFeatureSpec {
-        }
-        interface AppDevExperienceFeatureState {
-            /** Status of subcomponent that detects configured Service Mesh resources. */
-            networkingInstallSucceeded?:
-                Status;
-        }
-        interface ApplianceCluster {
-            /**
-             * Immutable. Self-link of the Google Cloud resource for the Appliance Cluster. For example:
-             * //transferappliance.googleapis.com/projects/my-project/locations/us-west1-a/appliances/my-appliance
-             */
-            resourceLink?:
-                string;
-        }
-        interface AuditConfig {
-            /** The configuration for logging of each type of permission. */
-            auditLogConfigs?:
-                AuditLogConfig[];
-            /**
-             * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all
-             * services.
-             */
-            service?:
-                string;
-        }
-        interface AuditLogConfig {
-            /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
-            exemptedMembers?:
-                string[];
-            /** The log type that this config enables. */
-            logType?:
-                string;
-        }
-        interface Authority {
-            /** Output only. An identity provider that reflects the `issuer` in the workload identity pool. */
-            identityProvider?:
-                string;
-            /**
-             * Optional. A JSON Web Token (JWT) issuer URI. `issuer` must start with `https://` and be a valid URL with length <2000 characters, it must use `location` rather than `zone` for GKE
-             * clusters. If set, then Google will allow valid OIDC tokens from this issuer to authenticate within the workload_identity_pool. OIDC discovery will be performed on this URI to
-             * validate tokens from the issuer. Clearing `issuer` disables Workload Identity. `issuer` cannot be directly modified; it must be cleared (and Workload Identity disabled) before using
-             * a new issuer (and re-enabling Workload Identity).
-             */
-            issuer?:
-                string;
-            /**
-             * Optional. OIDC verification keys for this Membership in JWKS format (RFC 7517). When this field is set, OIDC discovery will NOT be performed on `issuer`, and instead OIDC tokens
-             * will be validated using this field.
-             */
-            oidcJwks?:
-                string;
-            /**
-             * Output only. The name of the workload identity pool in which `issuer` will be recognized. There is a single Workload Identity Pool per Hub that is shared between all Memberships
-             * that belong to that Hub. For a Hub hosted in {PROJECT_ID}, the workload pool format is `{PROJECT_ID}.hub.id.goog`, although this is subject to change in newer versions of this API.
-             */
-            workloadIdentityPool?:
-                string;
-        }
-        interface BinaryAuthorizationConfig {
-            /** Optional. Mode of operation for binauthz policy evaluation. */
-            evaluationMode?:
-                string;
-            /** Optional. Binauthz policies that apply to this cluster. */
-            policyBindings?:
-                PolicyBinding[];
-        }
-        interface Binding {
-            /**
-             * The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`,
-             * then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which
-             * resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            condition?:
-                Expr;
-            /**
-             * Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on
-             * the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service
-             * account. Does not include identities that come from external identity providers (IdPs) through identity federation. * `user:{emailid}`: An email address that represents a specific
-             * Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that represents a Google service account. For example,
-             * `my-other-app@appspot.gserviceaccount.com`. * `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An identifier for a [Kubernetes service
-             * account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts). For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
-             * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. * `domain:{domain}`: The G Suite domain (primary) that represents all the
-             * users of that domain. For example, `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has
-             * been recently deleted. For example, `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains
-             * the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently
-             * deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and
-             * the undeleted service account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that
-             * has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group
-             * retains the role in the binding.
-             */
-            members?:
-                string[];
-            /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
-            role?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface CancelOperationRequest {
-        }
-        interface CloudAuditLoggingFeatureSpec {
-            /**
-             * Service account that should be allowlisted to send the audit logs; eg cloudauditlogging@gcp-project.iam.gserviceaccount.com. These accounts must already exist, but do not need to
-             * have any permissions granted to them. The customer's entitlements will be checked prior to allowlisting (i.e. the customer must be an Anthos customer.)
-             */
-            allowlistedServiceAccounts?:
-                string[];
-        }
-        interface CloudBuildMembershipSpec {
-            /** Whether it is allowed to run the privileged builds on the cluster or not. */
-            securityPolicy?:
-                string;
-            /** Version of the cloud build software on the cluster. */
-            version?:
-                string;
-        }
-        interface ClusterUpgradeFleetSpec {
-            /** Allow users to override some properties of each GKE upgrade. */
-            gkeUpgradeOverrides?:
-                ClusterUpgradeGKEUpgradeOverride[];
-            /** Required. Post conditions to evaluate to mark an upgrade COMPLETE. Required. */
-            postConditions?:
-                ClusterUpgradePostConditions;
-            /**
-             * This fleet consumes upgrades that have COMPLETE status code in the upstream fleets. See UpgradeStatus.Code for code definitions. The fleet name should be either fleet project number
-             * or id. This is defined as repeated for future proof reasons. Initial implementation will enforce at most one upstream fleet.
-             */
-            upstreamFleets?:
-                string[];
-        }
-        interface ClusterUpgradeFleetState {
-            /** This fleets whose upstream_fleets contain the current fleet. The fleet name should be either fleet project number or id. */
-            downstreamFleets?:
-                string[];
-            /** Feature state for GKE clusters. */
-            gkeState?:
-                ClusterUpgradeGKEUpgradeFeatureState;
-            /**
-             * A list of memberships ignored by the feature. For example, manually upgraded clusters can be ignored if they are newer than the default versions of its release channel. The
-             * membership resource is in the format: `projects/{p}/locations/{l}/membership/{m}`.
-             */
-            ignored?:
-                { [P in string]: ClusterUpgradeIgnoredMembership };
-        }
-        interface ClusterUpgradeGKEUpgrade {
-            /** Name of the upgrade, e.g., "k8s_control_plane". It should be a valid upgrade name. It must not exceet 99 characters. */
-            name?:
-                string;
-            /** Version of the upgrade, e.g., "1.22.1-gke.100". It should be a valid version. It must not exceet 99 characters. */
-            version?:
-                string;
-        }
-        interface ClusterUpgradeGKEUpgradeFeatureCondition {
-            /** Reason why the feature is in this status. */
-            reason?:
-                string;
-            /** Status of the condition, one of True, False, Unknown. */
-            status?:
-                string;
-            /** Type of the condition, for example, "ready". */
-            type?:
-                string;
-            /** Last timestamp the condition was updated. */
-            updateTime?:
-                string;
-        }
-        interface ClusterUpgradeGKEUpgradeFeatureState {
-            /** Current conditions of the feature. */
-            conditions?:
-                ClusterUpgradeGKEUpgradeFeatureCondition[];
-            /** Upgrade state. It will eventually replace `state`. */
-            upgradeState?:
-                ClusterUpgradeGKEUpgradeState[];
-        }
-        interface ClusterUpgradeGKEUpgradeOverride {
-            /** Required. Post conditions to override for the specified upgrade (name + version). Required. */
-            postConditions?:
-                ClusterUpgradePostConditions;
-            /** Required. Which upgrade to override. Required. */
-            upgrade?:
-                ClusterUpgradeGKEUpgrade;
-        }
-        interface ClusterUpgradeGKEUpgradeState {
-            /** Number of GKE clusters in each status code. */
-            stats?:
-                { [P in string]: string };
-            /** Status of the upgrade. */
-            status?:
-                ClusterUpgradeUpgradeStatus;
-            /** Which upgrade to track the state. */
-            upgrade?:
-                ClusterUpgradeGKEUpgrade;
-        }
-        interface ClusterUpgradeIgnoredMembership {
-            /** Time when the membership was first set to ignored. */
-            ignoredTime?:
-                string;
-            /** Reason why the membership is ignored. */
-            reason?:
-                string;
-        }
-        interface ClusterUpgradeMembershipGKEUpgradeState {
-            /** Status of the upgrade. */
-            status?:
-                ClusterUpgradeUpgradeStatus;
-            /** Which upgrade to track the state. */
-            upgrade?:
-                ClusterUpgradeGKEUpgrade;
-        }
-        interface ClusterUpgradeMembershipState {
-            /** Project number or id of the fleet. It is set only for Memberships that are part of fleet-based Rollout Sequencing. */
-            fleet?:
-                string;
-            /** Whether this membership is ignored by the feature. For example, manually upgraded clusters can be ignored if they are newer than the default versions of its release channel. */
-            ignored?:
-                ClusterUpgradeIgnoredMembership;
-            /** Fully qualified scope names that this clusters is bound to which also have rollout sequencing enabled. */
-            scopes?:
-                string[];
-            /** Actual upgrade state against desired. */
-            upgrades?:
-                ClusterUpgradeMembershipGKEUpgradeState[];
-        }
-        interface ClusterUpgradePostConditions {
-            /** Required. Amount of time to "soak" after a rollout has been finished before marking it COMPLETE. Cannot exceed 30 days. Required. */
-            soaking?:
-                string;
-        }
-        interface ClusterUpgradeScopeSpec {
-            /** Allow users to override some properties of each GKE upgrade. */
-            gkeUpgradeOverrides?:
-                ClusterUpgradeGKEUpgradeOverride[];
-            /** Required. Post conditions to evaluate to mark an upgrade COMPLETE. Required. */
-            postConditions?:
-                ClusterUpgradePostConditions;
-            /**
-             * This scope consumes upgrades that have COMPLETE status code in the upstream scopes. See UpgradeStatus.Code for code definitions. The scope name should be in the form:
-             * `projects/{p}/locations/global/scopes/{s}` Where {p} is the project, {s} is a valid Scope in this project. {p} WILL match the Feature's project. This is defined as repeated for
-             * future proof reasons. Initial implementation will enforce at most one upstream scope.
-             */
-            upstreamScopes?:
-                string[];
-        }
-        interface ClusterUpgradeScopeState {
-            /**
-             * This scopes whose upstream_scopes contain the current scope. The scope name should be in the form: `projects/{p}/locations/gloobal/scopes/{s}` Where {p} is the project, {s} is a
-             * valid Scope in this project. {p} WILL match the Feature's project.
-             */
-            downstreamScopes?:
-                string[];
-            /** Feature state for GKE clusters. */
-            gkeState?:
-                ClusterUpgradeGKEUpgradeFeatureState;
-            /**
-             * A list of memberships ignored by the feature. For example, manually upgraded clusters can be ignored if they are newer than the default versions of its release channel. The
-             * membership resource is in the format: `projects/{p}/locations/{l}/membership/{m}`.
-             */
-            ignored?:
-                { [P in string]: ClusterUpgradeIgnoredMembership };
-        }
-        interface ClusterUpgradeUpgradeStatus {
-            /** Status code of the upgrade. */
-            code?:
-                string;
-            /** Reason for this status. */
-            reason?:
-                string;
-            /** Last timestamp the status was updated. */
-            updateTime?:
-                string;
-        }
-        interface CommonFeatureSpec {
-            /** Anthos Observability spec */
-            anthosobservability?:
-                AnthosObservabilityFeatureSpec;
-            /** Appdevexperience specific spec. */
-            appdevexperience?:
-                any;
-            /** Cloud Audit Logging-specific spec. */
-            cloudauditlogging?:
-                CloudAuditLoggingFeatureSpec;
-            /** ClusterUpgrade (fleet-based) feature spec. */
-            clusterupgrade?:
-                ClusterUpgradeFleetSpec;
-            /** FleetObservability feature spec. */
-            fleetobservability?:
-                FleetObservabilityFeatureSpec;
-            /** Multicluster Ingress-specific spec. */
-            multiclusteringress?:
-                MultiClusterIngressFeatureSpec;
-            /** Namespace Actuation feature spec */
-            namespaceactuation?:
-                NamespaceActuationFeatureSpec;
-            /** Workload Certificate spec. */
-            workloadcertificate?:
-                FeatureSpec;
-        }
-        interface CommonFeatureState {
-            /** Appdevexperience specific state. */
-            appdevexperience?:
-                AppDevExperienceFeatureState;
-            /** ClusterUpgrade fleet-level state. */
-            clusterupgrade?:
-                ClusterUpgradeFleetState;
-            /** FleetObservability feature state. */
-            fleetobservability?:
-                FleetObservabilityFeatureState;
-            /** Namespace Actuation feature state. */
-            namespaceactuation?:
-                any;
-            /** Service Mesh-specific state. */
-            servicemesh?:
-                ServiceMeshFeatureState;
-            /** Output only. The "running state" of the Feature in this Hub. */
-            state?:
-                FeatureState;
-        }
-        interface CommonFleetDefaultMemberConfigSpec {
-            /** Config Management-specific spec. */
-            configmanagement?:
-                ConfigManagementMembershipSpec;
-            /** Identity Service-specific spec. */
-            identityservice?:
-                IdentityServiceMembershipSpec;
-            /** Anthos Service Mesh-specific spec */
-            mesh?:
-                ServiceMeshMembershipSpec;
-            /** Policy Controller spec. */
-            policycontroller?:
-                PolicyControllerMembershipSpec;
-        }
-        interface ConfigManagementBinauthzConfig {
-            /** Whether binauthz is enabled in this cluster. */
-            enabled?:
-                boolean;
-        }
-        interface ConfigManagementBinauthzState {
-            /** The version of binauthz that is installed. */
-            version?:
-                ConfigManagementBinauthzVersion;
-            /** The state of the binauthz webhook. */
-            webhook?:
-                string;
-        }
-        interface ConfigManagementBinauthzVersion {
-            /** The version of the binauthz webhook. */
-            webhookVersion?:
-                string;
-        }
-        interface ConfigManagementConfigSync {
-            /** Set to true to allow the vertical scaling. Defaults to false which disallows vertical scaling. This field is deprecated. */
-            allowVerticalScale?:
-                boolean;
-            /**
-             * Enables the installation of ConfigSync. If set to true, ConfigSync resources will be created and the other ConfigSync fields will be applied if exist. If set to false, all other
-             * ConfigSync fields will be ignored, ConfigSync resources will be deleted. If omitted, ConfigSync resources will be managed depends on the presence of the git or oci field.
-             */
-            enabled?:
-                boolean;
-            /** Git repo configuration for the cluster. */
-            git?:
-                ConfigManagementGitConfig;
-            /**
-             * The Email of the Google Cloud Service Account (GSA) used for exporting Config Sync metrics to Cloud Monitoring and Cloud Monarch when Workload Identity is enabled. The GSA should
-             * have the Monitoring Metric Writer (roles/monitoring.metricWriter) IAM role. The Kubernetes ServiceAccount `default` in the namespace `config-management-monitoring` should be bound
-             * to the GSA. This field is required when automatic Feature management is enabled.
-             */
-            metricsGcpServiceAccountEmail?:
-                string;
-            /** OCI repo configuration for the cluster */
-            oci?:
-                ConfigManagementOciConfig;
-            /** Set to true to enable the Config Sync admission webhook to prevent drifts. If set to `false`, disables the Config Sync admission webhook and does not prevent drifts. */
-            preventDrift?:
-                boolean;
-            /** Specifies whether the Config Sync Repo is in "hierarchical" or "unstructured" mode. */
-            sourceFormat?:
-                string;
-        }
-        interface ConfigManagementConfigSyncDeploymentState {
-            /** Deployment state of admission-webhook */
-            admissionWebhook?:
-                string;
-            /** Deployment state of the git-sync pod */
-            gitSync?:
-                string;
-            /** Deployment state of the importer pod */
-            importer?:
-                string;
-            /** Deployment state of the monitor pod */
-            monitor?:
-                string;
-            /** Deployment state of reconciler-manager pod */
-            reconcilerManager?:
-                string;
-            /** Deployment state of root-reconciler */
-            rootReconciler?:
-                string;
-            /** Deployment state of the syncer pod */
-            syncer?:
-                string;
-        }
-        interface ConfigManagementConfigSyncError {
-            /** A string representing the user facing error message */
-            errorMessage?:
-                string;
-        }
-        interface ConfigManagementConfigSyncState {
-            /** Information about the deployment of ConfigSync, including the version of the various Pods deployed */
-            deploymentState?:
-                ConfigManagementConfigSyncDeploymentState;
-            /** Errors pertaining to the installation of Config Sync. */
-            errors?:
-                ConfigManagementConfigSyncError[];
-            /** The state of ConfigSync's process to sync configs to a cluster */
-            syncState?:
-                ConfigManagementSyncState;
-            /** The version of ConfigSync deployed */
-            version?:
-                ConfigManagementConfigSyncVersion;
-        }
-        interface ConfigManagementConfigSyncVersion {
-            /** Version of the deployed admission_webhook pod */
-            admissionWebhook?:
-                string;
-            /** Version of the deployed git-sync pod */
-            gitSync?:
-                string;
-            /** Version of the deployed importer pod */
-            importer?:
-                string;
-            /** Version of the deployed monitor pod */
-            monitor?:
-                string;
-            /** Version of the deployed reconciler-manager pod */
-            reconcilerManager?:
-                string;
-            /** Version of the deployed reconciler container in root-reconciler pod */
-            rootReconciler?:
-                string;
-            /** Version of the deployed syncer pod */
-            syncer?:
-                string;
-        }
-        interface ConfigManagementErrorResource {
-            /** Group/version/kind of the resource that is causing an error */
-            resourceGvk?:
-                ConfigManagementGroupVersionKind;
-            /** Metadata name of the resource that is causing an error */
-            resourceName?:
-                string;
-            /** Namespace of the resource that is causing an error */
-            resourceNamespace?:
-                string;
-            /** Path in the git repo of the erroneous config */
-            sourcePath?:
-                string;
-        }
-        interface ConfigManagementGatekeeperDeploymentState {
-            /** Status of gatekeeper-audit deployment. */
-            gatekeeperAudit?:
-                string;
-            /** Status of gatekeeper-controller-manager pod. */
-            gatekeeperControllerManagerState?:
-                string;
-            /** Status of the pod serving the mutation webhook. */
-            gatekeeperMutation?:
-                string;
-        }
-        interface ConfigManagementGitConfig {
-            /** The Google Cloud Service Account Email used for auth when secret_type is gcpServiceAccount. */
-            gcpServiceAccountEmail?:
-                string;
-            /** URL for the HTTPS proxy to be used when communicating with the Git repo. */
-            httpsProxy?:
-                string;
-            /** The path within the Git repository that represents the top level of the repo to sync. Default: the root directory of the repository. */
-            policyDir?:
-                string;
-            /** Type of secret configured for access to the Git repo. Must be one of ssh, cookiefile, gcenode, token, gcpserviceaccount or none. The validation of this is case-sensitive. Required. */
-            secretType?:
-                string;
-            /** The branch of the repository to sync from. Default: master. */
-            syncBranch?:
-                string;
-            /** The URL of the Git repository to use as the source of truth. */
-            syncRepo?:
-                string;
-            /** Git revision (tag or hash) to check out. Default HEAD. */
-            syncRev?:
-                string;
-            /** Period in seconds between consecutive syncs. Default: 15. */
-            syncWaitSecs?:
-                string;
-        }
-        interface ConfigManagementGroupVersionKind {
-            /** Kubernetes Group */
-            group?:
-                string;
-            /** Kubernetes Kind */
-            kind?:
-                string;
-            /** Kubernetes Version */
-            version?:
-                string;
-        }
-        interface ConfigManagementHierarchyControllerConfig {
-            /** Whether Hierarchy Controller is enabled in this cluster. */
-            enabled?:
-                boolean;
-            /** Whether hierarchical resource quota is enabled in this cluster. */
-            enableHierarchicalResourceQuota?:
-                boolean;
-            /** Whether pod tree labels are enabled in this cluster. */
-            enablePodTreeLabels?:
-                boolean;
-        }
-        interface ConfigManagementHierarchyControllerDeploymentState {
-            /** The deployment state for Hierarchy Controller extension (e.g. v0.7.0-hc.1) */
-            extension?:
-                string;
-            /** The deployment state for open source HNC (e.g. v0.7.0-hc.0) */
-            hnc?:
-                string;
-        }
-        interface ConfigManagementHierarchyControllerState {
-            /** The deployment state for Hierarchy Controller */
-            state?:
-                ConfigManagementHierarchyControllerDeploymentState;
-            /** The version for Hierarchy Controller */
-            version?:
-                ConfigManagementHierarchyControllerVersion;
-        }
-        interface ConfigManagementHierarchyControllerVersion {
-            /** Version for Hierarchy Controller extension */
-            extension?:
-                string;
-            /** Version for open source HNC */
-            hnc?:
-                string;
-        }
-        interface ConfigManagementInstallError {
-            /** A string representing the user facing error message */
-            errorMessage?:
-                string;
-        }
-        interface ConfigManagementMembershipSpec {
-            /** Binauthz conifguration for the cluster. Deprecated: This field will be ignored and should not be set. */
-            binauthz?:
-                ConfigManagementBinauthzConfig;
-            /**
-             * The user-specified cluster name used by Config Sync cluster-name-selector annotation or ClusterSelector, for applying configs to only a subset of clusters. Omit this field if the
-             * cluster's fleet membership name is used by Config Sync cluster-name-selector annotation or ClusterSelector. Set this field if a name different from the cluster's fleet membership
-             * name is used by Config Sync cluster-name-selector annotation or ClusterSelector.
-             */
-            cluster?:
-                string;
-            /** Config Sync configuration for the cluster. */
-            configSync?:
-                ConfigManagementConfigSync;
-            /** Hierarchy Controller configuration for the cluster. */
-            hierarchyController?:
-                ConfigManagementHierarchyControllerConfig;
-            /** Policy Controller configuration for the cluster. */
-            policyController?:
-                ConfigManagementPolicyController;
-            /** Version of ACM installed. */
-            version?:
-                string;
-        }
-        interface ConfigManagementMembershipState {
-            /** Binauthz status */
-            binauthzState?:
-                ConfigManagementBinauthzState;
-            /** This field is set to the `cluster_name` field of the Membership Spec if it is not empty. Otherwise, it is set to the cluster's fleet membership name. */
-            clusterName?:
-                string;
-            /** Current sync status */
-            configSyncState?:
-                ConfigManagementConfigSyncState;
-            /** Hierarchy Controller status */
-            hierarchyControllerState?:
-                ConfigManagementHierarchyControllerState;
-            /** Membership configuration in the cluster. This represents the actual state in the cluster, while the MembershipSpec in the FeatureSpec represents the intended state */
-            membershipSpec?:
-                ConfigManagementMembershipSpec;
-            /** Current install status of ACM's Operator */
-            operatorState?:
-                ConfigManagementOperatorState;
-            /** PolicyController status */
-            policyControllerState?:
-                ConfigManagementPolicyControllerState;
-        }
-        interface ConfigManagementOciConfig {
-            /** The Google Cloud Service Account Email used for auth when secret_type is gcpServiceAccount. */
-            gcpServiceAccountEmail?:
-                string;
-            /** The absolute path of the directory that contains the local resources. Default: the root directory of the image. */
-            policyDir?:
-                string;
-            /** Type of secret configured for access to the Git repo. */
-            secretType?:
-                string;
-            /** The OCI image repository URL for the package to sync from. e.g. `LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/PACKAGE_NAME`. */
-            syncRepo?:
-                string;
-            /** Period in seconds between consecutive syncs. Default: 15. */
-            syncWaitSecs?:
-                string;
-        }
-        interface ConfigManagementOperatorState {
-            /** The state of the Operator's deployment */
-            deploymentState?:
-                string;
-            /** Install errors. */
-            errors?:
-                ConfigManagementInstallError[];
-            /** The semenatic version number of the operator */
-            version?:
-                string;
-        }
-        interface ConfigManagementPolicyController {
-            /** Sets the interval for Policy Controller Audit Scans (in seconds). When set to 0, this disables audit functionality altogether. */
-            auditIntervalSeconds?:
-                string;
-            /** Enables the installation of Policy Controller. If false, the rest of PolicyController fields take no effect. */
-            enabled?:
-                boolean;
-            /** The set of namespaces that are excluded from Policy Controller checks. Namespaces do not need to currently exist on the cluster. */
-            exemptableNamespaces?:
-                string[];
-            /** Logs all denies and dry run failures. */
-            logDeniesEnabled?:
-                boolean;
-            /** Monitoring specifies the configuration of monitoring. */
-            monitoring?:
-                ConfigManagementPolicyControllerMonitoring;
-            /** Enable or disable mutation in policy controller. If true, mutation CRDs, webhook and controller deployment will be deployed to the cluster. */
-            mutationEnabled?:
-                boolean;
-            /** Enables the ability to use Constraint Templates that reference to objects other than the object currently being evaluated. */
-            referentialRulesEnabled?:
-                boolean;
-            /** Installs the default template library along with Policy Controller. */
-            templateLibraryInstalled?:
-                boolean;
-            /** Output only. Last time this membership spec was updated. */
-            updateTime?:
-                string;
-        }
-        interface ConfigManagementPolicyControllerMigration {
-            /** Last time this membership spec was copied to PoCo feature. */
-            copyTime?:
-                string;
-            /** Stage of the migration. */
-            stage?:
-                string;
-        }
-        interface ConfigManagementPolicyControllerMonitoring {
-            /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
-            backends?:
-                string[];
-        }
-        interface ConfigManagementPolicyControllerState {
-            /** The state about the policy controller installation. */
-            deploymentState?:
-                ConfigManagementGatekeeperDeploymentState;
-            /** Record state of ACM -> PoCo Hub migration for this feature. */
-            migration?:
-                ConfigManagementPolicyControllerMigration;
-            /** The version of Gatekeeper Policy Controller deployed. */
-            version?:
-                ConfigManagementPolicyControllerVersion;
-        }
-        interface ConfigManagementPolicyControllerVersion {
-            /** The gatekeeper image tag that is composed of ACM version, git tag, build number. */
-            version?:
-                string;
-        }
-        interface ConfigManagementSyncError {
-            /** An ACM defined error code */
-            code?:
-                string;
-            /** A description of the error */
-            errorMessage?:
-                string;
-            /** A list of config(s) associated with the error, if any */
-            errorResources?:
-                ConfigManagementErrorResource[];
-        }
-        interface ConfigManagementSyncState {
-            /** Sync status code */
-            code?:
-                string;
-            /** A list of errors resulting from problematic configs. This list will be truncated after 100 errors, although it is unlikely for that many errors to simultaneously exist. */
-            errors?:
-                ConfigManagementSyncError[];
-            /** Token indicating the state of the importer. */
-            importToken?:
-                string;
-            /** Deprecated: use last_sync_time instead. Timestamp of when ACM last successfully synced the repo The time format is specified in https://golang.org/pkg/time/#Time.String */
-            lastSync?:
-                string;
-            /** Timestamp type of when ACM last successfully synced the repo */
-            lastSyncTime?:
-                string;
-            /** Token indicating the state of the repo. */
-            sourceToken?:
-                string;
-            /** Token indicating the state of the syncer. */
-            syncToken?:
-                string;
-        }
-        interface ConnectAgentResource {
-            /** YAML manifest of the resource. */
-            manifest?:
-                string;
-            /** Kubernetes type of the resource. */
-            type?:
-                TypeMeta;
-        }
-        interface DefaultClusterConfig {
-            /** Optional. Enable/Disable binary authorization features for the cluster. */
-            binaryAuthorizationConfig?:
-                BinaryAuthorizationConfig;
-            /** Enable/Disable Security Posture features for the cluster. */
-            securityPostureConfig?:
-                SecurityPostureConfig;
-        }
-        interface EdgeCluster {
-            /** Immutable. Self-link of the Google Cloud resource for the Edge Cluster. For example: //edgecontainer.googleapis.com/projects/my-project/locations/us-west1-a/clusters/my-cluster */
-            resourceLink?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface Empty {
-        }
-        interface Expr {
-            /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
-            description?:
-                string;
-            /** Textual representation of an expression in Common Expression Language syntax. */
-            expression?:
-                string;
-            /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
-            location?:
-                string;
-            /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
-            title?:
-                string;
-        }
-        interface Feature {
-            /** Output only. When the Feature resource was created. */
-            createTime?:
-                string;
-            /** Output only. When the Feature resource was deleted. */
-            deleteTime?:
-                string;
-            /** Optional. Feature configuration applicable to all memberships of the fleet. */
-            fleetDefaultMemberConfig?:
-                CommonFleetDefaultMemberConfigSpec;
-            /** Labels for this Feature. */
-            labels?:
-                { [P in string]: string };
-            /**
-             * Optional. Membership-specific configuration for this Feature. If this Feature does not support any per-Membership configuration, this field may be unused. The keys indicate which
-             * Membership the configuration is for, in the form: `projects/{p}/locations/{l}/memberships/{m}` Where {p} is the project, {l} is a valid location and {m} is a valid Membership in
-             * this project at that location. {p} WILL match the Feature's project. {p} will always be returned as the project number, but the project ID is also accepted during input. If the same
-             * Membership is specified in the map twice (using the project ID form, and the project number form), exactly ONE of the entries will be saved, with no guarantees as to which. For this
-             * reason, it is recommended the same format be used for all entries when mutating a Feature.
-             */
-            membershipSpecs?:
-                { [P in string]: MembershipFeatureSpec };
-            /**
-             * Output only. Membership-specific Feature status. If this Feature does report any per-Membership status, this field may be unused. The keys indicate which Membership the state is
-             * for, in the form: `projects/{p}/locations/{l}/memberships/{m}` Where {p} is the project number, {l} is a valid location and {m} is a valid Membership in this project at that
-             * location. {p} MUST match the Feature's project number.
-             */
-            membershipStates?:
-                { [P in string]: MembershipFeatureState };
-            /** Output only. The full, unique name of this Feature resource in the format `projects/*‍/locations/*‍/features/*`. */
-            name?:
-                string;
-            /** Output only. State of the Feature resource itself. */
-            resourceState?:
-                FeatureResourceState;
-            /**
-             * Optional. Scope-specific configuration for this Feature. If this Feature does not support any per-Scope configuration, this field may be unused. The keys indicate which Scope the
-             * configuration is for, in the form: `projects/{p}/locations/global/scopes/{s}` Where {p} is the project, {s} is a valid Scope in this project. {p} WILL match the Feature's project.
-             * {p} will always be returned as the project number, but the project ID is also accepted during input. If the same Scope is specified in the map twice (using the project ID form, and
-             * the project number form), exactly ONE of the entries will be saved, with no guarantees as to which. For this reason, it is recommended the same format be used for all entries when
-             * mutating a Feature.
-             */
-            scopeSpecs?:
-                { [P in string]: ScopeFeatureSpec };
-            /**
-             * Output only. Scope-specific Feature status. If this Feature does report any per-Scope status, this field may be unused. The keys indicate which Scope the state is for, in the form:
-             * `projects/{p}/locations/global/scopes/{s}` Where {p} is the project, {s} is a valid Scope in this project. {p} WILL match the Feature's project.
-             */
-            scopeStates?:
-                { [P in string]: ScopeFeatureState };
-            /** Optional. Hub-wide Feature configuration. If this Feature does not support any Hub-wide configuration, this field may be unused. */
-            spec?:
-                CommonFeatureSpec;
-            /** Output only. The Hub-wide Feature state. */
-            state?:
-                CommonFeatureState;
-            /** Output only. When the Feature resource was last updated. */
-            updateTime?:
-                string;
-        }
-        interface FeatureResourceState {
-            /** The current state of the Feature resource in the Hub API. */
-            state?:
-                string;
-        }
-        interface FeatureSpec {
-            /** Specifies default membership spec. Users can override the default in the member_configs for each member. */
-            defaultConfig?:
-                MembershipSpec;
-            /** Immutable. Specifies CA configuration. */
-            provisionGoogleCa?:
-                string;
-        }
-        interface FeatureState {
-            /** The high-level, machine-readable status of this Feature. */
-            code?:
-                string;
-            /** A human-readable description of the current status. */
-            description?:
-                string;
-            /** The time this status and any related Feature-specific details were updated. */
-            updateTime?:
-                string;
-        }
-        interface Fleet {
-            /** Output only. When the Fleet was created. */
-            createTime?:
-                string;
-            /** Optional. The default cluster configurations to apply across the fleet. */
-            defaultClusterConfig?:
-                DefaultClusterConfig;
-            /** Output only. When the Fleet was deleted. */
-            deleteTime?:
-                string;
-            /**
-             * Optional. A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen,
-             * single-quote, double-quote, space, and exclamation point. Example: `Production Fleet`
-             */
-            displayName?:
-                string;
-            /** Optional. Labels for this Fleet. */
-            labels?:
-                { [P in string]: string };
-            /**
-             * Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most one
-             * fleet resource, named "default".
-             */
-            name?:
-                string;
-            /** Output only. State of the namespace resource. */
-            state?:
-                FleetLifecycleState;
-            /**
-             * Output only. Google-generated UUID for this resource. This is unique across all Fleet resources. If a Fleet resource is deleted and another resource with the same name is created,
-             * it gets a different uid.
-             */
-            uid?:
-                string;
-            /** Output only. When the Fleet was last updated. */
-            updateTime?:
-                string;
-        }
-        interface FleetLifecycleState {
-            /** Output only. The current state of the Fleet resource. */
-            code?:
-                string;
-        }
-        interface FleetObservabilityFeatureError {
-            /** The code of the error. */
-            code?:
-                string;
-            /** A human-readable description of the current status. */
-            description?:
-                string;
-        }
-        interface FleetObservabilityFeatureSpec {
-            /** Specified if fleet logging feature is enabled for the entire fleet. If UNSPECIFIED, fleet logging feature is disabled for the entire fleet. */
-            loggingConfig?:
-                FleetObservabilityLoggingConfig;
-        }
-        interface FleetObservabilityFeatureState {
-            /** The feature state of default logging. */
-            logging?:
-                FleetObservabilityFleetObservabilityLoggingState;
-            /** The feature state of fleet monitoring. */
-            monitoring?:
-                FleetObservabilityFleetObservabilityMonitoringState;
-        }
-        interface FleetObservabilityFleetObservabilityBaseFeatureState {
-            /** The high-level, machine-readable status of this Feature. */
-            code?:
-                string;
-            /** Errors after reconciling the monitoring and logging feature if the code is not OK. */
-            errors?:
-                FleetObservabilityFeatureError[];
-        }
-        interface FleetObservabilityFleetObservabilityLoggingState {
-            /** The base feature state of fleet default log. */
-            defaultLog?:
-                FleetObservabilityFleetObservabilityBaseFeatureState;
-            /** The base feature state of fleet scope log. */
-            scopeLog?:
-                FleetObservabilityFleetObservabilityBaseFeatureState;
-        }
-        interface FleetObservabilityFleetObservabilityMonitoringState {
-            /** The base feature state of fleet monitoring feature. */
-            state?:
-                FleetObservabilityFleetObservabilityBaseFeatureState;
-        }
-        interface FleetObservabilityLoggingConfig {
-            /** Specified if applying the default routing config to logs not specified in other configs. */
-            defaultConfig?:
-                FleetObservabilityRoutingConfig;
-            /** Specified if applying the routing config to all logs for all fleet scopes. */
-            fleetScopeLogsConfig?:
-                FleetObservabilityRoutingConfig;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface FleetObservabilityMembershipSpec {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface FleetObservabilityMembershipState {
-        }
-        interface FleetObservabilityRoutingConfig {
-            /** mode configures the logs routing mode. */
-            mode?:
-                string;
-        }
-        interface GenerateConnectManifestResponse {
-            /** The ordered list of Kubernetes resources that need to be applied to the cluster for GKE Connect agent installation/upgrade. */
-            manifest?:
-                ConnectAgentResource[];
-        }
-        interface GenerateMembershipRBACRoleBindingYAMLResponse {
-            /** a yaml text blob including the RBAC policies. */
-            roleBindingsYaml?:
-                string;
-        }
-        interface GkeCluster {
-            /** Output only. If cluster_missing is set then it denotes that the GKE cluster no longer exists in the GKE Control Plane. */
-            clusterMissing?:
-                boolean;
-            /**
-             * Immutable. Self-link of the Google Cloud resource for the GKE cluster. For example: //container.googleapis.com/projects/my-project/locations/us-west1-a/clusters/my-cluster Zonal
-             * clusters are also supported.
-             */
-            resourceLink?:
-                string;
-        }
-        interface GoogleRpcStatus {
-            /** The status code, which should be an enum value of google.rpc.Code. */
-            code?:
-                number;
-            /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?:
-                Array<{ [P in string]: any }>;
-            /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
-             * client.
-             */
-            message?:
-                string;
-        }
-        interface IdentityServiceAuthMethod {
-            /** AzureAD specific Configuration. */
-            azureadConfig?:
-                IdentityServiceAzureADConfig;
-            /** GoogleConfig specific configuration. */
-            googleConfig?:
-                IdentityServiceGoogleConfig;
-            /** Identifier for auth config. */
-            name?:
-                string;
-            /** OIDC specific configuration. */
-            oidcConfig?:
-                IdentityServiceOidcConfig;
-            /** Proxy server address to use for auth method. */
-            proxy?:
-                string;
-        }
-        interface IdentityServiceAzureADConfig {
-            /** ID for the registered client application that makes authentication requests to the Azure AD identity provider. */
-            clientId?:
-                string;
-            /** Input only. Unencrypted AzureAD client secret will be passed to the GKE Hub CLH. */
-            clientSecret?:
-                string;
-            /** Output only. Encrypted AzureAD client secret. */
-            encryptedClientSecret?:
-                string;
-            /** The redirect URL that kubectl uses for authorization. */
-            kubectlRedirectUri?:
-                string;
-            /** Kind of Azure AD account to be authenticated. Supported values are or for accounts belonging to a specific tenant. */
-            tenant?:
-                string;
-        }
-        interface IdentityServiceGoogleConfig {
-            /** Disable automatic configuration of Google Plugin on supported platforms. */
-            disable?:
-                boolean;
-        }
-        interface IdentityServiceMembershipSpec {
-            /** A member may support multiple auth methods. */
-            authMethods?:
-                IdentityServiceAuthMethod[];
-        }
-        interface IdentityServiceMembershipState {
-            /** The reason of the failure. */
-            failureReason?:
-                string;
-            /** Installed AIS version. This is the AIS version installed on this member. The values makes sense iff state is OK. */
-            installedVersion?:
-                string;
-            /** Last reconciled membership configuration */
-            memberConfig?:
-                IdentityServiceMembershipSpec;
-            /** Deployment state on this member */
-            state?:
-                string;
-        }
-        interface IdentityServiceOidcConfig {
-            /** PEM-encoded CA for OIDC provider. */
-            certificateAuthorityData?:
-                string;
-            /** ID for OIDC client application. */
-            clientId?:
-                string;
-            /** Input only. Unencrypted OIDC client secret will be passed to the GKE Hub CLH. */
-            clientSecret?:
-                string;
-            /** Flag to denote if reverse proxy is used to connect to auth provider. This flag should be set to true when provider is not reachable by Google Cloud Console. */
-            deployCloudConsoleProxy?:
-                boolean;
-            /** Enable access token. */
-            enableAccessToken?:
-                boolean;
-            /** Output only. Encrypted OIDC Client secret */
-            encryptedClientSecret?:
-                string;
-            /** Comma-separated list of key-value pairs. */
-            extraParams?:
-                string;
-            /** Prefix to prepend to group name. */
-            groupPrefix?:
-                string;
-            /** Claim in OIDC ID token that holds group information. */
-            groupsClaim?:
-                string;
-            /** URI for the OIDC provider. This should point to the level below .well-known/openid-configuration. */
-            issuerUri?:
-                string;
-            /** Registered redirect uri to redirect users going through OAuth flow using kubectl plugin. */
-            kubectlRedirectUri?:
-                string;
-            /** Comma-separated list of identifiers. */
-            scopes?:
-                string;
-            /** Claim in OIDC ID token that holds username. */
-            userClaim?:
-                string;
-            /** Prefix to prepend to user name. */
-            userPrefix?:
-                string;
-        }
-        interface KubernetesMetadata {
-            /** Output only. Kubernetes API server version string as reported by `/version`. */
-            kubernetesApiServerVersion?:
-                string;
-            /** Output only. The total memory capacity as reported by the sum of all Kubernetes nodes resources, defined in MB. */
-            memoryMb?:
-                number;
-            /** Output only. Node count as reported by Kubernetes nodes resources. */
-            nodeCount?:
-                number;
-            /**
-             * Output only. Node providerID as reported by the first node in the list of nodes on the Kubernetes endpoint. On Kubernetes platforms that support zero-node clusters (like
-             * GKE-on-GCP), the node_count will be zero and the node_provider_id will be empty.
-             */
-            nodeProviderId?:
-                string;
-            /**
-             * Output only. The time at which these details were last updated. This update_time is different from the Membership-level update_time since EndpointDetails are updated internally for
-             * API consumers.
-             */
-            updateTime?:
-                string;
-            /** Output only. vCPU count as reported by Kubernetes nodes resources. */
-            vcpuCount?:
-                number;
-        }
-        interface KubernetesResource {
-            /**
-             * Output only. The Kubernetes resources for installing the GKE Connect agent This field is only populated in the Membership returned from a successful long-running operation from
-             * CreateMembership or UpdateMembership. It is not populated during normal GetMembership or ListMemberships requests. To get the resource manifest after the initial registration, the
-             * caller should make a UpdateMembership call with an empty field mask.
-             */
-            connectResources?:
-                ResourceManifest[];
-            /**
-             * Input only. The YAML representation of the Membership CR. This field is ignored for GKE clusters where Hub can read the CR directly. Callers should provide the CR that is currently
-             * present in the cluster during CreateMembership or UpdateMembership, or leave this field empty if none exists. The CR manifest is used to validate the cluster has not been registered
-             * with another Membership.
-             */
-            membershipCrManifest?:
-                string;
-            /**
-             * Output only. Additional Kubernetes resources that need to be applied to the cluster after Membership creation, and after every update. This field is only populated in the Membership
-             * returned from a successful long-running operation from CreateMembership or UpdateMembership. It is not populated during normal GetMembership or ListMemberships requests. To get the
-             * resource manifest after the initial registration, the caller should make a UpdateMembership call with an empty field mask.
-             */
-            membershipResources?:
-                ResourceManifest[];
-            /** Optional. Options for Kubernetes resource generation. */
-            resourceOptions?:
-                ResourceOptions;
-        }
-        interface ListAdminClusterMembershipsResponse {
-            /** The list of matching Memberships of admin clusters. */
-            adminClusterMemberships?:
-                Membership[];
-            /** A token to request the next page of resources from the `ListAdminClusterMemberships` method. The value of an empty string means that there are no more resources to return. */
-            nextPageToken?:
-                string;
-            /** List of locations that could not be reached while fetching this list. */
-            unreachable?:
-                string[];
-        }
-        interface ListFeaturesResponse {
-            /** A token to request the next page of resources from the `ListFeatures` method. The value of an empty string means that there are no more resources to return. */
-            nextPageToken?:
-                string;
-            /** The list of matching Features */
-            resources?:
-                Feature[];
-        }
-        interface ListFleetsResponse {
-            /** The list of matching fleets. */
-            fleets?:
-                Fleet[];
-            /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. The token is only valid for 1h. */
-            nextPageToken?:
-                string;
-        }
-        interface ListLocationsResponse {
-            /** A list of locations that matches the specified filter in the request. */
-            locations?:
-                Location[];
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-        }
-        interface ListMembershipBindingsResponse {
-            /** The list of membership_bindings */
-            membershipBindings?:
-                MembershipBinding[];
-            /** A token to request the next page of resources from the `ListMembershipBindings` method. The value of an empty string means that there are no more resources to return. */
-            nextPageToken?:
-                string;
-        }
-        interface ListMembershipRBACRoleBindingsResponse {
-            /** A token to request the next page of resources from the `ListMembershipRBACRoleBindings` method. The value of an empty string means that there are no more resources to return. */
-            nextPageToken?:
-                string;
-            /** The list of Membership RBACRoleBindings. */
-            rbacrolebindings?:
-                RBACRoleBinding[];
-        }
-        interface ListMembershipsResponse {
-            /** A token to request the next page of resources from the `ListMemberships` method. The value of an empty string means that there are no more resources to return. */
-            nextPageToken?:
-                string;
-            /** The list of matching Memberships. */
-            resources?:
-                Membership[];
-            /** List of locations that could not be reached while fetching this list. */
-            unreachable?:
-                string[];
-        }
-        interface ListOperationsResponse {
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-            /** A list of operations that matches the specified filter in the request. */
-            operations?:
-                Operation[];
-        }
-        interface ListScopeNamespacesResponse {
-            /** A token to request the next page of resources from the `ListNamespaces` method. The value of an empty string means that there are no more resources to return. */
-            nextPageToken?:
-                string;
-            /** The list of fleet namespaces */
-            scopeNamespaces?:
-                Namespace[];
-        }
-        interface ListScopeRBACRoleBindingsResponse {
-            /** A token to request the next page of resources from the `ListScopeRBACRoleBindings` method. The value of an empty string means that there are no more resources to return. */
-            nextPageToken?:
-                string;
-            /** The list of Scope RBACRoleBindings. */
-            rbacrolebindings?:
-                RBACRoleBinding[];
-        }
-        interface ListScopesResponse {
-            /** A token to request the next page of resources from the `ListScopes` method. The value of an empty string means that there are no more resources to return. */
-            nextPageToken?:
-                string;
-            /** The list of Scopes */
-            scopes?:
-                Scope[];
-        }
-        interface Location {
-            /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?:
-                string;
-            /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?:
-                { [P in string]: string };
-            /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?:
-                string;
-            /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?:
-                { [P in string]: any };
-            /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?:
-                string;
-        }
-        interface Membership {
-            /**
-             * Optional. How to identify workloads from this Membership. See the documentation on Workload Identity for more details:
-             * https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
-             */
-            authority?:
-                Authority;
-            /** Output only. When the Membership was created. */
-            createTime?:
-                string;
-            /** Output only. When the Membership was deleted. */
-            deleteTime?:
-                string;
-            /** Output only. Description of this membership, limited to 63 characters. Must match the regex: `a-zA-Z0-9*` This field is present for legacy purposes. */
-            description?:
-                string;
-            /** Optional. Endpoint information to reach this member. */
-            endpoint?:
-                MembershipEndpoint;
-            /**
-             * Optional. An externally-generated and managed ID for this Membership. This ID may be modified after creation, but this is not recommended. The ID must match the regex: `a-zA-Z0-9*`
-             * If this Membership represents a Kubernetes cluster, this value should be set to the UID of the `kube-system` namespace object.
-             */
-            externalId?:
-                string;
-            /** Optional. Labels for this membership. */
-            labels?:
-                { [P in string]: string };
-            /**
-             * Output only. For clusters using Connect, the timestamp of the most recent connection established with Google Cloud. This time is updated every several minutes, not continuously. For
-             * clusters that do not use GKE Connect, or that have never connected successfully, this field will be unset.
-             */
-            lastConnectionTime?:
-                string;
-            /** Optional. The monitoring config information for this membership. */
-            monitoringConfig?:
-                MonitoringConfig;
-            /**
-             * Output only. The full, unique name of this Membership resource in the format `projects/*‍/locations/*‍/memberships/{membership_id}`, set during creation. `membership_id` must be a
-             * valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric
-             * character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters.
-             */
-            name?:
-                string;
-            /** Output only. State of the Membership resource. */
-            state?:
-                MembershipState;
-            /**
-             * Output only. Google-generated UUID for this resource. This is unique across all Membership resources. If a Membership resource is deleted and another resource with the same name is
-             * created, it gets a different unique_id.
-             */
-            uniqueId?:
-                string;
-            /** Output only. When the Membership was last updated. */
-            updateTime?:
-                string;
-        }
-        interface MembershipBinding {
-            /** Output only. When the membership binding was created. */
-            createTime?:
-                string;
-            /** Output only. When the membership binding was deleted. */
-            deleteTime?:
-                string;
-            /** Optional. Labels for this MembershipBinding. */
-            labels?:
-                { [P in string]: string };
-            /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
-            name?:
-                string;
-            /** A Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
-            scope?:
-                string;
-            /** Output only. State of the membership binding resource. */
-            state?:
-                MembershipBindingLifecycleState;
-            /**
-             * Output only. Google-generated UUID for this resource. This is unique across all membershipbinding resources. If a membershipbinding resource is deleted and another resource with the
-             * same name is created, it gets a different uid.
-             */
-            uid?:
-                string;
-            /** Output only. When the membership binding was last updated. */
-            updateTime?:
-                string;
-        }
-        interface MembershipBindingLifecycleState {
-            /** Output only. The current state of the MembershipBinding resource. */
-            code?:
-                string;
-        }
-        interface MembershipEndpoint {
-            /** Optional. Specific information for a GDC Edge Appliance cluster. */
-            applianceCluster?:
-                ApplianceCluster;
-            /** Optional. Specific information for a Google Edge cluster. */
-            edgeCluster?:
-                EdgeCluster;
-            /** Optional. Specific information for a GKE-on-GCP cluster. */
-            gkeCluster?:
-                GkeCluster;
-            /** Output only. Whether the lifecycle of this membership is managed by a google cluster platform service. */
-            googleManaged?:
-                boolean;
-            /** Output only. Useful Kubernetes-specific metadata. */
-            kubernetesMetadata?:
-                KubernetesMetadata;
-            /**
-             * Optional. The in-cluster Kubernetes Resources that should be applied for a correctly registered cluster, in the steady state. These resources: * Ensure that the cluster is
-             * exclusively registered to one and only one Hub Membership. * Propagate Workload Pool Information available in the Membership Authority field. * Ensure proper initial configuration
-             * of default Hub Features.
-             */
-            kubernetesResource?:
-                KubernetesResource;
-            /** Optional. Specific information for a GKE Multi-Cloud cluster. */
-            multiCloudCluster?:
-                MultiCloudCluster;
-            /** Optional. Specific information for a GKE On-Prem cluster. An onprem user-cluster who has no resourceLink is not allowed to use this field, it should have a nil "type" instead. */
-            onPremCluster?:
-                OnPremCluster;
-        }
-        interface MembershipFeatureSpec {
-            /** Anthos Observability-specific spec */
-            anthosobservability?:
-                AnthosObservabilityMembershipSpec;
-            /** Cloud Build-specific spec */
-            cloudbuild?:
-                CloudBuildMembershipSpec;
-            /** Config Management-specific spec. */
-            configmanagement?:
-                ConfigManagementMembershipSpec;
-            /** Fleet observability membership spec */
-            fleetobservability?:
-                any;
-            /** Identity Service-specific spec. */
-            identityservice?:
-                IdentityServiceMembershipSpec;
-            /** Anthos Service Mesh-specific spec */
-            mesh?:
-                ServiceMeshMembershipSpec;
-            /** FNS Actuation membership spec */
-            namespaceactuation?:
-                any;
-            /**
-             * Whether this per-Membership spec was inherited from a fleet-level default. This field can be updated by users by either overriding a Membership config (updated to USER implicitly)
-             * or setting to FLEET explicitly.
-             */
-            origin?:
-                Origin;
-            /** Policy Controller spec. */
-            policycontroller?:
-                PolicyControllerMembershipSpec;
-            /** Workload Certificate spec. */
-            workloadcertificate?:
-                MembershipSpec;
-        }
-        interface MembershipFeatureState {
-            /** Appdevexperience specific state. */
-            appdevexperience?:
-                AppDevExperienceFeatureState;
-            /** ClusterUpgrade state. */
-            clusterupgrade?:
-                ClusterUpgradeMembershipState;
-            /** Config Management-specific state. */
-            configmanagement?:
-                ConfigManagementMembershipState;
-            /** Fleet observability membership state. */
-            fleetobservability?:
-                any;
-            /** Identity Service-specific state. */
-            identityservice?:
-                IdentityServiceMembershipState;
-            /** Metering-specific state. */
-            metering?:
-                MeteringMembershipState;
-            /** FNS Actuation membership state */
-            namespaceactuation?:
-                any;
-            /** Policycontroller-specific state. */
-            policycontroller?:
-                PolicyControllerMembershipState;
-            /** Service Mesh-specific state. */
-            servicemesh?:
-                ServiceMeshMembershipState;
-            /** The high-level state of this Feature for a single membership. */
-            state?:
-                FeatureState;
-        }
-        interface MembershipSpec {
-            /** Specifies workload certificate management. */
-            certificateManagement?:
-                string;
-        }
-        interface MembershipState {
-            /** Output only. The current state of the Membership resource. */
-            code?:
-                string;
-        }
-        interface MeteringMembershipState {
-            /** The time stamp of the most recent measurement of the number of vCPUs in the cluster. */
-            lastMeasurementTime?:
-                string;
-            /** The vCPUs capacity in the cluster according to the most recent measurement (1/1000 precision). */
-            preciseLastMeasuredClusterVcpuCapacity?:
-                number;
-        }
-        interface MonitoringConfig {
-            /**
-             * Optional. Cluster name used to report metrics. For Anthos on VMWare/Baremetal/MultiCloud clusters, it would be in format {cluster_type}/{cluster_name}, e.g.,
-             * "awsClusters/cluster_1".
-             */
-            cluster?:
-                string;
-            /** Optional. For GKE and Multicloud clusters, this is the UUID of the cluster resource. For VMWare and Baremetal clusters, this is the kube-system UID. */
-            clusterHash?:
-                string;
-            /**
-             * Optional. Kubernetes system metrics, if available, are written to this prefix. This defaults to kubernetes.io for GKE, and kubernetes.io/anthos for Anthos eventually. Noted: Anthos
-             * MultiCloud will have kubernetes.io prefix today but will migration to be under kubernetes.io/anthos.
-             */
-            kubernetesMetricsPrefix?:
-                string;
-            /** Optional. Location used to report Metrics */
-            location?:
-                string;
-            /** Optional. Project used to report Metrics */
-            projectId?:
-                string;
-        }
-        interface MultiCloudCluster {
-            /** Output only. If cluster_missing is set then it denotes that API(gkemulticloud.googleapis.com) resource for this GKE Multi-Cloud cluster no longer exists. */
-            clusterMissing?:
-                boolean;
-            /**
-             * Immutable. Self-link of the Google Cloud resource for the GKE Multi-Cloud cluster. For example:
-             * //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/awsClusters/my-cluster
-             * //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/azureClusters/my-cluster
-             * //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/attachedClusters/my-cluster
-             */
-            resourceLink?:
-                string;
-        }
-        interface MultiClusterIngressFeatureSpec {
-            /** Deprecated: This field will be ignored and should not be set. Customer's billing structure. */
-            billing?:
-                string;
-            /** Fully-qualified Membership name which hosts the MultiClusterIngress CRD. Example: `projects/foo-proj/locations/global/memberships/bar` */
-            configMembership?:
-                string;
-        }
-        interface Namespace {
-            /** Output only. When the namespace was created. */
-            createTime?:
-                string;
-            /** Output only. When the namespace was deleted. */
-            deleteTime?:
-                string;
-            /** Optional. Labels for this Namespace. */
-            labels?:
-                { [P in string]: string };
-            /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
-            name?:
-                string;
-            /**
-             * Optional. Namespace-level cluster namespace labels. These labels are applied to the related namespace of the member clusters bound to the parent Scope. Scope-level labels
-             * (`namespace_labels` in the Fleet Scope resource) take precedence over Namespace-level labels if they share a key. Keys and values must be Kubernetes-conformant.
-             */
-            namespaceLabels?:
-                { [P in string]: string };
-            /** Required. Scope associated with the namespace */
-            scope?:
-                string;
-            /** Output only. State of the namespace resource. */
-            state?:
-                NamespaceLifecycleState;
-            /**
-             * Output only. Google-generated UUID for this resource. This is unique across all namespace resources. If a namespace resource is deleted and another resource with the same name is
-             * created, it gets a different uid.
-             */
-            uid?:
-                string;
-            /** Output only. When the namespace was last updated. */
-            updateTime?:
-                string;
-        }
-        interface NamespaceActuationFeatureSpec {
-            /** actuation_mode controls the behavior of the controller */
-            actuationMode?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface NamespaceActuationFeatureState {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface NamespaceActuationMembershipSpec {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface NamespaceActuationMembershipState {
-        }
-        interface NamespaceLifecycleState {
-            /** Output only. The current state of the Namespace resource. */
-            code?:
-                string;
-        }
-        interface OnPremCluster {
-            /** Immutable. Whether the cluster is an admin cluster. */
-            adminCluster?:
-                boolean;
-            /** Output only. If cluster_missing is set then it denotes that API(gkeonprem.googleapis.com) resource for this GKE On-Prem cluster no longer exists. */
-            clusterMissing?:
-                boolean;
-            /** Immutable. The on prem cluster's type. */
-            clusterType?:
-                string;
-            /**
-             * Immutable. Self-link of the Google Cloud resource for the GKE On-Prem cluster. For example:
-             * //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/vmwareClusters/my-cluster
-             * //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/bareMetalClusters/my-cluster
-             */
-            resourceLink?:
-                string;
-        }
-        interface Operation {
-            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?:
-                boolean;
-            /** The error result of the operation in case of failure or cancellation. */
-            error?:
-                GoogleRpcStatus;
-            /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
-             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
-             */
-            metadata?:
-                { [P in string]: any };
-            /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
-             * with `operations/{unique_id}`.
-             */
-            name?:
-                string;
-            /**
-             * The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original
-             * method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original
-             * method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
-             */
-            response?:
-                { [P in string]: any };
-        }
-        interface OperationMetadata {
-            /** Output only. API version used to start the operation. */
-            apiVersion?:
-                string;
-            /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            cancelRequested?:
-                boolean;
-            /** Output only. The time the operation was created. */
-            createTime?:
-                string;
-            /** Output only. The time the operation finished running. */
-            endTime?:
-                string;
-            /** Output only. Human-readable status of the operation, if any. */
-            statusDetail?:
-                string;
-            /** Output only. Server-defined resource path for the target of the operation. */
-            target?:
-                string;
-            /** Output only. Name of the verb executed by the operation. */
-            verb?:
-                string;
-        }
-        interface Origin {
-            /** Type specifies which type of origin is set. */
-            type?:
-                string;
-        }
-        interface Policy {
-            /** Specifies cloud audit logging configuration for this policy. */
-            auditConfigs?:
-                AuditConfig[];
-            /**
-             * Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings`
-             * must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a
-             * principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another
-             * 1,450 principals to the `bindings` in the `Policy`.
-             */
-            bindings?:
-                Binding[];
-            /**
-             * `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make
-             * use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems
-             * are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM
-             * Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
-             * policy, and all of the conditions in the version `3` policy are lost.
-             */
-            etag?:
-                string;
-            /**
-             * Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings
-             * must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a
-             * policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use
-             * IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1`
-             * policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave
-             * the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-             */
-            version?:
-                number;
-        }
-        interface PolicyBinding {
-            /** The relative resource name of the binauthz platform policy to audit. GKE platform policies have the following format: `projects/{project_number}/platforms/gke/policies/{policy_id}`. */
-            name?:
-                string;
-        }
-        interface PolicyControllerBundleInstallSpec {
-            /** The set of namespaces to be exempted from the bundle. */
-            exemptedNamespaces?:
-                string[];
-        }
-        interface PolicyControllerHubConfig {
-            /** Sets the interval for Policy Controller Audit Scans (in seconds). When set to 0, this disables audit functionality altogether. */
-            auditIntervalSeconds?:
-                string;
-            /** The maximum number of audit violations to be stored in a constraint. If not set, the internal default (currently 20) will be used. */
-            constraintViolationLimit?:
-                string;
-            /** Map of deployment configs to deployments ("admission", "audit", "mutation'). */
-            deploymentConfigs?:
-                { [P in string]: PolicyControllerPolicyControllerDeploymentConfig };
-            /** The set of namespaces that are excluded from Policy Controller checks. Namespaces do not need to currently exist on the cluster. */
-            exemptableNamespaces?:
-                string[];
-            /**
-             * The install_spec represents the intended state specified by the latest request that mutated install_spec in the feature spec, not the lifecycle state of the feature observed by the
-             * Hub feature controller that is reported in the feature state.
-             */
-            installSpec?:
-                string;
-            /** Logs all denies and dry run failures. */
-            logDeniesEnabled?:
-                boolean;
-            /** Monitoring specifies the configuration of monitoring. */
-            monitoring?:
-                PolicyControllerMonitoringConfig;
-            /** Enables the ability to mutate resources using Policy Controller. */
-            mutationEnabled?:
-                boolean;
-            /** Specifies the desired policy content on the cluster */
-            policyContent?:
-                PolicyControllerPolicyContentSpec;
-            /** Enables the ability to use Constraint Templates that reference to objects other than the object currently being evaluated. */
-            referentialRulesEnabled?:
-                boolean;
-        }
-        interface PolicyControllerMembershipSpec {
-            /** Policy Controller configuration for the cluster. */
-            policyControllerHubConfig?:
-                PolicyControllerHubConfig;
-            /** Version of Policy Controller installed. */
-            version?:
-                string;
-        }
-        interface PolicyControllerMembershipState {
-            /** Currently these include (also serving as map keys): 1. "admission" 2. "audit" 3. "mutation" */
-            componentStates?:
-                { [P in string]: PolicyControllerOnClusterState };
-            /** The overall content state observed by the Hub Feature controller. */
-            policyContentState?:
-                PolicyControllerPolicyContentState;
-            /** The overall Policy Controller lifecycle state observed by the Hub Feature controller. */
-            state?:
-                string;
-        }
-        interface PolicyControllerMonitoringConfig {
-            /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
-            backends?:
-                string[];
-        }
-        interface PolicyControllerOnClusterState {
-            /** Surface potential errors or information logs. */
-            details?:
-                string;
-            /** The lifecycle state of this component. */
-            state?:
-                string;
-        }
-        interface PolicyControllerPolicyContentSpec {
-            /** map of bundle name to BundleInstallSpec. The bundle name maps to the `bundleName` key in the `policycontroller.gke.io/constraintData` annotation on a constraint. */
-            bundles?:
-                { [P in string]: PolicyControllerBundleInstallSpec };
-            /** Configures the installation of the Template Library. */
-            templateLibrary?:
-                PolicyControllerTemplateLibraryConfig;
-        }
-        interface PolicyControllerPolicyContentState {
-            /** The state of the any bundles included in the chosen version of the manifest */
-            bundleStates?:
-                { [P in string]: PolicyControllerOnClusterState };
-            /**
-             * The state of the referential data sync configuration. This could represent the state of either the syncSet object(s) or the config object, depending on the version of PoCo
-             * configured by the user.
-             */
-            referentialSyncConfigState?:
-                PolicyControllerOnClusterState;
-            /** The state of the template library */
-            templateLibraryState?:
-                PolicyControllerOnClusterState;
-        }
-        interface PolicyControllerPolicyControllerDeploymentConfig {
-            /** Container resource requirements. */
-            containerResources?:
-                PolicyControllerResourceRequirements;
-            /** Pod affinity configuration. */
-            podAffinity?:
-                string;
-            /** Pod anti-affinity enablement. */
-            podAntiAffinity?:
-                boolean;
-            /** Pod tolerations of node taints. */
-            podTolerations?:
-                PolicyControllerToleration[];
-            /** Pod replica count. */
-            replicaCount?:
-                string;
-        }
-        interface PolicyControllerResourceList {
-            /** CPU requirement expressed in Kubernetes resource units. */
-            cpu?:
-                string;
-            /** Memory requirement expressed in Kubernetes resource units. */
-            memory?:
-                string;
-        }
-        interface PolicyControllerResourceRequirements {
-            /** Limits describes the maximum amount of compute resources allowed for use by the running container. */
-            limits?:
-                PolicyControllerResourceList;
-            /** Requests describes the amount of compute resources reserved for the container by the kube-scheduler. */
-            requests?:
-                PolicyControllerResourceList;
-        }
-        interface PolicyControllerTemplateLibraryConfig {
-            /** Configures the manner in which the template library is installed on the cluster. */
-            installation?:
-                string;
-        }
-        interface PolicyControllerToleration {
-            /** Matches a taint effect. */
-            effect?:
-                string;
-            /** Matches a taint key (not necessarily unique). */
-            key?:
-                string;
-            /** Matches a taint operator. */
-            operator?:
-                string;
-            /** Matches a taint value. */
-            value?:
-                string;
-        }
-        interface RBACRoleBinding {
-            /** Output only. When the rbacrolebinding was created. */
-            createTime?:
-                string;
-            /** Output only. When the rbacrolebinding was deleted. */
-            deleteTime?:
-                string;
-            /** group is the group, as seen by the kubernetes cluster. */
-            group?:
-                string;
-            /** Optional. Labels for this RBACRolebinding. */
-            labels?:
-                { [P in string]: string };
-            /**
-             * The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or
-             * `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
-             */
-            name?:
-                string;
-            /** Required. Role to bind to the principal */
-            role?:
-                Role;
-            /** Output only. State of the rbacrolebinding resource. */
-            state?:
-                RBACRoleBindingLifecycleState;
-            /**
-             * Output only. Google-generated UUID for this resource. This is unique across all rbacrolebinding resources. If a rbacrolebinding resource is deleted and another resource with the
-             * same name is created, it gets a different uid.
-             */
-            uid?:
-                string;
-            /** Output only. When the rbacrolebinding was last updated. */
-            updateTime?:
-                string;
-            /** user is the name of the user as seen by the kubernetes cluster, example "alice" or "alice@domain.tld" */
-            user?:
-                string;
-        }
-        interface RBACRoleBindingLifecycleState {
-            /** Output only. The current state of the rbacrolebinding resource. */
-            code?:
-                string;
-        }
-        interface ResourceManifest {
-            /**
-             * Whether the resource provided in the manifest is `cluster_scoped`. If unset, the manifest is assumed to be namespace scoped. This field is used for REST mapping when applying the
-             * resource in a cluster.
-             */
-            clusterScoped?:
-                boolean;
-            /** YAML manifest of the resource. */
-            manifest?:
-                string;
-        }
-        interface ResourceOptions {
-            /**
-             * Optional. The Connect agent version to use for connect_resources. Defaults to the latest GKE Connect version. The version must be a currently supported version, obsolete versions
-             * will be rejected.
-             */
-            connectVersion?:
-                string;
-            /**
-             * Optional. Major version of the Kubernetes cluster. This is only used to determine which version to use for the CustomResourceDefinition resources, `apiextensions/v1beta1`
-             * or`apiextensions/v1`.
-             */
-            k8sVersion?:
-                string;
-            /**
-             * Optional. Use `apiextensions/v1beta1` instead of `apiextensions/v1` for CustomResourceDefinition resources. This option should be set for clusters with Kubernetes apiserver versions
-             * <1.16.
-             */
-            v1beta1Crd?:
-                boolean;
-        }
-        interface Role {
-            /** predefined_role is the Kubernetes default role to use */
-            predefinedRole?:
-                string;
-        }
-        interface Scope {
-            /** Output only. When the scope was created. */
-            createTime?:
-                string;
-            /** Output only. When the scope was deleted. */
-            deleteTime?:
-                string;
-            /** Optional. Labels for this Scope. */
-            labels?:
-                { [P in string]: string };
-            /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
-            name?:
-                string;
-            /**
-             * Optional. Scope-level cluster namespace labels. For the member clusters bound to the Scope, these labels are applied to each namespace under the Scope. Scope-level labels take
-             * precedence over Namespace-level labels (`namespace_labels` in the Fleet Namespace resource) if they share a key. Keys and values must be Kubernetes-conformant.
-             */
-            namespaceLabels?:
-                { [P in string]: string };
-            /** Output only. State of the scope resource. */
-            state?:
-                ScopeLifecycleState;
-            /**
-             * Output only. Google-generated UUID for this resource. This is unique across all scope resources. If a scope resource is deleted and another resource with the same name is created,
-             * it gets a different uid.
-             */
-            uid?:
-                string;
-            /** Output only. When the scope was last updated. */
-            updateTime?:
-                string;
-        }
-        interface ScopeFeatureSpec {
-            /** Spec for the ClusterUpgrade feature at the scope level */
-            clusterupgrade?:
-                ClusterUpgradeScopeSpec;
-        }
-        interface ScopeFeatureState {
-            /** State for the ClusterUpgrade feature at the scope level */
-            clusterupgrade?:
-                ClusterUpgradeScopeState;
-            /** Output only. The "running state" of the Feature in this Scope. */
-            state?:
-                FeatureState;
-        }
-        interface ScopeLifecycleState {
-            /** Output only. The current state of the scope resource. */
-            code?:
-                string;
-        }
-        interface SecurityPostureConfig {
-            /** Sets which mode to use for Security Posture features. */
-            mode?:
-                string;
-            /** Sets which mode to use for vulnerability scanning. */
-            vulnerabilityMode?:
-                string;
-        }
-        interface ServiceMeshAnalysisMessage {
-            /** A UI can combine these args with a template (based on message_base.type) to produce an internationalized message. */
-            args?:
-                { [P in string]: any };
-            /** A human readable description of what the error means. It is suitable for non-internationalize display purposes. */
-            description?:
-                string;
-            /** Details common to all types of Istio and ServiceMesh analysis messages. */
-            messageBase?:
-                ServiceMeshAnalysisMessageBase;
-            /**
-             * A list of strings specifying the resource identifiers that were the cause of message generation. A "path" here may be: * MEMBERSHIP_ID if the cause is a specific member cluster *
-             * MEMBERSHIP_ID/(NAMESPACE\/)?RESOURCETYPE/NAME if the cause is a resource in a cluster
-             */
-            resourcePaths?:
-                string[];
-        }
-        interface ServiceMeshAnalysisMessageBase {
-            /** A url pointing to the Service Mesh or Istio documentation for this specific error type. */
-            documentationUrl?:
-                string;
-            /** Represents how severe a message is. */
-            level?:
-                string;
-            /** Represents the specific type of a message. */
-            type?:
-                ServiceMeshType;
-        }
-        interface ServiceMeshControlPlaneManagement {
-            /** Explanation of state. */
-            details?:
-                ServiceMeshStatusDetails[];
-            /** LifecycleState of control plane management. */
-            state?:
-                string;
-        }
-        interface ServiceMeshDataPlaneManagement {
-            /** Explanation of the status. */
-            details?:
-                ServiceMeshStatusDetails[];
-            /** Lifecycle status of data plane management. */
-            state?:
-                string;
-        }
-        interface ServiceMeshFeatureState {
-            /** Output only. Results of running Service Mesh analyzers. */
-            analysisMessages?:
-                ServiceMeshAnalysisMessage[];
-        }
-        interface ServiceMeshMembershipSpec {
-            /** Deprecated: use `management` instead Enables automatic control plane management. */
-            controlPlane?:
-                string;
-            /** Determines which release channel to use for default injection and service mesh APIs. */
-            defaultChannel?:
-                string;
-            /** Enables automatic Service Mesh management. */
-            management?:
-                string;
-        }
-        interface ServiceMeshMembershipState {
-            /** Output only. Results of running Service Mesh analyzers. */
-            analysisMessages?:
-                ServiceMeshAnalysisMessage[];
-            /** The API version (i.e. Istio CRD version) for configuring service mesh in this cluster. This version is influenced by the `default_channel` field. */
-            configApiVersion?:
-                string;
-            /** Output only. Status of control plane management */
-            controlPlaneManagement?:
-                ServiceMeshControlPlaneManagement;
-            /** Output only. Status of data plane management. */
-            dataPlaneManagement?:
-                ServiceMeshDataPlaneManagement;
-        }
-        interface ServiceMeshStatusDetails {
-            /** A machine-readable code that further describes a broad status. */
-            code?:
-                string;
-            /** Human-readable explanation of code. */
-            details?:
-                string;
-        }
-        interface ServiceMeshType {
-            /** A 7 character code matching `^IST[0-9]{4}$` or `^ASM[0-9]{4}$`, intended to uniquely identify the message type. (e.g. "IST0001" is mapped to the "InternalError" message type.) */
-            code?:
-                string;
-            /**
-             * A human-readable name for the message type. e.g. "InternalError", "PodMissingProxy". This should be the same for all messages of the same type. (This corresponds to the `name` field
-             * in open-source Istio.)
-             */
-            displayName?:
-                string;
-        }
-        interface SetIamPolicyRequest {
-            /**
-             * REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud
-             * services (such as Projects) might reject them.
-             */
-            policy?:
-                Policy;
-            /**
-             * OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used:
-             * `paths: "bindings, etag"`
-             */
-            updateMask?:
-                string;
-        }
-        interface Status {
-            /** Code specifies AppDevExperienceFeature's subcomponent ready state. */
-            code?:
-                string;
-            /** Description is populated if Code is Failed, explaining why it has failed. */
-            description?:
-                string;
-        }
-        interface TestIamPermissionsRequest {
-            /**
-             * The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM
-             * Overview](https://cloud.google.com/iam/docs/overview#permissions).
-             */
-            permissions?:
-                string[];
-        }
-        interface TestIamPermissionsResponse {
-            /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
-            permissions?:
-                string[];
-        }
-        interface TypeMeta {
-            /** APIVersion of the resource (e.g. v1). */
-            apiVersion?:
-                string;
-            /** Kind of the resource (e.g. Deployment). */
-            kind?:
-                string;
-        }
-        interface ValidateCreateMembershipRequest {
-            /** Required. Membership resource to be created. */
-            membership?:
-                Membership;
-            /** Required. Client chosen membership id. */
-            membershipId?:
-                string;
-        }
-        interface ValidateCreateMembershipResponse {
-            /** Wraps all the validator results. */
-            validationResults?:
-                ValidationResult[];
-        }
-        interface ValidationResult {
-            /** Additional information for the validation. */
-            result?:
-                string;
-            /** Whether the validation is passed or not. */
-            success?:
-                boolean;
-            /** Validator type to validate membership with. */
-            validator?:
-                string;
-        }
-        interface FleetsResource {
-            /** Returns all fleets within an organization or a project that the caller has access to. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum number of fleets to return. The service may return fewer than this value. If unspecified, at most 200 fleets will be returned. The maximum value is 1000;
-                 * values above 1000 will be coerced to 1000.
-                 */
-                pageSize?:
-                    number;
-                /**
-                 * Optional. A page token, received from a previous `ListFleets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListFleets`
-                 * must match the call that provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /** Required. The organization or project to list for Fleets under, in the format `organizations/*‍/locations/*` or `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListFleetsResponse>;
-        }
-        interface LocationsResource {
-            fleets:
-                FleetsResource;
-        }
-        interface OrganizationsResource {
-            locations:
-                LocationsResource;
-        }
-        interface FeaturesResource {
-            /** Adds a new Feature. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** The ID of the feature to create. */
-                featureId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Feature will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been
-                 * completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request
-                 * times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the
-                 * second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-                 * (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Feature;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** The ID of the feature to create. */
-                featureId?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Feature will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been
-                 * completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request
-                 * times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the
-                 * second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-                 * (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Feature): Request<Operation>;
-            /** Removes a Feature. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * If set to true, the delete will ignore any outstanding resources for this Feature (that is, `FeatureState.has_resources` is set to true). These resources will NOT be cleaned up
-                 * or modified in any way.
-                 */
-                force?:
-                    boolean;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
-                 * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-                 * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Gets details of a single Feature. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*` */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Feature>;
-            /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Policy>;
-            /** Lists Features in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * Lists Features that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Examples: - Feature with the name "servicemesh" in project
-                 * "foo-proj": name = "projects/foo-proj/locations/global/features/servicemesh" - Features that have a label called `foo`: labels.foo:* - Features that have a label called `foo`
-                 * whose value is `bar`: labels.foo = bar
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
-                orderBy?:
-                    string;
-                /** When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-                pageSize?:
-                    number;
-                /** Token returned by previous call to `ListFeatures` which specifies the position in the list from where to continue listing the resources. */
-                pageToken?:
-                    string;
-                /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListFeaturesResponse>;
-            /** Updates an existing Feature. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been
-                 * completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request
-                 * times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the
-                 * second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-                 * (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Mask of fields to update. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Feature;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been
-                 * completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request
-                 * times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the
-                 * second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported
-                 * (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Mask of fields to update. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Feature): Request<Operation>;
-            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: SetIamPolicyRequest): Request<Policy>;
-            /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-             */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-        }
-        interface FleetsResource {
-            /** Creates a fleet. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Fleet will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Fleet;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Fleet will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Fleet): Request<Operation>;
-            /** Removes a Fleet. There must be no memberships remaining in the Fleet. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Fleet resource name in the format `projects/*‍/locations/*‍/fleets/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Returns the details of a fleet. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Fleet resource name in the format `projects/*‍/locations/*‍/fleets/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Fleet>;
-            /** Returns all fleets within an organization or a project that the caller has access to. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum number of fleets to return. The service may return fewer than this value. If unspecified, at most 200 fleets will be returned. The maximum value is 1000;
-                 * values above 1000 will be coerced to 1000.
-                 */
-                pageSize?:
-                    number;
-                /**
-                 * Optional. A page token, received from a previous `ListFleets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListFleets`
-                 * must match the call that provided the page token.
-                 */
-                pageToken?:
-                    string;
-                /** Required. The organization or project to list for Fleets under, in the format `organizations/*‍/locations/*` or `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListFleetsResponse>;
-            /** Updates a fleet. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most
-                 * one fleet resource, named "default".
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated; */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Fleet;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most
-                 * one fleet resource, named "default".
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated; */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Fleet): Request<Operation>;
-        }
-        interface BindingsResource {
-            /** Creates a MembershipBinding. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The ID to use for the MembershipBinding. */
-                membershipBindingId?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the MembershipBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    MembershipBinding;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The ID to use for the MembershipBinding. */
-                membershipBindingId?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the MembershipBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: MembershipBinding): Request<Operation>;
-            /** Deletes a MembershipBinding. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The MembershipBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/bindings/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Returns the details of a MembershipBinding. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The MembershipBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/bindings/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<MembershipBinding>;
-            /** Lists MembershipBindings. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Optional. Lists MembershipBindings that match the filter expression, following the syntax outlined in https://google.aip.dev/160. */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-                pageSize?:
-                    number;
-                /** Optional. Token returned by previous call to `ListMembershipBindings` which specifies the position in the list from where to continue listing the resources. */
-                pageToken?:
-                    string;
-                /** Required. The parent Membership for which the MembershipBindings will be listed. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListMembershipBindingsResponse>;
-            /** Updates a MembershipBinding. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    MembershipBinding;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: MembershipBinding): Request<Operation>;
-        }
-        interface RbacrolebindingsResource {
-            /** Creates a Membership RBACRoleBinding. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of
-                 * lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a
-                 * maximum length of 63 characters.
-                 */
-                rbacrolebindingId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RBACRoleBinding;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of
-                 * lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a
-                 * maximum length of 63 characters.
-                 */
-                rbacrolebindingId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RBACRoleBinding): Request<Operation>;
-            /** Deletes a Membership RBACRoleBinding. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/rbacrolebindings/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Generates a YAML of the RBAC policies for the specified RoleBinding and its associated impersonation resources. */
-            generateMembershipRBACRoleBindingYAML(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of
-                 * lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a
-                 * maximum length of 63 characters.
-                 */
-                rbacrolebindingId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RBACRoleBinding;
-            }): Request<GenerateMembershipRBACRoleBindingYAMLResponse>;
-            generateMembershipRBACRoleBindingYAML(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of
-                 * lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a
-                 * maximum length of 63 characters.
-                 */
-                rbacrolebindingId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RBACRoleBinding): Request<GenerateMembershipRBACRoleBindingYAMLResponse>;
-            /** Returns the details of a Membership RBACRoleBinding. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/rbacrolebindings/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<RBACRoleBinding>;
-            /** Lists all Membership RBACRoleBindings. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-                pageSize?:
-                    number;
-                /** Optional. Token returned by previous call to `ListMembershipRBACRoleBindings` which specifies the position in the list from where to continue listing the resources. */
-                pageToken?:
-                    string;
-                /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListMembershipRBACRoleBindingsResponse>;
-            /** Updates a Membership RBACRoleBinding. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or
-                 * `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RBACRoleBinding;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or
-                 * `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RBACRoleBinding): Request<Operation>;
-        }
-        interface MembershipsResource {
-            /**
-             * Creates a new Membership. **This is currently only supported for GKE clusters on Google Cloud**. To register other clusters, follow the instructions at
-             * https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster.
-             */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the membership. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case
-                 * alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum
-                 * length of 63 characters.
-                 */
-                membershipId?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
-                 * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-                 * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Membership;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the membership. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case
-                 * alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum
-                 * length of 63 characters.
-                 */
-                membershipId?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
-                 * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-                 * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Membership): Request<Operation>;
-            /**
-             * Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at
-             * https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster.
-             */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Optional. If set to true, any subresource from this Membership will also be deleted. Otherwise, the request will only work if the Membership has no subresource. */
-                force?:
-                    boolean;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
-                 * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-                 * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /**
-             * Generates the manifest for deployment of the GKE connect agent. **This method is used internally by Google-provided libraries.** Most clients should not need to call this method
-             * directly.
-             */
-            generateConnectManifest(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Optional. The image pull secret content for the registry, if not public. */
-                imagePullSecretContent?:
-                    string;
-                /** Optional. If true, generate the resources for upgrade only. Some resources generated only for installation (e.g. secrets) will be excluded. */
-                isUpgrade?:
-                    boolean;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Membership resource name the Agent will associate with, in the format `projects/*‍/locations/*‍/memberships/*`. */
-                name:
-                    string;
-                /**
-                 * Optional. Namespace for GKE Connect agent resources. Defaults to `gke-connect`. The Connect Agent is authorized automatically when run in the default namespace. Otherwise,
-                 * explicit authorization must be granted with an additional IAM binding.
-                 */
-                namespace?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /**
-                 * Optional. URI of a proxy if connectivity from the agent to gkeconnect.googleapis.com requires the use of a proxy. Format must be in the form `http(s)://{proxy_address}`,
-                 * depending on the HTTP/HTTPS protocol supported by the proxy. This will direct the connect agent's outbound traffic through a HTTP(S) proxy.
-                 */
-                proxy?:
-                    string;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Optional. The registry to fetch the connect agent image from. Defaults to gcr.io/gkeconnect. */
-                registry?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Optional. The Connect agent version to use. Defaults to the most current version. */
-                version?:
-                    string;
-            }): Request<GenerateConnectManifestResponse>;
-            /** Gets the details of a Membership. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Membership>;
-            /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Policy>;
-            /** Lists Memberships in a given project and location. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * Optional. Lists Memberships that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Examples: - Name is `bar` in project `foo-proj` and
-                 * location `global`: name = "projects/foo-proj/locations/global/membership/bar" - Memberships that have a label called `foo`: labels.foo:* - Memberships that have a label called
-                 * `foo` whose value is `bar`: labels.foo = bar - Memberships in the CREATING state: state = CREATING
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
-                orderBy?:
-                    string;
-                /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-                pageSize?:
-                    number;
-                /** Optional. Token returned by previous call to `ListMemberships` which specifies the position in the list from where to continue listing the resources. */
-                pageToken?:
-                    string;
-                /**
-                 * Required. The parent (project and location) where the Memberships will be listed. Specified in the format `projects/*‍/locations/*`. `projects/*‍/locations/-` list memberships
-                 * in all the regions.
-                 */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListMembershipsResponse>;
-            /** Lists Memberships of admin clusters in a given project and location. **This method is only used internally**. */
-            listAdmin(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Optional. Lists Memberships of admin clusters that match the filter expression. */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
-                orderBy?:
-                    string;
-                /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-                pageSize?:
-                    number;
-                /** Optional. Token returned by previous call to `ListAdminClusterMemberships` which specifies the position in the list from where to continue listing the resources. */
-                pageToken?:
-                    string;
-                /** Required. The parent (project and location) where the Memberships of admin cluster will be listed. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListAdminClusterMembershipsResponse>;
-            /** Updates an existing Membership. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
-                 * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-                 * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Required. Mask of fields to update. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Membership;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already
-                 * been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the
-                 * request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Required. Mask of fields to update. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Membership): Request<Operation>;
-            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: SetIamPolicyRequest): Request<Policy>;
-            /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-             */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            /**
-             * ValidateCreateMembership is a preflight check for CreateMembership. It checks the following: 1. Caller has the required `gkehub.memberships.create` permission. 2. The membership_id
-             * is still available.
-             */
-            validateCreate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    ValidateCreateMembershipRequest;
-            }): Request<ValidateCreateMembershipResponse>;
-            validateCreate(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: ValidateCreateMembershipRequest): Request<ValidateCreateMembershipResponse>;
-            bindings:
-                BindingsResource;
-            rbacrolebindings:
-                RbacrolebindingsResource;
-        }
-        interface OperationsResource {
-            /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
-             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
-             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    CancelOperationRequest;
-            }): Request<{}>;
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: CancelOperationRequest): Request<{}>;
-            /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
-             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-             */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be deleted. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<{}>;
-            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** The standard list filter. */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation's parent resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The standard list page size. */
-                pageSize?:
-                    number;
-                /** The standard list page token. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListOperationsResponse>;
-        }
-        interface NamespacesResource {
-            /** Creates a fleet namespace. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Namespace will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the Namespace. `namespace_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case
-                 * alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum
-                 * length of 63 characters.
-                 */
-                scopeNamespaceId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Namespace;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Namespace will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the Namespace. `namespace_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case
-                 * alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum
-                 * length of 63 characters.
-                 */
-                scopeNamespaceId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Namespace): Request<Operation>;
-            /** Deletes a fleet namespace. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Namespace resource name in the format `projects/*‍/locations/*‍/scopes/*‍/namespaces/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Returns the details of a fleet namespace. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Namespace resource name in the format `projects/*‍/locations/*‍/scopes/*‍/namespaces/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Namespace>;
-            /** Lists fleet namespaces. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-                pageSize?:
-                    number;
-                /** Optional. Token returned by previous call to `ListFeatures` which specifies the position in the list from where to continue listing the resources. */
-                pageToken?:
-                    string;
-                /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListScopeNamespacesResponse>;
-            /** Updates a fleet namespace. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Namespace;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Namespace): Request<Operation>;
-        }
-        interface RbacrolebindingsResource {
-            /** Creates a Scope RBACRoleBinding. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of
-                 * lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a
-                 * maximum length of 63 characters.
-                 */
-                rbacrolebindingId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RBACRoleBinding;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of
-                 * lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a
-                 * maximum length of 63 characters.
-                 */
-                rbacrolebindingId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RBACRoleBinding): Request<Operation>;
-            /** Deletes a Scope RBACRoleBinding. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/scopes/*‍/rbacrolebindings/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Returns the details of a Scope RBACRoleBinding. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/scopes/*‍/rbacrolebindings/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<RBACRoleBinding>;
-            /** Lists all Scope RBACRoleBindings. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-                pageSize?:
-                    number;
-                /** Optional. Token returned by previous call to `ListScopeRBACRoleBindings` which specifies the position in the list from where to continue listing the resources. */
-                pageToken?:
-                    string;
-                /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListScopeRBACRoleBindingsResponse>;
-            /** Updates a Scope RBACRoleBinding. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or
-                 * `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    RBACRoleBinding;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or
-                 * `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: RBACRoleBinding): Request<Operation>;
-        }
-        interface ScopesResource {
-            /** Creates a Scope. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Scope will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
-                scopeId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Scope;
-            }): Request<Operation>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent (project and location) where the Scope will be created. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
-                scopeId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Scope): Request<Operation>;
-            /** Deletes a Scope. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Returns the details of a Scope. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. The Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Scope>;
-            /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-            getIamPolicy(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /**
-                 * Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for
-                 * policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy
-                 * in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional
-                 * role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM
-                 * documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
-                 */
-                "options.requestedPolicyVersion"?:
-                    number;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Policy>;
-            /** Lists Scopes. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
-                pageSize?:
-                    number;
-                /** Optional. Token returned by previous call to `ListScopes` which specifies the position in the list from where to continue listing the resources. */
-                pageToken?:
-                    string;
-                /** Required. The parent (project and location) where the Scope will be listed. Specified in the format `projects/*‍/locations/*`. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListScopesResponse>;
-            /** Updates a scopes. */
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Scope;
-            }): Request<Operation>;
-            patch(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Required. The fields to be updated. */
-                updateMask?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Scope): Request<Operation>;
-            /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-            setIamPolicy(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this
-                 * field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: SetIamPolicyRequest): Request<Policy>;
-            /**
-             * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-             * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-             */
-            testIamPermissions(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for
-                 * this field.
-                 */
-                resource:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: TestIamPermissionsRequest): Request<TestIamPermissionsResponse>;
-            namespaces:
-                NamespacesResource;
-            rbacrolebindings:
-                RbacrolebindingsResource;
-        }
-        interface LocationsResource {
-            /** Gets information about a location. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Resource name for the location. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Location>;
-            /** Lists information about the supported locations for this service. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
-                 * [AIP-160](https://google.aip.dev/160).
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource that owns the locations collection, if applicable. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?:
-                    number;
-                /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListLocationsResponse>;
-            features:
-                FeaturesResource;
-            fleets:
-                FleetsResource;
-            memberships:
-                MembershipsResource;
-            operations:
-                OperationsResource;
-            scopes:
-                ScopesResource;
-        }
-        interface ProjectsResource {
-            locations:
-                LocationsResource;
-        }
-
-        const organizations: OrganizationsResource;
-
-        const projects: ProjectsResource;
+  namespace gkehub {
+    interface AnthosObservabilityFeatureSpec {
+      /** Default membership spec for unconfigured memberships */
+      defaultMembershipSpec?: AnthosObservabilityMembershipSpec;
     }
+    interface AnthosObservabilityMembershipSpec {
+      /** Use full of metrics rather than optimized metrics. See https://cloud.google.com/anthos/clusters/docs/on-prem/1.8/concepts/logging-and-monitoring#optimized_metrics_default_metrics */
+      doNotOptimizeMetrics?: boolean;
+      /** Enable collecting and reporting metrics and logs from user apps. */
+      enableStackdriverOnApplications?: boolean;
+      /** the version of stackdriver operator used by this feature */
+      version?: string;
+    }
+    interface AppDevExperienceFeatureSpec {}
+    interface AppDevExperienceFeatureState {
+      /** Status of subcomponent that detects configured Service Mesh resources. */
+      networkingInstallSucceeded?: Status;
+    }
+    interface ApplianceCluster {
+      /** Immutable. Self-link of the Google Cloud resource for the Appliance Cluster. For example: //transferappliance.googleapis.com/projects/my-project/locations/us-west1-a/appliances/my-appliance */
+      resourceLink?: string;
+    }
+    interface AuditConfig {
+      /** The configuration for logging of each type of permission. */
+      auditLogConfigs?: AuditLogConfig[];
+      /** Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all services. */
+      service?: string;
+    }
+    interface AuditLogConfig {
+      /** Specifies the identities that do not cause logging for this type of permission. Follows the same format of Binding.members. */
+      exemptedMembers?: string[];
+      /** The log type that this config enables. */
+      logType?: string;
+    }
+    interface Authority {
+      /** Output only. An identity provider that reflects the `issuer` in the workload identity pool. */
+      identityProvider?: string;
+      /** Optional. A JSON Web Token (JWT) issuer URI. `issuer` must start with `https://` and be a valid URL with length <2000 characters, it must use `location` rather than `zone` for GKE clusters. If set, then Google will allow valid OIDC tokens from this issuer to authenticate within the workload_identity_pool. OIDC discovery will be performed on this URI to validate tokens from the issuer. Clearing `issuer` disables Workload Identity. `issuer` cannot be directly modified; it must be cleared (and Workload Identity disabled) before using a new issuer (and re-enabling Workload Identity). */
+      issuer?: string;
+      /** Optional. OIDC verification keys for this Membership in JWKS format (RFC 7517). When this field is set, OIDC discovery will NOT be performed on `issuer`, and instead OIDC tokens will be validated using this field. */
+      oidcJwks?: string;
+      /** Output only. The name of the workload identity pool in which `issuer` will be recognized. There is a single Workload Identity Pool per Hub that is shared between all Memberships that belong to that Hub. For a Hub hosted in {PROJECT_ID}, the workload pool format is `{PROJECT_ID}.hub.id.goog`, although this is subject to change in newer versions of this API. */
+      workloadIdentityPool?: string;
+    }
+    interface BinaryAuthorizationConfig {
+      /** Optional. Mode of operation for binauthz policy evaluation. */
+      evaluationMode?: string;
+      /** Optional. Binauthz policies that apply to this cluster. */
+      policyBindings?: PolicyBinding[];
+    }
+    interface Binding {
+      /** The condition that is associated with this binding. If the condition evaluates to `true`, then this binding applies to the current request. If the condition evaluates to `false`, then this binding does not apply to the current request. However, a different role binding might grant the same role to one or more of the principals in this binding. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+      condition?: Expr;
+      /** Specifies the principals requesting access for a Google Cloud resource. `members` can have the following values: * `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account. * `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account. Does not include identities that come from external identity providers (IdPs) through identity federation. * `user:{emailid}`: An email address that represents a specific Google account. For example, `alice@example.com` . * `serviceAccount:{emailid}`: An email address that represents a Google service account. For example, `my-other-app@appspot.gserviceaccount.com`. * `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An identifier for a [Kubernetes service account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts). For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. * `group:{emailid}`: An email address that represents a Google group. For example, `admins@example.com`. * `domain:{domain}`: The G Suite domain (primary) that represents all the users of that domain. For example, `google.com` or `example.com`. * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a user that has been recently deleted. For example, `alice@example.com?uid=123456789012345678901`. If the user is recovered, this value reverts to `user:{emailid}` and the recovered user retains the role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a service account that has been recently deleted. For example, `my-other-app@appspot.gserviceaccount.com?uid=123456789012345678901`. If the service account is undeleted, this value reverts to `serviceAccount:{emailid}` and the undeleted service account retains the role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique identifier) representing a Google group that has been recently deleted. For example, `admins@example.com?uid=123456789012345678901`. If the group is recovered, this value reverts to `group:{emailid}` and the recovered group retains the role in the binding. */
+      members?: string[];
+      /** Role that is assigned to the list of `members`, or principals. For example, `roles/viewer`, `roles/editor`, or `roles/owner`. */
+      role?: string;
+    }
+    interface CancelOperationRequest {}
+    interface CloudAuditLoggingFeatureSpec {
+      /** Service account that should be allowlisted to send the audit logs; eg cloudauditlogging@gcp-project.iam.gserviceaccount.com. These accounts must already exist, but do not need to have any permissions granted to them. The customer's entitlements will be checked prior to allowlisting (i.e. the customer must be an Anthos customer.) */
+      allowlistedServiceAccounts?: string[];
+    }
+    interface CloudBuildMembershipSpec {
+      /** Whether it is allowed to run the privileged builds on the cluster or not. */
+      securityPolicy?: string;
+      /** Version of the cloud build software on the cluster. */
+      version?: string;
+    }
+    interface ClusterUpgradeFleetSpec {
+      /** Allow users to override some properties of each GKE upgrade. */
+      gkeUpgradeOverrides?: ClusterUpgradeGKEUpgradeOverride[];
+      /** Required. Post conditions to evaluate to mark an upgrade COMPLETE. Required. */
+      postConditions?: ClusterUpgradePostConditions;
+      /** This fleet consumes upgrades that have COMPLETE status code in the upstream fleets. See UpgradeStatus.Code for code definitions. The fleet name should be either fleet project number or id. This is defined as repeated for future proof reasons. Initial implementation will enforce at most one upstream fleet. */
+      upstreamFleets?: string[];
+    }
+    interface ClusterUpgradeFleetState {
+      /** This fleets whose upstream_fleets contain the current fleet. The fleet name should be either fleet project number or id. */
+      downstreamFleets?: string[];
+      /** Feature state for GKE clusters. */
+      gkeState?: ClusterUpgradeGKEUpgradeFeatureState;
+      /** A list of memberships ignored by the feature. For example, manually upgraded clusters can be ignored if they are newer than the default versions of its release channel. The membership resource is in the format: `projects/{p}/locations/{l}/membership/{m}`. */
+      ignored?: {[P in string]: ClusterUpgradeIgnoredMembership};
+    }
+    interface ClusterUpgradeGKEUpgrade {
+      /** Name of the upgrade, e.g., "k8s_control_plane". It should be a valid upgrade name. It must not exceet 99 characters. */
+      name?: string;
+      /** Version of the upgrade, e.g., "1.22.1-gke.100". It should be a valid version. It must not exceet 99 characters. */
+      version?: string;
+    }
+    interface ClusterUpgradeGKEUpgradeFeatureCondition {
+      /** Reason why the feature is in this status. */
+      reason?: string;
+      /** Status of the condition, one of True, False, Unknown. */
+      status?: string;
+      /** Type of the condition, for example, "ready". */
+      type?: string;
+      /** Last timestamp the condition was updated. */
+      updateTime?: string;
+    }
+    interface ClusterUpgradeGKEUpgradeFeatureState {
+      /** Current conditions of the feature. */
+      conditions?: ClusterUpgradeGKEUpgradeFeatureCondition[];
+      /** Upgrade state. It will eventually replace `state`. */
+      upgradeState?: ClusterUpgradeGKEUpgradeState[];
+    }
+    interface ClusterUpgradeGKEUpgradeOverride {
+      /** Required. Post conditions to override for the specified upgrade (name + version). Required. */
+      postConditions?: ClusterUpgradePostConditions;
+      /** Required. Which upgrade to override. Required. */
+      upgrade?: ClusterUpgradeGKEUpgrade;
+    }
+    interface ClusterUpgradeGKEUpgradeState {
+      /** Number of GKE clusters in each status code. */
+      stats?: {[P in string]: string};
+      /** Status of the upgrade. */
+      status?: ClusterUpgradeUpgradeStatus;
+      /** Which upgrade to track the state. */
+      upgrade?: ClusterUpgradeGKEUpgrade;
+    }
+    interface ClusterUpgradeIgnoredMembership {
+      /** Time when the membership was first set to ignored. */
+      ignoredTime?: string;
+      /** Reason why the membership is ignored. */
+      reason?: string;
+    }
+    interface ClusterUpgradeMembershipGKEUpgradeState {
+      /** Status of the upgrade. */
+      status?: ClusterUpgradeUpgradeStatus;
+      /** Which upgrade to track the state. */
+      upgrade?: ClusterUpgradeGKEUpgrade;
+    }
+    interface ClusterUpgradeMembershipState {
+      /** Project number or id of the fleet. It is set only for Memberships that are part of fleet-based Rollout Sequencing. */
+      fleet?: string;
+      /** Whether this membership is ignored by the feature. For example, manually upgraded clusters can be ignored if they are newer than the default versions of its release channel. */
+      ignored?: ClusterUpgradeIgnoredMembership;
+      /** Fully qualified scope names that this clusters is bound to which also have rollout sequencing enabled. */
+      scopes?: string[];
+      /** Actual upgrade state against desired. */
+      upgrades?: ClusterUpgradeMembershipGKEUpgradeState[];
+    }
+    interface ClusterUpgradePostConditions {
+      /** Required. Amount of time to "soak" after a rollout has been finished before marking it COMPLETE. Cannot exceed 30 days. Required. */
+      soaking?: string;
+    }
+    interface ClusterUpgradeScopeSpec {
+      /** Allow users to override some properties of each GKE upgrade. */
+      gkeUpgradeOverrides?: ClusterUpgradeGKEUpgradeOverride[];
+      /** Required. Post conditions to evaluate to mark an upgrade COMPLETE. Required. */
+      postConditions?: ClusterUpgradePostConditions;
+      /** This scope consumes upgrades that have COMPLETE status code in the upstream scopes. See UpgradeStatus.Code for code definitions. The scope name should be in the form: `projects/{p}/locations/global/scopes/{s}` Where {p} is the project, {s} is a valid Scope in this project. {p} WILL match the Feature's project. This is defined as repeated for future proof reasons. Initial implementation will enforce at most one upstream scope. */
+      upstreamScopes?: string[];
+    }
+    interface ClusterUpgradeScopeState {
+      /** This scopes whose upstream_scopes contain the current scope. The scope name should be in the form: `projects/{p}/locations/gloobal/scopes/{s}` Where {p} is the project, {s} is a valid Scope in this project. {p} WILL match the Feature's project. */
+      downstreamScopes?: string[];
+      /** Feature state for GKE clusters. */
+      gkeState?: ClusterUpgradeGKEUpgradeFeatureState;
+      /** A list of memberships ignored by the feature. For example, manually upgraded clusters can be ignored if they are newer than the default versions of its release channel. The membership resource is in the format: `projects/{p}/locations/{l}/membership/{m}`. */
+      ignored?: {[P in string]: ClusterUpgradeIgnoredMembership};
+    }
+    interface ClusterUpgradeUpgradeStatus {
+      /** Status code of the upgrade. */
+      code?: string;
+      /** Reason for this status. */
+      reason?: string;
+      /** Last timestamp the status was updated. */
+      updateTime?: string;
+    }
+    interface CommonFeatureSpec {
+      /** Anthos Observability spec */
+      anthosobservability?: AnthosObservabilityFeatureSpec;
+      /** Appdevexperience specific spec. */
+      appdevexperience?: any;
+      /** Cloud Audit Logging-specific spec. */
+      cloudauditlogging?: CloudAuditLoggingFeatureSpec;
+      /** ClusterUpgrade (fleet-based) feature spec. */
+      clusterupgrade?: ClusterUpgradeFleetSpec;
+      /** FleetObservability feature spec. */
+      fleetobservability?: FleetObservabilityFeatureSpec;
+      /** Multicluster Ingress-specific spec. */
+      multiclusteringress?: MultiClusterIngressFeatureSpec;
+      /** Namespace Actuation feature spec */
+      namespaceactuation?: NamespaceActuationFeatureSpec;
+      /** Workload Certificate spec. */
+      workloadcertificate?: FeatureSpec;
+    }
+    interface CommonFeatureState {
+      /** Appdevexperience specific state. */
+      appdevexperience?: AppDevExperienceFeatureState;
+      /** ClusterUpgrade fleet-level state. */
+      clusterupgrade?: ClusterUpgradeFleetState;
+      /** FleetObservability feature state. */
+      fleetobservability?: FleetObservabilityFeatureState;
+      /** Namespace Actuation feature state. */
+      namespaceactuation?: any;
+      /** Service Mesh-specific state. */
+      servicemesh?: ServiceMeshFeatureState;
+      /** Output only. The "running state" of the Feature in this Hub. */
+      state?: FeatureState;
+    }
+    interface CommonFleetDefaultMemberConfigSpec {
+      /** Config Management-specific spec. */
+      configmanagement?: ConfigManagementMembershipSpec;
+      /** Identity Service-specific spec. */
+      identityservice?: IdentityServiceMembershipSpec;
+      /** Anthos Service Mesh-specific spec */
+      mesh?: ServiceMeshMembershipSpec;
+      /** Policy Controller spec. */
+      policycontroller?: PolicyControllerMembershipSpec;
+    }
+    interface ConfigManagementBinauthzConfig {
+      /** Whether binauthz is enabled in this cluster. */
+      enabled?: boolean;
+    }
+    interface ConfigManagementBinauthzState {
+      /** The version of binauthz that is installed. */
+      version?: ConfigManagementBinauthzVersion;
+      /** The state of the binauthz webhook. */
+      webhook?: string;
+    }
+    interface ConfigManagementBinauthzVersion {
+      /** The version of the binauthz webhook. */
+      webhookVersion?: string;
+    }
+    interface ConfigManagementConfigSync {
+      /** Set to true to allow the vertical scaling. Defaults to false which disallows vertical scaling. This field is deprecated. */
+      allowVerticalScale?: boolean;
+      /** Enables the installation of ConfigSync. If set to true, ConfigSync resources will be created and the other ConfigSync fields will be applied if exist. If set to false, all other ConfigSync fields will be ignored, ConfigSync resources will be deleted. If omitted, ConfigSync resources will be managed depends on the presence of the git or oci field. */
+      enabled?: boolean;
+      /** Git repo configuration for the cluster. */
+      git?: ConfigManagementGitConfig;
+      /** The Email of the Google Cloud Service Account (GSA) used for exporting Config Sync metrics to Cloud Monitoring and Cloud Monarch when Workload Identity is enabled. The GSA should have the Monitoring Metric Writer (roles/monitoring.metricWriter) IAM role. The Kubernetes ServiceAccount `default` in the namespace `config-management-monitoring` should be bound to the GSA. This field is required when automatic Feature management is enabled. */
+      metricsGcpServiceAccountEmail?: string;
+      /** OCI repo configuration for the cluster */
+      oci?: ConfigManagementOciConfig;
+      /** Set to true to enable the Config Sync admission webhook to prevent drifts. If set to `false`, disables the Config Sync admission webhook and does not prevent drifts. */
+      preventDrift?: boolean;
+      /** Specifies whether the Config Sync Repo is in "hierarchical" or "unstructured" mode. */
+      sourceFormat?: string;
+    }
+    interface ConfigManagementConfigSyncDeploymentState {
+      /** Deployment state of admission-webhook */
+      admissionWebhook?: string;
+      /** Deployment state of the git-sync pod */
+      gitSync?: string;
+      /** Deployment state of the importer pod */
+      importer?: string;
+      /** Deployment state of the monitor pod */
+      monitor?: string;
+      /** Deployment state of reconciler-manager pod */
+      reconcilerManager?: string;
+      /** Deployment state of root-reconciler */
+      rootReconciler?: string;
+      /** Deployment state of the syncer pod */
+      syncer?: string;
+    }
+    interface ConfigManagementConfigSyncError {
+      /** A string representing the user facing error message */
+      errorMessage?: string;
+    }
+    interface ConfigManagementConfigSyncState {
+      /** Information about the deployment of ConfigSync, including the version of the various Pods deployed */
+      deploymentState?: ConfigManagementConfigSyncDeploymentState;
+      /** Errors pertaining to the installation of Config Sync. */
+      errors?: ConfigManagementConfigSyncError[];
+      /** The state of ConfigSync's process to sync configs to a cluster */
+      syncState?: ConfigManagementSyncState;
+      /** The version of ConfigSync deployed */
+      version?: ConfigManagementConfigSyncVersion;
+    }
+    interface ConfigManagementConfigSyncVersion {
+      /** Version of the deployed admission_webhook pod */
+      admissionWebhook?: string;
+      /** Version of the deployed git-sync pod */
+      gitSync?: string;
+      /** Version of the deployed importer pod */
+      importer?: string;
+      /** Version of the deployed monitor pod */
+      monitor?: string;
+      /** Version of the deployed reconciler-manager pod */
+      reconcilerManager?: string;
+      /** Version of the deployed reconciler container in root-reconciler pod */
+      rootReconciler?: string;
+      /** Version of the deployed syncer pod */
+      syncer?: string;
+    }
+    interface ConfigManagementErrorResource {
+      /** Group/version/kind of the resource that is causing an error */
+      resourceGvk?: ConfigManagementGroupVersionKind;
+      /** Metadata name of the resource that is causing an error */
+      resourceName?: string;
+      /** Namespace of the resource that is causing an error */
+      resourceNamespace?: string;
+      /** Path in the git repo of the erroneous config */
+      sourcePath?: string;
+    }
+    interface ConfigManagementGatekeeperDeploymentState {
+      /** Status of gatekeeper-audit deployment. */
+      gatekeeperAudit?: string;
+      /** Status of gatekeeper-controller-manager pod. */
+      gatekeeperControllerManagerState?: string;
+      /** Status of the pod serving the mutation webhook. */
+      gatekeeperMutation?: string;
+    }
+    interface ConfigManagementGitConfig {
+      /** The Google Cloud Service Account Email used for auth when secret_type is gcpServiceAccount. */
+      gcpServiceAccountEmail?: string;
+      /** URL for the HTTPS proxy to be used when communicating with the Git repo. */
+      httpsProxy?: string;
+      /** The path within the Git repository that represents the top level of the repo to sync. Default: the root directory of the repository. */
+      policyDir?: string;
+      /** Type of secret configured for access to the Git repo. Must be one of ssh, cookiefile, gcenode, token, gcpserviceaccount or none. The validation of this is case-sensitive. Required. */
+      secretType?: string;
+      /** The branch of the repository to sync from. Default: master. */
+      syncBranch?: string;
+      /** The URL of the Git repository to use as the source of truth. */
+      syncRepo?: string;
+      /** Git revision (tag or hash) to check out. Default HEAD. */
+      syncRev?: string;
+      /** Period in seconds between consecutive syncs. Default: 15. */
+      syncWaitSecs?: string;
+    }
+    interface ConfigManagementGroupVersionKind {
+      /** Kubernetes Group */
+      group?: string;
+      /** Kubernetes Kind */
+      kind?: string;
+      /** Kubernetes Version */
+      version?: string;
+    }
+    interface ConfigManagementHierarchyControllerConfig {
+      /** Whether Hierarchy Controller is enabled in this cluster. */
+      enabled?: boolean;
+      /** Whether hierarchical resource quota is enabled in this cluster. */
+      enableHierarchicalResourceQuota?: boolean;
+      /** Whether pod tree labels are enabled in this cluster. */
+      enablePodTreeLabels?: boolean;
+    }
+    interface ConfigManagementHierarchyControllerDeploymentState {
+      /** The deployment state for Hierarchy Controller extension (e.g. v0.7.0-hc.1) */
+      extension?: string;
+      /** The deployment state for open source HNC (e.g. v0.7.0-hc.0) */
+      hnc?: string;
+    }
+    interface ConfigManagementHierarchyControllerState {
+      /** The deployment state for Hierarchy Controller */
+      state?: ConfigManagementHierarchyControllerDeploymentState;
+      /** The version for Hierarchy Controller */
+      version?: ConfigManagementHierarchyControllerVersion;
+    }
+    interface ConfigManagementHierarchyControllerVersion {
+      /** Version for Hierarchy Controller extension */
+      extension?: string;
+      /** Version for open source HNC */
+      hnc?: string;
+    }
+    interface ConfigManagementInstallError {
+      /** A string representing the user facing error message */
+      errorMessage?: string;
+    }
+    interface ConfigManagementMembershipSpec {
+      /** Binauthz conifguration for the cluster. Deprecated: This field will be ignored and should not be set. */
+      binauthz?: ConfigManagementBinauthzConfig;
+      /** The user-specified cluster name used by Config Sync cluster-name-selector annotation or ClusterSelector, for applying configs to only a subset of clusters. Omit this field if the cluster's fleet membership name is used by Config Sync cluster-name-selector annotation or ClusterSelector. Set this field if a name different from the cluster's fleet membership name is used by Config Sync cluster-name-selector annotation or ClusterSelector. */
+      cluster?: string;
+      /** Config Sync configuration for the cluster. */
+      configSync?: ConfigManagementConfigSync;
+      /** Hierarchy Controller configuration for the cluster. */
+      hierarchyController?: ConfigManagementHierarchyControllerConfig;
+      /** Policy Controller configuration for the cluster. */
+      policyController?: ConfigManagementPolicyController;
+      /** Version of ACM installed. */
+      version?: string;
+    }
+    interface ConfigManagementMembershipState {
+      /** Binauthz status */
+      binauthzState?: ConfigManagementBinauthzState;
+      /** This field is set to the `cluster_name` field of the Membership Spec if it is not empty. Otherwise, it is set to the cluster's fleet membership name. */
+      clusterName?: string;
+      /** Current sync status */
+      configSyncState?: ConfigManagementConfigSyncState;
+      /** Hierarchy Controller status */
+      hierarchyControllerState?: ConfigManagementHierarchyControllerState;
+      /** Membership configuration in the cluster. This represents the actual state in the cluster, while the MembershipSpec in the FeatureSpec represents the intended state */
+      membershipSpec?: ConfigManagementMembershipSpec;
+      /** Current install status of ACM's Operator */
+      operatorState?: ConfigManagementOperatorState;
+      /** PolicyController status */
+      policyControllerState?: ConfigManagementPolicyControllerState;
+    }
+    interface ConfigManagementOciConfig {
+      /** The Google Cloud Service Account Email used for auth when secret_type is gcpServiceAccount. */
+      gcpServiceAccountEmail?: string;
+      /** The absolute path of the directory that contains the local resources. Default: the root directory of the image. */
+      policyDir?: string;
+      /** Type of secret configured for access to the Git repo. */
+      secretType?: string;
+      /** The OCI image repository URL for the package to sync from. e.g. `LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY_NAME/PACKAGE_NAME`. */
+      syncRepo?: string;
+      /** Period in seconds between consecutive syncs. Default: 15. */
+      syncWaitSecs?: string;
+    }
+    interface ConfigManagementOperatorState {
+      /** The state of the Operator's deployment */
+      deploymentState?: string;
+      /** Install errors. */
+      errors?: ConfigManagementInstallError[];
+      /** The semenatic version number of the operator */
+      version?: string;
+    }
+    interface ConfigManagementPolicyController {
+      /** Sets the interval for Policy Controller Audit Scans (in seconds). When set to 0, this disables audit functionality altogether. */
+      auditIntervalSeconds?: string;
+      /** Enables the installation of Policy Controller. If false, the rest of PolicyController fields take no effect. */
+      enabled?: boolean;
+      /** The set of namespaces that are excluded from Policy Controller checks. Namespaces do not need to currently exist on the cluster. */
+      exemptableNamespaces?: string[];
+      /** Logs all denies and dry run failures. */
+      logDeniesEnabled?: boolean;
+      /** Monitoring specifies the configuration of monitoring. */
+      monitoring?: ConfigManagementPolicyControllerMonitoring;
+      /** Enable or disable mutation in policy controller. If true, mutation CRDs, webhook and controller deployment will be deployed to the cluster. */
+      mutationEnabled?: boolean;
+      /** Enables the ability to use Constraint Templates that reference to objects other than the object currently being evaluated. */
+      referentialRulesEnabled?: boolean;
+      /** Installs the default template library along with Policy Controller. */
+      templateLibraryInstalled?: boolean;
+      /** Output only. Last time this membership spec was updated. */
+      updateTime?: string;
+    }
+    interface ConfigManagementPolicyControllerMigration {
+      /** Last time this membership spec was copied to PoCo feature. */
+      copyTime?: string;
+      /** Stage of the migration. */
+      stage?: string;
+    }
+    interface ConfigManagementPolicyControllerMonitoring {
+      /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
+      backends?: string[];
+    }
+    interface ConfigManagementPolicyControllerState {
+      /** The state about the policy controller installation. */
+      deploymentState?: ConfigManagementGatekeeperDeploymentState;
+      /** Record state of ACM -> PoCo Hub migration for this feature. */
+      migration?: ConfigManagementPolicyControllerMigration;
+      /** The version of Gatekeeper Policy Controller deployed. */
+      version?: ConfigManagementPolicyControllerVersion;
+    }
+    interface ConfigManagementPolicyControllerVersion {
+      /** The gatekeeper image tag that is composed of ACM version, git tag, build number. */
+      version?: string;
+    }
+    interface ConfigManagementSyncError {
+      /** An ACM defined error code */
+      code?: string;
+      /** A description of the error */
+      errorMessage?: string;
+      /** A list of config(s) associated with the error, if any */
+      errorResources?: ConfigManagementErrorResource[];
+    }
+    interface ConfigManagementSyncState {
+      /** Sync status code */
+      code?: string;
+      /** A list of errors resulting from problematic configs. This list will be truncated after 100 errors, although it is unlikely for that many errors to simultaneously exist. */
+      errors?: ConfigManagementSyncError[];
+      /** Token indicating the state of the importer. */
+      importToken?: string;
+      /** Deprecated: use last_sync_time instead. Timestamp of when ACM last successfully synced the repo The time format is specified in https://golang.org/pkg/time/#Time.String */
+      lastSync?: string;
+      /** Timestamp type of when ACM last successfully synced the repo */
+      lastSyncTime?: string;
+      /** Token indicating the state of the repo. */
+      sourceToken?: string;
+      /** Token indicating the state of the syncer. */
+      syncToken?: string;
+    }
+    interface ConnectAgentResource {
+      /** YAML manifest of the resource. */
+      manifest?: string;
+      /** Kubernetes type of the resource. */
+      type?: TypeMeta;
+    }
+    interface DefaultClusterConfig {
+      /** Optional. Enable/Disable binary authorization features for the cluster. */
+      binaryAuthorizationConfig?: BinaryAuthorizationConfig;
+      /** Enable/Disable Security Posture features for the cluster. */
+      securityPostureConfig?: SecurityPostureConfig;
+    }
+    interface EdgeCluster {
+      /** Immutable. Self-link of the Google Cloud resource for the Edge Cluster. For example: //edgecontainer.googleapis.com/projects/my-project/locations/us-west1-a/clusters/my-cluster */
+      resourceLink?: string;
+    }
+    interface Empty {}
+    interface Expr {
+      /** Optional. Description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI. */
+      description?: string;
+      /** Textual representation of an expression in Common Expression Language syntax. */
+      expression?: string;
+      /** Optional. String indicating the location of the expression for error reporting, e.g. a file name and a position in the file. */
+      location?: string;
+      /** Optional. Title for the expression, i.e. a short string describing its purpose. This can be used e.g. in UIs which allow to enter the expression. */
+      title?: string;
+    }
+    interface Feature {
+      /** Output only. When the Feature resource was created. */
+      createTime?: string;
+      /** Output only. When the Feature resource was deleted. */
+      deleteTime?: string;
+      /** Optional. Feature configuration applicable to all memberships of the fleet. */
+      fleetDefaultMemberConfig?: CommonFleetDefaultMemberConfigSpec;
+      /** Labels for this Feature. */
+      labels?: {[P in string]: string};
+      /** Optional. Membership-specific configuration for this Feature. If this Feature does not support any per-Membership configuration, this field may be unused. The keys indicate which Membership the configuration is for, in the form: `projects/{p}/locations/{l}/memberships/{m}` Where {p} is the project, {l} is a valid location and {m} is a valid Membership in this project at that location. {p} WILL match the Feature's project. {p} will always be returned as the project number, but the project ID is also accepted during input. If the same Membership is specified in the map twice (using the project ID form, and the project number form), exactly ONE of the entries will be saved, with no guarantees as to which. For this reason, it is recommended the same format be used for all entries when mutating a Feature. */
+      membershipSpecs?: {[P in string]: MembershipFeatureSpec};
+      /** Output only. Membership-specific Feature status. If this Feature does report any per-Membership status, this field may be unused. The keys indicate which Membership the state is for, in the form: `projects/{p}/locations/{l}/memberships/{m}` Where {p} is the project number, {l} is a valid location and {m} is a valid Membership in this project at that location. {p} MUST match the Feature's project number. */
+      membershipStates?: {[P in string]: MembershipFeatureState};
+      /** Output only. The full, unique name of this Feature resource in the format `projects/*‍/locations/*‍/features/*`. */
+      name?: string;
+      /** Output only. State of the Feature resource itself. */
+      resourceState?: FeatureResourceState;
+      /** Optional. Scope-specific configuration for this Feature. If this Feature does not support any per-Scope configuration, this field may be unused. The keys indicate which Scope the configuration is for, in the form: `projects/{p}/locations/global/scopes/{s}` Where {p} is the project, {s} is a valid Scope in this project. {p} WILL match the Feature's project. {p} will always be returned as the project number, but the project ID is also accepted during input. If the same Scope is specified in the map twice (using the project ID form, and the project number form), exactly ONE of the entries will be saved, with no guarantees as to which. For this reason, it is recommended the same format be used for all entries when mutating a Feature. */
+      scopeSpecs?: {[P in string]: ScopeFeatureSpec};
+      /** Output only. Scope-specific Feature status. If this Feature does report any per-Scope status, this field may be unused. The keys indicate which Scope the state is for, in the form: `projects/{p}/locations/global/scopes/{s}` Where {p} is the project, {s} is a valid Scope in this project. {p} WILL match the Feature's project. */
+      scopeStates?: {[P in string]: ScopeFeatureState};
+      /** Optional. Hub-wide Feature configuration. If this Feature does not support any Hub-wide configuration, this field may be unused. */
+      spec?: CommonFeatureSpec;
+      /** Output only. The Hub-wide Feature state. */
+      state?: CommonFeatureState;
+      /** Output only. When the Feature resource was last updated. */
+      updateTime?: string;
+    }
+    interface FeatureResourceState {
+      /** The current state of the Feature resource in the Hub API. */
+      state?: string;
+    }
+    interface FeatureSpec {
+      /** Specifies default membership spec. Users can override the default in the member_configs for each member. */
+      defaultConfig?: MembershipSpec;
+      /** Immutable. Specifies CA configuration. */
+      provisionGoogleCa?: string;
+    }
+    interface FeatureState {
+      /** The high-level, machine-readable status of this Feature. */
+      code?: string;
+      /** A human-readable description of the current status. */
+      description?: string;
+      /** The time this status and any related Feature-specific details were updated. */
+      updateTime?: string;
+    }
+    interface Fleet {
+      /** Output only. When the Fleet was created. */
+      createTime?: string;
+      /** Optional. The default cluster configurations to apply across the fleet. */
+      defaultClusterConfig?: DefaultClusterConfig;
+      /** Output only. When the Fleet was deleted. */
+      deleteTime?: string;
+      /** Optional. A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point. Example: `Production Fleet` */
+      displayName?: string;
+      /** Optional. Labels for this Fleet. */
+      labels?: {[P in string]: string};
+      /** Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most one fleet resource, named "default". */
+      name?: string;
+      /** Output only. State of the namespace resource. */
+      state?: FleetLifecycleState;
+      /** Output only. Google-generated UUID for this resource. This is unique across all Fleet resources. If a Fleet resource is deleted and another resource with the same name is created, it gets a different uid. */
+      uid?: string;
+      /** Output only. When the Fleet was last updated. */
+      updateTime?: string;
+    }
+    interface FleetLifecycleState {
+      /** Output only. The current state of the Fleet resource. */
+      code?: string;
+    }
+    interface FleetObservabilityFeatureError {
+      /** The code of the error. */
+      code?: string;
+      /** A human-readable description of the current status. */
+      description?: string;
+    }
+    interface FleetObservabilityFeatureSpec {
+      /** Specified if fleet logging feature is enabled for the entire fleet. If UNSPECIFIED, fleet logging feature is disabled for the entire fleet. */
+      loggingConfig?: FleetObservabilityLoggingConfig;
+    }
+    interface FleetObservabilityFeatureState {
+      /** The feature state of default logging. */
+      logging?: FleetObservabilityFleetObservabilityLoggingState;
+      /** The feature state of fleet monitoring. */
+      monitoring?: FleetObservabilityFleetObservabilityMonitoringState;
+    }
+    interface FleetObservabilityFleetObservabilityBaseFeatureState {
+      /** The high-level, machine-readable status of this Feature. */
+      code?: string;
+      /** Errors after reconciling the monitoring and logging feature if the code is not OK. */
+      errors?: FleetObservabilityFeatureError[];
+    }
+    interface FleetObservabilityFleetObservabilityLoggingState {
+      /** The base feature state of fleet default log. */
+      defaultLog?: FleetObservabilityFleetObservabilityBaseFeatureState;
+      /** The base feature state of fleet scope log. */
+      scopeLog?: FleetObservabilityFleetObservabilityBaseFeatureState;
+    }
+    interface FleetObservabilityFleetObservabilityMonitoringState {
+      /** The base feature state of fleet monitoring feature. */
+      state?: FleetObservabilityFleetObservabilityBaseFeatureState;
+    }
+    interface FleetObservabilityLoggingConfig {
+      /** Specified if applying the default routing config to logs not specified in other configs. */
+      defaultConfig?: FleetObservabilityRoutingConfig;
+      /** Specified if applying the routing config to all logs for all fleet scopes. */
+      fleetScopeLogsConfig?: FleetObservabilityRoutingConfig;
+    }
+    interface FleetObservabilityMembershipSpec {}
+    interface FleetObservabilityMembershipState {}
+    interface FleetObservabilityRoutingConfig {
+      /** mode configures the logs routing mode. */
+      mode?: string;
+    }
+    interface GenerateConnectManifestResponse {
+      /** The ordered list of Kubernetes resources that need to be applied to the cluster for GKE Connect agent installation/upgrade. */
+      manifest?: ConnectAgentResource[];
+    }
+    interface GenerateMembershipRBACRoleBindingYAMLResponse {
+      /** a yaml text blob including the RBAC policies. */
+      roleBindingsYaml?: string;
+    }
+    interface GkeCluster {
+      /** Output only. If cluster_missing is set then it denotes that the GKE cluster no longer exists in the GKE Control Plane. */
+      clusterMissing?: boolean;
+      /** Immutable. Self-link of the Google Cloud resource for the GKE cluster. For example: //container.googleapis.com/projects/my-project/locations/us-west1-a/clusters/my-cluster Zonal clusters are also supported. */
+      resourceLink?: string;
+    }
+    interface GoogleRpcStatus {
+      /** The status code, which should be an enum value of google.rpc.Code. */
+      code?: number;
+      /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
+      details?: Array<{[P in string]: any}>;
+      /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
+      message?: string;
+    }
+    interface IdentityServiceAuthMethod {
+      /** AzureAD specific Configuration. */
+      azureadConfig?: IdentityServiceAzureADConfig;
+      /** GoogleConfig specific configuration. */
+      googleConfig?: IdentityServiceGoogleConfig;
+      /** Identifier for auth config. */
+      name?: string;
+      /** OIDC specific configuration. */
+      oidcConfig?: IdentityServiceOidcConfig;
+      /** Proxy server address to use for auth method. */
+      proxy?: string;
+    }
+    interface IdentityServiceAzureADConfig {
+      /** ID for the registered client application that makes authentication requests to the Azure AD identity provider. */
+      clientId?: string;
+      /** Input only. Unencrypted AzureAD client secret will be passed to the GKE Hub CLH. */
+      clientSecret?: string;
+      /** Output only. Encrypted AzureAD client secret. */
+      encryptedClientSecret?: string;
+      /** The redirect URL that kubectl uses for authorization. */
+      kubectlRedirectUri?: string;
+      /** Kind of Azure AD account to be authenticated. Supported values are or for accounts belonging to a specific tenant. */
+      tenant?: string;
+    }
+    interface IdentityServiceGoogleConfig {
+      /** Disable automatic configuration of Google Plugin on supported platforms. */
+      disable?: boolean;
+    }
+    interface IdentityServiceMembershipSpec {
+      /** A member may support multiple auth methods. */
+      authMethods?: IdentityServiceAuthMethod[];
+    }
+    interface IdentityServiceMembershipState {
+      /** The reason of the failure. */
+      failureReason?: string;
+      /** Installed AIS version. This is the AIS version installed on this member. The values makes sense iff state is OK. */
+      installedVersion?: string;
+      /** Last reconciled membership configuration */
+      memberConfig?: IdentityServiceMembershipSpec;
+      /** Deployment state on this member */
+      state?: string;
+    }
+    interface IdentityServiceOidcConfig {
+      /** PEM-encoded CA for OIDC provider. */
+      certificateAuthorityData?: string;
+      /** ID for OIDC client application. */
+      clientId?: string;
+      /** Input only. Unencrypted OIDC client secret will be passed to the GKE Hub CLH. */
+      clientSecret?: string;
+      /** Flag to denote if reverse proxy is used to connect to auth provider. This flag should be set to true when provider is not reachable by Google Cloud Console. */
+      deployCloudConsoleProxy?: boolean;
+      /** Enable access token. */
+      enableAccessToken?: boolean;
+      /** Output only. Encrypted OIDC Client secret */
+      encryptedClientSecret?: string;
+      /** Comma-separated list of key-value pairs. */
+      extraParams?: string;
+      /** Prefix to prepend to group name. */
+      groupPrefix?: string;
+      /** Claim in OIDC ID token that holds group information. */
+      groupsClaim?: string;
+      /** URI for the OIDC provider. This should point to the level below .well-known/openid-configuration. */
+      issuerUri?: string;
+      /** Registered redirect uri to redirect users going through OAuth flow using kubectl plugin. */
+      kubectlRedirectUri?: string;
+      /** Comma-separated list of identifiers. */
+      scopes?: string;
+      /** Claim in OIDC ID token that holds username. */
+      userClaim?: string;
+      /** Prefix to prepend to user name. */
+      userPrefix?: string;
+    }
+    interface KubernetesMetadata {
+      /** Output only. Kubernetes API server version string as reported by `/version`. */
+      kubernetesApiServerVersion?: string;
+      /** Output only. The total memory capacity as reported by the sum of all Kubernetes nodes resources, defined in MB. */
+      memoryMb?: number;
+      /** Output only. Node count as reported by Kubernetes nodes resources. */
+      nodeCount?: number;
+      /** Output only. Node providerID as reported by the first node in the list of nodes on the Kubernetes endpoint. On Kubernetes platforms that support zero-node clusters (like GKE-on-GCP), the node_count will be zero and the node_provider_id will be empty. */
+      nodeProviderId?: string;
+      /** Output only. The time at which these details were last updated. This update_time is different from the Membership-level update_time since EndpointDetails are updated internally for API consumers. */
+      updateTime?: string;
+      /** Output only. vCPU count as reported by Kubernetes nodes resources. */
+      vcpuCount?: number;
+    }
+    interface KubernetesResource {
+      /** Output only. The Kubernetes resources for installing the GKE Connect agent This field is only populated in the Membership returned from a successful long-running operation from CreateMembership or UpdateMembership. It is not populated during normal GetMembership or ListMemberships requests. To get the resource manifest after the initial registration, the caller should make a UpdateMembership call with an empty field mask. */
+      connectResources?: ResourceManifest[];
+      /** Input only. The YAML representation of the Membership CR. This field is ignored for GKE clusters where Hub can read the CR directly. Callers should provide the CR that is currently present in the cluster during CreateMembership or UpdateMembership, or leave this field empty if none exists. The CR manifest is used to validate the cluster has not been registered with another Membership. */
+      membershipCrManifest?: string;
+      /** Output only. Additional Kubernetes resources that need to be applied to the cluster after Membership creation, and after every update. This field is only populated in the Membership returned from a successful long-running operation from CreateMembership or UpdateMembership. It is not populated during normal GetMembership or ListMemberships requests. To get the resource manifest after the initial registration, the caller should make a UpdateMembership call with an empty field mask. */
+      membershipResources?: ResourceManifest[];
+      /** Optional. Options for Kubernetes resource generation. */
+      resourceOptions?: ResourceOptions;
+    }
+    interface ListAdminClusterMembershipsResponse {
+      /** The list of matching Memberships of admin clusters. */
+      adminClusterMemberships?: Membership[];
+      /** A token to request the next page of resources from the `ListAdminClusterMemberships` method. The value of an empty string means that there are no more resources to return. */
+      nextPageToken?: string;
+      /** List of locations that could not be reached while fetching this list. */
+      unreachable?: string[];
+    }
+    interface ListFeaturesResponse {
+      /** A token to request the next page of resources from the `ListFeatures` method. The value of an empty string means that there are no more resources to return. */
+      nextPageToken?: string;
+      /** The list of matching Features */
+      resources?: Feature[];
+    }
+    interface ListFleetsResponse {
+      /** The list of matching fleets. */
+      fleets?: Fleet[];
+      /** A token, which can be sent as `page_token` to retrieve the next page. If this field is omitted, there are no subsequent pages. The token is only valid for 1h. */
+      nextPageToken?: string;
+    }
+    interface ListLocationsResponse {
+      /** A list of locations that matches the specified filter in the request. */
+      locations?: Location[];
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+    }
+    interface ListMembershipBindingsResponse {
+      /** The list of membership_bindings */
+      membershipBindings?: MembershipBinding[];
+      /** A token to request the next page of resources from the `ListMembershipBindings` method. The value of an empty string means that there are no more resources to return. */
+      nextPageToken?: string;
+    }
+    interface ListMembershipRBACRoleBindingsResponse {
+      /** A token to request the next page of resources from the `ListMembershipRBACRoleBindings` method. The value of an empty string means that there are no more resources to return. */
+      nextPageToken?: string;
+      /** The list of Membership RBACRoleBindings. */
+      rbacrolebindings?: RBACRoleBinding[];
+    }
+    interface ListMembershipsResponse {
+      /** A token to request the next page of resources from the `ListMemberships` method. The value of an empty string means that there are no more resources to return. */
+      nextPageToken?: string;
+      /** The list of matching Memberships. */
+      resources?: Membership[];
+      /** List of locations that could not be reached while fetching this list. */
+      unreachable?: string[];
+    }
+    interface ListOperationsResponse {
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+      /** A list of operations that matches the specified filter in the request. */
+      operations?: Operation[];
+    }
+    interface ListScopeNamespacesResponse {
+      /** A token to request the next page of resources from the `ListNamespaces` method. The value of an empty string means that there are no more resources to return. */
+      nextPageToken?: string;
+      /** The list of fleet namespaces */
+      scopeNamespaces?: Namespace[];
+    }
+    interface ListScopeRBACRoleBindingsResponse {
+      /** A token to request the next page of resources from the `ListScopeRBACRoleBindings` method. The value of an empty string means that there are no more resources to return. */
+      nextPageToken?: string;
+      /** The list of Scope RBACRoleBindings. */
+      rbacrolebindings?: RBACRoleBinding[];
+    }
+    interface ListScopesResponse {
+      /** A token to request the next page of resources from the `ListScopes` method. The value of an empty string means that there are no more resources to return. */
+      nextPageToken?: string;
+      /** The list of Scopes */
+      scopes?: Scope[];
+    }
+    interface Location {
+      /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
+      displayName?: string;
+      /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
+      labels?: {[P in string]: string};
+      /** The canonical id for this location. For example: `"us-east1"`. */
+      locationId?: string;
+      /** Service-specific metadata. For example the available capacity at the given location. */
+      metadata?: {[P in string]: any};
+      /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
+      name?: string;
+    }
+    interface Membership {
+      /** Optional. How to identify workloads from this Membership. See the documentation on Workload Identity for more details: https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity */
+      authority?: Authority;
+      /** Output only. When the Membership was created. */
+      createTime?: string;
+      /** Output only. When the Membership was deleted. */
+      deleteTime?: string;
+      /** Output only. Description of this membership, limited to 63 characters. Must match the regex: `a-zA-Z0-9*` This field is present for legacy purposes. */
+      description?: string;
+      /** Optional. Endpoint information to reach this member. */
+      endpoint?: MembershipEndpoint;
+      /** Optional. An externally-generated and managed ID for this Membership. This ID may be modified after creation, but this is not recommended. The ID must match the regex: `a-zA-Z0-9*` If this Membership represents a Kubernetes cluster, this value should be set to the UID of the `kube-system` namespace object. */
+      externalId?: string;
+      /** Optional. Labels for this membership. */
+      labels?: {[P in string]: string};
+      /** Output only. For clusters using Connect, the timestamp of the most recent connection established with Google Cloud. This time is updated every several minutes, not continuously. For clusters that do not use GKE Connect, or that have never connected successfully, this field will be unset. */
+      lastConnectionTime?: string;
+      /** Optional. The monitoring config information for this membership. */
+      monitoringConfig?: MonitoringConfig;
+      /** Output only. The full, unique name of this Membership resource in the format `projects/*‍/locations/*‍/memberships/{membership_id}`, set during creation. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+      name?: string;
+      /** Output only. State of the Membership resource. */
+      state?: MembershipState;
+      /** Output only. Google-generated UUID for this resource. This is unique across all Membership resources. If a Membership resource is deleted and another resource with the same name is created, it gets a different unique_id. */
+      uniqueId?: string;
+      /** Output only. When the Membership was last updated. */
+      updateTime?: string;
+    }
+    interface MembershipBinding {
+      /** Output only. When the membership binding was created. */
+      createTime?: string;
+      /** Output only. When the membership binding was deleted. */
+      deleteTime?: string;
+      /** Optional. Labels for this MembershipBinding. */
+      labels?: {[P in string]: string};
+      /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
+      name?: string;
+      /** A Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
+      scope?: string;
+      /** Output only. State of the membership binding resource. */
+      state?: MembershipBindingLifecycleState;
+      /** Output only. Google-generated UUID for this resource. This is unique across all membershipbinding resources. If a membershipbinding resource is deleted and another resource with the same name is created, it gets a different uid. */
+      uid?: string;
+      /** Output only. When the membership binding was last updated. */
+      updateTime?: string;
+    }
+    interface MembershipBindingLifecycleState {
+      /** Output only. The current state of the MembershipBinding resource. */
+      code?: string;
+    }
+    interface MembershipEndpoint {
+      /** Optional. Specific information for a GDC Edge Appliance cluster. */
+      applianceCluster?: ApplianceCluster;
+      /** Optional. Specific information for a Google Edge cluster. */
+      edgeCluster?: EdgeCluster;
+      /** Optional. Specific information for a GKE-on-GCP cluster. */
+      gkeCluster?: GkeCluster;
+      /** Output only. Whether the lifecycle of this membership is managed by a google cluster platform service. */
+      googleManaged?: boolean;
+      /** Output only. Useful Kubernetes-specific metadata. */
+      kubernetesMetadata?: KubernetesMetadata;
+      /** Optional. The in-cluster Kubernetes Resources that should be applied for a correctly registered cluster, in the steady state. These resources: * Ensure that the cluster is exclusively registered to one and only one Hub Membership. * Propagate Workload Pool Information available in the Membership Authority field. * Ensure proper initial configuration of default Hub Features. */
+      kubernetesResource?: KubernetesResource;
+      /** Optional. Specific information for a GKE Multi-Cloud cluster. */
+      multiCloudCluster?: MultiCloudCluster;
+      /** Optional. Specific information for a GKE On-Prem cluster. An onprem user-cluster who has no resourceLink is not allowed to use this field, it should have a nil "type" instead. */
+      onPremCluster?: OnPremCluster;
+    }
+    interface MembershipFeatureSpec {
+      /** Anthos Observability-specific spec */
+      anthosobservability?: AnthosObservabilityMembershipSpec;
+      /** Cloud Build-specific spec */
+      cloudbuild?: CloudBuildMembershipSpec;
+      /** Config Management-specific spec. */
+      configmanagement?: ConfigManagementMembershipSpec;
+      /** Fleet observability membership spec */
+      fleetobservability?: any;
+      /** Identity Service-specific spec. */
+      identityservice?: IdentityServiceMembershipSpec;
+      /** Anthos Service Mesh-specific spec */
+      mesh?: ServiceMeshMembershipSpec;
+      /** FNS Actuation membership spec */
+      namespaceactuation?: any;
+      /** Whether this per-Membership spec was inherited from a fleet-level default. This field can be updated by users by either overriding a Membership config (updated to USER implicitly) or setting to FLEET explicitly. */
+      origin?: Origin;
+      /** Policy Controller spec. */
+      policycontroller?: PolicyControllerMembershipSpec;
+      /** Workload Certificate spec. */
+      workloadcertificate?: MembershipSpec;
+    }
+    interface MembershipFeatureState {
+      /** Appdevexperience specific state. */
+      appdevexperience?: AppDevExperienceFeatureState;
+      /** ClusterUpgrade state. */
+      clusterupgrade?: ClusterUpgradeMembershipState;
+      /** Config Management-specific state. */
+      configmanagement?: ConfigManagementMembershipState;
+      /** Fleet observability membership state. */
+      fleetobservability?: any;
+      /** Identity Service-specific state. */
+      identityservice?: IdentityServiceMembershipState;
+      /** Metering-specific state. */
+      metering?: MeteringMembershipState;
+      /** FNS Actuation membership state */
+      namespaceactuation?: any;
+      /** Policycontroller-specific state. */
+      policycontroller?: PolicyControllerMembershipState;
+      /** Service Mesh-specific state. */
+      servicemesh?: ServiceMeshMembershipState;
+      /** The high-level state of this Feature for a single membership. */
+      state?: FeatureState;
+    }
+    interface MembershipSpec {
+      /** Specifies workload certificate management. */
+      certificateManagement?: string;
+    }
+    interface MembershipState {
+      /** Output only. The current state of the Membership resource. */
+      code?: string;
+    }
+    interface MeteringMembershipState {
+      /** The time stamp of the most recent measurement of the number of vCPUs in the cluster. */
+      lastMeasurementTime?: string;
+      /** The vCPUs capacity in the cluster according to the most recent measurement (1/1000 precision). */
+      preciseLastMeasuredClusterVcpuCapacity?: number;
+    }
+    interface MonitoringConfig {
+      /** Optional. Cluster name used to report metrics. For Anthos on VMWare/Baremetal/MultiCloud clusters, it would be in format {cluster_type}/{cluster_name}, e.g., "awsClusters/cluster_1". */
+      cluster?: string;
+      /** Optional. For GKE and Multicloud clusters, this is the UUID of the cluster resource. For VMWare and Baremetal clusters, this is the kube-system UID. */
+      clusterHash?: string;
+      /** Optional. Kubernetes system metrics, if available, are written to this prefix. This defaults to kubernetes.io for GKE, and kubernetes.io/anthos for Anthos eventually. Noted: Anthos MultiCloud will have kubernetes.io prefix today but will migration to be under kubernetes.io/anthos. */
+      kubernetesMetricsPrefix?: string;
+      /** Optional. Location used to report Metrics */
+      location?: string;
+      /** Optional. Project used to report Metrics */
+      projectId?: string;
+    }
+    interface MultiCloudCluster {
+      /** Output only. If cluster_missing is set then it denotes that API(gkemulticloud.googleapis.com) resource for this GKE Multi-Cloud cluster no longer exists. */
+      clusterMissing?: boolean;
+      /** Immutable. Self-link of the Google Cloud resource for the GKE Multi-Cloud cluster. For example: //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/awsClusters/my-cluster //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/azureClusters/my-cluster //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/attachedClusters/my-cluster */
+      resourceLink?: string;
+    }
+    interface MultiClusterIngressFeatureSpec {
+      /** Deprecated: This field will be ignored and should not be set. Customer's billing structure. */
+      billing?: string;
+      /** Fully-qualified Membership name which hosts the MultiClusterIngress CRD. Example: `projects/foo-proj/locations/global/memberships/bar` */
+      configMembership?: string;
+    }
+    interface Namespace {
+      /** Output only. When the namespace was created. */
+      createTime?: string;
+      /** Output only. When the namespace was deleted. */
+      deleteTime?: string;
+      /** Optional. Labels for this Namespace. */
+      labels?: {[P in string]: string};
+      /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
+      name?: string;
+      /** Optional. Namespace-level cluster namespace labels. These labels are applied to the related namespace of the member clusters bound to the parent Scope. Scope-level labels (`namespace_labels` in the Fleet Scope resource) take precedence over Namespace-level labels if they share a key. Keys and values must be Kubernetes-conformant. */
+      namespaceLabels?: {[P in string]: string};
+      /** Required. Scope associated with the namespace */
+      scope?: string;
+      /** Output only. State of the namespace resource. */
+      state?: NamespaceLifecycleState;
+      /** Output only. Google-generated UUID for this resource. This is unique across all namespace resources. If a namespace resource is deleted and another resource with the same name is created, it gets a different uid. */
+      uid?: string;
+      /** Output only. When the namespace was last updated. */
+      updateTime?: string;
+    }
+    interface NamespaceActuationFeatureSpec {
+      /** actuation_mode controls the behavior of the controller */
+      actuationMode?: string;
+    }
+    interface NamespaceActuationFeatureState {}
+    interface NamespaceActuationMembershipSpec {}
+    interface NamespaceActuationMembershipState {}
+    interface NamespaceLifecycleState {
+      /** Output only. The current state of the Namespace resource. */
+      code?: string;
+    }
+    interface OnPremCluster {
+      /** Immutable. Whether the cluster is an admin cluster. */
+      adminCluster?: boolean;
+      /** Output only. If cluster_missing is set then it denotes that API(gkeonprem.googleapis.com) resource for this GKE On-Prem cluster no longer exists. */
+      clusterMissing?: boolean;
+      /** Immutable. The on prem cluster's type. */
+      clusterType?: string;
+      /** Immutable. Self-link of the Google Cloud resource for the GKE On-Prem cluster. For example: //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/vmwareClusters/my-cluster //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/bareMetalClusters/my-cluster */
+      resourceLink?: string;
+    }
+    interface Operation {
+      /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
+      done?: boolean;
+      /** The error result of the operation in case of failure or cancellation. */
+      error?: GoogleRpcStatus;
+      /** Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. */
+      metadata?: {[P in string]: any};
+      /** The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending with `operations/{unique_id}`. */
+      name?: string;
+      /** The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`. */
+      response?: {[P in string]: any};
+    }
+    interface OperationMetadata {
+      /** Output only. API version used to start the operation. */
+      apiVersion?: string;
+      /** Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      cancelRequested?: boolean;
+      /** Output only. The time the operation was created. */
+      createTime?: string;
+      /** Output only. The time the operation finished running. */
+      endTime?: string;
+      /** Output only. Human-readable status of the operation, if any. */
+      statusDetail?: string;
+      /** Output only. Server-defined resource path for the target of the operation. */
+      target?: string;
+      /** Output only. Name of the verb executed by the operation. */
+      verb?: string;
+    }
+    interface Origin {
+      /** Type specifies which type of origin is set. */
+      type?: string;
+    }
+    interface Policy {
+      /** Specifies cloud audit logging configuration for this policy. */
+      auditConfigs?: AuditConfig[];
+      /** Associates a list of `members`, or principals, with a `role`. Optionally, may specify a `condition` that determines how and when the `bindings` are applied. Each of the `bindings` must contain at least one principal. The `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of these principals can be Google groups. Each occurrence of a principal counts towards these limits. For example, if the `bindings` grant 50 different roles to `user:alice@example.com`, and not to any other principal, then you can add another 1,450 principals to the `bindings` in the `Policy`. */
+      bindings?: Binding[];
+      /** `etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform policy updates in order to avoid race conditions: An `etag` is returned in the response to `getIamPolicy`, and systems are expected to put that etag in the request to `setIamPolicy` to ensure that their change will be applied to the same version of the policy. **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost. */
+      etag?: string;
+      /** Specifies the format of the policy. Valid values are `0`, `1`, and `3`. Requests that specify an invalid value are rejected. Any operation that affects conditional role bindings must specify version `3`. This requirement applies to the following operations: * Getting a policy that includes a conditional role binding * Adding a conditional role binding to a policy * Changing a conditional role binding in a policy * Removing any role binding, with or without a condition, from a policy that includes conditions **Important:** If you use IAM Conditions, you must include the `etag` field whenever you call `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a version `3` policy with a version `1` policy, and all of the conditions in the version `3` policy are lost. If a policy does not include any conditions, operations on that policy may specify any valid version or leave the field unset. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+      version?: number;
+    }
+    interface PolicyBinding {
+      /** The relative resource name of the binauthz platform policy to audit. GKE platform policies have the following format: `projects/{project_number}/platforms/gke/policies/{policy_id}`. */
+      name?: string;
+    }
+    interface PolicyControllerBundleInstallSpec {
+      /** The set of namespaces to be exempted from the bundle. */
+      exemptedNamespaces?: string[];
+    }
+    interface PolicyControllerHubConfig {
+      /** Sets the interval for Policy Controller Audit Scans (in seconds). When set to 0, this disables audit functionality altogether. */
+      auditIntervalSeconds?: string;
+      /** The maximum number of audit violations to be stored in a constraint. If not set, the internal default (currently 20) will be used. */
+      constraintViolationLimit?: string;
+      /** Map of deployment configs to deployments ("admission", "audit", "mutation'). */
+      deploymentConfigs?: {
+        [P in string]: PolicyControllerPolicyControllerDeploymentConfig;
+      };
+      /** The set of namespaces that are excluded from Policy Controller checks. Namespaces do not need to currently exist on the cluster. */
+      exemptableNamespaces?: string[];
+      /** The install_spec represents the intended state specified by the latest request that mutated install_spec in the feature spec, not the lifecycle state of the feature observed by the Hub feature controller that is reported in the feature state. */
+      installSpec?: string;
+      /** Logs all denies and dry run failures. */
+      logDeniesEnabled?: boolean;
+      /** Monitoring specifies the configuration of monitoring. */
+      monitoring?: PolicyControllerMonitoringConfig;
+      /** Enables the ability to mutate resources using Policy Controller. */
+      mutationEnabled?: boolean;
+      /** Specifies the desired policy content on the cluster */
+      policyContent?: PolicyControllerPolicyContentSpec;
+      /** Enables the ability to use Constraint Templates that reference to objects other than the object currently being evaluated. */
+      referentialRulesEnabled?: boolean;
+    }
+    interface PolicyControllerMembershipSpec {
+      /** Policy Controller configuration for the cluster. */
+      policyControllerHubConfig?: PolicyControllerHubConfig;
+      /** Version of Policy Controller installed. */
+      version?: string;
+    }
+    interface PolicyControllerMembershipState {
+      /** Currently these include (also serving as map keys): 1. "admission" 2. "audit" 3. "mutation" */
+      componentStates?: {[P in string]: PolicyControllerOnClusterState};
+      /** The overall content state observed by the Hub Feature controller. */
+      policyContentState?: PolicyControllerPolicyContentState;
+      /** The overall Policy Controller lifecycle state observed by the Hub Feature controller. */
+      state?: string;
+    }
+    interface PolicyControllerMonitoringConfig {
+      /** Specifies the list of backends Policy Controller will export to. An empty list would effectively disable metrics export. */
+      backends?: string[];
+    }
+    interface PolicyControllerOnClusterState {
+      /** Surface potential errors or information logs. */
+      details?: string;
+      /** The lifecycle state of this component. */
+      state?: string;
+    }
+    interface PolicyControllerPolicyContentSpec {
+      /** map of bundle name to BundleInstallSpec. The bundle name maps to the `bundleName` key in the `policycontroller.gke.io/constraintData` annotation on a constraint. */
+      bundles?: {[P in string]: PolicyControllerBundleInstallSpec};
+      /** Configures the installation of the Template Library. */
+      templateLibrary?: PolicyControllerTemplateLibraryConfig;
+    }
+    interface PolicyControllerPolicyContentState {
+      /** The state of the any bundles included in the chosen version of the manifest */
+      bundleStates?: {[P in string]: PolicyControllerOnClusterState};
+      /** The state of the referential data sync configuration. This could represent the state of either the syncSet object(s) or the config object, depending on the version of PoCo configured by the user. */
+      referentialSyncConfigState?: PolicyControllerOnClusterState;
+      /** The state of the template library */
+      templateLibraryState?: PolicyControllerOnClusterState;
+    }
+    interface PolicyControllerPolicyControllerDeploymentConfig {
+      /** Container resource requirements. */
+      containerResources?: PolicyControllerResourceRequirements;
+      /** Pod affinity configuration. */
+      podAffinity?: string;
+      /** Pod anti-affinity enablement. */
+      podAntiAffinity?: boolean;
+      /** Pod tolerations of node taints. */
+      podTolerations?: PolicyControllerToleration[];
+      /** Pod replica count. */
+      replicaCount?: string;
+    }
+    interface PolicyControllerResourceList {
+      /** CPU requirement expressed in Kubernetes resource units. */
+      cpu?: string;
+      /** Memory requirement expressed in Kubernetes resource units. */
+      memory?: string;
+    }
+    interface PolicyControllerResourceRequirements {
+      /** Limits describes the maximum amount of compute resources allowed for use by the running container. */
+      limits?: PolicyControllerResourceList;
+      /** Requests describes the amount of compute resources reserved for the container by the kube-scheduler. */
+      requests?: PolicyControllerResourceList;
+    }
+    interface PolicyControllerTemplateLibraryConfig {
+      /** Configures the manner in which the template library is installed on the cluster. */
+      installation?: string;
+    }
+    interface PolicyControllerToleration {
+      /** Matches a taint effect. */
+      effect?: string;
+      /** Matches a taint key (not necessarily unique). */
+      key?: string;
+      /** Matches a taint operator. */
+      operator?: string;
+      /** Matches a taint value. */
+      value?: string;
+    }
+    interface RBACRoleBinding {
+      /** Output only. When the rbacrolebinding was created. */
+      createTime?: string;
+      /** Output only. When the rbacrolebinding was deleted. */
+      deleteTime?: string;
+      /** group is the group, as seen by the kubernetes cluster. */
+      group?: string;
+      /** Optional. Labels for this RBACRolebinding. */
+      labels?: {[P in string]: string};
+      /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
+      name?: string;
+      /** Required. Role to bind to the principal */
+      role?: Role;
+      /** Output only. State of the rbacrolebinding resource. */
+      state?: RBACRoleBindingLifecycleState;
+      /** Output only. Google-generated UUID for this resource. This is unique across all rbacrolebinding resources. If a rbacrolebinding resource is deleted and another resource with the same name is created, it gets a different uid. */
+      uid?: string;
+      /** Output only. When the rbacrolebinding was last updated. */
+      updateTime?: string;
+      /** user is the name of the user as seen by the kubernetes cluster, example "alice" or "alice@domain.tld" */
+      user?: string;
+    }
+    interface RBACRoleBindingLifecycleState {
+      /** Output only. The current state of the rbacrolebinding resource. */
+      code?: string;
+    }
+    interface ResourceManifest {
+      /** Whether the resource provided in the manifest is `cluster_scoped`. If unset, the manifest is assumed to be namespace scoped. This field is used for REST mapping when applying the resource in a cluster. */
+      clusterScoped?: boolean;
+      /** YAML manifest of the resource. */
+      manifest?: string;
+    }
+    interface ResourceOptions {
+      /** Optional. The Connect agent version to use for connect_resources. Defaults to the latest GKE Connect version. The version must be a currently supported version, obsolete versions will be rejected. */
+      connectVersion?: string;
+      /** Optional. Major version of the Kubernetes cluster. This is only used to determine which version to use for the CustomResourceDefinition resources, `apiextensions/v1beta1` or`apiextensions/v1`. */
+      k8sVersion?: string;
+      /** Optional. Use `apiextensions/v1beta1` instead of `apiextensions/v1` for CustomResourceDefinition resources. This option should be set for clusters with Kubernetes apiserver versions <1.16. */
+      v1beta1Crd?: boolean;
+    }
+    interface Role {
+      /** predefined_role is the Kubernetes default role to use */
+      predefinedRole?: string;
+    }
+    interface Scope {
+      /** Output only. When the scope was created. */
+      createTime?: string;
+      /** Output only. When the scope was deleted. */
+      deleteTime?: string;
+      /** Optional. Labels for this Scope. */
+      labels?: {[P in string]: string};
+      /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
+      name?: string;
+      /** Optional. Scope-level cluster namespace labels. For the member clusters bound to the Scope, these labels are applied to each namespace under the Scope. Scope-level labels take precedence over Namespace-level labels (`namespace_labels` in the Fleet Namespace resource) if they share a key. Keys and values must be Kubernetes-conformant. */
+      namespaceLabels?: {[P in string]: string};
+      /** Output only. State of the scope resource. */
+      state?: ScopeLifecycleState;
+      /** Output only. Google-generated UUID for this resource. This is unique across all scope resources. If a scope resource is deleted and another resource with the same name is created, it gets a different uid. */
+      uid?: string;
+      /** Output only. When the scope was last updated. */
+      updateTime?: string;
+    }
+    interface ScopeFeatureSpec {
+      /** Spec for the ClusterUpgrade feature at the scope level */
+      clusterupgrade?: ClusterUpgradeScopeSpec;
+    }
+    interface ScopeFeatureState {
+      /** State for the ClusterUpgrade feature at the scope level */
+      clusterupgrade?: ClusterUpgradeScopeState;
+      /** Output only. The "running state" of the Feature in this Scope. */
+      state?: FeatureState;
+    }
+    interface ScopeLifecycleState {
+      /** Output only. The current state of the scope resource. */
+      code?: string;
+    }
+    interface SecurityPostureConfig {
+      /** Sets which mode to use for Security Posture features. */
+      mode?: string;
+      /** Sets which mode to use for vulnerability scanning. */
+      vulnerabilityMode?: string;
+    }
+    interface ServiceMeshAnalysisMessage {
+      /** A UI can combine these args with a template (based on message_base.type) to produce an internationalized message. */
+      args?: {[P in string]: any};
+      /** A human readable description of what the error means. It is suitable for non-internationalize display purposes. */
+      description?: string;
+      /** Details common to all types of Istio and ServiceMesh analysis messages. */
+      messageBase?: ServiceMeshAnalysisMessageBase;
+      /** A list of strings specifying the resource identifiers that were the cause of message generation. A "path" here may be: * MEMBERSHIP_ID if the cause is a specific member cluster * MEMBERSHIP_ID/(NAMESPACE\/)?RESOURCETYPE/NAME if the cause is a resource in a cluster */
+      resourcePaths?: string[];
+    }
+    interface ServiceMeshAnalysisMessageBase {
+      /** A url pointing to the Service Mesh or Istio documentation for this specific error type. */
+      documentationUrl?: string;
+      /** Represents how severe a message is. */
+      level?: string;
+      /** Represents the specific type of a message. */
+      type?: ServiceMeshType;
+    }
+    interface ServiceMeshControlPlaneManagement {
+      /** Explanation of state. */
+      details?: ServiceMeshStatusDetails[];
+      /** LifecycleState of control plane management. */
+      state?: string;
+    }
+    interface ServiceMeshDataPlaneManagement {
+      /** Explanation of the status. */
+      details?: ServiceMeshStatusDetails[];
+      /** Lifecycle status of data plane management. */
+      state?: string;
+    }
+    interface ServiceMeshFeatureState {
+      /** Output only. Results of running Service Mesh analyzers. */
+      analysisMessages?: ServiceMeshAnalysisMessage[];
+    }
+    interface ServiceMeshMembershipSpec {
+      /** Deprecated: use `management` instead Enables automatic control plane management. */
+      controlPlane?: string;
+      /** Determines which release channel to use for default injection and service mesh APIs. */
+      defaultChannel?: string;
+      /** Enables automatic Service Mesh management. */
+      management?: string;
+    }
+    interface ServiceMeshMembershipState {
+      /** Output only. Results of running Service Mesh analyzers. */
+      analysisMessages?: ServiceMeshAnalysisMessage[];
+      /** The API version (i.e. Istio CRD version) for configuring service mesh in this cluster. This version is influenced by the `default_channel` field. */
+      configApiVersion?: string;
+      /** Output only. Status of control plane management */
+      controlPlaneManagement?: ServiceMeshControlPlaneManagement;
+      /** Output only. Status of data plane management. */
+      dataPlaneManagement?: ServiceMeshDataPlaneManagement;
+    }
+    interface ServiceMeshStatusDetails {
+      /** A machine-readable code that further describes a broad status. */
+      code?: string;
+      /** Human-readable explanation of code. */
+      details?: string;
+    }
+    interface ServiceMeshType {
+      /** A 7 character code matching `^IST[0-9]{4}$` or `^ASM[0-9]{4}$`, intended to uniquely identify the message type. (e.g. "IST0001" is mapped to the "InternalError" message type.) */
+      code?: string;
+      /** A human-readable name for the message type. e.g. "InternalError", "PodMissingProxy". This should be the same for all messages of the same type. (This corresponds to the `name` field in open-source Istio.) */
+      displayName?: string;
+    }
+    interface SetIamPolicyRequest {
+      /** REQUIRED: The complete policy to be applied to the `resource`. The size of the policy is limited to a few 10s of KB. An empty policy is a valid policy but certain Google Cloud services (such as Projects) might reject them. */
+      policy?: Policy;
+      /** OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used: `paths: "bindings, etag"` */
+      updateMask?: string;
+    }
+    interface Status {
+      /** Code specifies AppDevExperienceFeature's subcomponent ready state. */
+      code?: string;
+      /** Description is populated if Code is Failed, explaining why it has failed. */
+      description?: string;
+    }
+    interface TestIamPermissionsRequest {
+      /** The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions). */
+      permissions?: string[];
+    }
+    interface TestIamPermissionsResponse {
+      /** A subset of `TestPermissionsRequest.permissions` that the caller is allowed. */
+      permissions?: string[];
+    }
+    interface TypeMeta {
+      /** APIVersion of the resource (e.g. v1). */
+      apiVersion?: string;
+      /** Kind of the resource (e.g. Deployment). */
+      kind?: string;
+    }
+    interface ValidateCreateMembershipRequest {
+      /** Required. Membership resource to be created. */
+      membership?: Membership;
+      /** Required. Client chosen membership id. */
+      membershipId?: string;
+    }
+    interface ValidateCreateMembershipResponse {
+      /** Wraps all the validator results. */
+      validationResults?: ValidationResult[];
+    }
+    interface ValidationResult {
+      /** Additional information for the validation. */
+      result?: string;
+      /** Whether the validation is passed or not. */
+      success?: boolean;
+      /** Validator type to validate membership with. */
+      validator?: string;
+    }
+    interface FleetsResource {
+      /** Returns all fleets within an organization or a project that the caller has access to. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum number of fleets to return. The service may return fewer than this value. If unspecified, at most 200 fleets will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+        pageSize?: number;
+        /** Optional. A page token, received from a previous `ListFleets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListFleets` must match the call that provided the page token. */
+        pageToken?: string;
+        /** Required. The organization or project to list for Fleets under, in the format `organizations/*‍/locations/*` or `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListFleetsResponse>;
+    }
+    interface LocationsResource {
+      fleets: FleetsResource;
+    }
+    interface OrganizationsResource {
+      locations: LocationsResource;
+    }
+    interface FeaturesResource {
+      /** Adds a new Feature. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** The ID of the feature to create. */
+        featureId?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the Feature will be created. Specified in the format `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Feature;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** The ID of the feature to create. */
+          featureId?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the Feature will be created. Specified in the format `projects/*‍/locations/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Feature
+      ): Request<Operation>;
+      /** Removes a Feature. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** If set to true, the delete will ignore any outstanding resources for this Feature (that is, `FeatureState.has_resources` is set to true). These resources will NOT be cleaned up or modified in any way. */
+        force?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Gets details of a single Feature. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Feature>;
+      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Policy>;
+      /** Lists Features in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Lists Features that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Examples: - Feature with the name "servicemesh" in project "foo-proj": name = "projects/foo-proj/locations/global/features/servicemesh" - Features that have a label called `foo`: labels.foo:* - Features that have a label called `foo` whose value is `bar`: labels.foo = bar */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
+        orderBy?: string;
+        /** When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+        pageSize?: number;
+        /** Token returned by previous call to `ListFeatures` which specifies the position in the list from where to continue listing the resources. */
+        pageToken?: string;
+        /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListFeaturesResponse>;
+      /** Updates an existing Feature. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Mask of fields to update. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Feature;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The Feature resource name in the format `projects/*‍/locations/*‍/features/*`. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Mask of fields to update. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Feature
+      ): Request<Operation>;
+      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: SetIamPolicyRequest
+      ): Request<Policy>;
+      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: TestIamPermissionsRequest
+      ): Request<TestIamPermissionsResponse>;
+    }
+    interface FleetsResource {
+      /** Creates a fleet. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the Fleet will be created. Specified in the format `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Fleet;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the Fleet will be created. Specified in the format `projects/*‍/locations/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Fleet
+      ): Request<Operation>;
+      /** Removes a Fleet. There must be no memberships remaining in the Fleet. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Fleet resource name in the format `projects/*‍/locations/*‍/fleets/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Returns the details of a fleet. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Fleet resource name in the format `projects/*‍/locations/*‍/fleets/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Fleet>;
+      /** Returns all fleets within an organization or a project that the caller has access to. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum number of fleets to return. The service may return fewer than this value. If unspecified, at most 200 fleets will be returned. The maximum value is 1000; values above 1000 will be coerced to 1000. */
+        pageSize?: number;
+        /** Optional. A page token, received from a previous `ListFleets` call. Provide this to retrieve the subsequent page. When paginating, all other parameters provided to `ListFleets` must match the call that provided the page token. */
+        pageToken?: string;
+        /** Required. The organization or project to list for Fleets under, in the format `organizations/*‍/locations/*` or `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListFleetsResponse>;
+      /** Updates a fleet. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most one fleet resource, named "default". */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The fields to be updated; */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Fleet;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Output only. The full, unique resource name of this fleet in the format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud project can have at most one fleet resource, named "default". */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The fields to be updated; */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Fleet
+      ): Request<Operation>;
+    }
+    interface BindingsResource {
+      /** Creates a MembershipBinding. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The ID to use for the MembershipBinding. */
+        membershipBindingId?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the MembershipBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: MembershipBinding;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The ID to use for the MembershipBinding. */
+          membershipBindingId?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the MembershipBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: MembershipBinding
+      ): Request<Operation>;
+      /** Deletes a MembershipBinding. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The MembershipBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/bindings/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Returns the details of a MembershipBinding. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The MembershipBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/bindings/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<MembershipBinding>;
+      /** Lists MembershipBindings. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Lists MembershipBindings that match the filter expression, following the syntax outlined in https://google.aip.dev/160. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+        pageSize?: number;
+        /** Optional. Token returned by previous call to `ListMembershipBindings` which specifies the position in the list from where to continue listing the resources. */
+        pageToken?: string;
+        /** Required. The parent Membership for which the MembershipBindings will be listed. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListMembershipBindingsResponse>;
+      /** Updates a MembershipBinding. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The fields to be updated. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: MembershipBinding;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The resource name for the membershipbinding itself `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The fields to be updated. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: MembershipBinding
+      ): Request<Operation>;
+    }
+    interface RbacrolebindingsResource {
+      /** Creates a Membership RBACRoleBinding. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+        rbacrolebindingId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RBACRoleBinding;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+          rbacrolebindingId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RBACRoleBinding
+      ): Request<Operation>;
+      /** Deletes a Membership RBACRoleBinding. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/rbacrolebindings/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Generates a YAML of the RBAC policies for the specified RoleBinding and its associated impersonation resources. */
+      generateMembershipRBACRoleBindingYAML(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+        rbacrolebindingId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RBACRoleBinding;
+      }): Request<GenerateMembershipRBACRoleBindingYAMLResponse>;
+      generateMembershipRBACRoleBindingYAML(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+          rbacrolebindingId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RBACRoleBinding
+      ): Request<GenerateMembershipRBACRoleBindingYAMLResponse>;
+      /** Returns the details of a Membership RBACRoleBinding. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/memberships/*‍/rbacrolebindings/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<RBACRoleBinding>;
+      /** Lists all Membership RBACRoleBindings. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+        pageSize?: number;
+        /** Optional. Token returned by previous call to `ListMembershipRBACRoleBindings` which specifies the position in the list from where to continue listing the resources. */
+        pageToken?: string;
+        /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/memberships/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListMembershipRBACRoleBindingsResponse>;
+      /** Updates a Membership RBACRoleBinding. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The fields to be updated. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RBACRoleBinding;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The fields to be updated. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RBACRoleBinding
+      ): Request<Operation>;
+    }
+    interface MembershipsResource {
+      /** Creates a new Membership. **This is currently only supported for GKE clusters on Google Cloud**. To register other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Client chosen ID for the membership. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+        membershipId?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Membership;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. Client chosen ID for the membership. `membership_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+          membershipId?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Membership
+      ): Request<Operation>;
+      /** Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. If set to true, any subresource from this Membership will also be deleted. Otherwise, the request will only work if the Membership has no subresource. */
+        force?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Generates the manifest for deployment of the GKE connect agent. **This method is used internally by Google-provided libraries.** Most clients should not need to call this method directly. */
+      generateConnectManifest(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. The image pull secret content for the registry, if not public. */
+        imagePullSecretContent?: string;
+        /** Optional. If true, generate the resources for upgrade only. Some resources generated only for installation (e.g. secrets) will be excluded. */
+        isUpgrade?: boolean;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Membership resource name the Agent will associate with, in the format `projects/*‍/locations/*‍/memberships/*`. */
+        name: string;
+        /** Optional. Namespace for GKE Connect agent resources. Defaults to `gke-connect`. The Connect Agent is authorized automatically when run in the default namespace. Otherwise, explicit authorization must be granted with an additional IAM binding. */
+        namespace?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Optional. URI of a proxy if connectivity from the agent to gkeconnect.googleapis.com requires the use of a proxy. Format must be in the form `http(s)://{proxy_address}`, depending on the HTTP/HTTPS protocol supported by the proxy. This will direct the connect agent's outbound traffic through a HTTP(S) proxy. */
+        proxy?: string;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. The registry to fetch the connect agent image from. Defaults to gcr.io/gkeconnect. */
+        registry?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Optional. The Connect agent version to use. Defaults to the most current version. */
+        version?: string;
+      }): Request<GenerateConnectManifestResponse>;
+      /** Gets the details of a Membership. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Membership>;
+      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Policy>;
+      /** Lists Memberships in a given project and location. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Lists Memberships that match the filter expression, following the syntax outlined in https://google.aip.dev/160. Examples: - Name is `bar` in project `foo-proj` and location `global`: name = "projects/foo-proj/locations/global/membership/bar" - Memberships that have a label called `foo`: labels.foo:* - Memberships that have a label called `foo` whose value is `bar`: labels.foo = bar - Memberships in the CREATING state: state = CREATING */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
+        orderBy?: string;
+        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+        pageSize?: number;
+        /** Optional. Token returned by previous call to `ListMemberships` which specifies the position in the list from where to continue listing the resources. */
+        pageToken?: string;
+        /** Required. The parent (project and location) where the Memberships will be listed. Specified in the format `projects/*‍/locations/*`. `projects/*‍/locations/-` list memberships in all the regions. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListMembershipsResponse>;
+      /** Lists Memberships of admin clusters in a given project and location. **This method is only used internally**. */
+      listAdmin(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Optional. Lists Memberships of admin clusters that match the filter expression. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. One or more fields to compare and use to sort the output. See https://google.aip.dev/132#ordering. */
+        orderBy?: string;
+        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+        pageSize?: number;
+        /** Optional. Token returned by previous call to `ListAdminClusterMemberships` which specifies the position in the list from where to continue listing the resources. */
+        pageToken?: string;
+        /** Required. The parent (project and location) where the Memberships of admin cluster will be listed. Specified in the format `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListAdminClusterMembershipsResponse>;
+      /** Updates an existing Membership. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Required. Mask of fields to update. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Membership;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The Membership resource name in the format `projects/*‍/locations/*‍/memberships/*`. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. A request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Required. Mask of fields to update. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Membership
+      ): Request<Operation>;
+      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: SetIamPolicyRequest
+      ): Request<Policy>;
+      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: TestIamPermissionsRequest
+      ): Request<TestIamPermissionsResponse>;
+      /** ValidateCreateMembership is a preflight check for CreateMembership. It checks the following: 1. Caller has the required `gkehub.memberships.create` permission. 2. The membership_id is still available. */
+      validateCreate(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: ValidateCreateMembershipRequest;
+      }): Request<ValidateCreateMembershipResponse>;
+      validateCreate(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the Memberships will be created. Specified in the format `projects/*‍/locations/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: ValidateCreateMembershipRequest
+      ): Request<ValidateCreateMembershipResponse>;
+      bindings: BindingsResource;
+      rbacrolebindings: RbacrolebindingsResource;
+    }
+    interface OperationsResource {
+      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      cancel(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be cancelled. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CancelOperationRequest;
+      }): Request<{}>;
+      cancel(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of the operation resource to be cancelled. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CancelOperationRequest
+      ): Request<{}>;
+      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be deleted. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** The standard list filter. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation's parent resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The standard list page size. */
+        pageSize?: number;
+        /** The standard list page token. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListOperationsResponse>;
+    }
+    interface NamespacesResource {
+      /** Creates a fleet namespace. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the Namespace will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. Client chosen ID for the Namespace. `namespace_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+        scopeNamespaceId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Namespace;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the Namespace will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. Client chosen ID for the Namespace. `namespace_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+          scopeNamespaceId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Namespace
+      ): Request<Operation>;
+      /** Deletes a fleet namespace. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Namespace resource name in the format `projects/*‍/locations/*‍/scopes/*‍/namespaces/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Returns the details of a fleet namespace. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Namespace resource name in the format `projects/*‍/locations/*‍/scopes/*‍/namespaces/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Namespace>;
+      /** Lists fleet namespaces. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+        pageSize?: number;
+        /** Optional. Token returned by previous call to `ListFeatures` which specifies the position in the list from where to continue listing the resources. */
+        pageToken?: string;
+        /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListScopeNamespacesResponse>;
+      /** Updates a fleet namespace. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The fields to be updated. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Namespace;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The resource name for the namespace `projects/{project}/locations/{location}/namespaces/{namespace}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The fields to be updated. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Namespace
+      ): Request<Operation>;
+    }
+    interface RbacrolebindingsResource {
+      /** Creates a Scope RBACRoleBinding. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+        rbacrolebindingId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RBACRoleBinding;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the RBACRoleBinding will be created. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id` must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must consist of lower case alphanumeric characters or `-` 3. It must start and end with an alphanumeric character Which can be expressed as the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters. */
+          rbacrolebindingId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RBACRoleBinding
+      ): Request<Operation>;
+      /** Deletes a Scope RBACRoleBinding. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/scopes/*‍/rbacrolebindings/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Returns the details of a Scope RBACRoleBinding. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The RBACRoleBinding resource name in the format `projects/*‍/locations/*‍/scopes/*‍/rbacrolebindings/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<RBACRoleBinding>;
+      /** Lists all Scope RBACRoleBindings. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+        pageSize?: number;
+        /** Optional. Token returned by previous call to `ListScopeRBACRoleBindings` which specifies the position in the list from where to continue listing the resources. */
+        pageToken?: string;
+        /** Required. The parent (project and location) where the Features will be listed. Specified in the format `projects/*‍/locations/*‍/scopes/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListScopeRBACRoleBindingsResponse>;
+      /** Updates a Scope RBACRoleBinding. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The fields to be updated. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: RBACRoleBinding;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The resource name for the rbacrolebinding `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}` or `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The fields to be updated. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: RBACRoleBinding
+      ): Request<Operation>;
+    }
+    interface ScopesResource {
+      /** Creates a Scope. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent (project and location) where the Scope will be created. Specified in the format `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
+        scopeId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Scope;
+      }): Request<Operation>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent (project and location) where the Scope will be created. Specified in the format `projects/*‍/locations/*`. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
+          scopeId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Scope
+      ): Request<Operation>;
+      /** Deletes a Scope. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Returns the details of a Scope. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The Scope resource name in the format `projects/*‍/locations/*‍/scopes/*`. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Scope>;
+      /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+      getIamPolicy(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that you specified, or it might use a lower policy version. For example, if you specify version 3, but the policy has no conditional role bindings, the response uses version 1. To learn which resources support conditions in their IAM policies, see the [IAM documentation](https://cloud.google.com/iam/help/conditions/resource-policies). */
+        'options.requestedPolicyVersion'?: number;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+        resource: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Policy>;
+      /** Lists Scopes. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. When requesting a 'page' of resources, `page_size` specifies number of resources to return. If unspecified or set to 0, all resources will be returned. */
+        pageSize?: number;
+        /** Optional. Token returned by previous call to `ListScopes` which specifies the position in the list from where to continue listing the resources. */
+        pageToken?: string;
+        /** Required. The parent (project and location) where the Scope will be listed. Specified in the format `projects/*‍/locations/*`. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListScopesResponse>;
+      /** Updates a scopes. */
+      patch(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Required. The fields to be updated. */
+        updateMask?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Scope;
+      }): Request<Operation>;
+      patch(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The resource name for the scope `projects/{project}/locations/{location}/scopes/{scope}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Required. The fields to be updated. */
+          updateMask?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Scope
+      ): Request<Operation>;
+      /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+      setIamPolicy(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: SetIamPolicyRequest
+      ): Request<Policy>;
+      /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+      testIamPermissions(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field. */
+          resource: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: TestIamPermissionsRequest
+      ): Request<TestIamPermissionsResponse>;
+      namespaces: NamespacesResource;
+      rbacrolebindings: RbacrolebindingsResource;
+    }
+    interface LocationsResource {
+      /** Gets information about a location. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Resource name for the location. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Location>;
+      /** Lists information about the supported locations for this service. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource that owns the locations collection, if applicable. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The maximum number of results to return. If not set, the service selects a default. */
+        pageSize?: number;
+        /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListLocationsResponse>;
+      features: FeaturesResource;
+      fleets: FleetsResource;
+      memberships: MembershipsResource;
+      operations: OperationsResource;
+      scopes: ScopesResource;
+    }
+    interface ProjectsResource {
+      locations: LocationsResource;
+    }
+
+    const organizations: OrganizationsResource;
+
+    const projects: ProjectsResource;
+  }
 }

@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://mybusinessqanda.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.mybusinessqanda
-});
+gapi.client.load(
+  'https://mybusinessqanda.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.mybusinessqanda
+  }
+);
 ```
 
 ```typescript
@@ -39,9 +42,8 @@ gapi.client.load('mybusinessqanda', 'v1', () => {
 });
 ```
 
-
-
 After that you can use My Business Q&A API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

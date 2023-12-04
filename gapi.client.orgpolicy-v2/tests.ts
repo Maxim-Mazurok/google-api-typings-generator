@@ -6,733 +6,637 @@
 // Revision: 20231113
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://orgpolicy.googleapis.com/$discovery/rest?version=v2');
-    /** now we can use gapi.client.orgpolicy */
+  await gapi.client.load(
+    'https://orgpolicy.googleapis.com/$discovery/rest?version=v2'
+  );
+  /** now we can use gapi.client.orgpolicy */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Lists constraints that could be applied on the specified resource. */
-        await gapi.client.orgpolicy.folders.constraints.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if
-         * the policy already exists on the given Google Cloud resource.
-         */
-        await gapi.client.orgpolicy.folders.policies.create({
-            parent: "Test string",
-        }, {
-            alternate: {
-                launch: "Test string",
-                spec: {
-                    etag: "Test string",
-                    inheritFromParent: true,
-                    reset: true,
-                    rules: [
-                        {
-                            allowAll: true,
-                            condition: {
-                                description: "Test string",
-                                expression: "Test string",
-                                location: "Test string",
-                                title: "Test string",
-                            },
-                            denyAll: true,
-                            enforce: true,
-                            values: {
-                                allowedValues: [
-                                    "Test string"
-                                ],
-                                deniedValues: [
-                                    "Test string"
-                                ],
-                            },
-                        }
-                    ],
-                    updateTime: "Test string",
-                },
-            },
-            dryRunSpec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-            name: "Test string",
-            spec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-        });
-        /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
-        await gapi.client.orgpolicy.folders.policies.delete({
-            name: "Test string",
-        });
-        /**
-         * Gets a policy on a resource. If no policy is set on the resource, `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()` to update a policy during
-         * read-modify-write.
-         */
-        await gapi.client.orgpolicy.folders.policies.get({
-            name: "Test string",
-        });
-        /**
-         * Gets the effective policy on a resource. This is the result of merging policies in the resource hierarchy and evaluating conditions. The returned policy will not have an `etag` or
-         * `condition` set because it is an evaluated policy across multiple resources. Subtrees of Resource Manager resource hierarchy with 'under:' prefix will not be expanded.
-         */
-        await gapi.client.orgpolicy.folders.policies.getEffectivePolicy({
-            name: "Test string",
-        });
-        /** Retrieves all of the policies that exist on a particular resource. */
-        await gapi.client.orgpolicy.folders.policies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with
-         * `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields.
-         */
-        await gapi.client.orgpolicy.folders.policies.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            alternate: {
-                launch: "Test string",
-                spec: {
-                    etag: "Test string",
-                    inheritFromParent: true,
-                    reset: true,
-                    rules: [
-                        {
-                            allowAll: true,
-                            condition: {
-                                description: "Test string",
-                                expression: "Test string",
-                                location: "Test string",
-                                title: "Test string",
-                            },
-                            denyAll: true,
-                            enforce: true,
-                            values: {
-                                allowedValues: [
-                                    "Test string"
-                                ],
-                                deniedValues: [
-                                    "Test string"
-                                ],
-                            },
-                        }
-                    ],
-                    updateTime: "Test string",
-                },
-            },
-            dryRunSpec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-            name: "Test string",
-            spec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-        });
-        /** Lists constraints that could be applied on the specified resource. */
-        await gapi.client.orgpolicy.organizations.constraints.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the organization does not exist. Returns a `google.rpc.Status` with
-         * `google.rpc.Code.ALREADY_EXISTS` if the constraint already exists on the given organization.
-         */
-        await gapi.client.orgpolicy.organizations.customConstraints.create({
-            parent: "Test string",
-        }, {
-            actionType: "Test string",
-            condition: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            methodTypes: [
-                "Test string"
-            ],
-            name: "Test string",
-            resourceTypes: [
-                "Test string"
-            ],
-            updateTime: "Test string",
-        });
-        /** Deletes a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. */
-        await gapi.client.orgpolicy.organizations.customConstraints.delete({
-            name: "Test string",
-        });
-        /** Gets a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the custom constraint does not exist. */
-        await gapi.client.orgpolicy.organizations.customConstraints.get({
-            name: "Test string",
-        });
-        /** Retrieves all of the custom constraints that exist on a particular organization resource. */
-        await gapi.client.orgpolicy.organizations.customConstraints.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Note: the supplied policy will perform a full overwrite of
-         * all fields.
-         */
-        await gapi.client.orgpolicy.organizations.customConstraints.patch({
-            name: "Test string",
-        }, {
-            actionType: "Test string",
-            condition: "Test string",
-            description: "Test string",
-            displayName: "Test string",
-            methodTypes: [
-                "Test string"
-            ],
-            name: "Test string",
-            resourceTypes: [
-                "Test string"
-            ],
-            updateTime: "Test string",
-        });
-        /**
-         * Creates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if
-         * the policy already exists on the given Google Cloud resource.
-         */
-        await gapi.client.orgpolicy.organizations.policies.create({
-            parent: "Test string",
-        }, {
-            alternate: {
-                launch: "Test string",
-                spec: {
-                    etag: "Test string",
-                    inheritFromParent: true,
-                    reset: true,
-                    rules: [
-                        {
-                            allowAll: true,
-                            condition: {
-                                description: "Test string",
-                                expression: "Test string",
-                                location: "Test string",
-                                title: "Test string",
-                            },
-                            denyAll: true,
-                            enforce: true,
-                            values: {
-                                allowedValues: [
-                                    "Test string"
-                                ],
-                                deniedValues: [
-                                    "Test string"
-                                ],
-                            },
-                        }
-                    ],
-                    updateTime: "Test string",
-                },
-            },
-            dryRunSpec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-            name: "Test string",
-            spec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-        });
-        /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
-        await gapi.client.orgpolicy.organizations.policies.delete({
-            name: "Test string",
-        });
-        /**
-         * Gets a policy on a resource. If no policy is set on the resource, `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()` to update a policy during
-         * read-modify-write.
-         */
-        await gapi.client.orgpolicy.organizations.policies.get({
-            name: "Test string",
-        });
-        /**
-         * Gets the effective policy on a resource. This is the result of merging policies in the resource hierarchy and evaluating conditions. The returned policy will not have an `etag` or
-         * `condition` set because it is an evaluated policy across multiple resources. Subtrees of Resource Manager resource hierarchy with 'under:' prefix will not be expanded.
-         */
-        await gapi.client.orgpolicy.organizations.policies.getEffectivePolicy({
-            name: "Test string",
-        });
-        /** Retrieves all of the policies that exist on a particular resource. */
-        await gapi.client.orgpolicy.organizations.policies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with
-         * `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields.
-         */
-        await gapi.client.orgpolicy.organizations.policies.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            alternate: {
-                launch: "Test string",
-                spec: {
-                    etag: "Test string",
-                    inheritFromParent: true,
-                    reset: true,
-                    rules: [
-                        {
-                            allowAll: true,
-                            condition: {
-                                description: "Test string",
-                                expression: "Test string",
-                                location: "Test string",
-                                title: "Test string",
-                            },
-                            denyAll: true,
-                            enforce: true,
-                            values: {
-                                allowedValues: [
-                                    "Test string"
-                                ],
-                                deniedValues: [
-                                    "Test string"
-                                ],
-                            },
-                        }
-                    ],
-                    updateTime: "Test string",
-                },
-            },
-            dryRunSpec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-            name: "Test string",
-            spec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-        });
-        /** Lists constraints that could be applied on the specified resource. */
-        await gapi.client.orgpolicy.projects.constraints.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Creates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if
-         * the policy already exists on the given Google Cloud resource.
-         */
-        await gapi.client.orgpolicy.projects.policies.create({
-            parent: "Test string",
-        }, {
-            alternate: {
-                launch: "Test string",
-                spec: {
-                    etag: "Test string",
-                    inheritFromParent: true,
-                    reset: true,
-                    rules: [
-                        {
-                            allowAll: true,
-                            condition: {
-                                description: "Test string",
-                                expression: "Test string",
-                                location: "Test string",
-                                title: "Test string",
-                            },
-                            denyAll: true,
-                            enforce: true,
-                            values: {
-                                allowedValues: [
-                                    "Test string"
-                                ],
-                                deniedValues: [
-                                    "Test string"
-                                ],
-                            },
-                        }
-                    ],
-                    updateTime: "Test string",
-                },
-            },
-            dryRunSpec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-            name: "Test string",
-            spec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-        });
-        /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
-        await gapi.client.orgpolicy.projects.policies.delete({
-            name: "Test string",
-        });
-        /**
-         * Gets a policy on a resource. If no policy is set on the resource, `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()` to update a policy during
-         * read-modify-write.
-         */
-        await gapi.client.orgpolicy.projects.policies.get({
-            name: "Test string",
-        });
-        /**
-         * Gets the effective policy on a resource. This is the result of merging policies in the resource hierarchy and evaluating conditions. The returned policy will not have an `etag` or
-         * `condition` set because it is an evaluated policy across multiple resources. Subtrees of Resource Manager resource hierarchy with 'under:' prefix will not be expanded.
-         */
-        await gapi.client.orgpolicy.projects.policies.getEffectivePolicy({
-            name: "Test string",
-        });
-        /** Retrieves all of the policies that exist on a particular resource. */
-        await gapi.client.orgpolicy.projects.policies.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with
-         * `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields.
-         */
-        await gapi.client.orgpolicy.projects.policies.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            alternate: {
-                launch: "Test string",
-                spec: {
-                    etag: "Test string",
-                    inheritFromParent: true,
-                    reset: true,
-                    rules: [
-                        {
-                            allowAll: true,
-                            condition: {
-                                description: "Test string",
-                                expression: "Test string",
-                                location: "Test string",
-                                title: "Test string",
-                            },
-                            denyAll: true,
-                            enforce: true,
-                            values: {
-                                allowedValues: [
-                                    "Test string"
-                                ],
-                                deniedValues: [
-                                    "Test string"
-                                ],
-                            },
-                        }
-                    ],
-                    updateTime: "Test string",
-                },
-            },
-            dryRunSpec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-            name: "Test string",
-            spec: {
-                etag: "Test string",
-                inheritFromParent: true,
-                reset: true,
-                rules: [
-                    {
-                        allowAll: true,
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        denyAll: true,
-                        enforce: true,
-                        values: {
-                            allowedValues: [
-                                "Test string"
-                            ],
-                            deniedValues: [
-                                "Test string"
-                            ],
-                        },
-                    }
-                ],
-                updateTime: "Test string",
-            },
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Lists constraints that could be applied on the specified resource. */
+    await gapi.client.orgpolicy.folders.constraints.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Creates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy already exists on the given Google Cloud resource. */
+    await gapi.client.orgpolicy.folders.policies.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        alternate: {
+          launch: 'Test string',
+          spec: {
+            etag: 'Test string',
+            inheritFromParent: true,
+            reset: true,
+            rules: [
+              {
+                allowAll: true,
+                condition: {
+                  description: 'Test string',
+                  expression: 'Test string',
+                  location: 'Test string',
+                  title: 'Test string',
+                },
+                denyAll: true,
+                enforce: true,
+                values: {
+                  allowedValues: ['Test string'],
+                  deniedValues: ['Test string'],
+                },
+              },
+            ],
+            updateTime: 'Test string',
+          },
+        },
+        dryRunSpec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+        name: 'Test string',
+        spec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+      }
+    );
+    /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
+    await gapi.client.orgpolicy.folders.policies.delete({
+      name: 'Test string',
+    });
+    /** Gets a policy on a resource. If no policy is set on the resource, `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()` to update a policy during read-modify-write. */
+    await gapi.client.orgpolicy.folders.policies.get({
+      name: 'Test string',
+    });
+    /** Gets the effective policy on a resource. This is the result of merging policies in the resource hierarchy and evaluating conditions. The returned policy will not have an `etag` or `condition` set because it is an evaluated policy across multiple resources. Subtrees of Resource Manager resource hierarchy with 'under:' prefix will not be expanded. */
+    await gapi.client.orgpolicy.folders.policies.getEffectivePolicy({
+      name: 'Test string',
+    });
+    /** Retrieves all of the policies that exist on a particular resource. */
+    await gapi.client.orgpolicy.folders.policies.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields. */
+    await gapi.client.orgpolicy.folders.policies.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        alternate: {
+          launch: 'Test string',
+          spec: {
+            etag: 'Test string',
+            inheritFromParent: true,
+            reset: true,
+            rules: [
+              {
+                allowAll: true,
+                condition: {
+                  description: 'Test string',
+                  expression: 'Test string',
+                  location: 'Test string',
+                  title: 'Test string',
+                },
+                denyAll: true,
+                enforce: true,
+                values: {
+                  allowedValues: ['Test string'],
+                  deniedValues: ['Test string'],
+                },
+              },
+            ],
+            updateTime: 'Test string',
+          },
+        },
+        dryRunSpec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+        name: 'Test string',
+        spec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+      }
+    );
+    /** Lists constraints that could be applied on the specified resource. */
+    await gapi.client.orgpolicy.organizations.constraints.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Creates a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the organization does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the constraint already exists on the given organization. */
+    await gapi.client.orgpolicy.organizations.customConstraints.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        actionType: 'Test string',
+        condition: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        methodTypes: ['Test string'],
+        name: 'Test string',
+        resourceTypes: ['Test string'],
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. */
+    await gapi.client.orgpolicy.organizations.customConstraints.delete({
+      name: 'Test string',
+    });
+    /** Gets a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the custom constraint does not exist. */
+    await gapi.client.orgpolicy.organizations.customConstraints.get({
+      name: 'Test string',
+    });
+    /** Retrieves all of the custom constraints that exist on a particular organization resource. */
+    await gapi.client.orgpolicy.organizations.customConstraints.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a custom constraint. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Note: the supplied policy will perform a full overwrite of all fields. */
+    await gapi.client.orgpolicy.organizations.customConstraints.patch(
+      {
+        name: 'Test string',
+      },
+      {
+        actionType: 'Test string',
+        condition: 'Test string',
+        description: 'Test string',
+        displayName: 'Test string',
+        methodTypes: ['Test string'],
+        name: 'Test string',
+        resourceTypes: ['Test string'],
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy already exists on the given Google Cloud resource. */
+    await gapi.client.orgpolicy.organizations.policies.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        alternate: {
+          launch: 'Test string',
+          spec: {
+            etag: 'Test string',
+            inheritFromParent: true,
+            reset: true,
+            rules: [
+              {
+                allowAll: true,
+                condition: {
+                  description: 'Test string',
+                  expression: 'Test string',
+                  location: 'Test string',
+                  title: 'Test string',
+                },
+                denyAll: true,
+                enforce: true,
+                values: {
+                  allowedValues: ['Test string'],
+                  deniedValues: ['Test string'],
+                },
+              },
+            ],
+            updateTime: 'Test string',
+          },
+        },
+        dryRunSpec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+        name: 'Test string',
+        spec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+      }
+    );
+    /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
+    await gapi.client.orgpolicy.organizations.policies.delete({
+      name: 'Test string',
+    });
+    /** Gets a policy on a resource. If no policy is set on the resource, `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()` to update a policy during read-modify-write. */
+    await gapi.client.orgpolicy.organizations.policies.get({
+      name: 'Test string',
+    });
+    /** Gets the effective policy on a resource. This is the result of merging policies in the resource hierarchy and evaluating conditions. The returned policy will not have an `etag` or `condition` set because it is an evaluated policy across multiple resources. Subtrees of Resource Manager resource hierarchy with 'under:' prefix will not be expanded. */
+    await gapi.client.orgpolicy.organizations.policies.getEffectivePolicy({
+      name: 'Test string',
+    });
+    /** Retrieves all of the policies that exist on a particular resource. */
+    await gapi.client.orgpolicy.organizations.policies.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields. */
+    await gapi.client.orgpolicy.organizations.policies.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        alternate: {
+          launch: 'Test string',
+          spec: {
+            etag: 'Test string',
+            inheritFromParent: true,
+            reset: true,
+            rules: [
+              {
+                allowAll: true,
+                condition: {
+                  description: 'Test string',
+                  expression: 'Test string',
+                  location: 'Test string',
+                  title: 'Test string',
+                },
+                denyAll: true,
+                enforce: true,
+                values: {
+                  allowedValues: ['Test string'],
+                  deniedValues: ['Test string'],
+                },
+              },
+            ],
+            updateTime: 'Test string',
+          },
+        },
+        dryRunSpec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+        name: 'Test string',
+        spec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+      }
+    );
+    /** Lists constraints that could be applied on the specified resource. */
+    await gapi.client.orgpolicy.projects.constraints.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Creates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint does not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ALREADY_EXISTS` if the policy already exists on the given Google Cloud resource. */
+    await gapi.client.orgpolicy.projects.policies.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        alternate: {
+          launch: 'Test string',
+          spec: {
+            etag: 'Test string',
+            inheritFromParent: true,
+            reset: true,
+            rules: [
+              {
+                allowAll: true,
+                condition: {
+                  description: 'Test string',
+                  expression: 'Test string',
+                  location: 'Test string',
+                  title: 'Test string',
+                },
+                denyAll: true,
+                enforce: true,
+                values: {
+                  allowedValues: ['Test string'],
+                  deniedValues: ['Test string'],
+                },
+              },
+            ],
+            updateTime: 'Test string',
+          },
+        },
+        dryRunSpec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+        name: 'Test string',
+        spec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+      }
+    );
+    /** Deletes a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or organization policy does not exist. */
+    await gapi.client.orgpolicy.projects.policies.delete({
+      name: 'Test string',
+    });
+    /** Gets a policy on a resource. If no policy is set on the resource, `NOT_FOUND` is returned. The `etag` value can be used with `UpdatePolicy()` to update a policy during read-modify-write. */
+    await gapi.client.orgpolicy.projects.policies.get({
+      name: 'Test string',
+    });
+    /** Gets the effective policy on a resource. This is the result of merging policies in the resource hierarchy and evaluating conditions. The returned policy will not have an `etag` or `condition` set because it is an evaluated policy across multiple resources. Subtrees of Resource Manager resource hierarchy with 'under:' prefix will not be expanded. */
+    await gapi.client.orgpolicy.projects.policies.getEffectivePolicy({
+      name: 'Test string',
+    });
+    /** Retrieves all of the policies that exist on a particular resource. */
+    await gapi.client.orgpolicy.projects.policies.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a policy. Returns a `google.rpc.Status` with `google.rpc.Code.NOT_FOUND` if the constraint or the policy do not exist. Returns a `google.rpc.Status` with `google.rpc.Code.ABORTED` if the etag supplied in the request does not match the persisted etag of the policy Note: the supplied policy will perform a full overwrite of all fields. */
+    await gapi.client.orgpolicy.projects.policies.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        alternate: {
+          launch: 'Test string',
+          spec: {
+            etag: 'Test string',
+            inheritFromParent: true,
+            reset: true,
+            rules: [
+              {
+                allowAll: true,
+                condition: {
+                  description: 'Test string',
+                  expression: 'Test string',
+                  location: 'Test string',
+                  title: 'Test string',
+                },
+                denyAll: true,
+                enforce: true,
+                values: {
+                  allowedValues: ['Test string'],
+                  deniedValues: ['Test string'],
+                },
+              },
+            ],
+            updateTime: 'Test string',
+          },
+        },
+        dryRunSpec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+        name: 'Test string',
+        spec: {
+          etag: 'Test string',
+          inheritFromParent: true,
+          reset: true,
+          rules: [
+            {
+              allowAll: true,
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              denyAll: true,
+              enforce: true,
+              values: {
+                allowedValues: ['Test string'],
+                deniedValues: ['Test string'],
+              },
+            },
+          ],
+          updateTime: 'Test string',
+        },
+      }
+    );
+  }
 });

@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://discovery.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.discovery
-});
+gapi.client.load(
+  'https://discovery.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.discovery
+  }
+);
 ```
 
 ```typescript
@@ -39,19 +42,16 @@ gapi.client.load('discovery', 'v1', () => {
 });
 ```
 
-
-
 After that you can use API Discovery Service resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Retrieve the description of a particular version of an api.
 */
-await gapi.client.discovery.apis.getRest({ api: "api", version: "version",  });
+await gapi.client.discovery.apis.getRest({api: 'api', version: 'version'});
 
 /*
 Retrieve the list of APIs supported at this endpoint.
 */
-await gapi.client.discovery.apis.list({  });
+await gapi.client.discovery.apis.list({});
 ```

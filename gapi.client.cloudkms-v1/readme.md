@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Key Management Service (KMS) API v1
 
-Manages keys and performs cryptographic operations in a central cloud service, for direct use by other cloud resources and applications. 
+Manages keys and performs cryptographic operations in a central cloud service, for direct use by other cloud resources and applications.
 For detailed description please check [documentation](https://cloud.google.com/kms/).
 
 ## Installing
@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://cloudkms.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.cloudkms
-});
+gapi.client.load(
+  'https://cloudkms.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.cloudkms
+  }
+);
 ```
 
 ```typescript
@@ -45,27 +48,29 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View and manage your keys and secrets stored in Cloud Key Management Service
-      'https://www.googleapis.com/auth/cloudkms',
-    ],
-    immediate = true;
+    // View and manage your keys and secrets stored in Cloud Key Management Service
+    'https://www.googleapis.com/auth/cloudkms',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Key Management Service (KMS) API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

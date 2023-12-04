@@ -6,3485 +6,3381 @@
 // Revision: 20231103
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://containeranalysis.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.containeranalysis */
+  await gapi.client.load(
+    'https://containeranalysis.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.containeranalysis */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Creates new notes in batch. */
-        await gapi.client.containeranalysis.projects.notes.batchCreate({
-            parent: "Test string",
-        }, {
-            notes: {
-                A: {
-                    attestation: {
-                        hint: {
-                            humanReadableName: "Test string",
-                        },
-                    },
-                    build: {
-                        builderVersion: "Test string",
-                    },
-                    compliance: {
-                        cisBenchmark: {
-                            profileLevel: 42,
-                            severity: "Test string",
-                        },
-                        description: "Test string",
-                        rationale: "Test string",
-                        remediation: "Test string",
-                        scanInstructions: "Test string",
-                        title: "Test string",
-                        version: [
-                            {
-                                benchmarkDocument: "Test string",
-                                cpeUri: "Test string",
-                                version: "Test string",
-                            }
-                        ],
-                    },
-                    createTime: "Test string",
-                    deployment: {
-                        resourceUri: [
-                            "Test string"
-                        ],
-                    },
-                    discovery: {
-                        analysisKind: "Test string",
-                    },
-                    dsseAttestation: {
-                        hint: {
-                            humanReadableName: "Test string",
-                        },
-                    },
-                    expirationTime: "Test string",
-                    image: {
-                        fingerprint: {
-                            v1Name: "Test string",
-                            v2Blob: [
-                                "Test string"
-                            ],
-                            v2Name: "Test string",
-                        },
-                        resourceUrl: "Test string",
-                    },
-                    kind: "Test string",
-                    longDescription: "Test string",
-                    name: "Test string",
-                    package: {
-                        architecture: "Test string",
-                        cpeUri: "Test string",
-                        description: "Test string",
-                        digest: [
-                            {
-                                algo: "Test string",
-                                digestBytes: "Test string",
-                            }
-                        ],
-                        distribution: [
-                            {
-                                architecture: "Test string",
-                                cpeUri: "Test string",
-                                description: "Test string",
-                                latestVersion: {
-                                    epoch: 42,
-                                    fullName: "Test string",
-                                    inclusive: true,
-                                    kind: "Test string",
-                                    name: "Test string",
-                                    revision: "Test string",
-                                },
-                                maintainer: "Test string",
-                                url: "Test string",
-                            }
-                        ],
-                        license: {
-                            comments: "Test string",
-                            expression: "Test string",
-                        },
-                        maintainer: "Test string",
-                        name: "Test string",
-                        packageType: "Test string",
-                        url: "Test string",
-                        version: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                    },
-                    relatedNoteNames: [
-                        "Test string"
-                    ],
-                    relatedUrl: [
-                        {
-                            label: "Test string",
-                            url: "Test string",
-                        }
-                    ],
-                    sbomReference: {
-                        format: "Test string",
-                        version: "Test string",
-                    },
-                    shortDescription: "Test string",
-                    updateTime: "Test string",
-                    upgrade: {
-                        distributions: [
-                            {
-                                classification: "Test string",
-                                cpeUri: "Test string",
-                                cve: [
-                                    "Test string"
-                                ],
-                                severity: "Test string",
-                            }
-                        ],
-                        package: "Test string",
-                        version: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        windowsUpdate: {
-                            categories: [
-                                {
-                                    categoryId: "Test string",
-                                    name: "Test string",
-                                }
-                            ],
-                            description: "Test string",
-                            identity: {
-                                revision: 42,
-                                updateId: "Test string",
-                            },
-                            kbArticleIds: [
-                                "Test string"
-                            ],
-                            lastPublishedTimestamp: "Test string",
-                            supportUrl: "Test string",
-                            title: "Test string",
-                        },
-                    },
-                    vulnerability: {
-                        cvssScore: 42,
-                        cvssV2: {
-                            attackComplexity: "Test string",
-                            attackVector: "Test string",
-                            authentication: "Test string",
-                            availabilityImpact: "Test string",
-                            baseScore: 42,
-                            confidentialityImpact: "Test string",
-                            exploitabilityScore: 42,
-                            impactScore: 42,
-                            integrityImpact: "Test string",
-                            privilegesRequired: "Test string",
-                            scope: "Test string",
-                            userInteraction: "Test string",
-                        },
-                        cvssV3: {
-                            attackComplexity: "Test string",
-                            attackVector: "Test string",
-                            availabilityImpact: "Test string",
-                            baseScore: 42,
-                            confidentialityImpact: "Test string",
-                            exploitabilityScore: 42,
-                            impactScore: 42,
-                            integrityImpact: "Test string",
-                            privilegesRequired: "Test string",
-                            scope: "Test string",
-                            userInteraction: "Test string",
-                        },
-                        cvssVersion: "Test string",
-                        details: [
-                            {
-                                affectedCpeUri: "Test string",
-                                affectedPackage: "Test string",
-                                affectedVersionEnd: {
-                                    epoch: 42,
-                                    fullName: "Test string",
-                                    inclusive: true,
-                                    kind: "Test string",
-                                    name: "Test string",
-                                    revision: "Test string",
-                                },
-                                affectedVersionStart: {
-                                    epoch: 42,
-                                    fullName: "Test string",
-                                    inclusive: true,
-                                    kind: "Test string",
-                                    name: "Test string",
-                                    revision: "Test string",
-                                },
-                                description: "Test string",
-                                fixedCpeUri: "Test string",
-                                fixedPackage: "Test string",
-                                fixedVersion: {
-                                    epoch: 42,
-                                    fullName: "Test string",
-                                    inclusive: true,
-                                    kind: "Test string",
-                                    name: "Test string",
-                                    revision: "Test string",
-                                },
-                                isObsolete: true,
-                                packageType: "Test string",
-                                severityName: "Test string",
-                                source: "Test string",
-                                sourceUpdateTime: "Test string",
-                                vendor: "Test string",
-                            }
-                        ],
-                        severity: "Test string",
-                        sourceUpdateTime: "Test string",
-                        windowsDetails: [
-                            {
-                                cpeUri: "Test string",
-                                description: "Test string",
-                                fixingKbs: [
-                                    {
-                                        name: "Test string",
-                                        url: "Test string",
-                                    }
-                                ],
-                                name: "Test string",
-                            }
-                        ],
-                    },
-                    vulnerabilityAssessment: {
-                        assessment: {
-                            cve: "Test string",
-                            impacts: [
-                                "Test string"
-                            ],
-                            justification: {
-                                details: "Test string",
-                                justificationType: "Test string",
-                            },
-                            longDescription: "Test string",
-                            relatedUris: [
-                                {
-                                    label: "Test string",
-                                    url: "Test string",
-                                }
-                            ],
-                            remediations: [
-                                {
-                                    details: "Test string",
-                                    remediationType: "Test string",
-                                    remediationUri: {
-                                        label: "Test string",
-                                        url: "Test string",
-                                    },
-                                }
-                            ],
-                            shortDescription: "Test string",
-                            state: "Test string",
-                            vulnerabilityId: "Test string",
-                        },
-                        languageCode: "Test string",
-                        longDescription: "Test string",
-                        product: {
-                            genericUri: "Test string",
-                            id: "Test string",
-                            name: "Test string",
-                        },
-                        publisher: {
-                            issuingAuthority: "Test string",
-                            name: "Test string",
-                            publisherNamespace: "Test string",
-                        },
-                        shortDescription: "Test string",
-                        title: "Test string",
-                    },
-                }
-            },
-        });
-        /** Creates a new note. */
-        await gapi.client.containeranalysis.projects.notes.create({
-            noteId: "Test string",
-            parent: "Test string",
-        }, {
-            attestation: {
-                hint: {
-                    humanReadableName: "Test string",
-                },
-            },
-            build: {
-                builderVersion: "Test string",
-            },
-            compliance: {
-                cisBenchmark: {
-                    profileLevel: 42,
-                    severity: "Test string",
-                },
-                description: "Test string",
-                rationale: "Test string",
-                remediation: "Test string",
-                scanInstructions: "Test string",
-                title: "Test string",
-                version: [
-                    {
-                        benchmarkDocument: "Test string",
-                        cpeUri: "Test string",
-                        version: "Test string",
-                    }
-                ],
-            },
-            createTime: "Test string",
-            deployment: {
-                resourceUri: [
-                    "Test string"
-                ],
-            },
-            discovery: {
-                analysisKind: "Test string",
-            },
-            dsseAttestation: {
-                hint: {
-                    humanReadableName: "Test string",
-                },
-            },
-            expirationTime: "Test string",
-            image: {
-                fingerprint: {
-                    v1Name: "Test string",
-                    v2Blob: [
-                        "Test string"
-                    ],
-                    v2Name: "Test string",
-                },
-                resourceUrl: "Test string",
-            },
-            kind: "Test string",
-            longDescription: "Test string",
-            name: "Test string",
-            package: {
-                architecture: "Test string",
-                cpeUri: "Test string",
-                description: "Test string",
-                digest: [
-                    {
-                        algo: "Test string",
-                        digestBytes: "Test string",
-                    }
-                ],
-                distribution: [
-                    {
-                        architecture: "Test string",
-                        cpeUri: "Test string",
-                        description: "Test string",
-                        latestVersion: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        maintainer: "Test string",
-                        url: "Test string",
-                    }
-                ],
-                license: {
-                    comments: "Test string",
-                    expression: "Test string",
-                },
-                maintainer: "Test string",
-                name: "Test string",
-                packageType: "Test string",
-                url: "Test string",
-                version: {
-                    epoch: 42,
-                    fullName: "Test string",
-                    inclusive: true,
-                    kind: "Test string",
-                    name: "Test string",
-                    revision: "Test string",
-                },
-            },
-            relatedNoteNames: [
-                "Test string"
-            ],
-            relatedUrl: [
-                {
-                    label: "Test string",
-                    url: "Test string",
-                }
-            ],
-            sbomReference: {
-                format: "Test string",
-                version: "Test string",
-            },
-            shortDescription: "Test string",
-            updateTime: "Test string",
-            upgrade: {
-                distributions: [
-                    {
-                        classification: "Test string",
-                        cpeUri: "Test string",
-                        cve: [
-                            "Test string"
-                        ],
-                        severity: "Test string",
-                    }
-                ],
-                package: "Test string",
-                version: {
-                    epoch: 42,
-                    fullName: "Test string",
-                    inclusive: true,
-                    kind: "Test string",
-                    name: "Test string",
-                    revision: "Test string",
-                },
-                windowsUpdate: {
-                    categories: [
-                        {
-                            categoryId: "Test string",
-                            name: "Test string",
-                        }
-                    ],
-                    description: "Test string",
-                    identity: {
-                        revision: 42,
-                        updateId: "Test string",
-                    },
-                    kbArticleIds: [
-                        "Test string"
-                    ],
-                    lastPublishedTimestamp: "Test string",
-                    supportUrl: "Test string",
-                    title: "Test string",
-                },
-            },
-            vulnerability: {
-                cvssScore: 42,
-                cvssV2: {
-                    attackComplexity: "Test string",
-                    attackVector: "Test string",
-                    authentication: "Test string",
-                    availabilityImpact: "Test string",
-                    baseScore: 42,
-                    confidentialityImpact: "Test string",
-                    exploitabilityScore: 42,
-                    impactScore: 42,
-                    integrityImpact: "Test string",
-                    privilegesRequired: "Test string",
-                    scope: "Test string",
-                    userInteraction: "Test string",
-                },
-                cvssV3: {
-                    attackComplexity: "Test string",
-                    attackVector: "Test string",
-                    availabilityImpact: "Test string",
-                    baseScore: 42,
-                    confidentialityImpact: "Test string",
-                    exploitabilityScore: 42,
-                    impactScore: 42,
-                    integrityImpact: "Test string",
-                    privilegesRequired: "Test string",
-                    scope: "Test string",
-                    userInteraction: "Test string",
-                },
-                cvssVersion: "Test string",
-                details: [
-                    {
-                        affectedCpeUri: "Test string",
-                        affectedPackage: "Test string",
-                        affectedVersionEnd: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        affectedVersionStart: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        description: "Test string",
-                        fixedCpeUri: "Test string",
-                        fixedPackage: "Test string",
-                        fixedVersion: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        isObsolete: true,
-                        packageType: "Test string",
-                        severityName: "Test string",
-                        source: "Test string",
-                        sourceUpdateTime: "Test string",
-                        vendor: "Test string",
-                    }
-                ],
-                severity: "Test string",
-                sourceUpdateTime: "Test string",
-                windowsDetails: [
-                    {
-                        cpeUri: "Test string",
-                        description: "Test string",
-                        fixingKbs: [
-                            {
-                                name: "Test string",
-                                url: "Test string",
-                            }
-                        ],
-                        name: "Test string",
-                    }
-                ],
-            },
-            vulnerabilityAssessment: {
-                assessment: {
-                    cve: "Test string",
-                    impacts: [
-                        "Test string"
-                    ],
-                    justification: {
-                        details: "Test string",
-                        justificationType: "Test string",
-                    },
-                    longDescription: "Test string",
-                    relatedUris: [
-                        {
-                            label: "Test string",
-                            url: "Test string",
-                        }
-                    ],
-                    remediations: [
-                        {
-                            details: "Test string",
-                            remediationType: "Test string",
-                            remediationUri: {
-                                label: "Test string",
-                                url: "Test string",
-                            },
-                        }
-                    ],
-                    shortDescription: "Test string",
-                    state: "Test string",
-                    vulnerabilityId: "Test string",
-                },
-                languageCode: "Test string",
-                longDescription: "Test string",
-                product: {
-                    genericUri: "Test string",
-                    id: "Test string",
-                    name: "Test string",
-                },
-                publisher: {
-                    issuingAuthority: "Test string",
-                    name: "Test string",
-                    publisherNamespace: "Test string",
-                },
-                shortDescription: "Test string",
-                title: "Test string",
-            },
-        });
-        /** Deletes the specified note. */
-        await gapi.client.containeranalysis.projects.notes.delete({
-            name: "Test string",
-        });
-        /** Gets the specified note. */
-        await gapi.client.containeranalysis.projects.notes.get({
-            name: "Test string",
-        });
-        /**
-         * Gets the access control policy for a note or an occurrence resource. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the
-         * resource is a note or occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`
-         * for occurrences.
-         */
-        await gapi.client.containeranalysis.projects.notes.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /** Lists notes for the specified project. */
-        await gapi.client.containeranalysis.projects.notes.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the specified note. */
-        await gapi.client.containeranalysis.projects.notes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            attestation: {
-                hint: {
-                    humanReadableName: "Test string",
-                },
-            },
-            build: {
-                builderVersion: "Test string",
-            },
-            compliance: {
-                cisBenchmark: {
-                    profileLevel: 42,
-                    severity: "Test string",
-                },
-                description: "Test string",
-                rationale: "Test string",
-                remediation: "Test string",
-                scanInstructions: "Test string",
-                title: "Test string",
-                version: [
-                    {
-                        benchmarkDocument: "Test string",
-                        cpeUri: "Test string",
-                        version: "Test string",
-                    }
-                ],
-            },
-            createTime: "Test string",
-            deployment: {
-                resourceUri: [
-                    "Test string"
-                ],
-            },
-            discovery: {
-                analysisKind: "Test string",
-            },
-            dsseAttestation: {
-                hint: {
-                    humanReadableName: "Test string",
-                },
-            },
-            expirationTime: "Test string",
-            image: {
-                fingerprint: {
-                    v1Name: "Test string",
-                    v2Blob: [
-                        "Test string"
-                    ],
-                    v2Name: "Test string",
-                },
-                resourceUrl: "Test string",
-            },
-            kind: "Test string",
-            longDescription: "Test string",
-            name: "Test string",
-            package: {
-                architecture: "Test string",
-                cpeUri: "Test string",
-                description: "Test string",
-                digest: [
-                    {
-                        algo: "Test string",
-                        digestBytes: "Test string",
-                    }
-                ],
-                distribution: [
-                    {
-                        architecture: "Test string",
-                        cpeUri: "Test string",
-                        description: "Test string",
-                        latestVersion: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        maintainer: "Test string",
-                        url: "Test string",
-                    }
-                ],
-                license: {
-                    comments: "Test string",
-                    expression: "Test string",
-                },
-                maintainer: "Test string",
-                name: "Test string",
-                packageType: "Test string",
-                url: "Test string",
-                version: {
-                    epoch: 42,
-                    fullName: "Test string",
-                    inclusive: true,
-                    kind: "Test string",
-                    name: "Test string",
-                    revision: "Test string",
-                },
-            },
-            relatedNoteNames: [
-                "Test string"
-            ],
-            relatedUrl: [
-                {
-                    label: "Test string",
-                    url: "Test string",
-                }
-            ],
-            sbomReference: {
-                format: "Test string",
-                version: "Test string",
-            },
-            shortDescription: "Test string",
-            updateTime: "Test string",
-            upgrade: {
-                distributions: [
-                    {
-                        classification: "Test string",
-                        cpeUri: "Test string",
-                        cve: [
-                            "Test string"
-                        ],
-                        severity: "Test string",
-                    }
-                ],
-                package: "Test string",
-                version: {
-                    epoch: 42,
-                    fullName: "Test string",
-                    inclusive: true,
-                    kind: "Test string",
-                    name: "Test string",
-                    revision: "Test string",
-                },
-                windowsUpdate: {
-                    categories: [
-                        {
-                            categoryId: "Test string",
-                            name: "Test string",
-                        }
-                    ],
-                    description: "Test string",
-                    identity: {
-                        revision: 42,
-                        updateId: "Test string",
-                    },
-                    kbArticleIds: [
-                        "Test string"
-                    ],
-                    lastPublishedTimestamp: "Test string",
-                    supportUrl: "Test string",
-                    title: "Test string",
-                },
-            },
-            vulnerability: {
-                cvssScore: 42,
-                cvssV2: {
-                    attackComplexity: "Test string",
-                    attackVector: "Test string",
-                    authentication: "Test string",
-                    availabilityImpact: "Test string",
-                    baseScore: 42,
-                    confidentialityImpact: "Test string",
-                    exploitabilityScore: 42,
-                    impactScore: 42,
-                    integrityImpact: "Test string",
-                    privilegesRequired: "Test string",
-                    scope: "Test string",
-                    userInteraction: "Test string",
-                },
-                cvssV3: {
-                    attackComplexity: "Test string",
-                    attackVector: "Test string",
-                    availabilityImpact: "Test string",
-                    baseScore: 42,
-                    confidentialityImpact: "Test string",
-                    exploitabilityScore: 42,
-                    impactScore: 42,
-                    integrityImpact: "Test string",
-                    privilegesRequired: "Test string",
-                    scope: "Test string",
-                    userInteraction: "Test string",
-                },
-                cvssVersion: "Test string",
-                details: [
-                    {
-                        affectedCpeUri: "Test string",
-                        affectedPackage: "Test string",
-                        affectedVersionEnd: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        affectedVersionStart: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        description: "Test string",
-                        fixedCpeUri: "Test string",
-                        fixedPackage: "Test string",
-                        fixedVersion: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        isObsolete: true,
-                        packageType: "Test string",
-                        severityName: "Test string",
-                        source: "Test string",
-                        sourceUpdateTime: "Test string",
-                        vendor: "Test string",
-                    }
-                ],
-                severity: "Test string",
-                sourceUpdateTime: "Test string",
-                windowsDetails: [
-                    {
-                        cpeUri: "Test string",
-                        description: "Test string",
-                        fixingKbs: [
-                            {
-                                name: "Test string",
-                                url: "Test string",
-                            }
-                        ],
-                        name: "Test string",
-                    }
-                ],
-            },
-            vulnerabilityAssessment: {
-                assessment: {
-                    cve: "Test string",
-                    impacts: [
-                        "Test string"
-                    ],
-                    justification: {
-                        details: "Test string",
-                        justificationType: "Test string",
-                    },
-                    longDescription: "Test string",
-                    relatedUris: [
-                        {
-                            label: "Test string",
-                            url: "Test string",
-                        }
-                    ],
-                    remediations: [
-                        {
-                            details: "Test string",
-                            remediationType: "Test string",
-                            remediationUri: {
-                                label: "Test string",
-                                url: "Test string",
-                            },
-                        }
-                    ],
-                    shortDescription: "Test string",
-                    state: "Test string",
-                    vulnerabilityId: "Test string",
-                },
-                languageCode: "Test string",
-                longDescription: "Test string",
-                product: {
-                    genericUri: "Test string",
-                    id: "Test string",
-                    name: "Test string",
-                },
-                publisher: {
-                    issuingAuthority: "Test string",
-                    name: "Test string",
-                    publisherNamespace: "Test string",
-                },
-                shortDescription: "Test string",
-                title: "Test string",
-            },
-        });
-        /**
-         * Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the
-         * resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and
-         * `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences.
-         */
-        await gapi.client.containeranalysis.projects.notes.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes
-         * the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences.
-         */
-        await gapi.client.containeranalysis.projects.notes.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. */
-        await gapi.client.containeranalysis.projects.notes.occurrences.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates new occurrences in batch. */
-        await gapi.client.containeranalysis.projects.occurrences.batchCreate({
-            parent: "Test string",
-        }, {
-            occurrences: [
-                {
-                    attestation: {
-                        jwts: [
-                            {
-                                compactJwt: "Test string",
-                            }
-                        ],
-                        serializedPayload: "Test string",
-                        signatures: [
-                            {
-                                publicKeyId: "Test string",
-                                signature: "Test string",
-                            }
-                        ],
-                    },
-                    build: {
-                        intotoProvenance: {
-                            builderConfig: {
-                                id: "Test string",
-                            },
-                            materials: [
-                                "Test string"
-                            ],
-                            metadata: {
-                                buildFinishedOn: "Test string",
-                                buildInvocationId: "Test string",
-                                buildStartedOn: "Test string",
-                                completeness: {
-                                    arguments: true,
-                                    environment: true,
-                                    materials: true,
-                                },
-                                reproducible: true,
-                            },
-                            recipe: {
-                                arguments: [
-                                    {
-                                        A: 42
-                                    }
-                                ],
-                                definedInMaterial: "Test string",
-                                entryPoint: "Test string",
-                                environment: [
-                                    {
-                                        A: 42
-                                    }
-                                ],
-                                type: "Test string",
-                            },
-                        },
-                        inTotoSlsaProvenanceV1: {
-                            _type: "Test string",
-                            predicate: {
-                                buildDefinition: {
-                                    buildType: "Test string",
-                                    externalParameters: {
-                                        A: 42
-                                    },
-                                    internalParameters: {
-                                        A: 42
-                                    },
-                                    resolvedDependencies: [
-                                        {
-                                            annotations: {
-                                                A: 42
-                                            },
-                                            content: "Test string",
-                                            digest: {
-                                                A: "Test string"
-                                            },
-                                            downloadLocation: "Test string",
-                                            mediaType: "Test string",
-                                            name: "Test string",
-                                            uri: "Test string",
-                                        }
-                                    ],
-                                },
-                                runDetails: {
-                                    builder: {
-                                        builderDependencies: [
-                                            {
-                                                annotations: {
-                                                    A: 42
-                                                },
-                                                content: "Test string",
-                                                digest: {
-                                                    A: "Test string"
-                                                },
-                                                downloadLocation: "Test string",
-                                                mediaType: "Test string",
-                                                name: "Test string",
-                                                uri: "Test string",
-                                            }
-                                        ],
-                                        id: "Test string",
-                                        version: {
-                                            A: "Test string"
-                                        },
-                                    },
-                                    byproducts: [
-                                        {
-                                            annotations: {
-                                                A: 42
-                                            },
-                                            content: "Test string",
-                                            digest: {
-                                                A: "Test string"
-                                            },
-                                            downloadLocation: "Test string",
-                                            mediaType: "Test string",
-                                            name: "Test string",
-                                            uri: "Test string",
-                                        }
-                                    ],
-                                    metadata: {
-                                        finishedOn: "Test string",
-                                        invocationId: "Test string",
-                                        startedOn: "Test string",
-                                    },
-                                },
-                            },
-                            predicateType: "Test string",
-                            subject: [
-                                {
-                                    digest: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                }
-                            ],
-                        },
-                        intotoStatement: {
-                            _type: "Test string",
-                            predicateType: "Test string",
-                            provenance: {
-                                builderConfig: {
-                                    id: "Test string",
-                                },
-                                materials: [
-                                    "Test string"
-                                ],
-                                metadata: {
-                                    buildFinishedOn: "Test string",
-                                    buildInvocationId: "Test string",
-                                    buildStartedOn: "Test string",
-                                    completeness: {
-                                        arguments: true,
-                                        environment: true,
-                                        materials: true,
-                                    },
-                                    reproducible: true,
-                                },
-                                recipe: {
-                                    arguments: [
-                                        {
-                                            A: 42
-                                        }
-                                    ],
-                                    definedInMaterial: "Test string",
-                                    entryPoint: "Test string",
-                                    environment: [
-                                        {
-                                            A: 42
-                                        }
-                                    ],
-                                    type: "Test string",
-                                },
-                            },
-                            slsaProvenance: {
-                                builder: {
-                                    id: "Test string",
-                                },
-                                materials: [
-                                    {
-                                        digest: {
-                                            A: "Test string"
-                                        },
-                                        uri: "Test string",
-                                    }
-                                ],
-                                metadata: {
-                                    buildFinishedOn: "Test string",
-                                    buildInvocationId: "Test string",
-                                    buildStartedOn: "Test string",
-                                    completeness: {
-                                        arguments: true,
-                                        environment: true,
-                                        materials: true,
-                                    },
-                                    reproducible: true,
-                                },
-                                recipe: {
-                                    arguments: {
-                                        A: 42
-                                    },
-                                    definedInMaterial: "Test string",
-                                    entryPoint: "Test string",
-                                    environment: {
-                                        A: 42
-                                    },
-                                    type: "Test string",
-                                },
-                            },
-                            slsaProvenanceZeroTwo: {
-                                buildConfig: {
-                                    A: 42
-                                },
-                                builder: {
-                                    id: "Test string",
-                                },
-                                buildType: "Test string",
-                                invocation: {
-                                    configSource: {
-                                        digest: {
-                                            A: "Test string"
-                                        },
-                                        entryPoint: "Test string",
-                                        uri: "Test string",
-                                    },
-                                    environment: {
-                                        A: 42
-                                    },
-                                    parameters: {
-                                        A: 42
-                                    },
-                                },
-                                materials: [
-                                    {
-                                        digest: {
-                                            A: "Test string"
-                                        },
-                                        uri: "Test string",
-                                    }
-                                ],
-                                metadata: {
-                                    buildFinishedOn: "Test string",
-                                    buildInvocationId: "Test string",
-                                    buildStartedOn: "Test string",
-                                    completeness: {
-                                        environment: true,
-                                        materials: true,
-                                        parameters: true,
-                                    },
-                                    reproducible: true,
-                                },
-                            },
-                            subject: [
-                                {
-                                    digest: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                }
-                            ],
-                        },
-                        provenance: {
-                            builderVersion: "Test string",
-                            buildOptions: {
-                                A: "Test string"
-                            },
-                            builtArtifacts: [
-                                {
-                                    checksum: "Test string",
-                                    id: "Test string",
-                                    names: [
-                                        "Test string"
-                                    ],
-                                }
-                            ],
-                            commands: [
-                                {
-                                    args: [
-                                        "Test string"
-                                    ],
-                                    dir: "Test string",
-                                    env: [
-                                        "Test string"
-                                    ],
-                                    id: "Test string",
-                                    name: "Test string",
-                                    waitFor: [
-                                        "Test string"
-                                    ],
-                                }
-                            ],
-                            createTime: "Test string",
-                            creator: "Test string",
-                            endTime: "Test string",
-                            id: "Test string",
-                            logsUri: "Test string",
-                            projectId: "Test string",
-                            sourceProvenance: {
-                                additionalContexts: [
-                                    {
-                                        cloudRepo: {
-                                            aliasContext: {
-                                                kind: "Test string",
-                                                name: "Test string",
-                                            },
-                                            repoId: {
-                                                projectRepoId: {
-                                                    projectId: "Test string",
-                                                    repoName: "Test string",
-                                                },
-                                                uid: "Test string",
-                                            },
-                                            revisionId: "Test string",
-                                        },
-                                        gerrit: {
-                                            aliasContext: {
-                                                kind: "Test string",
-                                                name: "Test string",
-                                            },
-                                            gerritProject: "Test string",
-                                            hostUri: "Test string",
-                                            revisionId: "Test string",
-                                        },
-                                        git: {
-                                            revisionId: "Test string",
-                                            url: "Test string",
-                                        },
-                                        labels: {
-                                            A: "Test string"
-                                        },
-                                    }
-                                ],
-                                artifactStorageSourceUri: "Test string",
-                                context: {
-                                    cloudRepo: {
-                                        aliasContext: {
-                                            kind: "Test string",
-                                            name: "Test string",
-                                        },
-                                        repoId: {
-                                            projectRepoId: {
-                                                projectId: "Test string",
-                                                repoName: "Test string",
-                                            },
-                                            uid: "Test string",
-                                        },
-                                        revisionId: "Test string",
-                                    },
-                                    gerrit: {
-                                        aliasContext: {
-                                            kind: "Test string",
-                                            name: "Test string",
-                                        },
-                                        gerritProject: "Test string",
-                                        hostUri: "Test string",
-                                        revisionId: "Test string",
-                                    },
-                                    git: {
-                                        revisionId: "Test string",
-                                        url: "Test string",
-                                    },
-                                    labels: {
-                                        A: "Test string"
-                                    },
-                                },
-                                fileHashes: {
-                                    A: {
-                                        fileHash: [
-                                            {
-                                                type: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                    }
-                                },
-                            },
-                            startTime: "Test string",
-                            triggerId: "Test string",
-                        },
-                        provenanceBytes: "Test string",
-                    },
-                    compliance: {
-                        nonComplianceReason: "Test string",
-                        nonCompliantFiles: [
-                            {
-                                displayCommand: "Test string",
-                                path: "Test string",
-                                reason: "Test string",
-                            }
-                        ],
-                    },
-                    createTime: "Test string",
-                    deployment: {
-                        address: "Test string",
-                        config: "Test string",
-                        deployTime: "Test string",
-                        platform: "Test string",
-                        resourceUri: [
-                            "Test string"
-                        ],
-                        undeployTime: "Test string",
-                        userEmail: "Test string",
-                    },
-                    discovery: {
-                        analysisCompleted: {
-                            analysisType: [
-                                "Test string"
-                            ],
-                        },
-                        analysisError: [
-                            {
-                                code: 42,
-                                details: [
-                                    {
-                                        A: 42
-                                    }
-                                ],
-                                message: "Test string",
-                            }
-                        ],
-                        analysisStatus: "Test string",
-                        analysisStatusError: {
-                            code: 42,
-                            details: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            message: "Test string",
-                        },
-                        archiveTime: "Test string",
-                        continuousAnalysis: "Test string",
-                        cpe: "Test string",
-                        lastScanTime: "Test string",
-                        sbomStatus: {
-                            error: "Test string",
-                            sbomState: "Test string",
-                        },
-                    },
-                    dsseAttestation: {
-                        envelope: {
-                            payload: "Test string",
-                            payloadType: "Test string",
-                            signatures: [
-                                {
-                                    keyid: "Test string",
-                                    sig: "Test string",
-                                }
-                            ],
-                        },
-                        statement: {
-                            _type: "Test string",
-                            predicateType: "Test string",
-                            provenance: {
-                                builderConfig: {
-                                    id: "Test string",
-                                },
-                                materials: [
-                                    "Test string"
-                                ],
-                                metadata: {
-                                    buildFinishedOn: "Test string",
-                                    buildInvocationId: "Test string",
-                                    buildStartedOn: "Test string",
-                                    completeness: {
-                                        arguments: true,
-                                        environment: true,
-                                        materials: true,
-                                    },
-                                    reproducible: true,
-                                },
-                                recipe: {
-                                    arguments: [
-                                        {
-                                            A: 42
-                                        }
-                                    ],
-                                    definedInMaterial: "Test string",
-                                    entryPoint: "Test string",
-                                    environment: [
-                                        {
-                                            A: 42
-                                        }
-                                    ],
-                                    type: "Test string",
-                                },
-                            },
-                            slsaProvenance: {
-                                builder: {
-                                    id: "Test string",
-                                },
-                                materials: [
-                                    {
-                                        digest: {
-                                            A: "Test string"
-                                        },
-                                        uri: "Test string",
-                                    }
-                                ],
-                                metadata: {
-                                    buildFinishedOn: "Test string",
-                                    buildInvocationId: "Test string",
-                                    buildStartedOn: "Test string",
-                                    completeness: {
-                                        arguments: true,
-                                        environment: true,
-                                        materials: true,
-                                    },
-                                    reproducible: true,
-                                },
-                                recipe: {
-                                    arguments: {
-                                        A: 42
-                                    },
-                                    definedInMaterial: "Test string",
-                                    entryPoint: "Test string",
-                                    environment: {
-                                        A: 42
-                                    },
-                                    type: "Test string",
-                                },
-                            },
-                            slsaProvenanceZeroTwo: {
-                                buildConfig: {
-                                    A: 42
-                                },
-                                builder: {
-                                    id: "Test string",
-                                },
-                                buildType: "Test string",
-                                invocation: {
-                                    configSource: {
-                                        digest: {
-                                            A: "Test string"
-                                        },
-                                        entryPoint: "Test string",
-                                        uri: "Test string",
-                                    },
-                                    environment: {
-                                        A: 42
-                                    },
-                                    parameters: {
-                                        A: 42
-                                    },
-                                },
-                                materials: [
-                                    {
-                                        digest: {
-                                            A: "Test string"
-                                        },
-                                        uri: "Test string",
-                                    }
-                                ],
-                                metadata: {
-                                    buildFinishedOn: "Test string",
-                                    buildInvocationId: "Test string",
-                                    buildStartedOn: "Test string",
-                                    completeness: {
-                                        environment: true,
-                                        materials: true,
-                                        parameters: true,
-                                    },
-                                    reproducible: true,
-                                },
-                            },
-                            subject: [
-                                {
-                                    digest: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                }
-                            ],
-                        },
-                    },
-                    envelope: {
-                        payload: "Test string",
-                        payloadType: "Test string",
-                        signatures: [
-                            {
-                                keyid: "Test string",
-                                sig: "Test string",
-                            }
-                        ],
-                    },
-                    image: {
-                        baseResourceUrl: "Test string",
-                        distance: 42,
-                        fingerprint: {
-                            v1Name: "Test string",
-                            v2Blob: [
-                                "Test string"
-                            ],
-                            v2Name: "Test string",
-                        },
-                        layerInfo: [
-                            {
-                                arguments: "Test string",
-                                directive: "Test string",
-                            }
-                        ],
-                    },
-                    kind: "Test string",
-                    name: "Test string",
-                    noteName: "Test string",
-                    package: {
-                        architecture: "Test string",
-                        cpeUri: "Test string",
-                        license: {
-                            comments: "Test string",
-                            expression: "Test string",
-                        },
-                        location: [
-                            {
-                                cpeUri: "Test string",
-                                path: "Test string",
-                                version: {
-                                    epoch: 42,
-                                    fullName: "Test string",
-                                    inclusive: true,
-                                    kind: "Test string",
-                                    name: "Test string",
-                                    revision: "Test string",
-                                },
-                            }
-                        ],
-                        name: "Test string",
-                        packageType: "Test string",
-                        version: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                    },
-                    remediation: "Test string",
-                    resourceUri: "Test string",
-                    sbomReference: {
-                        payload: {
-                            _type: "Test string",
-                            predicate: {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                location: "Test string",
-                                mimeType: "Test string",
-                                referrerId: "Test string",
-                            },
-                            predicateType: "Test string",
-                            subject: [
-                                {
-                                    digest: {
-                                        A: "Test string"
-                                    },
-                                    name: "Test string",
-                                }
-                            ],
-                        },
-                        payloadType: "Test string",
-                        signatures: [
-                            {
-                                keyid: "Test string",
-                                sig: "Test string",
-                            }
-                        ],
-                    },
-                    updateTime: "Test string",
-                    upgrade: {
-                        distribution: {
-                            classification: "Test string",
-                            cpeUri: "Test string",
-                            cve: [
-                                "Test string"
-                            ],
-                            severity: "Test string",
-                        },
-                        package: "Test string",
-                        parsedVersion: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        windowsUpdate: {
-                            categories: [
-                                {
-                                    categoryId: "Test string",
-                                    name: "Test string",
-                                }
-                            ],
-                            description: "Test string",
-                            identity: {
-                                revision: 42,
-                                updateId: "Test string",
-                            },
-                            kbArticleIds: [
-                                "Test string"
-                            ],
-                            lastPublishedTimestamp: "Test string",
-                            supportUrl: "Test string",
-                            title: "Test string",
-                        },
-                    },
-                    vulnerability: {
-                        cvssScore: 42,
-                        cvssV2: {
-                            attackComplexity: "Test string",
-                            attackVector: "Test string",
-                            authentication: "Test string",
-                            availabilityImpact: "Test string",
-                            baseScore: 42,
-                            confidentialityImpact: "Test string",
-                            exploitabilityScore: 42,
-                            impactScore: 42,
-                            integrityImpact: "Test string",
-                            privilegesRequired: "Test string",
-                            scope: "Test string",
-                            userInteraction: "Test string",
-                        },
-                        cvssv3: {
-                            attackComplexity: "Test string",
-                            attackVector: "Test string",
-                            authentication: "Test string",
-                            availabilityImpact: "Test string",
-                            baseScore: 42,
-                            confidentialityImpact: "Test string",
-                            exploitabilityScore: 42,
-                            impactScore: 42,
-                            integrityImpact: "Test string",
-                            privilegesRequired: "Test string",
-                            scope: "Test string",
-                            userInteraction: "Test string",
-                        },
-                        cvssVersion: "Test string",
-                        effectiveSeverity: "Test string",
-                        extraDetails: "Test string",
-                        fixAvailable: true,
-                        longDescription: "Test string",
-                        packageIssue: [
-                            {
-                                affectedCpeUri: "Test string",
-                                affectedPackage: "Test string",
-                                affectedVersion: {
-                                    epoch: 42,
-                                    fullName: "Test string",
-                                    inclusive: true,
-                                    kind: "Test string",
-                                    name: "Test string",
-                                    revision: "Test string",
-                                },
-                                effectiveSeverity: "Test string",
-                                fileLocation: [
-                                    {
-                                        filePath: "Test string",
-                                    }
-                                ],
-                                fixAvailable: true,
-                                fixedCpeUri: "Test string",
-                                fixedPackage: "Test string",
-                                fixedVersion: {
-                                    epoch: 42,
-                                    fullName: "Test string",
-                                    inclusive: true,
-                                    kind: "Test string",
-                                    name: "Test string",
-                                    revision: "Test string",
-                                },
-                                packageType: "Test string",
-                            }
-                        ],
-                        relatedUrls: [
-                            {
-                                label: "Test string",
-                                url: "Test string",
-                            }
-                        ],
-                        severity: "Test string",
-                        shortDescription: "Test string",
-                        type: "Test string",
-                        vexAssessment: {
-                            cve: "Test string",
-                            impacts: [
-                                "Test string"
-                            ],
-                            justification: {
-                                details: "Test string",
-                                justificationType: "Test string",
-                            },
-                            noteName: "Test string",
-                            relatedUris: [
-                                {
-                                    label: "Test string",
-                                    url: "Test string",
-                                }
-                            ],
-                            remediations: [
-                                {
-                                    details: "Test string",
-                                    remediationType: "Test string",
-                                    remediationUri: {
-                                        label: "Test string",
-                                        url: "Test string",
-                                    },
-                                }
-                            ],
-                            state: "Test string",
-                            vulnerabilityId: "Test string",
-                        },
-                    },
-                }
-            ],
-        });
-        /** Creates a new occurrence. */
-        await gapi.client.containeranalysis.projects.occurrences.create({
-            parent: "Test string",
-        }, {
-            attestation: {
-                jwts: [
-                    {
-                        compactJwt: "Test string",
-                    }
-                ],
-                serializedPayload: "Test string",
-                signatures: [
-                    {
-                        publicKeyId: "Test string",
-                        signature: "Test string",
-                    }
-                ],
-            },
-            build: {
-                intotoProvenance: {
-                    builderConfig: {
-                        id: "Test string",
-                    },
-                    materials: [
-                        "Test string"
-                    ],
-                    metadata: {
-                        buildFinishedOn: "Test string",
-                        buildInvocationId: "Test string",
-                        buildStartedOn: "Test string",
-                        completeness: {
-                            arguments: true,
-                            environment: true,
-                            materials: true,
-                        },
-                        reproducible: true,
-                    },
-                    recipe: {
-                        arguments: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        definedInMaterial: "Test string",
-                        entryPoint: "Test string",
-                        environment: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        type: "Test string",
-                    },
-                },
-                inTotoSlsaProvenanceV1: {
-                    _type: "Test string",
-                    predicate: {
-                        buildDefinition: {
-                            buildType: "Test string",
-                            externalParameters: {
-                                A: 42
-                            },
-                            internalParameters: {
-                                A: 42
-                            },
-                            resolvedDependencies: [
-                                {
-                                    annotations: {
-                                        A: 42
-                                    },
-                                    content: "Test string",
-                                    digest: {
-                                        A: "Test string"
-                                    },
-                                    downloadLocation: "Test string",
-                                    mediaType: "Test string",
-                                    name: "Test string",
-                                    uri: "Test string",
-                                }
-                            ],
-                        },
-                        runDetails: {
-                            builder: {
-                                builderDependencies: [
-                                    {
-                                        annotations: {
-                                            A: 42
-                                        },
-                                        content: "Test string",
-                                        digest: {
-                                            A: "Test string"
-                                        },
-                                        downloadLocation: "Test string",
-                                        mediaType: "Test string",
-                                        name: "Test string",
-                                        uri: "Test string",
-                                    }
-                                ],
-                                id: "Test string",
-                                version: {
-                                    A: "Test string"
-                                },
-                            },
-                            byproducts: [
-                                {
-                                    annotations: {
-                                        A: 42
-                                    },
-                                    content: "Test string",
-                                    digest: {
-                                        A: "Test string"
-                                    },
-                                    downloadLocation: "Test string",
-                                    mediaType: "Test string",
-                                    name: "Test string",
-                                    uri: "Test string",
-                                }
-                            ],
-                            metadata: {
-                                finishedOn: "Test string",
-                                invocationId: "Test string",
-                                startedOn: "Test string",
-                            },
-                        },
-                    },
-                    predicateType: "Test string",
-                    subject: [
-                        {
-                            digest: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                        }
-                    ],
-                },
-                intotoStatement: {
-                    _type: "Test string",
-                    predicateType: "Test string",
-                    provenance: {
-                        builderConfig: {
-                            id: "Test string",
-                        },
-                        materials: [
-                            "Test string"
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                arguments: true,
-                                environment: true,
-                                materials: true,
-                            },
-                            reproducible: true,
-                        },
-                        recipe: {
-                            arguments: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            definedInMaterial: "Test string",
-                            entryPoint: "Test string",
-                            environment: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            type: "Test string",
-                        },
-                    },
-                    slsaProvenance: {
-                        builder: {
-                            id: "Test string",
-                        },
-                        materials: [
-                            {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                uri: "Test string",
-                            }
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                arguments: true,
-                                environment: true,
-                                materials: true,
-                            },
-                            reproducible: true,
-                        },
-                        recipe: {
-                            arguments: {
-                                A: 42
-                            },
-                            definedInMaterial: "Test string",
-                            entryPoint: "Test string",
-                            environment: {
-                                A: 42
-                            },
-                            type: "Test string",
-                        },
-                    },
-                    slsaProvenanceZeroTwo: {
-                        buildConfig: {
-                            A: 42
-                        },
-                        builder: {
-                            id: "Test string",
-                        },
-                        buildType: "Test string",
-                        invocation: {
-                            configSource: {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                entryPoint: "Test string",
-                                uri: "Test string",
-                            },
-                            environment: {
-                                A: 42
-                            },
-                            parameters: {
-                                A: 42
-                            },
-                        },
-                        materials: [
-                            {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                uri: "Test string",
-                            }
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                environment: true,
-                                materials: true,
-                                parameters: true,
-                            },
-                            reproducible: true,
-                        },
-                    },
-                    subject: [
-                        {
-                            digest: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                        }
-                    ],
-                },
-                provenance: {
-                    builderVersion: "Test string",
-                    buildOptions: {
-                        A: "Test string"
-                    },
-                    builtArtifacts: [
-                        {
-                            checksum: "Test string",
-                            id: "Test string",
-                            names: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                    commands: [
-                        {
-                            args: [
-                                "Test string"
-                            ],
-                            dir: "Test string",
-                            env: [
-                                "Test string"
-                            ],
-                            id: "Test string",
-                            name: "Test string",
-                            waitFor: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                    createTime: "Test string",
-                    creator: "Test string",
-                    endTime: "Test string",
-                    id: "Test string",
-                    logsUri: "Test string",
-                    projectId: "Test string",
-                    sourceProvenance: {
-                        additionalContexts: [
-                            {
-                                cloudRepo: {
-                                    aliasContext: {
-                                        kind: "Test string",
-                                        name: "Test string",
-                                    },
-                                    repoId: {
-                                        projectRepoId: {
-                                            projectId: "Test string",
-                                            repoName: "Test string",
-                                        },
-                                        uid: "Test string",
-                                    },
-                                    revisionId: "Test string",
-                                },
-                                gerrit: {
-                                    aliasContext: {
-                                        kind: "Test string",
-                                        name: "Test string",
-                                    },
-                                    gerritProject: "Test string",
-                                    hostUri: "Test string",
-                                    revisionId: "Test string",
-                                },
-                                git: {
-                                    revisionId: "Test string",
-                                    url: "Test string",
-                                },
-                                labels: {
-                                    A: "Test string"
-                                },
-                            }
-                        ],
-                        artifactStorageSourceUri: "Test string",
-                        context: {
-                            cloudRepo: {
-                                aliasContext: {
-                                    kind: "Test string",
-                                    name: "Test string",
-                                },
-                                repoId: {
-                                    projectRepoId: {
-                                        projectId: "Test string",
-                                        repoName: "Test string",
-                                    },
-                                    uid: "Test string",
-                                },
-                                revisionId: "Test string",
-                            },
-                            gerrit: {
-                                aliasContext: {
-                                    kind: "Test string",
-                                    name: "Test string",
-                                },
-                                gerritProject: "Test string",
-                                hostUri: "Test string",
-                                revisionId: "Test string",
-                            },
-                            git: {
-                                revisionId: "Test string",
-                                url: "Test string",
-                            },
-                            labels: {
-                                A: "Test string"
-                            },
-                        },
-                        fileHashes: {
-                            A: {
-                                fileHash: [
-                                    {
-                                        type: "Test string",
-                                        value: "Test string",
-                                    }
-                                ],
-                            }
-                        },
-                    },
-                    startTime: "Test string",
-                    triggerId: "Test string",
-                },
-                provenanceBytes: "Test string",
-            },
-            compliance: {
-                nonComplianceReason: "Test string",
-                nonCompliantFiles: [
-                    {
-                        displayCommand: "Test string",
-                        path: "Test string",
-                        reason: "Test string",
-                    }
-                ],
-            },
-            createTime: "Test string",
-            deployment: {
-                address: "Test string",
-                config: "Test string",
-                deployTime: "Test string",
-                platform: "Test string",
-                resourceUri: [
-                    "Test string"
-                ],
-                undeployTime: "Test string",
-                userEmail: "Test string",
-            },
-            discovery: {
-                analysisCompleted: {
-                    analysisType: [
-                        "Test string"
-                    ],
-                },
-                analysisError: [
-                    {
-                        code: 42,
-                        details: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        message: "Test string",
-                    }
-                ],
-                analysisStatus: "Test string",
-                analysisStatusError: {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                },
-                archiveTime: "Test string",
-                continuousAnalysis: "Test string",
-                cpe: "Test string",
-                lastScanTime: "Test string",
-                sbomStatus: {
-                    error: "Test string",
-                    sbomState: "Test string",
-                },
-            },
-            dsseAttestation: {
-                envelope: {
-                    payload: "Test string",
-                    payloadType: "Test string",
-                    signatures: [
-                        {
-                            keyid: "Test string",
-                            sig: "Test string",
-                        }
-                    ],
-                },
-                statement: {
-                    _type: "Test string",
-                    predicateType: "Test string",
-                    provenance: {
-                        builderConfig: {
-                            id: "Test string",
-                        },
-                        materials: [
-                            "Test string"
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                arguments: true,
-                                environment: true,
-                                materials: true,
-                            },
-                            reproducible: true,
-                        },
-                        recipe: {
-                            arguments: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            definedInMaterial: "Test string",
-                            entryPoint: "Test string",
-                            environment: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            type: "Test string",
-                        },
-                    },
-                    slsaProvenance: {
-                        builder: {
-                            id: "Test string",
-                        },
-                        materials: [
-                            {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                uri: "Test string",
-                            }
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                arguments: true,
-                                environment: true,
-                                materials: true,
-                            },
-                            reproducible: true,
-                        },
-                        recipe: {
-                            arguments: {
-                                A: 42
-                            },
-                            definedInMaterial: "Test string",
-                            entryPoint: "Test string",
-                            environment: {
-                                A: 42
-                            },
-                            type: "Test string",
-                        },
-                    },
-                    slsaProvenanceZeroTwo: {
-                        buildConfig: {
-                            A: 42
-                        },
-                        builder: {
-                            id: "Test string",
-                        },
-                        buildType: "Test string",
-                        invocation: {
-                            configSource: {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                entryPoint: "Test string",
-                                uri: "Test string",
-                            },
-                            environment: {
-                                A: 42
-                            },
-                            parameters: {
-                                A: 42
-                            },
-                        },
-                        materials: [
-                            {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                uri: "Test string",
-                            }
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                environment: true,
-                                materials: true,
-                                parameters: true,
-                            },
-                            reproducible: true,
-                        },
-                    },
-                    subject: [
-                        {
-                            digest: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                        }
-                    ],
-                },
-            },
-            envelope: {
-                payload: "Test string",
-                payloadType: "Test string",
-                signatures: [
-                    {
-                        keyid: "Test string",
-                        sig: "Test string",
-                    }
-                ],
-            },
-            image: {
-                baseResourceUrl: "Test string",
-                distance: 42,
-                fingerprint: {
-                    v1Name: "Test string",
-                    v2Blob: [
-                        "Test string"
-                    ],
-                    v2Name: "Test string",
-                },
-                layerInfo: [
-                    {
-                        arguments: "Test string",
-                        directive: "Test string",
-                    }
-                ],
-            },
-            kind: "Test string",
-            name: "Test string",
-            noteName: "Test string",
-            package: {
-                architecture: "Test string",
-                cpeUri: "Test string",
-                license: {
-                    comments: "Test string",
-                    expression: "Test string",
-                },
-                location: [
-                    {
-                        cpeUri: "Test string",
-                        path: "Test string",
-                        version: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                    }
-                ],
-                name: "Test string",
-                packageType: "Test string",
-                version: {
-                    epoch: 42,
-                    fullName: "Test string",
-                    inclusive: true,
-                    kind: "Test string",
-                    name: "Test string",
-                    revision: "Test string",
-                },
-            },
-            remediation: "Test string",
-            resourceUri: "Test string",
-            sbomReference: {
-                payload: {
-                    _type: "Test string",
-                    predicate: {
-                        digest: {
-                            A: "Test string"
-                        },
-                        location: "Test string",
-                        mimeType: "Test string",
-                        referrerId: "Test string",
-                    },
-                    predicateType: "Test string",
-                    subject: [
-                        {
-                            digest: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                        }
-                    ],
-                },
-                payloadType: "Test string",
-                signatures: [
-                    {
-                        keyid: "Test string",
-                        sig: "Test string",
-                    }
-                ],
-            },
-            updateTime: "Test string",
-            upgrade: {
-                distribution: {
-                    classification: "Test string",
-                    cpeUri: "Test string",
-                    cve: [
-                        "Test string"
-                    ],
-                    severity: "Test string",
-                },
-                package: "Test string",
-                parsedVersion: {
-                    epoch: 42,
-                    fullName: "Test string",
-                    inclusive: true,
-                    kind: "Test string",
-                    name: "Test string",
-                    revision: "Test string",
-                },
-                windowsUpdate: {
-                    categories: [
-                        {
-                            categoryId: "Test string",
-                            name: "Test string",
-                        }
-                    ],
-                    description: "Test string",
-                    identity: {
-                        revision: 42,
-                        updateId: "Test string",
-                    },
-                    kbArticleIds: [
-                        "Test string"
-                    ],
-                    lastPublishedTimestamp: "Test string",
-                    supportUrl: "Test string",
-                    title: "Test string",
-                },
-            },
-            vulnerability: {
-                cvssScore: 42,
-                cvssV2: {
-                    attackComplexity: "Test string",
-                    attackVector: "Test string",
-                    authentication: "Test string",
-                    availabilityImpact: "Test string",
-                    baseScore: 42,
-                    confidentialityImpact: "Test string",
-                    exploitabilityScore: 42,
-                    impactScore: 42,
-                    integrityImpact: "Test string",
-                    privilegesRequired: "Test string",
-                    scope: "Test string",
-                    userInteraction: "Test string",
-                },
-                cvssv3: {
-                    attackComplexity: "Test string",
-                    attackVector: "Test string",
-                    authentication: "Test string",
-                    availabilityImpact: "Test string",
-                    baseScore: 42,
-                    confidentialityImpact: "Test string",
-                    exploitabilityScore: 42,
-                    impactScore: 42,
-                    integrityImpact: "Test string",
-                    privilegesRequired: "Test string",
-                    scope: "Test string",
-                    userInteraction: "Test string",
-                },
-                cvssVersion: "Test string",
-                effectiveSeverity: "Test string",
-                extraDetails: "Test string",
-                fixAvailable: true,
-                longDescription: "Test string",
-                packageIssue: [
-                    {
-                        affectedCpeUri: "Test string",
-                        affectedPackage: "Test string",
-                        affectedVersion: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        effectiveSeverity: "Test string",
-                        fileLocation: [
-                            {
-                                filePath: "Test string",
-                            }
-                        ],
-                        fixAvailable: true,
-                        fixedCpeUri: "Test string",
-                        fixedPackage: "Test string",
-                        fixedVersion: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        packageType: "Test string",
-                    }
-                ],
-                relatedUrls: [
-                    {
-                        label: "Test string",
-                        url: "Test string",
-                    }
-                ],
-                severity: "Test string",
-                shortDescription: "Test string",
-                type: "Test string",
-                vexAssessment: {
-                    cve: "Test string",
-                    impacts: [
-                        "Test string"
-                    ],
-                    justification: {
-                        details: "Test string",
-                        justificationType: "Test string",
-                    },
-                    noteName: "Test string",
-                    relatedUris: [
-                        {
-                            label: "Test string",
-                            url: "Test string",
-                        }
-                    ],
-                    remediations: [
-                        {
-                            details: "Test string",
-                            remediationType: "Test string",
-                            remediationUri: {
-                                label: "Test string",
-                                url: "Test string",
-                            },
-                        }
-                    ],
-                    state: "Test string",
-                    vulnerabilityId: "Test string",
-                },
-            },
-        });
-        /** Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource. */
-        await gapi.client.containeranalysis.projects.occurrences.delete({
-            name: "Test string",
-        });
-        /** Gets the specified occurrence. */
-        await gapi.client.containeranalysis.projects.occurrences.get({
-            name: "Test string",
-        });
-        /**
-         * Gets the access control policy for a note or an occurrence resource. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the
-         * resource is a note or occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`
-         * for occurrences.
-         */
-        await gapi.client.containeranalysis.projects.occurrences.getIamPolicy({
-            resource: "Test string",
-        }, {
-            options: {
-                requestedPolicyVersion: 42,
-            },
-        });
-        /** Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project. */
-        await gapi.client.containeranalysis.projects.occurrences.getNotes({
-            name: "Test string",
-        });
-        /** Gets a summary of the number and severity of occurrences. */
-        await gapi.client.containeranalysis.projects.occurrences.getVulnerabilitySummary({
-            filter: "Test string",
-            parent: "Test string",
-        });
-        /** Lists occurrences for the specified project. */
-        await gapi.client.containeranalysis.projects.occurrences.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the specified occurrence. */
-        await gapi.client.containeranalysis.projects.occurrences.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            attestation: {
-                jwts: [
-                    {
-                        compactJwt: "Test string",
-                    }
-                ],
-                serializedPayload: "Test string",
-                signatures: [
-                    {
-                        publicKeyId: "Test string",
-                        signature: "Test string",
-                    }
-                ],
-            },
-            build: {
-                intotoProvenance: {
-                    builderConfig: {
-                        id: "Test string",
-                    },
-                    materials: [
-                        "Test string"
-                    ],
-                    metadata: {
-                        buildFinishedOn: "Test string",
-                        buildInvocationId: "Test string",
-                        buildStartedOn: "Test string",
-                        completeness: {
-                            arguments: true,
-                            environment: true,
-                            materials: true,
-                        },
-                        reproducible: true,
-                    },
-                    recipe: {
-                        arguments: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        definedInMaterial: "Test string",
-                        entryPoint: "Test string",
-                        environment: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        type: "Test string",
-                    },
-                },
-                inTotoSlsaProvenanceV1: {
-                    _type: "Test string",
-                    predicate: {
-                        buildDefinition: {
-                            buildType: "Test string",
-                            externalParameters: {
-                                A: 42
-                            },
-                            internalParameters: {
-                                A: 42
-                            },
-                            resolvedDependencies: [
-                                {
-                                    annotations: {
-                                        A: 42
-                                    },
-                                    content: "Test string",
-                                    digest: {
-                                        A: "Test string"
-                                    },
-                                    downloadLocation: "Test string",
-                                    mediaType: "Test string",
-                                    name: "Test string",
-                                    uri: "Test string",
-                                }
-                            ],
-                        },
-                        runDetails: {
-                            builder: {
-                                builderDependencies: [
-                                    {
-                                        annotations: {
-                                            A: 42
-                                        },
-                                        content: "Test string",
-                                        digest: {
-                                            A: "Test string"
-                                        },
-                                        downloadLocation: "Test string",
-                                        mediaType: "Test string",
-                                        name: "Test string",
-                                        uri: "Test string",
-                                    }
-                                ],
-                                id: "Test string",
-                                version: {
-                                    A: "Test string"
-                                },
-                            },
-                            byproducts: [
-                                {
-                                    annotations: {
-                                        A: 42
-                                    },
-                                    content: "Test string",
-                                    digest: {
-                                        A: "Test string"
-                                    },
-                                    downloadLocation: "Test string",
-                                    mediaType: "Test string",
-                                    name: "Test string",
-                                    uri: "Test string",
-                                }
-                            ],
-                            metadata: {
-                                finishedOn: "Test string",
-                                invocationId: "Test string",
-                                startedOn: "Test string",
-                            },
-                        },
-                    },
-                    predicateType: "Test string",
-                    subject: [
-                        {
-                            digest: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                        }
-                    ],
-                },
-                intotoStatement: {
-                    _type: "Test string",
-                    predicateType: "Test string",
-                    provenance: {
-                        builderConfig: {
-                            id: "Test string",
-                        },
-                        materials: [
-                            "Test string"
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                arguments: true,
-                                environment: true,
-                                materials: true,
-                            },
-                            reproducible: true,
-                        },
-                        recipe: {
-                            arguments: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            definedInMaterial: "Test string",
-                            entryPoint: "Test string",
-                            environment: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            type: "Test string",
-                        },
-                    },
-                    slsaProvenance: {
-                        builder: {
-                            id: "Test string",
-                        },
-                        materials: [
-                            {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                uri: "Test string",
-                            }
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                arguments: true,
-                                environment: true,
-                                materials: true,
-                            },
-                            reproducible: true,
-                        },
-                        recipe: {
-                            arguments: {
-                                A: 42
-                            },
-                            definedInMaterial: "Test string",
-                            entryPoint: "Test string",
-                            environment: {
-                                A: 42
-                            },
-                            type: "Test string",
-                        },
-                    },
-                    slsaProvenanceZeroTwo: {
-                        buildConfig: {
-                            A: 42
-                        },
-                        builder: {
-                            id: "Test string",
-                        },
-                        buildType: "Test string",
-                        invocation: {
-                            configSource: {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                entryPoint: "Test string",
-                                uri: "Test string",
-                            },
-                            environment: {
-                                A: 42
-                            },
-                            parameters: {
-                                A: 42
-                            },
-                        },
-                        materials: [
-                            {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                uri: "Test string",
-                            }
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                environment: true,
-                                materials: true,
-                                parameters: true,
-                            },
-                            reproducible: true,
-                        },
-                    },
-                    subject: [
-                        {
-                            digest: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                        }
-                    ],
-                },
-                provenance: {
-                    builderVersion: "Test string",
-                    buildOptions: {
-                        A: "Test string"
-                    },
-                    builtArtifacts: [
-                        {
-                            checksum: "Test string",
-                            id: "Test string",
-                            names: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                    commands: [
-                        {
-                            args: [
-                                "Test string"
-                            ],
-                            dir: "Test string",
-                            env: [
-                                "Test string"
-                            ],
-                            id: "Test string",
-                            name: "Test string",
-                            waitFor: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                    createTime: "Test string",
-                    creator: "Test string",
-                    endTime: "Test string",
-                    id: "Test string",
-                    logsUri: "Test string",
-                    projectId: "Test string",
-                    sourceProvenance: {
-                        additionalContexts: [
-                            {
-                                cloudRepo: {
-                                    aliasContext: {
-                                        kind: "Test string",
-                                        name: "Test string",
-                                    },
-                                    repoId: {
-                                        projectRepoId: {
-                                            projectId: "Test string",
-                                            repoName: "Test string",
-                                        },
-                                        uid: "Test string",
-                                    },
-                                    revisionId: "Test string",
-                                },
-                                gerrit: {
-                                    aliasContext: {
-                                        kind: "Test string",
-                                        name: "Test string",
-                                    },
-                                    gerritProject: "Test string",
-                                    hostUri: "Test string",
-                                    revisionId: "Test string",
-                                },
-                                git: {
-                                    revisionId: "Test string",
-                                    url: "Test string",
-                                },
-                                labels: {
-                                    A: "Test string"
-                                },
-                            }
-                        ],
-                        artifactStorageSourceUri: "Test string",
-                        context: {
-                            cloudRepo: {
-                                aliasContext: {
-                                    kind: "Test string",
-                                    name: "Test string",
-                                },
-                                repoId: {
-                                    projectRepoId: {
-                                        projectId: "Test string",
-                                        repoName: "Test string",
-                                    },
-                                    uid: "Test string",
-                                },
-                                revisionId: "Test string",
-                            },
-                            gerrit: {
-                                aliasContext: {
-                                    kind: "Test string",
-                                    name: "Test string",
-                                },
-                                gerritProject: "Test string",
-                                hostUri: "Test string",
-                                revisionId: "Test string",
-                            },
-                            git: {
-                                revisionId: "Test string",
-                                url: "Test string",
-                            },
-                            labels: {
-                                A: "Test string"
-                            },
-                        },
-                        fileHashes: {
-                            A: {
-                                fileHash: [
-                                    {
-                                        type: "Test string",
-                                        value: "Test string",
-                                    }
-                                ],
-                            }
-                        },
-                    },
-                    startTime: "Test string",
-                    triggerId: "Test string",
-                },
-                provenanceBytes: "Test string",
-            },
-            compliance: {
-                nonComplianceReason: "Test string",
-                nonCompliantFiles: [
-                    {
-                        displayCommand: "Test string",
-                        path: "Test string",
-                        reason: "Test string",
-                    }
-                ],
-            },
-            createTime: "Test string",
-            deployment: {
-                address: "Test string",
-                config: "Test string",
-                deployTime: "Test string",
-                platform: "Test string",
-                resourceUri: [
-                    "Test string"
-                ],
-                undeployTime: "Test string",
-                userEmail: "Test string",
-            },
-            discovery: {
-                analysisCompleted: {
-                    analysisType: [
-                        "Test string"
-                    ],
-                },
-                analysisError: [
-                    {
-                        code: 42,
-                        details: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        message: "Test string",
-                    }
-                ],
-                analysisStatus: "Test string",
-                analysisStatusError: {
-                    code: 42,
-                    details: [
-                        {
-                            A: 42
-                        }
-                    ],
-                    message: "Test string",
-                },
-                archiveTime: "Test string",
-                continuousAnalysis: "Test string",
-                cpe: "Test string",
-                lastScanTime: "Test string",
-                sbomStatus: {
-                    error: "Test string",
-                    sbomState: "Test string",
-                },
-            },
-            dsseAttestation: {
-                envelope: {
-                    payload: "Test string",
-                    payloadType: "Test string",
-                    signatures: [
-                        {
-                            keyid: "Test string",
-                            sig: "Test string",
-                        }
-                    ],
-                },
-                statement: {
-                    _type: "Test string",
-                    predicateType: "Test string",
-                    provenance: {
-                        builderConfig: {
-                            id: "Test string",
-                        },
-                        materials: [
-                            "Test string"
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                arguments: true,
-                                environment: true,
-                                materials: true,
-                            },
-                            reproducible: true,
-                        },
-                        recipe: {
-                            arguments: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            definedInMaterial: "Test string",
-                            entryPoint: "Test string",
-                            environment: [
-                                {
-                                    A: 42
-                                }
-                            ],
-                            type: "Test string",
-                        },
-                    },
-                    slsaProvenance: {
-                        builder: {
-                            id: "Test string",
-                        },
-                        materials: [
-                            {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                uri: "Test string",
-                            }
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                arguments: true,
-                                environment: true,
-                                materials: true,
-                            },
-                            reproducible: true,
-                        },
-                        recipe: {
-                            arguments: {
-                                A: 42
-                            },
-                            definedInMaterial: "Test string",
-                            entryPoint: "Test string",
-                            environment: {
-                                A: 42
-                            },
-                            type: "Test string",
-                        },
-                    },
-                    slsaProvenanceZeroTwo: {
-                        buildConfig: {
-                            A: 42
-                        },
-                        builder: {
-                            id: "Test string",
-                        },
-                        buildType: "Test string",
-                        invocation: {
-                            configSource: {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                entryPoint: "Test string",
-                                uri: "Test string",
-                            },
-                            environment: {
-                                A: 42
-                            },
-                            parameters: {
-                                A: 42
-                            },
-                        },
-                        materials: [
-                            {
-                                digest: {
-                                    A: "Test string"
-                                },
-                                uri: "Test string",
-                            }
-                        ],
-                        metadata: {
-                            buildFinishedOn: "Test string",
-                            buildInvocationId: "Test string",
-                            buildStartedOn: "Test string",
-                            completeness: {
-                                environment: true,
-                                materials: true,
-                                parameters: true,
-                            },
-                            reproducible: true,
-                        },
-                    },
-                    subject: [
-                        {
-                            digest: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                        }
-                    ],
-                },
-            },
-            envelope: {
-                payload: "Test string",
-                payloadType: "Test string",
-                signatures: [
-                    {
-                        keyid: "Test string",
-                        sig: "Test string",
-                    }
-                ],
-            },
-            image: {
-                baseResourceUrl: "Test string",
-                distance: 42,
-                fingerprint: {
-                    v1Name: "Test string",
-                    v2Blob: [
-                        "Test string"
-                    ],
-                    v2Name: "Test string",
-                },
-                layerInfo: [
-                    {
-                        arguments: "Test string",
-                        directive: "Test string",
-                    }
-                ],
-            },
-            kind: "Test string",
-            name: "Test string",
-            noteName: "Test string",
-            package: {
-                architecture: "Test string",
-                cpeUri: "Test string",
-                license: {
-                    comments: "Test string",
-                    expression: "Test string",
-                },
-                location: [
-                    {
-                        cpeUri: "Test string",
-                        path: "Test string",
-                        version: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                    }
-                ],
-                name: "Test string",
-                packageType: "Test string",
-                version: {
-                    epoch: 42,
-                    fullName: "Test string",
-                    inclusive: true,
-                    kind: "Test string",
-                    name: "Test string",
-                    revision: "Test string",
-                },
-            },
-            remediation: "Test string",
-            resourceUri: "Test string",
-            sbomReference: {
-                payload: {
-                    _type: "Test string",
-                    predicate: {
-                        digest: {
-                            A: "Test string"
-                        },
-                        location: "Test string",
-                        mimeType: "Test string",
-                        referrerId: "Test string",
-                    },
-                    predicateType: "Test string",
-                    subject: [
-                        {
-                            digest: {
-                                A: "Test string"
-                            },
-                            name: "Test string",
-                        }
-                    ],
-                },
-                payloadType: "Test string",
-                signatures: [
-                    {
-                        keyid: "Test string",
-                        sig: "Test string",
-                    }
-                ],
-            },
-            updateTime: "Test string",
-            upgrade: {
-                distribution: {
-                    classification: "Test string",
-                    cpeUri: "Test string",
-                    cve: [
-                        "Test string"
-                    ],
-                    severity: "Test string",
-                },
-                package: "Test string",
-                parsedVersion: {
-                    epoch: 42,
-                    fullName: "Test string",
-                    inclusive: true,
-                    kind: "Test string",
-                    name: "Test string",
-                    revision: "Test string",
-                },
-                windowsUpdate: {
-                    categories: [
-                        {
-                            categoryId: "Test string",
-                            name: "Test string",
-                        }
-                    ],
-                    description: "Test string",
-                    identity: {
-                        revision: 42,
-                        updateId: "Test string",
-                    },
-                    kbArticleIds: [
-                        "Test string"
-                    ],
-                    lastPublishedTimestamp: "Test string",
-                    supportUrl: "Test string",
-                    title: "Test string",
-                },
-            },
-            vulnerability: {
-                cvssScore: 42,
-                cvssV2: {
-                    attackComplexity: "Test string",
-                    attackVector: "Test string",
-                    authentication: "Test string",
-                    availabilityImpact: "Test string",
-                    baseScore: 42,
-                    confidentialityImpact: "Test string",
-                    exploitabilityScore: 42,
-                    impactScore: 42,
-                    integrityImpact: "Test string",
-                    privilegesRequired: "Test string",
-                    scope: "Test string",
-                    userInteraction: "Test string",
-                },
-                cvssv3: {
-                    attackComplexity: "Test string",
-                    attackVector: "Test string",
-                    authentication: "Test string",
-                    availabilityImpact: "Test string",
-                    baseScore: 42,
-                    confidentialityImpact: "Test string",
-                    exploitabilityScore: 42,
-                    impactScore: 42,
-                    integrityImpact: "Test string",
-                    privilegesRequired: "Test string",
-                    scope: "Test string",
-                    userInteraction: "Test string",
-                },
-                cvssVersion: "Test string",
-                effectiveSeverity: "Test string",
-                extraDetails: "Test string",
-                fixAvailable: true,
-                longDescription: "Test string",
-                packageIssue: [
-                    {
-                        affectedCpeUri: "Test string",
-                        affectedPackage: "Test string",
-                        affectedVersion: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        effectiveSeverity: "Test string",
-                        fileLocation: [
-                            {
-                                filePath: "Test string",
-                            }
-                        ],
-                        fixAvailable: true,
-                        fixedCpeUri: "Test string",
-                        fixedPackage: "Test string",
-                        fixedVersion: {
-                            epoch: 42,
-                            fullName: "Test string",
-                            inclusive: true,
-                            kind: "Test string",
-                            name: "Test string",
-                            revision: "Test string",
-                        },
-                        packageType: "Test string",
-                    }
-                ],
-                relatedUrls: [
-                    {
-                        label: "Test string",
-                        url: "Test string",
-                    }
-                ],
-                severity: "Test string",
-                shortDescription: "Test string",
-                type: "Test string",
-                vexAssessment: {
-                    cve: "Test string",
-                    impacts: [
-                        "Test string"
-                    ],
-                    justification: {
-                        details: "Test string",
-                        justificationType: "Test string",
-                    },
-                    noteName: "Test string",
-                    relatedUris: [
-                        {
-                            label: "Test string",
-                            url: "Test string",
-                        }
-                    ],
-                    remediations: [
-                        {
-                            details: "Test string",
-                            remediationType: "Test string",
-                            remediationUri: {
-                                label: "Test string",
-                                url: "Test string",
-                            },
-                        }
-                    ],
-                    state: "Test string",
-                    vulnerabilityId: "Test string",
-                },
-            },
-        });
-        /**
-         * Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the
-         * resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and
-         * `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences.
-         */
-        await gapi.client.containeranalysis.projects.occurrences.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes
-         * the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences.
-         */
-        await gapi.client.containeranalysis.projects.occurrences.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Creates new notes in batch. */
+    await gapi.client.containeranalysis.projects.notes.batchCreate(
+      {
+        parent: 'Test string',
+      },
+      {
+        notes: {
+          A: {
+            attestation: {
+              hint: {
+                humanReadableName: 'Test string',
+              },
+            },
+            build: {
+              builderVersion: 'Test string',
+            },
+            compliance: {
+              cisBenchmark: {
+                profileLevel: 42,
+                severity: 'Test string',
+              },
+              description: 'Test string',
+              rationale: 'Test string',
+              remediation: 'Test string',
+              scanInstructions: 'Test string',
+              title: 'Test string',
+              version: [
+                {
+                  benchmarkDocument: 'Test string',
+                  cpeUri: 'Test string',
+                  version: 'Test string',
+                },
+              ],
+            },
+            createTime: 'Test string',
+            deployment: {
+              resourceUri: ['Test string'],
+            },
+            discovery: {
+              analysisKind: 'Test string',
+            },
+            dsseAttestation: {
+              hint: {
+                humanReadableName: 'Test string',
+              },
+            },
+            expirationTime: 'Test string',
+            image: {
+              fingerprint: {
+                v1Name: 'Test string',
+                v2Blob: ['Test string'],
+                v2Name: 'Test string',
+              },
+              resourceUrl: 'Test string',
+            },
+            kind: 'Test string',
+            longDescription: 'Test string',
+            name: 'Test string',
+            package: {
+              architecture: 'Test string',
+              cpeUri: 'Test string',
+              description: 'Test string',
+              digest: [
+                {
+                  algo: 'Test string',
+                  digestBytes: 'Test string',
+                },
+              ],
+              distribution: [
+                {
+                  architecture: 'Test string',
+                  cpeUri: 'Test string',
+                  description: 'Test string',
+                  latestVersion: {
+                    epoch: 42,
+                    fullName: 'Test string',
+                    inclusive: true,
+                    kind: 'Test string',
+                    name: 'Test string',
+                    revision: 'Test string',
+                  },
+                  maintainer: 'Test string',
+                  url: 'Test string',
+                },
+              ],
+              license: {
+                comments: 'Test string',
+                expression: 'Test string',
+              },
+              maintainer: 'Test string',
+              name: 'Test string',
+              packageType: 'Test string',
+              url: 'Test string',
+              version: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+            },
+            relatedNoteNames: ['Test string'],
+            relatedUrl: [
+              {
+                label: 'Test string',
+                url: 'Test string',
+              },
+            ],
+            sbomReference: {
+              format: 'Test string',
+              version: 'Test string',
+            },
+            shortDescription: 'Test string',
+            updateTime: 'Test string',
+            upgrade: {
+              distributions: [
+                {
+                  classification: 'Test string',
+                  cpeUri: 'Test string',
+                  cve: ['Test string'],
+                  severity: 'Test string',
+                },
+              ],
+              package: 'Test string',
+              version: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              windowsUpdate: {
+                categories: [
+                  {
+                    categoryId: 'Test string',
+                    name: 'Test string',
+                  },
+                ],
+                description: 'Test string',
+                identity: {
+                  revision: 42,
+                  updateId: 'Test string',
+                },
+                kbArticleIds: ['Test string'],
+                lastPublishedTimestamp: 'Test string',
+                supportUrl: 'Test string',
+                title: 'Test string',
+              },
+            },
+            vulnerability: {
+              cvssScore: 42,
+              cvssV2: {
+                attackComplexity: 'Test string',
+                attackVector: 'Test string',
+                authentication: 'Test string',
+                availabilityImpact: 'Test string',
+                baseScore: 42,
+                confidentialityImpact: 'Test string',
+                exploitabilityScore: 42,
+                impactScore: 42,
+                integrityImpact: 'Test string',
+                privilegesRequired: 'Test string',
+                scope: 'Test string',
+                userInteraction: 'Test string',
+              },
+              cvssV3: {
+                attackComplexity: 'Test string',
+                attackVector: 'Test string',
+                availabilityImpact: 'Test string',
+                baseScore: 42,
+                confidentialityImpact: 'Test string',
+                exploitabilityScore: 42,
+                impactScore: 42,
+                integrityImpact: 'Test string',
+                privilegesRequired: 'Test string',
+                scope: 'Test string',
+                userInteraction: 'Test string',
+              },
+              cvssVersion: 'Test string',
+              details: [
+                {
+                  affectedCpeUri: 'Test string',
+                  affectedPackage: 'Test string',
+                  affectedVersionEnd: {
+                    epoch: 42,
+                    fullName: 'Test string',
+                    inclusive: true,
+                    kind: 'Test string',
+                    name: 'Test string',
+                    revision: 'Test string',
+                  },
+                  affectedVersionStart: {
+                    epoch: 42,
+                    fullName: 'Test string',
+                    inclusive: true,
+                    kind: 'Test string',
+                    name: 'Test string',
+                    revision: 'Test string',
+                  },
+                  description: 'Test string',
+                  fixedCpeUri: 'Test string',
+                  fixedPackage: 'Test string',
+                  fixedVersion: {
+                    epoch: 42,
+                    fullName: 'Test string',
+                    inclusive: true,
+                    kind: 'Test string',
+                    name: 'Test string',
+                    revision: 'Test string',
+                  },
+                  isObsolete: true,
+                  packageType: 'Test string',
+                  severityName: 'Test string',
+                  source: 'Test string',
+                  sourceUpdateTime: 'Test string',
+                  vendor: 'Test string',
+                },
+              ],
+              severity: 'Test string',
+              sourceUpdateTime: 'Test string',
+              windowsDetails: [
+                {
+                  cpeUri: 'Test string',
+                  description: 'Test string',
+                  fixingKbs: [
+                    {
+                      name: 'Test string',
+                      url: 'Test string',
+                    },
+                  ],
+                  name: 'Test string',
+                },
+              ],
+            },
+            vulnerabilityAssessment: {
+              assessment: {
+                cve: 'Test string',
+                impacts: ['Test string'],
+                justification: {
+                  details: 'Test string',
+                  justificationType: 'Test string',
+                },
+                longDescription: 'Test string',
+                relatedUris: [
+                  {
+                    label: 'Test string',
+                    url: 'Test string',
+                  },
+                ],
+                remediations: [
+                  {
+                    details: 'Test string',
+                    remediationType: 'Test string',
+                    remediationUri: {
+                      label: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                ],
+                shortDescription: 'Test string',
+                state: 'Test string',
+                vulnerabilityId: 'Test string',
+              },
+              languageCode: 'Test string',
+              longDescription: 'Test string',
+              product: {
+                genericUri: 'Test string',
+                id: 'Test string',
+                name: 'Test string',
+              },
+              publisher: {
+                issuingAuthority: 'Test string',
+                name: 'Test string',
+                publisherNamespace: 'Test string',
+              },
+              shortDescription: 'Test string',
+              title: 'Test string',
+            },
+          },
+        },
+      }
+    );
+    /** Creates a new note. */
+    await gapi.client.containeranalysis.projects.notes.create(
+      {
+        noteId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        attestation: {
+          hint: {
+            humanReadableName: 'Test string',
+          },
+        },
+        build: {
+          builderVersion: 'Test string',
+        },
+        compliance: {
+          cisBenchmark: {
+            profileLevel: 42,
+            severity: 'Test string',
+          },
+          description: 'Test string',
+          rationale: 'Test string',
+          remediation: 'Test string',
+          scanInstructions: 'Test string',
+          title: 'Test string',
+          version: [
+            {
+              benchmarkDocument: 'Test string',
+              cpeUri: 'Test string',
+              version: 'Test string',
+            },
+          ],
+        },
+        createTime: 'Test string',
+        deployment: {
+          resourceUri: ['Test string'],
+        },
+        discovery: {
+          analysisKind: 'Test string',
+        },
+        dsseAttestation: {
+          hint: {
+            humanReadableName: 'Test string',
+          },
+        },
+        expirationTime: 'Test string',
+        image: {
+          fingerprint: {
+            v1Name: 'Test string',
+            v2Blob: ['Test string'],
+            v2Name: 'Test string',
+          },
+          resourceUrl: 'Test string',
+        },
+        kind: 'Test string',
+        longDescription: 'Test string',
+        name: 'Test string',
+        package: {
+          architecture: 'Test string',
+          cpeUri: 'Test string',
+          description: 'Test string',
+          digest: [
+            {
+              algo: 'Test string',
+              digestBytes: 'Test string',
+            },
+          ],
+          distribution: [
+            {
+              architecture: 'Test string',
+              cpeUri: 'Test string',
+              description: 'Test string',
+              latestVersion: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              maintainer: 'Test string',
+              url: 'Test string',
+            },
+          ],
+          license: {
+            comments: 'Test string',
+            expression: 'Test string',
+          },
+          maintainer: 'Test string',
+          name: 'Test string',
+          packageType: 'Test string',
+          url: 'Test string',
+          version: {
+            epoch: 42,
+            fullName: 'Test string',
+            inclusive: true,
+            kind: 'Test string',
+            name: 'Test string',
+            revision: 'Test string',
+          },
+        },
+        relatedNoteNames: ['Test string'],
+        relatedUrl: [
+          {
+            label: 'Test string',
+            url: 'Test string',
+          },
+        ],
+        sbomReference: {
+          format: 'Test string',
+          version: 'Test string',
+        },
+        shortDescription: 'Test string',
+        updateTime: 'Test string',
+        upgrade: {
+          distributions: [
+            {
+              classification: 'Test string',
+              cpeUri: 'Test string',
+              cve: ['Test string'],
+              severity: 'Test string',
+            },
+          ],
+          package: 'Test string',
+          version: {
+            epoch: 42,
+            fullName: 'Test string',
+            inclusive: true,
+            kind: 'Test string',
+            name: 'Test string',
+            revision: 'Test string',
+          },
+          windowsUpdate: {
+            categories: [
+              {
+                categoryId: 'Test string',
+                name: 'Test string',
+              },
+            ],
+            description: 'Test string',
+            identity: {
+              revision: 42,
+              updateId: 'Test string',
+            },
+            kbArticleIds: ['Test string'],
+            lastPublishedTimestamp: 'Test string',
+            supportUrl: 'Test string',
+            title: 'Test string',
+          },
+        },
+        vulnerability: {
+          cvssScore: 42,
+          cvssV2: {
+            attackComplexity: 'Test string',
+            attackVector: 'Test string',
+            authentication: 'Test string',
+            availabilityImpact: 'Test string',
+            baseScore: 42,
+            confidentialityImpact: 'Test string',
+            exploitabilityScore: 42,
+            impactScore: 42,
+            integrityImpact: 'Test string',
+            privilegesRequired: 'Test string',
+            scope: 'Test string',
+            userInteraction: 'Test string',
+          },
+          cvssV3: {
+            attackComplexity: 'Test string',
+            attackVector: 'Test string',
+            availabilityImpact: 'Test string',
+            baseScore: 42,
+            confidentialityImpact: 'Test string',
+            exploitabilityScore: 42,
+            impactScore: 42,
+            integrityImpact: 'Test string',
+            privilegesRequired: 'Test string',
+            scope: 'Test string',
+            userInteraction: 'Test string',
+          },
+          cvssVersion: 'Test string',
+          details: [
+            {
+              affectedCpeUri: 'Test string',
+              affectedPackage: 'Test string',
+              affectedVersionEnd: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              affectedVersionStart: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              description: 'Test string',
+              fixedCpeUri: 'Test string',
+              fixedPackage: 'Test string',
+              fixedVersion: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              isObsolete: true,
+              packageType: 'Test string',
+              severityName: 'Test string',
+              source: 'Test string',
+              sourceUpdateTime: 'Test string',
+              vendor: 'Test string',
+            },
+          ],
+          severity: 'Test string',
+          sourceUpdateTime: 'Test string',
+          windowsDetails: [
+            {
+              cpeUri: 'Test string',
+              description: 'Test string',
+              fixingKbs: [
+                {
+                  name: 'Test string',
+                  url: 'Test string',
+                },
+              ],
+              name: 'Test string',
+            },
+          ],
+        },
+        vulnerabilityAssessment: {
+          assessment: {
+            cve: 'Test string',
+            impacts: ['Test string'],
+            justification: {
+              details: 'Test string',
+              justificationType: 'Test string',
+            },
+            longDescription: 'Test string',
+            relatedUris: [
+              {
+                label: 'Test string',
+                url: 'Test string',
+              },
+            ],
+            remediations: [
+              {
+                details: 'Test string',
+                remediationType: 'Test string',
+                remediationUri: {
+                  label: 'Test string',
+                  url: 'Test string',
+                },
+              },
+            ],
+            shortDescription: 'Test string',
+            state: 'Test string',
+            vulnerabilityId: 'Test string',
+          },
+          languageCode: 'Test string',
+          longDescription: 'Test string',
+          product: {
+            genericUri: 'Test string',
+            id: 'Test string',
+            name: 'Test string',
+          },
+          publisher: {
+            issuingAuthority: 'Test string',
+            name: 'Test string',
+            publisherNamespace: 'Test string',
+          },
+          shortDescription: 'Test string',
+          title: 'Test string',
+        },
+      }
+    );
+    /** Deletes the specified note. */
+    await gapi.client.containeranalysis.projects.notes.delete({
+      name: 'Test string',
+    });
+    /** Gets the specified note. */
+    await gapi.client.containeranalysis.projects.notes.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a note or an occurrence resource. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
+    await gapi.client.containeranalysis.projects.notes.getIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        options: {
+          requestedPolicyVersion: 42,
+        },
+      }
+    );
+    /** Lists notes for the specified project. */
+    await gapi.client.containeranalysis.projects.notes.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the specified note. */
+    await gapi.client.containeranalysis.projects.notes.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        attestation: {
+          hint: {
+            humanReadableName: 'Test string',
+          },
+        },
+        build: {
+          builderVersion: 'Test string',
+        },
+        compliance: {
+          cisBenchmark: {
+            profileLevel: 42,
+            severity: 'Test string',
+          },
+          description: 'Test string',
+          rationale: 'Test string',
+          remediation: 'Test string',
+          scanInstructions: 'Test string',
+          title: 'Test string',
+          version: [
+            {
+              benchmarkDocument: 'Test string',
+              cpeUri: 'Test string',
+              version: 'Test string',
+            },
+          ],
+        },
+        createTime: 'Test string',
+        deployment: {
+          resourceUri: ['Test string'],
+        },
+        discovery: {
+          analysisKind: 'Test string',
+        },
+        dsseAttestation: {
+          hint: {
+            humanReadableName: 'Test string',
+          },
+        },
+        expirationTime: 'Test string',
+        image: {
+          fingerprint: {
+            v1Name: 'Test string',
+            v2Blob: ['Test string'],
+            v2Name: 'Test string',
+          },
+          resourceUrl: 'Test string',
+        },
+        kind: 'Test string',
+        longDescription: 'Test string',
+        name: 'Test string',
+        package: {
+          architecture: 'Test string',
+          cpeUri: 'Test string',
+          description: 'Test string',
+          digest: [
+            {
+              algo: 'Test string',
+              digestBytes: 'Test string',
+            },
+          ],
+          distribution: [
+            {
+              architecture: 'Test string',
+              cpeUri: 'Test string',
+              description: 'Test string',
+              latestVersion: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              maintainer: 'Test string',
+              url: 'Test string',
+            },
+          ],
+          license: {
+            comments: 'Test string',
+            expression: 'Test string',
+          },
+          maintainer: 'Test string',
+          name: 'Test string',
+          packageType: 'Test string',
+          url: 'Test string',
+          version: {
+            epoch: 42,
+            fullName: 'Test string',
+            inclusive: true,
+            kind: 'Test string',
+            name: 'Test string',
+            revision: 'Test string',
+          },
+        },
+        relatedNoteNames: ['Test string'],
+        relatedUrl: [
+          {
+            label: 'Test string',
+            url: 'Test string',
+          },
+        ],
+        sbomReference: {
+          format: 'Test string',
+          version: 'Test string',
+        },
+        shortDescription: 'Test string',
+        updateTime: 'Test string',
+        upgrade: {
+          distributions: [
+            {
+              classification: 'Test string',
+              cpeUri: 'Test string',
+              cve: ['Test string'],
+              severity: 'Test string',
+            },
+          ],
+          package: 'Test string',
+          version: {
+            epoch: 42,
+            fullName: 'Test string',
+            inclusive: true,
+            kind: 'Test string',
+            name: 'Test string',
+            revision: 'Test string',
+          },
+          windowsUpdate: {
+            categories: [
+              {
+                categoryId: 'Test string',
+                name: 'Test string',
+              },
+            ],
+            description: 'Test string',
+            identity: {
+              revision: 42,
+              updateId: 'Test string',
+            },
+            kbArticleIds: ['Test string'],
+            lastPublishedTimestamp: 'Test string',
+            supportUrl: 'Test string',
+            title: 'Test string',
+          },
+        },
+        vulnerability: {
+          cvssScore: 42,
+          cvssV2: {
+            attackComplexity: 'Test string',
+            attackVector: 'Test string',
+            authentication: 'Test string',
+            availabilityImpact: 'Test string',
+            baseScore: 42,
+            confidentialityImpact: 'Test string',
+            exploitabilityScore: 42,
+            impactScore: 42,
+            integrityImpact: 'Test string',
+            privilegesRequired: 'Test string',
+            scope: 'Test string',
+            userInteraction: 'Test string',
+          },
+          cvssV3: {
+            attackComplexity: 'Test string',
+            attackVector: 'Test string',
+            availabilityImpact: 'Test string',
+            baseScore: 42,
+            confidentialityImpact: 'Test string',
+            exploitabilityScore: 42,
+            impactScore: 42,
+            integrityImpact: 'Test string',
+            privilegesRequired: 'Test string',
+            scope: 'Test string',
+            userInteraction: 'Test string',
+          },
+          cvssVersion: 'Test string',
+          details: [
+            {
+              affectedCpeUri: 'Test string',
+              affectedPackage: 'Test string',
+              affectedVersionEnd: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              affectedVersionStart: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              description: 'Test string',
+              fixedCpeUri: 'Test string',
+              fixedPackage: 'Test string',
+              fixedVersion: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              isObsolete: true,
+              packageType: 'Test string',
+              severityName: 'Test string',
+              source: 'Test string',
+              sourceUpdateTime: 'Test string',
+              vendor: 'Test string',
+            },
+          ],
+          severity: 'Test string',
+          sourceUpdateTime: 'Test string',
+          windowsDetails: [
+            {
+              cpeUri: 'Test string',
+              description: 'Test string',
+              fixingKbs: [
+                {
+                  name: 'Test string',
+                  url: 'Test string',
+                },
+              ],
+              name: 'Test string',
+            },
+          ],
+        },
+        vulnerabilityAssessment: {
+          assessment: {
+            cve: 'Test string',
+            impacts: ['Test string'],
+            justification: {
+              details: 'Test string',
+              justificationType: 'Test string',
+            },
+            longDescription: 'Test string',
+            relatedUris: [
+              {
+                label: 'Test string',
+                url: 'Test string',
+              },
+            ],
+            remediations: [
+              {
+                details: 'Test string',
+                remediationType: 'Test string',
+                remediationUri: {
+                  label: 'Test string',
+                  url: 'Test string',
+                },
+              },
+            ],
+            shortDescription: 'Test string',
+            state: 'Test string',
+            vulnerabilityId: 'Test string',
+          },
+          languageCode: 'Test string',
+          longDescription: 'Test string',
+          product: {
+            genericUri: 'Test string',
+            id: 'Test string',
+            name: 'Test string',
+          },
+          publisher: {
+            issuingAuthority: 'Test string',
+            name: 'Test string',
+            publisherNamespace: 'Test string',
+          },
+          shortDescription: 'Test string',
+          title: 'Test string',
+        },
+      }
+    );
+    /** Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
+    await gapi.client.containeranalysis.projects.notes.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
+    await gapi.client.containeranalysis.projects.notes.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Lists occurrences referencing the specified note. Provider projects can use this method to get all occurrences across consumer projects referencing the specified note. */
+    await gapi.client.containeranalysis.projects.notes.occurrences.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates new occurrences in batch. */
+    await gapi.client.containeranalysis.projects.occurrences.batchCreate(
+      {
+        parent: 'Test string',
+      },
+      {
+        occurrences: [
+          {
+            attestation: {
+              jwts: [
+                {
+                  compactJwt: 'Test string',
+                },
+              ],
+              serializedPayload: 'Test string',
+              signatures: [
+                {
+                  publicKeyId: 'Test string',
+                  signature: 'Test string',
+                },
+              ],
+            },
+            build: {
+              intotoProvenance: {
+                builderConfig: {
+                  id: 'Test string',
+                },
+                materials: ['Test string'],
+                metadata: {
+                  buildFinishedOn: 'Test string',
+                  buildInvocationId: 'Test string',
+                  buildStartedOn: 'Test string',
+                  completeness: {
+                    arguments: true,
+                    environment: true,
+                    materials: true,
+                  },
+                  reproducible: true,
+                },
+                recipe: {
+                  arguments: [
+                    {
+                      A: 42,
+                    },
+                  ],
+                  definedInMaterial: 'Test string',
+                  entryPoint: 'Test string',
+                  environment: [
+                    {
+                      A: 42,
+                    },
+                  ],
+                  type: 'Test string',
+                },
+              },
+              inTotoSlsaProvenanceV1: {
+                _type: 'Test string',
+                predicate: {
+                  buildDefinition: {
+                    buildType: 'Test string',
+                    externalParameters: {
+                      A: 42,
+                    },
+                    internalParameters: {
+                      A: 42,
+                    },
+                    resolvedDependencies: [
+                      {
+                        annotations: {
+                          A: 42,
+                        },
+                        content: 'Test string',
+                        digest: {
+                          A: 'Test string',
+                        },
+                        downloadLocation: 'Test string',
+                        mediaType: 'Test string',
+                        name: 'Test string',
+                        uri: 'Test string',
+                      },
+                    ],
+                  },
+                  runDetails: {
+                    builder: {
+                      builderDependencies: [
+                        {
+                          annotations: {
+                            A: 42,
+                          },
+                          content: 'Test string',
+                          digest: {
+                            A: 'Test string',
+                          },
+                          downloadLocation: 'Test string',
+                          mediaType: 'Test string',
+                          name: 'Test string',
+                          uri: 'Test string',
+                        },
+                      ],
+                      id: 'Test string',
+                      version: {
+                        A: 'Test string',
+                      },
+                    },
+                    byproducts: [
+                      {
+                        annotations: {
+                          A: 42,
+                        },
+                        content: 'Test string',
+                        digest: {
+                          A: 'Test string',
+                        },
+                        downloadLocation: 'Test string',
+                        mediaType: 'Test string',
+                        name: 'Test string',
+                        uri: 'Test string',
+                      },
+                    ],
+                    metadata: {
+                      finishedOn: 'Test string',
+                      invocationId: 'Test string',
+                      startedOn: 'Test string',
+                    },
+                  },
+                },
+                predicateType: 'Test string',
+                subject: [
+                  {
+                    digest: {
+                      A: 'Test string',
+                    },
+                    name: 'Test string',
+                  },
+                ],
+              },
+              intotoStatement: {
+                _type: 'Test string',
+                predicateType: 'Test string',
+                provenance: {
+                  builderConfig: {
+                    id: 'Test string',
+                  },
+                  materials: ['Test string'],
+                  metadata: {
+                    buildFinishedOn: 'Test string',
+                    buildInvocationId: 'Test string',
+                    buildStartedOn: 'Test string',
+                    completeness: {
+                      arguments: true,
+                      environment: true,
+                      materials: true,
+                    },
+                    reproducible: true,
+                  },
+                  recipe: {
+                    arguments: [
+                      {
+                        A: 42,
+                      },
+                    ],
+                    definedInMaterial: 'Test string',
+                    entryPoint: 'Test string',
+                    environment: [
+                      {
+                        A: 42,
+                      },
+                    ],
+                    type: 'Test string',
+                  },
+                },
+                slsaProvenance: {
+                  builder: {
+                    id: 'Test string',
+                  },
+                  materials: [
+                    {
+                      digest: {
+                        A: 'Test string',
+                      },
+                      uri: 'Test string',
+                    },
+                  ],
+                  metadata: {
+                    buildFinishedOn: 'Test string',
+                    buildInvocationId: 'Test string',
+                    buildStartedOn: 'Test string',
+                    completeness: {
+                      arguments: true,
+                      environment: true,
+                      materials: true,
+                    },
+                    reproducible: true,
+                  },
+                  recipe: {
+                    arguments: {
+                      A: 42,
+                    },
+                    definedInMaterial: 'Test string',
+                    entryPoint: 'Test string',
+                    environment: {
+                      A: 42,
+                    },
+                    type: 'Test string',
+                  },
+                },
+                slsaProvenanceZeroTwo: {
+                  buildConfig: {
+                    A: 42,
+                  },
+                  builder: {
+                    id: 'Test string',
+                  },
+                  buildType: 'Test string',
+                  invocation: {
+                    configSource: {
+                      digest: {
+                        A: 'Test string',
+                      },
+                      entryPoint: 'Test string',
+                      uri: 'Test string',
+                    },
+                    environment: {
+                      A: 42,
+                    },
+                    parameters: {
+                      A: 42,
+                    },
+                  },
+                  materials: [
+                    {
+                      digest: {
+                        A: 'Test string',
+                      },
+                      uri: 'Test string',
+                    },
+                  ],
+                  metadata: {
+                    buildFinishedOn: 'Test string',
+                    buildInvocationId: 'Test string',
+                    buildStartedOn: 'Test string',
+                    completeness: {
+                      environment: true,
+                      materials: true,
+                      parameters: true,
+                    },
+                    reproducible: true,
+                  },
+                },
+                subject: [
+                  {
+                    digest: {
+                      A: 'Test string',
+                    },
+                    name: 'Test string',
+                  },
+                ],
+              },
+              provenance: {
+                builderVersion: 'Test string',
+                buildOptions: {
+                  A: 'Test string',
+                },
+                builtArtifacts: [
+                  {
+                    checksum: 'Test string',
+                    id: 'Test string',
+                    names: ['Test string'],
+                  },
+                ],
+                commands: [
+                  {
+                    args: ['Test string'],
+                    dir: 'Test string',
+                    env: ['Test string'],
+                    id: 'Test string',
+                    name: 'Test string',
+                    waitFor: ['Test string'],
+                  },
+                ],
+                createTime: 'Test string',
+                creator: 'Test string',
+                endTime: 'Test string',
+                id: 'Test string',
+                logsUri: 'Test string',
+                projectId: 'Test string',
+                sourceProvenance: {
+                  additionalContexts: [
+                    {
+                      cloudRepo: {
+                        aliasContext: {
+                          kind: 'Test string',
+                          name: 'Test string',
+                        },
+                        repoId: {
+                          projectRepoId: {
+                            projectId: 'Test string',
+                            repoName: 'Test string',
+                          },
+                          uid: 'Test string',
+                        },
+                        revisionId: 'Test string',
+                      },
+                      gerrit: {
+                        aliasContext: {
+                          kind: 'Test string',
+                          name: 'Test string',
+                        },
+                        gerritProject: 'Test string',
+                        hostUri: 'Test string',
+                        revisionId: 'Test string',
+                      },
+                      git: {
+                        revisionId: 'Test string',
+                        url: 'Test string',
+                      },
+                      labels: {
+                        A: 'Test string',
+                      },
+                    },
+                  ],
+                  artifactStorageSourceUri: 'Test string',
+                  context: {
+                    cloudRepo: {
+                      aliasContext: {
+                        kind: 'Test string',
+                        name: 'Test string',
+                      },
+                      repoId: {
+                        projectRepoId: {
+                          projectId: 'Test string',
+                          repoName: 'Test string',
+                        },
+                        uid: 'Test string',
+                      },
+                      revisionId: 'Test string',
+                    },
+                    gerrit: {
+                      aliasContext: {
+                        kind: 'Test string',
+                        name: 'Test string',
+                      },
+                      gerritProject: 'Test string',
+                      hostUri: 'Test string',
+                      revisionId: 'Test string',
+                    },
+                    git: {
+                      revisionId: 'Test string',
+                      url: 'Test string',
+                    },
+                    labels: {
+                      A: 'Test string',
+                    },
+                  },
+                  fileHashes: {
+                    A: {
+                      fileHash: [
+                        {
+                          type: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                    },
+                  },
+                },
+                startTime: 'Test string',
+                triggerId: 'Test string',
+              },
+              provenanceBytes: 'Test string',
+            },
+            compliance: {
+              nonComplianceReason: 'Test string',
+              nonCompliantFiles: [
+                {
+                  displayCommand: 'Test string',
+                  path: 'Test string',
+                  reason: 'Test string',
+                },
+              ],
+            },
+            createTime: 'Test string',
+            deployment: {
+              address: 'Test string',
+              config: 'Test string',
+              deployTime: 'Test string',
+              platform: 'Test string',
+              resourceUri: ['Test string'],
+              undeployTime: 'Test string',
+              userEmail: 'Test string',
+            },
+            discovery: {
+              analysisCompleted: {
+                analysisType: ['Test string'],
+              },
+              analysisError: [
+                {
+                  code: 42,
+                  details: [
+                    {
+                      A: 42,
+                    },
+                  ],
+                  message: 'Test string',
+                },
+              ],
+              analysisStatus: 'Test string',
+              analysisStatusError: {
+                code: 42,
+                details: [
+                  {
+                    A: 42,
+                  },
+                ],
+                message: 'Test string',
+              },
+              archiveTime: 'Test string',
+              continuousAnalysis: 'Test string',
+              cpe: 'Test string',
+              lastScanTime: 'Test string',
+              sbomStatus: {
+                error: 'Test string',
+                sbomState: 'Test string',
+              },
+            },
+            dsseAttestation: {
+              envelope: {
+                payload: 'Test string',
+                payloadType: 'Test string',
+                signatures: [
+                  {
+                    keyid: 'Test string',
+                    sig: 'Test string',
+                  },
+                ],
+              },
+              statement: {
+                _type: 'Test string',
+                predicateType: 'Test string',
+                provenance: {
+                  builderConfig: {
+                    id: 'Test string',
+                  },
+                  materials: ['Test string'],
+                  metadata: {
+                    buildFinishedOn: 'Test string',
+                    buildInvocationId: 'Test string',
+                    buildStartedOn: 'Test string',
+                    completeness: {
+                      arguments: true,
+                      environment: true,
+                      materials: true,
+                    },
+                    reproducible: true,
+                  },
+                  recipe: {
+                    arguments: [
+                      {
+                        A: 42,
+                      },
+                    ],
+                    definedInMaterial: 'Test string',
+                    entryPoint: 'Test string',
+                    environment: [
+                      {
+                        A: 42,
+                      },
+                    ],
+                    type: 'Test string',
+                  },
+                },
+                slsaProvenance: {
+                  builder: {
+                    id: 'Test string',
+                  },
+                  materials: [
+                    {
+                      digest: {
+                        A: 'Test string',
+                      },
+                      uri: 'Test string',
+                    },
+                  ],
+                  metadata: {
+                    buildFinishedOn: 'Test string',
+                    buildInvocationId: 'Test string',
+                    buildStartedOn: 'Test string',
+                    completeness: {
+                      arguments: true,
+                      environment: true,
+                      materials: true,
+                    },
+                    reproducible: true,
+                  },
+                  recipe: {
+                    arguments: {
+                      A: 42,
+                    },
+                    definedInMaterial: 'Test string',
+                    entryPoint: 'Test string',
+                    environment: {
+                      A: 42,
+                    },
+                    type: 'Test string',
+                  },
+                },
+                slsaProvenanceZeroTwo: {
+                  buildConfig: {
+                    A: 42,
+                  },
+                  builder: {
+                    id: 'Test string',
+                  },
+                  buildType: 'Test string',
+                  invocation: {
+                    configSource: {
+                      digest: {
+                        A: 'Test string',
+                      },
+                      entryPoint: 'Test string',
+                      uri: 'Test string',
+                    },
+                    environment: {
+                      A: 42,
+                    },
+                    parameters: {
+                      A: 42,
+                    },
+                  },
+                  materials: [
+                    {
+                      digest: {
+                        A: 'Test string',
+                      },
+                      uri: 'Test string',
+                    },
+                  ],
+                  metadata: {
+                    buildFinishedOn: 'Test string',
+                    buildInvocationId: 'Test string',
+                    buildStartedOn: 'Test string',
+                    completeness: {
+                      environment: true,
+                      materials: true,
+                      parameters: true,
+                    },
+                    reproducible: true,
+                  },
+                },
+                subject: [
+                  {
+                    digest: {
+                      A: 'Test string',
+                    },
+                    name: 'Test string',
+                  },
+                ],
+              },
+            },
+            envelope: {
+              payload: 'Test string',
+              payloadType: 'Test string',
+              signatures: [
+                {
+                  keyid: 'Test string',
+                  sig: 'Test string',
+                },
+              ],
+            },
+            image: {
+              baseResourceUrl: 'Test string',
+              distance: 42,
+              fingerprint: {
+                v1Name: 'Test string',
+                v2Blob: ['Test string'],
+                v2Name: 'Test string',
+              },
+              layerInfo: [
+                {
+                  arguments: 'Test string',
+                  directive: 'Test string',
+                },
+              ],
+            },
+            kind: 'Test string',
+            name: 'Test string',
+            noteName: 'Test string',
+            package: {
+              architecture: 'Test string',
+              cpeUri: 'Test string',
+              license: {
+                comments: 'Test string',
+                expression: 'Test string',
+              },
+              location: [
+                {
+                  cpeUri: 'Test string',
+                  path: 'Test string',
+                  version: {
+                    epoch: 42,
+                    fullName: 'Test string',
+                    inclusive: true,
+                    kind: 'Test string',
+                    name: 'Test string',
+                    revision: 'Test string',
+                  },
+                },
+              ],
+              name: 'Test string',
+              packageType: 'Test string',
+              version: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+            },
+            remediation: 'Test string',
+            resourceUri: 'Test string',
+            sbomReference: {
+              payload: {
+                _type: 'Test string',
+                predicate: {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  location: 'Test string',
+                  mimeType: 'Test string',
+                  referrerId: 'Test string',
+                },
+                predicateType: 'Test string',
+                subject: [
+                  {
+                    digest: {
+                      A: 'Test string',
+                    },
+                    name: 'Test string',
+                  },
+                ],
+              },
+              payloadType: 'Test string',
+              signatures: [
+                {
+                  keyid: 'Test string',
+                  sig: 'Test string',
+                },
+              ],
+            },
+            updateTime: 'Test string',
+            upgrade: {
+              distribution: {
+                classification: 'Test string',
+                cpeUri: 'Test string',
+                cve: ['Test string'],
+                severity: 'Test string',
+              },
+              package: 'Test string',
+              parsedVersion: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              windowsUpdate: {
+                categories: [
+                  {
+                    categoryId: 'Test string',
+                    name: 'Test string',
+                  },
+                ],
+                description: 'Test string',
+                identity: {
+                  revision: 42,
+                  updateId: 'Test string',
+                },
+                kbArticleIds: ['Test string'],
+                lastPublishedTimestamp: 'Test string',
+                supportUrl: 'Test string',
+                title: 'Test string',
+              },
+            },
+            vulnerability: {
+              cvssScore: 42,
+              cvssV2: {
+                attackComplexity: 'Test string',
+                attackVector: 'Test string',
+                authentication: 'Test string',
+                availabilityImpact: 'Test string',
+                baseScore: 42,
+                confidentialityImpact: 'Test string',
+                exploitabilityScore: 42,
+                impactScore: 42,
+                integrityImpact: 'Test string',
+                privilegesRequired: 'Test string',
+                scope: 'Test string',
+                userInteraction: 'Test string',
+              },
+              cvssv3: {
+                attackComplexity: 'Test string',
+                attackVector: 'Test string',
+                authentication: 'Test string',
+                availabilityImpact: 'Test string',
+                baseScore: 42,
+                confidentialityImpact: 'Test string',
+                exploitabilityScore: 42,
+                impactScore: 42,
+                integrityImpact: 'Test string',
+                privilegesRequired: 'Test string',
+                scope: 'Test string',
+                userInteraction: 'Test string',
+              },
+              cvssVersion: 'Test string',
+              effectiveSeverity: 'Test string',
+              extraDetails: 'Test string',
+              fixAvailable: true,
+              longDescription: 'Test string',
+              packageIssue: [
+                {
+                  affectedCpeUri: 'Test string',
+                  affectedPackage: 'Test string',
+                  affectedVersion: {
+                    epoch: 42,
+                    fullName: 'Test string',
+                    inclusive: true,
+                    kind: 'Test string',
+                    name: 'Test string',
+                    revision: 'Test string',
+                  },
+                  effectiveSeverity: 'Test string',
+                  fileLocation: [
+                    {
+                      filePath: 'Test string',
+                    },
+                  ],
+                  fixAvailable: true,
+                  fixedCpeUri: 'Test string',
+                  fixedPackage: 'Test string',
+                  fixedVersion: {
+                    epoch: 42,
+                    fullName: 'Test string',
+                    inclusive: true,
+                    kind: 'Test string',
+                    name: 'Test string',
+                    revision: 'Test string',
+                  },
+                  packageType: 'Test string',
+                },
+              ],
+              relatedUrls: [
+                {
+                  label: 'Test string',
+                  url: 'Test string',
+                },
+              ],
+              severity: 'Test string',
+              shortDescription: 'Test string',
+              type: 'Test string',
+              vexAssessment: {
+                cve: 'Test string',
+                impacts: ['Test string'],
+                justification: {
+                  details: 'Test string',
+                  justificationType: 'Test string',
+                },
+                noteName: 'Test string',
+                relatedUris: [
+                  {
+                    label: 'Test string',
+                    url: 'Test string',
+                  },
+                ],
+                remediations: [
+                  {
+                    details: 'Test string',
+                    remediationType: 'Test string',
+                    remediationUri: {
+                      label: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                ],
+                state: 'Test string',
+                vulnerabilityId: 'Test string',
+              },
+            },
+          },
+        ],
+      }
+    );
+    /** Creates a new occurrence. */
+    await gapi.client.containeranalysis.projects.occurrences.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        attestation: {
+          jwts: [
+            {
+              compactJwt: 'Test string',
+            },
+          ],
+          serializedPayload: 'Test string',
+          signatures: [
+            {
+              publicKeyId: 'Test string',
+              signature: 'Test string',
+            },
+          ],
+        },
+        build: {
+          intotoProvenance: {
+            builderConfig: {
+              id: 'Test string',
+            },
+            materials: ['Test string'],
+            metadata: {
+              buildFinishedOn: 'Test string',
+              buildInvocationId: 'Test string',
+              buildStartedOn: 'Test string',
+              completeness: {
+                arguments: true,
+                environment: true,
+                materials: true,
+              },
+              reproducible: true,
+            },
+            recipe: {
+              arguments: [
+                {
+                  A: 42,
+                },
+              ],
+              definedInMaterial: 'Test string',
+              entryPoint: 'Test string',
+              environment: [
+                {
+                  A: 42,
+                },
+              ],
+              type: 'Test string',
+            },
+          },
+          inTotoSlsaProvenanceV1: {
+            _type: 'Test string',
+            predicate: {
+              buildDefinition: {
+                buildType: 'Test string',
+                externalParameters: {
+                  A: 42,
+                },
+                internalParameters: {
+                  A: 42,
+                },
+                resolvedDependencies: [
+                  {
+                    annotations: {
+                      A: 42,
+                    },
+                    content: 'Test string',
+                    digest: {
+                      A: 'Test string',
+                    },
+                    downloadLocation: 'Test string',
+                    mediaType: 'Test string',
+                    name: 'Test string',
+                    uri: 'Test string',
+                  },
+                ],
+              },
+              runDetails: {
+                builder: {
+                  builderDependencies: [
+                    {
+                      annotations: {
+                        A: 42,
+                      },
+                      content: 'Test string',
+                      digest: {
+                        A: 'Test string',
+                      },
+                      downloadLocation: 'Test string',
+                      mediaType: 'Test string',
+                      name: 'Test string',
+                      uri: 'Test string',
+                    },
+                  ],
+                  id: 'Test string',
+                  version: {
+                    A: 'Test string',
+                  },
+                },
+                byproducts: [
+                  {
+                    annotations: {
+                      A: 42,
+                    },
+                    content: 'Test string',
+                    digest: {
+                      A: 'Test string',
+                    },
+                    downloadLocation: 'Test string',
+                    mediaType: 'Test string',
+                    name: 'Test string',
+                    uri: 'Test string',
+                  },
+                ],
+                metadata: {
+                  finishedOn: 'Test string',
+                  invocationId: 'Test string',
+                  startedOn: 'Test string',
+                },
+              },
+            },
+            predicateType: 'Test string',
+            subject: [
+              {
+                digest: {
+                  A: 'Test string',
+                },
+                name: 'Test string',
+              },
+            ],
+          },
+          intotoStatement: {
+            _type: 'Test string',
+            predicateType: 'Test string',
+            provenance: {
+              builderConfig: {
+                id: 'Test string',
+              },
+              materials: ['Test string'],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  arguments: true,
+                  environment: true,
+                  materials: true,
+                },
+                reproducible: true,
+              },
+              recipe: {
+                arguments: [
+                  {
+                    A: 42,
+                  },
+                ],
+                definedInMaterial: 'Test string',
+                entryPoint: 'Test string',
+                environment: [
+                  {
+                    A: 42,
+                  },
+                ],
+                type: 'Test string',
+              },
+            },
+            slsaProvenance: {
+              builder: {
+                id: 'Test string',
+              },
+              materials: [
+                {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  uri: 'Test string',
+                },
+              ],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  arguments: true,
+                  environment: true,
+                  materials: true,
+                },
+                reproducible: true,
+              },
+              recipe: {
+                arguments: {
+                  A: 42,
+                },
+                definedInMaterial: 'Test string',
+                entryPoint: 'Test string',
+                environment: {
+                  A: 42,
+                },
+                type: 'Test string',
+              },
+            },
+            slsaProvenanceZeroTwo: {
+              buildConfig: {
+                A: 42,
+              },
+              builder: {
+                id: 'Test string',
+              },
+              buildType: 'Test string',
+              invocation: {
+                configSource: {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  entryPoint: 'Test string',
+                  uri: 'Test string',
+                },
+                environment: {
+                  A: 42,
+                },
+                parameters: {
+                  A: 42,
+                },
+              },
+              materials: [
+                {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  uri: 'Test string',
+                },
+              ],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  environment: true,
+                  materials: true,
+                  parameters: true,
+                },
+                reproducible: true,
+              },
+            },
+            subject: [
+              {
+                digest: {
+                  A: 'Test string',
+                },
+                name: 'Test string',
+              },
+            ],
+          },
+          provenance: {
+            builderVersion: 'Test string',
+            buildOptions: {
+              A: 'Test string',
+            },
+            builtArtifacts: [
+              {
+                checksum: 'Test string',
+                id: 'Test string',
+                names: ['Test string'],
+              },
+            ],
+            commands: [
+              {
+                args: ['Test string'],
+                dir: 'Test string',
+                env: ['Test string'],
+                id: 'Test string',
+                name: 'Test string',
+                waitFor: ['Test string'],
+              },
+            ],
+            createTime: 'Test string',
+            creator: 'Test string',
+            endTime: 'Test string',
+            id: 'Test string',
+            logsUri: 'Test string',
+            projectId: 'Test string',
+            sourceProvenance: {
+              additionalContexts: [
+                {
+                  cloudRepo: {
+                    aliasContext: {
+                      kind: 'Test string',
+                      name: 'Test string',
+                    },
+                    repoId: {
+                      projectRepoId: {
+                        projectId: 'Test string',
+                        repoName: 'Test string',
+                      },
+                      uid: 'Test string',
+                    },
+                    revisionId: 'Test string',
+                  },
+                  gerrit: {
+                    aliasContext: {
+                      kind: 'Test string',
+                      name: 'Test string',
+                    },
+                    gerritProject: 'Test string',
+                    hostUri: 'Test string',
+                    revisionId: 'Test string',
+                  },
+                  git: {
+                    revisionId: 'Test string',
+                    url: 'Test string',
+                  },
+                  labels: {
+                    A: 'Test string',
+                  },
+                },
+              ],
+              artifactStorageSourceUri: 'Test string',
+              context: {
+                cloudRepo: {
+                  aliasContext: {
+                    kind: 'Test string',
+                    name: 'Test string',
+                  },
+                  repoId: {
+                    projectRepoId: {
+                      projectId: 'Test string',
+                      repoName: 'Test string',
+                    },
+                    uid: 'Test string',
+                  },
+                  revisionId: 'Test string',
+                },
+                gerrit: {
+                  aliasContext: {
+                    kind: 'Test string',
+                    name: 'Test string',
+                  },
+                  gerritProject: 'Test string',
+                  hostUri: 'Test string',
+                  revisionId: 'Test string',
+                },
+                git: {
+                  revisionId: 'Test string',
+                  url: 'Test string',
+                },
+                labels: {
+                  A: 'Test string',
+                },
+              },
+              fileHashes: {
+                A: {
+                  fileHash: [
+                    {
+                      type: 'Test string',
+                      value: 'Test string',
+                    },
+                  ],
+                },
+              },
+            },
+            startTime: 'Test string',
+            triggerId: 'Test string',
+          },
+          provenanceBytes: 'Test string',
+        },
+        compliance: {
+          nonComplianceReason: 'Test string',
+          nonCompliantFiles: [
+            {
+              displayCommand: 'Test string',
+              path: 'Test string',
+              reason: 'Test string',
+            },
+          ],
+        },
+        createTime: 'Test string',
+        deployment: {
+          address: 'Test string',
+          config: 'Test string',
+          deployTime: 'Test string',
+          platform: 'Test string',
+          resourceUri: ['Test string'],
+          undeployTime: 'Test string',
+          userEmail: 'Test string',
+        },
+        discovery: {
+          analysisCompleted: {
+            analysisType: ['Test string'],
+          },
+          analysisError: [
+            {
+              code: 42,
+              details: [
+                {
+                  A: 42,
+                },
+              ],
+              message: 'Test string',
+            },
+          ],
+          analysisStatus: 'Test string',
+          analysisStatusError: {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+          archiveTime: 'Test string',
+          continuousAnalysis: 'Test string',
+          cpe: 'Test string',
+          lastScanTime: 'Test string',
+          sbomStatus: {
+            error: 'Test string',
+            sbomState: 'Test string',
+          },
+        },
+        dsseAttestation: {
+          envelope: {
+            payload: 'Test string',
+            payloadType: 'Test string',
+            signatures: [
+              {
+                keyid: 'Test string',
+                sig: 'Test string',
+              },
+            ],
+          },
+          statement: {
+            _type: 'Test string',
+            predicateType: 'Test string',
+            provenance: {
+              builderConfig: {
+                id: 'Test string',
+              },
+              materials: ['Test string'],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  arguments: true,
+                  environment: true,
+                  materials: true,
+                },
+                reproducible: true,
+              },
+              recipe: {
+                arguments: [
+                  {
+                    A: 42,
+                  },
+                ],
+                definedInMaterial: 'Test string',
+                entryPoint: 'Test string',
+                environment: [
+                  {
+                    A: 42,
+                  },
+                ],
+                type: 'Test string',
+              },
+            },
+            slsaProvenance: {
+              builder: {
+                id: 'Test string',
+              },
+              materials: [
+                {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  uri: 'Test string',
+                },
+              ],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  arguments: true,
+                  environment: true,
+                  materials: true,
+                },
+                reproducible: true,
+              },
+              recipe: {
+                arguments: {
+                  A: 42,
+                },
+                definedInMaterial: 'Test string',
+                entryPoint: 'Test string',
+                environment: {
+                  A: 42,
+                },
+                type: 'Test string',
+              },
+            },
+            slsaProvenanceZeroTwo: {
+              buildConfig: {
+                A: 42,
+              },
+              builder: {
+                id: 'Test string',
+              },
+              buildType: 'Test string',
+              invocation: {
+                configSource: {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  entryPoint: 'Test string',
+                  uri: 'Test string',
+                },
+                environment: {
+                  A: 42,
+                },
+                parameters: {
+                  A: 42,
+                },
+              },
+              materials: [
+                {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  uri: 'Test string',
+                },
+              ],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  environment: true,
+                  materials: true,
+                  parameters: true,
+                },
+                reproducible: true,
+              },
+            },
+            subject: [
+              {
+                digest: {
+                  A: 'Test string',
+                },
+                name: 'Test string',
+              },
+            ],
+          },
+        },
+        envelope: {
+          payload: 'Test string',
+          payloadType: 'Test string',
+          signatures: [
+            {
+              keyid: 'Test string',
+              sig: 'Test string',
+            },
+          ],
+        },
+        image: {
+          baseResourceUrl: 'Test string',
+          distance: 42,
+          fingerprint: {
+            v1Name: 'Test string',
+            v2Blob: ['Test string'],
+            v2Name: 'Test string',
+          },
+          layerInfo: [
+            {
+              arguments: 'Test string',
+              directive: 'Test string',
+            },
+          ],
+        },
+        kind: 'Test string',
+        name: 'Test string',
+        noteName: 'Test string',
+        package: {
+          architecture: 'Test string',
+          cpeUri: 'Test string',
+          license: {
+            comments: 'Test string',
+            expression: 'Test string',
+          },
+          location: [
+            {
+              cpeUri: 'Test string',
+              path: 'Test string',
+              version: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+            },
+          ],
+          name: 'Test string',
+          packageType: 'Test string',
+          version: {
+            epoch: 42,
+            fullName: 'Test string',
+            inclusive: true,
+            kind: 'Test string',
+            name: 'Test string',
+            revision: 'Test string',
+          },
+        },
+        remediation: 'Test string',
+        resourceUri: 'Test string',
+        sbomReference: {
+          payload: {
+            _type: 'Test string',
+            predicate: {
+              digest: {
+                A: 'Test string',
+              },
+              location: 'Test string',
+              mimeType: 'Test string',
+              referrerId: 'Test string',
+            },
+            predicateType: 'Test string',
+            subject: [
+              {
+                digest: {
+                  A: 'Test string',
+                },
+                name: 'Test string',
+              },
+            ],
+          },
+          payloadType: 'Test string',
+          signatures: [
+            {
+              keyid: 'Test string',
+              sig: 'Test string',
+            },
+          ],
+        },
+        updateTime: 'Test string',
+        upgrade: {
+          distribution: {
+            classification: 'Test string',
+            cpeUri: 'Test string',
+            cve: ['Test string'],
+            severity: 'Test string',
+          },
+          package: 'Test string',
+          parsedVersion: {
+            epoch: 42,
+            fullName: 'Test string',
+            inclusive: true,
+            kind: 'Test string',
+            name: 'Test string',
+            revision: 'Test string',
+          },
+          windowsUpdate: {
+            categories: [
+              {
+                categoryId: 'Test string',
+                name: 'Test string',
+              },
+            ],
+            description: 'Test string',
+            identity: {
+              revision: 42,
+              updateId: 'Test string',
+            },
+            kbArticleIds: ['Test string'],
+            lastPublishedTimestamp: 'Test string',
+            supportUrl: 'Test string',
+            title: 'Test string',
+          },
+        },
+        vulnerability: {
+          cvssScore: 42,
+          cvssV2: {
+            attackComplexity: 'Test string',
+            attackVector: 'Test string',
+            authentication: 'Test string',
+            availabilityImpact: 'Test string',
+            baseScore: 42,
+            confidentialityImpact: 'Test string',
+            exploitabilityScore: 42,
+            impactScore: 42,
+            integrityImpact: 'Test string',
+            privilegesRequired: 'Test string',
+            scope: 'Test string',
+            userInteraction: 'Test string',
+          },
+          cvssv3: {
+            attackComplexity: 'Test string',
+            attackVector: 'Test string',
+            authentication: 'Test string',
+            availabilityImpact: 'Test string',
+            baseScore: 42,
+            confidentialityImpact: 'Test string',
+            exploitabilityScore: 42,
+            impactScore: 42,
+            integrityImpact: 'Test string',
+            privilegesRequired: 'Test string',
+            scope: 'Test string',
+            userInteraction: 'Test string',
+          },
+          cvssVersion: 'Test string',
+          effectiveSeverity: 'Test string',
+          extraDetails: 'Test string',
+          fixAvailable: true,
+          longDescription: 'Test string',
+          packageIssue: [
+            {
+              affectedCpeUri: 'Test string',
+              affectedPackage: 'Test string',
+              affectedVersion: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              effectiveSeverity: 'Test string',
+              fileLocation: [
+                {
+                  filePath: 'Test string',
+                },
+              ],
+              fixAvailable: true,
+              fixedCpeUri: 'Test string',
+              fixedPackage: 'Test string',
+              fixedVersion: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              packageType: 'Test string',
+            },
+          ],
+          relatedUrls: [
+            {
+              label: 'Test string',
+              url: 'Test string',
+            },
+          ],
+          severity: 'Test string',
+          shortDescription: 'Test string',
+          type: 'Test string',
+          vexAssessment: {
+            cve: 'Test string',
+            impacts: ['Test string'],
+            justification: {
+              details: 'Test string',
+              justificationType: 'Test string',
+            },
+            noteName: 'Test string',
+            relatedUris: [
+              {
+                label: 'Test string',
+                url: 'Test string',
+              },
+            ],
+            remediations: [
+              {
+                details: 'Test string',
+                remediationType: 'Test string',
+                remediationUri: {
+                  label: 'Test string',
+                  url: 'Test string',
+                },
+              },
+            ],
+            state: 'Test string',
+            vulnerabilityId: 'Test string',
+          },
+        },
+      }
+    );
+    /** Deletes the specified occurrence. For example, use this method to delete an occurrence when the occurrence is no longer applicable for the given resource. */
+    await gapi.client.containeranalysis.projects.occurrences.delete({
+      name: 'Test string',
+    });
+    /** Gets the specified occurrence. */
+    await gapi.client.containeranalysis.projects.occurrences.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a note or an occurrence resource. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
+    await gapi.client.containeranalysis.projects.occurrences.getIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        options: {
+          requestedPolicyVersion: 42,
+        },
+      }
+    );
+    /** Gets the note attached to the specified occurrence. Consumer projects can use this method to get a note that belongs to a provider project. */
+    await gapi.client.containeranalysis.projects.occurrences.getNotes({
+      name: 'Test string',
+    });
+    /** Gets a summary of the number and severity of occurrences. */
+    await gapi.client.containeranalysis.projects.occurrences.getVulnerabilitySummary(
+      {
+        filter: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Lists occurrences for the specified project. */
+    await gapi.client.containeranalysis.projects.occurrences.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the specified occurrence. */
+    await gapi.client.containeranalysis.projects.occurrences.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        attestation: {
+          jwts: [
+            {
+              compactJwt: 'Test string',
+            },
+          ],
+          serializedPayload: 'Test string',
+          signatures: [
+            {
+              publicKeyId: 'Test string',
+              signature: 'Test string',
+            },
+          ],
+        },
+        build: {
+          intotoProvenance: {
+            builderConfig: {
+              id: 'Test string',
+            },
+            materials: ['Test string'],
+            metadata: {
+              buildFinishedOn: 'Test string',
+              buildInvocationId: 'Test string',
+              buildStartedOn: 'Test string',
+              completeness: {
+                arguments: true,
+                environment: true,
+                materials: true,
+              },
+              reproducible: true,
+            },
+            recipe: {
+              arguments: [
+                {
+                  A: 42,
+                },
+              ],
+              definedInMaterial: 'Test string',
+              entryPoint: 'Test string',
+              environment: [
+                {
+                  A: 42,
+                },
+              ],
+              type: 'Test string',
+            },
+          },
+          inTotoSlsaProvenanceV1: {
+            _type: 'Test string',
+            predicate: {
+              buildDefinition: {
+                buildType: 'Test string',
+                externalParameters: {
+                  A: 42,
+                },
+                internalParameters: {
+                  A: 42,
+                },
+                resolvedDependencies: [
+                  {
+                    annotations: {
+                      A: 42,
+                    },
+                    content: 'Test string',
+                    digest: {
+                      A: 'Test string',
+                    },
+                    downloadLocation: 'Test string',
+                    mediaType: 'Test string',
+                    name: 'Test string',
+                    uri: 'Test string',
+                  },
+                ],
+              },
+              runDetails: {
+                builder: {
+                  builderDependencies: [
+                    {
+                      annotations: {
+                        A: 42,
+                      },
+                      content: 'Test string',
+                      digest: {
+                        A: 'Test string',
+                      },
+                      downloadLocation: 'Test string',
+                      mediaType: 'Test string',
+                      name: 'Test string',
+                      uri: 'Test string',
+                    },
+                  ],
+                  id: 'Test string',
+                  version: {
+                    A: 'Test string',
+                  },
+                },
+                byproducts: [
+                  {
+                    annotations: {
+                      A: 42,
+                    },
+                    content: 'Test string',
+                    digest: {
+                      A: 'Test string',
+                    },
+                    downloadLocation: 'Test string',
+                    mediaType: 'Test string',
+                    name: 'Test string',
+                    uri: 'Test string',
+                  },
+                ],
+                metadata: {
+                  finishedOn: 'Test string',
+                  invocationId: 'Test string',
+                  startedOn: 'Test string',
+                },
+              },
+            },
+            predicateType: 'Test string',
+            subject: [
+              {
+                digest: {
+                  A: 'Test string',
+                },
+                name: 'Test string',
+              },
+            ],
+          },
+          intotoStatement: {
+            _type: 'Test string',
+            predicateType: 'Test string',
+            provenance: {
+              builderConfig: {
+                id: 'Test string',
+              },
+              materials: ['Test string'],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  arguments: true,
+                  environment: true,
+                  materials: true,
+                },
+                reproducible: true,
+              },
+              recipe: {
+                arguments: [
+                  {
+                    A: 42,
+                  },
+                ],
+                definedInMaterial: 'Test string',
+                entryPoint: 'Test string',
+                environment: [
+                  {
+                    A: 42,
+                  },
+                ],
+                type: 'Test string',
+              },
+            },
+            slsaProvenance: {
+              builder: {
+                id: 'Test string',
+              },
+              materials: [
+                {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  uri: 'Test string',
+                },
+              ],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  arguments: true,
+                  environment: true,
+                  materials: true,
+                },
+                reproducible: true,
+              },
+              recipe: {
+                arguments: {
+                  A: 42,
+                },
+                definedInMaterial: 'Test string',
+                entryPoint: 'Test string',
+                environment: {
+                  A: 42,
+                },
+                type: 'Test string',
+              },
+            },
+            slsaProvenanceZeroTwo: {
+              buildConfig: {
+                A: 42,
+              },
+              builder: {
+                id: 'Test string',
+              },
+              buildType: 'Test string',
+              invocation: {
+                configSource: {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  entryPoint: 'Test string',
+                  uri: 'Test string',
+                },
+                environment: {
+                  A: 42,
+                },
+                parameters: {
+                  A: 42,
+                },
+              },
+              materials: [
+                {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  uri: 'Test string',
+                },
+              ],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  environment: true,
+                  materials: true,
+                  parameters: true,
+                },
+                reproducible: true,
+              },
+            },
+            subject: [
+              {
+                digest: {
+                  A: 'Test string',
+                },
+                name: 'Test string',
+              },
+            ],
+          },
+          provenance: {
+            builderVersion: 'Test string',
+            buildOptions: {
+              A: 'Test string',
+            },
+            builtArtifacts: [
+              {
+                checksum: 'Test string',
+                id: 'Test string',
+                names: ['Test string'],
+              },
+            ],
+            commands: [
+              {
+                args: ['Test string'],
+                dir: 'Test string',
+                env: ['Test string'],
+                id: 'Test string',
+                name: 'Test string',
+                waitFor: ['Test string'],
+              },
+            ],
+            createTime: 'Test string',
+            creator: 'Test string',
+            endTime: 'Test string',
+            id: 'Test string',
+            logsUri: 'Test string',
+            projectId: 'Test string',
+            sourceProvenance: {
+              additionalContexts: [
+                {
+                  cloudRepo: {
+                    aliasContext: {
+                      kind: 'Test string',
+                      name: 'Test string',
+                    },
+                    repoId: {
+                      projectRepoId: {
+                        projectId: 'Test string',
+                        repoName: 'Test string',
+                      },
+                      uid: 'Test string',
+                    },
+                    revisionId: 'Test string',
+                  },
+                  gerrit: {
+                    aliasContext: {
+                      kind: 'Test string',
+                      name: 'Test string',
+                    },
+                    gerritProject: 'Test string',
+                    hostUri: 'Test string',
+                    revisionId: 'Test string',
+                  },
+                  git: {
+                    revisionId: 'Test string',
+                    url: 'Test string',
+                  },
+                  labels: {
+                    A: 'Test string',
+                  },
+                },
+              ],
+              artifactStorageSourceUri: 'Test string',
+              context: {
+                cloudRepo: {
+                  aliasContext: {
+                    kind: 'Test string',
+                    name: 'Test string',
+                  },
+                  repoId: {
+                    projectRepoId: {
+                      projectId: 'Test string',
+                      repoName: 'Test string',
+                    },
+                    uid: 'Test string',
+                  },
+                  revisionId: 'Test string',
+                },
+                gerrit: {
+                  aliasContext: {
+                    kind: 'Test string',
+                    name: 'Test string',
+                  },
+                  gerritProject: 'Test string',
+                  hostUri: 'Test string',
+                  revisionId: 'Test string',
+                },
+                git: {
+                  revisionId: 'Test string',
+                  url: 'Test string',
+                },
+                labels: {
+                  A: 'Test string',
+                },
+              },
+              fileHashes: {
+                A: {
+                  fileHash: [
+                    {
+                      type: 'Test string',
+                      value: 'Test string',
+                    },
+                  ],
+                },
+              },
+            },
+            startTime: 'Test string',
+            triggerId: 'Test string',
+          },
+          provenanceBytes: 'Test string',
+        },
+        compliance: {
+          nonComplianceReason: 'Test string',
+          nonCompliantFiles: [
+            {
+              displayCommand: 'Test string',
+              path: 'Test string',
+              reason: 'Test string',
+            },
+          ],
+        },
+        createTime: 'Test string',
+        deployment: {
+          address: 'Test string',
+          config: 'Test string',
+          deployTime: 'Test string',
+          platform: 'Test string',
+          resourceUri: ['Test string'],
+          undeployTime: 'Test string',
+          userEmail: 'Test string',
+        },
+        discovery: {
+          analysisCompleted: {
+            analysisType: ['Test string'],
+          },
+          analysisError: [
+            {
+              code: 42,
+              details: [
+                {
+                  A: 42,
+                },
+              ],
+              message: 'Test string',
+            },
+          ],
+          analysisStatus: 'Test string',
+          analysisStatusError: {
+            code: 42,
+            details: [
+              {
+                A: 42,
+              },
+            ],
+            message: 'Test string',
+          },
+          archiveTime: 'Test string',
+          continuousAnalysis: 'Test string',
+          cpe: 'Test string',
+          lastScanTime: 'Test string',
+          sbomStatus: {
+            error: 'Test string',
+            sbomState: 'Test string',
+          },
+        },
+        dsseAttestation: {
+          envelope: {
+            payload: 'Test string',
+            payloadType: 'Test string',
+            signatures: [
+              {
+                keyid: 'Test string',
+                sig: 'Test string',
+              },
+            ],
+          },
+          statement: {
+            _type: 'Test string',
+            predicateType: 'Test string',
+            provenance: {
+              builderConfig: {
+                id: 'Test string',
+              },
+              materials: ['Test string'],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  arguments: true,
+                  environment: true,
+                  materials: true,
+                },
+                reproducible: true,
+              },
+              recipe: {
+                arguments: [
+                  {
+                    A: 42,
+                  },
+                ],
+                definedInMaterial: 'Test string',
+                entryPoint: 'Test string',
+                environment: [
+                  {
+                    A: 42,
+                  },
+                ],
+                type: 'Test string',
+              },
+            },
+            slsaProvenance: {
+              builder: {
+                id: 'Test string',
+              },
+              materials: [
+                {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  uri: 'Test string',
+                },
+              ],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  arguments: true,
+                  environment: true,
+                  materials: true,
+                },
+                reproducible: true,
+              },
+              recipe: {
+                arguments: {
+                  A: 42,
+                },
+                definedInMaterial: 'Test string',
+                entryPoint: 'Test string',
+                environment: {
+                  A: 42,
+                },
+                type: 'Test string',
+              },
+            },
+            slsaProvenanceZeroTwo: {
+              buildConfig: {
+                A: 42,
+              },
+              builder: {
+                id: 'Test string',
+              },
+              buildType: 'Test string',
+              invocation: {
+                configSource: {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  entryPoint: 'Test string',
+                  uri: 'Test string',
+                },
+                environment: {
+                  A: 42,
+                },
+                parameters: {
+                  A: 42,
+                },
+              },
+              materials: [
+                {
+                  digest: {
+                    A: 'Test string',
+                  },
+                  uri: 'Test string',
+                },
+              ],
+              metadata: {
+                buildFinishedOn: 'Test string',
+                buildInvocationId: 'Test string',
+                buildStartedOn: 'Test string',
+                completeness: {
+                  environment: true,
+                  materials: true,
+                  parameters: true,
+                },
+                reproducible: true,
+              },
+            },
+            subject: [
+              {
+                digest: {
+                  A: 'Test string',
+                },
+                name: 'Test string',
+              },
+            ],
+          },
+        },
+        envelope: {
+          payload: 'Test string',
+          payloadType: 'Test string',
+          signatures: [
+            {
+              keyid: 'Test string',
+              sig: 'Test string',
+            },
+          ],
+        },
+        image: {
+          baseResourceUrl: 'Test string',
+          distance: 42,
+          fingerprint: {
+            v1Name: 'Test string',
+            v2Blob: ['Test string'],
+            v2Name: 'Test string',
+          },
+          layerInfo: [
+            {
+              arguments: 'Test string',
+              directive: 'Test string',
+            },
+          ],
+        },
+        kind: 'Test string',
+        name: 'Test string',
+        noteName: 'Test string',
+        package: {
+          architecture: 'Test string',
+          cpeUri: 'Test string',
+          license: {
+            comments: 'Test string',
+            expression: 'Test string',
+          },
+          location: [
+            {
+              cpeUri: 'Test string',
+              path: 'Test string',
+              version: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+            },
+          ],
+          name: 'Test string',
+          packageType: 'Test string',
+          version: {
+            epoch: 42,
+            fullName: 'Test string',
+            inclusive: true,
+            kind: 'Test string',
+            name: 'Test string',
+            revision: 'Test string',
+          },
+        },
+        remediation: 'Test string',
+        resourceUri: 'Test string',
+        sbomReference: {
+          payload: {
+            _type: 'Test string',
+            predicate: {
+              digest: {
+                A: 'Test string',
+              },
+              location: 'Test string',
+              mimeType: 'Test string',
+              referrerId: 'Test string',
+            },
+            predicateType: 'Test string',
+            subject: [
+              {
+                digest: {
+                  A: 'Test string',
+                },
+                name: 'Test string',
+              },
+            ],
+          },
+          payloadType: 'Test string',
+          signatures: [
+            {
+              keyid: 'Test string',
+              sig: 'Test string',
+            },
+          ],
+        },
+        updateTime: 'Test string',
+        upgrade: {
+          distribution: {
+            classification: 'Test string',
+            cpeUri: 'Test string',
+            cve: ['Test string'],
+            severity: 'Test string',
+          },
+          package: 'Test string',
+          parsedVersion: {
+            epoch: 42,
+            fullName: 'Test string',
+            inclusive: true,
+            kind: 'Test string',
+            name: 'Test string',
+            revision: 'Test string',
+          },
+          windowsUpdate: {
+            categories: [
+              {
+                categoryId: 'Test string',
+                name: 'Test string',
+              },
+            ],
+            description: 'Test string',
+            identity: {
+              revision: 42,
+              updateId: 'Test string',
+            },
+            kbArticleIds: ['Test string'],
+            lastPublishedTimestamp: 'Test string',
+            supportUrl: 'Test string',
+            title: 'Test string',
+          },
+        },
+        vulnerability: {
+          cvssScore: 42,
+          cvssV2: {
+            attackComplexity: 'Test string',
+            attackVector: 'Test string',
+            authentication: 'Test string',
+            availabilityImpact: 'Test string',
+            baseScore: 42,
+            confidentialityImpact: 'Test string',
+            exploitabilityScore: 42,
+            impactScore: 42,
+            integrityImpact: 'Test string',
+            privilegesRequired: 'Test string',
+            scope: 'Test string',
+            userInteraction: 'Test string',
+          },
+          cvssv3: {
+            attackComplexity: 'Test string',
+            attackVector: 'Test string',
+            authentication: 'Test string',
+            availabilityImpact: 'Test string',
+            baseScore: 42,
+            confidentialityImpact: 'Test string',
+            exploitabilityScore: 42,
+            impactScore: 42,
+            integrityImpact: 'Test string',
+            privilegesRequired: 'Test string',
+            scope: 'Test string',
+            userInteraction: 'Test string',
+          },
+          cvssVersion: 'Test string',
+          effectiveSeverity: 'Test string',
+          extraDetails: 'Test string',
+          fixAvailable: true,
+          longDescription: 'Test string',
+          packageIssue: [
+            {
+              affectedCpeUri: 'Test string',
+              affectedPackage: 'Test string',
+              affectedVersion: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              effectiveSeverity: 'Test string',
+              fileLocation: [
+                {
+                  filePath: 'Test string',
+                },
+              ],
+              fixAvailable: true,
+              fixedCpeUri: 'Test string',
+              fixedPackage: 'Test string',
+              fixedVersion: {
+                epoch: 42,
+                fullName: 'Test string',
+                inclusive: true,
+                kind: 'Test string',
+                name: 'Test string',
+                revision: 'Test string',
+              },
+              packageType: 'Test string',
+            },
+          ],
+          relatedUrls: [
+            {
+              label: 'Test string',
+              url: 'Test string',
+            },
+          ],
+          severity: 'Test string',
+          shortDescription: 'Test string',
+          type: 'Test string',
+          vexAssessment: {
+            cve: 'Test string',
+            impacts: ['Test string'],
+            justification: {
+              details: 'Test string',
+              justificationType: 'Test string',
+            },
+            noteName: 'Test string',
+            relatedUris: [
+              {
+                label: 'Test string',
+                url: 'Test string',
+              },
+            ],
+            remediations: [
+              {
+                details: 'Test string',
+                remediationType: 'Test string',
+                remediationUri: {
+                  label: 'Test string',
+                  url: 'Test string',
+                },
+              },
+            ],
+            state: 'Test string',
+            vulnerabilityId: 'Test string',
+          },
+        },
+      }
+    );
+    /** Sets the access control policy on the specified note or occurrence. Requires `containeranalysis.notes.setIamPolicy` or `containeranalysis.occurrences.setIamPolicy` permission if the resource is a note or an occurrence, respectively. The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
+    await gapi.client.containeranalysis.projects.occurrences.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns the permissions that a caller has on the specified note or occurrence. Requires list permission on the project (for example, `containeranalysis.notes.list`). The resource takes the format `projects/[PROJECT_ID]/notes/[NOTE_ID]` for notes and `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]` for occurrences. */
+    await gapi.client.containeranalysis.projects.occurrences.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+  }
 });

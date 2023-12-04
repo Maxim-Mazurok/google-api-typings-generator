@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://androiddeviceprovisioning.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.androiddeviceprovisioning
-});
+gapi.client.load(
+  'https://androiddeviceprovisioning.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.androiddeviceprovisioning
+  }
+);
 ```
 
 ```typescript
@@ -39,19 +42,16 @@ gapi.client.load('androiddeviceprovisioning', 'v1', () => {
 });
 ```
 
-
-
 After that you can use Android Device Provisioning Partner API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Lists the user's customer accounts.
 */
-await gapi.client.androiddeviceprovisioning.customers.list({  });
+await gapi.client.androiddeviceprovisioning.customers.list({});
 
 /*
 Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 */
-await gapi.client.androiddeviceprovisioning.operations.get({ name: "name",  });
+await gapi.client.androiddeviceprovisioning.operations.get({name: 'name'});
 ```

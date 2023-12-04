@@ -6,1600 +6,1450 @@
 // Revision: 20231110
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://clouddeploy.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.clouddeploy */
+  await gapi.client.load(
+    'https://clouddeploy.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.clouddeploy */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
+    }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.clouddeploy.projects.locations.get({
+      name: 'Test string',
     });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.clouddeploy.projects.locations.get({
-            name: "Test string",
-        });
-        /** Gets the configuration for a location. */
-        await gapi.client.clouddeploy.projects.locations.getConfig({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.clouddeploy.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new DeliveryPipeline in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.create({
-            deliveryPipelineId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            condition: {
-                pipelineReadyCondition: {
-                    status: true,
-                    updateTime: "Test string",
-                },
-                targetsPresentCondition: {
-                    missingTargets: [
-                        "Test string"
-                    ],
-                    status: true,
-                    updateTime: "Test string",
-                },
-                targetsTypeCondition: {
-                    errorDetails: "Test string",
-                    status: true,
-                },
-            },
-            createTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            serialPipeline: {
-                stages: [
-                    {
-                        deployParameters: [
-                            {
-                                matchTargetLabels: {
-                                    A: "Test string"
-                                },
-                                values: {
-                                    A: "Test string"
-                                },
-                            }
-                        ],
-                        profiles: [
-                            "Test string"
-                        ],
-                        strategy: {
-                            canary: {
-                                canaryDeployment: {
-                                    percentages: [
-                                        42
-                                    ],
-                                    postdeploy: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    predeploy: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    verify: true,
-                                },
-                                customCanaryDeployment: {
-                                    phaseConfigs: [
-                                        {
-                                            percentage: 42,
-                                            phaseId: "Test string",
-                                            postdeploy: {
-                                                actions: [
-                                                    "Test string"
-                                                ],
-                                            },
-                                            predeploy: {
-                                                actions: [
-                                                    "Test string"
-                                                ],
-                                            },
-                                            profiles: [
-                                                "Test string"
-                                            ],
-                                            verify: true,
-                                        }
-                                    ],
-                                },
-                                runtimeConfig: {
-                                    cloudRun: {
-                                        automaticTrafficControl: true,
-                                    },
-                                    kubernetes: {
-                                        gatewayServiceMesh: {
-                                            deployment: "Test string",
-                                            httpRoute: "Test string",
-                                            routeUpdateWaitTime: "Test string",
-                                            service: "Test string",
-                                        },
-                                        serviceNetworking: {
-                                            deployment: "Test string",
-                                            disablePodOverprovisioning: true,
-                                            service: "Test string",
-                                        },
-                                    },
-                                },
-                            },
-                            standard: {
-                                postdeploy: {
-                                    actions: [
-                                        "Test string"
-                                    ],
-                                },
-                                predeploy: {
-                                    actions: [
-                                        "Test string"
-                                    ],
-                                },
-                                verify: true,
-                            },
-                        },
-                        targetId: "Test string",
-                    }
-                ],
-            },
-            suspended: true,
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single DeliveryPipeline. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.delete({
-            allowMissing: true,
-            etag: "Test string",
-            force: true,
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single DeliveryPipeline. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists DeliveryPipelines in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single DeliveryPipeline. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.patch({
-            allowMissing: true,
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            condition: {
-                pipelineReadyCondition: {
-                    status: true,
-                    updateTime: "Test string",
-                },
-                targetsPresentCondition: {
-                    missingTargets: [
-                        "Test string"
-                    ],
-                    status: true,
-                    updateTime: "Test string",
-                },
-                targetsTypeCondition: {
-                    errorDetails: "Test string",
-                    status: true,
-                },
-            },
-            createTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            serialPipeline: {
-                stages: [
-                    {
-                        deployParameters: [
-                            {
-                                matchTargetLabels: {
-                                    A: "Test string"
-                                },
-                                values: {
-                                    A: "Test string"
-                                },
-                            }
-                        ],
-                        profiles: [
-                            "Test string"
-                        ],
-                        strategy: {
-                            canary: {
-                                canaryDeployment: {
-                                    percentages: [
-                                        42
-                                    ],
-                                    postdeploy: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    predeploy: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    verify: true,
-                                },
-                                customCanaryDeployment: {
-                                    phaseConfigs: [
-                                        {
-                                            percentage: 42,
-                                            phaseId: "Test string",
-                                            postdeploy: {
-                                                actions: [
-                                                    "Test string"
-                                                ],
-                                            },
-                                            predeploy: {
-                                                actions: [
-                                                    "Test string"
-                                                ],
-                                            },
-                                            profiles: [
-                                                "Test string"
-                                            ],
-                                            verify: true,
-                                        }
-                                    ],
-                                },
-                                runtimeConfig: {
-                                    cloudRun: {
-                                        automaticTrafficControl: true,
-                                    },
-                                    kubernetes: {
-                                        gatewayServiceMesh: {
-                                            deployment: "Test string",
-                                            httpRoute: "Test string",
-                                            routeUpdateWaitTime: "Test string",
-                                            service: "Test string",
-                                        },
-                                        serviceNetworking: {
-                                            deployment: "Test string",
-                                            disablePodOverprovisioning: true,
-                                            service: "Test string",
-                                        },
-                                    },
-                                },
-                            },
-                            standard: {
-                                postdeploy: {
-                                    actions: [
-                                        "Test string"
-                                    ],
-                                },
-                                predeploy: {
-                                    actions: [
-                                        "Test string"
-                                    ],
-                                },
-                                verify: true,
-                            },
-                        },
-                        targetId: "Test string",
-                    }
-                ],
-            },
-            suspended: true,
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Creates a `Rollout` to roll back the specified target. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.rollbackTarget({
-            name: "Test string",
-        }, {
-            releaseId: "Test string",
-            rollbackConfig: {
-                rollout: {
-                    annotations: {
-                        A: "Test string"
-                    },
-                    approvalState: "Test string",
-                    approveTime: "Test string",
-                    controllerRollout: "Test string",
-                    createTime: "Test string",
-                    deployEndTime: "Test string",
-                    deployFailureCause: "Test string",
-                    deployingBuild: "Test string",
-                    deployStartTime: "Test string",
-                    description: "Test string",
-                    enqueueTime: "Test string",
-                    etag: "Test string",
-                    failureReason: "Test string",
-                    labels: {
-                        A: "Test string"
-                    },
-                    metadata: {
-                        automation: {
-                            advanceAutomationRuns: [
-                                "Test string"
-                            ],
-                            promoteAutomationRun: "Test string",
-                            repairAutomationRuns: [
-                                "Test string"
-                            ],
-                        },
-                        cloudRun: {
-                            job: "Test string",
-                            revision: "Test string",
-                            service: "Test string",
-                            serviceUrls: [
-                                "Test string"
-                            ],
-                        },
-                    },
-                    name: "Test string",
-                    phases: [
-                        {
-                            childRolloutJobs: {
-                                advanceRolloutJobs: [
-                                    {
-                                        advanceChildRolloutJob: {
-                                        },
-                                        createChildRolloutJob: {
-                                        },
-                                        deployJob: {
-                                        },
-                                        id: "Test string",
-                                        jobRun: "Test string",
-                                        postdeployJob: {
-                                            actions: [
-                                                "Test string"
-                                            ],
-                                        },
-                                        predeployJob: {
-                                            actions: [
-                                                "Test string"
-                                            ],
-                                        },
-                                        skipMessage: "Test string",
-                                        state: "Test string",
-                                        verifyJob: {
-                                        },
-                                    }
-                                ],
-                                createRolloutJobs: [
-                                    {
-                                        advanceChildRolloutJob: {
-                                        },
-                                        createChildRolloutJob: {
-                                        },
-                                        deployJob: {
-                                        },
-                                        id: "Test string",
-                                        jobRun: "Test string",
-                                        postdeployJob: {
-                                            actions: [
-                                                "Test string"
-                                            ],
-                                        },
-                                        predeployJob: {
-                                            actions: [
-                                                "Test string"
-                                            ],
-                                        },
-                                        skipMessage: "Test string",
-                                        state: "Test string",
-                                        verifyJob: {
-                                        },
-                                    }
-                                ],
-                            },
-                            deploymentJobs: {
-                                deployJob: {
-                                    advanceChildRolloutJob: {
-                                    },
-                                    createChildRolloutJob: {
-                                    },
-                                    deployJob: {
-                                    },
-                                    id: "Test string",
-                                    jobRun: "Test string",
-                                    postdeployJob: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    predeployJob: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    skipMessage: "Test string",
-                                    state: "Test string",
-                                    verifyJob: {
-                                    },
-                                },
-                                postdeployJob: {
-                                    advanceChildRolloutJob: {
-                                    },
-                                    createChildRolloutJob: {
-                                    },
-                                    deployJob: {
-                                    },
-                                    id: "Test string",
-                                    jobRun: "Test string",
-                                    postdeployJob: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    predeployJob: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    skipMessage: "Test string",
-                                    state: "Test string",
-                                    verifyJob: {
-                                    },
-                                },
-                                predeployJob: {
-                                    advanceChildRolloutJob: {
-                                    },
-                                    createChildRolloutJob: {
-                                    },
-                                    deployJob: {
-                                    },
-                                    id: "Test string",
-                                    jobRun: "Test string",
-                                    postdeployJob: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    predeployJob: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    skipMessage: "Test string",
-                                    state: "Test string",
-                                    verifyJob: {
-                                    },
-                                },
-                                verifyJob: {
-                                    advanceChildRolloutJob: {
-                                    },
-                                    createChildRolloutJob: {
-                                    },
-                                    deployJob: {
-                                    },
-                                    id: "Test string",
-                                    jobRun: "Test string",
-                                    postdeployJob: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    predeployJob: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    skipMessage: "Test string",
-                                    state: "Test string",
-                                    verifyJob: {
-                                    },
-                                },
-                            },
-                            id: "Test string",
-                            skipMessage: "Test string",
-                            state: "Test string",
-                        }
-                    ],
-                    rollbackOfRollout: "Test string",
-                    rolledBackByRollouts: [
-                        "Test string"
-                    ],
-                    state: "Test string",
-                    targetId: "Test string",
-                    uid: "Test string",
-                },
-                startingPhaseId: "Test string",
-            },
-            rolloutId: "Test string",
-            rolloutToRollBack: "Test string",
-            targetId: "Test string",
-            validateOnly: true,
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /**
-         * Cancels an AutomationRun. The `state` of the `AutomationRun` after cancelling is `CANCELLED`. `CancelAutomationRun` can be called on AutomationRun in the state `IN_PROGRESS` and
-         * `PENDING`; AutomationRun in a different state returns an `FAILED_PRECONDITION` error.
-         */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automationRuns.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Gets details of a single AutomationRun. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automationRuns.get({
-            name: "Test string",
-        });
-        /** Lists AutomationRuns in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automationRuns.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new Automation in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.create({
-            automationId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            createTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            rules: [
+    /** Gets the configuration for a location. */
+    await gapi.client.clouddeploy.projects.locations.getConfig({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.clouddeploy.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new DeliveryPipeline in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.create(
+      {
+        deliveryPipelineId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        condition: {
+          pipelineReadyCondition: {
+            status: true,
+            updateTime: 'Test string',
+          },
+          targetsPresentCondition: {
+            missingTargets: ['Test string'],
+            status: true,
+            updateTime: 'Test string',
+          },
+          targetsTypeCondition: {
+            errorDetails: 'Test string',
+            status: true,
+          },
+        },
+        createTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        serialPipeline: {
+          stages: [
+            {
+              deployParameters: [
                 {
-                    advanceRolloutRule: {
-                        condition: {
-                            targetsPresentCondition: {
-                                missingTargets: [
-                                    "Test string"
-                                ],
-                                status: true,
-                                updateTime: "Test string",
-                            },
-                        },
-                        id: "Test string",
-                        sourcePhases: [
-                            "Test string"
-                        ],
-                        wait: "Test string",
-                    },
-                    promoteReleaseRule: {
-                        condition: {
-                            targetsPresentCondition: {
-                                missingTargets: [
-                                    "Test string"
-                                ],
-                                status: true,
-                                updateTime: "Test string",
-                            },
-                        },
-                        destinationPhase: "Test string",
-                        destinationTargetId: "Test string",
-                        id: "Test string",
-                        wait: "Test string",
-                    },
-                    repairRolloutRule: {
-                        condition: {
-                            targetsPresentCondition: {
-                                missingTargets: [
-                                    "Test string"
-                                ],
-                                status: true,
-                                updateTime: "Test string",
-                            },
-                        },
-                        id: "Test string",
-                        jobs: [
-                            "Test string"
-                        ],
-                        repairModes: [
-                            {
-                                retry: {
-                                    attempts: "Test string",
-                                    backoffMode: "Test string",
-                                    wait: "Test string",
-                                },
-                                rollback: {
-                                    destinationPhase: "Test string",
-                                },
-                            }
-                        ],
-                        sourcePhases: [
-                            "Test string"
-                        ],
-                    },
-                }
-            ],
-            selector: {
-                targets: [
-                    {
-                        id: "Test string",
-                        labels: {
-                            A: "Test string"
-                        },
-                    }
-                ],
-            },
-            serviceAccount: "Test string",
-            suspended: true,
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single Automation resource. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.delete({
-            allowMissing: true,
-            etag: "Test string",
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single Automation. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.get({
-            name: "Test string",
-        });
-        /** Lists Automations in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single Automation resource. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.patch({
-            allowMissing: true,
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            createTime: "Test string",
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            rules: [
-                {
-                    advanceRolloutRule: {
-                        condition: {
-                            targetsPresentCondition: {
-                                missingTargets: [
-                                    "Test string"
-                                ],
-                                status: true,
-                                updateTime: "Test string",
-                            },
-                        },
-                        id: "Test string",
-                        sourcePhases: [
-                            "Test string"
-                        ],
-                        wait: "Test string",
-                    },
-                    promoteReleaseRule: {
-                        condition: {
-                            targetsPresentCondition: {
-                                missingTargets: [
-                                    "Test string"
-                                ],
-                                status: true,
-                                updateTime: "Test string",
-                            },
-                        },
-                        destinationPhase: "Test string",
-                        destinationTargetId: "Test string",
-                        id: "Test string",
-                        wait: "Test string",
-                    },
-                    repairRolloutRule: {
-                        condition: {
-                            targetsPresentCondition: {
-                                missingTargets: [
-                                    "Test string"
-                                ],
-                                status: true,
-                                updateTime: "Test string",
-                            },
-                        },
-                        id: "Test string",
-                        jobs: [
-                            "Test string"
-                        ],
-                        repairModes: [
-                            {
-                                retry: {
-                                    attempts: "Test string",
-                                    backoffMode: "Test string",
-                                    wait: "Test string",
-                                },
-                                rollback: {
-                                    destinationPhase: "Test string",
-                                },
-                            }
-                        ],
-                        sourcePhases: [
-                            "Test string"
-                        ],
-                    },
-                }
-            ],
-            selector: {
-                targets: [
-                    {
-                        id: "Test string",
-                        labels: {
-                            A: "Test string"
-                        },
-                    }
-                ],
-            },
-            serviceAccount: "Test string",
-            suspended: true,
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Abandons a Release in the Delivery Pipeline. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.abandon({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a new Release in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.create({
-            parent: "Test string",
-            releaseId: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        }, {
-            abandoned: true,
-            annotations: {
-                A: "Test string"
-            },
-            buildArtifacts: [
-                {
-                    image: "Test string",
-                    tag: "Test string",
-                }
-            ],
-            condition: {
-                releaseReadyCondition: {
-                    status: true,
+                  matchTargetLabels: {
+                    A: 'Test string',
+                  },
+                  values: {
+                    A: 'Test string',
+                  },
                 },
-                skaffoldSupportedCondition: {
-                    maintenanceModeTime: "Test string",
-                    skaffoldSupportState: "Test string",
-                    status: true,
-                    supportExpirationTime: "Test string",
-                },
-            },
-            createTime: "Test string",
-            deliveryPipelineSnapshot: {
-                annotations: {
-                    A: "Test string"
-                },
-                condition: {
-                    pipelineReadyCondition: {
-                        status: true,
-                        updateTime: "Test string",
+              ],
+              profiles: ['Test string'],
+              strategy: {
+                canary: {
+                  canaryDeployment: {
+                    percentages: [42],
+                    postdeploy: {
+                      actions: ['Test string'],
                     },
-                    targetsPresentCondition: {
-                        missingTargets: [
-                            "Test string"
-                        ],
-                        status: true,
-                        updateTime: "Test string",
+                    predeploy: {
+                      actions: ['Test string'],
                     },
-                    targetsTypeCondition: {
-                        errorDetails: "Test string",
-                        status: true,
-                    },
-                },
-                createTime: "Test string",
-                description: "Test string",
-                etag: "Test string",
-                labels: {
-                    A: "Test string"
-                },
-                name: "Test string",
-                serialPipeline: {
-                    stages: [
-                        {
-                            deployParameters: [
-                                {
-                                    matchTargetLabels: {
-                                        A: "Test string"
-                                    },
-                                    values: {
-                                        A: "Test string"
-                                    },
-                                }
-                            ],
-                            profiles: [
-                                "Test string"
-                            ],
-                            strategy: {
-                                canary: {
-                                    canaryDeployment: {
-                                        percentages: [
-                                            42
-                                        ],
-                                        postdeploy: {
-                                            actions: [
-                                                "Test string"
-                                            ],
-                                        },
-                                        predeploy: {
-                                            actions: [
-                                                "Test string"
-                                            ],
-                                        },
-                                        verify: true,
-                                    },
-                                    customCanaryDeployment: {
-                                        phaseConfigs: [
-                                            {
-                                                percentage: 42,
-                                                phaseId: "Test string",
-                                                postdeploy: {
-                                                    actions: [
-                                                        "Test string"
-                                                    ],
-                                                },
-                                                predeploy: {
-                                                    actions: [
-                                                        "Test string"
-                                                    ],
-                                                },
-                                                profiles: [
-                                                    "Test string"
-                                                ],
-                                                verify: true,
-                                            }
-                                        ],
-                                    },
-                                    runtimeConfig: {
-                                        cloudRun: {
-                                            automaticTrafficControl: true,
-                                        },
-                                        kubernetes: {
-                                            gatewayServiceMesh: {
-                                                deployment: "Test string",
-                                                httpRoute: "Test string",
-                                                routeUpdateWaitTime: "Test string",
-                                                service: "Test string",
-                                            },
-                                            serviceNetworking: {
-                                                deployment: "Test string",
-                                                disablePodOverprovisioning: true,
-                                                service: "Test string",
-                                            },
-                                        },
-                                    },
-                                },
-                                standard: {
-                                    postdeploy: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    predeploy: {
-                                        actions: [
-                                            "Test string"
-                                        ],
-                                    },
-                                    verify: true,
-                                },
-                            },
-                            targetId: "Test string",
-                        }
+                    verify: true,
+                  },
+                  customCanaryDeployment: {
+                    phaseConfigs: [
+                      {
+                        percentage: 42,
+                        phaseId: 'Test string',
+                        postdeploy: {
+                          actions: ['Test string'],
+                        },
+                        predeploy: {
+                          actions: ['Test string'],
+                        },
+                        profiles: ['Test string'],
+                        verify: true,
+                      },
                     ],
+                  },
+                  runtimeConfig: {
+                    cloudRun: {
+                      automaticTrafficControl: true,
+                    },
+                    kubernetes: {
+                      gatewayServiceMesh: {
+                        deployment: 'Test string',
+                        httpRoute: 'Test string',
+                        routeUpdateWaitTime: 'Test string',
+                        service: 'Test string',
+                      },
+                      serviceNetworking: {
+                        deployment: 'Test string',
+                        disablePodOverprovisioning: true,
+                        service: 'Test string',
+                      },
+                    },
+                  },
                 },
-                suspended: true,
-                uid: "Test string",
-                updateTime: "Test string",
+                standard: {
+                  postdeploy: {
+                    actions: ['Test string'],
+                  },
+                  predeploy: {
+                    actions: ['Test string'],
+                  },
+                  verify: true,
+                },
+              },
+              targetId: 'Test string',
             },
-            deployParameters: {
-                A: "Test string"
-            },
-            description: "Test string",
-            etag: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            renderEndTime: "Test string",
-            renderStartTime: "Test string",
-            renderState: "Test string",
-            skaffoldConfigPath: "Test string",
-            skaffoldConfigUri: "Test string",
-            skaffoldVersion: "Test string",
-            targetArtifacts: {
-                A: {
-                    artifactUri: "Test string",
-                    manifestPath: "Test string",
-                    phaseArtifacts: {
-                        A: {
-                            jobManifestsPath: "Test string",
-                            manifestPath: "Test string",
-                            skaffoldConfigPath: "Test string",
-                        }
-                    },
-                    skaffoldConfigPath: "Test string",
-                }
-            },
-            targetRenders: {
-                A: {
-                    failureCause: "Test string",
-                    failureMessage: "Test string",
-                    metadata: {
-                        cloudRun: {
-                            service: "Test string",
-                        },
-                    },
-                    renderingBuild: "Test string",
-                    renderingState: "Test string",
-                }
-            },
-            targetSnapshots: [
+          ],
+        },
+        suspended: true,
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single DeliveryPipeline. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.delete({
+      allowMissing: true,
+      etag: 'Test string',
+      force: true,
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets details of a single DeliveryPipeline. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Lists DeliveryPipelines in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single DeliveryPipeline. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        condition: {
+          pipelineReadyCondition: {
+            status: true,
+            updateTime: 'Test string',
+          },
+          targetsPresentCondition: {
+            missingTargets: ['Test string'],
+            status: true,
+            updateTime: 'Test string',
+          },
+          targetsTypeCondition: {
+            errorDetails: 'Test string',
+            status: true,
+          },
+        },
+        createTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        serialPipeline: {
+          stages: [
+            {
+              deployParameters: [
                 {
-                    annotations: {
-                        A: "Test string"
+                  matchTargetLabels: {
+                    A: 'Test string',
+                  },
+                  values: {
+                    A: 'Test string',
+                  },
+                },
+              ],
+              profiles: ['Test string'],
+              strategy: {
+                canary: {
+                  canaryDeployment: {
+                    percentages: [42],
+                    postdeploy: {
+                      actions: ['Test string'],
                     },
-                    anthosCluster: {
-                        membership: "Test string",
+                    predeploy: {
+                      actions: ['Test string'],
                     },
-                    createTime: "Test string",
-                    deployParameters: {
-                        A: "Test string"
-                    },
-                    description: "Test string",
-                    etag: "Test string",
-                    executionConfigs: [
-                        {
-                            artifactStorage: "Test string",
-                            defaultPool: {
-                                artifactStorage: "Test string",
-                                serviceAccount: "Test string",
-                            },
-                            executionTimeout: "Test string",
-                            privatePool: {
-                                artifactStorage: "Test string",
-                                serviceAccount: "Test string",
-                                workerPool: "Test string",
-                            },
-                            serviceAccount: "Test string",
-                            usages: [
-                                "Test string"
-                            ],
-                            workerPool: "Test string",
-                        }
+                    verify: true,
+                  },
+                  customCanaryDeployment: {
+                    phaseConfigs: [
+                      {
+                        percentage: 42,
+                        phaseId: 'Test string',
+                        postdeploy: {
+                          actions: ['Test string'],
+                        },
+                        predeploy: {
+                          actions: ['Test string'],
+                        },
+                        profiles: ['Test string'],
+                        verify: true,
+                      },
                     ],
-                    gke: {
-                        cluster: "Test string",
-                        internalIp: true,
+                  },
+                  runtimeConfig: {
+                    cloudRun: {
+                      automaticTrafficControl: true,
                     },
-                    labels: {
-                        A: "Test string"
+                    kubernetes: {
+                      gatewayServiceMesh: {
+                        deployment: 'Test string',
+                        httpRoute: 'Test string',
+                        routeUpdateWaitTime: 'Test string',
+                        service: 'Test string',
+                      },
+                      serviceNetworking: {
+                        deployment: 'Test string',
+                        disablePodOverprovisioning: true,
+                        service: 'Test string',
+                      },
                     },
-                    multiTarget: {
-                        targetIds: [
-                            "Test string"
-                        ],
-                    },
-                    name: "Test string",
-                    requireApproval: true,
-                    run: {
-                        location: "Test string",
-                    },
-                    targetId: "Test string",
-                    uid: "Test string",
-                    updateTime: "Test string",
-                }
-            ],
-            uid: "Test string",
-        });
-        /** Gets details of a single Release. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.get({
-            name: "Test string",
-        });
-        /** Lists Releases in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Advances a Rollout in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.advance({
-            name: "Test string",
-        }, {
-            phaseId: "Test string",
-        });
-        /** Approves a Rollout. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.approve({
-            name: "Test string",
-        }, {
-            approved: true,
-        });
-        /** Cancels a Rollout in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a new Rollout in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.create({
-            parent: "Test string",
-            requestId: "Test string",
-            rolloutId: "Test string",
-            startingPhaseId: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
+                  },
+                },
+                standard: {
+                  postdeploy: {
+                    actions: ['Test string'],
+                  },
+                  predeploy: {
+                    actions: ['Test string'],
+                  },
+                  verify: true,
+                },
+              },
+              targetId: 'Test string',
             },
-            approvalState: "Test string",
-            approveTime: "Test string",
-            controllerRollout: "Test string",
-            createTime: "Test string",
-            deployEndTime: "Test string",
-            deployFailureCause: "Test string",
-            deployingBuild: "Test string",
-            deployStartTime: "Test string",
-            description: "Test string",
-            enqueueTime: "Test string",
-            etag: "Test string",
-            failureReason: "Test string",
+          ],
+        },
+        suspended: true,
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a `Rollout` to roll back the specified target. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.rollbackTarget(
+      {
+        name: 'Test string',
+      },
+      {
+        releaseId: 'Test string',
+        rollbackConfig: {
+          rollout: {
+            annotations: {
+              A: 'Test string',
+            },
+            approvalState: 'Test string',
+            approveTime: 'Test string',
+            controllerRollout: 'Test string',
+            createTime: 'Test string',
+            deployEndTime: 'Test string',
+            deployFailureCause: 'Test string',
+            deployingBuild: 'Test string',
+            deployStartTime: 'Test string',
+            description: 'Test string',
+            enqueueTime: 'Test string',
+            etag: 'Test string',
+            failureReason: 'Test string',
             labels: {
-                A: "Test string"
+              A: 'Test string',
             },
             metadata: {
-                automation: {
-                    advanceAutomationRuns: [
-                        "Test string"
-                    ],
-                    promoteAutomationRun: "Test string",
-                    repairAutomationRuns: [
-                        "Test string"
-                    ],
-                },
-                cloudRun: {
-                    job: "Test string",
-                    revision: "Test string",
-                    service: "Test string",
-                    serviceUrls: [
-                        "Test string"
-                    ],
-                },
+              automation: {
+                advanceAutomationRuns: ['Test string'],
+                promoteAutomationRun: 'Test string',
+                repairAutomationRuns: ['Test string'],
+              },
+              cloudRun: {
+                job: 'Test string',
+                revision: 'Test string',
+                service: 'Test string',
+                serviceUrls: ['Test string'],
+              },
             },
-            name: "Test string",
+            name: 'Test string',
             phases: [
+              {
+                childRolloutJobs: {
+                  advanceRolloutJobs: [
+                    {
+                      advanceChildRolloutJob: {},
+                      createChildRolloutJob: {},
+                      deployJob: {},
+                      id: 'Test string',
+                      jobRun: 'Test string',
+                      postdeployJob: {
+                        actions: ['Test string'],
+                      },
+                      predeployJob: {
+                        actions: ['Test string'],
+                      },
+                      skipMessage: 'Test string',
+                      state: 'Test string',
+                      verifyJob: {},
+                    },
+                  ],
+                  createRolloutJobs: [
+                    {
+                      advanceChildRolloutJob: {},
+                      createChildRolloutJob: {},
+                      deployJob: {},
+                      id: 'Test string',
+                      jobRun: 'Test string',
+                      postdeployJob: {
+                        actions: ['Test string'],
+                      },
+                      predeployJob: {
+                        actions: ['Test string'],
+                      },
+                      skipMessage: 'Test string',
+                      state: 'Test string',
+                      verifyJob: {},
+                    },
+                  ],
+                },
+                deploymentJobs: {
+                  deployJob: {
+                    advanceChildRolloutJob: {},
+                    createChildRolloutJob: {},
+                    deployJob: {},
+                    id: 'Test string',
+                    jobRun: 'Test string',
+                    postdeployJob: {
+                      actions: ['Test string'],
+                    },
+                    predeployJob: {
+                      actions: ['Test string'],
+                    },
+                    skipMessage: 'Test string',
+                    state: 'Test string',
+                    verifyJob: {},
+                  },
+                  postdeployJob: {
+                    advanceChildRolloutJob: {},
+                    createChildRolloutJob: {},
+                    deployJob: {},
+                    id: 'Test string',
+                    jobRun: 'Test string',
+                    postdeployJob: {
+                      actions: ['Test string'],
+                    },
+                    predeployJob: {
+                      actions: ['Test string'],
+                    },
+                    skipMessage: 'Test string',
+                    state: 'Test string',
+                    verifyJob: {},
+                  },
+                  predeployJob: {
+                    advanceChildRolloutJob: {},
+                    createChildRolloutJob: {},
+                    deployJob: {},
+                    id: 'Test string',
+                    jobRun: 'Test string',
+                    postdeployJob: {
+                      actions: ['Test string'],
+                    },
+                    predeployJob: {
+                      actions: ['Test string'],
+                    },
+                    skipMessage: 'Test string',
+                    state: 'Test string',
+                    verifyJob: {},
+                  },
+                  verifyJob: {
+                    advanceChildRolloutJob: {},
+                    createChildRolloutJob: {},
+                    deployJob: {},
+                    id: 'Test string',
+                    jobRun: 'Test string',
+                    postdeployJob: {
+                      actions: ['Test string'],
+                    },
+                    predeployJob: {
+                      actions: ['Test string'],
+                    },
+                    skipMessage: 'Test string',
+                    state: 'Test string',
+                    verifyJob: {},
+                  },
+                },
+                id: 'Test string',
+                skipMessage: 'Test string',
+                state: 'Test string',
+              },
+            ],
+            rollbackOfRollout: 'Test string',
+            rolledBackByRollouts: ['Test string'],
+            state: 'Test string',
+            targetId: 'Test string',
+            uid: 'Test string',
+          },
+          startingPhaseId: 'Test string',
+        },
+        rolloutId: 'Test string',
+        rolloutToRollBack: 'Test string',
+        targetId: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
                 {
-                    childRolloutJobs: {
-                        advanceRolloutJobs: [
-                            {
-                                advanceChildRolloutJob: {
-                                },
-                                createChildRolloutJob: {
-                                },
-                                deployJob: {
-                                },
-                                id: "Test string",
-                                jobRun: "Test string",
-                                postdeployJob: {
-                                    actions: [
-                                        "Test string"
-                                    ],
-                                },
-                                predeployJob: {
-                                    actions: [
-                                        "Test string"
-                                    ],
-                                },
-                                skipMessage: "Test string",
-                                state: "Test string",
-                                verifyJob: {
-                                },
-                            }
-                        ],
-                        createRolloutJobs: [
-                            {
-                                advanceChildRolloutJob: {
-                                },
-                                createChildRolloutJob: {
-                                },
-                                deployJob: {
-                                },
-                                id: "Test string",
-                                jobRun: "Test string",
-                                postdeployJob: {
-                                    actions: [
-                                        "Test string"
-                                    ],
-                                },
-                                predeployJob: {
-                                    actions: [
-                                        "Test string"
-                                    ],
-                                },
-                                skipMessage: "Test string",
-                                state: "Test string",
-                                verifyJob: {
-                                },
-                            }
-                        ],
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Cancels an AutomationRun. The `state` of the `AutomationRun` after cancelling is `CANCELLED`. `CancelAutomationRun` can be called on AutomationRun in the state `IN_PROGRESS` and `PENDING`; AutomationRun in a different state returns an `FAILED_PRECONDITION` error. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automationRuns.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Gets details of a single AutomationRun. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automationRuns.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists AutomationRuns in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automationRuns.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Creates a new Automation in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.create(
+      {
+        automationId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        createTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        rules: [
+          {
+            advanceRolloutRule: {
+              condition: {
+                targetsPresentCondition: {
+                  missingTargets: ['Test string'],
+                  status: true,
+                  updateTime: 'Test string',
+                },
+              },
+              id: 'Test string',
+              sourcePhases: ['Test string'],
+              wait: 'Test string',
+            },
+            promoteReleaseRule: {
+              condition: {
+                targetsPresentCondition: {
+                  missingTargets: ['Test string'],
+                  status: true,
+                  updateTime: 'Test string',
+                },
+              },
+              destinationPhase: 'Test string',
+              destinationTargetId: 'Test string',
+              id: 'Test string',
+              wait: 'Test string',
+            },
+            repairRolloutRule: {
+              condition: {
+                targetsPresentCondition: {
+                  missingTargets: ['Test string'],
+                  status: true,
+                  updateTime: 'Test string',
+                },
+              },
+              id: 'Test string',
+              jobs: ['Test string'],
+              repairModes: [
+                {
+                  retry: {
+                    attempts: 'Test string',
+                    backoffMode: 'Test string',
+                    wait: 'Test string',
+                  },
+                  rollback: {
+                    destinationPhase: 'Test string',
+                  },
+                },
+              ],
+              sourcePhases: ['Test string'],
+            },
+          },
+        ],
+        selector: {
+          targets: [
+            {
+              id: 'Test string',
+              labels: {
+                A: 'Test string',
+              },
+            },
+          ],
+        },
+        serviceAccount: 'Test string',
+        suspended: true,
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single Automation resource. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.delete(
+      {
+        allowMissing: true,
+        etag: 'Test string',
+        name: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Gets details of a single Automation. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists Automations in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates the parameters of a single Automation resource. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.automations.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        createTime: 'Test string',
+        description: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        rules: [
+          {
+            advanceRolloutRule: {
+              condition: {
+                targetsPresentCondition: {
+                  missingTargets: ['Test string'],
+                  status: true,
+                  updateTime: 'Test string',
+                },
+              },
+              id: 'Test string',
+              sourcePhases: ['Test string'],
+              wait: 'Test string',
+            },
+            promoteReleaseRule: {
+              condition: {
+                targetsPresentCondition: {
+                  missingTargets: ['Test string'],
+                  status: true,
+                  updateTime: 'Test string',
+                },
+              },
+              destinationPhase: 'Test string',
+              destinationTargetId: 'Test string',
+              id: 'Test string',
+              wait: 'Test string',
+            },
+            repairRolloutRule: {
+              condition: {
+                targetsPresentCondition: {
+                  missingTargets: ['Test string'],
+                  status: true,
+                  updateTime: 'Test string',
+                },
+              },
+              id: 'Test string',
+              jobs: ['Test string'],
+              repairModes: [
+                {
+                  retry: {
+                    attempts: 'Test string',
+                    backoffMode: 'Test string',
+                    wait: 'Test string',
+                  },
+                  rollback: {
+                    destinationPhase: 'Test string',
+                  },
+                },
+              ],
+              sourcePhases: ['Test string'],
+            },
+          },
+        ],
+        selector: {
+          targets: [
+            {
+              id: 'Test string',
+              labels: {
+                A: 'Test string',
+              },
+            },
+          ],
+        },
+        serviceAccount: 'Test string',
+        suspended: true,
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Abandons a Release in the Delivery Pipeline. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.abandon(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a new Release in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.create(
+      {
+        parent: 'Test string',
+        releaseId: 'Test string',
+        requestId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        abandoned: true,
+        annotations: {
+          A: 'Test string',
+        },
+        buildArtifacts: [
+          {
+            image: 'Test string',
+            tag: 'Test string',
+          },
+        ],
+        condition: {
+          releaseReadyCondition: {
+            status: true,
+          },
+          skaffoldSupportedCondition: {
+            maintenanceModeTime: 'Test string',
+            skaffoldSupportState: 'Test string',
+            status: true,
+            supportExpirationTime: 'Test string',
+          },
+        },
+        createTime: 'Test string',
+        deliveryPipelineSnapshot: {
+          annotations: {
+            A: 'Test string',
+          },
+          condition: {
+            pipelineReadyCondition: {
+              status: true,
+              updateTime: 'Test string',
+            },
+            targetsPresentCondition: {
+              missingTargets: ['Test string'],
+              status: true,
+              updateTime: 'Test string',
+            },
+            targetsTypeCondition: {
+              errorDetails: 'Test string',
+              status: true,
+            },
+          },
+          createTime: 'Test string',
+          description: 'Test string',
+          etag: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          name: 'Test string',
+          serialPipeline: {
+            stages: [
+              {
+                deployParameters: [
+                  {
+                    matchTargetLabels: {
+                      A: 'Test string',
                     },
-                    deploymentJobs: {
-                        deployJob: {
-                            advanceChildRolloutJob: {
-                            },
-                            createChildRolloutJob: {
-                            },
-                            deployJob: {
-                            },
-                            id: "Test string",
-                            jobRun: "Test string",
-                            postdeployJob: {
-                                actions: [
-                                    "Test string"
-                                ],
-                            },
-                            predeployJob: {
-                                actions: [
-                                    "Test string"
-                                ],
-                            },
-                            skipMessage: "Test string",
-                            state: "Test string",
-                            verifyJob: {
-                            },
-                        },
-                        postdeployJob: {
-                            advanceChildRolloutJob: {
-                            },
-                            createChildRolloutJob: {
-                            },
-                            deployJob: {
-                            },
-                            id: "Test string",
-                            jobRun: "Test string",
-                            postdeployJob: {
-                                actions: [
-                                    "Test string"
-                                ],
-                            },
-                            predeployJob: {
-                                actions: [
-                                    "Test string"
-                                ],
-                            },
-                            skipMessage: "Test string",
-                            state: "Test string",
-                            verifyJob: {
-                            },
-                        },
-                        predeployJob: {
-                            advanceChildRolloutJob: {
-                            },
-                            createChildRolloutJob: {
-                            },
-                            deployJob: {
-                            },
-                            id: "Test string",
-                            jobRun: "Test string",
-                            postdeployJob: {
-                                actions: [
-                                    "Test string"
-                                ],
-                            },
-                            predeployJob: {
-                                actions: [
-                                    "Test string"
-                                ],
-                            },
-                            skipMessage: "Test string",
-                            state: "Test string",
-                            verifyJob: {
-                            },
-                        },
-                        verifyJob: {
-                            advanceChildRolloutJob: {
-                            },
-                            createChildRolloutJob: {
-                            },
-                            deployJob: {
-                            },
-                            id: "Test string",
-                            jobRun: "Test string",
-                            postdeployJob: {
-                                actions: [
-                                    "Test string"
-                                ],
-                            },
-                            predeployJob: {
-                                actions: [
-                                    "Test string"
-                                ],
-                            },
-                            skipMessage: "Test string",
-                            state: "Test string",
-                            verifyJob: {
-                            },
-                        },
+                    values: {
+                      A: 'Test string',
                     },
-                    id: "Test string",
-                    skipMessage: "Test string",
-                    state: "Test string",
-                }
+                  },
+                ],
+                profiles: ['Test string'],
+                strategy: {
+                  canary: {
+                    canaryDeployment: {
+                      percentages: [42],
+                      postdeploy: {
+                        actions: ['Test string'],
+                      },
+                      predeploy: {
+                        actions: ['Test string'],
+                      },
+                      verify: true,
+                    },
+                    customCanaryDeployment: {
+                      phaseConfigs: [
+                        {
+                          percentage: 42,
+                          phaseId: 'Test string',
+                          postdeploy: {
+                            actions: ['Test string'],
+                          },
+                          predeploy: {
+                            actions: ['Test string'],
+                          },
+                          profiles: ['Test string'],
+                          verify: true,
+                        },
+                      ],
+                    },
+                    runtimeConfig: {
+                      cloudRun: {
+                        automaticTrafficControl: true,
+                      },
+                      kubernetes: {
+                        gatewayServiceMesh: {
+                          deployment: 'Test string',
+                          httpRoute: 'Test string',
+                          routeUpdateWaitTime: 'Test string',
+                          service: 'Test string',
+                        },
+                        serviceNetworking: {
+                          deployment: 'Test string',
+                          disablePodOverprovisioning: true,
+                          service: 'Test string',
+                        },
+                      },
+                    },
+                  },
+                  standard: {
+                    postdeploy: {
+                      actions: ['Test string'],
+                    },
+                    predeploy: {
+                      actions: ['Test string'],
+                    },
+                    verify: true,
+                  },
+                },
+                targetId: 'Test string',
+              },
             ],
-            rollbackOfRollout: "Test string",
-            rolledBackByRollouts: [
-                "Test string"
-            ],
-            state: "Test string",
-            targetId: "Test string",
-            uid: "Test string",
-        });
-        /** Gets details of a single Rollout. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.get({
-            name: "Test string",
-        });
-        /** Ignores the specified Job in a Rollout. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.ignoreJob({
-            rollout: "Test string",
-        }, {
-            jobId: "Test string",
-            phaseId: "Test string",
-        });
-        /** Lists Rollouts in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Retries the specified Job in a Rollout. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.retryJob({
-            rollout: "Test string",
-        }, {
-            jobId: "Test string",
-            phaseId: "Test string",
-        });
-        /** Gets details of a single JobRun. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.get({
-            name: "Test string",
-        });
-        /** Lists JobRuns in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Terminates a Job Run in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.terminate({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.clouddeploy.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.clouddeploy.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.clouddeploy.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.clouddeploy.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new Target in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.targets.create({
-            parent: "Test string",
-            requestId: "Test string",
-            targetId: "Test string",
-            validateOnly: true,
-        }, {
+          },
+          suspended: true,
+          uid: 'Test string',
+          updateTime: 'Test string',
+        },
+        deployParameters: {
+          A: 'Test string',
+        },
+        description: 'Test string',
+        etag: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        renderEndTime: 'Test string',
+        renderStartTime: 'Test string',
+        renderState: 'Test string',
+        skaffoldConfigPath: 'Test string',
+        skaffoldConfigUri: 'Test string',
+        skaffoldVersion: 'Test string',
+        targetArtifacts: {
+          A: {
+            artifactUri: 'Test string',
+            manifestPath: 'Test string',
+            phaseArtifacts: {
+              A: {
+                jobManifestsPath: 'Test string',
+                manifestPath: 'Test string',
+                skaffoldConfigPath: 'Test string',
+              },
+            },
+            skaffoldConfigPath: 'Test string',
+          },
+        },
+        targetRenders: {
+          A: {
+            failureCause: 'Test string',
+            failureMessage: 'Test string',
+            metadata: {
+              cloudRun: {
+                service: 'Test string',
+              },
+            },
+            renderingBuild: 'Test string',
+            renderingState: 'Test string',
+          },
+        },
+        targetSnapshots: [
+          {
             annotations: {
-                A: "Test string"
+              A: 'Test string',
             },
             anthosCluster: {
-                membership: "Test string",
+              membership: 'Test string',
             },
-            createTime: "Test string",
+            createTime: 'Test string',
             deployParameters: {
-                A: "Test string"
+              A: 'Test string',
             },
-            description: "Test string",
-            etag: "Test string",
+            description: 'Test string',
+            etag: 'Test string',
             executionConfigs: [
-                {
-                    artifactStorage: "Test string",
-                    defaultPool: {
-                        artifactStorage: "Test string",
-                        serviceAccount: "Test string",
-                    },
-                    executionTimeout: "Test string",
-                    privatePool: {
-                        artifactStorage: "Test string",
-                        serviceAccount: "Test string",
-                        workerPool: "Test string",
-                    },
-                    serviceAccount: "Test string",
-                    usages: [
-                        "Test string"
-                    ],
-                    workerPool: "Test string",
-                }
+              {
+                artifactStorage: 'Test string',
+                defaultPool: {
+                  artifactStorage: 'Test string',
+                  serviceAccount: 'Test string',
+                },
+                executionTimeout: 'Test string',
+                privatePool: {
+                  artifactStorage: 'Test string',
+                  serviceAccount: 'Test string',
+                  workerPool: 'Test string',
+                },
+                serviceAccount: 'Test string',
+                usages: ['Test string'],
+                workerPool: 'Test string',
+              },
             ],
             gke: {
-                cluster: "Test string",
-                internalIp: true,
+              cluster: 'Test string',
+              internalIp: true,
             },
             labels: {
-                A: "Test string"
+              A: 'Test string',
             },
             multiTarget: {
-                targetIds: [
-                    "Test string"
-                ],
+              targetIds: ['Test string'],
             },
-            name: "Test string",
+            name: 'Test string',
             requireApproval: true,
             run: {
-                location: "Test string",
+              location: 'Test string',
             },
-            targetId: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a single Target. */
-        await gapi.client.clouddeploy.projects.locations.targets.delete({
-            allowMissing: true,
-            etag: "Test string",
-            name: "Test string",
-            requestId: "Test string",
-            validateOnly: true,
-        });
-        /** Gets details of a single Target. */
-        await gapi.client.clouddeploy.projects.locations.targets.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.clouddeploy.projects.locations.targets.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Targets in a given project and location. */
-        await gapi.client.clouddeploy.projects.locations.targets.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates the parameters of a single Target. */
-        await gapi.client.clouddeploy.projects.locations.targets.patch({
-            allowMissing: true,
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-            validateOnly: true,
-        }, {
-            annotations: {
-                A: "Test string"
-            },
-            anthosCluster: {
-                membership: "Test string",
-            },
-            createTime: "Test string",
-            deployParameters: {
-                A: "Test string"
-            },
-            description: "Test string",
-            etag: "Test string",
-            executionConfigs: [
+            targetId: 'Test string',
+            uid: 'Test string',
+            updateTime: 'Test string',
+          },
+        ],
+        uid: 'Test string',
+      }
+    );
+    /** Gets details of a single Release. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists Releases in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Advances a Rollout in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.advance(
+      {
+        name: 'Test string',
+      },
+      {
+        phaseId: 'Test string',
+      }
+    );
+    /** Approves a Rollout. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.approve(
+      {
+        name: 'Test string',
+      },
+      {
+        approved: true,
+      }
+    );
+    /** Cancels a Rollout in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a new Rollout in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.create(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+        rolloutId: 'Test string',
+        startingPhaseId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        approvalState: 'Test string',
+        approveTime: 'Test string',
+        controllerRollout: 'Test string',
+        createTime: 'Test string',
+        deployEndTime: 'Test string',
+        deployFailureCause: 'Test string',
+        deployingBuild: 'Test string',
+        deployStartTime: 'Test string',
+        description: 'Test string',
+        enqueueTime: 'Test string',
+        etag: 'Test string',
+        failureReason: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        metadata: {
+          automation: {
+            advanceAutomationRuns: ['Test string'],
+            promoteAutomationRun: 'Test string',
+            repairAutomationRuns: ['Test string'],
+          },
+          cloudRun: {
+            job: 'Test string',
+            revision: 'Test string',
+            service: 'Test string',
+            serviceUrls: ['Test string'],
+          },
+        },
+        name: 'Test string',
+        phases: [
+          {
+            childRolloutJobs: {
+              advanceRolloutJobs: [
                 {
-                    artifactStorage: "Test string",
-                    defaultPool: {
-                        artifactStorage: "Test string",
-                        serviceAccount: "Test string",
-                    },
-                    executionTimeout: "Test string",
-                    privatePool: {
-                        artifactStorage: "Test string",
-                        serviceAccount: "Test string",
-                        workerPool: "Test string",
-                    },
-                    serviceAccount: "Test string",
-                    usages: [
-                        "Test string"
-                    ],
-                    workerPool: "Test string",
-                }
-            ],
-            gke: {
-                cluster: "Test string",
-                internalIp: true,
+                  advanceChildRolloutJob: {},
+                  createChildRolloutJob: {},
+                  deployJob: {},
+                  id: 'Test string',
+                  jobRun: 'Test string',
+                  postdeployJob: {
+                    actions: ['Test string'],
+                  },
+                  predeployJob: {
+                    actions: ['Test string'],
+                  },
+                  skipMessage: 'Test string',
+                  state: 'Test string',
+                  verifyJob: {},
+                },
+              ],
+              createRolloutJobs: [
+                {
+                  advanceChildRolloutJob: {},
+                  createChildRolloutJob: {},
+                  deployJob: {},
+                  id: 'Test string',
+                  jobRun: 'Test string',
+                  postdeployJob: {
+                    actions: ['Test string'],
+                  },
+                  predeployJob: {
+                    actions: ['Test string'],
+                  },
+                  skipMessage: 'Test string',
+                  state: 'Test string',
+                  verifyJob: {},
+                },
+              ],
             },
-            labels: {
-                A: "Test string"
+            deploymentJobs: {
+              deployJob: {
+                advanceChildRolloutJob: {},
+                createChildRolloutJob: {},
+                deployJob: {},
+                id: 'Test string',
+                jobRun: 'Test string',
+                postdeployJob: {
+                  actions: ['Test string'],
+                },
+                predeployJob: {
+                  actions: ['Test string'],
+                },
+                skipMessage: 'Test string',
+                state: 'Test string',
+                verifyJob: {},
+              },
+              postdeployJob: {
+                advanceChildRolloutJob: {},
+                createChildRolloutJob: {},
+                deployJob: {},
+                id: 'Test string',
+                jobRun: 'Test string',
+                postdeployJob: {
+                  actions: ['Test string'],
+                },
+                predeployJob: {
+                  actions: ['Test string'],
+                },
+                skipMessage: 'Test string',
+                state: 'Test string',
+                verifyJob: {},
+              },
+              predeployJob: {
+                advanceChildRolloutJob: {},
+                createChildRolloutJob: {},
+                deployJob: {},
+                id: 'Test string',
+                jobRun: 'Test string',
+                postdeployJob: {
+                  actions: ['Test string'],
+                },
+                predeployJob: {
+                  actions: ['Test string'],
+                },
+                skipMessage: 'Test string',
+                state: 'Test string',
+                verifyJob: {},
+              },
+              verifyJob: {
+                advanceChildRolloutJob: {},
+                createChildRolloutJob: {},
+                deployJob: {},
+                id: 'Test string',
+                jobRun: 'Test string',
+                postdeployJob: {
+                  actions: ['Test string'],
+                },
+                predeployJob: {
+                  actions: ['Test string'],
+                },
+                skipMessage: 'Test string',
+                state: 'Test string',
+                verifyJob: {},
+              },
             },
-            multiTarget: {
-                targetIds: [
-                    "Test string"
-                ],
+            id: 'Test string',
+            skipMessage: 'Test string',
+            state: 'Test string',
+          },
+        ],
+        rollbackOfRollout: 'Test string',
+        rolledBackByRollouts: ['Test string'],
+        state: 'Test string',
+        targetId: 'Test string',
+        uid: 'Test string',
+      }
+    );
+    /** Gets details of a single Rollout. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Ignores the specified Job in a Rollout. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.ignoreJob(
+      {
+        rollout: 'Test string',
+      },
+      {
+        jobId: 'Test string',
+        phaseId: 'Test string',
+      }
+    );
+    /** Lists Rollouts in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Retries the specified Job in a Rollout. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.retryJob(
+      {
+        rollout: 'Test string',
+      },
+      {
+        jobId: 'Test string',
+        phaseId: 'Test string',
+      }
+    );
+    /** Gets details of a single JobRun. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists JobRuns in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Terminates a Job Run in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.deliveryPipelines.releases.rollouts.jobRuns.terminate(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.clouddeploy.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.clouddeploy.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.clouddeploy.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.clouddeploy.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new Target in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.targets.create(
+      {
+        parent: 'Test string',
+        requestId: 'Test string',
+        targetId: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        anthosCluster: {
+          membership: 'Test string',
+        },
+        createTime: 'Test string',
+        deployParameters: {
+          A: 'Test string',
+        },
+        description: 'Test string',
+        etag: 'Test string',
+        executionConfigs: [
+          {
+            artifactStorage: 'Test string',
+            defaultPool: {
+              artifactStorage: 'Test string',
+              serviceAccount: 'Test string',
             },
-            name: "Test string",
-            requireApproval: true,
-            run: {
-                location: "Test string",
+            executionTimeout: 'Test string',
+            privatePool: {
+              artifactStorage: 'Test string',
+              serviceAccount: 'Test string',
+              workerPool: 'Test string',
             },
-            targetId: "Test string",
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.clouddeploy.projects.locations.targets.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
+            serviceAccount: 'Test string',
+            usages: ['Test string'],
+            workerPool: 'Test string',
+          },
+        ],
+        gke: {
+          cluster: 'Test string',
+          internalIp: true,
+        },
+        labels: {
+          A: 'Test string',
+        },
+        multiTarget: {
+          targetIds: ['Test string'],
+        },
+        name: 'Test string',
+        requireApproval: true,
+        run: {
+          location: 'Test string',
+        },
+        targetId: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a single Target. */
+    await gapi.client.clouddeploy.projects.locations.targets.delete({
+      allowMissing: true,
+      etag: 'Test string',
+      name: 'Test string',
+      requestId: 'Test string',
+      validateOnly: true,
+    });
+    /** Gets details of a single Target. */
+    await gapi.client.clouddeploy.projects.locations.targets.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.clouddeploy.projects.locations.targets.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Targets in a given project and location. */
+    await gapi.client.clouddeploy.projects.locations.targets.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates the parameters of a single Target. */
+    await gapi.client.clouddeploy.projects.locations.targets.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+        validateOnly: true,
+      },
+      {
+        annotations: {
+          A: 'Test string',
+        },
+        anthosCluster: {
+          membership: 'Test string',
+        },
+        createTime: 'Test string',
+        deployParameters: {
+          A: 'Test string',
+        },
+        description: 'Test string',
+        etag: 'Test string',
+        executionConfigs: [
+          {
+            artifactStorage: 'Test string',
+            defaultPool: {
+              artifactStorage: 'Test string',
+              serviceAccount: 'Test string',
             },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.clouddeploy.projects.locations.targets.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-    }
+            executionTimeout: 'Test string',
+            privatePool: {
+              artifactStorage: 'Test string',
+              serviceAccount: 'Test string',
+              workerPool: 'Test string',
+            },
+            serviceAccount: 'Test string',
+            usages: ['Test string'],
+            workerPool: 'Test string',
+          },
+        ],
+        gke: {
+          cluster: 'Test string',
+          internalIp: true,
+        },
+        labels: {
+          A: 'Test string',
+        },
+        multiTarget: {
+          targetIds: ['Test string'],
+        },
+        name: 'Test string',
+        requireApproval: true,
+        run: {
+          location: 'Test string',
+        },
+        targetId: 'Test string',
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.clouddeploy.projects.locations.targets.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.clouddeploy.projects.locations.targets.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+  }
 });

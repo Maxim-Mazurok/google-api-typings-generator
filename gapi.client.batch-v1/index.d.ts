@@ -14,1737 +14,1081 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Batch API v1 */
-    function load(urlOrObject: "https://batch.googleapis.com/$discovery/rest?version=v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "batch", version: "v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "batch", version: "v1", callback: () => any): void;
+  /** Load Batch API v1 */
+  function load(
+    urlOrObject: 'https://batch.googleapis.com/$discovery/rest?version=v1'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'batch', version: 'v1'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'batch', version: 'v1', callback: () => any): void;
 
-    namespace batch {
-        interface Accelerator {
-            /** The number of accelerators of this type. */
-            count?:
-                string;
-            /**
-             * Optional. The NVIDIA GPU driver version that should be installed for this type. You can define the specific driver version such as "470.103.01", following the driver version
-             * requirements in https://cloud.google.com/compute/docs/gpus/install-drivers-gpu#minimum-driver. Batch will install the specific accelerator driver if qualified.
-             */
-            driverVersion?:
-                string;
-            /** Deprecated: please use instances[0].install_gpu_drivers instead. */
-            installGpuDrivers?:
-                boolean;
-            /** The accelerator type. For example, "nvidia-tesla-t4". See `gcloud compute accelerator-types list`. */
-            type?:
-                string;
-        }
-        interface ActionCondition {
-            /** Exit codes of a task execution. If there are more than 1 exit codes, when task executes with any of the exit code in the list, the condition is met and the action will be executed. */
-            exitCodes?:
-                number[];
-        }
-        interface AgentContainer {
-            /**
-             * Overrides the `CMD` specified in the container. If there is an ENTRYPOINT (either in the container image or with the entrypoint field below) then commands are appended as arguments
-             * to the ENTRYPOINT.
-             */
-            commands?:
-                string[];
-            /** Overrides the `ENTRYPOINT` specified in the container. */
-            entrypoint?:
-                string;
-            /** The URI to pull the container image from. */
-            imageUri?:
-                string;
-            /** Arbitrary additional options to include in the "docker run" command when running this container, e.g. "--network host". */
-            options?:
-                string;
-            /** Volumes to mount (bind mount) from the host machine files or directories into the container, formatted to match docker run's --volume option, e.g. /foo:/bar, or /foo:/bar:ro */
-            volumes?:
-                string[];
-        }
-        interface AgentEnvironment {
-            /** An encrypted JSON dictionary where the key/value pairs correspond to environment variable names and their values. */
-            encryptedVariables?:
-                AgentKMSEnvMap;
-            /** A map of environment variable names to Secret Manager secret names. The VM will access the named secrets to set the value of each environment variable. */
-            secretVariables?:
-                { [P in string]: string };
-            /** A map of environment variable names to values. */
-            variables?:
-                { [P in string]: string };
-        }
-        interface AgentInfo {
-            /** Optional. The assigned Job ID */
-            jobId?:
-                string;
-            /** When the AgentInfo is generated. */
-            reportTime?:
-                string;
-            /** Agent state. */
-            state?:
-                string;
-            /** The assigned task group ID. */
-            taskGroupId?:
-                string;
-            /** Task Info. */
-            tasks?:
-                AgentTaskInfo[];
-        }
-        interface AgentKMSEnvMap {
-            /** The value of the cipherText response from the `encrypt` method. */
-            cipherText?:
-                string;
-            /** The name of the KMS key that will be used to decrypt the cipher text. */
-            keyName?:
-                string;
-        }
-        interface AgentMetadata {
-            /** When the VM agent started. Use agent_startup_time instead. */
-            creationTime?:
-                string;
-            /**
-             * Full name of the entity that created this vm. For MIG, this path is: projects/{project}/regions/{region}/InstanceGroupManagers/{igm} The value is retrieved from the vm metadata key
-             * of "created-by".
-             */
-            creator?:
-                string;
-            /** image version for the VM that this agent is installed on. */
-            imageVersion?:
-                string;
-            /** GCP instance name (go/instance-name). */
-            instance?:
-                string;
-            /** GCP instance ID (go/instance-id). */
-            instanceId?:
-                string;
-            /** If the GCP instance has received preemption notice. */
-            instancePreemptionNoticeReceived?:
-                boolean;
-            /** parsed contents of /etc/os-release */
-            osRelease?:
-                { [P in string]: string };
-            /** agent binary version running on VM */
-            version?:
-                string;
-            /** Agent zone. */
-            zone?:
-                string;
-        }
-        interface AgentScript {
-            /**
-             * Script file path on the host VM. To specify an interpreter, please add a `#!`(also known as [shebang line](https://en.wikipedia.org/wiki/Shebang_(Unix))) as the first line of the
-             * file.(For example, to execute the script using bash, `#!/bin/bash` should be the first line of the file. To execute the script using`Python3`, `#!/usr/bin/env python3` should be the
-             * first line of the file.) Otherwise, the file will by default be excuted by `/bin/sh`.
-             */
-            path?:
-                string;
-            /**
-             * Shell script text. To specify an interpreter, please add a `#!\n` at the beginning of the text.(For example, to execute the script using bash, `#!/bin/bash\n` should be added. To
-             * execute the script using`Python3`, `#!/usr/bin/env python3\n` should be added.) Otherwise, the script will by default be excuted by `/bin/sh`.
-             */
-            text?:
-                string;
-        }
-        interface AgentTask {
-            /**
-             * AgentTaskSpec is the taskSpec representation between Agent and CLH communication. This field will replace the TaskSpec field above in future to have a better separation between
-             * user-facaing API and internal API.
-             */
-            agentTaskSpec?:
-                AgentTaskSpec;
-            /** The intended state of the task. */
-            intendedState?:
-                string;
-            /** The highest barrier reached by all tasks in the task's TaskGroup. */
-            reachedBarrier?:
-                string;
-            /** Task Spec. This field will be replaced by agent_task_spec below in future. */
-            spec?:
-                TaskSpec;
-            /** Task status. */
-            status?:
-                TaskStatus;
-            /** Task name. */
-            task?:
-                string;
-            /** TaskSource represents the source of the task. */
-            taskSource?:
-                string;
-        }
-        interface AgentTaskInfo {
-            /** The highest index of a runnable started by the agent for this task. The runnables are indexed from 1. Value 0 is undefined. */
-            runnable?:
-                string;
-            /** ID of the Task */
-            taskId?:
-                string;
-            /** The status of the Task. If we need agent specific fields we should fork the public TaskStatus into an agent specific one. Or add them below. */
-            taskStatus?:
-                TaskStatus;
-        }
-        interface AgentTaskRunnable {
-            /**
-             * By default, after a Runnable fails, no further Runnable are executed. This flag indicates that this Runnable must be run even if the Task has already failed. This is useful for
-             * Runnables that copy output files off of the VM or for debugging. The always_run flag does not override the Task's overall max_run_duration. If the max_run_duration has expired then
-             * no further Runnables will execute, not even always_run Runnables.
-             */
-            alwaysRun?:
-                boolean;
-            /**
-             * This flag allows a Runnable to continue running in the background while the Task executes subsequent Runnables. This is useful to provide services to other Runnables (or to provide
-             * debugging support tools like SSH servers).
-             */
-            background?:
-                boolean;
-            /** Container runnable. */
-            container?:
-                AgentContainer;
-            /** Environment variables for this Runnable (overrides variables set for the whole Task or TaskGroup). */
-            environment?:
-                AgentEnvironment;
-            /** Normally, a non-zero exit status causes the Task to fail. This flag allows execution of other Runnables to continue instead. */
-            ignoreExitStatus?:
-                boolean;
-            /** Script runnable. */
-            script?:
-                AgentScript;
-            /** Timeout for this Runnable. */
-            timeout?:
-                string;
-        }
-        interface AgentTaskSpec {
-            /** Environment variables to set before running the Task. */
-            environment?:
-                AgentEnvironment;
-            /** Maximum duration the task should run. The task will be killed and marked as FAILED if over this limit. */
-            maxRunDuration?:
-                string;
-            /** AgentTaskRunnable is runanbles that will be executed on the agent. */
-            runnables?:
-                AgentTaskRunnable[];
-            /** User account on the VM to run the runnables in the agentTaskSpec. If not set, the runnable will be run under root user. */
-            userAccount?:
-                AgentTaskUserAccount;
-        }
-        interface AgentTaskUserAccount {
-            /** gid id an unique identifier of the POSIX account group corresponding to the user account. */
-            gid?:
-                string;
-            /** uid is an unique identifier of the POSIX account corresponding to the user account. */
-            uid?:
-                string;
-        }
-        interface AgentTimingInfo {
-            /** Agent startup time */
-            agentStartupTime?:
-                string;
-            /** Boot timestamp of the VM OS */
-            bootTime?:
-                string;
-            /** Startup time of the Batch VM script. */
-            scriptStartupTime?:
-                string;
-        }
-        interface AllocationPolicy {
-            /** Describe instances that can be created by this AllocationPolicy. Only instances[0] is supported now. */
-            instances?:
-                InstancePolicyOrTemplate[];
-            /**
-             * Labels applied to all VM instances and other resources created by AllocationPolicy. Labels could be user provided or system generated. You can assign up to 64 labels. [Google
-             * Compute Engine label restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) apply. Label names that start with "goog-" or "google-" are reserved.
-             */
-            labels?:
-                { [P in string]: string };
-            /** Location where compute resources should be allocated for the Job. */
-            location?:
-                LocationPolicy;
-            /** The network policy. If you define an instance template in the InstancePolicyOrTemplate field, Batch will use the network settings in the instance template instead of this field. */
-            network?:
-                NetworkPolicy;
-            /** The placement policy. */
-            placement?:
-                PlacementPolicy;
-            /** Service account that VMs will run as. */
-            serviceAccount?:
-                ServiceAccount;
-        }
-        interface AttachedDisk {
-            /**
-             * Device name that the guest operating system will see. It is used by Runnable.volumes field to mount disks. So please specify the device_name if you want Batch to help mount the
-             * disk, and it should match the device_name field in volumes.
-             */
-            deviceName?:
-                string;
-            /** Name of an existing PD. */
-            existingDisk?:
-                string;
-            newDisk?:
-                Disk;
-        }
-        interface Barrier {
-            /** Barriers are identified by their index in runnable list. Names are not required, but if present should be an identifier. */
-            name?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface CancelOperationRequest {
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface CloudLoggingOption {
-        }
-        interface ComputeResource {
-            /** Extra boot disk size in MiB for each task. */
-            bootDiskMib?:
-                string;
-            /**
-             * The milliCPU count. `cpuMilli` defines the amount of CPU resources per task in milliCPU units. For example, `1000` corresponds to 1 vCPU per task. If undefined, the default value is
-             * `2000`. If you also define the VM's machine type using the `machineType` in
-             * [InstancePolicy](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy) field or inside the `instanceTemplate` in the
-             * [InstancePolicyOrTemplate](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate) field, make sure the CPU resources for both fields
-             * are compatible with each other and with how many tasks you want to allow to run on the same VM at the same time. For example, if you specify the `n2-standard-2` machine type, which
-             * has 2 vCPUs each, you are recommended to set `cpuMilli` no more than `2000`, or you are recommended to run two tasks on the same VM if you set `cpuMilli` to `1000` or less.
-             */
-            cpuMilli?:
-                string;
-            /**
-             * Memory in MiB. `memoryMib` defines the amount of memory per task in MiB units. If undefined, the default value is `2000`. If you also define the VM's machine type using the
-             * `machineType` in [InstancePolicy](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy) field or inside the `instanceTemplate` in the
-             * [InstancePolicyOrTemplate](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate) field, make sure the memory resources for both
-             * fields are compatible with each other and with how many tasks you want to allow to run on the same VM at the same time. For example, if you specify the `n2-standard-2` machine type,
-             * which has 8 GiB each, you are recommended to set `memoryMib` to no more than `8192`, or you are recommended to run two tasks on the same VM if you set `memoryMib` to `4096` or less.
-             */
-            memoryMib?:
-                string;
-        }
-        interface Container {
-            /**
-             * If set to true, external network access to and from container will be blocked, containers that are with block_external_network as true can still communicate with each other, network
-             * cannot be specified in the `container.options` field.
-             */
-            blockExternalNetwork?:
-                boolean;
-            /**
-             * Overrides the `CMD` specified in the container. If there is an ENTRYPOINT (either in the container image or with the entrypoint field below) then commands are appended as arguments
-             * to the ENTRYPOINT.
-             */
-            commands?:
-                string[];
-            /** Overrides the `ENTRYPOINT` specified in the container. */
-            entrypoint?:
-                string;
-            /** The URI to pull the container image from. */
-            imageUri?:
-                string;
-            /** Arbitrary additional options to include in the "docker run" command when running this container, e.g. "--network host". */
-            options?:
-                string;
-            /** Optional password for logging in to a docker registry. If password matches `projects/*‍/secrets/*‍/versions/*` then Batch will read the password from the Secret Manager; */
-            password?:
-                string;
-            /** Optional username for logging in to a docker registry. If username matches `projects/*‍/secrets/*‍/versions/*` then Batch will read the username from the Secret Manager. */
-            username?:
-                string;
-            /**
-             * Volumes to mount (bind mount) from the host machine files or directories into the container, formatted to match docker run's --volume option, e.g. /foo:/bar, or /foo:/bar:ro If the
-             * `TaskSpec.Volumes` field is specified but this field is not, Batch will mount each volume from the host machine to the container with the same mount path by default. In this case,
-             * the default mount option for containers will be read-only (ro) for existing persistent disks and read-write (rw) for other volume types, regardless of the original mount options
-             * specified in `TaskSpec.Volumes`. If you need different mount settings, you can explicitly configure them in this field.
-             */
-            volumes?:
-                string[];
-        }
-        interface Disk {
-            /**
-             * Local SSDs are available through both "SCSI" and "NVMe" interfaces. If not indicated, "NVMe" will be the default one for local ssds. This field is ignored for persistent disks as
-             * the interface is chosen automatically. See https://cloud.google.com/compute/docs/disks/persistent-disks#choose_an_interface.
-             */
-            diskInterface?:
-                string;
-            /**
-             * URL for a VM image to use as the data source for this disk. For example, the following are all valid URLs: * Specify the image by its family name:
-             * projects/{project}/global/images/family/{image_family} * Specify the image version: projects/{project}/global/images/{image_version} You can also use Batch customized image in short
-             * names. The following image values are supported for a boot disk: * `batch-debian`: use Batch Debian images. * `batch-centos`: use Batch CentOS images. * `batch-cos`: use Batch
-             * Container-Optimized images. * `batch-hpc-centos`: use Batch HPC CentOS images. * `batch-hpc-rocky`: use Batch HPC Rocky Linux images.
-             */
-            image?:
-                string;
-            /**
-             * Disk size in GB. **Non-Boot Disk**: If the `type` specifies a persistent disk, this field is ignored if `data_source` is set as `image` or `snapshot`. If the `type` specifies a
-             * local SSD, this field should be a multiple of 375 GB, otherwise, the final size will be the next greater multiple of 375 GB. **Boot Disk**: Batch will calculate the boot disk size
-             * based on source image and task requirements if you do not speicify the size. If both this field and the `boot_disk_mib` field in task spec's `compute_resource` are defined, Batch
-             * will only honor this field. Also, this field should be no smaller than the source disk's size when the `data_source` is set as `snapshot` or `image`. For example, if you set an
-             * image as the `data_source` field and the image's default disk size 30 GB, you can only use this field to make the disk larger or equal to 30 GB.
-             */
-            sizeGb?:
-                string;
-            /** Name of a snapshot used as the data source. Snapshot is not supported as boot disk now. */
-            snapshot?:
-                string;
-            /**
-             * Disk type as shown in `gcloud compute disk-types list`. For example, local SSD uses type "local-ssd". Persistent disks and boot disks use "pd-balanced", "pd-extreme", "pd-ssd" or
-             * "pd-standard".
-             */
-            type?:
-                string;
-        }
-        // tslint:disable-next-line:no-empty-interface
-        interface Empty {
-        }
-        interface Environment {
-            /** An encrypted JSON dictionary where the key/value pairs correspond to environment variable names and their values. */
-            encryptedVariables?:
-                KMSEnvMap;
-            /** A map of environment variable names to Secret Manager secret names. The VM will access the named secrets to set the value of each environment variable. */
-            secretVariables?:
-                { [P in string]: string };
-            /** A map of environment variable names to values. */
-            variables?:
-                { [P in string]: string };
-        }
-        interface GCS {
-            /** Remote path, either a bucket name or a subdirectory of a bucket, e.g.: bucket_name, bucket_name/subdirectory/ */
-            remotePath?:
-                string;
-        }
-        interface InstancePolicy {
-            /** The accelerators attached to each VM instance. */
-            accelerators?:
-                Accelerator[];
-            /** Boot disk to be created and attached to each VM by this InstancePolicy. Boot disk will be deleted when the VM is deleted. Batch API now only supports booting from image. */
-            bootDisk?:
-                Disk;
-            /**
-             * Non-boot disks to be attached for each VM created by this InstancePolicy. New disks will be deleted when the VM is deleted. A non-boot disk is a disk that can be of a device with a
-             * file system or a raw storage drive that is not ready for data storage and accessing.
-             */
-            disks?:
-                AttachedDisk[];
-            /** The Compute Engine machine type. */
-            machineType?:
-                string;
-            /** The minimum CPU platform. See https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform. */
-            minCpuPlatform?:
-                string;
-            /** The provisioning model. */
-            provisioningModel?:
-                string;
-            /** Optional. If specified, VMs will consume only the specified reservation. If not specified (default), VMs will consume any applicable reservation. */
-            reservation?:
-                string;
-        }
-        interface InstancePolicyOrTemplate {
-            /**
-             * Set this field true if users want Batch to help fetch drivers from a third party location and install them for GPUs specified in policy.accelerators or instance_template on their
-             * behalf. Default is false. For Container-Optimized Image cases, Batch will install the accelerator driver following milestones of
-             * https://cloud.google.com/container-optimized-os/docs/release-notes. For non Container-Optimized Image cases, following
-             * https://github.com/GoogleCloudPlatform/compute-gpu-installation/blob/main/linux/install_gpu_driver.py.
-             */
-            installGpuDrivers?:
-                boolean;
-            /** Name of an instance template used to create VMs. Named the field as 'instance_template' instead of 'template' to avoid c++ keyword conflict. */
-            instanceTemplate?:
-                string;
-            /** InstancePolicy. */
-            policy?:
-                InstancePolicy;
-        }
-        interface InstanceStatus {
-            /** The VM boot disk. */
-            bootDisk?:
-                Disk;
-            /** The Compute Engine machine type. */
-            machineType?:
-                string;
-            /** The VM instance provisioning model. */
-            provisioningModel?:
-                string;
-            /** The max number of tasks can be assigned to this instance type. */
-            taskPack?:
-                string;
-        }
-        interface Job {
-            /** Compute resource allocation for all TaskGroups in the Job. */
-            allocationPolicy?:
-                AllocationPolicy;
-            /** Output only. When the Job was created. */
-            createTime?:
-                string;
-            /**
-             * Labels for the Job. Labels could be user provided or system generated. For example, "labels": { "department": "finance", "environment": "test" } You can assign up to 64 labels.
-             * [Google Compute Engine label restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) apply. Label names that start with "goog-" or "google-" are
-             * reserved.
-             */
-            labels?:
-                { [P in string]: string };
-            /** Log preservation policy for the Job. */
-            logsPolicy?:
-                LogsPolicy;
-            /** Output only. Job name. For example: "projects/123456/locations/us-central1/jobs/job01". */
-            name?:
-                string;
-            /** Notification configurations. */
-            notifications?:
-                JobNotification[];
-            /**
-             * Priority of the Job. The valid value range is [0, 100). Default value is 0. Higher value indicates higher priority. A job with higher priority value is more likely to run earlier if
-             * all other requirements are satisfied.
-             */
-            priority?:
-                string;
-            /** Output only. Job status. It is read only for users. */
-            status?:
-                JobStatus;
-            /** Required. TaskGroups in the Job. Only one TaskGroup is supported now. */
-            taskGroups?:
-                TaskGroup[];
-            /** Output only. A system generated unique ID (in UUID4 format) for the Job. */
-            uid?:
-                string;
-            /** Output only. The last time the Job was updated. */
-            updateTime?:
-                string;
-        }
-        interface JobNotification {
-            /** The attribute requirements of messages to be sent to this Pub/Sub topic. Without this field, no message will be sent. */
-            message?:
-                Message;
-            /**
-             * The Pub/Sub topic where notifications like the job state changes will be published. The topic must exist in the same project as the job and billings will be charged to this project.
-             * If not specified, no Pub/Sub messages will be sent. Topic format: `projects/{project}/topics/{topic}`.
-             */
-            pubsubTopic?:
-                string;
-        }
-        interface JobStatus {
-            /** The duration of time that the Job spent in status RUNNING. */
-            runDuration?:
-                string;
-            /** Job state */
-            state?:
-                string;
-            /** Job status events */
-            statusEvents?:
-                StatusEvent[];
-            /** Aggregated task status for each TaskGroup in the Job. The map key is TaskGroup ID. */
-            taskGroups?:
-                { [P in string]: TaskGroupStatus };
-        }
-        interface KMSEnvMap {
-            /** The value of the cipherText response from the `encrypt` method. */
-            cipherText?:
-                string;
-            /** The name of the KMS key that will be used to decrypt the cipher text. */
-            keyName?:
-                string;
-        }
-        interface LifecyclePolicy {
-            /**
-             * Action to execute when ActionCondition is true. When RETRY_TASK is specified, we will retry failed tasks if we notice any exit code match and fail tasks if no match is found.
-             * Likewise, when FAIL_TASK is specified, we will fail tasks if we notice any exit code match and retry tasks if no match is found.
-             */
-            action?:
-                string;
-            /** Conditions that decide why a task failure is dealt with a specific action. */
-            actionCondition?:
-                ActionCondition;
-        }
-        interface ListJobsResponse {
-            /** Jobs. */
-            jobs?:
-                Job[];
-            /** Next page token. */
-            nextPageToken?:
-                string;
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface ListLocationsResponse {
-            /** A list of locations that matches the specified filter in the request. */
-            locations?:
-                Location[];
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-        }
-        interface ListOperationsResponse {
-            /** The standard List next-page token. */
-            nextPageToken?:
-                string;
-            /** A list of operations that matches the specified filter in the request. */
-            operations?:
-                Operation[];
-        }
-        interface ListTasksResponse {
-            /** Next page token. */
-            nextPageToken?:
-                string;
-            /** Tasks. */
-            tasks?:
-                Task[];
-            /** Locations that could not be reached. */
-            unreachable?:
-                string[];
-        }
-        interface Location {
-            /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
-            displayName?:
-                string;
-            /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
-            labels?:
-                { [P in string]: string };
-            /** The canonical id for this location. For example: `"us-east1"`. */
-            locationId?:
-                string;
-            /** Service-specific metadata. For example the available capacity at the given location. */
-            metadata?:
-                { [P in string]: any };
-            /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
-            name?:
-                string;
-        }
-        interface LocationPolicy {
-            /**
-             * A list of allowed location names represented by internal URLs. Each location can be a region or a zone. Only one region or multiple zones in one region is supported now. For
-             * example, ["regions/us-central1"] allow VMs in any zones in region us-central1. ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs in zones us-central1-a and
-             * us-central1-c. All locations end up in different regions would cause errors. For example, ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b", "zones/us-west1-a"]
-             * contains 2 regions "us-central1" and "us-west1". An error is expected in this case.
-             */
-            allowedLocations?:
-                string[];
-        }
-        interface LogsPolicy {
-            /** Optional. Additional settings for Cloud Logging. It will only take effect when the destination of LogsPolicy is set to CLOUD_LOGGING. */
-            cloudLoggingOption?:
-                any;
-            /** Where logs should be saved. */
-            destination?:
-                string;
-            /**
-             * The path to which logs are saved when the destination = PATH. This can be a local file path on the VM, or under the mount point of a Persistent Disk or Filestore, or a Cloud Storage
-             * path.
-             */
-            logsPath?:
-                string;
-        }
-        interface Message {
-            /** The new job state. */
-            newJobState?:
-                string;
-            /** The new task state. */
-            newTaskState?:
-                string;
-            /** The message type. */
-            type?:
-                string;
-        }
-        interface NetworkInterface {
-            /**
-             * The URL of an existing network resource. You can specify the network as a full or partial URL. For example, the following are all valid URLs: *
-             * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} * projects/{project}/global/networks/{network} * global/networks/{network}
-             */
-            network?:
-                string;
-            /**
-             * Default is false (with an external IP address). Required if no external public IP address is attached to the VM. If no external public IP address, additional configuration is
-             * required to allow the VM to access Google Services. See https://cloud.google.com/vpc/docs/configure-private-google-access and
-             * https://cloud.google.com/nat/docs/gce-example#create-nat for more information.
-             */
-            noExternalIpAddress?:
-                boolean;
-            /**
-             * The URL of an existing subnetwork resource in the network. You can specify the subnetwork as a full or partial URL. For example, the following are all valid URLs: *
-             * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork} * projects/{project}/regions/{region}/subnetworks/{subnetwork} *
-             * regions/{region}/subnetworks/{subnetwork}
-             */
-            subnetwork?:
-                string;
-        }
-        interface NetworkPolicy {
-            /** Network configurations. */
-            networkInterfaces?:
-                NetworkInterface[];
-        }
-        interface NFS {
-            /** Remote source path exported from the NFS, e.g., "/share". */
-            remotePath?:
-                string;
-            /** The IP address of the NFS. */
-            server?:
-                string;
-        }
-        interface Operation {
-            /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
-            done?:
-                boolean;
-            /** The error result of the operation in case of failure or cancellation. */
-            error?:
-                Status;
-            /**
-             * Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such
-             * metadata. Any method that returns a long-running operation should document the metadata type, if any.
-             */
-            metadata?:
-                { [P in string]: any };
-            /**
-             * The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending
-             * with `operations/{unique_id}`.
-             */
-            name?:
-                string;
-            /**
-             * The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original
-             * method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original
-             * method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
-             */
-            response?:
-                { [P in string]: any };
-        }
-        interface OperationMetadata {
-            /** Output only. API version used to start the operation. */
-            apiVersion?:
-                string;
-            /** Output only. The time the operation was created. */
-            createTime?:
-                string;
-            /** Output only. The time the operation finished running. */
-            endTime?:
-                string;
-            /**
-             * Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            requestedCancellation?:
-                boolean;
-            /** Output only. Human-readable status of the operation, if any. */
-            statusMessage?:
-                string;
-            /** Output only. Server-defined resource path for the target of the operation. */
-            target?:
-                string;
-            /** Output only. Name of the verb executed by the operation. */
-            verb?:
-                string;
-        }
-        interface PlacementPolicy {
-            /**
-             * UNSPECIFIED vs. COLLOCATED (default UNSPECIFIED). Use COLLOCATED when you want VMs to be located close to each other for low network latency between the VMs. No placement policy
-             * will be generated when collocation is UNSPECIFIED.
-             */
-            collocation?:
-                string;
-            /**
-             * When specified, causes the job to fail if more than max_distance logical switches are required between VMs. Batch uses the most compact possible placement of VMs even when
-             * max_distance is not specified. An explicit max_distance makes that level of compactness a strict requirement. Not yet implemented
-             */
-            maxDistance?:
-                string;
-        }
-        interface ReportAgentStateRequest {
-            /** Agent info. */
-            agentInfo?:
-                AgentInfo;
-            /** Agent timing info. */
-            agentTimingInfo?:
-                AgentTimingInfo;
-            /** Agent metadata. */
-            metadata?:
-                AgentMetadata;
-        }
-        interface ReportAgentStateResponse {
-            /** Default report interval override */
-            defaultReportInterval?:
-                string;
-            /** Minimum report interval override */
-            minReportInterval?:
-                string;
-            /** Tasks assigned to the agent */
-            tasks?:
-                AgentTask[];
-            /** If true, the cloud logging for batch agent will use batch.googleapis.com/Job as monitored resource for Batch job related logging. */
-            useBatchMonitoredResource?:
-                boolean;
-        }
-        interface Runnable {
-            /**
-             * By default, after a Runnable fails, no further Runnable are executed. This flag indicates that this Runnable must be run even if the Task has already failed. This is useful for
-             * Runnables that copy output files off of the VM or for debugging. The always_run flag does not override the Task's overall max_run_duration. If the max_run_duration has expired then
-             * no further Runnables will execute, not even always_run Runnables.
-             */
-            alwaysRun?:
-                boolean;
-            /**
-             * This flag allows a Runnable to continue running in the background while the Task executes subsequent Runnables. This is useful to provide services to other Runnables (or to provide
-             * debugging support tools like SSH servers).
-             */
-            background?:
-                boolean;
-            /** Barrier runnable. */
-            barrier?:
-                Barrier;
-            /** Container runnable. */
-            container?:
-                Container;
-            /**
-             * Optional. DisplayName is an optional field that can be provided by the caller. If provided, it will be used in logs and other outputs to identify the script, making it easier for
-             * users to understand the logs. If not provided the index of the runnable will be used for outputs.
-             */
-            displayName?:
-                string;
-            /** Environment variables for this Runnable (overrides variables set for the whole Task or TaskGroup). */
-            environment?:
-                Environment;
-            /** Normally, a non-zero exit status causes the Task to fail. This flag allows execution of other Runnables to continue instead. */
-            ignoreExitStatus?:
-                boolean;
-            /** Labels for this Runnable. */
-            labels?:
-                { [P in string]: string };
-            /** Script runnable. */
-            script?:
-                Script;
-            /** Timeout for this Runnable. */
-            timeout?:
-                string;
-        }
-        interface Script {
-            /**
-             * Script file path on the host VM. To specify an interpreter, please add a `#!`(also known as [shebang line](https://en.wikipedia.org/wiki/Shebang_(Unix))) as the first line of the
-             * file.(For example, to execute the script using bash, `#!/bin/bash` should be the first line of the file. To execute the script using`Python3`, `#!/usr/bin/env python3` should be the
-             * first line of the file.) Otherwise, the file will by default be excuted by `/bin/sh`.
-             */
-            path?:
-                string;
-            /**
-             * Shell script text. To specify an interpreter, please add a `#!\n` at the beginning of the text.(For example, to execute the script using bash, `#!/bin/bash\n` should be added. To
-             * execute the script using`Python3`, `#!/usr/bin/env python3\n` should be added.) Otherwise, the script will by default be excuted by `/bin/sh`.
-             */
-            text?:
-                string;
-        }
-        interface ServiceAccount {
-            /**
-             * Email address of the service account. If not specified, the default Compute Engine service account for the project will be used. If instance template is being used, the service
-             * account has to be specified in the instance template and it has to match the email field here.
-             */
-            email?:
-                string;
-            /** List of scopes to be enabled for this service account on the VM, in addition to the cloud-platform API scope that will be added by default. */
-            scopes?:
-                string[];
-        }
-        interface Status {
-            /** The status code, which should be an enum value of google.rpc.Code. */
-            code?:
-                number;
-            /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
-            details?:
-                Array<{ [P in string]: any }>;
-            /**
-             * A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the
-             * client.
-             */
-            message?:
-                string;
-        }
-        interface StatusEvent {
-            /** Description of the event. */
-            description?:
-                string;
-            /** The time this event occurred. */
-            eventTime?:
-                string;
-            /** Task Execution */
-            taskExecution?:
-                TaskExecution;
-            /** Task State */
-            taskState?:
-                string;
-            /** Type of the event. */
-            type?:
-                string;
-        }
-        interface Task {
-            /** Task name. The name is generated from the parent TaskGroup name and 'id' field. For example: "projects/123456/locations/us-west1/jobs/job01/taskGroups/group01/tasks/task01". */
-            name?:
-                string;
-            /** Task Status. */
-            status?:
-                TaskStatus;
-        }
-        interface TaskExecution {
-            /** When task is completed as the status of FAILED or SUCCEEDED, exit code is for one task execution result, default is 0 as success. */
-            exitCode?:
-                number;
-        }
-        interface TaskGroup {
-            /** Output only. TaskGroup name. The system generates this field based on parent Job name. For example: "projects/123456/locations/us-west1/jobs/job01/taskGroups/group01". */
-            name?:
-                string;
-            /**
-             * Max number of tasks that can run in parallel. Default to min(task_count, parallel tasks per job limit). See: [Job Limits](https://cloud.google.com/batch/quotas#job_limits). Field
-             * parallelism must be 1 if the scheduling_policy is IN_ORDER.
-             */
-            parallelism?:
-                string;
-            /** When true, Batch will configure SSH to allow passwordless login between VMs running the Batch tasks in the same TaskGroup. */
-            permissiveSsh?:
-                boolean;
-            /** When true, Batch will populate a file with a list of all VMs assigned to the TaskGroup and set the BATCH_HOSTS_FILE environment variable to the path of that file. Defaults to false. */
-            requireHostsFile?:
-                boolean;
-            /** Scheduling policy for Tasks in the TaskGroup. The default value is AS_SOON_AS_POSSIBLE. */
-            schedulingPolicy?:
-                string;
-            /** Number of Tasks in the TaskGroup. Default is 1. */
-            taskCount?:
-                string;
-            /** Max number of tasks that can be run on a VM at the same time. If not specified, the system will decide a value based on available compute resources on a VM and task requirements. */
-            taskCountPerNode?:
-                string;
-            /**
-             * An array of environment variable mappings, which are passed to Tasks with matching indices. If task_environments is used then task_count should not be specified in the request (and
-             * will be ignored). Task count will be the length of task_environments. Tasks get a BATCH_TASK_INDEX and BATCH_TASK_COUNT environment variable, in addition to any environment
-             * variables set in task_environments, specifying the number of Tasks in the Task's parent TaskGroup, and the specific Task's index in the TaskGroup (0 through BATCH_TASK_COUNT - 1).
-             */
-            taskEnvironments?:
-                Environment[];
-            /** Required. Tasks in the group share the same task spec. */
-            taskSpec?:
-                TaskSpec;
-        }
-        interface TaskGroupStatus {
-            /** Count of task in each state in the TaskGroup. The map key is task state name. */
-            counts?:
-                { [P in string]: string };
-            /** Status of instances allocated for the TaskGroup. */
-            instances?:
-                InstanceStatus[];
-        }
-        interface TaskSpec {
-            /** ComputeResource requirements. */
-            computeResource?:
-                ComputeResource;
-            /** Environment variables to set before running the Task. */
-            environment?:
-                Environment;
-            /** Deprecated: please use environment(non-plural) instead. */
-            environments?:
-                { [P in string]: string };
-            /**
-             * Lifecycle management schema when any task in a task group is failed. Currently we only support one lifecycle policy. When the lifecycle policy condition is met, the action in the
-             * policy will execute. If task execution result does not meet with the defined lifecycle policy, we consider it as the default policy. Default policy means if the exit code is 0, exit
-             * task. If task ends with non-zero exit code, retry the task with max_retry_count.
-             */
-            lifecyclePolicies?:
-                LifecyclePolicy[];
-            /** Maximum number of retries on failures. The default, 0, which means never retry. The valid value range is [0, 10]. */
-            maxRetryCount?:
-                number;
-            /** Maximum duration the task should run. The task will be killed and marked as FAILED if over this limit. */
-            maxRunDuration?:
-                string;
-            /**
-             * The sequence of scripts or containers to run for this Task. Each Task using this TaskSpec executes its list of runnables in order. The Task succeeds if all of its runnables either
-             * exit with a zero status or any that exit with a non-zero status have the ignore_exit_status flag. Background runnables are killed automatically (if they have not already exited) a
-             * short time after all foreground runnables have completed. Even though this is likely to result in a non-zero exit status for the background runnable, these automatic kills are not
-             * treated as Task failures.
-             */
-            runnables?:
-                Runnable[];
-            /** Volumes to mount before running Tasks using this TaskSpec. */
-            volumes?:
-                Volume[];
-        }
-        interface TaskStatus {
-            /** Task state */
-            state?:
-                string;
-            /** Detailed info about why the state is reached. */
-            statusEvents?:
-                StatusEvent[];
-        }
-        interface Volume {
-            /**
-             * Device name of an attached disk volume, which should align with a device_name specified by job.allocation_policy.instances[0].policy.disks[i].device_name or defined by the given
-             * instance template in job.allocation_policy.instances[0].instance_template.
-             */
-            deviceName?:
-                string;
-            /** A Google Cloud Storage (GCS) volume. */
-            gcs?:
-                GCS;
-            /**
-             * For Google Cloud Storage (GCS), mount options are the options supported by the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse). For existing persistent disks, mount
-             * options provided by the mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except writing are supported. This is due to restrictions of multi-writer mode
-             * (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms). For other attached disks and Network File System (NFS), mount options are these supported by the mount
-             * command (https://man7.org/linux/man-pages/man8/mount.8.html).
-             */
-            mountOptions?:
-                string[];
-            /** The mount path for the volume, e.g. /mnt/disks/share. */
-            mountPath?:
-                string;
-            /** A Network File System (NFS) volume. For example, a Filestore file share. */
-            nfs?:
-                NFS;
-        }
-        interface TasksResource {
-            /** Return a single Task. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Task name. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Task>;
-            /** List Tasks associated with a job. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** Task filter, null filter matches all Tasks. Filter string should be of the format State=TaskStatus.State e.g. State=RUNNING */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Page size. */
-                pageSize?:
-                    number;
-                /** Page token. */
-                pageToken?:
-                    string;
-                /** Required. Name of a TaskGroup from which Tasks are being requested. Pattern: "projects/{project}/locations/{location}/jobs/{job}/taskGroups/{task_group}" */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListTasksResponse>;
-        }
-        interface TaskGroupsResource {
-            tasks:
-                TasksResource;
-        }
-        interface JobsResource {
-            /** Create a Job. */
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * ID used to uniquely identify the Job within its parent scope. This field should contain at most 63 characters and must start with lowercase characters. Only lowercase
-                 * characters, numbers and '-' are accepted. The '-' character cannot be the first or the last one. A system generated ID will be used if the field is not set. The job.name field
-                 * in the request will be ignored and the created resource name of the Job will be "{parent}/jobs/{job_id}".
-                 */
-                jobId?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent resource name where the Job will be created. Pattern: "projects/{project}/locations/{location}" */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    Job;
-            }): Request<Job>;
-            create(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * ID used to uniquely identify the Job within its parent scope. This field should contain at most 63 characters and must start with lowercase characters. Only lowercase
-                 * characters, numbers and '-' are accepted. The '-' character cannot be the first or the last one. A system generated ID will be used if the field is not set. The job.name field
-                 * in the request will be ignored and the created resource name of the Job will be "{parent}/jobs/{job_id}".
-                 */
-                jobId?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. The parent resource name where the Job will be created. Pattern: "projects/{project}/locations/{location}" */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: Job): Request<Job>;
-            /** Delete a Job. */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Job name. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Optional. Reason for this deletion. */
-                reason?:
-                    string;
-                /**
-                 * Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has
-                 * already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and
-                 * the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will
-                 * ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not
-                 * supported (00000000-0000-0000-0000-000000000000).
-                 */
-                requestId?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Get a Job specified by its resource name. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Required. Job name. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Job>;
-            /** List all Jobs for a project within a region. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** List filter. */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Optional. Sort results. Supported are "name", "name desc", "create_time", and "create_time desc". */
-                orderBy?:
-                    string;
-                /** Page size. */
-                pageSize?:
-                    number;
-                /** Page token. */
-                pageToken?:
-                    string;
-                /** Parent path. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListJobsResponse>;
-            taskGroups:
-                TaskGroupsResource;
-        }
-        interface OperationsResource {
-            /**
-             * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support
-             * this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the
-             * operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a
-             * google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
-             */
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    CancelOperationRequest;
-            }): Request<{}>;
-            cancel(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be cancelled. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: CancelOperationRequest): Request<{}>;
-            /**
-             * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't
-             * support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-             */
-            delete(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource to be deleted. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<{}>;
-            /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Operation>;
-            /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** The standard list filter. */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The name of the operation's parent resource. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The standard list page size. */
-                pageSize?:
-                    number;
-                /** The standard list page token. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListOperationsResponse>;
-        }
-        interface StateResource {
-            /** Report agent's state, e.g. agent status and tasks information */
-            report(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Format: projects/{project}/locations/{location} {project} should be a project number. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    ReportAgentStateRequest;
-            }): Request<ReportAgentStateResponse>;
-            report(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Required. Format: projects/{project}/locations/{location} {project} should be a project number. */
-                parent:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: ReportAgentStateRequest): Request<ReportAgentStateResponse>;
-        }
-        interface LocationsResource {
-            /** Gets information about a location. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Resource name for the location. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<Location>;
-            /** Lists information about the supported locations for this service. */
-            list(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /**
-                 * A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in
-                 * [AIP-160](https://google.aip.dev/160).
-                 */
-                filter?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** The resource that owns the locations collection, if applicable. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** The maximum number of results to return. If not set, the service selects a default. */
-                pageSize?:
-                    number;
-                /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
-                pageToken?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<ListLocationsResponse>;
-            jobs:
-                JobsResource;
-            operations:
-                OperationsResource;
-            state:
-                StateResource;
-        }
-        interface ProjectsResource {
-            locations:
-                LocationsResource;
-        }
-
-        const projects: ProjectsResource;
+  namespace batch {
+    interface Accelerator {
+      /** The number of accelerators of this type. */
+      count?: string;
+      /** Optional. The NVIDIA GPU driver version that should be installed for this type. You can define the specific driver version such as "470.103.01", following the driver version requirements in https://cloud.google.com/compute/docs/gpus/install-drivers-gpu#minimum-driver. Batch will install the specific accelerator driver if qualified. */
+      driverVersion?: string;
+      /** Deprecated: please use instances[0].install_gpu_drivers instead. */
+      installGpuDrivers?: boolean;
+      /** The accelerator type. For example, "nvidia-tesla-t4". See `gcloud compute accelerator-types list`. */
+      type?: string;
     }
+    interface ActionCondition {
+      /** Exit codes of a task execution. If there are more than 1 exit codes, when task executes with any of the exit code in the list, the condition is met and the action will be executed. */
+      exitCodes?: number[];
+    }
+    interface AgentContainer {
+      /** Overrides the `CMD` specified in the container. If there is an ENTRYPOINT (either in the container image or with the entrypoint field below) then commands are appended as arguments to the ENTRYPOINT. */
+      commands?: string[];
+      /** Overrides the `ENTRYPOINT` specified in the container. */
+      entrypoint?: string;
+      /** The URI to pull the container image from. */
+      imageUri?: string;
+      /** Arbitrary additional options to include in the "docker run" command when running this container, e.g. "--network host". */
+      options?: string;
+      /** Volumes to mount (bind mount) from the host machine files or directories into the container, formatted to match docker run's --volume option, e.g. /foo:/bar, or /foo:/bar:ro */
+      volumes?: string[];
+    }
+    interface AgentEnvironment {
+      /** An encrypted JSON dictionary where the key/value pairs correspond to environment variable names and their values. */
+      encryptedVariables?: AgentKMSEnvMap;
+      /** A map of environment variable names to Secret Manager secret names. The VM will access the named secrets to set the value of each environment variable. */
+      secretVariables?: {[P in string]: string};
+      /** A map of environment variable names to values. */
+      variables?: {[P in string]: string};
+    }
+    interface AgentInfo {
+      /** Optional. The assigned Job ID */
+      jobId?: string;
+      /** When the AgentInfo is generated. */
+      reportTime?: string;
+      /** Agent state. */
+      state?: string;
+      /** The assigned task group ID. */
+      taskGroupId?: string;
+      /** Task Info. */
+      tasks?: AgentTaskInfo[];
+    }
+    interface AgentKMSEnvMap {
+      /** The value of the cipherText response from the `encrypt` method. */
+      cipherText?: string;
+      /** The name of the KMS key that will be used to decrypt the cipher text. */
+      keyName?: string;
+    }
+    interface AgentMetadata {
+      /** When the VM agent started. Use agent_startup_time instead. */
+      creationTime?: string;
+      /** Full name of the entity that created this vm. For MIG, this path is: projects/{project}/regions/{region}/InstanceGroupManagers/{igm} The value is retrieved from the vm metadata key of "created-by". */
+      creator?: string;
+      /** image version for the VM that this agent is installed on. */
+      imageVersion?: string;
+      /** GCP instance name (go/instance-name). */
+      instance?: string;
+      /** GCP instance ID (go/instance-id). */
+      instanceId?: string;
+      /** If the GCP instance has received preemption notice. */
+      instancePreemptionNoticeReceived?: boolean;
+      /** parsed contents of /etc/os-release */
+      osRelease?: {[P in string]: string};
+      /** agent binary version running on VM */
+      version?: string;
+      /** Agent zone. */
+      zone?: string;
+    }
+    interface AgentScript {
+      /** Script file path on the host VM. To specify an interpreter, please add a `#!`(also known as [shebang line](https://en.wikipedia.org/wiki/Shebang_(Unix))) as the first line of the file.(For example, to execute the script using bash, `#!/bin/bash` should be the first line of the file. To execute the script using`Python3`, `#!/usr/bin/env python3` should be the first line of the file.) Otherwise, the file will by default be excuted by `/bin/sh`. */
+      path?: string;
+      /** Shell script text. To specify an interpreter, please add a `#!\n` at the beginning of the text.(For example, to execute the script using bash, `#!/bin/bash\n` should be added. To execute the script using`Python3`, `#!/usr/bin/env python3\n` should be added.) Otherwise, the script will by default be excuted by `/bin/sh`. */
+      text?: string;
+    }
+    interface AgentTask {
+      /** AgentTaskSpec is the taskSpec representation between Agent and CLH communication. This field will replace the TaskSpec field above in future to have a better separation between user-facaing API and internal API. */
+      agentTaskSpec?: AgentTaskSpec;
+      /** The intended state of the task. */
+      intendedState?: string;
+      /** The highest barrier reached by all tasks in the task's TaskGroup. */
+      reachedBarrier?: string;
+      /** Task Spec. This field will be replaced by agent_task_spec below in future. */
+      spec?: TaskSpec;
+      /** Task status. */
+      status?: TaskStatus;
+      /** Task name. */
+      task?: string;
+      /** TaskSource represents the source of the task. */
+      taskSource?: string;
+    }
+    interface AgentTaskInfo {
+      /** The highest index of a runnable started by the agent for this task. The runnables are indexed from 1. Value 0 is undefined. */
+      runnable?: string;
+      /** ID of the Task */
+      taskId?: string;
+      /** The status of the Task. If we need agent specific fields we should fork the public TaskStatus into an agent specific one. Or add them below. */
+      taskStatus?: TaskStatus;
+    }
+    interface AgentTaskRunnable {
+      /** By default, after a Runnable fails, no further Runnable are executed. This flag indicates that this Runnable must be run even if the Task has already failed. This is useful for Runnables that copy output files off of the VM or for debugging. The always_run flag does not override the Task's overall max_run_duration. If the max_run_duration has expired then no further Runnables will execute, not even always_run Runnables. */
+      alwaysRun?: boolean;
+      /** This flag allows a Runnable to continue running in the background while the Task executes subsequent Runnables. This is useful to provide services to other Runnables (or to provide debugging support tools like SSH servers). */
+      background?: boolean;
+      /** Container runnable. */
+      container?: AgentContainer;
+      /** Environment variables for this Runnable (overrides variables set for the whole Task or TaskGroup). */
+      environment?: AgentEnvironment;
+      /** Normally, a non-zero exit status causes the Task to fail. This flag allows execution of other Runnables to continue instead. */
+      ignoreExitStatus?: boolean;
+      /** Script runnable. */
+      script?: AgentScript;
+      /** Timeout for this Runnable. */
+      timeout?: string;
+    }
+    interface AgentTaskSpec {
+      /** Environment variables to set before running the Task. */
+      environment?: AgentEnvironment;
+      /** Maximum duration the task should run. The task will be killed and marked as FAILED if over this limit. */
+      maxRunDuration?: string;
+      /** AgentTaskRunnable is runanbles that will be executed on the agent. */
+      runnables?: AgentTaskRunnable[];
+      /** User account on the VM to run the runnables in the agentTaskSpec. If not set, the runnable will be run under root user. */
+      userAccount?: AgentTaskUserAccount;
+    }
+    interface AgentTaskUserAccount {
+      /** gid id an unique identifier of the POSIX account group corresponding to the user account. */
+      gid?: string;
+      /** uid is an unique identifier of the POSIX account corresponding to the user account. */
+      uid?: string;
+    }
+    interface AgentTimingInfo {
+      /** Agent startup time */
+      agentStartupTime?: string;
+      /** Boot timestamp of the VM OS */
+      bootTime?: string;
+      /** Startup time of the Batch VM script. */
+      scriptStartupTime?: string;
+    }
+    interface AllocationPolicy {
+      /** Describe instances that can be created by this AllocationPolicy. Only instances[0] is supported now. */
+      instances?: InstancePolicyOrTemplate[];
+      /** Labels applied to all VM instances and other resources created by AllocationPolicy. Labels could be user provided or system generated. You can assign up to 64 labels. [Google Compute Engine label restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) apply. Label names that start with "goog-" or "google-" are reserved. */
+      labels?: {[P in string]: string};
+      /** Location where compute resources should be allocated for the Job. */
+      location?: LocationPolicy;
+      /** The network policy. If you define an instance template in the InstancePolicyOrTemplate field, Batch will use the network settings in the instance template instead of this field. */
+      network?: NetworkPolicy;
+      /** The placement policy. */
+      placement?: PlacementPolicy;
+      /** Service account that VMs will run as. */
+      serviceAccount?: ServiceAccount;
+    }
+    interface AttachedDisk {
+      /** Device name that the guest operating system will see. It is used by Runnable.volumes field to mount disks. So please specify the device_name if you want Batch to help mount the disk, and it should match the device_name field in volumes. */
+      deviceName?: string;
+      /** Name of an existing PD. */
+      existingDisk?: string;
+      newDisk?: Disk;
+    }
+    interface Barrier {
+      /** Barriers are identified by their index in runnable list. Names are not required, but if present should be an identifier. */
+      name?: string;
+    }
+    interface CancelOperationRequest {}
+    interface CloudLoggingOption {}
+    interface ComputeResource {
+      /** Extra boot disk size in MiB for each task. */
+      bootDiskMib?: string;
+      /** The milliCPU count. `cpuMilli` defines the amount of CPU resources per task in milliCPU units. For example, `1000` corresponds to 1 vCPU per task. If undefined, the default value is `2000`. If you also define the VM's machine type using the `machineType` in [InstancePolicy](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy) field or inside the `instanceTemplate` in the [InstancePolicyOrTemplate](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate) field, make sure the CPU resources for both fields are compatible with each other and with how many tasks you want to allow to run on the same VM at the same time. For example, if you specify the `n2-standard-2` machine type, which has 2 vCPUs each, you are recommended to set `cpuMilli` no more than `2000`, or you are recommended to run two tasks on the same VM if you set `cpuMilli` to `1000` or less. */
+      cpuMilli?: string;
+      /** Memory in MiB. `memoryMib` defines the amount of memory per task in MiB units. If undefined, the default value is `2000`. If you also define the VM's machine type using the `machineType` in [InstancePolicy](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy) field or inside the `instanceTemplate` in the [InstancePolicyOrTemplate](https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate) field, make sure the memory resources for both fields are compatible with each other and with how many tasks you want to allow to run on the same VM at the same time. For example, if you specify the `n2-standard-2` machine type, which has 8 GiB each, you are recommended to set `memoryMib` to no more than `8192`, or you are recommended to run two tasks on the same VM if you set `memoryMib` to `4096` or less. */
+      memoryMib?: string;
+    }
+    interface Container {
+      /** If set to true, external network access to and from container will be blocked, containers that are with block_external_network as true can still communicate with each other, network cannot be specified in the `container.options` field. */
+      blockExternalNetwork?: boolean;
+      /** Overrides the `CMD` specified in the container. If there is an ENTRYPOINT (either in the container image or with the entrypoint field below) then commands are appended as arguments to the ENTRYPOINT. */
+      commands?: string[];
+      /** Overrides the `ENTRYPOINT` specified in the container. */
+      entrypoint?: string;
+      /** The URI to pull the container image from. */
+      imageUri?: string;
+      /** Arbitrary additional options to include in the "docker run" command when running this container, e.g. "--network host". */
+      options?: string;
+      /** Optional password for logging in to a docker registry. If password matches `projects/*‍/secrets/*‍/versions/*` then Batch will read the password from the Secret Manager; */
+      password?: string;
+      /** Optional username for logging in to a docker registry. If username matches `projects/*‍/secrets/*‍/versions/*` then Batch will read the username from the Secret Manager. */
+      username?: string;
+      /** Volumes to mount (bind mount) from the host machine files or directories into the container, formatted to match docker run's --volume option, e.g. /foo:/bar, or /foo:/bar:ro If the `TaskSpec.Volumes` field is specified but this field is not, Batch will mount each volume from the host machine to the container with the same mount path by default. In this case, the default mount option for containers will be read-only (ro) for existing persistent disks and read-write (rw) for other volume types, regardless of the original mount options specified in `TaskSpec.Volumes`. If you need different mount settings, you can explicitly configure them in this field. */
+      volumes?: string[];
+    }
+    interface Disk {
+      /** Local SSDs are available through both "SCSI" and "NVMe" interfaces. If not indicated, "NVMe" will be the default one for local ssds. This field is ignored for persistent disks as the interface is chosen automatically. See https://cloud.google.com/compute/docs/disks/persistent-disks#choose_an_interface. */
+      diskInterface?: string;
+      /** URL for a VM image to use as the data source for this disk. For example, the following are all valid URLs: * Specify the image by its family name: projects/{project}/global/images/family/{image_family} * Specify the image version: projects/{project}/global/images/{image_version} You can also use Batch customized image in short names. The following image values are supported for a boot disk: * `batch-debian`: use Batch Debian images. * `batch-centos`: use Batch CentOS images. * `batch-cos`: use Batch Container-Optimized images. * `batch-hpc-centos`: use Batch HPC CentOS images. * `batch-hpc-rocky`: use Batch HPC Rocky Linux images. */
+      image?: string;
+      /** Disk size in GB. **Non-Boot Disk**: If the `type` specifies a persistent disk, this field is ignored if `data_source` is set as `image` or `snapshot`. If the `type` specifies a local SSD, this field should be a multiple of 375 GB, otherwise, the final size will be the next greater multiple of 375 GB. **Boot Disk**: Batch will calculate the boot disk size based on source image and task requirements if you do not speicify the size. If both this field and the `boot_disk_mib` field in task spec's `compute_resource` are defined, Batch will only honor this field. Also, this field should be no smaller than the source disk's size when the `data_source` is set as `snapshot` or `image`. For example, if you set an image as the `data_source` field and the image's default disk size 30 GB, you can only use this field to make the disk larger or equal to 30 GB. */
+      sizeGb?: string;
+      /** Name of a snapshot used as the data source. Snapshot is not supported as boot disk now. */
+      snapshot?: string;
+      /** Disk type as shown in `gcloud compute disk-types list`. For example, local SSD uses type "local-ssd". Persistent disks and boot disks use "pd-balanced", "pd-extreme", "pd-ssd" or "pd-standard". */
+      type?: string;
+    }
+    interface Empty {}
+    interface Environment {
+      /** An encrypted JSON dictionary where the key/value pairs correspond to environment variable names and their values. */
+      encryptedVariables?: KMSEnvMap;
+      /** A map of environment variable names to Secret Manager secret names. The VM will access the named secrets to set the value of each environment variable. */
+      secretVariables?: {[P in string]: string};
+      /** A map of environment variable names to values. */
+      variables?: {[P in string]: string};
+    }
+    interface GCS {
+      /** Remote path, either a bucket name or a subdirectory of a bucket, e.g.: bucket_name, bucket_name/subdirectory/ */
+      remotePath?: string;
+    }
+    interface InstancePolicy {
+      /** The accelerators attached to each VM instance. */
+      accelerators?: Accelerator[];
+      /** Boot disk to be created and attached to each VM by this InstancePolicy. Boot disk will be deleted when the VM is deleted. Batch API now only supports booting from image. */
+      bootDisk?: Disk;
+      /** Non-boot disks to be attached for each VM created by this InstancePolicy. New disks will be deleted when the VM is deleted. A non-boot disk is a disk that can be of a device with a file system or a raw storage drive that is not ready for data storage and accessing. */
+      disks?: AttachedDisk[];
+      /** The Compute Engine machine type. */
+      machineType?: string;
+      /** The minimum CPU platform. See https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform. */
+      minCpuPlatform?: string;
+      /** The provisioning model. */
+      provisioningModel?: string;
+      /** Optional. If specified, VMs will consume only the specified reservation. If not specified (default), VMs will consume any applicable reservation. */
+      reservation?: string;
+    }
+    interface InstancePolicyOrTemplate {
+      /** Set this field true if users want Batch to help fetch drivers from a third party location and install them for GPUs specified in policy.accelerators or instance_template on their behalf. Default is false. For Container-Optimized Image cases, Batch will install the accelerator driver following milestones of https://cloud.google.com/container-optimized-os/docs/release-notes. For non Container-Optimized Image cases, following https://github.com/GoogleCloudPlatform/compute-gpu-installation/blob/main/linux/install_gpu_driver.py. */
+      installGpuDrivers?: boolean;
+      /** Name of an instance template used to create VMs. Named the field as 'instance_template' instead of 'template' to avoid c++ keyword conflict. */
+      instanceTemplate?: string;
+      /** InstancePolicy. */
+      policy?: InstancePolicy;
+    }
+    interface InstanceStatus {
+      /** The VM boot disk. */
+      bootDisk?: Disk;
+      /** The Compute Engine machine type. */
+      machineType?: string;
+      /** The VM instance provisioning model. */
+      provisioningModel?: string;
+      /** The max number of tasks can be assigned to this instance type. */
+      taskPack?: string;
+    }
+    interface Job {
+      /** Compute resource allocation for all TaskGroups in the Job. */
+      allocationPolicy?: AllocationPolicy;
+      /** Output only. When the Job was created. */
+      createTime?: string;
+      /** Labels for the Job. Labels could be user provided or system generated. For example, "labels": { "department": "finance", "environment": "test" } You can assign up to 64 labels. [Google Compute Engine label restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions) apply. Label names that start with "goog-" or "google-" are reserved. */
+      labels?: {[P in string]: string};
+      /** Log preservation policy for the Job. */
+      logsPolicy?: LogsPolicy;
+      /** Output only. Job name. For example: "projects/123456/locations/us-central1/jobs/job01". */
+      name?: string;
+      /** Notification configurations. */
+      notifications?: JobNotification[];
+      /** Priority of the Job. The valid value range is [0, 100). Default value is 0. Higher value indicates higher priority. A job with higher priority value is more likely to run earlier if all other requirements are satisfied. */
+      priority?: string;
+      /** Output only. Job status. It is read only for users. */
+      status?: JobStatus;
+      /** Required. TaskGroups in the Job. Only one TaskGroup is supported now. */
+      taskGroups?: TaskGroup[];
+      /** Output only. A system generated unique ID (in UUID4 format) for the Job. */
+      uid?: string;
+      /** Output only. The last time the Job was updated. */
+      updateTime?: string;
+    }
+    interface JobNotification {
+      /** The attribute requirements of messages to be sent to this Pub/Sub topic. Without this field, no message will be sent. */
+      message?: Message;
+      /** The Pub/Sub topic where notifications like the job state changes will be published. The topic must exist in the same project as the job and billings will be charged to this project. If not specified, no Pub/Sub messages will be sent. Topic format: `projects/{project}/topics/{topic}`. */
+      pubsubTopic?: string;
+    }
+    interface JobStatus {
+      /** The duration of time that the Job spent in status RUNNING. */
+      runDuration?: string;
+      /** Job state */
+      state?: string;
+      /** Job status events */
+      statusEvents?: StatusEvent[];
+      /** Aggregated task status for each TaskGroup in the Job. The map key is TaskGroup ID. */
+      taskGroups?: {[P in string]: TaskGroupStatus};
+    }
+    interface KMSEnvMap {
+      /** The value of the cipherText response from the `encrypt` method. */
+      cipherText?: string;
+      /** The name of the KMS key that will be used to decrypt the cipher text. */
+      keyName?: string;
+    }
+    interface LifecyclePolicy {
+      /** Action to execute when ActionCondition is true. When RETRY_TASK is specified, we will retry failed tasks if we notice any exit code match and fail tasks if no match is found. Likewise, when FAIL_TASK is specified, we will fail tasks if we notice any exit code match and retry tasks if no match is found. */
+      action?: string;
+      /** Conditions that decide why a task failure is dealt with a specific action. */
+      actionCondition?: ActionCondition;
+    }
+    interface ListJobsResponse {
+      /** Jobs. */
+      jobs?: Job[];
+      /** Next page token. */
+      nextPageToken?: string;
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface ListLocationsResponse {
+      /** A list of locations that matches the specified filter in the request. */
+      locations?: Location[];
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+    }
+    interface ListOperationsResponse {
+      /** The standard List next-page token. */
+      nextPageToken?: string;
+      /** A list of operations that matches the specified filter in the request. */
+      operations?: Operation[];
+    }
+    interface ListTasksResponse {
+      /** Next page token. */
+      nextPageToken?: string;
+      /** Tasks. */
+      tasks?: Task[];
+      /** Locations that could not be reached. */
+      unreachable?: string[];
+    }
+    interface Location {
+      /** The friendly name for this location, typically a nearby city name. For example, "Tokyo". */
+      displayName?: string;
+      /** Cross-service attributes for the location. For example {"cloud.googleapis.com/region": "us-east1"} */
+      labels?: {[P in string]: string};
+      /** The canonical id for this location. For example: `"us-east1"`. */
+      locationId?: string;
+      /** Service-specific metadata. For example the available capacity at the given location. */
+      metadata?: {[P in string]: any};
+      /** Resource name for the location, which may vary between implementations. For example: `"projects/example-project/locations/us-east1"` */
+      name?: string;
+    }
+    interface LocationPolicy {
+      /** A list of allowed location names represented by internal URLs. Each location can be a region or a zone. Only one region or multiple zones in one region is supported now. For example, ["regions/us-central1"] allow VMs in any zones in region us-central1. ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs in zones us-central1-a and us-central1-c. All locations end up in different regions would cause errors. For example, ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b", "zones/us-west1-a"] contains 2 regions "us-central1" and "us-west1". An error is expected in this case. */
+      allowedLocations?: string[];
+    }
+    interface LogsPolicy {
+      /** Optional. Additional settings for Cloud Logging. It will only take effect when the destination of LogsPolicy is set to CLOUD_LOGGING. */
+      cloudLoggingOption?: any;
+      /** Where logs should be saved. */
+      destination?: string;
+      /** The path to which logs are saved when the destination = PATH. This can be a local file path on the VM, or under the mount point of a Persistent Disk or Filestore, or a Cloud Storage path. */
+      logsPath?: string;
+    }
+    interface Message {
+      /** The new job state. */
+      newJobState?: string;
+      /** The new task state. */
+      newTaskState?: string;
+      /** The message type. */
+      type?: string;
+    }
+    interface NetworkInterface {
+      /** The URL of an existing network resource. You can specify the network as a full or partial URL. For example, the following are all valid URLs: * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network} * projects/{project}/global/networks/{network} * global/networks/{network} */
+      network?: string;
+      /** Default is false (with an external IP address). Required if no external public IP address is attached to the VM. If no external public IP address, additional configuration is required to allow the VM to access Google Services. See https://cloud.google.com/vpc/docs/configure-private-google-access and https://cloud.google.com/nat/docs/gce-example#create-nat for more information. */
+      noExternalIpAddress?: boolean;
+      /** The URL of an existing subnetwork resource in the network. You can specify the subnetwork as a full or partial URL. For example, the following are all valid URLs: * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork} * projects/{project}/regions/{region}/subnetworks/{subnetwork} * regions/{region}/subnetworks/{subnetwork} */
+      subnetwork?: string;
+    }
+    interface NetworkPolicy {
+      /** Network configurations. */
+      networkInterfaces?: NetworkInterface[];
+    }
+    interface NFS {
+      /** Remote source path exported from the NFS, e.g., "/share". */
+      remotePath?: string;
+      /** The IP address of the NFS. */
+      server?: string;
+    }
+    interface Operation {
+      /** If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. */
+      done?: boolean;
+      /** The error result of the operation in case of failure or cancellation. */
+      error?: Status;
+      /** Service-specific metadata associated with the operation. It typically contains progress information and common metadata such as create time. Some services might not provide such metadata. Any method that returns a long-running operation should document the metadata type, if any. */
+      metadata?: {[P in string]: any};
+      /** The server-assigned name, which is only unique within the same service that originally returns it. If you use the default HTTP mapping, the `name` should be a resource name ending with `operations/{unique_id}`. */
+      name?: string;
+      /** The normal, successful response of the operation. If the original method returns no data on success, such as `Delete`, the response is `google.protobuf.Empty`. If the original method is standard `Get`/`Create`/`Update`, the response should be the resource. For other methods, the response should have the type `XxxResponse`, where `Xxx` is the original method name. For example, if the original method name is `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`. */
+      response?: {[P in string]: any};
+    }
+    interface OperationMetadata {
+      /** Output only. API version used to start the operation. */
+      apiVersion?: string;
+      /** Output only. The time the operation was created. */
+      createTime?: string;
+      /** Output only. The time the operation finished running. */
+      endTime?: string;
+      /** Output only. Identifies whether the user has requested cancellation of the operation. Operations that have successfully been cancelled have Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      requestedCancellation?: boolean;
+      /** Output only. Human-readable status of the operation, if any. */
+      statusMessage?: string;
+      /** Output only. Server-defined resource path for the target of the operation. */
+      target?: string;
+      /** Output only. Name of the verb executed by the operation. */
+      verb?: string;
+    }
+    interface PlacementPolicy {
+      /** UNSPECIFIED vs. COLLOCATED (default UNSPECIFIED). Use COLLOCATED when you want VMs to be located close to each other for low network latency between the VMs. No placement policy will be generated when collocation is UNSPECIFIED. */
+      collocation?: string;
+      /** When specified, causes the job to fail if more than max_distance logical switches are required between VMs. Batch uses the most compact possible placement of VMs even when max_distance is not specified. An explicit max_distance makes that level of compactness a strict requirement. Not yet implemented */
+      maxDistance?: string;
+    }
+    interface ReportAgentStateRequest {
+      /** Agent info. */
+      agentInfo?: AgentInfo;
+      /** Agent timing info. */
+      agentTimingInfo?: AgentTimingInfo;
+      /** Agent metadata. */
+      metadata?: AgentMetadata;
+    }
+    interface ReportAgentStateResponse {
+      /** Default report interval override */
+      defaultReportInterval?: string;
+      /** Minimum report interval override */
+      minReportInterval?: string;
+      /** Tasks assigned to the agent */
+      tasks?: AgentTask[];
+      /** If true, the cloud logging for batch agent will use batch.googleapis.com/Job as monitored resource for Batch job related logging. */
+      useBatchMonitoredResource?: boolean;
+    }
+    interface Runnable {
+      /** By default, after a Runnable fails, no further Runnable are executed. This flag indicates that this Runnable must be run even if the Task has already failed. This is useful for Runnables that copy output files off of the VM or for debugging. The always_run flag does not override the Task's overall max_run_duration. If the max_run_duration has expired then no further Runnables will execute, not even always_run Runnables. */
+      alwaysRun?: boolean;
+      /** This flag allows a Runnable to continue running in the background while the Task executes subsequent Runnables. This is useful to provide services to other Runnables (or to provide debugging support tools like SSH servers). */
+      background?: boolean;
+      /** Barrier runnable. */
+      barrier?: Barrier;
+      /** Container runnable. */
+      container?: Container;
+      /** Optional. DisplayName is an optional field that can be provided by the caller. If provided, it will be used in logs and other outputs to identify the script, making it easier for users to understand the logs. If not provided the index of the runnable will be used for outputs. */
+      displayName?: string;
+      /** Environment variables for this Runnable (overrides variables set for the whole Task or TaskGroup). */
+      environment?: Environment;
+      /** Normally, a non-zero exit status causes the Task to fail. This flag allows execution of other Runnables to continue instead. */
+      ignoreExitStatus?: boolean;
+      /** Labels for this Runnable. */
+      labels?: {[P in string]: string};
+      /** Script runnable. */
+      script?: Script;
+      /** Timeout for this Runnable. */
+      timeout?: string;
+    }
+    interface Script {
+      /** Script file path on the host VM. To specify an interpreter, please add a `#!`(also known as [shebang line](https://en.wikipedia.org/wiki/Shebang_(Unix))) as the first line of the file.(For example, to execute the script using bash, `#!/bin/bash` should be the first line of the file. To execute the script using`Python3`, `#!/usr/bin/env python3` should be the first line of the file.) Otherwise, the file will by default be excuted by `/bin/sh`. */
+      path?: string;
+      /** Shell script text. To specify an interpreter, please add a `#!\n` at the beginning of the text.(For example, to execute the script using bash, `#!/bin/bash\n` should be added. To execute the script using`Python3`, `#!/usr/bin/env python3\n` should be added.) Otherwise, the script will by default be excuted by `/bin/sh`. */
+      text?: string;
+    }
+    interface ServiceAccount {
+      /** Email address of the service account. If not specified, the default Compute Engine service account for the project will be used. If instance template is being used, the service account has to be specified in the instance template and it has to match the email field here. */
+      email?: string;
+      /** List of scopes to be enabled for this service account on the VM, in addition to the cloud-platform API scope that will be added by default. */
+      scopes?: string[];
+    }
+    interface Status {
+      /** The status code, which should be an enum value of google.rpc.Code. */
+      code?: number;
+      /** A list of messages that carry the error details. There is a common set of message types for APIs to use. */
+      details?: Array<{[P in string]: any}>;
+      /** A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client. */
+      message?: string;
+    }
+    interface StatusEvent {
+      /** Description of the event. */
+      description?: string;
+      /** The time this event occurred. */
+      eventTime?: string;
+      /** Task Execution */
+      taskExecution?: TaskExecution;
+      /** Task State */
+      taskState?: string;
+      /** Type of the event. */
+      type?: string;
+    }
+    interface Task {
+      /** Task name. The name is generated from the parent TaskGroup name and 'id' field. For example: "projects/123456/locations/us-west1/jobs/job01/taskGroups/group01/tasks/task01". */
+      name?: string;
+      /** Task Status. */
+      status?: TaskStatus;
+    }
+    interface TaskExecution {
+      /** When task is completed as the status of FAILED or SUCCEEDED, exit code is for one task execution result, default is 0 as success. */
+      exitCode?: number;
+    }
+    interface TaskGroup {
+      /** Output only. TaskGroup name. The system generates this field based on parent Job name. For example: "projects/123456/locations/us-west1/jobs/job01/taskGroups/group01". */
+      name?: string;
+      /** Max number of tasks that can run in parallel. Default to min(task_count, parallel tasks per job limit). See: [Job Limits](https://cloud.google.com/batch/quotas#job_limits). Field parallelism must be 1 if the scheduling_policy is IN_ORDER. */
+      parallelism?: string;
+      /** When true, Batch will configure SSH to allow passwordless login between VMs running the Batch tasks in the same TaskGroup. */
+      permissiveSsh?: boolean;
+      /** When true, Batch will populate a file with a list of all VMs assigned to the TaskGroup and set the BATCH_HOSTS_FILE environment variable to the path of that file. Defaults to false. */
+      requireHostsFile?: boolean;
+      /** Scheduling policy for Tasks in the TaskGroup. The default value is AS_SOON_AS_POSSIBLE. */
+      schedulingPolicy?: string;
+      /** Number of Tasks in the TaskGroup. Default is 1. */
+      taskCount?: string;
+      /** Max number of tasks that can be run on a VM at the same time. If not specified, the system will decide a value based on available compute resources on a VM and task requirements. */
+      taskCountPerNode?: string;
+      /** An array of environment variable mappings, which are passed to Tasks with matching indices. If task_environments is used then task_count should not be specified in the request (and will be ignored). Task count will be the length of task_environments. Tasks get a BATCH_TASK_INDEX and BATCH_TASK_COUNT environment variable, in addition to any environment variables set in task_environments, specifying the number of Tasks in the Task's parent TaskGroup, and the specific Task's index in the TaskGroup (0 through BATCH_TASK_COUNT - 1). */
+      taskEnvironments?: Environment[];
+      /** Required. Tasks in the group share the same task spec. */
+      taskSpec?: TaskSpec;
+    }
+    interface TaskGroupStatus {
+      /** Count of task in each state in the TaskGroup. The map key is task state name. */
+      counts?: {[P in string]: string};
+      /** Status of instances allocated for the TaskGroup. */
+      instances?: InstanceStatus[];
+    }
+    interface TaskSpec {
+      /** ComputeResource requirements. */
+      computeResource?: ComputeResource;
+      /** Environment variables to set before running the Task. */
+      environment?: Environment;
+      /** Deprecated: please use environment(non-plural) instead. */
+      environments?: {[P in string]: string};
+      /** Lifecycle management schema when any task in a task group is failed. Currently we only support one lifecycle policy. When the lifecycle policy condition is met, the action in the policy will execute. If task execution result does not meet with the defined lifecycle policy, we consider it as the default policy. Default policy means if the exit code is 0, exit task. If task ends with non-zero exit code, retry the task with max_retry_count. */
+      lifecyclePolicies?: LifecyclePolicy[];
+      /** Maximum number of retries on failures. The default, 0, which means never retry. The valid value range is [0, 10]. */
+      maxRetryCount?: number;
+      /** Maximum duration the task should run. The task will be killed and marked as FAILED if over this limit. */
+      maxRunDuration?: string;
+      /** The sequence of scripts or containers to run for this Task. Each Task using this TaskSpec executes its list of runnables in order. The Task succeeds if all of its runnables either exit with a zero status or any that exit with a non-zero status have the ignore_exit_status flag. Background runnables are killed automatically (if they have not already exited) a short time after all foreground runnables have completed. Even though this is likely to result in a non-zero exit status for the background runnable, these automatic kills are not treated as Task failures. */
+      runnables?: Runnable[];
+      /** Volumes to mount before running Tasks using this TaskSpec. */
+      volumes?: Volume[];
+    }
+    interface TaskStatus {
+      /** Task state */
+      state?: string;
+      /** Detailed info about why the state is reached. */
+      statusEvents?: StatusEvent[];
+    }
+    interface Volume {
+      /** Device name of an attached disk volume, which should align with a device_name specified by job.allocation_policy.instances[0].policy.disks[i].device_name or defined by the given instance template in job.allocation_policy.instances[0].instance_template. */
+      deviceName?: string;
+      /** A Google Cloud Storage (GCS) volume. */
+      gcs?: GCS;
+      /** For Google Cloud Storage (GCS), mount options are the options supported by the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse). For existing persistent disks, mount options provided by the mount command (https://man7.org/linux/man-pages/man8/mount.8.html) except writing are supported. This is due to restrictions of multi-writer mode (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms). For other attached disks and Network File System (NFS), mount options are these supported by the mount command (https://man7.org/linux/man-pages/man8/mount.8.html). */
+      mountOptions?: string[];
+      /** The mount path for the volume, e.g. /mnt/disks/share. */
+      mountPath?: string;
+      /** A Network File System (NFS) volume. For example, a Filestore file share. */
+      nfs?: NFS;
+    }
+    interface TasksResource {
+      /** Return a single Task. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Task name. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Task>;
+      /** List Tasks associated with a job. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** Task filter, null filter matches all Tasks. Filter string should be of the format State=TaskStatus.State e.g. State=RUNNING */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Page size. */
+        pageSize?: number;
+        /** Page token. */
+        pageToken?: string;
+        /** Required. Name of a TaskGroup from which Tasks are being requested. Pattern: "projects/{project}/locations/{location}/jobs/{job}/taskGroups/{task_group}" */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListTasksResponse>;
+    }
+    interface TaskGroupsResource {
+      tasks: TasksResource;
+    }
+    interface JobsResource {
+      /** Create a Job. */
+      create(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** ID used to uniquely identify the Job within its parent scope. This field should contain at most 63 characters and must start with lowercase characters. Only lowercase characters, numbers and '-' are accepted. The '-' character cannot be the first or the last one. A system generated ID will be used if the field is not set. The job.name field in the request will be ignored and the created resource name of the Job will be "{parent}/jobs/{job_id}". */
+        jobId?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. The parent resource name where the Job will be created. Pattern: "projects/{project}/locations/{location}" */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: Job;
+      }): Request<Job>;
+      create(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** ID used to uniquely identify the Job within its parent scope. This field should contain at most 63 characters and must start with lowercase characters. Only lowercase characters, numbers and '-' are accepted. The '-' character cannot be the first or the last one. A system generated ID will be used if the field is not set. The job.name field in the request will be ignored and the created resource name of the Job will be "{parent}/jobs/{job_id}". */
+          jobId?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. The parent resource name where the Job will be created. Pattern: "projects/{project}/locations/{location}" */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes since the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+          requestId?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: Job
+      ): Request<Job>;
+      /** Delete a Job. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Job name. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. Reason for this deletion. */
+        reason?: string;
+        /** Optional. An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. The server will guarantee that for at least 60 minutes after the first request. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000). */
+        requestId?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Get a Job specified by its resource name. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Job name. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Job>;
+      /** List all Jobs for a project within a region. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** List filter. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Optional. Sort results. Supported are "name", "name desc", "create_time", and "create_time desc". */
+        orderBy?: string;
+        /** Page size. */
+        pageSize?: number;
+        /** Page token. */
+        pageToken?: string;
+        /** Parent path. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListJobsResponse>;
+      taskGroups: TaskGroupsResource;
+    }
+    interface OperationsResource {
+      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      cancel(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be cancelled. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: CancelOperationRequest;
+      }): Request<{}>;
+      cancel(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** The name of the operation resource to be cancelled. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: CancelOperationRequest
+      ): Request<{}>;
+      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be deleted. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Operation>;
+      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** The standard list filter. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation's parent resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The standard list page size. */
+        pageSize?: number;
+        /** The standard list page token. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListOperationsResponse>;
+    }
+    interface StateResource {
+      /** Report agent's state, e.g. agent status and tasks information */
+      report(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Required. Format: projects/{project}/locations/{location} {project} should be a project number. */
+        parent: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: ReportAgentStateRequest;
+      }): Request<ReportAgentStateResponse>;
+      report(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Required. Format: projects/{project}/locations/{location} {project} should be a project number. */
+          parent: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: ReportAgentStateRequest
+      ): Request<ReportAgentStateResponse>;
+    }
+    interface LocationsResource {
+      /** Gets information about a location. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Resource name for the location. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<Location>;
+      /** Lists information about the supported locations for this service. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** A filter to narrow down results to a preferred subset. The filtering language accepts strings like `"displayName=tokyo"`, and is documented in more detail in [AIP-160](https://google.aip.dev/160). */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The resource that owns the locations collection, if applicable. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The maximum number of results to return. If not set, the service selects a default. */
+        pageSize?: number;
+        /** A page token received from the `next_page_token` field in the response. Send that page token to receive the subsequent page. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<ListLocationsResponse>;
+      jobs: JobsResource;
+      operations: OperationsResource;
+      state: StateResource;
+    }
+    interface ProjectsResource {
+      locations: LocationsResource;
+    }
+
+    const projects: ProjectsResource;
+  }
 }

@@ -1,16 +1,16 @@
 {
   "name": "@maxim_mazurok/gapi.client.iap-v1",
-  "version": "0.0.20231113",
+  "version": "0.0.20231201",
   "description": "TypeScript typings for Cloud Identity-Aware Proxy API v1",
-  "license": "MIT",
-  "author": {
-    "email": "maxim@mazurok.com",
-    "name": "Maxim Mazurok",
-    "url": "https://maxim.mazurok.com"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Maxim Mazurok",
+    "email": "maxim@mazurok.com",
+    "url": "https://maxim.mazurok.com"
   },
   "types": "index.d.ts",
   "dependencies": {

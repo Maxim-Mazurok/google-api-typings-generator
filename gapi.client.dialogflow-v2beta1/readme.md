@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://dialogflow.googleapis.com/$discovery/rest?version=v2beta1', () => {
-  // now we can use:
-  // gapi.client.dialogflow
-});
+gapi.client.load(
+  'https://dialogflow.googleapis.com/$discovery/rest?version=v2beta1',
+  () => {
+    // now we can use:
+    // gapi.client.dialogflow
+  }
+);
 ```
 
 ```typescript
@@ -45,42 +48,42 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // View, manage and query your Dialogflow agents
-      'https://www.googleapis.com/auth/dialogflow',
-    ],
-    immediate = true;
+    // View, manage and query your Dialogflow agents
+    'https://www.googleapis.com/auth/dialogflow',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Dialogflow API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Deletes the specified agent.
 */
-await gapi.client.dialogflow.projects.deleteAgent({ parent: "parent",  });
+await gapi.client.dialogflow.projects.deleteAgent({parent: 'parent'});
 
 /*
 Retrieves the specified agent.
 */
-await gapi.client.dialogflow.projects.getAgent({ parent: "parent",  });
+await gapi.client.dialogflow.projects.getAgent({parent: 'parent'});
 
 /*
 Creates/updates the specified agent. Note: You should always train an agent prior to sending it queries. See the [training documentation](https://cloud.google.com/dialogflow/es/docs/training).
 */
-await gapi.client.dialogflow.projects.setAgent({ parent: "parent",  });
+await gapi.client.dialogflow.projects.setAgent({parent: 'parent'});
 ```

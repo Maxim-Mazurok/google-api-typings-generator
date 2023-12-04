@@ -6,17 +6,19 @@
 // Revision: 20231112
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://safebrowsing.googleapis.com/$discovery/rest?version=v5');
-    /** now we can use gapi.client.safebrowsing */
+  await gapi.client.load(
+    'https://safebrowsing.googleapis.com/$discovery/rest?version=v5'
+  );
+  /** now we can use gapi.client.safebrowsing */
 
-    run();
+  void run();
 
-    async function run() {
-        /** Search for full hashes matching the specified prefixes. This is a custom method as described by guidance at https://google.aip.dev/136 */
-        await gapi.client.safebrowsing.hashes.search({
-            hashPrefixes: "Test string",
-        });
-    }
+  async function run() {
+    /** Search for full hashes matching the specified prefixes. This is a custom method as described by guidance at https://google.aip.dev/136 */
+    await gapi.client.safebrowsing.hashes.search({
+      hashPrefixes: 'Test string',
+    });
+  }
 });

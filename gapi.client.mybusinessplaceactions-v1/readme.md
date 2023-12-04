@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://mybusinessplaceactions.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.mybusinessplaceactions
-});
+gapi.client.load(
+  'https://mybusinessplaceactions.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.mybusinessplaceactions
+  }
+);
 ```
 
 ```typescript
@@ -39,14 +42,11 @@ gapi.client.load('mybusinessplaceactions', 'v1', () => {
 });
 ```
 
-
-
 After that you can use My Business Place Actions API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Returns the list of available place action types for a location or country.
 */
-await gapi.client.mybusinessplaceactions.placeActionTypeMetadata.list({  });
+await gapi.client.mybusinessplaceactions.placeActionTypeMetadata.list({});
 ```

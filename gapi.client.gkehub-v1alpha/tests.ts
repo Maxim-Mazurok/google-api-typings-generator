@@ -6,2664 +6,2609 @@
 // Revision: 20231114
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://gkehub.googleapis.com/$discovery/rest?version=v1alpha');
-    /** now we can use gapi.client.gkehub */
+  await gapi.client.load(
+    'https://gkehub.googleapis.com/$discovery/rest?version=v1alpha'
+  );
+  /** now we can use gapi.client.gkehub */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Returns all fleets within an organization or a project that the caller has access to. */
-        await gapi.client.gkehub.organizations.locations.fleets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets information about a location. */
-        await gapi.client.gkehub.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.gkehub.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Adds a new Feature. */
-        await gapi.client.gkehub.projects.locations.features.create({
-            featureId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            fleetDefaultMemberConfig: {
-                configmanagement: {
-                    binauthz: {
-                        enabled: true,
-                    },
-                    cluster: "Test string",
-                    configSync: {
-                        allowVerticalScale: true,
-                        enabled: true,
-                        git: {
-                            gcpServiceAccountEmail: "Test string",
-                            httpsProxy: "Test string",
-                            policyDir: "Test string",
-                            secretType: "Test string",
-                            syncBranch: "Test string",
-                            syncRepo: "Test string",
-                            syncRev: "Test string",
-                            syncWaitSecs: "Test string",
-                        },
-                        metricsGcpServiceAccountEmail: "Test string",
-                        oci: {
-                            gcpServiceAccountEmail: "Test string",
-                            policyDir: "Test string",
-                            secretType: "Test string",
-                            syncRepo: "Test string",
-                            syncWaitSecs: "Test string",
-                        },
-                        preventDrift: true,
-                        sourceFormat: "Test string",
-                    },
-                    hierarchyController: {
-                        enabled: true,
-                        enableHierarchicalResourceQuota: true,
-                        enablePodTreeLabels: true,
-                    },
-                    policyController: {
-                        auditIntervalSeconds: "Test string",
-                        enabled: true,
-                        exemptableNamespaces: [
-                            "Test string"
-                        ],
-                        logDeniesEnabled: true,
-                        monitoring: {
-                            backends: [
-                                "Test string"
-                            ],
-                        },
-                        mutationEnabled: true,
-                        referentialRulesEnabled: true,
-                        templateLibraryInstalled: true,
-                        updateTime: "Test string",
-                    },
-                    version: "Test string",
-                },
-                identityservice: {
-                    authMethods: [
-                        {
-                            azureadConfig: {
-                                clientId: "Test string",
-                                clientSecret: "Test string",
-                                encryptedClientSecret: "Test string",
-                                kubectlRedirectUri: "Test string",
-                                tenant: "Test string",
-                            },
-                            googleConfig: {
-                                disable: true,
-                            },
-                            name: "Test string",
-                            oidcConfig: {
-                                certificateAuthorityData: "Test string",
-                                clientId: "Test string",
-                                clientSecret: "Test string",
-                                deployCloudConsoleProxy: true,
-                                enableAccessToken: true,
-                                encryptedClientSecret: "Test string",
-                                extraParams: "Test string",
-                                groupPrefix: "Test string",
-                                groupsClaim: "Test string",
-                                issuerUri: "Test string",
-                                kubectlRedirectUri: "Test string",
-                                scopes: "Test string",
-                                userClaim: "Test string",
-                                userPrefix: "Test string",
-                            },
-                            proxy: "Test string",
-                        }
-                    ],
-                },
-                mesh: {
-                    controlPlane: "Test string",
-                    defaultChannel: "Test string",
-                    management: "Test string",
-                },
-                policycontroller: {
-                    policyControllerHubConfig: {
-                        auditIntervalSeconds: "Test string",
-                        constraintViolationLimit: "Test string",
-                        deploymentConfigs: {
-                            A: {
-                                containerResources: {
-                                    limits: {
-                                        cpu: "Test string",
-                                        memory: "Test string",
-                                    },
-                                    requests: {
-                                        cpu: "Test string",
-                                        memory: "Test string",
-                                    },
-                                },
-                                podAffinity: "Test string",
-                                podAntiAffinity: true,
-                                podTolerations: [
-                                    {
-                                        effect: "Test string",
-                                        key: "Test string",
-                                        operator: "Test string",
-                                        value: "Test string",
-                                    }
-                                ],
-                                replicaCount: "Test string",
-                            }
-                        },
-                        exemptableNamespaces: [
-                            "Test string"
-                        ],
-                        installSpec: "Test string",
-                        logDeniesEnabled: true,
-                        monitoring: {
-                            backends: [
-                                "Test string"
-                            ],
-                        },
-                        mutationEnabled: true,
-                        policyContent: {
-                            bundles: {
-                                A: {
-                                    exemptedNamespaces: [
-                                        "Test string"
-                                    ],
-                                }
-                            },
-                            templateLibrary: {
-                                installation: "Test string",
-                            },
-                        },
-                        referentialRulesEnabled: true,
-                    },
-                    version: "Test string",
-                },
-            },
-            labels: {
-                A: "Test string"
-            },
-            membershipSpecs: {
-                A: {
-                    anthosobservability: {
-                        doNotOptimizeMetrics: true,
-                        enableStackdriverOnApplications: true,
-                        version: "Test string",
-                    },
-                    cloudbuild: {
-                        securityPolicy: "Test string",
-                        version: "Test string",
-                    },
-                    configmanagement: {
-                        binauthz: {
-                            enabled: true,
-                        },
-                        cluster: "Test string",
-                        configSync: {
-                            allowVerticalScale: true,
-                            enabled: true,
-                            git: {
-                                gcpServiceAccountEmail: "Test string",
-                                httpsProxy: "Test string",
-                                policyDir: "Test string",
-                                secretType: "Test string",
-                                syncBranch: "Test string",
-                                syncRepo: "Test string",
-                                syncRev: "Test string",
-                                syncWaitSecs: "Test string",
-                            },
-                            metricsGcpServiceAccountEmail: "Test string",
-                            oci: {
-                                gcpServiceAccountEmail: "Test string",
-                                policyDir: "Test string",
-                                secretType: "Test string",
-                                syncRepo: "Test string",
-                                syncWaitSecs: "Test string",
-                            },
-                            preventDrift: true,
-                            sourceFormat: "Test string",
-                        },
-                        hierarchyController: {
-                            enabled: true,
-                            enableHierarchicalResourceQuota: true,
-                            enablePodTreeLabels: true,
-                        },
-                        policyController: {
-                            auditIntervalSeconds: "Test string",
-                            enabled: true,
-                            exemptableNamespaces: [
-                                "Test string"
-                            ],
-                            logDeniesEnabled: true,
-                            monitoring: {
-                                backends: [
-                                    "Test string"
-                                ],
-                            },
-                            mutationEnabled: true,
-                            referentialRulesEnabled: true,
-                            templateLibraryInstalled: true,
-                            updateTime: "Test string",
-                        },
-                        version: "Test string",
-                    },
-                    fleetobservability: {
-                    },
-                    identityservice: {
-                        authMethods: [
-                            {
-                                azureadConfig: {
-                                    clientId: "Test string",
-                                    clientSecret: "Test string",
-                                    encryptedClientSecret: "Test string",
-                                    kubectlRedirectUri: "Test string",
-                                    tenant: "Test string",
-                                },
-                                googleConfig: {
-                                    disable: true,
-                                },
-                                name: "Test string",
-                                oidcConfig: {
-                                    certificateAuthorityData: "Test string",
-                                    clientId: "Test string",
-                                    clientSecret: "Test string",
-                                    deployCloudConsoleProxy: true,
-                                    enableAccessToken: true,
-                                    encryptedClientSecret: "Test string",
-                                    extraParams: "Test string",
-                                    groupPrefix: "Test string",
-                                    groupsClaim: "Test string",
-                                    issuerUri: "Test string",
-                                    kubectlRedirectUri: "Test string",
-                                    scopes: "Test string",
-                                    userClaim: "Test string",
-                                    userPrefix: "Test string",
-                                },
-                                proxy: "Test string",
-                            }
-                        ],
-                    },
-                    mesh: {
-                        controlPlane: "Test string",
-                        defaultChannel: "Test string",
-                        management: "Test string",
-                    },
-                    namespaceactuation: {
-                    },
-                    origin: {
-                        type: "Test string",
-                    },
-                    policycontroller: {
-                        policyControllerHubConfig: {
-                            auditIntervalSeconds: "Test string",
-                            constraintViolationLimit: "Test string",
-                            deploymentConfigs: {
-                                A: {
-                                    containerResources: {
-                                        limits: {
-                                            cpu: "Test string",
-                                            memory: "Test string",
-                                        },
-                                        requests: {
-                                            cpu: "Test string",
-                                            memory: "Test string",
-                                        },
-                                    },
-                                    podAffinity: "Test string",
-                                    podAntiAffinity: true,
-                                    podTolerations: [
-                                        {
-                                            effect: "Test string",
-                                            key: "Test string",
-                                            operator: "Test string",
-                                            value: "Test string",
-                                        }
-                                    ],
-                                    replicaCount: "Test string",
-                                }
-                            },
-                            exemptableNamespaces: [
-                                "Test string"
-                            ],
-                            installSpec: "Test string",
-                            logDeniesEnabled: true,
-                            monitoring: {
-                                backends: [
-                                    "Test string"
-                                ],
-                            },
-                            mutationEnabled: true,
-                            policyContent: {
-                                bundles: {
-                                    A: {
-                                        exemptedNamespaces: [
-                                            "Test string"
-                                        ],
-                                    }
-                                },
-                                templateLibrary: {
-                                    installation: "Test string",
-                                },
-                            },
-                            referentialRulesEnabled: true,
-                        },
-                        version: "Test string",
-                    },
-                    workloadcertificate: {
-                        certificateManagement: "Test string",
-                    },
-                }
-            },
-            membershipStates: {
-                A: {
-                    appdevexperience: {
-                        networkingInstallSucceeded: {
-                            code: "Test string",
-                            description: "Test string",
-                        },
-                    },
-                    clusterupgrade: {
-                        fleet: "Test string",
-                        ignored: {
-                            ignoredTime: "Test string",
-                            reason: "Test string",
-                        },
-                        scopes: [
-                            "Test string"
-                        ],
-                        upgrades: [
-                            {
-                                status: {
-                                    code: "Test string",
-                                    reason: "Test string",
-                                    updateTime: "Test string",
-                                },
-                                upgrade: {
-                                    name: "Test string",
-                                    version: "Test string",
-                                },
-                            }
-                        ],
-                    },
-                    configmanagement: {
-                        binauthzState: {
-                            version: {
-                                webhookVersion: "Test string",
-                            },
-                            webhook: "Test string",
-                        },
-                        clusterName: "Test string",
-                        configSyncState: {
-                            deploymentState: {
-                                admissionWebhook: "Test string",
-                                gitSync: "Test string",
-                                importer: "Test string",
-                                monitor: "Test string",
-                                reconcilerManager: "Test string",
-                                rootReconciler: "Test string",
-                                syncer: "Test string",
-                            },
-                            errors: [
-                                {
-                                    errorMessage: "Test string",
-                                }
-                            ],
-                            syncState: {
-                                code: "Test string",
-                                errors: [
-                                    {
-                                        code: "Test string",
-                                        errorMessage: "Test string",
-                                        errorResources: [
-                                            {
-                                                resourceGvk: {
-                                                    group: "Test string",
-                                                    kind: "Test string",
-                                                    version: "Test string",
-                                                },
-                                                resourceName: "Test string",
-                                                resourceNamespace: "Test string",
-                                                sourcePath: "Test string",
-                                            }
-                                        ],
-                                    }
-                                ],
-                                importToken: "Test string",
-                                lastSync: "Test string",
-                                lastSyncTime: "Test string",
-                                sourceToken: "Test string",
-                                syncToken: "Test string",
-                            },
-                            version: {
-                                admissionWebhook: "Test string",
-                                gitSync: "Test string",
-                                importer: "Test string",
-                                monitor: "Test string",
-                                reconcilerManager: "Test string",
-                                rootReconciler: "Test string",
-                                syncer: "Test string",
-                            },
-                        },
-                        hierarchyControllerState: {
-                            state: {
-                                extension: "Test string",
-                                hnc: "Test string",
-                            },
-                            version: {
-                                extension: "Test string",
-                                hnc: "Test string",
-                            },
-                        },
-                        membershipSpec: {
-                            binauthz: {
-                                enabled: true,
-                            },
-                            cluster: "Test string",
-                            configSync: {
-                                allowVerticalScale: true,
-                                enabled: true,
-                                git: {
-                                    gcpServiceAccountEmail: "Test string",
-                                    httpsProxy: "Test string",
-                                    policyDir: "Test string",
-                                    secretType: "Test string",
-                                    syncBranch: "Test string",
-                                    syncRepo: "Test string",
-                                    syncRev: "Test string",
-                                    syncWaitSecs: "Test string",
-                                },
-                                metricsGcpServiceAccountEmail: "Test string",
-                                oci: {
-                                    gcpServiceAccountEmail: "Test string",
-                                    policyDir: "Test string",
-                                    secretType: "Test string",
-                                    syncRepo: "Test string",
-                                    syncWaitSecs: "Test string",
-                                },
-                                preventDrift: true,
-                                sourceFormat: "Test string",
-                            },
-                            hierarchyController: {
-                                enabled: true,
-                                enableHierarchicalResourceQuota: true,
-                                enablePodTreeLabels: true,
-                            },
-                            policyController: {
-                                auditIntervalSeconds: "Test string",
-                                enabled: true,
-                                exemptableNamespaces: [
-                                    "Test string"
-                                ],
-                                logDeniesEnabled: true,
-                                monitoring: {
-                                    backends: [
-                                        "Test string"
-                                    ],
-                                },
-                                mutationEnabled: true,
-                                referentialRulesEnabled: true,
-                                templateLibraryInstalled: true,
-                                updateTime: "Test string",
-                            },
-                            version: "Test string",
-                        },
-                        operatorState: {
-                            deploymentState: "Test string",
-                            errors: [
-                                {
-                                    errorMessage: "Test string",
-                                }
-                            ],
-                            version: "Test string",
-                        },
-                        policyControllerState: {
-                            deploymentState: {
-                                gatekeeperAudit: "Test string",
-                                gatekeeperControllerManagerState: "Test string",
-                                gatekeeperMutation: "Test string",
-                            },
-                            migration: {
-                                copyTime: "Test string",
-                                stage: "Test string",
-                            },
-                            version: {
-                                version: "Test string",
-                            },
-                        },
-                    },
-                    fleetobservability: {
-                    },
-                    identityservice: {
-                        failureReason: "Test string",
-                        installedVersion: "Test string",
-                        memberConfig: {
-                            authMethods: [
-                                {
-                                    azureadConfig: {
-                                        clientId: "Test string",
-                                        clientSecret: "Test string",
-                                        encryptedClientSecret: "Test string",
-                                        kubectlRedirectUri: "Test string",
-                                        tenant: "Test string",
-                                    },
-                                    googleConfig: {
-                                        disable: true,
-                                    },
-                                    name: "Test string",
-                                    oidcConfig: {
-                                        certificateAuthorityData: "Test string",
-                                        clientId: "Test string",
-                                        clientSecret: "Test string",
-                                        deployCloudConsoleProxy: true,
-                                        enableAccessToken: true,
-                                        encryptedClientSecret: "Test string",
-                                        extraParams: "Test string",
-                                        groupPrefix: "Test string",
-                                        groupsClaim: "Test string",
-                                        issuerUri: "Test string",
-                                        kubectlRedirectUri: "Test string",
-                                        scopes: "Test string",
-                                        userClaim: "Test string",
-                                        userPrefix: "Test string",
-                                    },
-                                    proxy: "Test string",
-                                }
-                            ],
-                        },
-                        state: "Test string",
-                    },
-                    metering: {
-                        lastMeasurementTime: "Test string",
-                        preciseLastMeasuredClusterVcpuCapacity: 42,
-                    },
-                    namespaceactuation: {
-                    },
-                    policycontroller: {
-                        componentStates: {
-                            A: {
-                                details: "Test string",
-                                state: "Test string",
-                            }
-                        },
-                        policyContentState: {
-                            bundleStates: {
-                                A: {
-                                    details: "Test string",
-                                    state: "Test string",
-                                }
-                            },
-                            referentialSyncConfigState: {
-                                details: "Test string",
-                                state: "Test string",
-                            },
-                            templateLibraryState: {
-                                details: "Test string",
-                                state: "Test string",
-                            },
-                        },
-                        state: "Test string",
-                    },
-                    servicemesh: {
-                        analysisMessages: [
-                            {
-                                args: {
-                                    A: 42
-                                },
-                                description: "Test string",
-                                messageBase: {
-                                    documentationUrl: "Test string",
-                                    level: "Test string",
-                                    type: {
-                                        code: "Test string",
-                                        displayName: "Test string",
-                                    },
-                                },
-                                resourcePaths: [
-                                    "Test string"
-                                ],
-                            }
-                        ],
-                        configApiVersion: "Test string",
-                        controlPlaneManagement: {
-                            details: [
-                                {
-                                    code: "Test string",
-                                    details: "Test string",
-                                }
-                            ],
-                            state: "Test string",
-                        },
-                        dataPlaneManagement: {
-                            details: [
-                                {
-                                    code: "Test string",
-                                    details: "Test string",
-                                }
-                            ],
-                            state: "Test string",
-                        },
-                    },
-                    state: {
-                        code: "Test string",
-                        description: "Test string",
-                        updateTime: "Test string",
-                    },
-                }
-            },
-            name: "Test string",
-            resourceState: {
-                state: "Test string",
-            },
-            scopeSpecs: {
-                A: {
-                    clusterupgrade: {
-                        gkeUpgradeOverrides: [
-                            {
-                                postConditions: {
-                                    soaking: "Test string",
-                                },
-                                upgrade: {
-                                    name: "Test string",
-                                    version: "Test string",
-                                },
-                            }
-                        ],
-                        postConditions: {
-                            soaking: "Test string",
-                        },
-                        upstreamScopes: [
-                            "Test string"
-                        ],
-                    },
-                }
-            },
-            scopeStates: {
-                A: {
-                    clusterupgrade: {
-                        downstreamScopes: [
-                            "Test string"
-                        ],
-                        gkeState: {
-                            conditions: [
-                                {
-                                    reason: "Test string",
-                                    status: "Test string",
-                                    type: "Test string",
-                                    updateTime: "Test string",
-                                }
-                            ],
-                            upgradeState: [
-                                {
-                                    stats: {
-                                        A: "Test string"
-                                    },
-                                    status: {
-                                        code: "Test string",
-                                        reason: "Test string",
-                                        updateTime: "Test string",
-                                    },
-                                    upgrade: {
-                                        name: "Test string",
-                                        version: "Test string",
-                                    },
-                                }
-                            ],
-                        },
-                        ignored: {
-                            A: {
-                                ignoredTime: "Test string",
-                                reason: "Test string",
-                            }
-                        },
-                    },
-                    state: {
-                        code: "Test string",
-                        description: "Test string",
-                        updateTime: "Test string",
-                    },
-                }
-            },
-            spec: {
-                anthosobservability: {
-                    defaultMembershipSpec: {
-                        doNotOptimizeMetrics: true,
-                        enableStackdriverOnApplications: true,
-                        version: "Test string",
-                    },
-                },
-                appdevexperience: {
-                },
-                cloudauditlogging: {
-                    allowlistedServiceAccounts: [
-                        "Test string"
-                    ],
-                },
-                clusterupgrade: {
-                    gkeUpgradeOverrides: [
-                        {
-                            postConditions: {
-                                soaking: "Test string",
-                            },
-                            upgrade: {
-                                name: "Test string",
-                                version: "Test string",
-                            },
-                        }
-                    ],
-                    postConditions: {
-                        soaking: "Test string",
-                    },
-                    upstreamFleets: [
-                        "Test string"
-                    ],
-                },
-                fleetobservability: {
-                    loggingConfig: {
-                        defaultConfig: {
-                            mode: "Test string",
-                        },
-                        fleetScopeLogsConfig: {
-                            mode: "Test string",
-                        },
-                    },
-                },
-                multiclusteringress: {
-                    billing: "Test string",
-                    configMembership: "Test string",
-                },
-                namespaceactuation: {
-                    actuationMode: "Test string",
-                },
-                workloadcertificate: {
-                    defaultConfig: {
-                        certificateManagement: "Test string",
-                    },
-                    provisionGoogleCa: "Test string",
-                },
-            },
-            state: {
-                appdevexperience: {
-                    networkingInstallSucceeded: {
-                        code: "Test string",
-                        description: "Test string",
-                    },
-                },
-                clusterupgrade: {
-                    downstreamFleets: [
-                        "Test string"
-                    ],
-                    gkeState: {
-                        conditions: [
-                            {
-                                reason: "Test string",
-                                status: "Test string",
-                                type: "Test string",
-                                updateTime: "Test string",
-                            }
-                        ],
-                        upgradeState: [
-                            {
-                                stats: {
-                                    A: "Test string"
-                                },
-                                status: {
-                                    code: "Test string",
-                                    reason: "Test string",
-                                    updateTime: "Test string",
-                                },
-                                upgrade: {
-                                    name: "Test string",
-                                    version: "Test string",
-                                },
-                            }
-                        ],
-                    },
-                    ignored: {
-                        A: {
-                            ignoredTime: "Test string",
-                            reason: "Test string",
-                        }
-                    },
-                },
-                fleetobservability: {
-                    logging: {
-                        defaultLog: {
-                            code: "Test string",
-                            errors: [
-                                {
-                                    code: "Test string",
-                                    description: "Test string",
-                                }
-                            ],
-                        },
-                        scopeLog: {
-                            code: "Test string",
-                            errors: [
-                                {
-                                    code: "Test string",
-                                    description: "Test string",
-                                }
-                            ],
-                        },
-                    },
-                    monitoring: {
-                        state: {
-                            code: "Test string",
-                            errors: [
-                                {
-                                    code: "Test string",
-                                    description: "Test string",
-                                }
-                            ],
-                        },
-                    },
-                },
-                namespaceactuation: {
-                },
-                servicemesh: {
-                    analysisMessages: [
-                        {
-                            args: {
-                                A: 42
-                            },
-                            description: "Test string",
-                            messageBase: {
-                                documentationUrl: "Test string",
-                                level: "Test string",
-                                type: {
-                                    code: "Test string",
-                                    displayName: "Test string",
-                                },
-                            },
-                            resourcePaths: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                },
-                state: {
-                    code: "Test string",
-                    description: "Test string",
-                    updateTime: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /** Removes a Feature. */
-        await gapi.client.gkehub.projects.locations.features.delete({
-            force: true,
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Gets details of a single Feature. */
-        await gapi.client.gkehub.projects.locations.features.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.gkehub.projects.locations.features.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Features in a given project and location. */
-        await gapi.client.gkehub.projects.locations.features.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing Feature. */
-        await gapi.client.gkehub.projects.locations.features.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            fleetDefaultMemberConfig: {
-                configmanagement: {
-                    binauthz: {
-                        enabled: true,
-                    },
-                    cluster: "Test string",
-                    configSync: {
-                        allowVerticalScale: true,
-                        enabled: true,
-                        git: {
-                            gcpServiceAccountEmail: "Test string",
-                            httpsProxy: "Test string",
-                            policyDir: "Test string",
-                            secretType: "Test string",
-                            syncBranch: "Test string",
-                            syncRepo: "Test string",
-                            syncRev: "Test string",
-                            syncWaitSecs: "Test string",
-                        },
-                        metricsGcpServiceAccountEmail: "Test string",
-                        oci: {
-                            gcpServiceAccountEmail: "Test string",
-                            policyDir: "Test string",
-                            secretType: "Test string",
-                            syncRepo: "Test string",
-                            syncWaitSecs: "Test string",
-                        },
-                        preventDrift: true,
-                        sourceFormat: "Test string",
-                    },
-                    hierarchyController: {
-                        enabled: true,
-                        enableHierarchicalResourceQuota: true,
-                        enablePodTreeLabels: true,
-                    },
-                    policyController: {
-                        auditIntervalSeconds: "Test string",
-                        enabled: true,
-                        exemptableNamespaces: [
-                            "Test string"
-                        ],
-                        logDeniesEnabled: true,
-                        monitoring: {
-                            backends: [
-                                "Test string"
-                            ],
-                        },
-                        mutationEnabled: true,
-                        referentialRulesEnabled: true,
-                        templateLibraryInstalled: true,
-                        updateTime: "Test string",
-                    },
-                    version: "Test string",
-                },
-                identityservice: {
-                    authMethods: [
-                        {
-                            azureadConfig: {
-                                clientId: "Test string",
-                                clientSecret: "Test string",
-                                encryptedClientSecret: "Test string",
-                                kubectlRedirectUri: "Test string",
-                                tenant: "Test string",
-                            },
-                            googleConfig: {
-                                disable: true,
-                            },
-                            name: "Test string",
-                            oidcConfig: {
-                                certificateAuthorityData: "Test string",
-                                clientId: "Test string",
-                                clientSecret: "Test string",
-                                deployCloudConsoleProxy: true,
-                                enableAccessToken: true,
-                                encryptedClientSecret: "Test string",
-                                extraParams: "Test string",
-                                groupPrefix: "Test string",
-                                groupsClaim: "Test string",
-                                issuerUri: "Test string",
-                                kubectlRedirectUri: "Test string",
-                                scopes: "Test string",
-                                userClaim: "Test string",
-                                userPrefix: "Test string",
-                            },
-                            proxy: "Test string",
-                        }
-                    ],
-                },
-                mesh: {
-                    controlPlane: "Test string",
-                    defaultChannel: "Test string",
-                    management: "Test string",
-                },
-                policycontroller: {
-                    policyControllerHubConfig: {
-                        auditIntervalSeconds: "Test string",
-                        constraintViolationLimit: "Test string",
-                        deploymentConfigs: {
-                            A: {
-                                containerResources: {
-                                    limits: {
-                                        cpu: "Test string",
-                                        memory: "Test string",
-                                    },
-                                    requests: {
-                                        cpu: "Test string",
-                                        memory: "Test string",
-                                    },
-                                },
-                                podAffinity: "Test string",
-                                podAntiAffinity: true,
-                                podTolerations: [
-                                    {
-                                        effect: "Test string",
-                                        key: "Test string",
-                                        operator: "Test string",
-                                        value: "Test string",
-                                    }
-                                ],
-                                replicaCount: "Test string",
-                            }
-                        },
-                        exemptableNamespaces: [
-                            "Test string"
-                        ],
-                        installSpec: "Test string",
-                        logDeniesEnabled: true,
-                        monitoring: {
-                            backends: [
-                                "Test string"
-                            ],
-                        },
-                        mutationEnabled: true,
-                        policyContent: {
-                            bundles: {
-                                A: {
-                                    exemptedNamespaces: [
-                                        "Test string"
-                                    ],
-                                }
-                            },
-                            templateLibrary: {
-                                installation: "Test string",
-                            },
-                        },
-                        referentialRulesEnabled: true,
-                    },
-                    version: "Test string",
-                },
-            },
-            labels: {
-                A: "Test string"
-            },
-            membershipSpecs: {
-                A: {
-                    anthosobservability: {
-                        doNotOptimizeMetrics: true,
-                        enableStackdriverOnApplications: true,
-                        version: "Test string",
-                    },
-                    cloudbuild: {
-                        securityPolicy: "Test string",
-                        version: "Test string",
-                    },
-                    configmanagement: {
-                        binauthz: {
-                            enabled: true,
-                        },
-                        cluster: "Test string",
-                        configSync: {
-                            allowVerticalScale: true,
-                            enabled: true,
-                            git: {
-                                gcpServiceAccountEmail: "Test string",
-                                httpsProxy: "Test string",
-                                policyDir: "Test string",
-                                secretType: "Test string",
-                                syncBranch: "Test string",
-                                syncRepo: "Test string",
-                                syncRev: "Test string",
-                                syncWaitSecs: "Test string",
-                            },
-                            metricsGcpServiceAccountEmail: "Test string",
-                            oci: {
-                                gcpServiceAccountEmail: "Test string",
-                                policyDir: "Test string",
-                                secretType: "Test string",
-                                syncRepo: "Test string",
-                                syncWaitSecs: "Test string",
-                            },
-                            preventDrift: true,
-                            sourceFormat: "Test string",
-                        },
-                        hierarchyController: {
-                            enabled: true,
-                            enableHierarchicalResourceQuota: true,
-                            enablePodTreeLabels: true,
-                        },
-                        policyController: {
-                            auditIntervalSeconds: "Test string",
-                            enabled: true,
-                            exemptableNamespaces: [
-                                "Test string"
-                            ],
-                            logDeniesEnabled: true,
-                            monitoring: {
-                                backends: [
-                                    "Test string"
-                                ],
-                            },
-                            mutationEnabled: true,
-                            referentialRulesEnabled: true,
-                            templateLibraryInstalled: true,
-                            updateTime: "Test string",
-                        },
-                        version: "Test string",
-                    },
-                    fleetobservability: {
-                    },
-                    identityservice: {
-                        authMethods: [
-                            {
-                                azureadConfig: {
-                                    clientId: "Test string",
-                                    clientSecret: "Test string",
-                                    encryptedClientSecret: "Test string",
-                                    kubectlRedirectUri: "Test string",
-                                    tenant: "Test string",
-                                },
-                                googleConfig: {
-                                    disable: true,
-                                },
-                                name: "Test string",
-                                oidcConfig: {
-                                    certificateAuthorityData: "Test string",
-                                    clientId: "Test string",
-                                    clientSecret: "Test string",
-                                    deployCloudConsoleProxy: true,
-                                    enableAccessToken: true,
-                                    encryptedClientSecret: "Test string",
-                                    extraParams: "Test string",
-                                    groupPrefix: "Test string",
-                                    groupsClaim: "Test string",
-                                    issuerUri: "Test string",
-                                    kubectlRedirectUri: "Test string",
-                                    scopes: "Test string",
-                                    userClaim: "Test string",
-                                    userPrefix: "Test string",
-                                },
-                                proxy: "Test string",
-                            }
-                        ],
-                    },
-                    mesh: {
-                        controlPlane: "Test string",
-                        defaultChannel: "Test string",
-                        management: "Test string",
-                    },
-                    namespaceactuation: {
-                    },
-                    origin: {
-                        type: "Test string",
-                    },
-                    policycontroller: {
-                        policyControllerHubConfig: {
-                            auditIntervalSeconds: "Test string",
-                            constraintViolationLimit: "Test string",
-                            deploymentConfigs: {
-                                A: {
-                                    containerResources: {
-                                        limits: {
-                                            cpu: "Test string",
-                                            memory: "Test string",
-                                        },
-                                        requests: {
-                                            cpu: "Test string",
-                                            memory: "Test string",
-                                        },
-                                    },
-                                    podAffinity: "Test string",
-                                    podAntiAffinity: true,
-                                    podTolerations: [
-                                        {
-                                            effect: "Test string",
-                                            key: "Test string",
-                                            operator: "Test string",
-                                            value: "Test string",
-                                        }
-                                    ],
-                                    replicaCount: "Test string",
-                                }
-                            },
-                            exemptableNamespaces: [
-                                "Test string"
-                            ],
-                            installSpec: "Test string",
-                            logDeniesEnabled: true,
-                            monitoring: {
-                                backends: [
-                                    "Test string"
-                                ],
-                            },
-                            mutationEnabled: true,
-                            policyContent: {
-                                bundles: {
-                                    A: {
-                                        exemptedNamespaces: [
-                                            "Test string"
-                                        ],
-                                    }
-                                },
-                                templateLibrary: {
-                                    installation: "Test string",
-                                },
-                            },
-                            referentialRulesEnabled: true,
-                        },
-                        version: "Test string",
-                    },
-                    workloadcertificate: {
-                        certificateManagement: "Test string",
-                    },
-                }
-            },
-            membershipStates: {
-                A: {
-                    appdevexperience: {
-                        networkingInstallSucceeded: {
-                            code: "Test string",
-                            description: "Test string",
-                        },
-                    },
-                    clusterupgrade: {
-                        fleet: "Test string",
-                        ignored: {
-                            ignoredTime: "Test string",
-                            reason: "Test string",
-                        },
-                        scopes: [
-                            "Test string"
-                        ],
-                        upgrades: [
-                            {
-                                status: {
-                                    code: "Test string",
-                                    reason: "Test string",
-                                    updateTime: "Test string",
-                                },
-                                upgrade: {
-                                    name: "Test string",
-                                    version: "Test string",
-                                },
-                            }
-                        ],
-                    },
-                    configmanagement: {
-                        binauthzState: {
-                            version: {
-                                webhookVersion: "Test string",
-                            },
-                            webhook: "Test string",
-                        },
-                        clusterName: "Test string",
-                        configSyncState: {
-                            deploymentState: {
-                                admissionWebhook: "Test string",
-                                gitSync: "Test string",
-                                importer: "Test string",
-                                monitor: "Test string",
-                                reconcilerManager: "Test string",
-                                rootReconciler: "Test string",
-                                syncer: "Test string",
-                            },
-                            errors: [
-                                {
-                                    errorMessage: "Test string",
-                                }
-                            ],
-                            syncState: {
-                                code: "Test string",
-                                errors: [
-                                    {
-                                        code: "Test string",
-                                        errorMessage: "Test string",
-                                        errorResources: [
-                                            {
-                                                resourceGvk: {
-                                                    group: "Test string",
-                                                    kind: "Test string",
-                                                    version: "Test string",
-                                                },
-                                                resourceName: "Test string",
-                                                resourceNamespace: "Test string",
-                                                sourcePath: "Test string",
-                                            }
-                                        ],
-                                    }
-                                ],
-                                importToken: "Test string",
-                                lastSync: "Test string",
-                                lastSyncTime: "Test string",
-                                sourceToken: "Test string",
-                                syncToken: "Test string",
-                            },
-                            version: {
-                                admissionWebhook: "Test string",
-                                gitSync: "Test string",
-                                importer: "Test string",
-                                monitor: "Test string",
-                                reconcilerManager: "Test string",
-                                rootReconciler: "Test string",
-                                syncer: "Test string",
-                            },
-                        },
-                        hierarchyControllerState: {
-                            state: {
-                                extension: "Test string",
-                                hnc: "Test string",
-                            },
-                            version: {
-                                extension: "Test string",
-                                hnc: "Test string",
-                            },
-                        },
-                        membershipSpec: {
-                            binauthz: {
-                                enabled: true,
-                            },
-                            cluster: "Test string",
-                            configSync: {
-                                allowVerticalScale: true,
-                                enabled: true,
-                                git: {
-                                    gcpServiceAccountEmail: "Test string",
-                                    httpsProxy: "Test string",
-                                    policyDir: "Test string",
-                                    secretType: "Test string",
-                                    syncBranch: "Test string",
-                                    syncRepo: "Test string",
-                                    syncRev: "Test string",
-                                    syncWaitSecs: "Test string",
-                                },
-                                metricsGcpServiceAccountEmail: "Test string",
-                                oci: {
-                                    gcpServiceAccountEmail: "Test string",
-                                    policyDir: "Test string",
-                                    secretType: "Test string",
-                                    syncRepo: "Test string",
-                                    syncWaitSecs: "Test string",
-                                },
-                                preventDrift: true,
-                                sourceFormat: "Test string",
-                            },
-                            hierarchyController: {
-                                enabled: true,
-                                enableHierarchicalResourceQuota: true,
-                                enablePodTreeLabels: true,
-                            },
-                            policyController: {
-                                auditIntervalSeconds: "Test string",
-                                enabled: true,
-                                exemptableNamespaces: [
-                                    "Test string"
-                                ],
-                                logDeniesEnabled: true,
-                                monitoring: {
-                                    backends: [
-                                        "Test string"
-                                    ],
-                                },
-                                mutationEnabled: true,
-                                referentialRulesEnabled: true,
-                                templateLibraryInstalled: true,
-                                updateTime: "Test string",
-                            },
-                            version: "Test string",
-                        },
-                        operatorState: {
-                            deploymentState: "Test string",
-                            errors: [
-                                {
-                                    errorMessage: "Test string",
-                                }
-                            ],
-                            version: "Test string",
-                        },
-                        policyControllerState: {
-                            deploymentState: {
-                                gatekeeperAudit: "Test string",
-                                gatekeeperControllerManagerState: "Test string",
-                                gatekeeperMutation: "Test string",
-                            },
-                            migration: {
-                                copyTime: "Test string",
-                                stage: "Test string",
-                            },
-                            version: {
-                                version: "Test string",
-                            },
-                        },
-                    },
-                    fleetobservability: {
-                    },
-                    identityservice: {
-                        failureReason: "Test string",
-                        installedVersion: "Test string",
-                        memberConfig: {
-                            authMethods: [
-                                {
-                                    azureadConfig: {
-                                        clientId: "Test string",
-                                        clientSecret: "Test string",
-                                        encryptedClientSecret: "Test string",
-                                        kubectlRedirectUri: "Test string",
-                                        tenant: "Test string",
-                                    },
-                                    googleConfig: {
-                                        disable: true,
-                                    },
-                                    name: "Test string",
-                                    oidcConfig: {
-                                        certificateAuthorityData: "Test string",
-                                        clientId: "Test string",
-                                        clientSecret: "Test string",
-                                        deployCloudConsoleProxy: true,
-                                        enableAccessToken: true,
-                                        encryptedClientSecret: "Test string",
-                                        extraParams: "Test string",
-                                        groupPrefix: "Test string",
-                                        groupsClaim: "Test string",
-                                        issuerUri: "Test string",
-                                        kubectlRedirectUri: "Test string",
-                                        scopes: "Test string",
-                                        userClaim: "Test string",
-                                        userPrefix: "Test string",
-                                    },
-                                    proxy: "Test string",
-                                }
-                            ],
-                        },
-                        state: "Test string",
-                    },
-                    metering: {
-                        lastMeasurementTime: "Test string",
-                        preciseLastMeasuredClusterVcpuCapacity: 42,
-                    },
-                    namespaceactuation: {
-                    },
-                    policycontroller: {
-                        componentStates: {
-                            A: {
-                                details: "Test string",
-                                state: "Test string",
-                            }
-                        },
-                        policyContentState: {
-                            bundleStates: {
-                                A: {
-                                    details: "Test string",
-                                    state: "Test string",
-                                }
-                            },
-                            referentialSyncConfigState: {
-                                details: "Test string",
-                                state: "Test string",
-                            },
-                            templateLibraryState: {
-                                details: "Test string",
-                                state: "Test string",
-                            },
-                        },
-                        state: "Test string",
-                    },
-                    servicemesh: {
-                        analysisMessages: [
-                            {
-                                args: {
-                                    A: 42
-                                },
-                                description: "Test string",
-                                messageBase: {
-                                    documentationUrl: "Test string",
-                                    level: "Test string",
-                                    type: {
-                                        code: "Test string",
-                                        displayName: "Test string",
-                                    },
-                                },
-                                resourcePaths: [
-                                    "Test string"
-                                ],
-                            }
-                        ],
-                        configApiVersion: "Test string",
-                        controlPlaneManagement: {
-                            details: [
-                                {
-                                    code: "Test string",
-                                    details: "Test string",
-                                }
-                            ],
-                            state: "Test string",
-                        },
-                        dataPlaneManagement: {
-                            details: [
-                                {
-                                    code: "Test string",
-                                    details: "Test string",
-                                }
-                            ],
-                            state: "Test string",
-                        },
-                    },
-                    state: {
-                        code: "Test string",
-                        description: "Test string",
-                        updateTime: "Test string",
-                    },
-                }
-            },
-            name: "Test string",
-            resourceState: {
-                state: "Test string",
-            },
-            scopeSpecs: {
-                A: {
-                    clusterupgrade: {
-                        gkeUpgradeOverrides: [
-                            {
-                                postConditions: {
-                                    soaking: "Test string",
-                                },
-                                upgrade: {
-                                    name: "Test string",
-                                    version: "Test string",
-                                },
-                            }
-                        ],
-                        postConditions: {
-                            soaking: "Test string",
-                        },
-                        upstreamScopes: [
-                            "Test string"
-                        ],
-                    },
-                }
-            },
-            scopeStates: {
-                A: {
-                    clusterupgrade: {
-                        downstreamScopes: [
-                            "Test string"
-                        ],
-                        gkeState: {
-                            conditions: [
-                                {
-                                    reason: "Test string",
-                                    status: "Test string",
-                                    type: "Test string",
-                                    updateTime: "Test string",
-                                }
-                            ],
-                            upgradeState: [
-                                {
-                                    stats: {
-                                        A: "Test string"
-                                    },
-                                    status: {
-                                        code: "Test string",
-                                        reason: "Test string",
-                                        updateTime: "Test string",
-                                    },
-                                    upgrade: {
-                                        name: "Test string",
-                                        version: "Test string",
-                                    },
-                                }
-                            ],
-                        },
-                        ignored: {
-                            A: {
-                                ignoredTime: "Test string",
-                                reason: "Test string",
-                            }
-                        },
-                    },
-                    state: {
-                        code: "Test string",
-                        description: "Test string",
-                        updateTime: "Test string",
-                    },
-                }
-            },
-            spec: {
-                anthosobservability: {
-                    defaultMembershipSpec: {
-                        doNotOptimizeMetrics: true,
-                        enableStackdriverOnApplications: true,
-                        version: "Test string",
-                    },
-                },
-                appdevexperience: {
-                },
-                cloudauditlogging: {
-                    allowlistedServiceAccounts: [
-                        "Test string"
-                    ],
-                },
-                clusterupgrade: {
-                    gkeUpgradeOverrides: [
-                        {
-                            postConditions: {
-                                soaking: "Test string",
-                            },
-                            upgrade: {
-                                name: "Test string",
-                                version: "Test string",
-                            },
-                        }
-                    ],
-                    postConditions: {
-                        soaking: "Test string",
-                    },
-                    upstreamFleets: [
-                        "Test string"
-                    ],
-                },
-                fleetobservability: {
-                    loggingConfig: {
-                        defaultConfig: {
-                            mode: "Test string",
-                        },
-                        fleetScopeLogsConfig: {
-                            mode: "Test string",
-                        },
-                    },
-                },
-                multiclusteringress: {
-                    billing: "Test string",
-                    configMembership: "Test string",
-                },
-                namespaceactuation: {
-                    actuationMode: "Test string",
-                },
-                workloadcertificate: {
-                    defaultConfig: {
-                        certificateManagement: "Test string",
-                    },
-                    provisionGoogleCa: "Test string",
-                },
-            },
-            state: {
-                appdevexperience: {
-                    networkingInstallSucceeded: {
-                        code: "Test string",
-                        description: "Test string",
-                    },
-                },
-                clusterupgrade: {
-                    downstreamFleets: [
-                        "Test string"
-                    ],
-                    gkeState: {
-                        conditions: [
-                            {
-                                reason: "Test string",
-                                status: "Test string",
-                                type: "Test string",
-                                updateTime: "Test string",
-                            }
-                        ],
-                        upgradeState: [
-                            {
-                                stats: {
-                                    A: "Test string"
-                                },
-                                status: {
-                                    code: "Test string",
-                                    reason: "Test string",
-                                    updateTime: "Test string",
-                                },
-                                upgrade: {
-                                    name: "Test string",
-                                    version: "Test string",
-                                },
-                            }
-                        ],
-                    },
-                    ignored: {
-                        A: {
-                            ignoredTime: "Test string",
-                            reason: "Test string",
-                        }
-                    },
-                },
-                fleetobservability: {
-                    logging: {
-                        defaultLog: {
-                            code: "Test string",
-                            errors: [
-                                {
-                                    code: "Test string",
-                                    description: "Test string",
-                                }
-                            ],
-                        },
-                        scopeLog: {
-                            code: "Test string",
-                            errors: [
-                                {
-                                    code: "Test string",
-                                    description: "Test string",
-                                }
-                            ],
-                        },
-                    },
-                    monitoring: {
-                        state: {
-                            code: "Test string",
-                            errors: [
-                                {
-                                    code: "Test string",
-                                    description: "Test string",
-                                }
-                            ],
-                        },
-                    },
-                },
-                namespaceactuation: {
-                },
-                servicemesh: {
-                    analysisMessages: [
-                        {
-                            args: {
-                                A: 42
-                            },
-                            description: "Test string",
-                            messageBase: {
-                                documentationUrl: "Test string",
-                                level: "Test string",
-                                type: {
-                                    code: "Test string",
-                                    displayName: "Test string",
-                                },
-                            },
-                            resourcePaths: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                },
-                state: {
-                    code: "Test string",
-                    description: "Test string",
-                    updateTime: "Test string",
-                },
-            },
-            updateTime: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.gkehub.projects.locations.features.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.gkehub.projects.locations.features.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a fleet. */
-        await gapi.client.gkehub.projects.locations.fleets.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            defaultClusterConfig: {
-                binaryAuthorizationConfig: {
-                    evaluationMode: "Test string",
-                    policyBindings: [
-                        {
-                            name: "Test string",
-                        }
-                    ],
-                },
-                securityPostureConfig: {
-                    mode: "Test string",
-                    vulnerabilityMode: "Test string",
-                },
-            },
-            deleteTime: "Test string",
-            displayName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Removes a Fleet. There must be no memberships remaining in the Fleet. */
-        await gapi.client.gkehub.projects.locations.fleets.delete({
-            name: "Test string",
-        });
-        /** Returns the details of a fleet. */
-        await gapi.client.gkehub.projects.locations.fleets.get({
-            name: "Test string",
-        });
-        /** Returns all fleets within an organization or a project that the caller has access to. */
-        await gapi.client.gkehub.projects.locations.fleets.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a fleet. */
-        await gapi.client.gkehub.projects.locations.fleets.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            defaultClusterConfig: {
-                binaryAuthorizationConfig: {
-                    evaluationMode: "Test string",
-                    policyBindings: [
-                        {
-                            name: "Test string",
-                        }
-                    ],
-                },
-                securityPostureConfig: {
-                    mode: "Test string",
-                    vulnerabilityMode: "Test string",
-                },
-            },
-            deleteTime: "Test string",
-            displayName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /**
-         * Creates a new Membership. **This is currently only supported for GKE clusters on Google Cloud**. To register other clusters, follow the instructions at
-         * https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster.
-         */
-        await gapi.client.gkehub.projects.locations.memberships.create({
-            membershipId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            authority: {
-                identityProvider: "Test string",
-                issuer: "Test string",
-                oidcJwks: "Test string",
-                workloadIdentityPool: "Test string",
-            },
-            createTime: "Test string",
-            deleteTime: "Test string",
-            description: "Test string",
-            endpoint: {
-                applianceCluster: {
-                    resourceLink: "Test string",
-                },
-                edgeCluster: {
-                    resourceLink: "Test string",
-                },
-                gkeCluster: {
-                    clusterMissing: true,
-                    resourceLink: "Test string",
-                },
-                googleManaged: true,
-                kubernetesMetadata: {
-                    kubernetesApiServerVersion: "Test string",
-                    memoryMb: 42,
-                    nodeCount: 42,
-                    nodeProviderId: "Test string",
-                    updateTime: "Test string",
-                    vcpuCount: 42,
-                },
-                kubernetesResource: {
-                    connectResources: [
-                        {
-                            clusterScoped: true,
-                            manifest: "Test string",
-                        }
-                    ],
-                    membershipCrManifest: "Test string",
-                    membershipResources: [
-                        {
-                            clusterScoped: true,
-                            manifest: "Test string",
-                        }
-                    ],
-                    resourceOptions: {
-                        connectVersion: "Test string",
-                        k8sVersion: "Test string",
-                        v1beta1Crd: true,
-                    },
-                },
-                multiCloudCluster: {
-                    clusterMissing: true,
-                    resourceLink: "Test string",
-                },
-                onPremCluster: {
-                    adminCluster: true,
-                    clusterMissing: true,
-                    clusterType: "Test string",
-                    resourceLink: "Test string",
-                },
-            },
-            externalId: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            lastConnectionTime: "Test string",
-            monitoringConfig: {
-                cluster: "Test string",
-                clusterHash: "Test string",
-                kubernetesMetricsPrefix: "Test string",
-                location: "Test string",
-                projectId: "Test string",
-            },
-            name: "Test string",
-            state: {
-                code: "Test string",
-            },
-            uniqueId: "Test string",
-            updateTime: "Test string",
-        });
-        /**
-         * Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at
-         * https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster.
-         */
-        await gapi.client.gkehub.projects.locations.memberships.delete({
-            force: true,
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /**
-         * Generates the manifest for deployment of the GKE connect agent. **This method is used internally by Google-provided libraries.** Most clients should not need to call this method
-         * directly.
-         */
-        await gapi.client.gkehub.projects.locations.memberships.generateConnectManifest({
-            imagePullSecretContent: "Test string",
-            isUpgrade: true,
-            name: "Test string",
-            namespace: "Test string",
-            proxy: "Test string",
-            registry: "Test string",
-            version: "Test string",
-        });
-        /** Gets the details of a Membership. */
-        await gapi.client.gkehub.projects.locations.memberships.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.gkehub.projects.locations.memberships.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Memberships in a given project and location. */
-        await gapi.client.gkehub.projects.locations.memberships.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Lists Memberships of admin clusters in a given project and location. **This method is only used internally**. */
-        await gapi.client.gkehub.projects.locations.memberships.listAdmin({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates an existing Membership. */
-        await gapi.client.gkehub.projects.locations.memberships.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            authority: {
-                identityProvider: "Test string",
-                issuer: "Test string",
-                oidcJwks: "Test string",
-                workloadIdentityPool: "Test string",
-            },
-            createTime: "Test string",
-            deleteTime: "Test string",
-            description: "Test string",
-            endpoint: {
-                applianceCluster: {
-                    resourceLink: "Test string",
-                },
-                edgeCluster: {
-                    resourceLink: "Test string",
-                },
-                gkeCluster: {
-                    clusterMissing: true,
-                    resourceLink: "Test string",
-                },
-                googleManaged: true,
-                kubernetesMetadata: {
-                    kubernetesApiServerVersion: "Test string",
-                    memoryMb: 42,
-                    nodeCount: 42,
-                    nodeProviderId: "Test string",
-                    updateTime: "Test string",
-                    vcpuCount: 42,
-                },
-                kubernetesResource: {
-                    connectResources: [
-                        {
-                            clusterScoped: true,
-                            manifest: "Test string",
-                        }
-                    ],
-                    membershipCrManifest: "Test string",
-                    membershipResources: [
-                        {
-                            clusterScoped: true,
-                            manifest: "Test string",
-                        }
-                    ],
-                    resourceOptions: {
-                        connectVersion: "Test string",
-                        k8sVersion: "Test string",
-                        v1beta1Crd: true,
-                    },
-                },
-                multiCloudCluster: {
-                    clusterMissing: true,
-                    resourceLink: "Test string",
-                },
-                onPremCluster: {
-                    adminCluster: true,
-                    clusterMissing: true,
-                    clusterType: "Test string",
-                    resourceLink: "Test string",
-                },
-            },
-            externalId: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            lastConnectionTime: "Test string",
-            monitoringConfig: {
-                cluster: "Test string",
-                clusterHash: "Test string",
-                kubernetesMetricsPrefix: "Test string",
-                location: "Test string",
-                projectId: "Test string",
-            },
-            name: "Test string",
-            state: {
-                code: "Test string",
-            },
-            uniqueId: "Test string",
-            updateTime: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.gkehub.projects.locations.memberships.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.gkehub.projects.locations.memberships.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /**
-         * ValidateCreateMembership is a preflight check for CreateMembership. It checks the following: 1. Caller has the required `gkehub.memberships.create` permission. 2. The membership_id is
-         * still available.
-         */
-        await gapi.client.gkehub.projects.locations.memberships.validateCreate({
-            parent: "Test string",
-        }, {
-            membership: {
-                authority: {
-                    identityProvider: "Test string",
-                    issuer: "Test string",
-                    oidcJwks: "Test string",
-                    workloadIdentityPool: "Test string",
-                },
-                createTime: "Test string",
-                deleteTime: "Test string",
-                description: "Test string",
-                endpoint: {
-                    applianceCluster: {
-                        resourceLink: "Test string",
-                    },
-                    edgeCluster: {
-                        resourceLink: "Test string",
-                    },
-                    gkeCluster: {
-                        clusterMissing: true,
-                        resourceLink: "Test string",
-                    },
-                    googleManaged: true,
-                    kubernetesMetadata: {
-                        kubernetesApiServerVersion: "Test string",
-                        memoryMb: 42,
-                        nodeCount: 42,
-                        nodeProviderId: "Test string",
-                        updateTime: "Test string",
-                        vcpuCount: 42,
-                    },
-                    kubernetesResource: {
-                        connectResources: [
-                            {
-                                clusterScoped: true,
-                                manifest: "Test string",
-                            }
-                        ],
-                        membershipCrManifest: "Test string",
-                        membershipResources: [
-                            {
-                                clusterScoped: true,
-                                manifest: "Test string",
-                            }
-                        ],
-                        resourceOptions: {
-                            connectVersion: "Test string",
-                            k8sVersion: "Test string",
-                            v1beta1Crd: true,
-                        },
-                    },
-                    multiCloudCluster: {
-                        clusterMissing: true,
-                        resourceLink: "Test string",
-                    },
-                    onPremCluster: {
-                        adminCluster: true,
-                        clusterMissing: true,
-                        clusterType: "Test string",
-                        resourceLink: "Test string",
-                    },
-                },
-                externalId: "Test string",
-                labels: {
-                    A: "Test string"
-                },
-                lastConnectionTime: "Test string",
-                monitoringConfig: {
-                    cluster: "Test string",
-                    clusterHash: "Test string",
-                    kubernetesMetricsPrefix: "Test string",
-                    location: "Test string",
-                    projectId: "Test string",
-                },
-                name: "Test string",
-                state: {
-                    code: "Test string",
-                },
-                uniqueId: "Test string",
-                updateTime: "Test string",
-            },
-            membershipId: "Test string",
-        });
-        /** Creates a MembershipBinding. */
-        await gapi.client.gkehub.projects.locations.memberships.bindings.create({
-            membershipBindingId: "Test string",
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            scope: "Test string",
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a MembershipBinding. */
-        await gapi.client.gkehub.projects.locations.memberships.bindings.delete({
-            name: "Test string",
-        });
-        /** Returns the details of a MembershipBinding. */
-        await gapi.client.gkehub.projects.locations.memberships.bindings.get({
-            name: "Test string",
-        });
-        /** Lists MembershipBindings. */
-        await gapi.client.gkehub.projects.locations.memberships.bindings.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a MembershipBinding. */
-        await gapi.client.gkehub.projects.locations.memberships.bindings.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            scope: "Test string",
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Creates a Membership RBACRoleBinding. */
-        await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.create({
-            parent: "Test string",
-            rbacrolebindingId: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            group: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            role: {
-                predefinedRole: "Test string",
-            },
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-            user: "Test string",
-        });
-        /** Deletes a Membership RBACRoleBinding. */
-        await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.delete({
-            name: "Test string",
-        });
-        /** Generates a YAML of the RBAC policies for the specified RoleBinding and its associated impersonation resources. */
-        await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.generateMembershipRBACRoleBindingYAML({
-            parent: "Test string",
-            rbacrolebindingId: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            group: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            role: {
-                predefinedRole: "Test string",
-            },
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-            user: "Test string",
-        });
-        /** Returns the details of a Membership RBACRoleBinding. */
-        await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.get({
-            name: "Test string",
-        });
-        /** Lists all Membership RBACRoleBindings. */
-        await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a Membership RBACRoleBinding. */
-        await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            group: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            role: {
-                predefinedRole: "Test string",
-            },
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-            user: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.gkehub.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.gkehub.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.gkehub.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.gkehub.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a Scope. */
-        await gapi.client.gkehub.projects.locations.scopes.create({
-            parent: "Test string",
-            scopeId: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            namespaceLabels: {
-                A: "Test string"
-            },
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a Scope. */
-        await gapi.client.gkehub.projects.locations.scopes.delete({
-            name: "Test string",
-        });
-        /** Returns the details of a Scope. */
-        await gapi.client.gkehub.projects.locations.scopes.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.gkehub.projects.locations.scopes.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Scopes. */
-        await gapi.client.gkehub.projects.locations.scopes.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a scopes. */
-        await gapi.client.gkehub.projects.locations.scopes.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            namespaceLabels: {
-                A: "Test string"
-            },
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.gkehub.projects.locations.scopes.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.gkehub.projects.locations.scopes.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a fleet namespace. */
-        await gapi.client.gkehub.projects.locations.scopes.namespaces.create({
-            parent: "Test string",
-            scopeNamespaceId: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            namespaceLabels: {
-                A: "Test string"
-            },
-            scope: "Test string",
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Deletes a fleet namespace. */
-        await gapi.client.gkehub.projects.locations.scopes.namespaces.delete({
-            name: "Test string",
-        });
-        /** Returns the details of a fleet namespace. */
-        await gapi.client.gkehub.projects.locations.scopes.namespaces.get({
-            name: "Test string",
-        });
-        /** Lists fleet namespaces. */
-        await gapi.client.gkehub.projects.locations.scopes.namespaces.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a fleet namespace. */
-        await gapi.client.gkehub.projects.locations.scopes.namespaces.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            namespaceLabels: {
-                A: "Test string"
-            },
-            scope: "Test string",
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-        });
-        /** Creates a Scope RBACRoleBinding. */
-        await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.create({
-            parent: "Test string",
-            rbacrolebindingId: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            group: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            role: {
-                predefinedRole: "Test string",
-            },
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-            user: "Test string",
-        });
-        /** Deletes a Scope RBACRoleBinding. */
-        await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.delete({
-            name: "Test string",
-        });
-        /** Returns the details of a Scope RBACRoleBinding. */
-        await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.get({
-            name: "Test string",
-        });
-        /** Lists all Scope RBACRoleBindings. */
-        await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a Scope RBACRoleBinding. */
-        await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            deleteTime: "Test string",
-            group: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            role: {
-                predefinedRole: "Test string",
-            },
-            state: {
-                code: "Test string",
-            },
-            uid: "Test string",
-            updateTime: "Test string",
-            user: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Returns all fleets within an organization or a project that the caller has access to. */
+    await gapi.client.gkehub.organizations.locations.fleets.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets information about a location. */
+    await gapi.client.gkehub.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.gkehub.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Adds a new Feature. */
+    await gapi.client.gkehub.projects.locations.features.create(
+      {
+        featureId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        fleetDefaultMemberConfig: {
+          configmanagement: {
+            binauthz: {
+              enabled: true,
+            },
+            cluster: 'Test string',
+            configSync: {
+              allowVerticalScale: true,
+              enabled: true,
+              git: {
+                gcpServiceAccountEmail: 'Test string',
+                httpsProxy: 'Test string',
+                policyDir: 'Test string',
+                secretType: 'Test string',
+                syncBranch: 'Test string',
+                syncRepo: 'Test string',
+                syncRev: 'Test string',
+                syncWaitSecs: 'Test string',
+              },
+              metricsGcpServiceAccountEmail: 'Test string',
+              oci: {
+                gcpServiceAccountEmail: 'Test string',
+                policyDir: 'Test string',
+                secretType: 'Test string',
+                syncRepo: 'Test string',
+                syncWaitSecs: 'Test string',
+              },
+              preventDrift: true,
+              sourceFormat: 'Test string',
+            },
+            hierarchyController: {
+              enabled: true,
+              enableHierarchicalResourceQuota: true,
+              enablePodTreeLabels: true,
+            },
+            policyController: {
+              auditIntervalSeconds: 'Test string',
+              enabled: true,
+              exemptableNamespaces: ['Test string'],
+              logDeniesEnabled: true,
+              monitoring: {
+                backends: ['Test string'],
+              },
+              mutationEnabled: true,
+              referentialRulesEnabled: true,
+              templateLibraryInstalled: true,
+              updateTime: 'Test string',
+            },
+            version: 'Test string',
+          },
+          identityservice: {
+            authMethods: [
+              {
+                azureadConfig: {
+                  clientId: 'Test string',
+                  clientSecret: 'Test string',
+                  encryptedClientSecret: 'Test string',
+                  kubectlRedirectUri: 'Test string',
+                  tenant: 'Test string',
+                },
+                googleConfig: {
+                  disable: true,
+                },
+                name: 'Test string',
+                oidcConfig: {
+                  certificateAuthorityData: 'Test string',
+                  clientId: 'Test string',
+                  clientSecret: 'Test string',
+                  deployCloudConsoleProxy: true,
+                  enableAccessToken: true,
+                  encryptedClientSecret: 'Test string',
+                  extraParams: 'Test string',
+                  groupPrefix: 'Test string',
+                  groupsClaim: 'Test string',
+                  issuerUri: 'Test string',
+                  kubectlRedirectUri: 'Test string',
+                  scopes: 'Test string',
+                  userClaim: 'Test string',
+                  userPrefix: 'Test string',
+                },
+                proxy: 'Test string',
+              },
+            ],
+          },
+          mesh: {
+            controlPlane: 'Test string',
+            defaultChannel: 'Test string',
+            management: 'Test string',
+          },
+          policycontroller: {
+            policyControllerHubConfig: {
+              auditIntervalSeconds: 'Test string',
+              constraintViolationLimit: 'Test string',
+              deploymentConfigs: {
+                A: {
+                  containerResources: {
+                    limits: {
+                      cpu: 'Test string',
+                      memory: 'Test string',
+                    },
+                    requests: {
+                      cpu: 'Test string',
+                      memory: 'Test string',
+                    },
+                  },
+                  podAffinity: 'Test string',
+                  podAntiAffinity: true,
+                  podTolerations: [
+                    {
+                      effect: 'Test string',
+                      key: 'Test string',
+                      operator: 'Test string',
+                      value: 'Test string',
+                    },
+                  ],
+                  replicaCount: 'Test string',
+                },
+              },
+              exemptableNamespaces: ['Test string'],
+              installSpec: 'Test string',
+              logDeniesEnabled: true,
+              monitoring: {
+                backends: ['Test string'],
+              },
+              mutationEnabled: true,
+              policyContent: {
+                bundles: {
+                  A: {
+                    exemptedNamespaces: ['Test string'],
+                  },
+                },
+                templateLibrary: {
+                  installation: 'Test string',
+                },
+              },
+              referentialRulesEnabled: true,
+            },
+            version: 'Test string',
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        membershipSpecs: {
+          A: {
+            anthosobservability: {
+              doNotOptimizeMetrics: true,
+              enableStackdriverOnApplications: true,
+              version: 'Test string',
+            },
+            cloudbuild: {
+              securityPolicy: 'Test string',
+              version: 'Test string',
+            },
+            configmanagement: {
+              binauthz: {
+                enabled: true,
+              },
+              cluster: 'Test string',
+              configSync: {
+                allowVerticalScale: true,
+                enabled: true,
+                git: {
+                  gcpServiceAccountEmail: 'Test string',
+                  httpsProxy: 'Test string',
+                  policyDir: 'Test string',
+                  secretType: 'Test string',
+                  syncBranch: 'Test string',
+                  syncRepo: 'Test string',
+                  syncRev: 'Test string',
+                  syncWaitSecs: 'Test string',
+                },
+                metricsGcpServiceAccountEmail: 'Test string',
+                oci: {
+                  gcpServiceAccountEmail: 'Test string',
+                  policyDir: 'Test string',
+                  secretType: 'Test string',
+                  syncRepo: 'Test string',
+                  syncWaitSecs: 'Test string',
+                },
+                preventDrift: true,
+                sourceFormat: 'Test string',
+              },
+              hierarchyController: {
+                enabled: true,
+                enableHierarchicalResourceQuota: true,
+                enablePodTreeLabels: true,
+              },
+              policyController: {
+                auditIntervalSeconds: 'Test string',
+                enabled: true,
+                exemptableNamespaces: ['Test string'],
+                logDeniesEnabled: true,
+                monitoring: {
+                  backends: ['Test string'],
+                },
+                mutationEnabled: true,
+                referentialRulesEnabled: true,
+                templateLibraryInstalled: true,
+                updateTime: 'Test string',
+              },
+              version: 'Test string',
+            },
+            fleetobservability: {},
+            identityservice: {
+              authMethods: [
+                {
+                  azureadConfig: {
+                    clientId: 'Test string',
+                    clientSecret: 'Test string',
+                    encryptedClientSecret: 'Test string',
+                    kubectlRedirectUri: 'Test string',
+                    tenant: 'Test string',
+                  },
+                  googleConfig: {
+                    disable: true,
+                  },
+                  name: 'Test string',
+                  oidcConfig: {
+                    certificateAuthorityData: 'Test string',
+                    clientId: 'Test string',
+                    clientSecret: 'Test string',
+                    deployCloudConsoleProxy: true,
+                    enableAccessToken: true,
+                    encryptedClientSecret: 'Test string',
+                    extraParams: 'Test string',
+                    groupPrefix: 'Test string',
+                    groupsClaim: 'Test string',
+                    issuerUri: 'Test string',
+                    kubectlRedirectUri: 'Test string',
+                    scopes: 'Test string',
+                    userClaim: 'Test string',
+                    userPrefix: 'Test string',
+                  },
+                  proxy: 'Test string',
+                },
+              ],
+            },
+            mesh: {
+              controlPlane: 'Test string',
+              defaultChannel: 'Test string',
+              management: 'Test string',
+            },
+            namespaceactuation: {},
+            origin: {
+              type: 'Test string',
+            },
+            policycontroller: {
+              policyControllerHubConfig: {
+                auditIntervalSeconds: 'Test string',
+                constraintViolationLimit: 'Test string',
+                deploymentConfigs: {
+                  A: {
+                    containerResources: {
+                      limits: {
+                        cpu: 'Test string',
+                        memory: 'Test string',
+                      },
+                      requests: {
+                        cpu: 'Test string',
+                        memory: 'Test string',
+                      },
+                    },
+                    podAffinity: 'Test string',
+                    podAntiAffinity: true,
+                    podTolerations: [
+                      {
+                        effect: 'Test string',
+                        key: 'Test string',
+                        operator: 'Test string',
+                        value: 'Test string',
+                      },
+                    ],
+                    replicaCount: 'Test string',
+                  },
+                },
+                exemptableNamespaces: ['Test string'],
+                installSpec: 'Test string',
+                logDeniesEnabled: true,
+                monitoring: {
+                  backends: ['Test string'],
+                },
+                mutationEnabled: true,
+                policyContent: {
+                  bundles: {
+                    A: {
+                      exemptedNamespaces: ['Test string'],
+                    },
+                  },
+                  templateLibrary: {
+                    installation: 'Test string',
+                  },
+                },
+                referentialRulesEnabled: true,
+              },
+              version: 'Test string',
+            },
+            workloadcertificate: {
+              certificateManagement: 'Test string',
+            },
+          },
+        },
+        membershipStates: {
+          A: {
+            appdevexperience: {
+              networkingInstallSucceeded: {
+                code: 'Test string',
+                description: 'Test string',
+              },
+            },
+            clusterupgrade: {
+              fleet: 'Test string',
+              ignored: {
+                ignoredTime: 'Test string',
+                reason: 'Test string',
+              },
+              scopes: ['Test string'],
+              upgrades: [
+                {
+                  status: {
+                    code: 'Test string',
+                    reason: 'Test string',
+                    updateTime: 'Test string',
+                  },
+                  upgrade: {
+                    name: 'Test string',
+                    version: 'Test string',
+                  },
+                },
+              ],
+            },
+            configmanagement: {
+              binauthzState: {
+                version: {
+                  webhookVersion: 'Test string',
+                },
+                webhook: 'Test string',
+              },
+              clusterName: 'Test string',
+              configSyncState: {
+                deploymentState: {
+                  admissionWebhook: 'Test string',
+                  gitSync: 'Test string',
+                  importer: 'Test string',
+                  monitor: 'Test string',
+                  reconcilerManager: 'Test string',
+                  rootReconciler: 'Test string',
+                  syncer: 'Test string',
+                },
+                errors: [
+                  {
+                    errorMessage: 'Test string',
+                  },
+                ],
+                syncState: {
+                  code: 'Test string',
+                  errors: [
+                    {
+                      code: 'Test string',
+                      errorMessage: 'Test string',
+                      errorResources: [
+                        {
+                          resourceGvk: {
+                            group: 'Test string',
+                            kind: 'Test string',
+                            version: 'Test string',
+                          },
+                          resourceName: 'Test string',
+                          resourceNamespace: 'Test string',
+                          sourcePath: 'Test string',
+                        },
+                      ],
+                    },
+                  ],
+                  importToken: 'Test string',
+                  lastSync: 'Test string',
+                  lastSyncTime: 'Test string',
+                  sourceToken: 'Test string',
+                  syncToken: 'Test string',
+                },
+                version: {
+                  admissionWebhook: 'Test string',
+                  gitSync: 'Test string',
+                  importer: 'Test string',
+                  monitor: 'Test string',
+                  reconcilerManager: 'Test string',
+                  rootReconciler: 'Test string',
+                  syncer: 'Test string',
+                },
+              },
+              hierarchyControllerState: {
+                state: {
+                  extension: 'Test string',
+                  hnc: 'Test string',
+                },
+                version: {
+                  extension: 'Test string',
+                  hnc: 'Test string',
+                },
+              },
+              membershipSpec: {
+                binauthz: {
+                  enabled: true,
+                },
+                cluster: 'Test string',
+                configSync: {
+                  allowVerticalScale: true,
+                  enabled: true,
+                  git: {
+                    gcpServiceAccountEmail: 'Test string',
+                    httpsProxy: 'Test string',
+                    policyDir: 'Test string',
+                    secretType: 'Test string',
+                    syncBranch: 'Test string',
+                    syncRepo: 'Test string',
+                    syncRev: 'Test string',
+                    syncWaitSecs: 'Test string',
+                  },
+                  metricsGcpServiceAccountEmail: 'Test string',
+                  oci: {
+                    gcpServiceAccountEmail: 'Test string',
+                    policyDir: 'Test string',
+                    secretType: 'Test string',
+                    syncRepo: 'Test string',
+                    syncWaitSecs: 'Test string',
+                  },
+                  preventDrift: true,
+                  sourceFormat: 'Test string',
+                },
+                hierarchyController: {
+                  enabled: true,
+                  enableHierarchicalResourceQuota: true,
+                  enablePodTreeLabels: true,
+                },
+                policyController: {
+                  auditIntervalSeconds: 'Test string',
+                  enabled: true,
+                  exemptableNamespaces: ['Test string'],
+                  logDeniesEnabled: true,
+                  monitoring: {
+                    backends: ['Test string'],
+                  },
+                  mutationEnabled: true,
+                  referentialRulesEnabled: true,
+                  templateLibraryInstalled: true,
+                  updateTime: 'Test string',
+                },
+                version: 'Test string',
+              },
+              operatorState: {
+                deploymentState: 'Test string',
+                errors: [
+                  {
+                    errorMessage: 'Test string',
+                  },
+                ],
+                version: 'Test string',
+              },
+              policyControllerState: {
+                deploymentState: {
+                  gatekeeperAudit: 'Test string',
+                  gatekeeperControllerManagerState: 'Test string',
+                  gatekeeperMutation: 'Test string',
+                },
+                migration: {
+                  copyTime: 'Test string',
+                  stage: 'Test string',
+                },
+                version: {
+                  version: 'Test string',
+                },
+              },
+            },
+            fleetobservability: {},
+            identityservice: {
+              failureReason: 'Test string',
+              installedVersion: 'Test string',
+              memberConfig: {
+                authMethods: [
+                  {
+                    azureadConfig: {
+                      clientId: 'Test string',
+                      clientSecret: 'Test string',
+                      encryptedClientSecret: 'Test string',
+                      kubectlRedirectUri: 'Test string',
+                      tenant: 'Test string',
+                    },
+                    googleConfig: {
+                      disable: true,
+                    },
+                    name: 'Test string',
+                    oidcConfig: {
+                      certificateAuthorityData: 'Test string',
+                      clientId: 'Test string',
+                      clientSecret: 'Test string',
+                      deployCloudConsoleProxy: true,
+                      enableAccessToken: true,
+                      encryptedClientSecret: 'Test string',
+                      extraParams: 'Test string',
+                      groupPrefix: 'Test string',
+                      groupsClaim: 'Test string',
+                      issuerUri: 'Test string',
+                      kubectlRedirectUri: 'Test string',
+                      scopes: 'Test string',
+                      userClaim: 'Test string',
+                      userPrefix: 'Test string',
+                    },
+                    proxy: 'Test string',
+                  },
+                ],
+              },
+              state: 'Test string',
+            },
+            metering: {
+              lastMeasurementTime: 'Test string',
+              preciseLastMeasuredClusterVcpuCapacity: 42,
+            },
+            namespaceactuation: {},
+            policycontroller: {
+              componentStates: {
+                A: {
+                  details: 'Test string',
+                  state: 'Test string',
+                },
+              },
+              policyContentState: {
+                bundleStates: {
+                  A: {
+                    details: 'Test string',
+                    state: 'Test string',
+                  },
+                },
+                referentialSyncConfigState: {
+                  details: 'Test string',
+                  state: 'Test string',
+                },
+                templateLibraryState: {
+                  details: 'Test string',
+                  state: 'Test string',
+                },
+              },
+              state: 'Test string',
+            },
+            servicemesh: {
+              analysisMessages: [
+                {
+                  args: {
+                    A: 42,
+                  },
+                  description: 'Test string',
+                  messageBase: {
+                    documentationUrl: 'Test string',
+                    level: 'Test string',
+                    type: {
+                      code: 'Test string',
+                      displayName: 'Test string',
+                    },
+                  },
+                  resourcePaths: ['Test string'],
+                },
+              ],
+              configApiVersion: 'Test string',
+              controlPlaneManagement: {
+                details: [
+                  {
+                    code: 'Test string',
+                    details: 'Test string',
+                  },
+                ],
+                state: 'Test string',
+              },
+              dataPlaneManagement: {
+                details: [
+                  {
+                    code: 'Test string',
+                    details: 'Test string',
+                  },
+                ],
+                state: 'Test string',
+              },
+            },
+            state: {
+              code: 'Test string',
+              description: 'Test string',
+              updateTime: 'Test string',
+            },
+          },
+        },
+        name: 'Test string',
+        resourceState: {
+          state: 'Test string',
+        },
+        scopeSpecs: {
+          A: {
+            clusterupgrade: {
+              gkeUpgradeOverrides: [
+                {
+                  postConditions: {
+                    soaking: 'Test string',
+                  },
+                  upgrade: {
+                    name: 'Test string',
+                    version: 'Test string',
+                  },
+                },
+              ],
+              postConditions: {
+                soaking: 'Test string',
+              },
+              upstreamScopes: ['Test string'],
+            },
+          },
+        },
+        scopeStates: {
+          A: {
+            clusterupgrade: {
+              downstreamScopes: ['Test string'],
+              gkeState: {
+                conditions: [
+                  {
+                    reason: 'Test string',
+                    status: 'Test string',
+                    type: 'Test string',
+                    updateTime: 'Test string',
+                  },
+                ],
+                upgradeState: [
+                  {
+                    stats: {
+                      A: 'Test string',
+                    },
+                    status: {
+                      code: 'Test string',
+                      reason: 'Test string',
+                      updateTime: 'Test string',
+                    },
+                    upgrade: {
+                      name: 'Test string',
+                      version: 'Test string',
+                    },
+                  },
+                ],
+              },
+              ignored: {
+                A: {
+                  ignoredTime: 'Test string',
+                  reason: 'Test string',
+                },
+              },
+            },
+            state: {
+              code: 'Test string',
+              description: 'Test string',
+              updateTime: 'Test string',
+            },
+          },
+        },
+        spec: {
+          anthosobservability: {
+            defaultMembershipSpec: {
+              doNotOptimizeMetrics: true,
+              enableStackdriverOnApplications: true,
+              version: 'Test string',
+            },
+          },
+          appdevexperience: {},
+          cloudauditlogging: {
+            allowlistedServiceAccounts: ['Test string'],
+          },
+          clusterupgrade: {
+            gkeUpgradeOverrides: [
+              {
+                postConditions: {
+                  soaking: 'Test string',
+                },
+                upgrade: {
+                  name: 'Test string',
+                  version: 'Test string',
+                },
+              },
+            ],
+            postConditions: {
+              soaking: 'Test string',
+            },
+            upstreamFleets: ['Test string'],
+          },
+          fleetobservability: {
+            loggingConfig: {
+              defaultConfig: {
+                mode: 'Test string',
+              },
+              fleetScopeLogsConfig: {
+                mode: 'Test string',
+              },
+            },
+          },
+          multiclusteringress: {
+            billing: 'Test string',
+            configMembership: 'Test string',
+          },
+          namespaceactuation: {
+            actuationMode: 'Test string',
+          },
+          workloadcertificate: {
+            defaultConfig: {
+              certificateManagement: 'Test string',
+            },
+            provisionGoogleCa: 'Test string',
+          },
+        },
+        state: {
+          appdevexperience: {
+            networkingInstallSucceeded: {
+              code: 'Test string',
+              description: 'Test string',
+            },
+          },
+          clusterupgrade: {
+            downstreamFleets: ['Test string'],
+            gkeState: {
+              conditions: [
+                {
+                  reason: 'Test string',
+                  status: 'Test string',
+                  type: 'Test string',
+                  updateTime: 'Test string',
+                },
+              ],
+              upgradeState: [
+                {
+                  stats: {
+                    A: 'Test string',
+                  },
+                  status: {
+                    code: 'Test string',
+                    reason: 'Test string',
+                    updateTime: 'Test string',
+                  },
+                  upgrade: {
+                    name: 'Test string',
+                    version: 'Test string',
+                  },
+                },
+              ],
+            },
+            ignored: {
+              A: {
+                ignoredTime: 'Test string',
+                reason: 'Test string',
+              },
+            },
+          },
+          fleetobservability: {
+            logging: {
+              defaultLog: {
+                code: 'Test string',
+                errors: [
+                  {
+                    code: 'Test string',
+                    description: 'Test string',
+                  },
+                ],
+              },
+              scopeLog: {
+                code: 'Test string',
+                errors: [
+                  {
+                    code: 'Test string',
+                    description: 'Test string',
+                  },
+                ],
+              },
+            },
+            monitoring: {
+              state: {
+                code: 'Test string',
+                errors: [
+                  {
+                    code: 'Test string',
+                    description: 'Test string',
+                  },
+                ],
+              },
+            },
+          },
+          namespaceactuation: {},
+          servicemesh: {
+            analysisMessages: [
+              {
+                args: {
+                  A: 42,
+                },
+                description: 'Test string',
+                messageBase: {
+                  documentationUrl: 'Test string',
+                  level: 'Test string',
+                  type: {
+                    code: 'Test string',
+                    displayName: 'Test string',
+                  },
+                },
+                resourcePaths: ['Test string'],
+              },
+            ],
+          },
+          state: {
+            code: 'Test string',
+            description: 'Test string',
+            updateTime: 'Test string',
+          },
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Removes a Feature. */
+    await gapi.client.gkehub.projects.locations.features.delete({
+      force: true,
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Gets details of a single Feature. */
+    await gapi.client.gkehub.projects.locations.features.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.gkehub.projects.locations.features.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Features in a given project and location. */
+    await gapi.client.gkehub.projects.locations.features.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates an existing Feature. */
+    await gapi.client.gkehub.projects.locations.features.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        fleetDefaultMemberConfig: {
+          configmanagement: {
+            binauthz: {
+              enabled: true,
+            },
+            cluster: 'Test string',
+            configSync: {
+              allowVerticalScale: true,
+              enabled: true,
+              git: {
+                gcpServiceAccountEmail: 'Test string',
+                httpsProxy: 'Test string',
+                policyDir: 'Test string',
+                secretType: 'Test string',
+                syncBranch: 'Test string',
+                syncRepo: 'Test string',
+                syncRev: 'Test string',
+                syncWaitSecs: 'Test string',
+              },
+              metricsGcpServiceAccountEmail: 'Test string',
+              oci: {
+                gcpServiceAccountEmail: 'Test string',
+                policyDir: 'Test string',
+                secretType: 'Test string',
+                syncRepo: 'Test string',
+                syncWaitSecs: 'Test string',
+              },
+              preventDrift: true,
+              sourceFormat: 'Test string',
+            },
+            hierarchyController: {
+              enabled: true,
+              enableHierarchicalResourceQuota: true,
+              enablePodTreeLabels: true,
+            },
+            policyController: {
+              auditIntervalSeconds: 'Test string',
+              enabled: true,
+              exemptableNamespaces: ['Test string'],
+              logDeniesEnabled: true,
+              monitoring: {
+                backends: ['Test string'],
+              },
+              mutationEnabled: true,
+              referentialRulesEnabled: true,
+              templateLibraryInstalled: true,
+              updateTime: 'Test string',
+            },
+            version: 'Test string',
+          },
+          identityservice: {
+            authMethods: [
+              {
+                azureadConfig: {
+                  clientId: 'Test string',
+                  clientSecret: 'Test string',
+                  encryptedClientSecret: 'Test string',
+                  kubectlRedirectUri: 'Test string',
+                  tenant: 'Test string',
+                },
+                googleConfig: {
+                  disable: true,
+                },
+                name: 'Test string',
+                oidcConfig: {
+                  certificateAuthorityData: 'Test string',
+                  clientId: 'Test string',
+                  clientSecret: 'Test string',
+                  deployCloudConsoleProxy: true,
+                  enableAccessToken: true,
+                  encryptedClientSecret: 'Test string',
+                  extraParams: 'Test string',
+                  groupPrefix: 'Test string',
+                  groupsClaim: 'Test string',
+                  issuerUri: 'Test string',
+                  kubectlRedirectUri: 'Test string',
+                  scopes: 'Test string',
+                  userClaim: 'Test string',
+                  userPrefix: 'Test string',
+                },
+                proxy: 'Test string',
+              },
+            ],
+          },
+          mesh: {
+            controlPlane: 'Test string',
+            defaultChannel: 'Test string',
+            management: 'Test string',
+          },
+          policycontroller: {
+            policyControllerHubConfig: {
+              auditIntervalSeconds: 'Test string',
+              constraintViolationLimit: 'Test string',
+              deploymentConfigs: {
+                A: {
+                  containerResources: {
+                    limits: {
+                      cpu: 'Test string',
+                      memory: 'Test string',
+                    },
+                    requests: {
+                      cpu: 'Test string',
+                      memory: 'Test string',
+                    },
+                  },
+                  podAffinity: 'Test string',
+                  podAntiAffinity: true,
+                  podTolerations: [
+                    {
+                      effect: 'Test string',
+                      key: 'Test string',
+                      operator: 'Test string',
+                      value: 'Test string',
+                    },
+                  ],
+                  replicaCount: 'Test string',
+                },
+              },
+              exemptableNamespaces: ['Test string'],
+              installSpec: 'Test string',
+              logDeniesEnabled: true,
+              monitoring: {
+                backends: ['Test string'],
+              },
+              mutationEnabled: true,
+              policyContent: {
+                bundles: {
+                  A: {
+                    exemptedNamespaces: ['Test string'],
+                  },
+                },
+                templateLibrary: {
+                  installation: 'Test string',
+                },
+              },
+              referentialRulesEnabled: true,
+            },
+            version: 'Test string',
+          },
+        },
+        labels: {
+          A: 'Test string',
+        },
+        membershipSpecs: {
+          A: {
+            anthosobservability: {
+              doNotOptimizeMetrics: true,
+              enableStackdriverOnApplications: true,
+              version: 'Test string',
+            },
+            cloudbuild: {
+              securityPolicy: 'Test string',
+              version: 'Test string',
+            },
+            configmanagement: {
+              binauthz: {
+                enabled: true,
+              },
+              cluster: 'Test string',
+              configSync: {
+                allowVerticalScale: true,
+                enabled: true,
+                git: {
+                  gcpServiceAccountEmail: 'Test string',
+                  httpsProxy: 'Test string',
+                  policyDir: 'Test string',
+                  secretType: 'Test string',
+                  syncBranch: 'Test string',
+                  syncRepo: 'Test string',
+                  syncRev: 'Test string',
+                  syncWaitSecs: 'Test string',
+                },
+                metricsGcpServiceAccountEmail: 'Test string',
+                oci: {
+                  gcpServiceAccountEmail: 'Test string',
+                  policyDir: 'Test string',
+                  secretType: 'Test string',
+                  syncRepo: 'Test string',
+                  syncWaitSecs: 'Test string',
+                },
+                preventDrift: true,
+                sourceFormat: 'Test string',
+              },
+              hierarchyController: {
+                enabled: true,
+                enableHierarchicalResourceQuota: true,
+                enablePodTreeLabels: true,
+              },
+              policyController: {
+                auditIntervalSeconds: 'Test string',
+                enabled: true,
+                exemptableNamespaces: ['Test string'],
+                logDeniesEnabled: true,
+                monitoring: {
+                  backends: ['Test string'],
+                },
+                mutationEnabled: true,
+                referentialRulesEnabled: true,
+                templateLibraryInstalled: true,
+                updateTime: 'Test string',
+              },
+              version: 'Test string',
+            },
+            fleetobservability: {},
+            identityservice: {
+              authMethods: [
+                {
+                  azureadConfig: {
+                    clientId: 'Test string',
+                    clientSecret: 'Test string',
+                    encryptedClientSecret: 'Test string',
+                    kubectlRedirectUri: 'Test string',
+                    tenant: 'Test string',
+                  },
+                  googleConfig: {
+                    disable: true,
+                  },
+                  name: 'Test string',
+                  oidcConfig: {
+                    certificateAuthorityData: 'Test string',
+                    clientId: 'Test string',
+                    clientSecret: 'Test string',
+                    deployCloudConsoleProxy: true,
+                    enableAccessToken: true,
+                    encryptedClientSecret: 'Test string',
+                    extraParams: 'Test string',
+                    groupPrefix: 'Test string',
+                    groupsClaim: 'Test string',
+                    issuerUri: 'Test string',
+                    kubectlRedirectUri: 'Test string',
+                    scopes: 'Test string',
+                    userClaim: 'Test string',
+                    userPrefix: 'Test string',
+                  },
+                  proxy: 'Test string',
+                },
+              ],
+            },
+            mesh: {
+              controlPlane: 'Test string',
+              defaultChannel: 'Test string',
+              management: 'Test string',
+            },
+            namespaceactuation: {},
+            origin: {
+              type: 'Test string',
+            },
+            policycontroller: {
+              policyControllerHubConfig: {
+                auditIntervalSeconds: 'Test string',
+                constraintViolationLimit: 'Test string',
+                deploymentConfigs: {
+                  A: {
+                    containerResources: {
+                      limits: {
+                        cpu: 'Test string',
+                        memory: 'Test string',
+                      },
+                      requests: {
+                        cpu: 'Test string',
+                        memory: 'Test string',
+                      },
+                    },
+                    podAffinity: 'Test string',
+                    podAntiAffinity: true,
+                    podTolerations: [
+                      {
+                        effect: 'Test string',
+                        key: 'Test string',
+                        operator: 'Test string',
+                        value: 'Test string',
+                      },
+                    ],
+                    replicaCount: 'Test string',
+                  },
+                },
+                exemptableNamespaces: ['Test string'],
+                installSpec: 'Test string',
+                logDeniesEnabled: true,
+                monitoring: {
+                  backends: ['Test string'],
+                },
+                mutationEnabled: true,
+                policyContent: {
+                  bundles: {
+                    A: {
+                      exemptedNamespaces: ['Test string'],
+                    },
+                  },
+                  templateLibrary: {
+                    installation: 'Test string',
+                  },
+                },
+                referentialRulesEnabled: true,
+              },
+              version: 'Test string',
+            },
+            workloadcertificate: {
+              certificateManagement: 'Test string',
+            },
+          },
+        },
+        membershipStates: {
+          A: {
+            appdevexperience: {
+              networkingInstallSucceeded: {
+                code: 'Test string',
+                description: 'Test string',
+              },
+            },
+            clusterupgrade: {
+              fleet: 'Test string',
+              ignored: {
+                ignoredTime: 'Test string',
+                reason: 'Test string',
+              },
+              scopes: ['Test string'],
+              upgrades: [
+                {
+                  status: {
+                    code: 'Test string',
+                    reason: 'Test string',
+                    updateTime: 'Test string',
+                  },
+                  upgrade: {
+                    name: 'Test string',
+                    version: 'Test string',
+                  },
+                },
+              ],
+            },
+            configmanagement: {
+              binauthzState: {
+                version: {
+                  webhookVersion: 'Test string',
+                },
+                webhook: 'Test string',
+              },
+              clusterName: 'Test string',
+              configSyncState: {
+                deploymentState: {
+                  admissionWebhook: 'Test string',
+                  gitSync: 'Test string',
+                  importer: 'Test string',
+                  monitor: 'Test string',
+                  reconcilerManager: 'Test string',
+                  rootReconciler: 'Test string',
+                  syncer: 'Test string',
+                },
+                errors: [
+                  {
+                    errorMessage: 'Test string',
+                  },
+                ],
+                syncState: {
+                  code: 'Test string',
+                  errors: [
+                    {
+                      code: 'Test string',
+                      errorMessage: 'Test string',
+                      errorResources: [
+                        {
+                          resourceGvk: {
+                            group: 'Test string',
+                            kind: 'Test string',
+                            version: 'Test string',
+                          },
+                          resourceName: 'Test string',
+                          resourceNamespace: 'Test string',
+                          sourcePath: 'Test string',
+                        },
+                      ],
+                    },
+                  ],
+                  importToken: 'Test string',
+                  lastSync: 'Test string',
+                  lastSyncTime: 'Test string',
+                  sourceToken: 'Test string',
+                  syncToken: 'Test string',
+                },
+                version: {
+                  admissionWebhook: 'Test string',
+                  gitSync: 'Test string',
+                  importer: 'Test string',
+                  monitor: 'Test string',
+                  reconcilerManager: 'Test string',
+                  rootReconciler: 'Test string',
+                  syncer: 'Test string',
+                },
+              },
+              hierarchyControllerState: {
+                state: {
+                  extension: 'Test string',
+                  hnc: 'Test string',
+                },
+                version: {
+                  extension: 'Test string',
+                  hnc: 'Test string',
+                },
+              },
+              membershipSpec: {
+                binauthz: {
+                  enabled: true,
+                },
+                cluster: 'Test string',
+                configSync: {
+                  allowVerticalScale: true,
+                  enabled: true,
+                  git: {
+                    gcpServiceAccountEmail: 'Test string',
+                    httpsProxy: 'Test string',
+                    policyDir: 'Test string',
+                    secretType: 'Test string',
+                    syncBranch: 'Test string',
+                    syncRepo: 'Test string',
+                    syncRev: 'Test string',
+                    syncWaitSecs: 'Test string',
+                  },
+                  metricsGcpServiceAccountEmail: 'Test string',
+                  oci: {
+                    gcpServiceAccountEmail: 'Test string',
+                    policyDir: 'Test string',
+                    secretType: 'Test string',
+                    syncRepo: 'Test string',
+                    syncWaitSecs: 'Test string',
+                  },
+                  preventDrift: true,
+                  sourceFormat: 'Test string',
+                },
+                hierarchyController: {
+                  enabled: true,
+                  enableHierarchicalResourceQuota: true,
+                  enablePodTreeLabels: true,
+                },
+                policyController: {
+                  auditIntervalSeconds: 'Test string',
+                  enabled: true,
+                  exemptableNamespaces: ['Test string'],
+                  logDeniesEnabled: true,
+                  monitoring: {
+                    backends: ['Test string'],
+                  },
+                  mutationEnabled: true,
+                  referentialRulesEnabled: true,
+                  templateLibraryInstalled: true,
+                  updateTime: 'Test string',
+                },
+                version: 'Test string',
+              },
+              operatorState: {
+                deploymentState: 'Test string',
+                errors: [
+                  {
+                    errorMessage: 'Test string',
+                  },
+                ],
+                version: 'Test string',
+              },
+              policyControllerState: {
+                deploymentState: {
+                  gatekeeperAudit: 'Test string',
+                  gatekeeperControllerManagerState: 'Test string',
+                  gatekeeperMutation: 'Test string',
+                },
+                migration: {
+                  copyTime: 'Test string',
+                  stage: 'Test string',
+                },
+                version: {
+                  version: 'Test string',
+                },
+              },
+            },
+            fleetobservability: {},
+            identityservice: {
+              failureReason: 'Test string',
+              installedVersion: 'Test string',
+              memberConfig: {
+                authMethods: [
+                  {
+                    azureadConfig: {
+                      clientId: 'Test string',
+                      clientSecret: 'Test string',
+                      encryptedClientSecret: 'Test string',
+                      kubectlRedirectUri: 'Test string',
+                      tenant: 'Test string',
+                    },
+                    googleConfig: {
+                      disable: true,
+                    },
+                    name: 'Test string',
+                    oidcConfig: {
+                      certificateAuthorityData: 'Test string',
+                      clientId: 'Test string',
+                      clientSecret: 'Test string',
+                      deployCloudConsoleProxy: true,
+                      enableAccessToken: true,
+                      encryptedClientSecret: 'Test string',
+                      extraParams: 'Test string',
+                      groupPrefix: 'Test string',
+                      groupsClaim: 'Test string',
+                      issuerUri: 'Test string',
+                      kubectlRedirectUri: 'Test string',
+                      scopes: 'Test string',
+                      userClaim: 'Test string',
+                      userPrefix: 'Test string',
+                    },
+                    proxy: 'Test string',
+                  },
+                ],
+              },
+              state: 'Test string',
+            },
+            metering: {
+              lastMeasurementTime: 'Test string',
+              preciseLastMeasuredClusterVcpuCapacity: 42,
+            },
+            namespaceactuation: {},
+            policycontroller: {
+              componentStates: {
+                A: {
+                  details: 'Test string',
+                  state: 'Test string',
+                },
+              },
+              policyContentState: {
+                bundleStates: {
+                  A: {
+                    details: 'Test string',
+                    state: 'Test string',
+                  },
+                },
+                referentialSyncConfigState: {
+                  details: 'Test string',
+                  state: 'Test string',
+                },
+                templateLibraryState: {
+                  details: 'Test string',
+                  state: 'Test string',
+                },
+              },
+              state: 'Test string',
+            },
+            servicemesh: {
+              analysisMessages: [
+                {
+                  args: {
+                    A: 42,
+                  },
+                  description: 'Test string',
+                  messageBase: {
+                    documentationUrl: 'Test string',
+                    level: 'Test string',
+                    type: {
+                      code: 'Test string',
+                      displayName: 'Test string',
+                    },
+                  },
+                  resourcePaths: ['Test string'],
+                },
+              ],
+              configApiVersion: 'Test string',
+              controlPlaneManagement: {
+                details: [
+                  {
+                    code: 'Test string',
+                    details: 'Test string',
+                  },
+                ],
+                state: 'Test string',
+              },
+              dataPlaneManagement: {
+                details: [
+                  {
+                    code: 'Test string',
+                    details: 'Test string',
+                  },
+                ],
+                state: 'Test string',
+              },
+            },
+            state: {
+              code: 'Test string',
+              description: 'Test string',
+              updateTime: 'Test string',
+            },
+          },
+        },
+        name: 'Test string',
+        resourceState: {
+          state: 'Test string',
+        },
+        scopeSpecs: {
+          A: {
+            clusterupgrade: {
+              gkeUpgradeOverrides: [
+                {
+                  postConditions: {
+                    soaking: 'Test string',
+                  },
+                  upgrade: {
+                    name: 'Test string',
+                    version: 'Test string',
+                  },
+                },
+              ],
+              postConditions: {
+                soaking: 'Test string',
+              },
+              upstreamScopes: ['Test string'],
+            },
+          },
+        },
+        scopeStates: {
+          A: {
+            clusterupgrade: {
+              downstreamScopes: ['Test string'],
+              gkeState: {
+                conditions: [
+                  {
+                    reason: 'Test string',
+                    status: 'Test string',
+                    type: 'Test string',
+                    updateTime: 'Test string',
+                  },
+                ],
+                upgradeState: [
+                  {
+                    stats: {
+                      A: 'Test string',
+                    },
+                    status: {
+                      code: 'Test string',
+                      reason: 'Test string',
+                      updateTime: 'Test string',
+                    },
+                    upgrade: {
+                      name: 'Test string',
+                      version: 'Test string',
+                    },
+                  },
+                ],
+              },
+              ignored: {
+                A: {
+                  ignoredTime: 'Test string',
+                  reason: 'Test string',
+                },
+              },
+            },
+            state: {
+              code: 'Test string',
+              description: 'Test string',
+              updateTime: 'Test string',
+            },
+          },
+        },
+        spec: {
+          anthosobservability: {
+            defaultMembershipSpec: {
+              doNotOptimizeMetrics: true,
+              enableStackdriverOnApplications: true,
+              version: 'Test string',
+            },
+          },
+          appdevexperience: {},
+          cloudauditlogging: {
+            allowlistedServiceAccounts: ['Test string'],
+          },
+          clusterupgrade: {
+            gkeUpgradeOverrides: [
+              {
+                postConditions: {
+                  soaking: 'Test string',
+                },
+                upgrade: {
+                  name: 'Test string',
+                  version: 'Test string',
+                },
+              },
+            ],
+            postConditions: {
+              soaking: 'Test string',
+            },
+            upstreamFleets: ['Test string'],
+          },
+          fleetobservability: {
+            loggingConfig: {
+              defaultConfig: {
+                mode: 'Test string',
+              },
+              fleetScopeLogsConfig: {
+                mode: 'Test string',
+              },
+            },
+          },
+          multiclusteringress: {
+            billing: 'Test string',
+            configMembership: 'Test string',
+          },
+          namespaceactuation: {
+            actuationMode: 'Test string',
+          },
+          workloadcertificate: {
+            defaultConfig: {
+              certificateManagement: 'Test string',
+            },
+            provisionGoogleCa: 'Test string',
+          },
+        },
+        state: {
+          appdevexperience: {
+            networkingInstallSucceeded: {
+              code: 'Test string',
+              description: 'Test string',
+            },
+          },
+          clusterupgrade: {
+            downstreamFleets: ['Test string'],
+            gkeState: {
+              conditions: [
+                {
+                  reason: 'Test string',
+                  status: 'Test string',
+                  type: 'Test string',
+                  updateTime: 'Test string',
+                },
+              ],
+              upgradeState: [
+                {
+                  stats: {
+                    A: 'Test string',
+                  },
+                  status: {
+                    code: 'Test string',
+                    reason: 'Test string',
+                    updateTime: 'Test string',
+                  },
+                  upgrade: {
+                    name: 'Test string',
+                    version: 'Test string',
+                  },
+                },
+              ],
+            },
+            ignored: {
+              A: {
+                ignoredTime: 'Test string',
+                reason: 'Test string',
+              },
+            },
+          },
+          fleetobservability: {
+            logging: {
+              defaultLog: {
+                code: 'Test string',
+                errors: [
+                  {
+                    code: 'Test string',
+                    description: 'Test string',
+                  },
+                ],
+              },
+              scopeLog: {
+                code: 'Test string',
+                errors: [
+                  {
+                    code: 'Test string',
+                    description: 'Test string',
+                  },
+                ],
+              },
+            },
+            monitoring: {
+              state: {
+                code: 'Test string',
+                errors: [
+                  {
+                    code: 'Test string',
+                    description: 'Test string',
+                  },
+                ],
+              },
+            },
+          },
+          namespaceactuation: {},
+          servicemesh: {
+            analysisMessages: [
+              {
+                args: {
+                  A: 42,
+                },
+                description: 'Test string',
+                messageBase: {
+                  documentationUrl: 'Test string',
+                  level: 'Test string',
+                  type: {
+                    code: 'Test string',
+                    displayName: 'Test string',
+                  },
+                },
+                resourcePaths: ['Test string'],
+              },
+            ],
+          },
+          state: {
+            code: 'Test string',
+            description: 'Test string',
+            updateTime: 'Test string',
+          },
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.gkehub.projects.locations.features.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.gkehub.projects.locations.features.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a fleet. */
+    await gapi.client.gkehub.projects.locations.fleets.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        defaultClusterConfig: {
+          binaryAuthorizationConfig: {
+            evaluationMode: 'Test string',
+            policyBindings: [
+              {
+                name: 'Test string',
+              },
+            ],
+          },
+          securityPostureConfig: {
+            mode: 'Test string',
+            vulnerabilityMode: 'Test string',
+          },
+        },
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Removes a Fleet. There must be no memberships remaining in the Fleet. */
+    await gapi.client.gkehub.projects.locations.fleets.delete({
+      name: 'Test string',
+    });
+    /** Returns the details of a fleet. */
+    await gapi.client.gkehub.projects.locations.fleets.get({
+      name: 'Test string',
+    });
+    /** Returns all fleets within an organization or a project that the caller has access to. */
+    await gapi.client.gkehub.projects.locations.fleets.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a fleet. */
+    await gapi.client.gkehub.projects.locations.fleets.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        defaultClusterConfig: {
+          binaryAuthorizationConfig: {
+            evaluationMode: 'Test string',
+            policyBindings: [
+              {
+                name: 'Test string',
+              },
+            ],
+          },
+          securityPostureConfig: {
+            mode: 'Test string',
+            vulnerabilityMode: 'Test string',
+          },
+        },
+        deleteTime: 'Test string',
+        displayName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a new Membership. **This is currently only supported for GKE clusters on Google Cloud**. To register other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster. */
+    await gapi.client.gkehub.projects.locations.memberships.create(
+      {
+        membershipId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        authority: {
+          identityProvider: 'Test string',
+          issuer: 'Test string',
+          oidcJwks: 'Test string',
+          workloadIdentityPool: 'Test string',
+        },
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        description: 'Test string',
+        endpoint: {
+          applianceCluster: {
+            resourceLink: 'Test string',
+          },
+          edgeCluster: {
+            resourceLink: 'Test string',
+          },
+          gkeCluster: {
+            clusterMissing: true,
+            resourceLink: 'Test string',
+          },
+          googleManaged: true,
+          kubernetesMetadata: {
+            kubernetesApiServerVersion: 'Test string',
+            memoryMb: 42,
+            nodeCount: 42,
+            nodeProviderId: 'Test string',
+            updateTime: 'Test string',
+            vcpuCount: 42,
+          },
+          kubernetesResource: {
+            connectResources: [
+              {
+                clusterScoped: true,
+                manifest: 'Test string',
+              },
+            ],
+            membershipCrManifest: 'Test string',
+            membershipResources: [
+              {
+                clusterScoped: true,
+                manifest: 'Test string',
+              },
+            ],
+            resourceOptions: {
+              connectVersion: 'Test string',
+              k8sVersion: 'Test string',
+              v1beta1Crd: true,
+            },
+          },
+          multiCloudCluster: {
+            clusterMissing: true,
+            resourceLink: 'Test string',
+          },
+          onPremCluster: {
+            adminCluster: true,
+            clusterMissing: true,
+            clusterType: 'Test string',
+            resourceLink: 'Test string',
+          },
+        },
+        externalId: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        lastConnectionTime: 'Test string',
+        monitoringConfig: {
+          cluster: 'Test string',
+          clusterHash: 'Test string',
+          kubernetesMetricsPrefix: 'Test string',
+          location: 'Test string',
+          projectId: 'Test string',
+        },
+        name: 'Test string',
+        state: {
+          code: 'Test string',
+        },
+        uniqueId: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Removes a Membership. **This is currently only supported for GKE clusters on Google Cloud**. To unregister other clusters, follow the instructions at https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster. */
+    await gapi.client.gkehub.projects.locations.memberships.delete({
+      force: true,
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Generates the manifest for deployment of the GKE connect agent. **This method is used internally by Google-provided libraries.** Most clients should not need to call this method directly. */
+    await gapi.client.gkehub.projects.locations.memberships.generateConnectManifest(
+      {
+        imagePullSecretContent: 'Test string',
+        isUpgrade: true,
+        name: 'Test string',
+        namespace: 'Test string',
+        proxy: 'Test string',
+        registry: 'Test string',
+        version: 'Test string',
+      }
+    );
+    /** Gets the details of a Membership. */
+    await gapi.client.gkehub.projects.locations.memberships.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.gkehub.projects.locations.memberships.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Memberships in a given project and location. */
+    await gapi.client.gkehub.projects.locations.memberships.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Lists Memberships of admin clusters in a given project and location. **This method is only used internally**. */
+    await gapi.client.gkehub.projects.locations.memberships.listAdmin({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates an existing Membership. */
+    await gapi.client.gkehub.projects.locations.memberships.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        authority: {
+          identityProvider: 'Test string',
+          issuer: 'Test string',
+          oidcJwks: 'Test string',
+          workloadIdentityPool: 'Test string',
+        },
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        description: 'Test string',
+        endpoint: {
+          applianceCluster: {
+            resourceLink: 'Test string',
+          },
+          edgeCluster: {
+            resourceLink: 'Test string',
+          },
+          gkeCluster: {
+            clusterMissing: true,
+            resourceLink: 'Test string',
+          },
+          googleManaged: true,
+          kubernetesMetadata: {
+            kubernetesApiServerVersion: 'Test string',
+            memoryMb: 42,
+            nodeCount: 42,
+            nodeProviderId: 'Test string',
+            updateTime: 'Test string',
+            vcpuCount: 42,
+          },
+          kubernetesResource: {
+            connectResources: [
+              {
+                clusterScoped: true,
+                manifest: 'Test string',
+              },
+            ],
+            membershipCrManifest: 'Test string',
+            membershipResources: [
+              {
+                clusterScoped: true,
+                manifest: 'Test string',
+              },
+            ],
+            resourceOptions: {
+              connectVersion: 'Test string',
+              k8sVersion: 'Test string',
+              v1beta1Crd: true,
+            },
+          },
+          multiCloudCluster: {
+            clusterMissing: true,
+            resourceLink: 'Test string',
+          },
+          onPremCluster: {
+            adminCluster: true,
+            clusterMissing: true,
+            clusterType: 'Test string',
+            resourceLink: 'Test string',
+          },
+        },
+        externalId: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        lastConnectionTime: 'Test string',
+        monitoringConfig: {
+          cluster: 'Test string',
+          clusterHash: 'Test string',
+          kubernetesMetricsPrefix: 'Test string',
+          location: 'Test string',
+          projectId: 'Test string',
+        },
+        name: 'Test string',
+        state: {
+          code: 'Test string',
+        },
+        uniqueId: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.gkehub.projects.locations.memberships.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.gkehub.projects.locations.memberships.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** ValidateCreateMembership is a preflight check for CreateMembership. It checks the following: 1. Caller has the required `gkehub.memberships.create` permission. 2. The membership_id is still available. */
+    await gapi.client.gkehub.projects.locations.memberships.validateCreate(
+      {
+        parent: 'Test string',
+      },
+      {
+        membership: {
+          authority: {
+            identityProvider: 'Test string',
+            issuer: 'Test string',
+            oidcJwks: 'Test string',
+            workloadIdentityPool: 'Test string',
+          },
+          createTime: 'Test string',
+          deleteTime: 'Test string',
+          description: 'Test string',
+          endpoint: {
+            applianceCluster: {
+              resourceLink: 'Test string',
+            },
+            edgeCluster: {
+              resourceLink: 'Test string',
+            },
+            gkeCluster: {
+              clusterMissing: true,
+              resourceLink: 'Test string',
+            },
+            googleManaged: true,
+            kubernetesMetadata: {
+              kubernetesApiServerVersion: 'Test string',
+              memoryMb: 42,
+              nodeCount: 42,
+              nodeProviderId: 'Test string',
+              updateTime: 'Test string',
+              vcpuCount: 42,
+            },
+            kubernetesResource: {
+              connectResources: [
+                {
+                  clusterScoped: true,
+                  manifest: 'Test string',
+                },
+              ],
+              membershipCrManifest: 'Test string',
+              membershipResources: [
+                {
+                  clusterScoped: true,
+                  manifest: 'Test string',
+                },
+              ],
+              resourceOptions: {
+                connectVersion: 'Test string',
+                k8sVersion: 'Test string',
+                v1beta1Crd: true,
+              },
+            },
+            multiCloudCluster: {
+              clusterMissing: true,
+              resourceLink: 'Test string',
+            },
+            onPremCluster: {
+              adminCluster: true,
+              clusterMissing: true,
+              clusterType: 'Test string',
+              resourceLink: 'Test string',
+            },
+          },
+          externalId: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          lastConnectionTime: 'Test string',
+          monitoringConfig: {
+            cluster: 'Test string',
+            clusterHash: 'Test string',
+            kubernetesMetricsPrefix: 'Test string',
+            location: 'Test string',
+            projectId: 'Test string',
+          },
+          name: 'Test string',
+          state: {
+            code: 'Test string',
+          },
+          uniqueId: 'Test string',
+          updateTime: 'Test string',
+        },
+        membershipId: 'Test string',
+      }
+    );
+    /** Creates a MembershipBinding. */
+    await gapi.client.gkehub.projects.locations.memberships.bindings.create(
+      {
+        membershipBindingId: 'Test string',
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        scope: 'Test string',
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a MembershipBinding. */
+    await gapi.client.gkehub.projects.locations.memberships.bindings.delete({
+      name: 'Test string',
+    });
+    /** Returns the details of a MembershipBinding. */
+    await gapi.client.gkehub.projects.locations.memberships.bindings.get({
+      name: 'Test string',
+    });
+    /** Lists MembershipBindings. */
+    await gapi.client.gkehub.projects.locations.memberships.bindings.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a MembershipBinding. */
+    await gapi.client.gkehub.projects.locations.memberships.bindings.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        scope: 'Test string',
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a Membership RBACRoleBinding. */
+    await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.create(
+      {
+        parent: 'Test string',
+        rbacrolebindingId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        group: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        role: {
+          predefinedRole: 'Test string',
+        },
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+        user: 'Test string',
+      }
+    );
+    /** Deletes a Membership RBACRoleBinding. */
+    await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Generates a YAML of the RBAC policies for the specified RoleBinding and its associated impersonation resources. */
+    await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.generateMembershipRBACRoleBindingYAML(
+      {
+        parent: 'Test string',
+        rbacrolebindingId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        group: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        role: {
+          predefinedRole: 'Test string',
+        },
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+        user: 'Test string',
+      }
+    );
+    /** Returns the details of a Membership RBACRoleBinding. */
+    await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists all Membership RBACRoleBindings. */
+    await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a Membership RBACRoleBinding. */
+    await gapi.client.gkehub.projects.locations.memberships.rbacrolebindings.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        group: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        role: {
+          predefinedRole: 'Test string',
+        },
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+        user: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.gkehub.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.gkehub.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.gkehub.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.gkehub.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a Scope. */
+    await gapi.client.gkehub.projects.locations.scopes.create(
+      {
+        parent: 'Test string',
+        scopeId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        namespaceLabels: {
+          A: 'Test string',
+        },
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a Scope. */
+    await gapi.client.gkehub.projects.locations.scopes.delete({
+      name: 'Test string',
+    });
+    /** Returns the details of a Scope. */
+    await gapi.client.gkehub.projects.locations.scopes.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.gkehub.projects.locations.scopes.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Scopes. */
+    await gapi.client.gkehub.projects.locations.scopes.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a scopes. */
+    await gapi.client.gkehub.projects.locations.scopes.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        namespaceLabels: {
+          A: 'Test string',
+        },
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.gkehub.projects.locations.scopes.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.gkehub.projects.locations.scopes.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a fleet namespace. */
+    await gapi.client.gkehub.projects.locations.scopes.namespaces.create(
+      {
+        parent: 'Test string',
+        scopeNamespaceId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        namespaceLabels: {
+          A: 'Test string',
+        },
+        scope: 'Test string',
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Deletes a fleet namespace. */
+    await gapi.client.gkehub.projects.locations.scopes.namespaces.delete({
+      name: 'Test string',
+    });
+    /** Returns the details of a fleet namespace. */
+    await gapi.client.gkehub.projects.locations.scopes.namespaces.get({
+      name: 'Test string',
+    });
+    /** Lists fleet namespaces. */
+    await gapi.client.gkehub.projects.locations.scopes.namespaces.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a fleet namespace. */
+    await gapi.client.gkehub.projects.locations.scopes.namespaces.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        namespaceLabels: {
+          A: 'Test string',
+        },
+        scope: 'Test string',
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Creates a Scope RBACRoleBinding. */
+    await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.create(
+      {
+        parent: 'Test string',
+        rbacrolebindingId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        group: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        role: {
+          predefinedRole: 'Test string',
+        },
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+        user: 'Test string',
+      }
+    );
+    /** Deletes a Scope RBACRoleBinding. */
+    await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.delete({
+      name: 'Test string',
+    });
+    /** Returns the details of a Scope RBACRoleBinding. */
+    await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.get({
+      name: 'Test string',
+    });
+    /** Lists all Scope RBACRoleBindings. */
+    await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a Scope RBACRoleBinding. */
+    await gapi.client.gkehub.projects.locations.scopes.rbacrolebindings.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        group: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        role: {
+          predefinedRole: 'Test string',
+        },
+        state: {
+          code: 'Test string',
+        },
+        uid: 'Test string',
+        updateTime: 'Test string',
+        user: 'Test string',
+      }
+    );
+  }
 });

@@ -6,68 +6,72 @@
 // Revision: 20231110
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://iamcredentials.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.iamcredentials */
+  await gapi.client.load(
+    'https://iamcredentials.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.iamcredentials */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Generates an OAuth 2.0 access token for a service account. */
-        await gapi.client.iamcredentials.projects.serviceAccounts.generateAccessToken({
-            name: "Test string",
-        }, {
-            delegates: [
-                "Test string"
-            ],
-            lifetime: "Test string",
-            scope: [
-                "Test string"
-            ],
-        });
-        /** Generates an OpenID Connect ID token for a service account. */
-        await gapi.client.iamcredentials.projects.serviceAccounts.generateIdToken({
-            name: "Test string",
-        }, {
-            audience: "Test string",
-            delegates: [
-                "Test string"
-            ],
-            includeEmail: true,
-        });
-        /** Signs a blob using a service account's system-managed private key. */
-        await gapi.client.iamcredentials.projects.serviceAccounts.signBlob({
-            name: "Test string",
-        }, {
-            delegates: [
-                "Test string"
-            ],
-            payload: "Test string",
-        });
-        /** Signs a JWT using a service account's system-managed private key. */
-        await gapi.client.iamcredentials.projects.serviceAccounts.signJwt({
-            name: "Test string",
-        }, {
-            delegates: [
-                "Test string"
-            ],
-            payload: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Generates an OAuth 2.0 access token for a service account. */
+    await gapi.client.iamcredentials.projects.serviceAccounts.generateAccessToken(
+      {
+        name: 'Test string',
+      },
+      {
+        delegates: ['Test string'],
+        lifetime: 'Test string',
+        scope: ['Test string'],
+      }
+    );
+    /** Generates an OpenID Connect ID token for a service account. */
+    await gapi.client.iamcredentials.projects.serviceAccounts.generateIdToken(
+      {
+        name: 'Test string',
+      },
+      {
+        audience: 'Test string',
+        delegates: ['Test string'],
+        includeEmail: true,
+      }
+    );
+    /** Signs a blob using a service account's system-managed private key. */
+    await gapi.client.iamcredentials.projects.serviceAccounts.signBlob(
+      {
+        name: 'Test string',
+      },
+      {
+        delegates: ['Test string'],
+        payload: 'Test string',
+      }
+    );
+    /** Signs a JWT using a service account's system-managed private key. */
+    await gapi.client.iamcredentials.projects.serviceAccounts.signJwt(
+      {
+        name: 'Test string',
+      },
+      {
+        delegates: ['Test string'],
+        payload: 'Test string',
+      }
+    );
+  }
 });

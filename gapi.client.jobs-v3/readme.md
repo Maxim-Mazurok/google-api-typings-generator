@@ -1,6 +1,6 @@
 # TypeScript typings for Cloud Talent Solution API v3
 
-Cloud Talent Solution provides the capability to create, read, update, and delete job postings, as well as search jobs based on keywords and filters. 
+Cloud Talent Solution provides the capability to create, read, update, and delete job postings, as well as search jobs based on keywords and filters.
 For detailed description please check [documentation](https://cloud.google.com/talent-solution/job-search/docs/).
 
 ## Installing
@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://jobs.googleapis.com/$discovery/rest?version=v3', () => {
-  // now we can use:
-  // gapi.client.jobs
-});
+gapi.client.load(
+  'https://jobs.googleapis.com/$discovery/rest?version=v3',
+  () => {
+    // now we can use:
+    // gapi.client.jobs
+  }
+);
 ```
 
 ```typescript
@@ -45,32 +48,32 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
 
-      // Manage job postings
-      'https://www.googleapis.com/auth/jobs',
-    ],
-    immediate = true;
+    // Manage job postings
+    'https://www.googleapis.com/auth/jobs',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Cloud Talent Solution API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Completes the specified prefix with keyword suggestions. Intended for use by a job search auto-complete search box.
 */
-await gapi.client.jobs.projects.complete({ name: "name",  });
+await gapi.client.jobs.projects.complete({name: 'name'});
 ```

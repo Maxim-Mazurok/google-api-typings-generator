@@ -1,6 +1,5 @@
 # TypeScript typings for Application Integration API v1alpha
 
-
 For detailed description please check [documentation](https://cloud.google.com/application-integration).
 
 ## Installing
@@ -25,10 +24,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://integrations.googleapis.com/$discovery/rest?version=v1alpha', () => {
-  // now we can use:
-  // gapi.client.integrations
-});
+gapi.client.load(
+  'https://integrations.googleapis.com/$discovery/rest?version=v1alpha',
+  () => {
+    // now we can use:
+    // gapi.client.integrations
+  }
+);
 ```
 
 ```typescript
@@ -45,34 +47,34 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
-      'https://www.googleapis.com/auth/cloud-platform',
-    ],
-    immediate = true;
+    // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
+    'https://www.googleapis.com/auth/cloud-platform',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Application Integration API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Receives the auth code and auth config id to combine that with the client id and secret to retrieve access tokens from the token endpoint. Returns either a success or error message when it's done.
 */
-await gapi.client.integrations.callback.generateToken({  });
+await gapi.client.integrations.callback.generateToken({});
 
 /*
 Enumerates the regions for which Connector Platform is provisioned.
 */
-await gapi.client.integrations.connectorPlatformRegions.enumerate({  });
+await gapi.client.integrations.connectorPlatformRegions.enumerate({});
 ```

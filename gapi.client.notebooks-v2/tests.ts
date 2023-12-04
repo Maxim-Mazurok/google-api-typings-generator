@@ -6,400 +6,405 @@
 // Revision: 20231024
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://notebooks.googleapis.com/$discovery/rest?version=v2');
-    /** now we can use gapi.client.notebooks */
+  await gapi.client.load(
+    'https://notebooks.googleapis.com/$discovery/rest?version=v2'
+  );
+  /** now we can use gapi.client.notebooks */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.notebooks.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.notebooks.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Checks whether a notebook instance is upgradable. */
-        await gapi.client.notebooks.projects.locations.instances.checkUpgradability({
-            notebookInstance: "Test string",
-        });
-        /** Creates a new Instance in a given project and location. */
-        await gapi.client.notebooks.projects.locations.instances.create({
-            instanceId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            creator: "Test string",
-            disableProxyAccess: true,
-            gceSetup: {
-                acceleratorConfigs: [
-                    {
-                        coreCount: "Test string",
-                        type: "Test string",
-                    }
-                ],
-                bootDisk: {
-                    diskEncryption: "Test string",
-                    diskSizeGb: "Test string",
-                    diskType: "Test string",
-                    kmsKey: "Test string",
-                },
-                containerImage: {
-                    repository: "Test string",
-                    tag: "Test string",
-                },
-                dataDisks: [
-                    {
-                        diskEncryption: "Test string",
-                        diskSizeGb: "Test string",
-                        diskType: "Test string",
-                        kmsKey: "Test string",
-                    }
-                ],
-                disablePublicIp: true,
-                enableIpForwarding: true,
-                gpuDriverConfig: {
-                    customGpuDriverPath: "Test string",
-                    enableGpuDriver: true,
-                },
-                machineType: "Test string",
-                metadata: {
-                    A: "Test string"
-                },
-                networkInterfaces: [
-                    {
-                        network: "Test string",
-                        nicType: "Test string",
-                        subnet: "Test string",
-                    }
-                ],
-                serviceAccounts: [
-                    {
-                        email: "Test string",
-                        scopes: [
-                            "Test string"
-                        ],
-                    }
-                ],
-                shieldedInstanceConfig: {
-                    enableIntegrityMonitoring: true,
-                    enableSecureBoot: true,
-                    enableVtpm: true,
-                },
-                tags: [
-                    "Test string"
-                ],
-                vmImage: {
-                    family: "Test string",
-                    name: "Test string",
-                    project: "Test string",
-                },
-            },
-            healthInfo: {
-                A: "Test string"
-            },
-            healthState: "Test string",
-            id: "Test string",
-            instanceOwners: [
-                "Test string"
-            ],
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            proxyUri: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            upgradeHistory: [
-                {
-                    action: "Test string",
-                    containerImage: "Test string",
-                    createTime: "Test string",
-                    framework: "Test string",
-                    snapshot: "Test string",
-                    state: "Test string",
-                    targetVersion: "Test string",
-                    version: "Test string",
-                    vmImage: "Test string",
-                }
-            ],
-        });
-        /** Deletes a single Instance. */
-        await gapi.client.notebooks.projects.locations.instances.delete({
-            name: "Test string",
-            requestId: "Test string",
-        });
-        /** Creates a Diagnostic File and runs Diagnostic Tool given an Instance. */
-        await gapi.client.notebooks.projects.locations.instances.diagnose({
-            name: "Test string",
-        }, {
-            diagnosticConfig: {
-                enableCopyHomeFilesFlag: true,
-                enablePacketCaptureFlag: true,
-                enableRepairFlag: true,
-                gcsBucket: "Test string",
-                relativePath: "Test string",
-            },
-            timeoutMinutes: 42,
-        });
-        /** Gets details of a single Instance. */
-        await gapi.client.notebooks.projects.locations.instances.get({
-            name: "Test string",
-        });
-        /**
-         * Gets general backend configurations that might also affect the frontend. Location is required by CCFE. Although we could bypass it to send location- less request directly to the backend
-         * job, we would need CPE (go/cloud-cpe). Having the location might also be useful depending on the query.
-         */
-        await gapi.client.notebooks.projects.locations.instances.getConfig({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.notebooks.projects.locations.instances.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists instances in a given project and location. */
-        await gapi.client.notebooks.projects.locations.instances.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** UpdateInstance updates an Instance. */
-        await gapi.client.notebooks.projects.locations.instances.patch({
-            name: "Test string",
-            requestId: "Test string",
-            updateMask: "Test string",
-        }, {
-            createTime: "Test string",
-            creator: "Test string",
-            disableProxyAccess: true,
-            gceSetup: {
-                acceleratorConfigs: [
-                    {
-                        coreCount: "Test string",
-                        type: "Test string",
-                    }
-                ],
-                bootDisk: {
-                    diskEncryption: "Test string",
-                    diskSizeGb: "Test string",
-                    diskType: "Test string",
-                    kmsKey: "Test string",
-                },
-                containerImage: {
-                    repository: "Test string",
-                    tag: "Test string",
-                },
-                dataDisks: [
-                    {
-                        diskEncryption: "Test string",
-                        diskSizeGb: "Test string",
-                        diskType: "Test string",
-                        kmsKey: "Test string",
-                    }
-                ],
-                disablePublicIp: true,
-                enableIpForwarding: true,
-                gpuDriverConfig: {
-                    customGpuDriverPath: "Test string",
-                    enableGpuDriver: true,
-                },
-                machineType: "Test string",
-                metadata: {
-                    A: "Test string"
-                },
-                networkInterfaces: [
-                    {
-                        network: "Test string",
-                        nicType: "Test string",
-                        subnet: "Test string",
-                    }
-                ],
-                serviceAccounts: [
-                    {
-                        email: "Test string",
-                        scopes: [
-                            "Test string"
-                        ],
-                    }
-                ],
-                shieldedInstanceConfig: {
-                    enableIntegrityMonitoring: true,
-                    enableSecureBoot: true,
-                    enableVtpm: true,
-                },
-                tags: [
-                    "Test string"
-                ],
-                vmImage: {
-                    family: "Test string",
-                    name: "Test string",
-                    project: "Test string",
-                },
-            },
-            healthInfo: {
-                A: "Test string"
-            },
-            healthState: "Test string",
-            id: "Test string",
-            instanceOwners: [
-                "Test string"
-            ],
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            proxyUri: "Test string",
-            state: "Test string",
-            updateTime: "Test string",
-            upgradeHistory: [
-                {
-                    action: "Test string",
-                    containerImage: "Test string",
-                    createTime: "Test string",
-                    framework: "Test string",
-                    snapshot: "Test string",
-                    state: "Test string",
-                    targetVersion: "Test string",
-                    version: "Test string",
-                    vmImage: "Test string",
-                }
-            ],
-        });
-        /**
-         * Allows notebook instances to report their latest instance information to the Notebooks API server. The server will merge the reported information to the instance metadata store. Do not
-         * use this method directly.
-         */
-        await gapi.client.notebooks.projects.locations.instances.reportInfoSystem({
-            name: "Test string",
-        }, {
-            event: {
-                details: {
-                    A: "Test string"
-                },
-                reportTime: "Test string",
-                type: "Test string",
-            },
-            vmId: "Test string",
-        });
-        /** Resets a notebook instance. */
-        await gapi.client.notebooks.projects.locations.instances.reset({
-            name: "Test string",
-        }, {
-        });
-        /** Rollbacks a notebook instance to the previous version. */
-        await gapi.client.notebooks.projects.locations.instances.rollback({
-            name: "Test string",
-        }, {
-            revisionId: "Test string",
-            targetSnapshot: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.notebooks.projects.locations.instances.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /** Starts a notebook instance. */
-        await gapi.client.notebooks.projects.locations.instances.start({
-            name: "Test string",
-        }, {
-        });
-        /** Stops a notebook instance. */
-        await gapi.client.notebooks.projects.locations.instances.stop({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.notebooks.projects.locations.instances.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Upgrades a notebook instance to the latest version. */
-        await gapi.client.notebooks.projects.locations.instances.upgrade({
-            name: "Test string",
-        }, {
-        });
-        /** Allows notebook instances to upgrade themselves. Do not use this method directly. */
-        await gapi.client.notebooks.projects.locations.instances.upgradeSystem({
-            name: "Test string",
-        }, {
-            vmId: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.notebooks.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.notebooks.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.notebooks.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.notebooks.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.notebooks.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.notebooks.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Checks whether a notebook instance is upgradable. */
+    await gapi.client.notebooks.projects.locations.instances.checkUpgradability(
+      {
+        notebookInstance: 'Test string',
+      }
+    );
+    /** Creates a new Instance in a given project and location. */
+    await gapi.client.notebooks.projects.locations.instances.create(
+      {
+        instanceId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        creator: 'Test string',
+        disableProxyAccess: true,
+        gceSetup: {
+          acceleratorConfigs: [
+            {
+              coreCount: 'Test string',
+              type: 'Test string',
+            },
+          ],
+          bootDisk: {
+            diskEncryption: 'Test string',
+            diskSizeGb: 'Test string',
+            diskType: 'Test string',
+            kmsKey: 'Test string',
+          },
+          containerImage: {
+            repository: 'Test string',
+            tag: 'Test string',
+          },
+          dataDisks: [
+            {
+              diskEncryption: 'Test string',
+              diskSizeGb: 'Test string',
+              diskType: 'Test string',
+              kmsKey: 'Test string',
+            },
+          ],
+          disablePublicIp: true,
+          enableIpForwarding: true,
+          gpuDriverConfig: {
+            customGpuDriverPath: 'Test string',
+            enableGpuDriver: true,
+          },
+          machineType: 'Test string',
+          metadata: {
+            A: 'Test string',
+          },
+          networkInterfaces: [
+            {
+              network: 'Test string',
+              nicType: 'Test string',
+              subnet: 'Test string',
+            },
+          ],
+          serviceAccounts: [
+            {
+              email: 'Test string',
+              scopes: ['Test string'],
+            },
+          ],
+          shieldedInstanceConfig: {
+            enableIntegrityMonitoring: true,
+            enableSecureBoot: true,
+            enableVtpm: true,
+          },
+          tags: ['Test string'],
+          vmImage: {
+            family: 'Test string',
+            name: 'Test string',
+            project: 'Test string',
+          },
+        },
+        healthInfo: {
+          A: 'Test string',
+        },
+        healthState: 'Test string',
+        id: 'Test string',
+        instanceOwners: ['Test string'],
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        proxyUri: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        upgradeHistory: [
+          {
+            action: 'Test string',
+            containerImage: 'Test string',
+            createTime: 'Test string',
+            framework: 'Test string',
+            snapshot: 'Test string',
+            state: 'Test string',
+            targetVersion: 'Test string',
+            version: 'Test string',
+            vmImage: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Deletes a single Instance. */
+    await gapi.client.notebooks.projects.locations.instances.delete({
+      name: 'Test string',
+      requestId: 'Test string',
+    });
+    /** Creates a Diagnostic File and runs Diagnostic Tool given an Instance. */
+    await gapi.client.notebooks.projects.locations.instances.diagnose(
+      {
+        name: 'Test string',
+      },
+      {
+        diagnosticConfig: {
+          enableCopyHomeFilesFlag: true,
+          enablePacketCaptureFlag: true,
+          enableRepairFlag: true,
+          gcsBucket: 'Test string',
+          relativePath: 'Test string',
+        },
+        timeoutMinutes: 42,
+      }
+    );
+    /** Gets details of a single Instance. */
+    await gapi.client.notebooks.projects.locations.instances.get({
+      name: 'Test string',
+    });
+    /** Gets general backend configurations that might also affect the frontend. Location is required by CCFE. Although we could bypass it to send location- less request directly to the backend job, we would need CPE (go/cloud-cpe). Having the location might also be useful depending on the query. */
+    await gapi.client.notebooks.projects.locations.instances.getConfig({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.notebooks.projects.locations.instances.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists instances in a given project and location. */
+    await gapi.client.notebooks.projects.locations.instances.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** UpdateInstance updates an Instance. */
+    await gapi.client.notebooks.projects.locations.instances.patch(
+      {
+        name: 'Test string',
+        requestId: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        creator: 'Test string',
+        disableProxyAccess: true,
+        gceSetup: {
+          acceleratorConfigs: [
+            {
+              coreCount: 'Test string',
+              type: 'Test string',
+            },
+          ],
+          bootDisk: {
+            diskEncryption: 'Test string',
+            diskSizeGb: 'Test string',
+            diskType: 'Test string',
+            kmsKey: 'Test string',
+          },
+          containerImage: {
+            repository: 'Test string',
+            tag: 'Test string',
+          },
+          dataDisks: [
+            {
+              diskEncryption: 'Test string',
+              diskSizeGb: 'Test string',
+              diskType: 'Test string',
+              kmsKey: 'Test string',
+            },
+          ],
+          disablePublicIp: true,
+          enableIpForwarding: true,
+          gpuDriverConfig: {
+            customGpuDriverPath: 'Test string',
+            enableGpuDriver: true,
+          },
+          machineType: 'Test string',
+          metadata: {
+            A: 'Test string',
+          },
+          networkInterfaces: [
+            {
+              network: 'Test string',
+              nicType: 'Test string',
+              subnet: 'Test string',
+            },
+          ],
+          serviceAccounts: [
+            {
+              email: 'Test string',
+              scopes: ['Test string'],
+            },
+          ],
+          shieldedInstanceConfig: {
+            enableIntegrityMonitoring: true,
+            enableSecureBoot: true,
+            enableVtpm: true,
+          },
+          tags: ['Test string'],
+          vmImage: {
+            family: 'Test string',
+            name: 'Test string',
+            project: 'Test string',
+          },
+        },
+        healthInfo: {
+          A: 'Test string',
+        },
+        healthState: 'Test string',
+        id: 'Test string',
+        instanceOwners: ['Test string'],
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        proxyUri: 'Test string',
+        state: 'Test string',
+        updateTime: 'Test string',
+        upgradeHistory: [
+          {
+            action: 'Test string',
+            containerImage: 'Test string',
+            createTime: 'Test string',
+            framework: 'Test string',
+            snapshot: 'Test string',
+            state: 'Test string',
+            targetVersion: 'Test string',
+            version: 'Test string',
+            vmImage: 'Test string',
+          },
+        ],
+      }
+    );
+    /** Allows notebook instances to report their latest instance information to the Notebooks API server. The server will merge the reported information to the instance metadata store. Do not use this method directly. */
+    await gapi.client.notebooks.projects.locations.instances.reportInfoSystem(
+      {
+        name: 'Test string',
+      },
+      {
+        event: {
+          details: {
+            A: 'Test string',
+          },
+          reportTime: 'Test string',
+          type: 'Test string',
+        },
+        vmId: 'Test string',
+      }
+    );
+    /** Resets a notebook instance. */
+    await gapi.client.notebooks.projects.locations.instances.reset(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Rollbacks a notebook instance to the previous version. */
+    await gapi.client.notebooks.projects.locations.instances.rollback(
+      {
+        name: 'Test string',
+      },
+      {
+        revisionId: 'Test string',
+        targetSnapshot: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.notebooks.projects.locations.instances.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Starts a notebook instance. */
+    await gapi.client.notebooks.projects.locations.instances.start(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Stops a notebook instance. */
+    await gapi.client.notebooks.projects.locations.instances.stop(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.notebooks.projects.locations.instances.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Upgrades a notebook instance to the latest version. */
+    await gapi.client.notebooks.projects.locations.instances.upgrade(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Allows notebook instances to upgrade themselves. Do not use this method directly. */
+    await gapi.client.notebooks.projects.locations.instances.upgradeSystem(
+      {
+        name: 'Test string',
+      },
+      {
+        vmId: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.notebooks.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.notebooks.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.notebooks.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.notebooks.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+  }
 });

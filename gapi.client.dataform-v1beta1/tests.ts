@@ -6,714 +6,814 @@
 // Revision: 20231111
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://dataform.googleapis.com/$discovery/rest?version=v1beta1');
-    /** now we can use gapi.client.dataform */
+  await gapi.client.load(
+    'https://dataform.googleapis.com/$discovery/rest?version=v1beta1'
+  );
+  /** now we can use gapi.client.dataform */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.dataform.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.dataform.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataform.projects.locations.collections.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.dataform.projects.locations.collections.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataform.projects.locations.collections.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Applies a Git commit to a Repository. The Repository must not have a value for `git_remote_settings.url`. */
-        await gapi.client.dataform.projects.locations.repositories.commit({
-            name: "Test string",
-        }, {
-            commitMetadata: {
-                author: {
-                    emailAddress: "Test string",
-                    name: "Test string",
-                },
-                commitMessage: "Test string",
-            },
-            fileOperations: {
-                A: {
-                    deleteFile: {
-                    },
-                    writeFile: {
-                        contents: "Test string",
-                    },
-                }
-            },
-            requiredHeadCommitSha: "Test string",
-        });
-        /** Computes a Repository's Git access token status. */
-        await gapi.client.dataform.projects.locations.repositories.computeAccessTokenStatus({
-            name: "Test string",
-        });
-        /** Creates a new Repository in a given project and location. */
-        await gapi.client.dataform.projects.locations.repositories.create({
-            parent: "Test string",
-            repositoryId: "Test string",
-        }, {
-            displayName: "Test string",
-            gitRemoteSettings: {
-                authenticationTokenSecretVersion: "Test string",
-                defaultBranch: "Test string",
-                sshAuthenticationConfig: {
-                    hostPublicKey: "Test string",
-                    userPrivateKeySecretVersion: "Test string",
-                },
-                tokenStatus: "Test string",
-                url: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            npmrcEnvironmentVariablesSecretVersion: "Test string",
-            serviceAccount: "Test string",
-            setAuthenticatedUserAdmin: true,
-            workspaceCompilationOverrides: {
-                defaultDatabase: "Test string",
-                schemaSuffix: "Test string",
-                tablePrefix: "Test string",
-            },
-        });
-        /** Deletes a single Repository. */
-        await gapi.client.dataform.projects.locations.repositories.delete({
-            force: true,
-            name: "Test string",
-        });
-        /** Fetches a Repository's history of commits. The Repository must not have a value for `git_remote_settings.url`. */
-        await gapi.client.dataform.projects.locations.repositories.fetchHistory({
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Fetches a Repository's remote branches. */
-        await gapi.client.dataform.projects.locations.repositories.fetchRemoteBranches({
-            name: "Test string",
-        });
-        /** Fetches a single Repository. */
-        await gapi.client.dataform.projects.locations.repositories.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataform.projects.locations.repositories.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Lists Repositories in a given project and location. */
-        await gapi.client.dataform.projects.locations.repositories.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a single Repository. */
-        await gapi.client.dataform.projects.locations.repositories.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            displayName: "Test string",
-            gitRemoteSettings: {
-                authenticationTokenSecretVersion: "Test string",
-                defaultBranch: "Test string",
-                sshAuthenticationConfig: {
-                    hostPublicKey: "Test string",
-                    userPrivateKeySecretVersion: "Test string",
-                },
-                tokenStatus: "Test string",
-                url: "Test string",
-            },
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            npmrcEnvironmentVariablesSecretVersion: "Test string",
-            serviceAccount: "Test string",
-            setAuthenticatedUserAdmin: true,
-            workspaceCompilationOverrides: {
-                defaultDatabase: "Test string",
-                schemaSuffix: "Test string",
-                tablePrefix: "Test string",
-            },
-        });
-        /** Returns the contents of a given Repository directory. The Repository must not have a value for `git_remote_settings.url`. */
-        await gapi.client.dataform.projects.locations.repositories.queryDirectoryContents({
-            commitSha: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            path: "Test string",
-        });
-        /** Returns the contents of a file (inside a Repository). The Repository must not have a value for `git_remote_settings.url`. */
-        await gapi.client.dataform.projects.locations.repositories.readFile({
-            commitSha: "Test string",
-            name: "Test string",
-            path: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.dataform.projects.locations.repositories.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataform.projects.locations.repositories.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Creates a new CompilationResult in a given project and location. */
-        await gapi.client.dataform.projects.locations.repositories.compilationResults.create({
-            parent: "Test string",
-        }, {
-            codeCompilationConfig: {
-                assertionSchema: "Test string",
-                databaseSuffix: "Test string",
-                defaultDatabase: "Test string",
-                defaultLocation: "Test string",
-                defaultSchema: "Test string",
-                schemaSuffix: "Test string",
-                tablePrefix: "Test string",
-                vars: {
-                    A: "Test string"
-                },
-            },
-            compilationErrors: [
-                {
-                    actionTarget: {
-                        database: "Test string",
-                        name: "Test string",
-                        schema: "Test string",
-                    },
-                    message: "Test string",
-                    path: "Test string",
-                    stack: "Test string",
-                }
-            ],
-            dataformCoreVersion: "Test string",
-            gitCommitish: "Test string",
-            name: "Test string",
-            releaseConfig: "Test string",
-            resolvedGitCommitSha: "Test string",
-            workspace: "Test string",
-        });
-        /** Fetches a single CompilationResult. */
-        await gapi.client.dataform.projects.locations.repositories.compilationResults.get({
-            name: "Test string",
-        });
-        /** Lists CompilationResults in a given Repository. */
-        await gapi.client.dataform.projects.locations.repositories.compilationResults.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns CompilationResultActions in a given CompilationResult. */
-        await gapi.client.dataform.projects.locations.repositories.compilationResults.query({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new ReleaseConfig in a given Repository. */
-        await gapi.client.dataform.projects.locations.repositories.releaseConfigs.create({
-            parent: "Test string",
-            releaseConfigId: "Test string",
-        }, {
-            codeCompilationConfig: {
-                assertionSchema: "Test string",
-                databaseSuffix: "Test string",
-                defaultDatabase: "Test string",
-                defaultLocation: "Test string",
-                defaultSchema: "Test string",
-                schemaSuffix: "Test string",
-                tablePrefix: "Test string",
-                vars: {
-                    A: "Test string"
-                },
-            },
-            cronSchedule: "Test string",
-            gitCommitish: "Test string",
-            name: "Test string",
-            recentScheduledReleaseRecords: [
-                {
-                    compilationResult: "Test string",
-                    errorStatus: {
-                        code: 42,
-                        details: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        message: "Test string",
-                    },
-                    releaseTime: "Test string",
-                }
-            ],
-            releaseCompilationResult: "Test string",
-            timeZone: "Test string",
-        });
-        /** Deletes a single ReleaseConfig. */
-        await gapi.client.dataform.projects.locations.repositories.releaseConfigs.delete({
-            name: "Test string",
-        });
-        /** Fetches a single ReleaseConfig. */
-        await gapi.client.dataform.projects.locations.repositories.releaseConfigs.get({
-            name: "Test string",
-        });
-        /** Lists ReleaseConfigs in a given Repository. */
-        await gapi.client.dataform.projects.locations.repositories.releaseConfigs.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a single ReleaseConfig. */
-        await gapi.client.dataform.projects.locations.repositories.releaseConfigs.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            codeCompilationConfig: {
-                assertionSchema: "Test string",
-                databaseSuffix: "Test string",
-                defaultDatabase: "Test string",
-                defaultLocation: "Test string",
-                defaultSchema: "Test string",
-                schemaSuffix: "Test string",
-                tablePrefix: "Test string",
-                vars: {
-                    A: "Test string"
-                },
-            },
-            cronSchedule: "Test string",
-            gitCommitish: "Test string",
-            name: "Test string",
-            recentScheduledReleaseRecords: [
-                {
-                    compilationResult: "Test string",
-                    errorStatus: {
-                        code: 42,
-                        details: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        message: "Test string",
-                    },
-                    releaseTime: "Test string",
-                }
-            ],
-            releaseCompilationResult: "Test string",
-            timeZone: "Test string",
-        });
-        /** Creates a new WorkflowConfig in a given Repository. */
-        await gapi.client.dataform.projects.locations.repositories.workflowConfigs.create({
-            parent: "Test string",
-            workflowConfigId: "Test string",
-        }, {
-            cronSchedule: "Test string",
-            invocationConfig: {
-                fullyRefreshIncrementalTablesEnabled: true,
-                includedTags: [
-                    "Test string"
-                ],
-                includedTargets: [
-                    {
-                        database: "Test string",
-                        name: "Test string",
-                        schema: "Test string",
-                    }
-                ],
-                serviceAccount: "Test string",
-                transitiveDependenciesIncluded: true,
-                transitiveDependentsIncluded: true,
-            },
-            name: "Test string",
-            recentScheduledExecutionRecords: [
-                {
-                    errorStatus: {
-                        code: 42,
-                        details: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        message: "Test string",
-                    },
-                    executionTime: "Test string",
-                    workflowInvocation: "Test string",
-                }
-            ],
-            releaseConfig: "Test string",
-            timeZone: "Test string",
-        });
-        /** Deletes a single WorkflowConfig. */
-        await gapi.client.dataform.projects.locations.repositories.workflowConfigs.delete({
-            name: "Test string",
-        });
-        /** Fetches a single WorkflowConfig. */
-        await gapi.client.dataform.projects.locations.repositories.workflowConfigs.get({
-            name: "Test string",
-        });
-        /** Lists WorkflowConfigs in a given Repository. */
-        await gapi.client.dataform.projects.locations.repositories.workflowConfigs.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Updates a single WorkflowConfig. */
-        await gapi.client.dataform.projects.locations.repositories.workflowConfigs.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            cronSchedule: "Test string",
-            invocationConfig: {
-                fullyRefreshIncrementalTablesEnabled: true,
-                includedTags: [
-                    "Test string"
-                ],
-                includedTargets: [
-                    {
-                        database: "Test string",
-                        name: "Test string",
-                        schema: "Test string",
-                    }
-                ],
-                serviceAccount: "Test string",
-                transitiveDependenciesIncluded: true,
-                transitiveDependentsIncluded: true,
-            },
-            name: "Test string",
-            recentScheduledExecutionRecords: [
-                {
-                    errorStatus: {
-                        code: 42,
-                        details: [
-                            {
-                                A: 42
-                            }
-                        ],
-                        message: "Test string",
-                    },
-                    executionTime: "Test string",
-                    workflowInvocation: "Test string",
-                }
-            ],
-            releaseConfig: "Test string",
-            timeZone: "Test string",
-        });
-        /** Requests cancellation of a running WorkflowInvocation. */
-        await gapi.client.dataform.projects.locations.repositories.workflowInvocations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /** Creates a new WorkflowInvocation in a given Repository. */
-        await gapi.client.dataform.projects.locations.repositories.workflowInvocations.create({
-            parent: "Test string",
-        }, {
-            compilationResult: "Test string",
-            invocationConfig: {
-                fullyRefreshIncrementalTablesEnabled: true,
-                includedTags: [
-                    "Test string"
-                ],
-                includedTargets: [
-                    {
-                        database: "Test string",
-                        name: "Test string",
-                        schema: "Test string",
-                    }
-                ],
-                serviceAccount: "Test string",
-                transitiveDependenciesIncluded: true,
-                transitiveDependentsIncluded: true,
-            },
-            invocationTiming: {
-                endTime: "Test string",
-                startTime: "Test string",
-            },
-            name: "Test string",
-            resolvedCompilationResult: "Test string",
-            state: "Test string",
-            workflowConfig: "Test string",
-        });
-        /** Deletes a single WorkflowInvocation. */
-        await gapi.client.dataform.projects.locations.repositories.workflowInvocations.delete({
-            name: "Test string",
-        });
-        /** Fetches a single WorkflowInvocation. */
-        await gapi.client.dataform.projects.locations.repositories.workflowInvocations.get({
-            name: "Test string",
-        });
-        /** Lists WorkflowInvocations in a given Repository. */
-        await gapi.client.dataform.projects.locations.repositories.workflowInvocations.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Returns WorkflowInvocationActions in a given WorkflowInvocation. */
-        await gapi.client.dataform.projects.locations.repositories.workflowInvocations.query({
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Applies a Git commit for uncommitted files in a Workspace. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.commit({
-            name: "Test string",
-        }, {
-            author: {
-                emailAddress: "Test string",
-                name: "Test string",
-            },
-            commitMessage: "Test string",
-            paths: [
-                "Test string"
-            ],
-        });
-        /** Creates a new Workspace in a given Repository. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.create({
-            parent: "Test string",
-            workspaceId: "Test string",
-        }, {
-            name: "Test string",
-        });
-        /** Deletes a single Workspace. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.delete({
-            name: "Test string",
-        });
-        /** Fetches Git diff for an uncommitted file in a Workspace. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.fetchFileDiff({
-            path: "Test string",
-            workspace: "Test string",
-        });
-        /** Fetches Git statuses for the files in a Workspace. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.fetchFileGitStatuses({
-            name: "Test string",
-        });
-        /** Fetches Git ahead/behind against a remote branch. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.fetchGitAheadBehind({
-            name: "Test string",
-            remoteBranch: "Test string",
-        });
-        /** Fetches a single Workspace. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /** Installs dependency NPM packages (inside a Workspace). */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.installNpmPackages({
-            workspace: "Test string",
-        }, {
-        });
-        /** Lists Workspaces in a given Repository. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a directory inside a Workspace. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.makeDirectory({
-            workspace: "Test string",
-        }, {
-            path: "Test string",
-        });
-        /** Moves a directory (inside a Workspace), and all of its contents, to a new location. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.moveDirectory({
-            workspace: "Test string",
-        }, {
-            newPath: "Test string",
-            path: "Test string",
-        });
-        /** Moves a file (inside a Workspace) to a new location. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.moveFile({
-            workspace: "Test string",
-        }, {
-            newPath: "Test string",
-            path: "Test string",
-        });
-        /** Pulls Git commits from the Repository's remote into a Workspace. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.pull({
-            name: "Test string",
-        }, {
-            author: {
-                emailAddress: "Test string",
-                name: "Test string",
-            },
-            remoteBranch: "Test string",
-        });
-        /** Pushes Git commits from a Workspace to the Repository's remote. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.push({
-            name: "Test string",
-        }, {
-            remoteBranch: "Test string",
-        });
-        /** Returns the contents of a given Workspace directory. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.queryDirectoryContents({
-            pageSize: 42,
-            pageToken: "Test string",
-            path: "Test string",
-            workspace: "Test string",
-        });
-        /** Returns the contents of a file (inside a Workspace). */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.readFile({
-            path: "Test string",
-            workspace: "Test string",
-        });
-        /** Deletes a directory (inside a Workspace) and all of its contents. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.removeDirectory({
-            workspace: "Test string",
-        }, {
-            path: "Test string",
-        });
-        /** Deletes a file (inside a Workspace). */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.removeFile({
-            workspace: "Test string",
-        }, {
-            path: "Test string",
-        });
-        /** Performs a Git reset for uncommitted files in a Workspace. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.reset({
-            name: "Test string",
-        }, {
-            clean: true,
-            paths: [
-                "Test string"
-            ],
-        });
-        /** Finds the contents of a given Workspace directory by filter. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.searchFiles({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            workspace: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /** Writes to a file (inside a Workspace). */
-        await gapi.client.dataform.projects.locations.repositories.workspaces.writeFile({
-            workspace: "Test string",
-        }, {
-            contents: "Test string",
-            path: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.dataform.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.dataform.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataform.projects.locations.collections.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.dataform.projects.locations.collections.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataform.projects.locations.collections.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Applies a Git commit to a Repository. The Repository must not have a value for `git_remote_settings.url`. */
+    await gapi.client.dataform.projects.locations.repositories.commit(
+      {
+        name: 'Test string',
+      },
+      {
+        commitMetadata: {
+          author: {
+            emailAddress: 'Test string',
+            name: 'Test string',
+          },
+          commitMessage: 'Test string',
+        },
+        fileOperations: {
+          A: {
+            deleteFile: {},
+            writeFile: {
+              contents: 'Test string',
+            },
+          },
+        },
+        requiredHeadCommitSha: 'Test string',
+      }
+    );
+    /** Computes a Repository's Git access token status. */
+    await gapi.client.dataform.projects.locations.repositories.computeAccessTokenStatus(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Creates a new Repository in a given project and location. */
+    await gapi.client.dataform.projects.locations.repositories.create(
+      {
+        parent: 'Test string',
+        repositoryId: 'Test string',
+      },
+      {
+        displayName: 'Test string',
+        gitRemoteSettings: {
+          authenticationTokenSecretVersion: 'Test string',
+          defaultBranch: 'Test string',
+          sshAuthenticationConfig: {
+            hostPublicKey: 'Test string',
+            userPrivateKeySecretVersion: 'Test string',
+          },
+          tokenStatus: 'Test string',
+          url: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        npmrcEnvironmentVariablesSecretVersion: 'Test string',
+        serviceAccount: 'Test string',
+        setAuthenticatedUserAdmin: true,
+        workspaceCompilationOverrides: {
+          defaultDatabase: 'Test string',
+          schemaSuffix: 'Test string',
+          tablePrefix: 'Test string',
+        },
+      }
+    );
+    /** Deletes a single Repository. */
+    await gapi.client.dataform.projects.locations.repositories.delete({
+      force: true,
+      name: 'Test string',
+    });
+    /** Fetches a Repository's history of commits. The Repository must not have a value for `git_remote_settings.url`. */
+    await gapi.client.dataform.projects.locations.repositories.fetchHistory({
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Fetches a Repository's remote branches. */
+    await gapi.client.dataform.projects.locations.repositories.fetchRemoteBranches(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Fetches a single Repository. */
+    await gapi.client.dataform.projects.locations.repositories.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataform.projects.locations.repositories.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Lists Repositories in a given project and location. */
+    await gapi.client.dataform.projects.locations.repositories.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates a single Repository. */
+    await gapi.client.dataform.projects.locations.repositories.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        displayName: 'Test string',
+        gitRemoteSettings: {
+          authenticationTokenSecretVersion: 'Test string',
+          defaultBranch: 'Test string',
+          sshAuthenticationConfig: {
+            hostPublicKey: 'Test string',
+            userPrivateKeySecretVersion: 'Test string',
+          },
+          tokenStatus: 'Test string',
+          url: 'Test string',
+        },
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        npmrcEnvironmentVariablesSecretVersion: 'Test string',
+        serviceAccount: 'Test string',
+        setAuthenticatedUserAdmin: true,
+        workspaceCompilationOverrides: {
+          defaultDatabase: 'Test string',
+          schemaSuffix: 'Test string',
+          tablePrefix: 'Test string',
+        },
+      }
+    );
+    /** Returns the contents of a given Repository directory. The Repository must not have a value for `git_remote_settings.url`. */
+    await gapi.client.dataform.projects.locations.repositories.queryDirectoryContents(
+      {
+        commitSha: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        path: 'Test string',
+      }
+    );
+    /** Returns the contents of a file (inside a Repository). The Repository must not have a value for `git_remote_settings.url`. */
+    await gapi.client.dataform.projects.locations.repositories.readFile({
+      commitSha: 'Test string',
+      name: 'Test string',
+      path: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.dataform.projects.locations.repositories.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataform.projects.locations.repositories.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Creates a new CompilationResult in a given project and location. */
+    await gapi.client.dataform.projects.locations.repositories.compilationResults.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        codeCompilationConfig: {
+          assertionSchema: 'Test string',
+          databaseSuffix: 'Test string',
+          defaultDatabase: 'Test string',
+          defaultLocation: 'Test string',
+          defaultSchema: 'Test string',
+          schemaSuffix: 'Test string',
+          tablePrefix: 'Test string',
+          vars: {
+            A: 'Test string',
+          },
+        },
+        compilationErrors: [
+          {
+            actionTarget: {
+              database: 'Test string',
+              name: 'Test string',
+              schema: 'Test string',
+            },
+            message: 'Test string',
+            path: 'Test string',
+            stack: 'Test string',
+          },
+        ],
+        dataformCoreVersion: 'Test string',
+        gitCommitish: 'Test string',
+        name: 'Test string',
+        releaseConfig: 'Test string',
+        resolvedGitCommitSha: 'Test string',
+        workspace: 'Test string',
+      }
+    );
+    /** Fetches a single CompilationResult. */
+    await gapi.client.dataform.projects.locations.repositories.compilationResults.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists CompilationResults in a given Repository. */
+    await gapi.client.dataform.projects.locations.repositories.compilationResults.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Returns CompilationResultActions in a given CompilationResult. */
+    await gapi.client.dataform.projects.locations.repositories.compilationResults.query(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Creates a new ReleaseConfig in a given Repository. */
+    await gapi.client.dataform.projects.locations.repositories.releaseConfigs.create(
+      {
+        parent: 'Test string',
+        releaseConfigId: 'Test string',
+      },
+      {
+        codeCompilationConfig: {
+          assertionSchema: 'Test string',
+          databaseSuffix: 'Test string',
+          defaultDatabase: 'Test string',
+          defaultLocation: 'Test string',
+          defaultSchema: 'Test string',
+          schemaSuffix: 'Test string',
+          tablePrefix: 'Test string',
+          vars: {
+            A: 'Test string',
+          },
+        },
+        cronSchedule: 'Test string',
+        gitCommitish: 'Test string',
+        name: 'Test string',
+        recentScheduledReleaseRecords: [
+          {
+            compilationResult: 'Test string',
+            errorStatus: {
+              code: 42,
+              details: [
+                {
+                  A: 42,
+                },
+              ],
+              message: 'Test string',
+            },
+            releaseTime: 'Test string',
+          },
+        ],
+        releaseCompilationResult: 'Test string',
+        timeZone: 'Test string',
+      }
+    );
+    /** Deletes a single ReleaseConfig. */
+    await gapi.client.dataform.projects.locations.repositories.releaseConfigs.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Fetches a single ReleaseConfig. */
+    await gapi.client.dataform.projects.locations.repositories.releaseConfigs.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists ReleaseConfigs in a given Repository. */
+    await gapi.client.dataform.projects.locations.repositories.releaseConfigs.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a single ReleaseConfig. */
+    await gapi.client.dataform.projects.locations.repositories.releaseConfigs.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        codeCompilationConfig: {
+          assertionSchema: 'Test string',
+          databaseSuffix: 'Test string',
+          defaultDatabase: 'Test string',
+          defaultLocation: 'Test string',
+          defaultSchema: 'Test string',
+          schemaSuffix: 'Test string',
+          tablePrefix: 'Test string',
+          vars: {
+            A: 'Test string',
+          },
+        },
+        cronSchedule: 'Test string',
+        gitCommitish: 'Test string',
+        name: 'Test string',
+        recentScheduledReleaseRecords: [
+          {
+            compilationResult: 'Test string',
+            errorStatus: {
+              code: 42,
+              details: [
+                {
+                  A: 42,
+                },
+              ],
+              message: 'Test string',
+            },
+            releaseTime: 'Test string',
+          },
+        ],
+        releaseCompilationResult: 'Test string',
+        timeZone: 'Test string',
+      }
+    );
+    /** Creates a new WorkflowConfig in a given Repository. */
+    await gapi.client.dataform.projects.locations.repositories.workflowConfigs.create(
+      {
+        parent: 'Test string',
+        workflowConfigId: 'Test string',
+      },
+      {
+        cronSchedule: 'Test string',
+        invocationConfig: {
+          fullyRefreshIncrementalTablesEnabled: true,
+          includedTags: ['Test string'],
+          includedTargets: [
+            {
+              database: 'Test string',
+              name: 'Test string',
+              schema: 'Test string',
+            },
+          ],
+          serviceAccount: 'Test string',
+          transitiveDependenciesIncluded: true,
+          transitiveDependentsIncluded: true,
+        },
+        name: 'Test string',
+        recentScheduledExecutionRecords: [
+          {
+            errorStatus: {
+              code: 42,
+              details: [
+                {
+                  A: 42,
+                },
+              ],
+              message: 'Test string',
+            },
+            executionTime: 'Test string',
+            workflowInvocation: 'Test string',
+          },
+        ],
+        releaseConfig: 'Test string',
+        timeZone: 'Test string',
+      }
+    );
+    /** Deletes a single WorkflowConfig. */
+    await gapi.client.dataform.projects.locations.repositories.workflowConfigs.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Fetches a single WorkflowConfig. */
+    await gapi.client.dataform.projects.locations.repositories.workflowConfigs.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists WorkflowConfigs in a given Repository. */
+    await gapi.client.dataform.projects.locations.repositories.workflowConfigs.list(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Updates a single WorkflowConfig. */
+    await gapi.client.dataform.projects.locations.repositories.workflowConfigs.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        cronSchedule: 'Test string',
+        invocationConfig: {
+          fullyRefreshIncrementalTablesEnabled: true,
+          includedTags: ['Test string'],
+          includedTargets: [
+            {
+              database: 'Test string',
+              name: 'Test string',
+              schema: 'Test string',
+            },
+          ],
+          serviceAccount: 'Test string',
+          transitiveDependenciesIncluded: true,
+          transitiveDependentsIncluded: true,
+        },
+        name: 'Test string',
+        recentScheduledExecutionRecords: [
+          {
+            errorStatus: {
+              code: 42,
+              details: [
+                {
+                  A: 42,
+                },
+              ],
+              message: 'Test string',
+            },
+            executionTime: 'Test string',
+            workflowInvocation: 'Test string',
+          },
+        ],
+        releaseConfig: 'Test string',
+        timeZone: 'Test string',
+      }
+    );
+    /** Requests cancellation of a running WorkflowInvocation. */
+    await gapi.client.dataform.projects.locations.repositories.workflowInvocations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a new WorkflowInvocation in a given Repository. */
+    await gapi.client.dataform.projects.locations.repositories.workflowInvocations.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        compilationResult: 'Test string',
+        invocationConfig: {
+          fullyRefreshIncrementalTablesEnabled: true,
+          includedTags: ['Test string'],
+          includedTargets: [
+            {
+              database: 'Test string',
+              name: 'Test string',
+              schema: 'Test string',
+            },
+          ],
+          serviceAccount: 'Test string',
+          transitiveDependenciesIncluded: true,
+          transitiveDependentsIncluded: true,
+        },
+        invocationTiming: {
+          endTime: 'Test string',
+          startTime: 'Test string',
+        },
+        name: 'Test string',
+        resolvedCompilationResult: 'Test string',
+        state: 'Test string',
+        workflowConfig: 'Test string',
+      }
+    );
+    /** Deletes a single WorkflowInvocation. */
+    await gapi.client.dataform.projects.locations.repositories.workflowInvocations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Fetches a single WorkflowInvocation. */
+    await gapi.client.dataform.projects.locations.repositories.workflowInvocations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists WorkflowInvocations in a given Repository. */
+    await gapi.client.dataform.projects.locations.repositories.workflowInvocations.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Returns WorkflowInvocationActions in a given WorkflowInvocation. */
+    await gapi.client.dataform.projects.locations.repositories.workflowInvocations.query(
+      {
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Applies a Git commit for uncommitted files in a Workspace. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.commit(
+      {
+        name: 'Test string',
+      },
+      {
+        author: {
+          emailAddress: 'Test string',
+          name: 'Test string',
+        },
+        commitMessage: 'Test string',
+        paths: ['Test string'],
+      }
+    );
+    /** Creates a new Workspace in a given Repository. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.create(
+      {
+        parent: 'Test string',
+        workspaceId: 'Test string',
+      },
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a single Workspace. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Fetches Git diff for an uncommitted file in a Workspace. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.fetchFileDiff(
+      {
+        path: 'Test string',
+        workspace: 'Test string',
+      }
+    );
+    /** Fetches Git statuses for the files in a Workspace. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.fetchFileGitStatuses(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Fetches Git ahead/behind against a remote branch. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.fetchGitAheadBehind(
+      {
+        name: 'Test string',
+        remoteBranch: 'Test string',
+      }
+    );
+    /** Fetches a single Workspace. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.getIamPolicy(
+      {
+        'options.requestedPolicyVersion': 42,
+        resource: 'Test string',
+      }
+    );
+    /** Installs dependency NPM packages (inside a Workspace). */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.installNpmPackages(
+      {
+        workspace: 'Test string',
+      },
+      {}
+    );
+    /** Lists Workspaces in a given Repository. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Creates a directory inside a Workspace. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.makeDirectory(
+      {
+        workspace: 'Test string',
+      },
+      {
+        path: 'Test string',
+      }
+    );
+    /** Moves a directory (inside a Workspace), and all of its contents, to a new location. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.moveDirectory(
+      {
+        workspace: 'Test string',
+      },
+      {
+        newPath: 'Test string',
+        path: 'Test string',
+      }
+    );
+    /** Moves a file (inside a Workspace) to a new location. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.moveFile(
+      {
+        workspace: 'Test string',
+      },
+      {
+        newPath: 'Test string',
+        path: 'Test string',
+      }
+    );
+    /** Pulls Git commits from the Repository's remote into a Workspace. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.pull(
+      {
+        name: 'Test string',
+      },
+      {
+        author: {
+          emailAddress: 'Test string',
+          name: 'Test string',
+        },
+        remoteBranch: 'Test string',
+      }
+    );
+    /** Pushes Git commits from a Workspace to the Repository's remote. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.push(
+      {
+        name: 'Test string',
+      },
+      {
+        remoteBranch: 'Test string',
+      }
+    );
+    /** Returns the contents of a given Workspace directory. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.queryDirectoryContents(
+      {
+        pageSize: 42,
+        pageToken: 'Test string',
+        path: 'Test string',
+        workspace: 'Test string',
+      }
+    );
+    /** Returns the contents of a file (inside a Workspace). */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.readFile(
+      {
+        path: 'Test string',
+        workspace: 'Test string',
+      }
+    );
+    /** Deletes a directory (inside a Workspace) and all of its contents. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.removeDirectory(
+      {
+        workspace: 'Test string',
+      },
+      {
+        path: 'Test string',
+      }
+    );
+    /** Deletes a file (inside a Workspace). */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.removeFile(
+      {
+        workspace: 'Test string',
+      },
+      {
+        path: 'Test string',
+      }
+    );
+    /** Performs a Git reset for uncommitted files in a Workspace. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.reset(
+      {
+        name: 'Test string',
+      },
+      {
+        clean: true,
+        paths: ['Test string'],
+      }
+    );
+    /** Finds the contents of a given Workspace directory by filter. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.searchFiles(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        workspace: 'Test string',
+      }
+    );
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Writes to a file (inside a Workspace). */
+    await gapi.client.dataform.projects.locations.repositories.workspaces.writeFile(
+      {
+        workspace: 'Test string',
+      },
+      {
+        contents: 'Test string',
+        path: 'Test string',
+      }
+    );
+  }
 });

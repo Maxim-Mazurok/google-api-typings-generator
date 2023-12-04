@@ -6,102 +6,103 @@
 // Revision: 20231113
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://texttospeech.googleapis.com/$discovery/rest?version=v1beta1');
-    /** now we can use gapi.client.texttospeech */
+  await gapi.client.load(
+    'https://texttospeech.googleapis.com/$discovery/rest?version=v1beta1'
+  );
+  /** now we can use gapi.client.texttospeech */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Synthesizes long form text asynchronously. */
-        await gapi.client.texttospeech.projects.locations.synthesizeLongAudio({
-            parent: "Test string",
-        }, {
-            audioConfig: {
-                audioEncoding: "Test string",
-                effectsProfileId: [
-                    "Test string"
-                ],
-                pitch: 42,
-                sampleRateHertz: 42,
-                speakingRate: 42,
-                volumeGainDb: 42,
-            },
-            input: {
-                ssml: "Test string",
-                text: "Test string",
-            },
-            outputGcsUri: "Test string",
-            voice: {
-                customVoice: {
-                    model: "Test string",
-                    reportedUsage: "Test string",
-                },
-                languageCode: "Test string",
-                name: "Test string",
-                ssmlGender: "Test string",
-            },
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.texttospeech.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.texttospeech.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Synthesizes speech synchronously: receive results after all text input has been processed. */
-        await gapi.client.texttospeech.text.synthesize({
-        }, {
-            audioConfig: {
-                audioEncoding: "Test string",
-                effectsProfileId: [
-                    "Test string"
-                ],
-                pitch: 42,
-                sampleRateHertz: 42,
-                speakingRate: 42,
-                volumeGainDb: 42,
-            },
-            enableTimePointing: [
-                "Test string"
-            ],
-            input: {
-                ssml: "Test string",
-                text: "Test string",
-            },
-            voice: {
-                customVoice: {
-                    model: "Test string",
-                    reportedUsage: "Test string",
-                },
-                languageCode: "Test string",
-                name: "Test string",
-                ssmlGender: "Test string",
-            },
-        });
-        /** Returns a list of Voice supported for synthesis. */
-        await gapi.client.texttospeech.voices.list({
-            languageCode: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Synthesizes long form text asynchronously. */
+    await gapi.client.texttospeech.projects.locations.synthesizeLongAudio(
+      {
+        parent: 'Test string',
+      },
+      {
+        audioConfig: {
+          audioEncoding: 'Test string',
+          effectsProfileId: ['Test string'],
+          pitch: 42,
+          sampleRateHertz: 42,
+          speakingRate: 42,
+          volumeGainDb: 42,
+        },
+        input: {
+          ssml: 'Test string',
+          text: 'Test string',
+        },
+        outputGcsUri: 'Test string',
+        voice: {
+          customVoice: {
+            model: 'Test string',
+            reportedUsage: 'Test string',
+          },
+          languageCode: 'Test string',
+          name: 'Test string',
+          ssmlGender: 'Test string',
+        },
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.texttospeech.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.texttospeech.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Synthesizes speech synchronously: receive results after all text input has been processed. */
+    await gapi.client.texttospeech.text.synthesize(
+      {},
+      {
+        audioConfig: {
+          audioEncoding: 'Test string',
+          effectsProfileId: ['Test string'],
+          pitch: 42,
+          sampleRateHertz: 42,
+          speakingRate: 42,
+          volumeGainDb: 42,
+        },
+        enableTimePointing: ['Test string'],
+        input: {
+          ssml: 'Test string',
+          text: 'Test string',
+        },
+        voice: {
+          customVoice: {
+            model: 'Test string',
+            reportedUsage: 'Test string',
+          },
+          languageCode: 'Test string',
+          name: 'Test string',
+          ssmlGender: 'Test string',
+        },
+      }
+    );
+    /** Returns a list of Voice supported for synthesis. */
+    await gapi.client.texttospeech.voices.list({
+      languageCode: 'Test string',
+    });
+  }
 });

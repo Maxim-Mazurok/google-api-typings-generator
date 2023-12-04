@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://playcustomapp.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.playcustomapp
-});
+gapi.client.load(
+  'https://playcustomapp.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.playcustomapp
+  }
+);
 ```
 
 ```typescript
@@ -45,24 +48,26 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-      // View and manage your Google Play Developer account
-      'https://www.googleapis.com/auth/androidpublisher',
-    ],
-    immediate = true;
+    // View and manage your Google Play Developer account
+    'https://www.googleapis.com/auth/androidpublisher',
+  ],
+  immediate = true;
 // ...
 
 gapi.auth.authorize(
-  { client_id: client_id, scope: scope, immediate: immediate },
+  {client_id: client_id, scope: scope, immediate: immediate},
   authResult => {
     if (authResult && !authResult.error) {
-        /* handle successful authorization */
+      /* handle successful authorization */
     } else {
-        /* handle authorization error */
+      /* handle authorization error */
     }
-});
+  }
+);
 ```
 
 After that you can use Google Play Custom App Publishing API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+
 ```

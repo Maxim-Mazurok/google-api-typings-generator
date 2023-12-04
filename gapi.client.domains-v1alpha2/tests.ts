@@ -6,985 +6,836 @@
 // Revision: 20231108
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://domains.googleapis.com/$discovery/rest?version=v1alpha2');
-    /** now we can use gapi.client.domains */
+  await gapi.client.load(
+    'https://domains.googleapis.com/$discovery/rest?version=v1alpha2'
+  );
+  /** now we can use gapi.client.domains */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.domains.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.domains.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.domains.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.domains.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Updates a `Registration`'s contact settings. Some changes require confirmation by the domain's registrant contact . */
-        await gapi.client.domains.projects.locations.registrations.configureContactSettings({
-            registration: "Test string",
-        }, {
-            contactNotices: [
-                "Test string"
-            ],
-            contactSettings: {
-                adminContact: {
-                    email: "Test string",
-                    faxNumber: "Test string",
-                    phoneNumber: "Test string",
-                    postalAddress: {
-                        addressLines: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        languageCode: "Test string",
-                        locality: "Test string",
-                        organization: "Test string",
-                        postalCode: "Test string",
-                        recipients: [
-                            "Test string"
-                        ],
-                        regionCode: "Test string",
-                        revision: 42,
-                        sortingCode: "Test string",
-                        sublocality: "Test string",
-                    },
-                },
-                privacy: "Test string",
-                registrantContact: {
-                    email: "Test string",
-                    faxNumber: "Test string",
-                    phoneNumber: "Test string",
-                    postalAddress: {
-                        addressLines: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        languageCode: "Test string",
-                        locality: "Test string",
-                        organization: "Test string",
-                        postalCode: "Test string",
-                        recipients: [
-                            "Test string"
-                        ],
-                        regionCode: "Test string",
-                        revision: 42,
-                        sortingCode: "Test string",
-                        sublocality: "Test string",
-                    },
-                },
-                technicalContact: {
-                    email: "Test string",
-                    faxNumber: "Test string",
-                    phoneNumber: "Test string",
-                    postalAddress: {
-                        addressLines: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        languageCode: "Test string",
-                        locality: "Test string",
-                        organization: "Test string",
-                        postalCode: "Test string",
-                        recipients: [
-                            "Test string"
-                        ],
-                        regionCode: "Test string",
-                        revision: 42,
-                        sortingCode: "Test string",
-                        sublocality: "Test string",
-                    },
-                },
-            },
-            updateMask: "Test string",
-            validateOnly: true,
-        });
-        /** Updates a `Registration`'s DNS settings. */
-        await gapi.client.domains.projects.locations.registrations.configureDnsSettings({
-            registration: "Test string",
-        }, {
-            dnsSettings: {
-                customDns: {
-                    dsRecords: [
-                        {
-                            algorithm: "Test string",
-                            digest: "Test string",
-                            digestType: "Test string",
-                            keyTag: 42,
-                        }
-                    ],
-                    nameServers: [
-                        "Test string"
-                    ],
-                },
-                glueRecords: [
-                    {
-                        hostName: "Test string",
-                        ipv4Addresses: [
-                            "Test string"
-                        ],
-                        ipv6Addresses: [
-                            "Test string"
-                        ],
-                    }
-                ],
-                googleDomainsDns: {
-                    dsRecords: [
-                        {
-                            algorithm: "Test string",
-                            digest: "Test string",
-                            digestType: "Test string",
-                            keyTag: 42,
-                        }
-                    ],
-                    dsState: "Test string",
-                    nameServers: [
-                        "Test string"
-                    ],
-                },
-            },
-            updateMask: "Test string",
-            validateOnly: true,
-        });
-        /** Updates a `Registration`'s management settings. */
-        await gapi.client.domains.projects.locations.registrations.configureManagementSettings({
-            registration: "Test string",
-        }, {
-            managementSettings: {
-                preferredRenewalMethod: "Test string",
-                renewalMethod: "Test string",
-                transferLockState: "Test string",
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Deletes a `Registration` resource. This method works on any `Registration` resource using [Subscription or Commitment billing](/domains/pricing#billing-models), provided that the
-         * resource was created at least 1 day in the past. When an active registration is successfully deleted, you can continue to use the domain in [Google Domains](https://domains.google/)
-         * until it expires. The calling user becomes the domain's sole owner in Google Domains, and permissions for the domain are subsequently managed there. The domain does not renew
-         * automatically unless the new owner sets up billing in Google Domains. After January 2024 you will only be able to delete `Registration` resources when `state` is one of: `EXPORTED`,
-         * `EXPIRED`,`REGISTRATION_FAILED` or `TRANSFER_FAILED`. See [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) for more details.
-         */
-        await gapi.client.domains.projects.locations.registrations.delete({
-            name: "Test string",
-        });
-        /**
-         * Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Exports a `Registration` resource,
-         * such that it is no longer managed by Cloud Domains. When an active domain is successfully exported, you can continue to use the domain in [Google Domains](https://domains.google/) until
-         * it expires. The calling user becomes the domain's sole owner in Google Domains, and permissions for the domain are subsequently managed there. The domain does not renew automatically
-         * unless the new owner sets up billing in Google Domains.
-         */
-        await gapi.client.domains.projects.locations.registrations.export({
-            name: "Test string",
-        }, {
-        });
-        /** Gets the details of a `Registration` resource. */
-        await gapi.client.domains.projects.locations.registrations.get({
-            name: "Test string",
-        });
-        /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
-        await gapi.client.domains.projects.locations.registrations.getIamPolicy({
-            "options.requestedPolicyVersion": 42,
-            resource: "Test string",
-        });
-        /**
-         * Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Imports a domain name from [Google
-         * Domains](https://domains.google/) for use in Cloud Domains. To transfer a domain from another registrar, use the `TransferDomain` method instead. Since individual users can own domains
-         * in Google Domains, the calling user must have ownership permission on the domain.
-         */
-        await gapi.client.domains.projects.locations.registrations.import({
-            parent: "Test string",
-        }, {
-            domainName: "Test string",
-            labels: {
-                A: "Test string"
-            },
-        });
-        /** Lists the `Registration` resources in a project. */
-        await gapi.client.domains.projects.locations.registrations.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /**
-         * Updates select fields of a `Registration` resource, notably `labels`. To update other fields, use the appropriate custom update method: * To update management settings, see
-         * `ConfigureManagementSettings` * To update DNS configuration, see `ConfigureDnsSettings` * To update contact information, see `ConfigureContactSettings`
-         */
-        await gapi.client.domains.projects.locations.registrations.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            contactSettings: {
-                adminContact: {
-                    email: "Test string",
-                    faxNumber: "Test string",
-                    phoneNumber: "Test string",
-                    postalAddress: {
-                        addressLines: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        languageCode: "Test string",
-                        locality: "Test string",
-                        organization: "Test string",
-                        postalCode: "Test string",
-                        recipients: [
-                            "Test string"
-                        ],
-                        regionCode: "Test string",
-                        revision: 42,
-                        sortingCode: "Test string",
-                        sublocality: "Test string",
-                    },
-                },
-                privacy: "Test string",
-                registrantContact: {
-                    email: "Test string",
-                    faxNumber: "Test string",
-                    phoneNumber: "Test string",
-                    postalAddress: {
-                        addressLines: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        languageCode: "Test string",
-                        locality: "Test string",
-                        organization: "Test string",
-                        postalCode: "Test string",
-                        recipients: [
-                            "Test string"
-                        ],
-                        regionCode: "Test string",
-                        revision: 42,
-                        sortingCode: "Test string",
-                        sublocality: "Test string",
-                    },
-                },
-                technicalContact: {
-                    email: "Test string",
-                    faxNumber: "Test string",
-                    phoneNumber: "Test string",
-                    postalAddress: {
-                        addressLines: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        languageCode: "Test string",
-                        locality: "Test string",
-                        organization: "Test string",
-                        postalCode: "Test string",
-                        recipients: [
-                            "Test string"
-                        ],
-                        regionCode: "Test string",
-                        revision: 42,
-                        sortingCode: "Test string",
-                        sublocality: "Test string",
-                    },
-                },
-            },
-            createTime: "Test string",
-            dnsSettings: {
-                customDns: {
-                    dsRecords: [
-                        {
-                            algorithm: "Test string",
-                            digest: "Test string",
-                            digestType: "Test string",
-                            keyTag: 42,
-                        }
-                    ],
-                    nameServers: [
-                        "Test string"
-                    ],
-                },
-                glueRecords: [
-                    {
-                        hostName: "Test string",
-                        ipv4Addresses: [
-                            "Test string"
-                        ],
-                        ipv6Addresses: [
-                            "Test string"
-                        ],
-                    }
-                ],
-                googleDomainsDns: {
-                    dsRecords: [
-                        {
-                            algorithm: "Test string",
-                            digest: "Test string",
-                            digestType: "Test string",
-                            keyTag: 42,
-                        }
-                    ],
-                    dsState: "Test string",
-                    nameServers: [
-                        "Test string"
-                    ],
-                },
-            },
-            domainName: "Test string",
-            expireTime: "Test string",
-            issues: [
-                "Test string"
-            ],
-            labels: {
-                A: "Test string"
-            },
-            managementSettings: {
-                preferredRenewalMethod: "Test string",
-                renewalMethod: "Test string",
-                transferLockState: "Test string",
-            },
-            name: "Test string",
-            pendingContactSettings: {
-                adminContact: {
-                    email: "Test string",
-                    faxNumber: "Test string",
-                    phoneNumber: "Test string",
-                    postalAddress: {
-                        addressLines: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        languageCode: "Test string",
-                        locality: "Test string",
-                        organization: "Test string",
-                        postalCode: "Test string",
-                        recipients: [
-                            "Test string"
-                        ],
-                        regionCode: "Test string",
-                        revision: 42,
-                        sortingCode: "Test string",
-                        sublocality: "Test string",
-                    },
-                },
-                privacy: "Test string",
-                registrantContact: {
-                    email: "Test string",
-                    faxNumber: "Test string",
-                    phoneNumber: "Test string",
-                    postalAddress: {
-                        addressLines: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        languageCode: "Test string",
-                        locality: "Test string",
-                        organization: "Test string",
-                        postalCode: "Test string",
-                        recipients: [
-                            "Test string"
-                        ],
-                        regionCode: "Test string",
-                        revision: 42,
-                        sortingCode: "Test string",
-                        sublocality: "Test string",
-                    },
-                },
-                technicalContact: {
-                    email: "Test string",
-                    faxNumber: "Test string",
-                    phoneNumber: "Test string",
-                    postalAddress: {
-                        addressLines: [
-                            "Test string"
-                        ],
-                        administrativeArea: "Test string",
-                        languageCode: "Test string",
-                        locality: "Test string",
-                        organization: "Test string",
-                        postalCode: "Test string",
-                        recipients: [
-                            "Test string"
-                        ],
-                        regionCode: "Test string",
-                        revision: 42,
-                        sortingCode: "Test string",
-                        sublocality: "Test string",
-                    },
-                },
-            },
-            registerFailureReason: "Test string",
-            state: "Test string",
-            supportedPrivacy: [
-                "Test string"
-            ],
-            transferFailureReason: "Test string",
-        });
-        /**
-         * Registers a new domain name and creates a corresponding `Registration` resource. Call `RetrieveRegisterParameters` first to check availability of the domain name and determine
-         * parameters like price that are needed to build a call to this method. A successful call creates a `Registration` resource in state `REGISTRATION_PENDING`, which resolves to `ACTIVE`
-         * within 1-2 minutes, indicating that the domain was successfully registered. If the resource ends up in state `REGISTRATION_FAILED`, it indicates that the domain was not registered
-         * successfully, and you can safely delete the resource and retry registration.
-         */
-        await gapi.client.domains.projects.locations.registrations.register({
-            parent: "Test string",
-        }, {
-            contactNotices: [
-                "Test string"
-            ],
-            domainNotices: [
-                "Test string"
-            ],
-            registration: {
-                contactSettings: {
-                    adminContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                    privacy: "Test string",
-                    registrantContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                    technicalContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                },
-                createTime: "Test string",
-                dnsSettings: {
-                    customDns: {
-                        dsRecords: [
-                            {
-                                algorithm: "Test string",
-                                digest: "Test string",
-                                digestType: "Test string",
-                                keyTag: 42,
-                            }
-                        ],
-                        nameServers: [
-                            "Test string"
-                        ],
-                    },
-                    glueRecords: [
-                        {
-                            hostName: "Test string",
-                            ipv4Addresses: [
-                                "Test string"
-                            ],
-                            ipv6Addresses: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                    googleDomainsDns: {
-                        dsRecords: [
-                            {
-                                algorithm: "Test string",
-                                digest: "Test string",
-                                digestType: "Test string",
-                                keyTag: 42,
-                            }
-                        ],
-                        dsState: "Test string",
-                        nameServers: [
-                            "Test string"
-                        ],
-                    },
-                },
-                domainName: "Test string",
-                expireTime: "Test string",
-                issues: [
-                    "Test string"
-                ],
-                labels: {
-                    A: "Test string"
-                },
-                managementSettings: {
-                    preferredRenewalMethod: "Test string",
-                    renewalMethod: "Test string",
-                    transferLockState: "Test string",
-                },
-                name: "Test string",
-                pendingContactSettings: {
-                    adminContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                    privacy: "Test string",
-                    registrantContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                    technicalContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                },
-                registerFailureReason: "Test string",
-                state: "Test string",
-                supportedPrivacy: [
-                    "Test string"
-                ],
-                transferFailureReason: "Test string",
-            },
-            validateOnly: true,
-            yearlyPrice: {
-                currencyCode: "Test string",
-                nanos: 42,
-                units: "Test string",
-            },
-        });
-        /** Resets the authorization code of the `Registration` to a new random string. You can call this method only after 60 days have elapsed since the initial domain registration. */
-        await gapi.client.domains.projects.locations.registrations.resetAuthorizationCode({
-            registration: "Test string",
-        }, {
-        });
-        /**
-         * Gets the authorization code of the `Registration` for the purpose of transferring the domain to another registrar. You can call this method only after 60 days have elapsed since the
-         * initial domain registration.
-         */
-        await gapi.client.domains.projects.locations.registrations.retrieveAuthorizationCode({
-            registration: "Test string",
-        });
-        /**
-         * Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Lists domain names from [Google
-         * Domains](https://domains.google/) that can be imported to Cloud Domains using the `ImportDomain` method. Since individual users can own domains in Google Domains, the list of domains
-         * returned depends on the individual user making the call. Domains already managed by Cloud Domains are not returned.
-         */
-        await gapi.client.domains.projects.locations.registrations.retrieveImportableDomains({
-            location: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Gets parameters needed to register a new domain name, including price and up-to-date availability. Use the returned values to call `RegisterDomain`. */
-        await gapi.client.domains.projects.locations.registrations.retrieveRegisterParameters({
-            domainName: "Test string",
-            location: "Test string",
-        });
-        /**
-         * Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Gets parameters needed to transfer a
-         * domain name from another registrar to Cloud Domains. For domains already managed by [Google Domains](https://domains.google/), use `ImportDomain` instead. Use the returned values to
-         * call `TransferDomain`.
-         */
-        await gapi.client.domains.projects.locations.registrations.retrieveTransferParameters({
-            domainName: "Test string",
-            location: "Test string",
-        });
-        /**
-         * Searches for available domain names similar to the provided query. Availability results from this method are approximate; call `RetrieveRegisterParameters` on a domain before
-         * registering to confirm availability.
-         */
-        await gapi.client.domains.projects.locations.registrations.searchDomains({
-            location: "Test string",
-            query: "Test string",
-        });
-        /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
-        await gapi.client.domains.projects.locations.registrations.setIamPolicy({
-            resource: "Test string",
-        }, {
-            policy: {
-                auditConfigs: [
-                    {
-                        auditLogConfigs: [
-                            {
-                                exemptedMembers: [
-                                    "Test string"
-                                ],
-                                logType: "Test string",
-                            }
-                        ],
-                        service: "Test string",
-                    }
-                ],
-                bindings: [
-                    {
-                        condition: {
-                            description: "Test string",
-                            expression: "Test string",
-                            location: "Test string",
-                            title: "Test string",
-                        },
-                        members: [
-                            "Test string"
-                        ],
-                        role: "Test string",
-                    }
-                ],
-                etag: "Test string",
-                version: 42,
-            },
-            updateMask: "Test string",
-        });
-        /**
-         * Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This
-         * operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning.
-         */
-        await gapi.client.domains.projects.locations.registrations.testIamPermissions({
-            resource: "Test string",
-        }, {
-            permissions: [
-                "Test string"
-            ],
-        });
-        /**
-         * Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Transfers a domain name from another
-         * registrar to Cloud Domains. For domains already managed by [Google Domains](https://domains.google/), use `ImportDomain` instead. Before calling this method, go to the domain's current
-         * registrar to unlock the domain for transfer and retrieve the domain's transfer authorization code. Then call `RetrieveTransferParameters` to confirm that the domain is unlocked and to
-         * get values needed to build a call to this method. A successful call creates a `Registration` resource in state `TRANSFER_PENDING`. It can take several days to complete the transfer
-         * process. The registrant can often speed up this process by approving the transfer through the current registrar, either by clicking a link in an email from the registrar or by visiting
-         * the registrar's website. A few minutes after transfer approval, the resource transitions to state `ACTIVE`, indicating that the transfer was successful. If the transfer is rejected or
-         * the request expires without being approved, the resource can end up in state `TRANSFER_FAILED`. If transfer fails, you can safely delete the resource and retry the transfer.
-         */
-        await gapi.client.domains.projects.locations.registrations.transfer({
-            parent: "Test string",
-        }, {
-            authorizationCode: {
-                code: "Test string",
-            },
-            contactNotices: [
-                "Test string"
-            ],
-            registration: {
-                contactSettings: {
-                    adminContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                    privacy: "Test string",
-                    registrantContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                    technicalContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                },
-                createTime: "Test string",
-                dnsSettings: {
-                    customDns: {
-                        dsRecords: [
-                            {
-                                algorithm: "Test string",
-                                digest: "Test string",
-                                digestType: "Test string",
-                                keyTag: 42,
-                            }
-                        ],
-                        nameServers: [
-                            "Test string"
-                        ],
-                    },
-                    glueRecords: [
-                        {
-                            hostName: "Test string",
-                            ipv4Addresses: [
-                                "Test string"
-                            ],
-                            ipv6Addresses: [
-                                "Test string"
-                            ],
-                        }
-                    ],
-                    googleDomainsDns: {
-                        dsRecords: [
-                            {
-                                algorithm: "Test string",
-                                digest: "Test string",
-                                digestType: "Test string",
-                                keyTag: 42,
-                            }
-                        ],
-                        dsState: "Test string",
-                        nameServers: [
-                            "Test string"
-                        ],
-                    },
-                },
-                domainName: "Test string",
-                expireTime: "Test string",
-                issues: [
-                    "Test string"
-                ],
-                labels: {
-                    A: "Test string"
-                },
-                managementSettings: {
-                    preferredRenewalMethod: "Test string",
-                    renewalMethod: "Test string",
-                    transferLockState: "Test string",
-                },
-                name: "Test string",
-                pendingContactSettings: {
-                    adminContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                    privacy: "Test string",
-                    registrantContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                    technicalContact: {
-                        email: "Test string",
-                        faxNumber: "Test string",
-                        phoneNumber: "Test string",
-                        postalAddress: {
-                            addressLines: [
-                                "Test string"
-                            ],
-                            administrativeArea: "Test string",
-                            languageCode: "Test string",
-                            locality: "Test string",
-                            organization: "Test string",
-                            postalCode: "Test string",
-                            recipients: [
-                                "Test string"
-                            ],
-                            regionCode: "Test string",
-                            revision: 42,
-                            sortingCode: "Test string",
-                            sublocality: "Test string",
-                        },
-                    },
-                },
-                registerFailureReason: "Test string",
-                state: "Test string",
-                supportedPrivacy: [
-                    "Test string"
-                ],
-                transferFailureReason: "Test string",
-            },
-            validateOnly: true,
-            yearlyPrice: {
-                currencyCode: "Test string",
-                nanos: 42,
-                units: "Test string",
-            },
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.domains.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.domains.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.domains.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.domains.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Updates a `Registration`'s contact settings. Some changes require confirmation by the domain's registrant contact . */
+    await gapi.client.domains.projects.locations.registrations.configureContactSettings(
+      {
+        registration: 'Test string',
+      },
+      {
+        contactNotices: ['Test string'],
+        contactSettings: {
+          adminContact: {
+            email: 'Test string',
+            faxNumber: 'Test string',
+            phoneNumber: 'Test string',
+            postalAddress: {
+              addressLines: ['Test string'],
+              administrativeArea: 'Test string',
+              languageCode: 'Test string',
+              locality: 'Test string',
+              organization: 'Test string',
+              postalCode: 'Test string',
+              recipients: ['Test string'],
+              regionCode: 'Test string',
+              revision: 42,
+              sortingCode: 'Test string',
+              sublocality: 'Test string',
+            },
+          },
+          privacy: 'Test string',
+          registrantContact: {
+            email: 'Test string',
+            faxNumber: 'Test string',
+            phoneNumber: 'Test string',
+            postalAddress: {
+              addressLines: ['Test string'],
+              administrativeArea: 'Test string',
+              languageCode: 'Test string',
+              locality: 'Test string',
+              organization: 'Test string',
+              postalCode: 'Test string',
+              recipients: ['Test string'],
+              regionCode: 'Test string',
+              revision: 42,
+              sortingCode: 'Test string',
+              sublocality: 'Test string',
+            },
+          },
+          technicalContact: {
+            email: 'Test string',
+            faxNumber: 'Test string',
+            phoneNumber: 'Test string',
+            postalAddress: {
+              addressLines: ['Test string'],
+              administrativeArea: 'Test string',
+              languageCode: 'Test string',
+              locality: 'Test string',
+              organization: 'Test string',
+              postalCode: 'Test string',
+              recipients: ['Test string'],
+              regionCode: 'Test string',
+              revision: 42,
+              sortingCode: 'Test string',
+              sublocality: 'Test string',
+            },
+          },
+        },
+        updateMask: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Updates a `Registration`'s DNS settings. */
+    await gapi.client.domains.projects.locations.registrations.configureDnsSettings(
+      {
+        registration: 'Test string',
+      },
+      {
+        dnsSettings: {
+          customDns: {
+            dsRecords: [
+              {
+                algorithm: 'Test string',
+                digest: 'Test string',
+                digestType: 'Test string',
+                keyTag: 42,
+              },
+            ],
+            nameServers: ['Test string'],
+          },
+          glueRecords: [
+            {
+              hostName: 'Test string',
+              ipv4Addresses: ['Test string'],
+              ipv6Addresses: ['Test string'],
+            },
+          ],
+          googleDomainsDns: {
+            dsRecords: [
+              {
+                algorithm: 'Test string',
+                digest: 'Test string',
+                digestType: 'Test string',
+                keyTag: 42,
+              },
+            ],
+            dsState: 'Test string',
+            nameServers: ['Test string'],
+          },
+        },
+        updateMask: 'Test string',
+        validateOnly: true,
+      }
+    );
+    /** Updates a `Registration`'s management settings. */
+    await gapi.client.domains.projects.locations.registrations.configureManagementSettings(
+      {
+        registration: 'Test string',
+      },
+      {
+        managementSettings: {
+          preferredRenewalMethod: 'Test string',
+          renewalMethod: 'Test string',
+          transferLockState: 'Test string',
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Deletes a `Registration` resource. This method works on any `Registration` resource using [Subscription or Commitment billing](/domains/pricing#billing-models), provided that the resource was created at least 1 day in the past. When an active registration is successfully deleted, you can continue to use the domain in [Google Domains](https://domains.google/) until it expires. The calling user becomes the domain's sole owner in Google Domains, and permissions for the domain are subsequently managed there. The domain does not renew automatically unless the new owner sets up billing in Google Domains. After January 2024 you will only be able to delete `Registration` resources when `state` is one of: `EXPORTED`, `EXPIRED`,`REGISTRATION_FAILED` or `TRANSFER_FAILED`. See [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) for more details. */
+    await gapi.client.domains.projects.locations.registrations.delete({
+      name: 'Test string',
+    });
+    /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Exports a `Registration` resource, such that it is no longer managed by Cloud Domains. When an active domain is successfully exported, you can continue to use the domain in [Google Domains](https://domains.google/) until it expires. The calling user becomes the domain's sole owner in Google Domains, and permissions for the domain are subsequently managed there. The domain does not renew automatically unless the new owner sets up billing in Google Domains. */
+    await gapi.client.domains.projects.locations.registrations.export(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Gets the details of a `Registration` resource. */
+    await gapi.client.domains.projects.locations.registrations.get({
+      name: 'Test string',
+    });
+    /** Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set. */
+    await gapi.client.domains.projects.locations.registrations.getIamPolicy({
+      'options.requestedPolicyVersion': 42,
+      resource: 'Test string',
+    });
+    /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Imports a domain name from [Google Domains](https://domains.google/) for use in Cloud Domains. To transfer a domain from another registrar, use the `TransferDomain` method instead. Since individual users can own domains in Google Domains, the calling user must have ownership permission on the domain. */
+    await gapi.client.domains.projects.locations.registrations.import(
+      {
+        parent: 'Test string',
+      },
+      {
+        domainName: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+      }
+    );
+    /** Lists the `Registration` resources in a project. */
+    await gapi.client.domains.projects.locations.registrations.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Updates select fields of a `Registration` resource, notably `labels`. To update other fields, use the appropriate custom update method: * To update management settings, see `ConfigureManagementSettings` * To update DNS configuration, see `ConfigureDnsSettings` * To update contact information, see `ConfigureContactSettings` */
+    await gapi.client.domains.projects.locations.registrations.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        contactSettings: {
+          adminContact: {
+            email: 'Test string',
+            faxNumber: 'Test string',
+            phoneNumber: 'Test string',
+            postalAddress: {
+              addressLines: ['Test string'],
+              administrativeArea: 'Test string',
+              languageCode: 'Test string',
+              locality: 'Test string',
+              organization: 'Test string',
+              postalCode: 'Test string',
+              recipients: ['Test string'],
+              regionCode: 'Test string',
+              revision: 42,
+              sortingCode: 'Test string',
+              sublocality: 'Test string',
+            },
+          },
+          privacy: 'Test string',
+          registrantContact: {
+            email: 'Test string',
+            faxNumber: 'Test string',
+            phoneNumber: 'Test string',
+            postalAddress: {
+              addressLines: ['Test string'],
+              administrativeArea: 'Test string',
+              languageCode: 'Test string',
+              locality: 'Test string',
+              organization: 'Test string',
+              postalCode: 'Test string',
+              recipients: ['Test string'],
+              regionCode: 'Test string',
+              revision: 42,
+              sortingCode: 'Test string',
+              sublocality: 'Test string',
+            },
+          },
+          technicalContact: {
+            email: 'Test string',
+            faxNumber: 'Test string',
+            phoneNumber: 'Test string',
+            postalAddress: {
+              addressLines: ['Test string'],
+              administrativeArea: 'Test string',
+              languageCode: 'Test string',
+              locality: 'Test string',
+              organization: 'Test string',
+              postalCode: 'Test string',
+              recipients: ['Test string'],
+              regionCode: 'Test string',
+              revision: 42,
+              sortingCode: 'Test string',
+              sublocality: 'Test string',
+            },
+          },
+        },
+        createTime: 'Test string',
+        dnsSettings: {
+          customDns: {
+            dsRecords: [
+              {
+                algorithm: 'Test string',
+                digest: 'Test string',
+                digestType: 'Test string',
+                keyTag: 42,
+              },
+            ],
+            nameServers: ['Test string'],
+          },
+          glueRecords: [
+            {
+              hostName: 'Test string',
+              ipv4Addresses: ['Test string'],
+              ipv6Addresses: ['Test string'],
+            },
+          ],
+          googleDomainsDns: {
+            dsRecords: [
+              {
+                algorithm: 'Test string',
+                digest: 'Test string',
+                digestType: 'Test string',
+                keyTag: 42,
+              },
+            ],
+            dsState: 'Test string',
+            nameServers: ['Test string'],
+          },
+        },
+        domainName: 'Test string',
+        expireTime: 'Test string',
+        issues: ['Test string'],
+        labels: {
+          A: 'Test string',
+        },
+        managementSettings: {
+          preferredRenewalMethod: 'Test string',
+          renewalMethod: 'Test string',
+          transferLockState: 'Test string',
+        },
+        name: 'Test string',
+        pendingContactSettings: {
+          adminContact: {
+            email: 'Test string',
+            faxNumber: 'Test string',
+            phoneNumber: 'Test string',
+            postalAddress: {
+              addressLines: ['Test string'],
+              administrativeArea: 'Test string',
+              languageCode: 'Test string',
+              locality: 'Test string',
+              organization: 'Test string',
+              postalCode: 'Test string',
+              recipients: ['Test string'],
+              regionCode: 'Test string',
+              revision: 42,
+              sortingCode: 'Test string',
+              sublocality: 'Test string',
+            },
+          },
+          privacy: 'Test string',
+          registrantContact: {
+            email: 'Test string',
+            faxNumber: 'Test string',
+            phoneNumber: 'Test string',
+            postalAddress: {
+              addressLines: ['Test string'],
+              administrativeArea: 'Test string',
+              languageCode: 'Test string',
+              locality: 'Test string',
+              organization: 'Test string',
+              postalCode: 'Test string',
+              recipients: ['Test string'],
+              regionCode: 'Test string',
+              revision: 42,
+              sortingCode: 'Test string',
+              sublocality: 'Test string',
+            },
+          },
+          technicalContact: {
+            email: 'Test string',
+            faxNumber: 'Test string',
+            phoneNumber: 'Test string',
+            postalAddress: {
+              addressLines: ['Test string'],
+              administrativeArea: 'Test string',
+              languageCode: 'Test string',
+              locality: 'Test string',
+              organization: 'Test string',
+              postalCode: 'Test string',
+              recipients: ['Test string'],
+              regionCode: 'Test string',
+              revision: 42,
+              sortingCode: 'Test string',
+              sublocality: 'Test string',
+            },
+          },
+        },
+        registerFailureReason: 'Test string',
+        state: 'Test string',
+        supportedPrivacy: ['Test string'],
+        transferFailureReason: 'Test string',
+      }
+    );
+    /** Registers a new domain name and creates a corresponding `Registration` resource. Call `RetrieveRegisterParameters` first to check availability of the domain name and determine parameters like price that are needed to build a call to this method. A successful call creates a `Registration` resource in state `REGISTRATION_PENDING`, which resolves to `ACTIVE` within 1-2 minutes, indicating that the domain was successfully registered. If the resource ends up in state `REGISTRATION_FAILED`, it indicates that the domain was not registered successfully, and you can safely delete the resource and retry registration. */
+    await gapi.client.domains.projects.locations.registrations.register(
+      {
+        parent: 'Test string',
+      },
+      {
+        contactNotices: ['Test string'],
+        domainNotices: ['Test string'],
+        registration: {
+          contactSettings: {
+            adminContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+            privacy: 'Test string',
+            registrantContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+            technicalContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+          },
+          createTime: 'Test string',
+          dnsSettings: {
+            customDns: {
+              dsRecords: [
+                {
+                  algorithm: 'Test string',
+                  digest: 'Test string',
+                  digestType: 'Test string',
+                  keyTag: 42,
+                },
+              ],
+              nameServers: ['Test string'],
+            },
+            glueRecords: [
+              {
+                hostName: 'Test string',
+                ipv4Addresses: ['Test string'],
+                ipv6Addresses: ['Test string'],
+              },
+            ],
+            googleDomainsDns: {
+              dsRecords: [
+                {
+                  algorithm: 'Test string',
+                  digest: 'Test string',
+                  digestType: 'Test string',
+                  keyTag: 42,
+                },
+              ],
+              dsState: 'Test string',
+              nameServers: ['Test string'],
+            },
+          },
+          domainName: 'Test string',
+          expireTime: 'Test string',
+          issues: ['Test string'],
+          labels: {
+            A: 'Test string',
+          },
+          managementSettings: {
+            preferredRenewalMethod: 'Test string',
+            renewalMethod: 'Test string',
+            transferLockState: 'Test string',
+          },
+          name: 'Test string',
+          pendingContactSettings: {
+            adminContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+            privacy: 'Test string',
+            registrantContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+            technicalContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+          },
+          registerFailureReason: 'Test string',
+          state: 'Test string',
+          supportedPrivacy: ['Test string'],
+          transferFailureReason: 'Test string',
+        },
+        validateOnly: true,
+        yearlyPrice: {
+          currencyCode: 'Test string',
+          nanos: 42,
+          units: 'Test string',
+        },
+      }
+    );
+    /** Resets the authorization code of the `Registration` to a new random string. You can call this method only after 60 days have elapsed since the initial domain registration. */
+    await gapi.client.domains.projects.locations.registrations.resetAuthorizationCode(
+      {
+        registration: 'Test string',
+      },
+      {}
+    );
+    /** Gets the authorization code of the `Registration` for the purpose of transferring the domain to another registrar. You can call this method only after 60 days have elapsed since the initial domain registration. */
+    await gapi.client.domains.projects.locations.registrations.retrieveAuthorizationCode(
+      {
+        registration: 'Test string',
+      }
+    );
+    /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Lists domain names from [Google Domains](https://domains.google/) that can be imported to Cloud Domains using the `ImportDomain` method. Since individual users can own domains in Google Domains, the list of domains returned depends on the individual user making the call. Domains already managed by Cloud Domains are not returned. */
+    await gapi.client.domains.projects.locations.registrations.retrieveImportableDomains(
+      {
+        location: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Gets parameters needed to register a new domain name, including price and up-to-date availability. Use the returned values to call `RegisterDomain`. */
+    await gapi.client.domains.projects.locations.registrations.retrieveRegisterParameters(
+      {
+        domainName: 'Test string',
+        location: 'Test string',
+      }
+    );
+    /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Gets parameters needed to transfer a domain name from another registrar to Cloud Domains. For domains already managed by [Google Domains](https://domains.google/), use `ImportDomain` instead. Use the returned values to call `TransferDomain`. */
+    await gapi.client.domains.projects.locations.registrations.retrieveTransferParameters(
+      {
+        domainName: 'Test string',
+        location: 'Test string',
+      }
+    );
+    /** Searches for available domain names similar to the provided query. Availability results from this method are approximate; call `RetrieveRegisterParameters` on a domain before registering to confirm availability. */
+    await gapi.client.domains.projects.locations.registrations.searchDomains({
+      location: 'Test string',
+      query: 'Test string',
+    });
+    /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
+    await gapi.client.domains.projects.locations.registrations.setIamPolicy(
+      {
+        resource: 'Test string',
+      },
+      {
+        policy: {
+          auditConfigs: [
+            {
+              auditLogConfigs: [
+                {
+                  exemptedMembers: ['Test string'],
+                  logType: 'Test string',
+                },
+              ],
+              service: 'Test string',
+            },
+          ],
+          bindings: [
+            {
+              condition: {
+                description: 'Test string',
+                expression: 'Test string',
+                location: 'Test string',
+                title: 'Test string',
+              },
+              members: ['Test string'],
+              role: 'Test string',
+            },
+          ],
+          etag: 'Test string',
+          version: 42,
+        },
+        updateMask: 'Test string',
+      }
+    );
+    /** Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may "fail open" without warning. */
+    await gapi.client.domains.projects.locations.registrations.testIamPermissions(
+      {
+        resource: 'Test string',
+      },
+      {
+        permissions: ['Test string'],
+      }
+    );
+    /** Deprecated: For more information, see [Cloud Domains feature deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations) Transfers a domain name from another registrar to Cloud Domains. For domains already managed by [Google Domains](https://domains.google/), use `ImportDomain` instead. Before calling this method, go to the domain's current registrar to unlock the domain for transfer and retrieve the domain's transfer authorization code. Then call `RetrieveTransferParameters` to confirm that the domain is unlocked and to get values needed to build a call to this method. A successful call creates a `Registration` resource in state `TRANSFER_PENDING`. It can take several days to complete the transfer process. The registrant can often speed up this process by approving the transfer through the current registrar, either by clicking a link in an email from the registrar or by visiting the registrar's website. A few minutes after transfer approval, the resource transitions to state `ACTIVE`, indicating that the transfer was successful. If the transfer is rejected or the request expires without being approved, the resource can end up in state `TRANSFER_FAILED`. If transfer fails, you can safely delete the resource and retry the transfer. */
+    await gapi.client.domains.projects.locations.registrations.transfer(
+      {
+        parent: 'Test string',
+      },
+      {
+        authorizationCode: {
+          code: 'Test string',
+        },
+        contactNotices: ['Test string'],
+        registration: {
+          contactSettings: {
+            adminContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+            privacy: 'Test string',
+            registrantContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+            technicalContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+          },
+          createTime: 'Test string',
+          dnsSettings: {
+            customDns: {
+              dsRecords: [
+                {
+                  algorithm: 'Test string',
+                  digest: 'Test string',
+                  digestType: 'Test string',
+                  keyTag: 42,
+                },
+              ],
+              nameServers: ['Test string'],
+            },
+            glueRecords: [
+              {
+                hostName: 'Test string',
+                ipv4Addresses: ['Test string'],
+                ipv6Addresses: ['Test string'],
+              },
+            ],
+            googleDomainsDns: {
+              dsRecords: [
+                {
+                  algorithm: 'Test string',
+                  digest: 'Test string',
+                  digestType: 'Test string',
+                  keyTag: 42,
+                },
+              ],
+              dsState: 'Test string',
+              nameServers: ['Test string'],
+            },
+          },
+          domainName: 'Test string',
+          expireTime: 'Test string',
+          issues: ['Test string'],
+          labels: {
+            A: 'Test string',
+          },
+          managementSettings: {
+            preferredRenewalMethod: 'Test string',
+            renewalMethod: 'Test string',
+            transferLockState: 'Test string',
+          },
+          name: 'Test string',
+          pendingContactSettings: {
+            adminContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+            privacy: 'Test string',
+            registrantContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+            technicalContact: {
+              email: 'Test string',
+              faxNumber: 'Test string',
+              phoneNumber: 'Test string',
+              postalAddress: {
+                addressLines: ['Test string'],
+                administrativeArea: 'Test string',
+                languageCode: 'Test string',
+                locality: 'Test string',
+                organization: 'Test string',
+                postalCode: 'Test string',
+                recipients: ['Test string'],
+                regionCode: 'Test string',
+                revision: 42,
+                sortingCode: 'Test string',
+                sublocality: 'Test string',
+              },
+            },
+          },
+          registerFailureReason: 'Test string',
+          state: 'Test string',
+          supportedPrivacy: ['Test string'],
+          transferFailureReason: 'Test string',
+        },
+        validateOnly: true,
+        yearlyPrice: {
+          currencyCode: 'Test string',
+          nanos: 42,
+          units: 'Test string',
+        },
+      }
+    );
+  }
 });

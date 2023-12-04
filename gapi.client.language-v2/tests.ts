@@ -6,89 +6,101 @@
 // Revision: 20231127
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://language.googleapis.com/$discovery/rest?version=v2');
-    /** now we can use gapi.client.language */
+  await gapi.client.load(
+    'https://language.googleapis.com/$discovery/rest?version=v2'
+  );
+  /** now we can use gapi.client.language */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** Apply machine learning models to reveal the structure and meaning of text */
-        'https://www.googleapis.com/auth/cloud-language',
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Finds named entities (currently proper names and common nouns) in the text along with entity types, probability, mentions for each entity, and other properties. */
-        await gapi.client.language.documents.analyzeEntities({
-        }, {
-            document: {
-                content: "Test string",
-                gcsContentUri: "Test string",
-                languageCode: "Test string",
-                type: "Test string",
-            },
-            encodingType: "Test string",
-        });
-        /** Analyzes the sentiment of the provided text. */
-        await gapi.client.language.documents.analyzeSentiment({
-        }, {
-            document: {
-                content: "Test string",
-                gcsContentUri: "Test string",
-                languageCode: "Test string",
-                type: "Test string",
-            },
-            encodingType: "Test string",
-        });
-        /** A convenience method that provides all features in one call. */
-        await gapi.client.language.documents.annotateText({
-        }, {
-            document: {
-                content: "Test string",
-                gcsContentUri: "Test string",
-                languageCode: "Test string",
-                type: "Test string",
-            },
-            encodingType: "Test string",
-            features: {
-                classifyText: true,
-                extractDocumentSentiment: true,
-                extractEntities: true,
-                moderateText: true,
-            },
-        });
-        /** Classifies a document into categories. */
-        await gapi.client.language.documents.classifyText({
-        }, {
-            document: {
-                content: "Test string",
-                gcsContentUri: "Test string",
-                languageCode: "Test string",
-                type: "Test string",
-            },
-        });
-        /** Moderates a document for harmful and sensitive categories. */
-        await gapi.client.language.documents.moderateText({
-        }, {
-            document: {
-                content: "Test string",
-                gcsContentUri: "Test string",
-                languageCode: "Test string",
-                type: "Test string",
-            },
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** Apply machine learning models to reveal the structure and meaning of text */
+    'https://www.googleapis.com/auth/cloud-language',
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Finds named entities (currently proper names and common nouns) in the text along with entity types, probability, mentions for each entity, and other properties. */
+    await gapi.client.language.documents.analyzeEntities(
+      {},
+      {
+        document: {
+          content: 'Test string',
+          gcsContentUri: 'Test string',
+          languageCode: 'Test string',
+          type: 'Test string',
+        },
+        encodingType: 'Test string',
+      }
+    );
+    /** Analyzes the sentiment of the provided text. */
+    await gapi.client.language.documents.analyzeSentiment(
+      {},
+      {
+        document: {
+          content: 'Test string',
+          gcsContentUri: 'Test string',
+          languageCode: 'Test string',
+          type: 'Test string',
+        },
+        encodingType: 'Test string',
+      }
+    );
+    /** A convenience method that provides all features in one call. */
+    await gapi.client.language.documents.annotateText(
+      {},
+      {
+        document: {
+          content: 'Test string',
+          gcsContentUri: 'Test string',
+          languageCode: 'Test string',
+          type: 'Test string',
+        },
+        encodingType: 'Test string',
+        features: {
+          classifyText: true,
+          extractDocumentSentiment: true,
+          extractEntities: true,
+          moderateText: true,
+        },
+      }
+    );
+    /** Classifies a document into categories. */
+    await gapi.client.language.documents.classifyText(
+      {},
+      {
+        document: {
+          content: 'Test string',
+          gcsContentUri: 'Test string',
+          languageCode: 'Test string',
+          type: 'Test string',
+        },
+      }
+    );
+    /** Moderates a document for harmful and sensitive categories. */
+    await gapi.client.language.documents.moderateText(
+      {},
+      {
+        document: {
+          content: 'Test string',
+          gcsContentUri: 'Test string',
+          languageCode: 'Test string',
+          type: 'Test string',
+        },
+      }
+    );
+  }
 });

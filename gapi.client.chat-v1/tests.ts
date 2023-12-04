@@ -6,6688 +6,6606 @@
 // Revision: 20231121
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://chat.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.chat */
+  await gapi.client.load(
+    'https://chat.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.chat */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** Private Service: https://www.googleapis.com/auth/chat.bot */
-        'https://www.googleapis.com/auth/chat.bot',
-        /** Delete conversations and spaces & remove access to associated files in Google Chat */
-        'https://www.googleapis.com/auth/chat.delete',
-        /** Import spaces, messages, and memberships into Google Chat. */
-        'https://www.googleapis.com/auth/chat.import',
-        /** View, add, and remove members from conversations in Google Chat */
-        'https://www.googleapis.com/auth/chat.memberships',
-        /** Add and remove itself from conversations in Google Chat */
-        'https://www.googleapis.com/auth/chat.memberships.app',
-        /** View members in Google Chat conversations. */
-        'https://www.googleapis.com/auth/chat.memberships.readonly',
-        /** View, compose, send, update, and delete messages, and add, view, and delete reactions to messages. */
-        'https://www.googleapis.com/auth/chat.messages',
-        /** Compose and send messages in Google Chat */
-        'https://www.googleapis.com/auth/chat.messages.create',
-        /** View, add, and delete reactions to messages in Google Chat */
-        'https://www.googleapis.com/auth/chat.messages.reactions',
-        /** Add reactions to messages in Google Chat */
-        'https://www.googleapis.com/auth/chat.messages.reactions.create',
-        /** View reactions to messages in Google Chat */
-        'https://www.googleapis.com/auth/chat.messages.reactions.readonly',
-        /** View messages and reactions in Google Chat */
-        'https://www.googleapis.com/auth/chat.messages.readonly',
-        /** Create conversations and spaces and view or update metadata (including history settings) in Google Chat */
-        'https://www.googleapis.com/auth/chat.spaces',
-        /** Create new conversations in Google Chat */
-        'https://www.googleapis.com/auth/chat.spaces.create',
-        /** View chat and spaces in Google Chat */
-        'https://www.googleapis.com/auth/chat.spaces.readonly',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`. */
-        await gapi.client.chat.media.download({
-            resourceName: "Test string",
-        });
-        /**
-         * Uploads an attachment. For an example, see [Upload media as a file attachment](https://developers.google.com/chat/api/guides/v1/media-and-attachments/upload). Requires user
-         * [authentication](https://developers.google.com/chat/api/guides/auth/users). You can upload attachments up to 200 MB. Certain file types aren't supported. For details, see [File types
-         * blocked by Google Chat](https://support.google.com/chat/answer/7651457?&co=GENIE.Platform%3DDesktop#File%20types%20blocked%20in%20Google%20Chat).
-         */
-        await gapi.client.chat.media.upload({
-            parent: "Test string",
-        }, {
-            filename: "Test string",
-        });
-        /**
-         * Creates a named space. Spaces grouped by topics aren't supported. For an example, see [Create a space](https://developers.google.com/chat/api/guides/v1/spaces/create). If you receive
-         * the error message `ALREADY_EXISTS` when creating a space, try a different `displayName`. An existing space within the Google Workspace organization might already use this display name.
-         * Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.create({
-            requestId: "Test string",
-        }, {
-            adminInstalled: true,
-            displayName: "Test string",
-            externalUserAllowed: true,
-            name: "Test string",
-            singleUserBotDm: true,
-            spaceDetails: {
-                description: "Test string",
-                guidelines: "Test string",
-            },
-            spaceHistoryState: "Test string",
-            spaceThreadingState: "Test string",
-            spaceType: "Test string",
-            threaded: true,
-            type: "Test string",
-        });
-        /**
-         * Deletes a named space. Always performs a cascading delete, which means that the space's child resources—like messages posted in the space and memberships in the space—are also deleted.
-         * For an example, see [Delete a space](https://developers.google.com/chat/api/guides/v1/spaces/delete). Requires [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users) from a user who has permission to delete the space.
-         */
-        await gapi.client.chat.spaces.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns the existing direct message with the specified user. If no direct message space is found, returns a `404 NOT_FOUND` error. For an example, see [Find a direct
-         * message](/chat/api/guides/v1/spaces/find-direct-message). With [user authentication](https://developers.google.com/chat/api/guides/auth/users), returns the direct message space between
-         * the specified user and the authenticated user. With [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts), returns the direct message space between
-         * the specified user and the calling Chat app. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) or [app
-         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
-         */
-        await gapi.client.chat.spaces.findDirectMessage({
-            name: "Test string",
-        });
-        /**
-         * Returns details about a space. For an example, see [Get a space](https://developers.google.com/chat/api/guides/v1/spaces/get). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.get({
-            name: "Test string",
-        });
-        /**
-         * Lists spaces the caller is a member of. Group chats and DMs aren't listed until the first message is sent. For an example, see [List
-         * spaces](https://developers.google.com/chat/api/guides/v1/spaces/list). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app
-         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). Lists spaces
-         * visible to the caller or authenticated user. Group chats and DMs aren't listed until the first message is sent.
-         */
-        await gapi.client.chat.spaces.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /**
-         * Updates a space. For an example, see [Update a space](https://developers.google.com/chat/api/guides/v1/spaces/update). If you're updating the `displayName` field and receive the error
-         * message `ALREADY_EXISTS`, try a different display name.. An existing space within the Google Workspace organization might already use this display name. Requires [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.patch({
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            adminInstalled: true,
-            displayName: "Test string",
-            externalUserAllowed: true,
-            name: "Test string",
-            singleUserBotDm: true,
-            spaceDetails: {
-                description: "Test string",
-                guidelines: "Test string",
-            },
-            spaceHistoryState: "Test string",
-            spaceThreadingState: "Test string",
-            spaceType: "Test string",
-            threaded: true,
-            type: "Test string",
-        });
-        /**
-         * Creates a space and adds specified users to it. The calling user is automatically added to the space, and shouldn't be specified as a membership in the request. For an example, see [Set
-         * up a space](https://developers.google.com/chat/api/guides/v1/spaces/set-up). To specify the human members to add, add memberships with the appropriate `member.name` in the
-         * `SetUpSpaceRequest`. To add a human user, use `users/{user}`, where `{user}` can be the email address for the user. For users in the same Workspace organization `{user}` can also be the
-         * `id` for the person from the People API, or the `id` for the user in the Directory API. For example, if the People API Person profile ID for `user@example.com` is `123456789`, you can
-         * add the user to the space by setting the `membership.member.name` to `users/user@example.com` or `users/123456789`. For a space or group chat, if the caller blocks or is blocked by some
-         * members, then those members aren't added to the created space. To create a direct message (DM) between the calling user and another human user, specify exactly one membership to
-         * represent the human user. If one user blocks the other, the request fails and the DM isn't created. To create a DM between the calling user and the calling app, set
-         * `Space.singleUserBotDm` to `true` and don't specify any memberships. You can only use this method to set up a DM with the calling app. To add the calling app as a member of a space or
-         * an existing DM between two human users, see [create a membership](https://developers.google.com/chat/api/guides/v1/members/create). If a DM already exists between two users, even when
-         * one user blocks the other at the time a request is made, then the existing DM is returned. Spaces with threaded replies aren't supported. If you receive the error message
-         * `ALREADY_EXISTS` when setting up a space, try a different `displayName`. An existing space within the Google Workspace organization might already use this display name. Requires [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.setup({
-        }, {
-            memberships: [
-                {
-                    createTime: "Test string",
-                    member: {
-                        displayName: "Test string",
-                        domainId: "Test string",
-                        isAnonymous: true,
-                        name: "Test string",
-                        type: "Test string",
-                    },
-                    name: "Test string",
-                    role: "Test string",
-                    state: "Test string",
-                }
-            ],
-            requestId: "Test string",
-            space: {
-                adminInstalled: true,
-                displayName: "Test string",
-                externalUserAllowed: true,
-                name: "Test string",
-                singleUserBotDm: true,
-                spaceDetails: {
-                    description: "Test string",
-                    guidelines: "Test string",
-                },
-                spaceHistoryState: "Test string",
-                spaceThreadingState: "Test string",
-                spaceType: "Test string",
-                threaded: true,
-                type: "Test string",
-            },
-        });
-        /**
-         * Creates a human membership or app membership for the calling app. Creating memberships for other apps isn't supported. For an example, see [ Create a
-         * membership](https://developers.google.com/chat/api/guides/v1/members/create). When creating a membership, if the specified member has their auto-accept policy turned off, then they're
-         * invited, and must accept the space invitation before joining. Otherwise, creating a membership adds the member directly to the specified space. Requires [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). To specify the member to add, set the `membership.member.name` in the `CreateMembershipRequest`: - To add the
-         * calling app to a space or a direct message between two human users, use `users/app`. Unable to add other apps to the space. - To add a human user, use `users/{user}`, where `{user}` can
-         * be the email address for the user. For users in the same Workspace organization `{user}` can also be the `id` for the person from the People API, or the `id` for the user in the
-         * Directory API. For example, if the People API Person profile ID for `user@example.com` is `123456789`, you can add the user to the space by setting the `membership.member.name` to
-         * `users/user@example.com` or `users/123456789`.
-         */
-        await gapi.client.chat.spaces.members.create({
-            parent: "Test string",
-        }, {
-            createTime: "Test string",
-            member: {
-                displayName: "Test string",
-                domainId: "Test string",
-                isAnonymous: true,
-                name: "Test string",
-                type: "Test string",
-            },
-            name: "Test string",
-            role: "Test string",
-            state: "Test string",
-        });
-        /**
-         * Deletes a membership. For an example, see [Delete a membership](https://developers.google.com/chat/api/guides/v1/members/delete). Requires [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.members.delete({
-            name: "Test string",
-        });
-        /**
-         * Returns details about a membership. For an example, see [Get a membership](https://developers.google.com/chat/api/guides/v1/members/get). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.members.get({
-            name: "Test string",
-        });
-        /**
-         * Lists memberships in a space. For an example, see [List memberships](https://developers.google.com/chat/api/guides/v1/members/list). Listing memberships with [app
-         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) lists memberships in spaces that the Chat app has access to, but excludes Chat app memberships,
-         * including its own. Listing memberships with [User authentication](https://developers.google.com/chat/api/guides/auth/users) lists memberships in spaces that the authenticated user has
-         * access to. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app
-         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.members.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            showInvited: true,
-        });
-        /**
-         * Creates a message in a Google Chat space. For an example, see [Create a message](https://developers.google.com/chat/api/guides/v1/messages/create). Calling this method requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth) and supports the following authentication types: - For text messages, user authentication or app authentication are
-         * supported. - For card messages, only app authentication is supported. (Only Chat apps can create card messages.)
-         */
-        await gapi.client.chat.spaces.messages.create({
-            messageId: "Test string",
-            messageReplyOption: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-            threadKey: "Test string",
-        }, {
-            actionResponse: {
-                dialogAction: {
-                    actionStatus: {
-                        statusCode: "Test string",
-                        userFacingMessage: "Test string",
-                    },
-                    dialog: {
-                        body: {
-                            cardActions: [
-                                {
-                                    actionLabel: "Test string",
-                                    onClick: {
-                                        action: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        card: undefined,
-                                        openDynamicLinkAction: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        openLink: {
-                                            onClose: "Test string",
-                                            openAs: "Test string",
-                                            url: "Test string",
-                                        },
-                                    },
-                                }
-                            ],
-                            displayStyle: "Test string",
-                            fixedFooter: {
-                                primaryButton: {
-                                    altText: "Test string",
-                                    color: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    disabled: true,
-                                    icon: {
-                                        altText: "Test string",
-                                        iconUrl: "Test string",
-                                        imageType: "Test string",
-                                        knownIcon: "Test string",
-                                    },
-                                    onClick: {
-                                        action: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        card: undefined,
-                                        openDynamicLinkAction: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        openLink: {
-                                            onClose: "Test string",
-                                            openAs: "Test string",
-                                            url: "Test string",
-                                        },
-                                    },
-                                    text: "Test string",
-                                },
-                                secondaryButton: {
-                                    altText: "Test string",
-                                    color: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    disabled: true,
-                                    icon: {
-                                        altText: "Test string",
-                                        iconUrl: "Test string",
-                                        imageType: "Test string",
-                                        knownIcon: "Test string",
-                                    },
-                                    onClick: {
-                                        action: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        card: undefined,
-                                        openDynamicLinkAction: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        openLink: {
-                                            onClose: "Test string",
-                                            openAs: "Test string",
-                                            url: "Test string",
-                                        },
-                                    },
-                                    text: "Test string",
-                                },
-                            },
-                            header: {
-                                imageAltText: "Test string",
-                                imageType: "Test string",
-                                imageUrl: "Test string",
-                                subtitle: "Test string",
-                                title: "Test string",
-                            },
-                            name: "Test string",
-                            peekCardHeader: {
-                                imageAltText: "Test string",
-                                imageType: "Test string",
-                                imageUrl: "Test string",
-                                subtitle: "Test string",
-                                title: "Test string",
-                            },
-                            sectionDividerStyle: "Test string",
-                            sections: [
-                                {
-                                    collapsible: true,
-                                    header: "Test string",
-                                    uncollapsibleWidgetsCount: 42,
-                                    widgets: [
-                                        {
-                                            buttonList: {
-                                                buttons: [
-                                                    {
-                                                        altText: "Test string",
-                                                        color: {
-                                                            alpha: 42,
-                                                            blue: 42,
-                                                            green: 42,
-                                                            red: 42,
-                                                        },
-                                                        disabled: true,
-                                                        icon: {
-                                                            altText: "Test string",
-                                                            iconUrl: "Test string",
-                                                            imageType: "Test string",
-                                                            knownIcon: "Test string",
-                                                        },
-                                                        onClick: {
-                                                            action: {
-                                                                function: "Test string",
-                                                                interaction: "Test string",
-                                                                loadIndicator: "Test string",
-                                                                parameters: [
-                                                                    {
-                                                                        key: "Test string",
-                                                                        value: "Test string",
-                                                                    }
-                                                                ],
-                                                                persistValues: true,
-                                                            },
-                                                            card: undefined,
-                                                            openDynamicLinkAction: {
-                                                                function: "Test string",
-                                                                interaction: "Test string",
-                                                                loadIndicator: "Test string",
-                                                                parameters: [
-                                                                    {
-                                                                        key: "Test string",
-                                                                        value: "Test string",
-                                                                    }
-                                                                ],
-                                                                persistValues: true,
-                                                            },
-                                                            openLink: {
-                                                                onClose: "Test string",
-                                                                openAs: "Test string",
-                                                                url: "Test string",
-                                                            },
-                                                        },
-                                                        text: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            columns: {
-                                                columnItems: [
-                                                    {
-                                                        horizontalAlignment: "Test string",
-                                                        horizontalSizeStyle: "Test string",
-                                                        verticalAlignment: "Test string",
-                                                        widgets: [
-                                                            {
-                                                                buttonList: {
-                                                                    buttons: [
-                                                                        {
-                                                                            altText: "Test string",
-                                                                            color: {
-                                                                                alpha: 42,
-                                                                                blue: 42,
-                                                                                green: 42,
-                                                                                red: 42,
-                                                                            },
-                                                                            disabled: true,
-                                                                            icon: {
-                                                                                altText: "Test string",
-                                                                                iconUrl: "Test string",
-                                                                                imageType: "Test string",
-                                                                                knownIcon: "Test string",
-                                                                            },
-                                                                            onClick: {
-                                                                                action: {
-                                                                                    function: "Test string",
-                                                                                    interaction: "Test string",
-                                                                                    loadIndicator: "Test string",
-                                                                                    parameters: [
-                                                                                        {
-                                                                                            key: "Test string",
-                                                                                            value: "Test string",
-                                                                                        }
-                                                                                    ],
-                                                                                    persistValues: true,
-                                                                                },
-                                                                                card: undefined,
-                                                                                openDynamicLinkAction: {
-                                                                                    function: "Test string",
-                                                                                    interaction: "Test string",
-                                                                                    loadIndicator: "Test string",
-                                                                                    parameters: [
-                                                                                        {
-                                                                                            key: "Test string",
-                                                                                            value: "Test string",
-                                                                                        }
-                                                                                    ],
-                                                                                    persistValues: true,
-                                                                                },
-                                                                                openLink: {
-                                                                                    onClose: "Test string",
-                                                                                    openAs: "Test string",
-                                                                                    url: "Test string",
-                                                                                },
-                                                                            },
-                                                                            text: "Test string",
-                                                                        }
-                                                                    ],
-                                                                },
-                                                                dateTimePicker: {
-                                                                    label: "Test string",
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    timezoneOffsetDate: 42,
-                                                                    type: "Test string",
-                                                                    valueMsEpoch: "Test string",
-                                                                },
-                                                                decoratedText: {
-                                                                    bottomLabel: "Test string",
-                                                                    button: {
-                                                                        altText: "Test string",
-                                                                        color: {
-                                                                            alpha: 42,
-                                                                            blue: 42,
-                                                                            green: 42,
-                                                                            red: 42,
-                                                                        },
-                                                                        disabled: true,
-                                                                        icon: {
-                                                                            altText: "Test string",
-                                                                            iconUrl: "Test string",
-                                                                            imageType: "Test string",
-                                                                            knownIcon: "Test string",
-                                                                        },
-                                                                        onClick: {
-                                                                            action: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            card: undefined,
-                                                                            openDynamicLinkAction: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            openLink: {
-                                                                                onClose: "Test string",
-                                                                                openAs: "Test string",
-                                                                                url: "Test string",
-                                                                            },
-                                                                        },
-                                                                        text: "Test string",
-                                                                    },
-                                                                    endIcon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    icon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    onClick: {
-                                                                        action: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        card: undefined,
-                                                                        openDynamicLinkAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        openLink: {
-                                                                            onClose: "Test string",
-                                                                            openAs: "Test string",
-                                                                            url: "Test string",
-                                                                        },
-                                                                    },
-                                                                    startIcon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    switchControl: {
-                                                                        controlType: "Test string",
-                                                                        name: "Test string",
-                                                                        onChangeAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        selected: true,
-                                                                        value: "Test string",
-                                                                    },
-                                                                    text: "Test string",
-                                                                    topLabel: "Test string",
-                                                                    wrapText: true,
-                                                                },
-                                                                image: {
-                                                                    altText: "Test string",
-                                                                    imageUrl: "Test string",
-                                                                    onClick: {
-                                                                        action: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        card: undefined,
-                                                                        openDynamicLinkAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        openLink: {
-                                                                            onClose: "Test string",
-                                                                            openAs: "Test string",
-                                                                            url: "Test string",
-                                                                        },
-                                                                    },
-                                                                },
-                                                                selectionInput: {
-                                                                    externalDataSource: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    items: [
-                                                                        {
-                                                                            bottomText: "Test string",
-                                                                            selected: true,
-                                                                            startIconUri: "Test string",
-                                                                            text: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    label: "Test string",
-                                                                    multiSelectMaxSelectedItems: 42,
-                                                                    multiSelectMinQueryLength: 42,
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    platformDataSource: {
-                                                                        commonDataSource: "Test string",
-                                                                        hostAppDataSource: {
-                                                                            chatDataSource: {
-                                                                                spaceDataSource: {
-                                                                                    defaultToCurrentSpace: true,
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    type: "Test string",
-                                                                },
-                                                                textInput: {
-                                                                    autoCompleteAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    hintText: "Test string",
-                                                                    initialSuggestions: {
-                                                                        items: [
-                                                                            {
-                                                                                text: "Test string",
-                                                                            }
-                                                                        ],
-                                                                    },
-                                                                    label: "Test string",
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    placeholderText: "Test string",
-                                                                    type: "Test string",
-                                                                    value: "Test string",
-                                                                },
-                                                                textParagraph: {
-                                                                    text: "Test string",
-                                                                },
-                                                            }
-                                                        ],
-                                                    }
-                                                ],
-                                            },
-                                            dateTimePicker: {
-                                                label: "Test string",
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                timezoneOffsetDate: 42,
-                                                type: "Test string",
-                                                valueMsEpoch: "Test string",
-                                            },
-                                            decoratedText: {
-                                                bottomLabel: "Test string",
-                                                button: {
-                                                    altText: "Test string",
-                                                    color: {
-                                                        alpha: 42,
-                                                        blue: 42,
-                                                        green: 42,
-                                                        red: 42,
-                                                    },
-                                                    disabled: true,
-                                                    icon: {
-                                                        altText: "Test string",
-                                                        iconUrl: "Test string",
-                                                        imageType: "Test string",
-                                                        knownIcon: "Test string",
-                                                    },
-                                                    onClick: {
-                                                        action: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        card: undefined,
-                                                        openDynamicLinkAction: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        openLink: {
-                                                            onClose: "Test string",
-                                                            openAs: "Test string",
-                                                            url: "Test string",
-                                                        },
-                                                    },
-                                                    text: "Test string",
-                                                },
-                                                endIcon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                icon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                startIcon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                switchControl: {
-                                                    controlType: "Test string",
-                                                    name: "Test string",
-                                                    onChangeAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    selected: true,
-                                                    value: "Test string",
-                                                },
-                                                text: "Test string",
-                                                topLabel: "Test string",
-                                                wrapText: true,
-                                            },
-                                            divider: {
-                                            },
-                                            grid: {
-                                                borderStyle: {
-                                                    cornerRadius: 42,
-                                                    strokeColor: {
-                                                        alpha: 42,
-                                                        blue: 42,
-                                                        green: 42,
-                                                        red: 42,
-                                                    },
-                                                    type: "Test string",
-                                                },
-                                                columnCount: 42,
-                                                items: [
-                                                    {
-                                                        id: "Test string",
-                                                        image: {
-                                                            altText: "Test string",
-                                                            borderStyle: {
-                                                                cornerRadius: 42,
-                                                                strokeColor: {
-                                                                    alpha: 42,
-                                                                    blue: 42,
-                                                                    green: 42,
-                                                                    red: 42,
-                                                                },
-                                                                type: "Test string",
-                                                            },
-                                                            cropStyle: {
-                                                                aspectRatio: 42,
-                                                                type: "Test string",
-                                                            },
-                                                            imageUri: "Test string",
-                                                        },
-                                                        layout: "Test string",
-                                                        subtitle: "Test string",
-                                                        title: "Test string",
-                                                    }
-                                                ],
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                title: "Test string",
-                                            },
-                                            horizontalAlignment: "Test string",
-                                            image: {
-                                                altText: "Test string",
-                                                imageUrl: "Test string",
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                            },
-                                            selectionInput: {
-                                                externalDataSource: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                items: [
-                                                    {
-                                                        bottomText: "Test string",
-                                                        selected: true,
-                                                        startIconUri: "Test string",
-                                                        text: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                label: "Test string",
-                                                multiSelectMaxSelectedItems: 42,
-                                                multiSelectMinQueryLength: 42,
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                platformDataSource: {
-                                                    commonDataSource: "Test string",
-                                                    hostAppDataSource: {
-                                                        chatDataSource: {
-                                                            spaceDataSource: {
-                                                                defaultToCurrentSpace: true,
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                                type: "Test string",
-                                            },
-                                            textInput: {
-                                                autoCompleteAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                hintText: "Test string",
-                                                initialSuggestions: {
-                                                    items: [
-                                                        {
-                                                            text: "Test string",
-                                                        }
-                                                    ],
-                                                },
-                                                label: "Test string",
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                placeholderText: "Test string",
-                                                type: "Test string",
-                                                value: "Test string",
-                                            },
-                                            textParagraph: {
-                                                text: "Test string",
-                                            },
-                                        }
-                                    ],
-                                }
-                            ],
-                        },
-                    },
-                },
-                type: "Test string",
-                updatedWidget: {
-                    suggestions: {
-                        items: [
-                            {
-                                bottomText: "Test string",
-                                selected: true,
-                                startIconUri: "Test string",
-                                text: "Test string",
-                                value: "Test string",
-                            }
-                        ],
-                    },
-                    widget: "Test string",
-                },
-                url: "Test string",
-            },
-            annotations: [
-                {
-                    length: 42,
-                    slashCommand: {
-                        bot: {
-                            displayName: "Test string",
-                            domainId: "Test string",
-                            isAnonymous: true,
-                            name: "Test string",
-                            type: "Test string",
-                        },
-                        commandId: "Test string",
-                        commandName: "Test string",
-                        triggersDialog: true,
-                        type: "Test string",
-                    },
-                    startIndex: 42,
-                    type: "Test string",
-                    userMention: {
-                        type: "Test string",
-                        user: {
-                            displayName: "Test string",
-                            domainId: "Test string",
-                            isAnonymous: true,
-                            name: "Test string",
-                            type: "Test string",
-                        },
-                    },
-                }
-            ],
-            argumentText: "Test string",
-            attachedGifs: [
-                {
-                    uri: "Test string",
-                }
-            ],
-            attachment: [
-                {
-                    attachmentDataRef: {
-                        attachmentUploadToken: "Test string",
-                        resourceName: "Test string",
-                    },
-                    contentName: "Test string",
-                    contentType: "Test string",
-                    downloadUri: "Test string",
-                    driveDataRef: {
-                        driveFileId: "Test string",
-                    },
-                    name: "Test string",
-                    source: "Test string",
-                    thumbnailUri: "Test string",
-                }
-            ],
-            cards: [
-                {
-                    cardActions: [
-                        {
-                            actionLabel: "Test string",
-                            onClick: {
-                                action: {
-                                    actionMethodName: "Test string",
-                                    parameters: [
-                                        {
-                                            key: "Test string",
-                                            value: "Test string",
-                                        }
-                                    ],
-                                },
-                                openLink: {
-                                    url: "Test string",
-                                },
-                            },
-                        }
-                    ],
-                    header: {
-                        imageStyle: "Test string",
-                        imageUrl: "Test string",
-                        subtitle: "Test string",
-                        title: "Test string",
-                    },
-                    name: "Test string",
-                    sections: [
-                        {
-                            header: "Test string",
-                            widgets: [
-                                {
-                                    buttons: [
-                                        {
-                                            imageButton: {
-                                                icon: "Test string",
-                                                iconUrl: "Test string",
-                                                name: "Test string",
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                            },
-                                            textButton: {
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                text: "Test string",
-                                            },
-                                        }
-                                    ],
-                                    image: {
-                                        aspectRatio: 42,
-                                        imageUrl: "Test string",
-                                        onClick: {
-                                            action: {
-                                                actionMethodName: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            openLink: {
-                                                url: "Test string",
-                                            },
-                                        },
-                                    },
-                                    keyValue: {
-                                        bottomLabel: "Test string",
-                                        button: {
-                                            imageButton: {
-                                                icon: "Test string",
-                                                iconUrl: "Test string",
-                                                name: "Test string",
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                            },
-                                            textButton: {
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                text: "Test string",
-                                            },
-                                        },
-                                        content: "Test string",
-                                        contentMultiline: true,
-                                        icon: "Test string",
-                                        iconUrl: "Test string",
-                                        onClick: {
-                                            action: {
-                                                actionMethodName: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            openLink: {
-                                                url: "Test string",
-                                            },
-                                        },
-                                        topLabel: "Test string",
-                                    },
-                                    textParagraph: {
-                                        text: "Test string",
-                                    },
-                                }
-                            ],
-                        }
-                    ],
-                }
-            ],
-            cardsV2: [
-                {
-                    card: {
-                        cardActions: [
-                            {
-                                actionLabel: "Test string",
-                                onClick: {
-                                    action: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    card: undefined,
-                                    openDynamicLinkAction: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    openLink: {
-                                        onClose: "Test string",
-                                        openAs: "Test string",
-                                        url: "Test string",
-                                    },
-                                },
-                            }
-                        ],
-                        displayStyle: "Test string",
-                        fixedFooter: {
-                            primaryButton: {
-                                altText: "Test string",
-                                color: {
-                                    alpha: 42,
-                                    blue: 42,
-                                    green: 42,
-                                    red: 42,
-                                },
-                                disabled: true,
-                                icon: {
-                                    altText: "Test string",
-                                    iconUrl: "Test string",
-                                    imageType: "Test string",
-                                    knownIcon: "Test string",
-                                },
-                                onClick: {
-                                    action: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    card: undefined,
-                                    openDynamicLinkAction: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    openLink: {
-                                        onClose: "Test string",
-                                        openAs: "Test string",
-                                        url: "Test string",
-                                    },
-                                },
-                                text: "Test string",
-                            },
-                            secondaryButton: {
-                                altText: "Test string",
-                                color: {
-                                    alpha: 42,
-                                    blue: 42,
-                                    green: 42,
-                                    red: 42,
-                                },
-                                disabled: true,
-                                icon: {
-                                    altText: "Test string",
-                                    iconUrl: "Test string",
-                                    imageType: "Test string",
-                                    knownIcon: "Test string",
-                                },
-                                onClick: {
-                                    action: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    card: undefined,
-                                    openDynamicLinkAction: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    openLink: {
-                                        onClose: "Test string",
-                                        openAs: "Test string",
-                                        url: "Test string",
-                                    },
-                                },
-                                text: "Test string",
-                            },
-                        },
-                        header: {
-                            imageAltText: "Test string",
-                            imageType: "Test string",
-                            imageUrl: "Test string",
-                            subtitle: "Test string",
-                            title: "Test string",
-                        },
-                        name: "Test string",
-                        peekCardHeader: {
-                            imageAltText: "Test string",
-                            imageType: "Test string",
-                            imageUrl: "Test string",
-                            subtitle: "Test string",
-                            title: "Test string",
-                        },
-                        sectionDividerStyle: "Test string",
-                        sections: [
-                            {
-                                collapsible: true,
-                                header: "Test string",
-                                uncollapsibleWidgetsCount: 42,
-                                widgets: [
-                                    {
-                                        buttonList: {
-                                            buttons: [
-                                                {
-                                                    altText: "Test string",
-                                                    color: {
-                                                        alpha: 42,
-                                                        blue: 42,
-                                                        green: 42,
-                                                        red: 42,
-                                                    },
-                                                    disabled: true,
-                                                    icon: {
-                                                        altText: "Test string",
-                                                        iconUrl: "Test string",
-                                                        imageType: "Test string",
-                                                        knownIcon: "Test string",
-                                                    },
-                                                    onClick: {
-                                                        action: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        card: undefined,
-                                                        openDynamicLinkAction: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        openLink: {
-                                                            onClose: "Test string",
-                                                            openAs: "Test string",
-                                                            url: "Test string",
-                                                        },
-                                                    },
-                                                    text: "Test string",
-                                                }
-                                            ],
-                                        },
-                                        columns: {
-                                            columnItems: [
-                                                {
-                                                    horizontalAlignment: "Test string",
-                                                    horizontalSizeStyle: "Test string",
-                                                    verticalAlignment: "Test string",
-                                                    widgets: [
-                                                        {
-                                                            buttonList: {
-                                                                buttons: [
-                                                                    {
-                                                                        altText: "Test string",
-                                                                        color: {
-                                                                            alpha: 42,
-                                                                            blue: 42,
-                                                                            green: 42,
-                                                                            red: 42,
-                                                                        },
-                                                                        disabled: true,
-                                                                        icon: {
-                                                                            altText: "Test string",
-                                                                            iconUrl: "Test string",
-                                                                            imageType: "Test string",
-                                                                            knownIcon: "Test string",
-                                                                        },
-                                                                        onClick: {
-                                                                            action: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            card: undefined,
-                                                                            openDynamicLinkAction: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            openLink: {
-                                                                                onClose: "Test string",
-                                                                                openAs: "Test string",
-                                                                                url: "Test string",
-                                                                            },
-                                                                        },
-                                                                        text: "Test string",
-                                                                    }
-                                                                ],
-                                                            },
-                                                            dateTimePicker: {
-                                                                label: "Test string",
-                                                                name: "Test string",
-                                                                onChangeAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                timezoneOffsetDate: 42,
-                                                                type: "Test string",
-                                                                valueMsEpoch: "Test string",
-                                                            },
-                                                            decoratedText: {
-                                                                bottomLabel: "Test string",
-                                                                button: {
-                                                                    altText: "Test string",
-                                                                    color: {
-                                                                        alpha: 42,
-                                                                        blue: 42,
-                                                                        green: 42,
-                                                                        red: 42,
-                                                                    },
-                                                                    disabled: true,
-                                                                    icon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    onClick: {
-                                                                        action: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        card: undefined,
-                                                                        openDynamicLinkAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        openLink: {
-                                                                            onClose: "Test string",
-                                                                            openAs: "Test string",
-                                                                            url: "Test string",
-                                                                        },
-                                                                    },
-                                                                    text: "Test string",
-                                                                },
-                                                                endIcon: {
-                                                                    altText: "Test string",
-                                                                    iconUrl: "Test string",
-                                                                    imageType: "Test string",
-                                                                    knownIcon: "Test string",
-                                                                },
-                                                                icon: {
-                                                                    altText: "Test string",
-                                                                    iconUrl: "Test string",
-                                                                    imageType: "Test string",
-                                                                    knownIcon: "Test string",
-                                                                },
-                                                                onClick: {
-                                                                    action: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    card: undefined,
-                                                                    openDynamicLinkAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    openLink: {
-                                                                        onClose: "Test string",
-                                                                        openAs: "Test string",
-                                                                        url: "Test string",
-                                                                    },
-                                                                },
-                                                                startIcon: {
-                                                                    altText: "Test string",
-                                                                    iconUrl: "Test string",
-                                                                    imageType: "Test string",
-                                                                    knownIcon: "Test string",
-                                                                },
-                                                                switchControl: {
-                                                                    controlType: "Test string",
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    selected: true,
-                                                                    value: "Test string",
-                                                                },
-                                                                text: "Test string",
-                                                                topLabel: "Test string",
-                                                                wrapText: true,
-                                                            },
-                                                            image: {
-                                                                altText: "Test string",
-                                                                imageUrl: "Test string",
-                                                                onClick: {
-                                                                    action: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    card: undefined,
-                                                                    openDynamicLinkAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    openLink: {
-                                                                        onClose: "Test string",
-                                                                        openAs: "Test string",
-                                                                        url: "Test string",
-                                                                    },
-                                                                },
-                                                            },
-                                                            selectionInput: {
-                                                                externalDataSource: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                items: [
-                                                                    {
-                                                                        bottomText: "Test string",
-                                                                        selected: true,
-                                                                        startIconUri: "Test string",
-                                                                        text: "Test string",
-                                                                        value: "Test string",
-                                                                    }
-                                                                ],
-                                                                label: "Test string",
-                                                                multiSelectMaxSelectedItems: 42,
-                                                                multiSelectMinQueryLength: 42,
-                                                                name: "Test string",
-                                                                onChangeAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                platformDataSource: {
-                                                                    commonDataSource: "Test string",
-                                                                    hostAppDataSource: {
-                                                                        chatDataSource: {
-                                                                            spaceDataSource: {
-                                                                                defaultToCurrentSpace: true,
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                type: "Test string",
-                                                            },
-                                                            textInput: {
-                                                                autoCompleteAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                hintText: "Test string",
-                                                                initialSuggestions: {
-                                                                    items: [
-                                                                        {
-                                                                            text: "Test string",
-                                                                        }
-                                                                    ],
-                                                                },
-                                                                label: "Test string",
-                                                                name: "Test string",
-                                                                onChangeAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                placeholderText: "Test string",
-                                                                type: "Test string",
-                                                                value: "Test string",
-                                                            },
-                                                            textParagraph: {
-                                                                text: "Test string",
-                                                            },
-                                                        }
-                                                    ],
-                                                }
-                                            ],
-                                        },
-                                        dateTimePicker: {
-                                            label: "Test string",
-                                            name: "Test string",
-                                            onChangeAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            timezoneOffsetDate: 42,
-                                            type: "Test string",
-                                            valueMsEpoch: "Test string",
-                                        },
-                                        decoratedText: {
-                                            bottomLabel: "Test string",
-                                            button: {
-                                                altText: "Test string",
-                                                color: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                disabled: true,
-                                                icon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                text: "Test string",
-                                            },
-                                            endIcon: {
-                                                altText: "Test string",
-                                                iconUrl: "Test string",
-                                                imageType: "Test string",
-                                                knownIcon: "Test string",
-                                            },
-                                            icon: {
-                                                altText: "Test string",
-                                                iconUrl: "Test string",
-                                                imageType: "Test string",
-                                                knownIcon: "Test string",
-                                            },
-                                            onClick: {
-                                                action: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                card: undefined,
-                                                openDynamicLinkAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                openLink: {
-                                                    onClose: "Test string",
-                                                    openAs: "Test string",
-                                                    url: "Test string",
-                                                },
-                                            },
-                                            startIcon: {
-                                                altText: "Test string",
-                                                iconUrl: "Test string",
-                                                imageType: "Test string",
-                                                knownIcon: "Test string",
-                                            },
-                                            switchControl: {
-                                                controlType: "Test string",
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                selected: true,
-                                                value: "Test string",
-                                            },
-                                            text: "Test string",
-                                            topLabel: "Test string",
-                                            wrapText: true,
-                                        },
-                                        divider: {
-                                        },
-                                        grid: {
-                                            borderStyle: {
-                                                cornerRadius: 42,
-                                                strokeColor: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                type: "Test string",
-                                            },
-                                            columnCount: 42,
-                                            items: [
-                                                {
-                                                    id: "Test string",
-                                                    image: {
-                                                        altText: "Test string",
-                                                        borderStyle: {
-                                                            cornerRadius: 42,
-                                                            strokeColor: {
-                                                                alpha: 42,
-                                                                blue: 42,
-                                                                green: 42,
-                                                                red: 42,
-                                                            },
-                                                            type: "Test string",
-                                                        },
-                                                        cropStyle: {
-                                                            aspectRatio: 42,
-                                                            type: "Test string",
-                                                        },
-                                                        imageUri: "Test string",
-                                                    },
-                                                    layout: "Test string",
-                                                    subtitle: "Test string",
-                                                    title: "Test string",
-                                                }
-                                            ],
-                                            onClick: {
-                                                action: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                card: undefined,
-                                                openDynamicLinkAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                openLink: {
-                                                    onClose: "Test string",
-                                                    openAs: "Test string",
-                                                    url: "Test string",
-                                                },
-                                            },
-                                            title: "Test string",
-                                        },
-                                        horizontalAlignment: "Test string",
-                                        image: {
-                                            altText: "Test string",
-                                            imageUrl: "Test string",
-                                            onClick: {
-                                                action: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                card: undefined,
-                                                openDynamicLinkAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                openLink: {
-                                                    onClose: "Test string",
-                                                    openAs: "Test string",
-                                                    url: "Test string",
-                                                },
-                                            },
-                                        },
-                                        selectionInput: {
-                                            externalDataSource: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            items: [
-                                                {
-                                                    bottomText: "Test string",
-                                                    selected: true,
-                                                    startIconUri: "Test string",
-                                                    text: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            label: "Test string",
-                                            multiSelectMaxSelectedItems: 42,
-                                            multiSelectMinQueryLength: 42,
-                                            name: "Test string",
-                                            onChangeAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            platformDataSource: {
-                                                commonDataSource: "Test string",
-                                                hostAppDataSource: {
-                                                    chatDataSource: {
-                                                        spaceDataSource: {
-                                                            defaultToCurrentSpace: true,
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                            type: "Test string",
-                                        },
-                                        textInput: {
-                                            autoCompleteAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            hintText: "Test string",
-                                            initialSuggestions: {
-                                                items: [
-                                                    {
-                                                        text: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            label: "Test string",
-                                            name: "Test string",
-                                            onChangeAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            placeholderText: "Test string",
-                                            type: "Test string",
-                                            value: "Test string",
-                                        },
-                                        textParagraph: {
-                                            text: "Test string",
-                                        },
-                                    }
-                                ],
-                            }
-                        ],
-                    },
-                    cardId: "Test string",
-                }
-            ],
-            clientAssignedMessageId: "Test string",
-            createTime: "Test string",
-            deleteTime: "Test string",
-            deletionMetadata: {
-                deletionType: "Test string",
-            },
-            emojiReactionSummaries: [
-                {
-                    emoji: {
-                        customEmoji: {
-                            uid: "Test string",
-                        },
-                        unicode: "Test string",
-                    },
-                    reactionCount: 42,
-                }
-            ],
-            fallbackText: "Test string",
-            formattedText: "Test string",
-            lastUpdateTime: "Test string",
-            matchedUrl: {
-                url: "Test string",
-            },
-            name: "Test string",
-            quotedMessageMetadata: {
-                lastUpdateTime: "Test string",
-                name: "Test string",
-            },
-            sender: {
-                displayName: "Test string",
-                domainId: "Test string",
-                isAnonymous: true,
-                name: "Test string",
-                type: "Test string",
-            },
-            slashCommand: {
-                commandId: "Test string",
-            },
-            space: {
-                adminInstalled: true,
-                displayName: "Test string",
-                externalUserAllowed: true,
-                name: "Test string",
-                singleUserBotDm: true,
-                spaceDetails: {
-                    description: "Test string",
-                    guidelines: "Test string",
-                },
-                spaceHistoryState: "Test string",
-                spaceThreadingState: "Test string",
-                spaceType: "Test string",
-                threaded: true,
-                type: "Test string",
-            },
-            text: "Test string",
-            thread: {
-                name: "Test string",
-                threadKey: "Test string",
-            },
-            threadReply: true,
-        });
-        /**
-         * Deletes a message. For an example, see [Delete a message](https://developers.google.com/chat/api/guides/v1/messages/delete). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). When using app authentication, requests can only delete messages created by the calling Chat app.
-         */
-        await gapi.client.chat.spaces.messages.delete({
-            force: true,
-            name: "Test string",
-        });
-        /**
-         * Returns details about a message. For an example, see [Read a message](https://developers.google.com/chat/api/guides/v1/messages/get). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). Note: Might return a message from a blocked member or space.
-         */
-        await gapi.client.chat.spaces.messages.get({
-            name: "Test string",
-        });
-        /**
-         * Lists messages in a space that the caller is a member of, including messages from blocked members and spaces. For an example, see [List messages](/chat/api/guides/v1/messages/list).
-         * Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.messages.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            showDeleted: true,
-        });
-        /**
-         * Updates a message. There's a difference between the `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend
-         * using the `patch` method. For an example, see [Update a message](https://developers.google.com/chat/api/guides/v1/messages/update). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). When using app authentication, requests can only update messages created by the calling Chat app.
-         */
-        await gapi.client.chat.spaces.messages.patch({
-            allowMissing: true,
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            actionResponse: {
-                dialogAction: {
-                    actionStatus: {
-                        statusCode: "Test string",
-                        userFacingMessage: "Test string",
-                    },
-                    dialog: {
-                        body: {
-                            cardActions: [
-                                {
-                                    actionLabel: "Test string",
-                                    onClick: {
-                                        action: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        card: undefined,
-                                        openDynamicLinkAction: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        openLink: {
-                                            onClose: "Test string",
-                                            openAs: "Test string",
-                                            url: "Test string",
-                                        },
-                                    },
-                                }
-                            ],
-                            displayStyle: "Test string",
-                            fixedFooter: {
-                                primaryButton: {
-                                    altText: "Test string",
-                                    color: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    disabled: true,
-                                    icon: {
-                                        altText: "Test string",
-                                        iconUrl: "Test string",
-                                        imageType: "Test string",
-                                        knownIcon: "Test string",
-                                    },
-                                    onClick: {
-                                        action: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        card: undefined,
-                                        openDynamicLinkAction: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        openLink: {
-                                            onClose: "Test string",
-                                            openAs: "Test string",
-                                            url: "Test string",
-                                        },
-                                    },
-                                    text: "Test string",
-                                },
-                                secondaryButton: {
-                                    altText: "Test string",
-                                    color: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    disabled: true,
-                                    icon: {
-                                        altText: "Test string",
-                                        iconUrl: "Test string",
-                                        imageType: "Test string",
-                                        knownIcon: "Test string",
-                                    },
-                                    onClick: {
-                                        action: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        card: undefined,
-                                        openDynamicLinkAction: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        openLink: {
-                                            onClose: "Test string",
-                                            openAs: "Test string",
-                                            url: "Test string",
-                                        },
-                                    },
-                                    text: "Test string",
-                                },
-                            },
-                            header: {
-                                imageAltText: "Test string",
-                                imageType: "Test string",
-                                imageUrl: "Test string",
-                                subtitle: "Test string",
-                                title: "Test string",
-                            },
-                            name: "Test string",
-                            peekCardHeader: {
-                                imageAltText: "Test string",
-                                imageType: "Test string",
-                                imageUrl: "Test string",
-                                subtitle: "Test string",
-                                title: "Test string",
-                            },
-                            sectionDividerStyle: "Test string",
-                            sections: [
-                                {
-                                    collapsible: true,
-                                    header: "Test string",
-                                    uncollapsibleWidgetsCount: 42,
-                                    widgets: [
-                                        {
-                                            buttonList: {
-                                                buttons: [
-                                                    {
-                                                        altText: "Test string",
-                                                        color: {
-                                                            alpha: 42,
-                                                            blue: 42,
-                                                            green: 42,
-                                                            red: 42,
-                                                        },
-                                                        disabled: true,
-                                                        icon: {
-                                                            altText: "Test string",
-                                                            iconUrl: "Test string",
-                                                            imageType: "Test string",
-                                                            knownIcon: "Test string",
-                                                        },
-                                                        onClick: {
-                                                            action: {
-                                                                function: "Test string",
-                                                                interaction: "Test string",
-                                                                loadIndicator: "Test string",
-                                                                parameters: [
-                                                                    {
-                                                                        key: "Test string",
-                                                                        value: "Test string",
-                                                                    }
-                                                                ],
-                                                                persistValues: true,
-                                                            },
-                                                            card: undefined,
-                                                            openDynamicLinkAction: {
-                                                                function: "Test string",
-                                                                interaction: "Test string",
-                                                                loadIndicator: "Test string",
-                                                                parameters: [
-                                                                    {
-                                                                        key: "Test string",
-                                                                        value: "Test string",
-                                                                    }
-                                                                ],
-                                                                persistValues: true,
-                                                            },
-                                                            openLink: {
-                                                                onClose: "Test string",
-                                                                openAs: "Test string",
-                                                                url: "Test string",
-                                                            },
-                                                        },
-                                                        text: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            columns: {
-                                                columnItems: [
-                                                    {
-                                                        horizontalAlignment: "Test string",
-                                                        horizontalSizeStyle: "Test string",
-                                                        verticalAlignment: "Test string",
-                                                        widgets: [
-                                                            {
-                                                                buttonList: {
-                                                                    buttons: [
-                                                                        {
-                                                                            altText: "Test string",
-                                                                            color: {
-                                                                                alpha: 42,
-                                                                                blue: 42,
-                                                                                green: 42,
-                                                                                red: 42,
-                                                                            },
-                                                                            disabled: true,
-                                                                            icon: {
-                                                                                altText: "Test string",
-                                                                                iconUrl: "Test string",
-                                                                                imageType: "Test string",
-                                                                                knownIcon: "Test string",
-                                                                            },
-                                                                            onClick: {
-                                                                                action: {
-                                                                                    function: "Test string",
-                                                                                    interaction: "Test string",
-                                                                                    loadIndicator: "Test string",
-                                                                                    parameters: [
-                                                                                        {
-                                                                                            key: "Test string",
-                                                                                            value: "Test string",
-                                                                                        }
-                                                                                    ],
-                                                                                    persistValues: true,
-                                                                                },
-                                                                                card: undefined,
-                                                                                openDynamicLinkAction: {
-                                                                                    function: "Test string",
-                                                                                    interaction: "Test string",
-                                                                                    loadIndicator: "Test string",
-                                                                                    parameters: [
-                                                                                        {
-                                                                                            key: "Test string",
-                                                                                            value: "Test string",
-                                                                                        }
-                                                                                    ],
-                                                                                    persistValues: true,
-                                                                                },
-                                                                                openLink: {
-                                                                                    onClose: "Test string",
-                                                                                    openAs: "Test string",
-                                                                                    url: "Test string",
-                                                                                },
-                                                                            },
-                                                                            text: "Test string",
-                                                                        }
-                                                                    ],
-                                                                },
-                                                                dateTimePicker: {
-                                                                    label: "Test string",
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    timezoneOffsetDate: 42,
-                                                                    type: "Test string",
-                                                                    valueMsEpoch: "Test string",
-                                                                },
-                                                                decoratedText: {
-                                                                    bottomLabel: "Test string",
-                                                                    button: {
-                                                                        altText: "Test string",
-                                                                        color: {
-                                                                            alpha: 42,
-                                                                            blue: 42,
-                                                                            green: 42,
-                                                                            red: 42,
-                                                                        },
-                                                                        disabled: true,
-                                                                        icon: {
-                                                                            altText: "Test string",
-                                                                            iconUrl: "Test string",
-                                                                            imageType: "Test string",
-                                                                            knownIcon: "Test string",
-                                                                        },
-                                                                        onClick: {
-                                                                            action: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            card: undefined,
-                                                                            openDynamicLinkAction: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            openLink: {
-                                                                                onClose: "Test string",
-                                                                                openAs: "Test string",
-                                                                                url: "Test string",
-                                                                            },
-                                                                        },
-                                                                        text: "Test string",
-                                                                    },
-                                                                    endIcon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    icon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    onClick: {
-                                                                        action: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        card: undefined,
-                                                                        openDynamicLinkAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        openLink: {
-                                                                            onClose: "Test string",
-                                                                            openAs: "Test string",
-                                                                            url: "Test string",
-                                                                        },
-                                                                    },
-                                                                    startIcon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    switchControl: {
-                                                                        controlType: "Test string",
-                                                                        name: "Test string",
-                                                                        onChangeAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        selected: true,
-                                                                        value: "Test string",
-                                                                    },
-                                                                    text: "Test string",
-                                                                    topLabel: "Test string",
-                                                                    wrapText: true,
-                                                                },
-                                                                image: {
-                                                                    altText: "Test string",
-                                                                    imageUrl: "Test string",
-                                                                    onClick: {
-                                                                        action: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        card: undefined,
-                                                                        openDynamicLinkAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        openLink: {
-                                                                            onClose: "Test string",
-                                                                            openAs: "Test string",
-                                                                            url: "Test string",
-                                                                        },
-                                                                    },
-                                                                },
-                                                                selectionInput: {
-                                                                    externalDataSource: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    items: [
-                                                                        {
-                                                                            bottomText: "Test string",
-                                                                            selected: true,
-                                                                            startIconUri: "Test string",
-                                                                            text: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    label: "Test string",
-                                                                    multiSelectMaxSelectedItems: 42,
-                                                                    multiSelectMinQueryLength: 42,
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    platformDataSource: {
-                                                                        commonDataSource: "Test string",
-                                                                        hostAppDataSource: {
-                                                                            chatDataSource: {
-                                                                                spaceDataSource: {
-                                                                                    defaultToCurrentSpace: true,
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    type: "Test string",
-                                                                },
-                                                                textInput: {
-                                                                    autoCompleteAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    hintText: "Test string",
-                                                                    initialSuggestions: {
-                                                                        items: [
-                                                                            {
-                                                                                text: "Test string",
-                                                                            }
-                                                                        ],
-                                                                    },
-                                                                    label: "Test string",
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    placeholderText: "Test string",
-                                                                    type: "Test string",
-                                                                    value: "Test string",
-                                                                },
-                                                                textParagraph: {
-                                                                    text: "Test string",
-                                                                },
-                                                            }
-                                                        ],
-                                                    }
-                                                ],
-                                            },
-                                            dateTimePicker: {
-                                                label: "Test string",
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                timezoneOffsetDate: 42,
-                                                type: "Test string",
-                                                valueMsEpoch: "Test string",
-                                            },
-                                            decoratedText: {
-                                                bottomLabel: "Test string",
-                                                button: {
-                                                    altText: "Test string",
-                                                    color: {
-                                                        alpha: 42,
-                                                        blue: 42,
-                                                        green: 42,
-                                                        red: 42,
-                                                    },
-                                                    disabled: true,
-                                                    icon: {
-                                                        altText: "Test string",
-                                                        iconUrl: "Test string",
-                                                        imageType: "Test string",
-                                                        knownIcon: "Test string",
-                                                    },
-                                                    onClick: {
-                                                        action: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        card: undefined,
-                                                        openDynamicLinkAction: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        openLink: {
-                                                            onClose: "Test string",
-                                                            openAs: "Test string",
-                                                            url: "Test string",
-                                                        },
-                                                    },
-                                                    text: "Test string",
-                                                },
-                                                endIcon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                icon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                startIcon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                switchControl: {
-                                                    controlType: "Test string",
-                                                    name: "Test string",
-                                                    onChangeAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    selected: true,
-                                                    value: "Test string",
-                                                },
-                                                text: "Test string",
-                                                topLabel: "Test string",
-                                                wrapText: true,
-                                            },
-                                            divider: {
-                                            },
-                                            grid: {
-                                                borderStyle: {
-                                                    cornerRadius: 42,
-                                                    strokeColor: {
-                                                        alpha: 42,
-                                                        blue: 42,
-                                                        green: 42,
-                                                        red: 42,
-                                                    },
-                                                    type: "Test string",
-                                                },
-                                                columnCount: 42,
-                                                items: [
-                                                    {
-                                                        id: "Test string",
-                                                        image: {
-                                                            altText: "Test string",
-                                                            borderStyle: {
-                                                                cornerRadius: 42,
-                                                                strokeColor: {
-                                                                    alpha: 42,
-                                                                    blue: 42,
-                                                                    green: 42,
-                                                                    red: 42,
-                                                                },
-                                                                type: "Test string",
-                                                            },
-                                                            cropStyle: {
-                                                                aspectRatio: 42,
-                                                                type: "Test string",
-                                                            },
-                                                            imageUri: "Test string",
-                                                        },
-                                                        layout: "Test string",
-                                                        subtitle: "Test string",
-                                                        title: "Test string",
-                                                    }
-                                                ],
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                title: "Test string",
-                                            },
-                                            horizontalAlignment: "Test string",
-                                            image: {
-                                                altText: "Test string",
-                                                imageUrl: "Test string",
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                            },
-                                            selectionInput: {
-                                                externalDataSource: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                items: [
-                                                    {
-                                                        bottomText: "Test string",
-                                                        selected: true,
-                                                        startIconUri: "Test string",
-                                                        text: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                label: "Test string",
-                                                multiSelectMaxSelectedItems: 42,
-                                                multiSelectMinQueryLength: 42,
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                platformDataSource: {
-                                                    commonDataSource: "Test string",
-                                                    hostAppDataSource: {
-                                                        chatDataSource: {
-                                                            spaceDataSource: {
-                                                                defaultToCurrentSpace: true,
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                                type: "Test string",
-                                            },
-                                            textInput: {
-                                                autoCompleteAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                hintText: "Test string",
-                                                initialSuggestions: {
-                                                    items: [
-                                                        {
-                                                            text: "Test string",
-                                                        }
-                                                    ],
-                                                },
-                                                label: "Test string",
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                placeholderText: "Test string",
-                                                type: "Test string",
-                                                value: "Test string",
-                                            },
-                                            textParagraph: {
-                                                text: "Test string",
-                                            },
-                                        }
-                                    ],
-                                }
-                            ],
-                        },
-                    },
-                },
-                type: "Test string",
-                updatedWidget: {
-                    suggestions: {
-                        items: [
-                            {
-                                bottomText: "Test string",
-                                selected: true,
-                                startIconUri: "Test string",
-                                text: "Test string",
-                                value: "Test string",
-                            }
-                        ],
-                    },
-                    widget: "Test string",
-                },
-                url: "Test string",
-            },
-            annotations: [
-                {
-                    length: 42,
-                    slashCommand: {
-                        bot: {
-                            displayName: "Test string",
-                            domainId: "Test string",
-                            isAnonymous: true,
-                            name: "Test string",
-                            type: "Test string",
-                        },
-                        commandId: "Test string",
-                        commandName: "Test string",
-                        triggersDialog: true,
-                        type: "Test string",
-                    },
-                    startIndex: 42,
-                    type: "Test string",
-                    userMention: {
-                        type: "Test string",
-                        user: {
-                            displayName: "Test string",
-                            domainId: "Test string",
-                            isAnonymous: true,
-                            name: "Test string",
-                            type: "Test string",
-                        },
-                    },
-                }
-            ],
-            argumentText: "Test string",
-            attachedGifs: [
-                {
-                    uri: "Test string",
-                }
-            ],
-            attachment: [
-                {
-                    attachmentDataRef: {
-                        attachmentUploadToken: "Test string",
-                        resourceName: "Test string",
-                    },
-                    contentName: "Test string",
-                    contentType: "Test string",
-                    downloadUri: "Test string",
-                    driveDataRef: {
-                        driveFileId: "Test string",
-                    },
-                    name: "Test string",
-                    source: "Test string",
-                    thumbnailUri: "Test string",
-                }
-            ],
-            cards: [
-                {
-                    cardActions: [
-                        {
-                            actionLabel: "Test string",
-                            onClick: {
-                                action: {
-                                    actionMethodName: "Test string",
-                                    parameters: [
-                                        {
-                                            key: "Test string",
-                                            value: "Test string",
-                                        }
-                                    ],
-                                },
-                                openLink: {
-                                    url: "Test string",
-                                },
-                            },
-                        }
-                    ],
-                    header: {
-                        imageStyle: "Test string",
-                        imageUrl: "Test string",
-                        subtitle: "Test string",
-                        title: "Test string",
-                    },
-                    name: "Test string",
-                    sections: [
-                        {
-                            header: "Test string",
-                            widgets: [
-                                {
-                                    buttons: [
-                                        {
-                                            imageButton: {
-                                                icon: "Test string",
-                                                iconUrl: "Test string",
-                                                name: "Test string",
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                            },
-                                            textButton: {
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                text: "Test string",
-                                            },
-                                        }
-                                    ],
-                                    image: {
-                                        aspectRatio: 42,
-                                        imageUrl: "Test string",
-                                        onClick: {
-                                            action: {
-                                                actionMethodName: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            openLink: {
-                                                url: "Test string",
-                                            },
-                                        },
-                                    },
-                                    keyValue: {
-                                        bottomLabel: "Test string",
-                                        button: {
-                                            imageButton: {
-                                                icon: "Test string",
-                                                iconUrl: "Test string",
-                                                name: "Test string",
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                            },
-                                            textButton: {
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                text: "Test string",
-                                            },
-                                        },
-                                        content: "Test string",
-                                        contentMultiline: true,
-                                        icon: "Test string",
-                                        iconUrl: "Test string",
-                                        onClick: {
-                                            action: {
-                                                actionMethodName: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            openLink: {
-                                                url: "Test string",
-                                            },
-                                        },
-                                        topLabel: "Test string",
-                                    },
-                                    textParagraph: {
-                                        text: "Test string",
-                                    },
-                                }
-                            ],
-                        }
-                    ],
-                }
-            ],
-            cardsV2: [
-                {
-                    card: {
-                        cardActions: [
-                            {
-                                actionLabel: "Test string",
-                                onClick: {
-                                    action: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    card: undefined,
-                                    openDynamicLinkAction: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    openLink: {
-                                        onClose: "Test string",
-                                        openAs: "Test string",
-                                        url: "Test string",
-                                    },
-                                },
-                            }
-                        ],
-                        displayStyle: "Test string",
-                        fixedFooter: {
-                            primaryButton: {
-                                altText: "Test string",
-                                color: {
-                                    alpha: 42,
-                                    blue: 42,
-                                    green: 42,
-                                    red: 42,
-                                },
-                                disabled: true,
-                                icon: {
-                                    altText: "Test string",
-                                    iconUrl: "Test string",
-                                    imageType: "Test string",
-                                    knownIcon: "Test string",
-                                },
-                                onClick: {
-                                    action: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    card: undefined,
-                                    openDynamicLinkAction: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    openLink: {
-                                        onClose: "Test string",
-                                        openAs: "Test string",
-                                        url: "Test string",
-                                    },
-                                },
-                                text: "Test string",
-                            },
-                            secondaryButton: {
-                                altText: "Test string",
-                                color: {
-                                    alpha: 42,
-                                    blue: 42,
-                                    green: 42,
-                                    red: 42,
-                                },
-                                disabled: true,
-                                icon: {
-                                    altText: "Test string",
-                                    iconUrl: "Test string",
-                                    imageType: "Test string",
-                                    knownIcon: "Test string",
-                                },
-                                onClick: {
-                                    action: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    card: undefined,
-                                    openDynamicLinkAction: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    openLink: {
-                                        onClose: "Test string",
-                                        openAs: "Test string",
-                                        url: "Test string",
-                                    },
-                                },
-                                text: "Test string",
-                            },
-                        },
-                        header: {
-                            imageAltText: "Test string",
-                            imageType: "Test string",
-                            imageUrl: "Test string",
-                            subtitle: "Test string",
-                            title: "Test string",
-                        },
-                        name: "Test string",
-                        peekCardHeader: {
-                            imageAltText: "Test string",
-                            imageType: "Test string",
-                            imageUrl: "Test string",
-                            subtitle: "Test string",
-                            title: "Test string",
-                        },
-                        sectionDividerStyle: "Test string",
-                        sections: [
-                            {
-                                collapsible: true,
-                                header: "Test string",
-                                uncollapsibleWidgetsCount: 42,
-                                widgets: [
-                                    {
-                                        buttonList: {
-                                            buttons: [
-                                                {
-                                                    altText: "Test string",
-                                                    color: {
-                                                        alpha: 42,
-                                                        blue: 42,
-                                                        green: 42,
-                                                        red: 42,
-                                                    },
-                                                    disabled: true,
-                                                    icon: {
-                                                        altText: "Test string",
-                                                        iconUrl: "Test string",
-                                                        imageType: "Test string",
-                                                        knownIcon: "Test string",
-                                                    },
-                                                    onClick: {
-                                                        action: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        card: undefined,
-                                                        openDynamicLinkAction: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        openLink: {
-                                                            onClose: "Test string",
-                                                            openAs: "Test string",
-                                                            url: "Test string",
-                                                        },
-                                                    },
-                                                    text: "Test string",
-                                                }
-                                            ],
-                                        },
-                                        columns: {
-                                            columnItems: [
-                                                {
-                                                    horizontalAlignment: "Test string",
-                                                    horizontalSizeStyle: "Test string",
-                                                    verticalAlignment: "Test string",
-                                                    widgets: [
-                                                        {
-                                                            buttonList: {
-                                                                buttons: [
-                                                                    {
-                                                                        altText: "Test string",
-                                                                        color: {
-                                                                            alpha: 42,
-                                                                            blue: 42,
-                                                                            green: 42,
-                                                                            red: 42,
-                                                                        },
-                                                                        disabled: true,
-                                                                        icon: {
-                                                                            altText: "Test string",
-                                                                            iconUrl: "Test string",
-                                                                            imageType: "Test string",
-                                                                            knownIcon: "Test string",
-                                                                        },
-                                                                        onClick: {
-                                                                            action: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            card: undefined,
-                                                                            openDynamicLinkAction: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            openLink: {
-                                                                                onClose: "Test string",
-                                                                                openAs: "Test string",
-                                                                                url: "Test string",
-                                                                            },
-                                                                        },
-                                                                        text: "Test string",
-                                                                    }
-                                                                ],
-                                                            },
-                                                            dateTimePicker: {
-                                                                label: "Test string",
-                                                                name: "Test string",
-                                                                onChangeAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                timezoneOffsetDate: 42,
-                                                                type: "Test string",
-                                                                valueMsEpoch: "Test string",
-                                                            },
-                                                            decoratedText: {
-                                                                bottomLabel: "Test string",
-                                                                button: {
-                                                                    altText: "Test string",
-                                                                    color: {
-                                                                        alpha: 42,
-                                                                        blue: 42,
-                                                                        green: 42,
-                                                                        red: 42,
-                                                                    },
-                                                                    disabled: true,
-                                                                    icon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    onClick: {
-                                                                        action: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        card: undefined,
-                                                                        openDynamicLinkAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        openLink: {
-                                                                            onClose: "Test string",
-                                                                            openAs: "Test string",
-                                                                            url: "Test string",
-                                                                        },
-                                                                    },
-                                                                    text: "Test string",
-                                                                },
-                                                                endIcon: {
-                                                                    altText: "Test string",
-                                                                    iconUrl: "Test string",
-                                                                    imageType: "Test string",
-                                                                    knownIcon: "Test string",
-                                                                },
-                                                                icon: {
-                                                                    altText: "Test string",
-                                                                    iconUrl: "Test string",
-                                                                    imageType: "Test string",
-                                                                    knownIcon: "Test string",
-                                                                },
-                                                                onClick: {
-                                                                    action: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    card: undefined,
-                                                                    openDynamicLinkAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    openLink: {
-                                                                        onClose: "Test string",
-                                                                        openAs: "Test string",
-                                                                        url: "Test string",
-                                                                    },
-                                                                },
-                                                                startIcon: {
-                                                                    altText: "Test string",
-                                                                    iconUrl: "Test string",
-                                                                    imageType: "Test string",
-                                                                    knownIcon: "Test string",
-                                                                },
-                                                                switchControl: {
-                                                                    controlType: "Test string",
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    selected: true,
-                                                                    value: "Test string",
-                                                                },
-                                                                text: "Test string",
-                                                                topLabel: "Test string",
-                                                                wrapText: true,
-                                                            },
-                                                            image: {
-                                                                altText: "Test string",
-                                                                imageUrl: "Test string",
-                                                                onClick: {
-                                                                    action: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    card: undefined,
-                                                                    openDynamicLinkAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    openLink: {
-                                                                        onClose: "Test string",
-                                                                        openAs: "Test string",
-                                                                        url: "Test string",
-                                                                    },
-                                                                },
-                                                            },
-                                                            selectionInput: {
-                                                                externalDataSource: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                items: [
-                                                                    {
-                                                                        bottomText: "Test string",
-                                                                        selected: true,
-                                                                        startIconUri: "Test string",
-                                                                        text: "Test string",
-                                                                        value: "Test string",
-                                                                    }
-                                                                ],
-                                                                label: "Test string",
-                                                                multiSelectMaxSelectedItems: 42,
-                                                                multiSelectMinQueryLength: 42,
-                                                                name: "Test string",
-                                                                onChangeAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                platformDataSource: {
-                                                                    commonDataSource: "Test string",
-                                                                    hostAppDataSource: {
-                                                                        chatDataSource: {
-                                                                            spaceDataSource: {
-                                                                                defaultToCurrentSpace: true,
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                type: "Test string",
-                                                            },
-                                                            textInput: {
-                                                                autoCompleteAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                hintText: "Test string",
-                                                                initialSuggestions: {
-                                                                    items: [
-                                                                        {
-                                                                            text: "Test string",
-                                                                        }
-                                                                    ],
-                                                                },
-                                                                label: "Test string",
-                                                                name: "Test string",
-                                                                onChangeAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                placeholderText: "Test string",
-                                                                type: "Test string",
-                                                                value: "Test string",
-                                                            },
-                                                            textParagraph: {
-                                                                text: "Test string",
-                                                            },
-                                                        }
-                                                    ],
-                                                }
-                                            ],
-                                        },
-                                        dateTimePicker: {
-                                            label: "Test string",
-                                            name: "Test string",
-                                            onChangeAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            timezoneOffsetDate: 42,
-                                            type: "Test string",
-                                            valueMsEpoch: "Test string",
-                                        },
-                                        decoratedText: {
-                                            bottomLabel: "Test string",
-                                            button: {
-                                                altText: "Test string",
-                                                color: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                disabled: true,
-                                                icon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                text: "Test string",
-                                            },
-                                            endIcon: {
-                                                altText: "Test string",
-                                                iconUrl: "Test string",
-                                                imageType: "Test string",
-                                                knownIcon: "Test string",
-                                            },
-                                            icon: {
-                                                altText: "Test string",
-                                                iconUrl: "Test string",
-                                                imageType: "Test string",
-                                                knownIcon: "Test string",
-                                            },
-                                            onClick: {
-                                                action: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                card: undefined,
-                                                openDynamicLinkAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                openLink: {
-                                                    onClose: "Test string",
-                                                    openAs: "Test string",
-                                                    url: "Test string",
-                                                },
-                                            },
-                                            startIcon: {
-                                                altText: "Test string",
-                                                iconUrl: "Test string",
-                                                imageType: "Test string",
-                                                knownIcon: "Test string",
-                                            },
-                                            switchControl: {
-                                                controlType: "Test string",
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                selected: true,
-                                                value: "Test string",
-                                            },
-                                            text: "Test string",
-                                            topLabel: "Test string",
-                                            wrapText: true,
-                                        },
-                                        divider: {
-                                        },
-                                        grid: {
-                                            borderStyle: {
-                                                cornerRadius: 42,
-                                                strokeColor: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                type: "Test string",
-                                            },
-                                            columnCount: 42,
-                                            items: [
-                                                {
-                                                    id: "Test string",
-                                                    image: {
-                                                        altText: "Test string",
-                                                        borderStyle: {
-                                                            cornerRadius: 42,
-                                                            strokeColor: {
-                                                                alpha: 42,
-                                                                blue: 42,
-                                                                green: 42,
-                                                                red: 42,
-                                                            },
-                                                            type: "Test string",
-                                                        },
-                                                        cropStyle: {
-                                                            aspectRatio: 42,
-                                                            type: "Test string",
-                                                        },
-                                                        imageUri: "Test string",
-                                                    },
-                                                    layout: "Test string",
-                                                    subtitle: "Test string",
-                                                    title: "Test string",
-                                                }
-                                            ],
-                                            onClick: {
-                                                action: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                card: undefined,
-                                                openDynamicLinkAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                openLink: {
-                                                    onClose: "Test string",
-                                                    openAs: "Test string",
-                                                    url: "Test string",
-                                                },
-                                            },
-                                            title: "Test string",
-                                        },
-                                        horizontalAlignment: "Test string",
-                                        image: {
-                                            altText: "Test string",
-                                            imageUrl: "Test string",
-                                            onClick: {
-                                                action: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                card: undefined,
-                                                openDynamicLinkAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                openLink: {
-                                                    onClose: "Test string",
-                                                    openAs: "Test string",
-                                                    url: "Test string",
-                                                },
-                                            },
-                                        },
-                                        selectionInput: {
-                                            externalDataSource: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            items: [
-                                                {
-                                                    bottomText: "Test string",
-                                                    selected: true,
-                                                    startIconUri: "Test string",
-                                                    text: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            label: "Test string",
-                                            multiSelectMaxSelectedItems: 42,
-                                            multiSelectMinQueryLength: 42,
-                                            name: "Test string",
-                                            onChangeAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            platformDataSource: {
-                                                commonDataSource: "Test string",
-                                                hostAppDataSource: {
-                                                    chatDataSource: {
-                                                        spaceDataSource: {
-                                                            defaultToCurrentSpace: true,
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                            type: "Test string",
-                                        },
-                                        textInput: {
-                                            autoCompleteAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            hintText: "Test string",
-                                            initialSuggestions: {
-                                                items: [
-                                                    {
-                                                        text: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            label: "Test string",
-                                            name: "Test string",
-                                            onChangeAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            placeholderText: "Test string",
-                                            type: "Test string",
-                                            value: "Test string",
-                                        },
-                                        textParagraph: {
-                                            text: "Test string",
-                                        },
-                                    }
-                                ],
-                            }
-                        ],
-                    },
-                    cardId: "Test string",
-                }
-            ],
-            clientAssignedMessageId: "Test string",
-            createTime: "Test string",
-            deleteTime: "Test string",
-            deletionMetadata: {
-                deletionType: "Test string",
-            },
-            emojiReactionSummaries: [
-                {
-                    emoji: {
-                        customEmoji: {
-                            uid: "Test string",
-                        },
-                        unicode: "Test string",
-                    },
-                    reactionCount: 42,
-                }
-            ],
-            fallbackText: "Test string",
-            formattedText: "Test string",
-            lastUpdateTime: "Test string",
-            matchedUrl: {
-                url: "Test string",
-            },
-            name: "Test string",
-            quotedMessageMetadata: {
-                lastUpdateTime: "Test string",
-                name: "Test string",
-            },
-            sender: {
-                displayName: "Test string",
-                domainId: "Test string",
-                isAnonymous: true,
-                name: "Test string",
-                type: "Test string",
-            },
-            slashCommand: {
-                commandId: "Test string",
-            },
-            space: {
-                adminInstalled: true,
-                displayName: "Test string",
-                externalUserAllowed: true,
-                name: "Test string",
-                singleUserBotDm: true,
-                spaceDetails: {
-                    description: "Test string",
-                    guidelines: "Test string",
-                },
-                spaceHistoryState: "Test string",
-                spaceThreadingState: "Test string",
-                spaceType: "Test string",
-                threaded: true,
-                type: "Test string",
-            },
-            text: "Test string",
-            thread: {
-                name: "Test string",
-                threadKey: "Test string",
-            },
-            threadReply: true,
-        });
-        /**
-         * Updates a message. There's a difference between the `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend
-         * using the `patch` method. For an example, see [Update a message](https://developers.google.com/chat/api/guides/v1/messages/update). Requires
-         * [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). When using app authentication, requests can only update messages created by the calling Chat app.
-         */
-        await gapi.client.chat.spaces.messages.update({
-            allowMissing: true,
-            name: "Test string",
-            updateMask: "Test string",
-        }, {
-            actionResponse: {
-                dialogAction: {
-                    actionStatus: {
-                        statusCode: "Test string",
-                        userFacingMessage: "Test string",
-                    },
-                    dialog: {
-                        body: {
-                            cardActions: [
-                                {
-                                    actionLabel: "Test string",
-                                    onClick: {
-                                        action: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        card: undefined,
-                                        openDynamicLinkAction: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        openLink: {
-                                            onClose: "Test string",
-                                            openAs: "Test string",
-                                            url: "Test string",
-                                        },
-                                    },
-                                }
-                            ],
-                            displayStyle: "Test string",
-                            fixedFooter: {
-                                primaryButton: {
-                                    altText: "Test string",
-                                    color: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    disabled: true,
-                                    icon: {
-                                        altText: "Test string",
-                                        iconUrl: "Test string",
-                                        imageType: "Test string",
-                                        knownIcon: "Test string",
-                                    },
-                                    onClick: {
-                                        action: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        card: undefined,
-                                        openDynamicLinkAction: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        openLink: {
-                                            onClose: "Test string",
-                                            openAs: "Test string",
-                                            url: "Test string",
-                                        },
-                                    },
-                                    text: "Test string",
-                                },
-                                secondaryButton: {
-                                    altText: "Test string",
-                                    color: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    disabled: true,
-                                    icon: {
-                                        altText: "Test string",
-                                        iconUrl: "Test string",
-                                        imageType: "Test string",
-                                        knownIcon: "Test string",
-                                    },
-                                    onClick: {
-                                        action: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        card: undefined,
-                                        openDynamicLinkAction: {
-                                            function: "Test string",
-                                            interaction: "Test string",
-                                            loadIndicator: "Test string",
-                                            parameters: [
-                                                {
-                                                    key: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            persistValues: true,
-                                        },
-                                        openLink: {
-                                            onClose: "Test string",
-                                            openAs: "Test string",
-                                            url: "Test string",
-                                        },
-                                    },
-                                    text: "Test string",
-                                },
-                            },
-                            header: {
-                                imageAltText: "Test string",
-                                imageType: "Test string",
-                                imageUrl: "Test string",
-                                subtitle: "Test string",
-                                title: "Test string",
-                            },
-                            name: "Test string",
-                            peekCardHeader: {
-                                imageAltText: "Test string",
-                                imageType: "Test string",
-                                imageUrl: "Test string",
-                                subtitle: "Test string",
-                                title: "Test string",
-                            },
-                            sectionDividerStyle: "Test string",
-                            sections: [
-                                {
-                                    collapsible: true,
-                                    header: "Test string",
-                                    uncollapsibleWidgetsCount: 42,
-                                    widgets: [
-                                        {
-                                            buttonList: {
-                                                buttons: [
-                                                    {
-                                                        altText: "Test string",
-                                                        color: {
-                                                            alpha: 42,
-                                                            blue: 42,
-                                                            green: 42,
-                                                            red: 42,
-                                                        },
-                                                        disabled: true,
-                                                        icon: {
-                                                            altText: "Test string",
-                                                            iconUrl: "Test string",
-                                                            imageType: "Test string",
-                                                            knownIcon: "Test string",
-                                                        },
-                                                        onClick: {
-                                                            action: {
-                                                                function: "Test string",
-                                                                interaction: "Test string",
-                                                                loadIndicator: "Test string",
-                                                                parameters: [
-                                                                    {
-                                                                        key: "Test string",
-                                                                        value: "Test string",
-                                                                    }
-                                                                ],
-                                                                persistValues: true,
-                                                            },
-                                                            card: undefined,
-                                                            openDynamicLinkAction: {
-                                                                function: "Test string",
-                                                                interaction: "Test string",
-                                                                loadIndicator: "Test string",
-                                                                parameters: [
-                                                                    {
-                                                                        key: "Test string",
-                                                                        value: "Test string",
-                                                                    }
-                                                                ],
-                                                                persistValues: true,
-                                                            },
-                                                            openLink: {
-                                                                onClose: "Test string",
-                                                                openAs: "Test string",
-                                                                url: "Test string",
-                                                            },
-                                                        },
-                                                        text: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            columns: {
-                                                columnItems: [
-                                                    {
-                                                        horizontalAlignment: "Test string",
-                                                        horizontalSizeStyle: "Test string",
-                                                        verticalAlignment: "Test string",
-                                                        widgets: [
-                                                            {
-                                                                buttonList: {
-                                                                    buttons: [
-                                                                        {
-                                                                            altText: "Test string",
-                                                                            color: {
-                                                                                alpha: 42,
-                                                                                blue: 42,
-                                                                                green: 42,
-                                                                                red: 42,
-                                                                            },
-                                                                            disabled: true,
-                                                                            icon: {
-                                                                                altText: "Test string",
-                                                                                iconUrl: "Test string",
-                                                                                imageType: "Test string",
-                                                                                knownIcon: "Test string",
-                                                                            },
-                                                                            onClick: {
-                                                                                action: {
-                                                                                    function: "Test string",
-                                                                                    interaction: "Test string",
-                                                                                    loadIndicator: "Test string",
-                                                                                    parameters: [
-                                                                                        {
-                                                                                            key: "Test string",
-                                                                                            value: "Test string",
-                                                                                        }
-                                                                                    ],
-                                                                                    persistValues: true,
-                                                                                },
-                                                                                card: undefined,
-                                                                                openDynamicLinkAction: {
-                                                                                    function: "Test string",
-                                                                                    interaction: "Test string",
-                                                                                    loadIndicator: "Test string",
-                                                                                    parameters: [
-                                                                                        {
-                                                                                            key: "Test string",
-                                                                                            value: "Test string",
-                                                                                        }
-                                                                                    ],
-                                                                                    persistValues: true,
-                                                                                },
-                                                                                openLink: {
-                                                                                    onClose: "Test string",
-                                                                                    openAs: "Test string",
-                                                                                    url: "Test string",
-                                                                                },
-                                                                            },
-                                                                            text: "Test string",
-                                                                        }
-                                                                    ],
-                                                                },
-                                                                dateTimePicker: {
-                                                                    label: "Test string",
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    timezoneOffsetDate: 42,
-                                                                    type: "Test string",
-                                                                    valueMsEpoch: "Test string",
-                                                                },
-                                                                decoratedText: {
-                                                                    bottomLabel: "Test string",
-                                                                    button: {
-                                                                        altText: "Test string",
-                                                                        color: {
-                                                                            alpha: 42,
-                                                                            blue: 42,
-                                                                            green: 42,
-                                                                            red: 42,
-                                                                        },
-                                                                        disabled: true,
-                                                                        icon: {
-                                                                            altText: "Test string",
-                                                                            iconUrl: "Test string",
-                                                                            imageType: "Test string",
-                                                                            knownIcon: "Test string",
-                                                                        },
-                                                                        onClick: {
-                                                                            action: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            card: undefined,
-                                                                            openDynamicLinkAction: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            openLink: {
-                                                                                onClose: "Test string",
-                                                                                openAs: "Test string",
-                                                                                url: "Test string",
-                                                                            },
-                                                                        },
-                                                                        text: "Test string",
-                                                                    },
-                                                                    endIcon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    icon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    onClick: {
-                                                                        action: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        card: undefined,
-                                                                        openDynamicLinkAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        openLink: {
-                                                                            onClose: "Test string",
-                                                                            openAs: "Test string",
-                                                                            url: "Test string",
-                                                                        },
-                                                                    },
-                                                                    startIcon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    switchControl: {
-                                                                        controlType: "Test string",
-                                                                        name: "Test string",
-                                                                        onChangeAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        selected: true,
-                                                                        value: "Test string",
-                                                                    },
-                                                                    text: "Test string",
-                                                                    topLabel: "Test string",
-                                                                    wrapText: true,
-                                                                },
-                                                                image: {
-                                                                    altText: "Test string",
-                                                                    imageUrl: "Test string",
-                                                                    onClick: {
-                                                                        action: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        card: undefined,
-                                                                        openDynamicLinkAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        openLink: {
-                                                                            onClose: "Test string",
-                                                                            openAs: "Test string",
-                                                                            url: "Test string",
-                                                                        },
-                                                                    },
-                                                                },
-                                                                selectionInput: {
-                                                                    externalDataSource: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    items: [
-                                                                        {
-                                                                            bottomText: "Test string",
-                                                                            selected: true,
-                                                                            startIconUri: "Test string",
-                                                                            text: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    label: "Test string",
-                                                                    multiSelectMaxSelectedItems: 42,
-                                                                    multiSelectMinQueryLength: 42,
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    platformDataSource: {
-                                                                        commonDataSource: "Test string",
-                                                                        hostAppDataSource: {
-                                                                            chatDataSource: {
-                                                                                spaceDataSource: {
-                                                                                    defaultToCurrentSpace: true,
-                                                                                },
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    type: "Test string",
-                                                                },
-                                                                textInput: {
-                                                                    autoCompleteAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    hintText: "Test string",
-                                                                    initialSuggestions: {
-                                                                        items: [
-                                                                            {
-                                                                                text: "Test string",
-                                                                            }
-                                                                        ],
-                                                                    },
-                                                                    label: "Test string",
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    placeholderText: "Test string",
-                                                                    type: "Test string",
-                                                                    value: "Test string",
-                                                                },
-                                                                textParagraph: {
-                                                                    text: "Test string",
-                                                                },
-                                                            }
-                                                        ],
-                                                    }
-                                                ],
-                                            },
-                                            dateTimePicker: {
-                                                label: "Test string",
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                timezoneOffsetDate: 42,
-                                                type: "Test string",
-                                                valueMsEpoch: "Test string",
-                                            },
-                                            decoratedText: {
-                                                bottomLabel: "Test string",
-                                                button: {
-                                                    altText: "Test string",
-                                                    color: {
-                                                        alpha: 42,
-                                                        blue: 42,
-                                                        green: 42,
-                                                        red: 42,
-                                                    },
-                                                    disabled: true,
-                                                    icon: {
-                                                        altText: "Test string",
-                                                        iconUrl: "Test string",
-                                                        imageType: "Test string",
-                                                        knownIcon: "Test string",
-                                                    },
-                                                    onClick: {
-                                                        action: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        card: undefined,
-                                                        openDynamicLinkAction: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        openLink: {
-                                                            onClose: "Test string",
-                                                            openAs: "Test string",
-                                                            url: "Test string",
-                                                        },
-                                                    },
-                                                    text: "Test string",
-                                                },
-                                                endIcon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                icon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                startIcon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                switchControl: {
-                                                    controlType: "Test string",
-                                                    name: "Test string",
-                                                    onChangeAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    selected: true,
-                                                    value: "Test string",
-                                                },
-                                                text: "Test string",
-                                                topLabel: "Test string",
-                                                wrapText: true,
-                                            },
-                                            divider: {
-                                            },
-                                            grid: {
-                                                borderStyle: {
-                                                    cornerRadius: 42,
-                                                    strokeColor: {
-                                                        alpha: 42,
-                                                        blue: 42,
-                                                        green: 42,
-                                                        red: 42,
-                                                    },
-                                                    type: "Test string",
-                                                },
-                                                columnCount: 42,
-                                                items: [
-                                                    {
-                                                        id: "Test string",
-                                                        image: {
-                                                            altText: "Test string",
-                                                            borderStyle: {
-                                                                cornerRadius: 42,
-                                                                strokeColor: {
-                                                                    alpha: 42,
-                                                                    blue: 42,
-                                                                    green: 42,
-                                                                    red: 42,
-                                                                },
-                                                                type: "Test string",
-                                                            },
-                                                            cropStyle: {
-                                                                aspectRatio: 42,
-                                                                type: "Test string",
-                                                            },
-                                                            imageUri: "Test string",
-                                                        },
-                                                        layout: "Test string",
-                                                        subtitle: "Test string",
-                                                        title: "Test string",
-                                                    }
-                                                ],
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                title: "Test string",
-                                            },
-                                            horizontalAlignment: "Test string",
-                                            image: {
-                                                altText: "Test string",
-                                                imageUrl: "Test string",
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                            },
-                                            selectionInput: {
-                                                externalDataSource: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                items: [
-                                                    {
-                                                        bottomText: "Test string",
-                                                        selected: true,
-                                                        startIconUri: "Test string",
-                                                        text: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                label: "Test string",
-                                                multiSelectMaxSelectedItems: 42,
-                                                multiSelectMinQueryLength: 42,
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                platformDataSource: {
-                                                    commonDataSource: "Test string",
-                                                    hostAppDataSource: {
-                                                        chatDataSource: {
-                                                            spaceDataSource: {
-                                                                defaultToCurrentSpace: true,
-                                                            },
-                                                        },
-                                                    },
-                                                },
-                                                type: "Test string",
-                                            },
-                                            textInput: {
-                                                autoCompleteAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                hintText: "Test string",
-                                                initialSuggestions: {
-                                                    items: [
-                                                        {
-                                                            text: "Test string",
-                                                        }
-                                                    ],
-                                                },
-                                                label: "Test string",
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                placeholderText: "Test string",
-                                                type: "Test string",
-                                                value: "Test string",
-                                            },
-                                            textParagraph: {
-                                                text: "Test string",
-                                            },
-                                        }
-                                    ],
-                                }
-                            ],
-                        },
-                    },
-                },
-                type: "Test string",
-                updatedWidget: {
-                    suggestions: {
-                        items: [
-                            {
-                                bottomText: "Test string",
-                                selected: true,
-                                startIconUri: "Test string",
-                                text: "Test string",
-                                value: "Test string",
-                            }
-                        ],
-                    },
-                    widget: "Test string",
-                },
-                url: "Test string",
-            },
-            annotations: [
-                {
-                    length: 42,
-                    slashCommand: {
-                        bot: {
-                            displayName: "Test string",
-                            domainId: "Test string",
-                            isAnonymous: true,
-                            name: "Test string",
-                            type: "Test string",
-                        },
-                        commandId: "Test string",
-                        commandName: "Test string",
-                        triggersDialog: true,
-                        type: "Test string",
-                    },
-                    startIndex: 42,
-                    type: "Test string",
-                    userMention: {
-                        type: "Test string",
-                        user: {
-                            displayName: "Test string",
-                            domainId: "Test string",
-                            isAnonymous: true,
-                            name: "Test string",
-                            type: "Test string",
-                        },
-                    },
-                }
-            ],
-            argumentText: "Test string",
-            attachedGifs: [
-                {
-                    uri: "Test string",
-                }
-            ],
-            attachment: [
-                {
-                    attachmentDataRef: {
-                        attachmentUploadToken: "Test string",
-                        resourceName: "Test string",
-                    },
-                    contentName: "Test string",
-                    contentType: "Test string",
-                    downloadUri: "Test string",
-                    driveDataRef: {
-                        driveFileId: "Test string",
-                    },
-                    name: "Test string",
-                    source: "Test string",
-                    thumbnailUri: "Test string",
-                }
-            ],
-            cards: [
-                {
-                    cardActions: [
-                        {
-                            actionLabel: "Test string",
-                            onClick: {
-                                action: {
-                                    actionMethodName: "Test string",
-                                    parameters: [
-                                        {
-                                            key: "Test string",
-                                            value: "Test string",
-                                        }
-                                    ],
-                                },
-                                openLink: {
-                                    url: "Test string",
-                                },
-                            },
-                        }
-                    ],
-                    header: {
-                        imageStyle: "Test string",
-                        imageUrl: "Test string",
-                        subtitle: "Test string",
-                        title: "Test string",
-                    },
-                    name: "Test string",
-                    sections: [
-                        {
-                            header: "Test string",
-                            widgets: [
-                                {
-                                    buttons: [
-                                        {
-                                            imageButton: {
-                                                icon: "Test string",
-                                                iconUrl: "Test string",
-                                                name: "Test string",
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                            },
-                                            textButton: {
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                text: "Test string",
-                                            },
-                                        }
-                                    ],
-                                    image: {
-                                        aspectRatio: 42,
-                                        imageUrl: "Test string",
-                                        onClick: {
-                                            action: {
-                                                actionMethodName: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            openLink: {
-                                                url: "Test string",
-                                            },
-                                        },
-                                    },
-                                    keyValue: {
-                                        bottomLabel: "Test string",
-                                        button: {
-                                            imageButton: {
-                                                icon: "Test string",
-                                                iconUrl: "Test string",
-                                                name: "Test string",
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                            },
-                                            textButton: {
-                                                onClick: {
-                                                    action: {
-                                                        actionMethodName: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                    },
-                                                    openLink: {
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                text: "Test string",
-                                            },
-                                        },
-                                        content: "Test string",
-                                        contentMultiline: true,
-                                        icon: "Test string",
-                                        iconUrl: "Test string",
-                                        onClick: {
-                                            action: {
-                                                actionMethodName: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            openLink: {
-                                                url: "Test string",
-                                            },
-                                        },
-                                        topLabel: "Test string",
-                                    },
-                                    textParagraph: {
-                                        text: "Test string",
-                                    },
-                                }
-                            ],
-                        }
-                    ],
-                }
-            ],
-            cardsV2: [
-                {
-                    card: {
-                        cardActions: [
-                            {
-                                actionLabel: "Test string",
-                                onClick: {
-                                    action: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    card: undefined,
-                                    openDynamicLinkAction: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    openLink: {
-                                        onClose: "Test string",
-                                        openAs: "Test string",
-                                        url: "Test string",
-                                    },
-                                },
-                            }
-                        ],
-                        displayStyle: "Test string",
-                        fixedFooter: {
-                            primaryButton: {
-                                altText: "Test string",
-                                color: {
-                                    alpha: 42,
-                                    blue: 42,
-                                    green: 42,
-                                    red: 42,
-                                },
-                                disabled: true,
-                                icon: {
-                                    altText: "Test string",
-                                    iconUrl: "Test string",
-                                    imageType: "Test string",
-                                    knownIcon: "Test string",
-                                },
-                                onClick: {
-                                    action: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    card: undefined,
-                                    openDynamicLinkAction: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    openLink: {
-                                        onClose: "Test string",
-                                        openAs: "Test string",
-                                        url: "Test string",
-                                    },
-                                },
-                                text: "Test string",
-                            },
-                            secondaryButton: {
-                                altText: "Test string",
-                                color: {
-                                    alpha: 42,
-                                    blue: 42,
-                                    green: 42,
-                                    red: 42,
-                                },
-                                disabled: true,
-                                icon: {
-                                    altText: "Test string",
-                                    iconUrl: "Test string",
-                                    imageType: "Test string",
-                                    knownIcon: "Test string",
-                                },
-                                onClick: {
-                                    action: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    card: undefined,
-                                    openDynamicLinkAction: {
-                                        function: "Test string",
-                                        interaction: "Test string",
-                                        loadIndicator: "Test string",
-                                        parameters: [
-                                            {
-                                                key: "Test string",
-                                                value: "Test string",
-                                            }
-                                        ],
-                                        persistValues: true,
-                                    },
-                                    openLink: {
-                                        onClose: "Test string",
-                                        openAs: "Test string",
-                                        url: "Test string",
-                                    },
-                                },
-                                text: "Test string",
-                            },
-                        },
-                        header: {
-                            imageAltText: "Test string",
-                            imageType: "Test string",
-                            imageUrl: "Test string",
-                            subtitle: "Test string",
-                            title: "Test string",
-                        },
-                        name: "Test string",
-                        peekCardHeader: {
-                            imageAltText: "Test string",
-                            imageType: "Test string",
-                            imageUrl: "Test string",
-                            subtitle: "Test string",
-                            title: "Test string",
-                        },
-                        sectionDividerStyle: "Test string",
-                        sections: [
-                            {
-                                collapsible: true,
-                                header: "Test string",
-                                uncollapsibleWidgetsCount: 42,
-                                widgets: [
-                                    {
-                                        buttonList: {
-                                            buttons: [
-                                                {
-                                                    altText: "Test string",
-                                                    color: {
-                                                        alpha: 42,
-                                                        blue: 42,
-                                                        green: 42,
-                                                        red: 42,
-                                                    },
-                                                    disabled: true,
-                                                    icon: {
-                                                        altText: "Test string",
-                                                        iconUrl: "Test string",
-                                                        imageType: "Test string",
-                                                        knownIcon: "Test string",
-                                                    },
-                                                    onClick: {
-                                                        action: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        card: undefined,
-                                                        openDynamicLinkAction: {
-                                                            function: "Test string",
-                                                            interaction: "Test string",
-                                                            loadIndicator: "Test string",
-                                                            parameters: [
-                                                                {
-                                                                    key: "Test string",
-                                                                    value: "Test string",
-                                                                }
-                                                            ],
-                                                            persistValues: true,
-                                                        },
-                                                        openLink: {
-                                                            onClose: "Test string",
-                                                            openAs: "Test string",
-                                                            url: "Test string",
-                                                        },
-                                                    },
-                                                    text: "Test string",
-                                                }
-                                            ],
-                                        },
-                                        columns: {
-                                            columnItems: [
-                                                {
-                                                    horizontalAlignment: "Test string",
-                                                    horizontalSizeStyle: "Test string",
-                                                    verticalAlignment: "Test string",
-                                                    widgets: [
-                                                        {
-                                                            buttonList: {
-                                                                buttons: [
-                                                                    {
-                                                                        altText: "Test string",
-                                                                        color: {
-                                                                            alpha: 42,
-                                                                            blue: 42,
-                                                                            green: 42,
-                                                                            red: 42,
-                                                                        },
-                                                                        disabled: true,
-                                                                        icon: {
-                                                                            altText: "Test string",
-                                                                            iconUrl: "Test string",
-                                                                            imageType: "Test string",
-                                                                            knownIcon: "Test string",
-                                                                        },
-                                                                        onClick: {
-                                                                            action: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            card: undefined,
-                                                                            openDynamicLinkAction: {
-                                                                                function: "Test string",
-                                                                                interaction: "Test string",
-                                                                                loadIndicator: "Test string",
-                                                                                parameters: [
-                                                                                    {
-                                                                                        key: "Test string",
-                                                                                        value: "Test string",
-                                                                                    }
-                                                                                ],
-                                                                                persistValues: true,
-                                                                            },
-                                                                            openLink: {
-                                                                                onClose: "Test string",
-                                                                                openAs: "Test string",
-                                                                                url: "Test string",
-                                                                            },
-                                                                        },
-                                                                        text: "Test string",
-                                                                    }
-                                                                ],
-                                                            },
-                                                            dateTimePicker: {
-                                                                label: "Test string",
-                                                                name: "Test string",
-                                                                onChangeAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                timezoneOffsetDate: 42,
-                                                                type: "Test string",
-                                                                valueMsEpoch: "Test string",
-                                                            },
-                                                            decoratedText: {
-                                                                bottomLabel: "Test string",
-                                                                button: {
-                                                                    altText: "Test string",
-                                                                    color: {
-                                                                        alpha: 42,
-                                                                        blue: 42,
-                                                                        green: 42,
-                                                                        red: 42,
-                                                                    },
-                                                                    disabled: true,
-                                                                    icon: {
-                                                                        altText: "Test string",
-                                                                        iconUrl: "Test string",
-                                                                        imageType: "Test string",
-                                                                        knownIcon: "Test string",
-                                                                    },
-                                                                    onClick: {
-                                                                        action: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        card: undefined,
-                                                                        openDynamicLinkAction: {
-                                                                            function: "Test string",
-                                                                            interaction: "Test string",
-                                                                            loadIndicator: "Test string",
-                                                                            parameters: [
-                                                                                {
-                                                                                    key: "Test string",
-                                                                                    value: "Test string",
-                                                                                }
-                                                                            ],
-                                                                            persistValues: true,
-                                                                        },
-                                                                        openLink: {
-                                                                            onClose: "Test string",
-                                                                            openAs: "Test string",
-                                                                            url: "Test string",
-                                                                        },
-                                                                    },
-                                                                    text: "Test string",
-                                                                },
-                                                                endIcon: {
-                                                                    altText: "Test string",
-                                                                    iconUrl: "Test string",
-                                                                    imageType: "Test string",
-                                                                    knownIcon: "Test string",
-                                                                },
-                                                                icon: {
-                                                                    altText: "Test string",
-                                                                    iconUrl: "Test string",
-                                                                    imageType: "Test string",
-                                                                    knownIcon: "Test string",
-                                                                },
-                                                                onClick: {
-                                                                    action: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    card: undefined,
-                                                                    openDynamicLinkAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    openLink: {
-                                                                        onClose: "Test string",
-                                                                        openAs: "Test string",
-                                                                        url: "Test string",
-                                                                    },
-                                                                },
-                                                                startIcon: {
-                                                                    altText: "Test string",
-                                                                    iconUrl: "Test string",
-                                                                    imageType: "Test string",
-                                                                    knownIcon: "Test string",
-                                                                },
-                                                                switchControl: {
-                                                                    controlType: "Test string",
-                                                                    name: "Test string",
-                                                                    onChangeAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    selected: true,
-                                                                    value: "Test string",
-                                                                },
-                                                                text: "Test string",
-                                                                topLabel: "Test string",
-                                                                wrapText: true,
-                                                            },
-                                                            image: {
-                                                                altText: "Test string",
-                                                                imageUrl: "Test string",
-                                                                onClick: {
-                                                                    action: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    card: undefined,
-                                                                    openDynamicLinkAction: {
-                                                                        function: "Test string",
-                                                                        interaction: "Test string",
-                                                                        loadIndicator: "Test string",
-                                                                        parameters: [
-                                                                            {
-                                                                                key: "Test string",
-                                                                                value: "Test string",
-                                                                            }
-                                                                        ],
-                                                                        persistValues: true,
-                                                                    },
-                                                                    openLink: {
-                                                                        onClose: "Test string",
-                                                                        openAs: "Test string",
-                                                                        url: "Test string",
-                                                                    },
-                                                                },
-                                                            },
-                                                            selectionInput: {
-                                                                externalDataSource: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                items: [
-                                                                    {
-                                                                        bottomText: "Test string",
-                                                                        selected: true,
-                                                                        startIconUri: "Test string",
-                                                                        text: "Test string",
-                                                                        value: "Test string",
-                                                                    }
-                                                                ],
-                                                                label: "Test string",
-                                                                multiSelectMaxSelectedItems: 42,
-                                                                multiSelectMinQueryLength: 42,
-                                                                name: "Test string",
-                                                                onChangeAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                platformDataSource: {
-                                                                    commonDataSource: "Test string",
-                                                                    hostAppDataSource: {
-                                                                        chatDataSource: {
-                                                                            spaceDataSource: {
-                                                                                defaultToCurrentSpace: true,
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                },
-                                                                type: "Test string",
-                                                            },
-                                                            textInput: {
-                                                                autoCompleteAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                hintText: "Test string",
-                                                                initialSuggestions: {
-                                                                    items: [
-                                                                        {
-                                                                            text: "Test string",
-                                                                        }
-                                                                    ],
-                                                                },
-                                                                label: "Test string",
-                                                                name: "Test string",
-                                                                onChangeAction: {
-                                                                    function: "Test string",
-                                                                    interaction: "Test string",
-                                                                    loadIndicator: "Test string",
-                                                                    parameters: [
-                                                                        {
-                                                                            key: "Test string",
-                                                                            value: "Test string",
-                                                                        }
-                                                                    ],
-                                                                    persistValues: true,
-                                                                },
-                                                                placeholderText: "Test string",
-                                                                type: "Test string",
-                                                                value: "Test string",
-                                                            },
-                                                            textParagraph: {
-                                                                text: "Test string",
-                                                            },
-                                                        }
-                                                    ],
-                                                }
-                                            ],
-                                        },
-                                        dateTimePicker: {
-                                            label: "Test string",
-                                            name: "Test string",
-                                            onChangeAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            timezoneOffsetDate: 42,
-                                            type: "Test string",
-                                            valueMsEpoch: "Test string",
-                                        },
-                                        decoratedText: {
-                                            bottomLabel: "Test string",
-                                            button: {
-                                                altText: "Test string",
-                                                color: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                disabled: true,
-                                                icon: {
-                                                    altText: "Test string",
-                                                    iconUrl: "Test string",
-                                                    imageType: "Test string",
-                                                    knownIcon: "Test string",
-                                                },
-                                                onClick: {
-                                                    action: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    card: undefined,
-                                                    openDynamicLinkAction: {
-                                                        function: "Test string",
-                                                        interaction: "Test string",
-                                                        loadIndicator: "Test string",
-                                                        parameters: [
-                                                            {
-                                                                key: "Test string",
-                                                                value: "Test string",
-                                                            }
-                                                        ],
-                                                        persistValues: true,
-                                                    },
-                                                    openLink: {
-                                                        onClose: "Test string",
-                                                        openAs: "Test string",
-                                                        url: "Test string",
-                                                    },
-                                                },
-                                                text: "Test string",
-                                            },
-                                            endIcon: {
-                                                altText: "Test string",
-                                                iconUrl: "Test string",
-                                                imageType: "Test string",
-                                                knownIcon: "Test string",
-                                            },
-                                            icon: {
-                                                altText: "Test string",
-                                                iconUrl: "Test string",
-                                                imageType: "Test string",
-                                                knownIcon: "Test string",
-                                            },
-                                            onClick: {
-                                                action: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                card: undefined,
-                                                openDynamicLinkAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                openLink: {
-                                                    onClose: "Test string",
-                                                    openAs: "Test string",
-                                                    url: "Test string",
-                                                },
-                                            },
-                                            startIcon: {
-                                                altText: "Test string",
-                                                iconUrl: "Test string",
-                                                imageType: "Test string",
-                                                knownIcon: "Test string",
-                                            },
-                                            switchControl: {
-                                                controlType: "Test string",
-                                                name: "Test string",
-                                                onChangeAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                selected: true,
-                                                value: "Test string",
-                                            },
-                                            text: "Test string",
-                                            topLabel: "Test string",
-                                            wrapText: true,
-                                        },
-                                        divider: {
-                                        },
-                                        grid: {
-                                            borderStyle: {
-                                                cornerRadius: 42,
-                                                strokeColor: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                type: "Test string",
-                                            },
-                                            columnCount: 42,
-                                            items: [
-                                                {
-                                                    id: "Test string",
-                                                    image: {
-                                                        altText: "Test string",
-                                                        borderStyle: {
-                                                            cornerRadius: 42,
-                                                            strokeColor: {
-                                                                alpha: 42,
-                                                                blue: 42,
-                                                                green: 42,
-                                                                red: 42,
-                                                            },
-                                                            type: "Test string",
-                                                        },
-                                                        cropStyle: {
-                                                            aspectRatio: 42,
-                                                            type: "Test string",
-                                                        },
-                                                        imageUri: "Test string",
-                                                    },
-                                                    layout: "Test string",
-                                                    subtitle: "Test string",
-                                                    title: "Test string",
-                                                }
-                                            ],
-                                            onClick: {
-                                                action: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                card: undefined,
-                                                openDynamicLinkAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                openLink: {
-                                                    onClose: "Test string",
-                                                    openAs: "Test string",
-                                                    url: "Test string",
-                                                },
-                                            },
-                                            title: "Test string",
-                                        },
-                                        horizontalAlignment: "Test string",
-                                        image: {
-                                            altText: "Test string",
-                                            imageUrl: "Test string",
-                                            onClick: {
-                                                action: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                card: undefined,
-                                                openDynamicLinkAction: {
-                                                    function: "Test string",
-                                                    interaction: "Test string",
-                                                    loadIndicator: "Test string",
-                                                    parameters: [
-                                                        {
-                                                            key: "Test string",
-                                                            value: "Test string",
-                                                        }
-                                                    ],
-                                                    persistValues: true,
-                                                },
-                                                openLink: {
-                                                    onClose: "Test string",
-                                                    openAs: "Test string",
-                                                    url: "Test string",
-                                                },
-                                            },
-                                        },
-                                        selectionInput: {
-                                            externalDataSource: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            items: [
-                                                {
-                                                    bottomText: "Test string",
-                                                    selected: true,
-                                                    startIconUri: "Test string",
-                                                    text: "Test string",
-                                                    value: "Test string",
-                                                }
-                                            ],
-                                            label: "Test string",
-                                            multiSelectMaxSelectedItems: 42,
-                                            multiSelectMinQueryLength: 42,
-                                            name: "Test string",
-                                            onChangeAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            platformDataSource: {
-                                                commonDataSource: "Test string",
-                                                hostAppDataSource: {
-                                                    chatDataSource: {
-                                                        spaceDataSource: {
-                                                            defaultToCurrentSpace: true,
-                                                        },
-                                                    },
-                                                },
-                                            },
-                                            type: "Test string",
-                                        },
-                                        textInput: {
-                                            autoCompleteAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            hintText: "Test string",
-                                            initialSuggestions: {
-                                                items: [
-                                                    {
-                                                        text: "Test string",
-                                                    }
-                                                ],
-                                            },
-                                            label: "Test string",
-                                            name: "Test string",
-                                            onChangeAction: {
-                                                function: "Test string",
-                                                interaction: "Test string",
-                                                loadIndicator: "Test string",
-                                                parameters: [
-                                                    {
-                                                        key: "Test string",
-                                                        value: "Test string",
-                                                    }
-                                                ],
-                                                persistValues: true,
-                                            },
-                                            placeholderText: "Test string",
-                                            type: "Test string",
-                                            value: "Test string",
-                                        },
-                                        textParagraph: {
-                                            text: "Test string",
-                                        },
-                                    }
-                                ],
-                            }
-                        ],
-                    },
-                    cardId: "Test string",
-                }
-            ],
-            clientAssignedMessageId: "Test string",
-            createTime: "Test string",
-            deleteTime: "Test string",
-            deletionMetadata: {
-                deletionType: "Test string",
-            },
-            emojiReactionSummaries: [
-                {
-                    emoji: {
-                        customEmoji: {
-                            uid: "Test string",
-                        },
-                        unicode: "Test string",
-                    },
-                    reactionCount: 42,
-                }
-            ],
-            fallbackText: "Test string",
-            formattedText: "Test string",
-            lastUpdateTime: "Test string",
-            matchedUrl: {
-                url: "Test string",
-            },
-            name: "Test string",
-            quotedMessageMetadata: {
-                lastUpdateTime: "Test string",
-                name: "Test string",
-            },
-            sender: {
-                displayName: "Test string",
-                domainId: "Test string",
-                isAnonymous: true,
-                name: "Test string",
-                type: "Test string",
-            },
-            slashCommand: {
-                commandId: "Test string",
-            },
-            space: {
-                adminInstalled: true,
-                displayName: "Test string",
-                externalUserAllowed: true,
-                name: "Test string",
-                singleUserBotDm: true,
-                spaceDetails: {
-                    description: "Test string",
-                    guidelines: "Test string",
-                },
-                spaceHistoryState: "Test string",
-                spaceThreadingState: "Test string",
-                spaceType: "Test string",
-                threaded: true,
-                type: "Test string",
-            },
-            text: "Test string",
-            thread: {
-                name: "Test string",
-                threadKey: "Test string",
-            },
-            threadReply: true,
-        });
-        /**
-         * Gets the metadata of a message attachment. The attachment data is fetched using the [media API](https://developers.google.com/chat/api/reference/rest/v1/media/download). For an example,
-         * see [Get a message attachment](https://developers.google.com/chat/api/guides/v1/media-and-attachments/get). Requires [app
-         * authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).
-         */
-        await gapi.client.chat.spaces.messages.attachments.get({
-            name: "Test string",
-        });
-        /**
-         * Creates a reaction and adds it to a message. For an example, see [Create a reaction](https://developers.google.com/chat/api/guides/v1/reactions/create). Requires [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users). Only unicode emoji are supported.
-         */
-        await gapi.client.chat.spaces.messages.reactions.create({
-            parent: "Test string",
-        }, {
-            emoji: {
-                customEmoji: {
-                    uid: "Test string",
-                },
-                unicode: "Test string",
-            },
-            name: "Test string",
-            user: {
-                displayName: "Test string",
-                domainId: "Test string",
-                isAnonymous: true,
-                name: "Test string",
-                type: "Test string",
-            },
-        });
-        /**
-         * Deletes a reaction to a message. For an example, see [Delete a reaction](https://developers.google.com/chat/api/guides/v1/reactions/delete). Requires [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.messages.reactions.delete({
-            name: "Test string",
-        });
-        /**
-         * Lists reactions to a message. For an example, see [List reactions](https://developers.google.com/chat/api/guides/v1/reactions/list). Requires [user
-         * authentication](https://developers.google.com/chat/api/guides/auth/users).
-         */
-        await gapi.client.chat.spaces.messages.reactions.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** Private Service: https://www.googleapis.com/auth/chat.bot */
+    'https://www.googleapis.com/auth/chat.bot',
+    /** Delete conversations and spaces & remove access to associated files in Google Chat */
+    'https://www.googleapis.com/auth/chat.delete',
+    /** Import spaces, messages, and memberships into Google Chat. */
+    'https://www.googleapis.com/auth/chat.import',
+    /** View, add, and remove members from conversations in Google Chat */
+    'https://www.googleapis.com/auth/chat.memberships',
+    /** Add and remove itself from conversations in Google Chat */
+    'https://www.googleapis.com/auth/chat.memberships.app',
+    /** View members in Google Chat conversations. */
+    'https://www.googleapis.com/auth/chat.memberships.readonly',
+    /** View, compose, send, update, and delete messages, and add, view, and delete reactions to messages. */
+    'https://www.googleapis.com/auth/chat.messages',
+    /** Compose and send messages in Google Chat */
+    'https://www.googleapis.com/auth/chat.messages.create',
+    /** View, add, and delete reactions to messages in Google Chat */
+    'https://www.googleapis.com/auth/chat.messages.reactions',
+    /** Add reactions to messages in Google Chat */
+    'https://www.googleapis.com/auth/chat.messages.reactions.create',
+    /** View reactions to messages in Google Chat */
+    'https://www.googleapis.com/auth/chat.messages.reactions.readonly',
+    /** View messages and reactions in Google Chat */
+    'https://www.googleapis.com/auth/chat.messages.readonly',
+    /** Create conversations and spaces and view or update metadata (including history settings) in Google Chat */
+    'https://www.googleapis.com/auth/chat.spaces',
+    /** Create new conversations in Google Chat */
+    'https://www.googleapis.com/auth/chat.spaces.create',
+    /** View chat and spaces in Google Chat */
+    'https://www.googleapis.com/auth/chat.spaces.readonly',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`. */
+    await gapi.client.chat.media.download({
+      resourceName: 'Test string',
+    });
+    /** Uploads an attachment. For an example, see [Upload media as a file attachment](https://developers.google.com/chat/api/guides/v1/media-and-attachments/upload). Requires user [authentication](https://developers.google.com/chat/api/guides/auth/users). You can upload attachments up to 200 MB. Certain file types aren't supported. For details, see [File types blocked by Google Chat](https://support.google.com/chat/answer/7651457?&co=GENIE.Platform%3DDesktop#File%20types%20blocked%20in%20Google%20Chat). */
+    await gapi.client.chat.media.upload(
+      {
+        parent: 'Test string',
+      },
+      {
+        filename: 'Test string',
+      }
+    );
+    /** Creates a named space. Spaces grouped by topics aren't supported. For an example, see [Create a space](https://developers.google.com/chat/api/guides/v1/spaces/create). If you receive the error message `ALREADY_EXISTS` when creating a space, try a different `displayName`. An existing space within the Google Workspace organization might already use this display name. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.create(
+      {
+        requestId: 'Test string',
+      },
+      {
+        adminInstalled: true,
+        displayName: 'Test string',
+        externalUserAllowed: true,
+        name: 'Test string',
+        singleUserBotDm: true,
+        spaceDetails: {
+          description: 'Test string',
+          guidelines: 'Test string',
+        },
+        spaceHistoryState: 'Test string',
+        spaceThreadingState: 'Test string',
+        spaceType: 'Test string',
+        threaded: true,
+        type: 'Test string',
+      }
+    );
+    /** Deletes a named space. Always performs a cascading delete, which means that the space's child resources—like messages posted in the space and memberships in the space—are also deleted. For an example, see [Delete a space](https://developers.google.com/chat/api/guides/v1/spaces/delete). Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) from a user who has permission to delete the space. */
+    await gapi.client.chat.spaces.delete({
+      name: 'Test string',
+    });
+    /** Returns the existing direct message with the specified user. If no direct message space is found, returns a `404 NOT_FOUND` error. For an example, see [Find a direct message](/chat/api/guides/v1/spaces/find-direct-message). With [user authentication](https://developers.google.com/chat/api/guides/auth/users), returns the direct message space between the specified user and the authenticated user. With [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts), returns the direct message space between the specified user and the calling Chat app. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users) or [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). */
+    await gapi.client.chat.spaces.findDirectMessage({
+      name: 'Test string',
+    });
+    /** Returns details about a space. For an example, see [Get a space](https://developers.google.com/chat/api/guides/v1/spaces/get). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.get({
+      name: 'Test string',
+    });
+    /** Lists spaces the caller is a member of. Group chats and DMs aren't listed until the first message is sent. For an example, see [List spaces](https://developers.google.com/chat/api/guides/v1/spaces/list). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). Lists spaces visible to the caller or authenticated user. Group chats and DMs aren't listed until the first message is sent. */
+    await gapi.client.chat.spaces.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Updates a space. For an example, see [Update a space](https://developers.google.com/chat/api/guides/v1/spaces/update). If you're updating the `displayName` field and receive the error message `ALREADY_EXISTS`, try a different display name.. An existing space within the Google Workspace organization might already use this display name. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.patch(
+      {
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        adminInstalled: true,
+        displayName: 'Test string',
+        externalUserAllowed: true,
+        name: 'Test string',
+        singleUserBotDm: true,
+        spaceDetails: {
+          description: 'Test string',
+          guidelines: 'Test string',
+        },
+        spaceHistoryState: 'Test string',
+        spaceThreadingState: 'Test string',
+        spaceType: 'Test string',
+        threaded: true,
+        type: 'Test string',
+      }
+    );
+    /** Creates a space and adds specified users to it. The calling user is automatically added to the space, and shouldn't be specified as a membership in the request. For an example, see [Set up a space](https://developers.google.com/chat/api/guides/v1/spaces/set-up). To specify the human members to add, add memberships with the appropriate `member.name` in the `SetUpSpaceRequest`. To add a human user, use `users/{user}`, where `{user}` can be the email address for the user. For users in the same Workspace organization `{user}` can also be the `id` for the person from the People API, or the `id` for the user in the Directory API. For example, if the People API Person profile ID for `user@example.com` is `123456789`, you can add the user to the space by setting the `membership.member.name` to `users/user@example.com` or `users/123456789`. For a space or group chat, if the caller blocks or is blocked by some members, then those members aren't added to the created space. To create a direct message (DM) between the calling user and another human user, specify exactly one membership to represent the human user. If one user blocks the other, the request fails and the DM isn't created. To create a DM between the calling user and the calling app, set `Space.singleUserBotDm` to `true` and don't specify any memberships. You can only use this method to set up a DM with the calling app. To add the calling app as a member of a space or an existing DM between two human users, see [create a membership](https://developers.google.com/chat/api/guides/v1/members/create). If a DM already exists between two users, even when one user blocks the other at the time a request is made, then the existing DM is returned. Spaces with threaded replies aren't supported. If you receive the error message `ALREADY_EXISTS` when setting up a space, try a different `displayName`. An existing space within the Google Workspace organization might already use this display name. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.setup(
+      {},
+      {
+        memberships: [
+          {
+            createTime: 'Test string',
+            member: {
+              displayName: 'Test string',
+              domainId: 'Test string',
+              isAnonymous: true,
+              name: 'Test string',
+              type: 'Test string',
+            },
+            name: 'Test string',
+            role: 'Test string',
+            state: 'Test string',
+          },
+        ],
+        requestId: 'Test string',
+        space: {
+          adminInstalled: true,
+          displayName: 'Test string',
+          externalUserAllowed: true,
+          name: 'Test string',
+          singleUserBotDm: true,
+          spaceDetails: {
+            description: 'Test string',
+            guidelines: 'Test string',
+          },
+          spaceHistoryState: 'Test string',
+          spaceThreadingState: 'Test string',
+          spaceType: 'Test string',
+          threaded: true,
+          type: 'Test string',
+        },
+      }
+    );
+    /** Creates a human membership or app membership for the calling app. Creating memberships for other apps isn't supported. For an example, see [ Create a membership](https://developers.google.com/chat/api/guides/v1/members/create). When creating a membership, if the specified member has their auto-accept policy turned off, then they're invited, and must accept the space invitation before joining. Otherwise, creating a membership adds the member directly to the specified space. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users). To specify the member to add, set the `membership.member.name` in the `CreateMembershipRequest`: - To add the calling app to a space or a direct message between two human users, use `users/app`. Unable to add other apps to the space. - To add a human user, use `users/{user}`, where `{user}` can be the email address for the user. For users in the same Workspace organization `{user}` can also be the `id` for the person from the People API, or the `id` for the user in the Directory API. For example, if the People API Person profile ID for `user@example.com` is `123456789`, you can add the user to the space by setting the `membership.member.name` to `users/user@example.com` or `users/123456789`. */
+    await gapi.client.chat.spaces.members.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        member: {
+          displayName: 'Test string',
+          domainId: 'Test string',
+          isAnonymous: true,
+          name: 'Test string',
+          type: 'Test string',
+        },
+        name: 'Test string',
+        role: 'Test string',
+        state: 'Test string',
+      }
+    );
+    /** Deletes a membership. For an example, see [Delete a membership](https://developers.google.com/chat/api/guides/v1/members/delete). Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.members.delete({
+      name: 'Test string',
+    });
+    /** Returns details about a membership. For an example, see [Get a membership](https://developers.google.com/chat/api/guides/v1/members/get). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.members.get({
+      name: 'Test string',
+    });
+    /** Lists memberships in a space. For an example, see [List memberships](https://developers.google.com/chat/api/guides/v1/members/list). Listing memberships with [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) lists memberships in spaces that the Chat app has access to, but excludes Chat app memberships, including its own. Listing memberships with [User authentication](https://developers.google.com/chat/api/guides/auth/users) lists memberships in spaces that the authenticated user has access to. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.members.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      showInvited: true,
+    });
+    /** Creates a message in a Google Chat space. For an example, see [Create a message](https://developers.google.com/chat/api/guides/v1/messages/create). Calling this method requires [authentication](https://developers.google.com/chat/api/guides/auth) and supports the following authentication types: - For text messages, user authentication or app authentication are supported. - For card messages, only app authentication is supported. (Only Chat apps can create card messages.) */
+    await gapi.client.chat.spaces.messages.create(
+      {
+        messageId: 'Test string',
+        messageReplyOption: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+        threadKey: 'Test string',
+      },
+      {
+        actionResponse: {
+          dialogAction: {
+            actionStatus: {
+              statusCode: 'Test string',
+              userFacingMessage: 'Test string',
+            },
+            dialog: {
+              body: {
+                cardActions: [
+                  {
+                    actionLabel: 'Test string',
+                    onClick: {
+                      action: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      card: undefined,
+                      openDynamicLinkAction: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      openLink: {
+                        onClose: 'Test string',
+                        openAs: 'Test string',
+                        url: 'Test string',
+                      },
+                    },
+                  },
+                ],
+                displayStyle: 'Test string',
+                fixedFooter: {
+                  primaryButton: {
+                    altText: 'Test string',
+                    color: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
+                    },
+                    disabled: true,
+                    icon: {
+                      altText: 'Test string',
+                      iconUrl: 'Test string',
+                      imageType: 'Test string',
+                      knownIcon: 'Test string',
+                    },
+                    onClick: {
+                      action: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      card: undefined,
+                      openDynamicLinkAction: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      openLink: {
+                        onClose: 'Test string',
+                        openAs: 'Test string',
+                        url: 'Test string',
+                      },
+                    },
+                    text: 'Test string',
+                  },
+                  secondaryButton: {
+                    altText: 'Test string',
+                    color: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
+                    },
+                    disabled: true,
+                    icon: {
+                      altText: 'Test string',
+                      iconUrl: 'Test string',
+                      imageType: 'Test string',
+                      knownIcon: 'Test string',
+                    },
+                    onClick: {
+                      action: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      card: undefined,
+                      openDynamicLinkAction: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      openLink: {
+                        onClose: 'Test string',
+                        openAs: 'Test string',
+                        url: 'Test string',
+                      },
+                    },
+                    text: 'Test string',
+                  },
+                },
+                header: {
+                  imageAltText: 'Test string',
+                  imageType: 'Test string',
+                  imageUrl: 'Test string',
+                  subtitle: 'Test string',
+                  title: 'Test string',
+                },
+                name: 'Test string',
+                peekCardHeader: {
+                  imageAltText: 'Test string',
+                  imageType: 'Test string',
+                  imageUrl: 'Test string',
+                  subtitle: 'Test string',
+                  title: 'Test string',
+                },
+                sectionDividerStyle: 'Test string',
+                sections: [
+                  {
+                    collapsible: true,
+                    header: 'Test string',
+                    uncollapsibleWidgetsCount: 42,
+                    widgets: [
+                      {
+                        buttonList: {
+                          buttons: [
+                            {
+                              altText: 'Test string',
+                              color: {
+                                alpha: 42,
+                                blue: 42,
+                                green: 42,
+                                red: 42,
+                              },
+                              disabled: true,
+                              icon: {
+                                altText: 'Test string',
+                                iconUrl: 'Test string',
+                                imageType: 'Test string',
+                                knownIcon: 'Test string',
+                              },
+                              onClick: {
+                                action: {
+                                  function: 'Test string',
+                                  interaction: 'Test string',
+                                  loadIndicator: 'Test string',
+                                  parameters: [
+                                    {
+                                      key: 'Test string',
+                                      value: 'Test string',
+                                    },
+                                  ],
+                                  persistValues: true,
+                                },
+                                card: undefined,
+                                openDynamicLinkAction: {
+                                  function: 'Test string',
+                                  interaction: 'Test string',
+                                  loadIndicator: 'Test string',
+                                  parameters: [
+                                    {
+                                      key: 'Test string',
+                                      value: 'Test string',
+                                    },
+                                  ],
+                                  persistValues: true,
+                                },
+                                openLink: {
+                                  onClose: 'Test string',
+                                  openAs: 'Test string',
+                                  url: 'Test string',
+                                },
+                              },
+                              text: 'Test string',
+                            },
+                          ],
+                        },
+                        columns: {
+                          columnItems: [
+                            {
+                              horizontalAlignment: 'Test string',
+                              horizontalSizeStyle: 'Test string',
+                              verticalAlignment: 'Test string',
+                              widgets: [
+                                {
+                                  buttonList: {
+                                    buttons: [
+                                      {
+                                        altText: 'Test string',
+                                        color: {
+                                          alpha: 42,
+                                          blue: 42,
+                                          green: 42,
+                                          red: 42,
+                                        },
+                                        disabled: true,
+                                        icon: {
+                                          altText: 'Test string',
+                                          iconUrl: 'Test string',
+                                          imageType: 'Test string',
+                                          knownIcon: 'Test string',
+                                        },
+                                        onClick: {
+                                          action: {
+                                            function: 'Test string',
+                                            interaction: 'Test string',
+                                            loadIndicator: 'Test string',
+                                            parameters: [
+                                              {
+                                                key: 'Test string',
+                                                value: 'Test string',
+                                              },
+                                            ],
+                                            persistValues: true,
+                                          },
+                                          card: undefined,
+                                          openDynamicLinkAction: {
+                                            function: 'Test string',
+                                            interaction: 'Test string',
+                                            loadIndicator: 'Test string',
+                                            parameters: [
+                                              {
+                                                key: 'Test string',
+                                                value: 'Test string',
+                                              },
+                                            ],
+                                            persistValues: true,
+                                          },
+                                          openLink: {
+                                            onClose: 'Test string',
+                                            openAs: 'Test string',
+                                            url: 'Test string',
+                                          },
+                                        },
+                                        text: 'Test string',
+                                      },
+                                    ],
+                                  },
+                                  dateTimePicker: {
+                                    label: 'Test string',
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    timezoneOffsetDate: 42,
+                                    type: 'Test string',
+                                    valueMsEpoch: 'Test string',
+                                  },
+                                  decoratedText: {
+                                    bottomLabel: 'Test string',
+                                    button: {
+                                      altText: 'Test string',
+                                      color: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                      },
+                                      disabled: true,
+                                      icon: {
+                                        altText: 'Test string',
+                                        iconUrl: 'Test string',
+                                        imageType: 'Test string',
+                                        knownIcon: 'Test string',
+                                      },
+                                      onClick: {
+                                        action: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        card: undefined,
+                                        openDynamicLinkAction: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        openLink: {
+                                          onClose: 'Test string',
+                                          openAs: 'Test string',
+                                          url: 'Test string',
+                                        },
+                                      },
+                                      text: 'Test string',
+                                    },
+                                    endIcon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    icon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    onClick: {
+                                      action: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      card: undefined,
+                                      openDynamicLinkAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      openLink: {
+                                        onClose: 'Test string',
+                                        openAs: 'Test string',
+                                        url: 'Test string',
+                                      },
+                                    },
+                                    startIcon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    switchControl: {
+                                      controlType: 'Test string',
+                                      name: 'Test string',
+                                      onChangeAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      selected: true,
+                                      value: 'Test string',
+                                    },
+                                    text: 'Test string',
+                                    topLabel: 'Test string',
+                                    wrapText: true,
+                                  },
+                                  image: {
+                                    altText: 'Test string',
+                                    imageUrl: 'Test string',
+                                    onClick: {
+                                      action: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      card: undefined,
+                                      openDynamicLinkAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      openLink: {
+                                        onClose: 'Test string',
+                                        openAs: 'Test string',
+                                        url: 'Test string',
+                                      },
+                                    },
+                                  },
+                                  selectionInput: {
+                                    externalDataSource: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    items: [
+                                      {
+                                        bottomText: 'Test string',
+                                        selected: true,
+                                        startIconUri: 'Test string',
+                                        text: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    label: 'Test string',
+                                    multiSelectMaxSelectedItems: 42,
+                                    multiSelectMinQueryLength: 42,
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    platformDataSource: {
+                                      commonDataSource: 'Test string',
+                                      hostAppDataSource: {
+                                        chatDataSource: {
+                                          spaceDataSource: {
+                                            defaultToCurrentSpace: true,
+                                          },
+                                        },
+                                      },
+                                    },
+                                    type: 'Test string',
+                                  },
+                                  textInput: {
+                                    autoCompleteAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    hintText: 'Test string',
+                                    initialSuggestions: {
+                                      items: [
+                                        {
+                                          text: 'Test string',
+                                        },
+                                      ],
+                                    },
+                                    label: 'Test string',
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    placeholderText: 'Test string',
+                                    type: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                  textParagraph: {
+                                    text: 'Test string',
+                                  },
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        dateTimePicker: {
+                          label: 'Test string',
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          timezoneOffsetDate: 42,
+                          type: 'Test string',
+                          valueMsEpoch: 'Test string',
+                        },
+                        decoratedText: {
+                          bottomLabel: 'Test string',
+                          button: {
+                            altText: 'Test string',
+                            color: {
+                              alpha: 42,
+                              blue: 42,
+                              green: 42,
+                              red: 42,
+                            },
+                            disabled: true,
+                            icon: {
+                              altText: 'Test string',
+                              iconUrl: 'Test string',
+                              imageType: 'Test string',
+                              knownIcon: 'Test string',
+                            },
+                            onClick: {
+                              action: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              card: undefined,
+                              openDynamicLinkAction: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              openLink: {
+                                onClose: 'Test string',
+                                openAs: 'Test string',
+                                url: 'Test string',
+                              },
+                            },
+                            text: 'Test string',
+                          },
+                          endIcon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          icon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                          startIcon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          switchControl: {
+                            controlType: 'Test string',
+                            name: 'Test string',
+                            onChangeAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            selected: true,
+                            value: 'Test string',
+                          },
+                          text: 'Test string',
+                          topLabel: 'Test string',
+                          wrapText: true,
+                        },
+                        divider: {},
+                        grid: {
+                          borderStyle: {
+                            cornerRadius: 42,
+                            strokeColor: {
+                              alpha: 42,
+                              blue: 42,
+                              green: 42,
+                              red: 42,
+                            },
+                            type: 'Test string',
+                          },
+                          columnCount: 42,
+                          items: [
+                            {
+                              id: 'Test string',
+                              image: {
+                                altText: 'Test string',
+                                borderStyle: {
+                                  cornerRadius: 42,
+                                  strokeColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                  },
+                                  type: 'Test string',
+                                },
+                                cropStyle: {
+                                  aspectRatio: 42,
+                                  type: 'Test string',
+                                },
+                                imageUri: 'Test string',
+                              },
+                              layout: 'Test string',
+                              subtitle: 'Test string',
+                              title: 'Test string',
+                            },
+                          ],
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                          title: 'Test string',
+                        },
+                        horizontalAlignment: 'Test string',
+                        image: {
+                          altText: 'Test string',
+                          imageUrl: 'Test string',
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                        },
+                        selectionInput: {
+                          externalDataSource: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          items: [
+                            {
+                              bottomText: 'Test string',
+                              selected: true,
+                              startIconUri: 'Test string',
+                              text: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          label: 'Test string',
+                          multiSelectMaxSelectedItems: 42,
+                          multiSelectMinQueryLength: 42,
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          platformDataSource: {
+                            commonDataSource: 'Test string',
+                            hostAppDataSource: {
+                              chatDataSource: {
+                                spaceDataSource: {
+                                  defaultToCurrentSpace: true,
+                                },
+                              },
+                            },
+                          },
+                          type: 'Test string',
+                        },
+                        textInput: {
+                          autoCompleteAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          hintText: 'Test string',
+                          initialSuggestions: {
+                            items: [
+                              {
+                                text: 'Test string',
+                              },
+                            ],
+                          },
+                          label: 'Test string',
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          placeholderText: 'Test string',
+                          type: 'Test string',
+                          value: 'Test string',
+                        },
+                        textParagraph: {
+                          text: 'Test string',
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          },
+          type: 'Test string',
+          updatedWidget: {
+            suggestions: {
+              items: [
+                {
+                  bottomText: 'Test string',
+                  selected: true,
+                  startIconUri: 'Test string',
+                  text: 'Test string',
+                  value: 'Test string',
+                },
+              ],
+            },
+            widget: 'Test string',
+          },
+          url: 'Test string',
+        },
+        annotations: [
+          {
+            length: 42,
+            slashCommand: {
+              bot: {
+                displayName: 'Test string',
+                domainId: 'Test string',
+                isAnonymous: true,
+                name: 'Test string',
+                type: 'Test string',
+              },
+              commandId: 'Test string',
+              commandName: 'Test string',
+              triggersDialog: true,
+              type: 'Test string',
+            },
+            startIndex: 42,
+            type: 'Test string',
+            userMention: {
+              type: 'Test string',
+              user: {
+                displayName: 'Test string',
+                domainId: 'Test string',
+                isAnonymous: true,
+                name: 'Test string',
+                type: 'Test string',
+              },
+            },
+          },
+        ],
+        argumentText: 'Test string',
+        attachedGifs: [
+          {
+            uri: 'Test string',
+          },
+        ],
+        attachment: [
+          {
+            attachmentDataRef: {
+              attachmentUploadToken: 'Test string',
+              resourceName: 'Test string',
+            },
+            contentName: 'Test string',
+            contentType: 'Test string',
+            downloadUri: 'Test string',
+            driveDataRef: {
+              driveFileId: 'Test string',
+            },
+            name: 'Test string',
+            source: 'Test string',
+            thumbnailUri: 'Test string',
+          },
+        ],
+        cards: [
+          {
+            cardActions: [
+              {
+                actionLabel: 'Test string',
+                onClick: {
+                  action: {
+                    actionMethodName: 'Test string',
+                    parameters: [
+                      {
+                        key: 'Test string',
+                        value: 'Test string',
+                      },
+                    ],
+                  },
+                  openLink: {
+                    url: 'Test string',
+                  },
+                },
+              },
+            ],
+            header: {
+              imageStyle: 'Test string',
+              imageUrl: 'Test string',
+              subtitle: 'Test string',
+              title: 'Test string',
+            },
+            name: 'Test string',
+            sections: [
+              {
+                header: 'Test string',
+                widgets: [
+                  {
+                    buttons: [
+                      {
+                        imageButton: {
+                          icon: 'Test string',
+                          iconUrl: 'Test string',
+                          name: 'Test string',
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                        },
+                        textButton: {
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                          text: 'Test string',
+                        },
+                      },
+                    ],
+                    image: {
+                      aspectRatio: 42,
+                      imageUrl: 'Test string',
+                      onClick: {
+                        action: {
+                          actionMethodName: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                        },
+                        openLink: {
+                          url: 'Test string',
+                        },
+                      },
+                    },
+                    keyValue: {
+                      bottomLabel: 'Test string',
+                      button: {
+                        imageButton: {
+                          icon: 'Test string',
+                          iconUrl: 'Test string',
+                          name: 'Test string',
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                        },
+                        textButton: {
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                          text: 'Test string',
+                        },
+                      },
+                      content: 'Test string',
+                      contentMultiline: true,
+                      icon: 'Test string',
+                      iconUrl: 'Test string',
+                      onClick: {
+                        action: {
+                          actionMethodName: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                        },
+                        openLink: {
+                          url: 'Test string',
+                        },
+                      },
+                      topLabel: 'Test string',
+                    },
+                    textParagraph: {
+                      text: 'Test string',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        cardsV2: [
+          {
+            card: {
+              cardActions: [
+                {
+                  actionLabel: 'Test string',
+                  onClick: {
+                    action: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    card: undefined,
+                    openDynamicLinkAction: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    openLink: {
+                      onClose: 'Test string',
+                      openAs: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                },
+              ],
+              displayStyle: 'Test string',
+              fixedFooter: {
+                primaryButton: {
+                  altText: 'Test string',
+                  color: {
+                    alpha: 42,
+                    blue: 42,
+                    green: 42,
+                    red: 42,
+                  },
+                  disabled: true,
+                  icon: {
+                    altText: 'Test string',
+                    iconUrl: 'Test string',
+                    imageType: 'Test string',
+                    knownIcon: 'Test string',
+                  },
+                  onClick: {
+                    action: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    card: undefined,
+                    openDynamicLinkAction: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    openLink: {
+                      onClose: 'Test string',
+                      openAs: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                  text: 'Test string',
+                },
+                secondaryButton: {
+                  altText: 'Test string',
+                  color: {
+                    alpha: 42,
+                    blue: 42,
+                    green: 42,
+                    red: 42,
+                  },
+                  disabled: true,
+                  icon: {
+                    altText: 'Test string',
+                    iconUrl: 'Test string',
+                    imageType: 'Test string',
+                    knownIcon: 'Test string',
+                  },
+                  onClick: {
+                    action: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    card: undefined,
+                    openDynamicLinkAction: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    openLink: {
+                      onClose: 'Test string',
+                      openAs: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                  text: 'Test string',
+                },
+              },
+              header: {
+                imageAltText: 'Test string',
+                imageType: 'Test string',
+                imageUrl: 'Test string',
+                subtitle: 'Test string',
+                title: 'Test string',
+              },
+              name: 'Test string',
+              peekCardHeader: {
+                imageAltText: 'Test string',
+                imageType: 'Test string',
+                imageUrl: 'Test string',
+                subtitle: 'Test string',
+                title: 'Test string',
+              },
+              sectionDividerStyle: 'Test string',
+              sections: [
+                {
+                  collapsible: true,
+                  header: 'Test string',
+                  uncollapsibleWidgetsCount: 42,
+                  widgets: [
+                    {
+                      buttonList: {
+                        buttons: [
+                          {
+                            altText: 'Test string',
+                            color: {
+                              alpha: 42,
+                              blue: 42,
+                              green: 42,
+                              red: 42,
+                            },
+                            disabled: true,
+                            icon: {
+                              altText: 'Test string',
+                              iconUrl: 'Test string',
+                              imageType: 'Test string',
+                              knownIcon: 'Test string',
+                            },
+                            onClick: {
+                              action: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              card: undefined,
+                              openDynamicLinkAction: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              openLink: {
+                                onClose: 'Test string',
+                                openAs: 'Test string',
+                                url: 'Test string',
+                              },
+                            },
+                            text: 'Test string',
+                          },
+                        ],
+                      },
+                      columns: {
+                        columnItems: [
+                          {
+                            horizontalAlignment: 'Test string',
+                            horizontalSizeStyle: 'Test string',
+                            verticalAlignment: 'Test string',
+                            widgets: [
+                              {
+                                buttonList: {
+                                  buttons: [
+                                    {
+                                      altText: 'Test string',
+                                      color: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                      },
+                                      disabled: true,
+                                      icon: {
+                                        altText: 'Test string',
+                                        iconUrl: 'Test string',
+                                        imageType: 'Test string',
+                                        knownIcon: 'Test string',
+                                      },
+                                      onClick: {
+                                        action: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        card: undefined,
+                                        openDynamicLinkAction: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        openLink: {
+                                          onClose: 'Test string',
+                                          openAs: 'Test string',
+                                          url: 'Test string',
+                                        },
+                                      },
+                                      text: 'Test string',
+                                    },
+                                  ],
+                                },
+                                dateTimePicker: {
+                                  label: 'Test string',
+                                  name: 'Test string',
+                                  onChangeAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  timezoneOffsetDate: 42,
+                                  type: 'Test string',
+                                  valueMsEpoch: 'Test string',
+                                },
+                                decoratedText: {
+                                  bottomLabel: 'Test string',
+                                  button: {
+                                    altText: 'Test string',
+                                    color: {
+                                      alpha: 42,
+                                      blue: 42,
+                                      green: 42,
+                                      red: 42,
+                                    },
+                                    disabled: true,
+                                    icon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    onClick: {
+                                      action: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      card: undefined,
+                                      openDynamicLinkAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      openLink: {
+                                        onClose: 'Test string',
+                                        openAs: 'Test string',
+                                        url: 'Test string',
+                                      },
+                                    },
+                                    text: 'Test string',
+                                  },
+                                  endIcon: {
+                                    altText: 'Test string',
+                                    iconUrl: 'Test string',
+                                    imageType: 'Test string',
+                                    knownIcon: 'Test string',
+                                  },
+                                  icon: {
+                                    altText: 'Test string',
+                                    iconUrl: 'Test string',
+                                    imageType: 'Test string',
+                                    knownIcon: 'Test string',
+                                  },
+                                  onClick: {
+                                    action: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    card: undefined,
+                                    openDynamicLinkAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    openLink: {
+                                      onClose: 'Test string',
+                                      openAs: 'Test string',
+                                      url: 'Test string',
+                                    },
+                                  },
+                                  startIcon: {
+                                    altText: 'Test string',
+                                    iconUrl: 'Test string',
+                                    imageType: 'Test string',
+                                    knownIcon: 'Test string',
+                                  },
+                                  switchControl: {
+                                    controlType: 'Test string',
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    selected: true,
+                                    value: 'Test string',
+                                  },
+                                  text: 'Test string',
+                                  topLabel: 'Test string',
+                                  wrapText: true,
+                                },
+                                image: {
+                                  altText: 'Test string',
+                                  imageUrl: 'Test string',
+                                  onClick: {
+                                    action: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    card: undefined,
+                                    openDynamicLinkAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    openLink: {
+                                      onClose: 'Test string',
+                                      openAs: 'Test string',
+                                      url: 'Test string',
+                                    },
+                                  },
+                                },
+                                selectionInput: {
+                                  externalDataSource: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  items: [
+                                    {
+                                      bottomText: 'Test string',
+                                      selected: true,
+                                      startIconUri: 'Test string',
+                                      text: 'Test string',
+                                      value: 'Test string',
+                                    },
+                                  ],
+                                  label: 'Test string',
+                                  multiSelectMaxSelectedItems: 42,
+                                  multiSelectMinQueryLength: 42,
+                                  name: 'Test string',
+                                  onChangeAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  platformDataSource: {
+                                    commonDataSource: 'Test string',
+                                    hostAppDataSource: {
+                                      chatDataSource: {
+                                        spaceDataSource: {
+                                          defaultToCurrentSpace: true,
+                                        },
+                                      },
+                                    },
+                                  },
+                                  type: 'Test string',
+                                },
+                                textInput: {
+                                  autoCompleteAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  hintText: 'Test string',
+                                  initialSuggestions: {
+                                    items: [
+                                      {
+                                        text: 'Test string',
+                                      },
+                                    ],
+                                  },
+                                  label: 'Test string',
+                                  name: 'Test string',
+                                  onChangeAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  placeholderText: 'Test string',
+                                  type: 'Test string',
+                                  value: 'Test string',
+                                },
+                                textParagraph: {
+                                  text: 'Test string',
+                                },
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                      dateTimePicker: {
+                        label: 'Test string',
+                        name: 'Test string',
+                        onChangeAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        timezoneOffsetDate: 42,
+                        type: 'Test string',
+                        valueMsEpoch: 'Test string',
+                      },
+                      decoratedText: {
+                        bottomLabel: 'Test string',
+                        button: {
+                          altText: 'Test string',
+                          color: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          disabled: true,
+                          icon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                          text: 'Test string',
+                        },
+                        endIcon: {
+                          altText: 'Test string',
+                          iconUrl: 'Test string',
+                          imageType: 'Test string',
+                          knownIcon: 'Test string',
+                        },
+                        icon: {
+                          altText: 'Test string',
+                          iconUrl: 'Test string',
+                          imageType: 'Test string',
+                          knownIcon: 'Test string',
+                        },
+                        onClick: {
+                          action: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          card: undefined,
+                          openDynamicLinkAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          openLink: {
+                            onClose: 'Test string',
+                            openAs: 'Test string',
+                            url: 'Test string',
+                          },
+                        },
+                        startIcon: {
+                          altText: 'Test string',
+                          iconUrl: 'Test string',
+                          imageType: 'Test string',
+                          knownIcon: 'Test string',
+                        },
+                        switchControl: {
+                          controlType: 'Test string',
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          selected: true,
+                          value: 'Test string',
+                        },
+                        text: 'Test string',
+                        topLabel: 'Test string',
+                        wrapText: true,
+                      },
+                      divider: {},
+                      grid: {
+                        borderStyle: {
+                          cornerRadius: 42,
+                          strokeColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          type: 'Test string',
+                        },
+                        columnCount: 42,
+                        items: [
+                          {
+                            id: 'Test string',
+                            image: {
+                              altText: 'Test string',
+                              borderStyle: {
+                                cornerRadius: 42,
+                                strokeColor: {
+                                  alpha: 42,
+                                  blue: 42,
+                                  green: 42,
+                                  red: 42,
+                                },
+                                type: 'Test string',
+                              },
+                              cropStyle: {
+                                aspectRatio: 42,
+                                type: 'Test string',
+                              },
+                              imageUri: 'Test string',
+                            },
+                            layout: 'Test string',
+                            subtitle: 'Test string',
+                            title: 'Test string',
+                          },
+                        ],
+                        onClick: {
+                          action: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          card: undefined,
+                          openDynamicLinkAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          openLink: {
+                            onClose: 'Test string',
+                            openAs: 'Test string',
+                            url: 'Test string',
+                          },
+                        },
+                        title: 'Test string',
+                      },
+                      horizontalAlignment: 'Test string',
+                      image: {
+                        altText: 'Test string',
+                        imageUrl: 'Test string',
+                        onClick: {
+                          action: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          card: undefined,
+                          openDynamicLinkAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          openLink: {
+                            onClose: 'Test string',
+                            openAs: 'Test string',
+                            url: 'Test string',
+                          },
+                        },
+                      },
+                      selectionInput: {
+                        externalDataSource: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        items: [
+                          {
+                            bottomText: 'Test string',
+                            selected: true,
+                            startIconUri: 'Test string',
+                            text: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        label: 'Test string',
+                        multiSelectMaxSelectedItems: 42,
+                        multiSelectMinQueryLength: 42,
+                        name: 'Test string',
+                        onChangeAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        platformDataSource: {
+                          commonDataSource: 'Test string',
+                          hostAppDataSource: {
+                            chatDataSource: {
+                              spaceDataSource: {
+                                defaultToCurrentSpace: true,
+                              },
+                            },
+                          },
+                        },
+                        type: 'Test string',
+                      },
+                      textInput: {
+                        autoCompleteAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        hintText: 'Test string',
+                        initialSuggestions: {
+                          items: [
+                            {
+                              text: 'Test string',
+                            },
+                          ],
+                        },
+                        label: 'Test string',
+                        name: 'Test string',
+                        onChangeAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        placeholderText: 'Test string',
+                        type: 'Test string',
+                        value: 'Test string',
+                      },
+                      textParagraph: {
+                        text: 'Test string',
+                      },
+                    },
+                  ],
+                },
+              ],
+            },
+            cardId: 'Test string',
+          },
+        ],
+        clientAssignedMessageId: 'Test string',
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        deletionMetadata: {
+          deletionType: 'Test string',
+        },
+        emojiReactionSummaries: [
+          {
+            emoji: {
+              customEmoji: {
+                uid: 'Test string',
+              },
+              unicode: 'Test string',
+            },
+            reactionCount: 42,
+          },
+        ],
+        fallbackText: 'Test string',
+        formattedText: 'Test string',
+        lastUpdateTime: 'Test string',
+        matchedUrl: {
+          url: 'Test string',
+        },
+        name: 'Test string',
+        quotedMessageMetadata: {
+          lastUpdateTime: 'Test string',
+          name: 'Test string',
+        },
+        sender: {
+          displayName: 'Test string',
+          domainId: 'Test string',
+          isAnonymous: true,
+          name: 'Test string',
+          type: 'Test string',
+        },
+        slashCommand: {
+          commandId: 'Test string',
+        },
+        space: {
+          adminInstalled: true,
+          displayName: 'Test string',
+          externalUserAllowed: true,
+          name: 'Test string',
+          singleUserBotDm: true,
+          spaceDetails: {
+            description: 'Test string',
+            guidelines: 'Test string',
+          },
+          spaceHistoryState: 'Test string',
+          spaceThreadingState: 'Test string',
+          spaceType: 'Test string',
+          threaded: true,
+          type: 'Test string',
+        },
+        text: 'Test string',
+        thread: {
+          name: 'Test string',
+          threadKey: 'Test string',
+        },
+        threadReply: true,
+      }
+    );
+    /** Deletes a message. For an example, see [Delete a message](https://developers.google.com/chat/api/guides/v1/messages/delete). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). When using app authentication, requests can only delete messages created by the calling Chat app. */
+    await gapi.client.chat.spaces.messages.delete({
+      force: true,
+      name: 'Test string',
+    });
+    /** Returns details about a message. For an example, see [Read a message](https://developers.google.com/chat/api/guides/v1/messages/get). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). Note: Might return a message from a blocked member or space. */
+    await gapi.client.chat.spaces.messages.get({
+      name: 'Test string',
+    });
+    /** Lists messages in a space that the caller is a member of, including messages from blocked members and spaces. For an example, see [List messages](/chat/api/guides/v1/messages/list). Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.messages.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      showDeleted: true,
+    });
+    /** Updates a message. There's a difference between the `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend using the `patch` method. For an example, see [Update a message](https://developers.google.com/chat/api/guides/v1/messages/update). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). When using app authentication, requests can only update messages created by the calling Chat app. */
+    await gapi.client.chat.spaces.messages.patch(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        actionResponse: {
+          dialogAction: {
+            actionStatus: {
+              statusCode: 'Test string',
+              userFacingMessage: 'Test string',
+            },
+            dialog: {
+              body: {
+                cardActions: [
+                  {
+                    actionLabel: 'Test string',
+                    onClick: {
+                      action: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      card: undefined,
+                      openDynamicLinkAction: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      openLink: {
+                        onClose: 'Test string',
+                        openAs: 'Test string',
+                        url: 'Test string',
+                      },
+                    },
+                  },
+                ],
+                displayStyle: 'Test string',
+                fixedFooter: {
+                  primaryButton: {
+                    altText: 'Test string',
+                    color: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
+                    },
+                    disabled: true,
+                    icon: {
+                      altText: 'Test string',
+                      iconUrl: 'Test string',
+                      imageType: 'Test string',
+                      knownIcon: 'Test string',
+                    },
+                    onClick: {
+                      action: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      card: undefined,
+                      openDynamicLinkAction: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      openLink: {
+                        onClose: 'Test string',
+                        openAs: 'Test string',
+                        url: 'Test string',
+                      },
+                    },
+                    text: 'Test string',
+                  },
+                  secondaryButton: {
+                    altText: 'Test string',
+                    color: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
+                    },
+                    disabled: true,
+                    icon: {
+                      altText: 'Test string',
+                      iconUrl: 'Test string',
+                      imageType: 'Test string',
+                      knownIcon: 'Test string',
+                    },
+                    onClick: {
+                      action: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      card: undefined,
+                      openDynamicLinkAction: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      openLink: {
+                        onClose: 'Test string',
+                        openAs: 'Test string',
+                        url: 'Test string',
+                      },
+                    },
+                    text: 'Test string',
+                  },
+                },
+                header: {
+                  imageAltText: 'Test string',
+                  imageType: 'Test string',
+                  imageUrl: 'Test string',
+                  subtitle: 'Test string',
+                  title: 'Test string',
+                },
+                name: 'Test string',
+                peekCardHeader: {
+                  imageAltText: 'Test string',
+                  imageType: 'Test string',
+                  imageUrl: 'Test string',
+                  subtitle: 'Test string',
+                  title: 'Test string',
+                },
+                sectionDividerStyle: 'Test string',
+                sections: [
+                  {
+                    collapsible: true,
+                    header: 'Test string',
+                    uncollapsibleWidgetsCount: 42,
+                    widgets: [
+                      {
+                        buttonList: {
+                          buttons: [
+                            {
+                              altText: 'Test string',
+                              color: {
+                                alpha: 42,
+                                blue: 42,
+                                green: 42,
+                                red: 42,
+                              },
+                              disabled: true,
+                              icon: {
+                                altText: 'Test string',
+                                iconUrl: 'Test string',
+                                imageType: 'Test string',
+                                knownIcon: 'Test string',
+                              },
+                              onClick: {
+                                action: {
+                                  function: 'Test string',
+                                  interaction: 'Test string',
+                                  loadIndicator: 'Test string',
+                                  parameters: [
+                                    {
+                                      key: 'Test string',
+                                      value: 'Test string',
+                                    },
+                                  ],
+                                  persistValues: true,
+                                },
+                                card: undefined,
+                                openDynamicLinkAction: {
+                                  function: 'Test string',
+                                  interaction: 'Test string',
+                                  loadIndicator: 'Test string',
+                                  parameters: [
+                                    {
+                                      key: 'Test string',
+                                      value: 'Test string',
+                                    },
+                                  ],
+                                  persistValues: true,
+                                },
+                                openLink: {
+                                  onClose: 'Test string',
+                                  openAs: 'Test string',
+                                  url: 'Test string',
+                                },
+                              },
+                              text: 'Test string',
+                            },
+                          ],
+                        },
+                        columns: {
+                          columnItems: [
+                            {
+                              horizontalAlignment: 'Test string',
+                              horizontalSizeStyle: 'Test string',
+                              verticalAlignment: 'Test string',
+                              widgets: [
+                                {
+                                  buttonList: {
+                                    buttons: [
+                                      {
+                                        altText: 'Test string',
+                                        color: {
+                                          alpha: 42,
+                                          blue: 42,
+                                          green: 42,
+                                          red: 42,
+                                        },
+                                        disabled: true,
+                                        icon: {
+                                          altText: 'Test string',
+                                          iconUrl: 'Test string',
+                                          imageType: 'Test string',
+                                          knownIcon: 'Test string',
+                                        },
+                                        onClick: {
+                                          action: {
+                                            function: 'Test string',
+                                            interaction: 'Test string',
+                                            loadIndicator: 'Test string',
+                                            parameters: [
+                                              {
+                                                key: 'Test string',
+                                                value: 'Test string',
+                                              },
+                                            ],
+                                            persistValues: true,
+                                          },
+                                          card: undefined,
+                                          openDynamicLinkAction: {
+                                            function: 'Test string',
+                                            interaction: 'Test string',
+                                            loadIndicator: 'Test string',
+                                            parameters: [
+                                              {
+                                                key: 'Test string',
+                                                value: 'Test string',
+                                              },
+                                            ],
+                                            persistValues: true,
+                                          },
+                                          openLink: {
+                                            onClose: 'Test string',
+                                            openAs: 'Test string',
+                                            url: 'Test string',
+                                          },
+                                        },
+                                        text: 'Test string',
+                                      },
+                                    ],
+                                  },
+                                  dateTimePicker: {
+                                    label: 'Test string',
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    timezoneOffsetDate: 42,
+                                    type: 'Test string',
+                                    valueMsEpoch: 'Test string',
+                                  },
+                                  decoratedText: {
+                                    bottomLabel: 'Test string',
+                                    button: {
+                                      altText: 'Test string',
+                                      color: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                      },
+                                      disabled: true,
+                                      icon: {
+                                        altText: 'Test string',
+                                        iconUrl: 'Test string',
+                                        imageType: 'Test string',
+                                        knownIcon: 'Test string',
+                                      },
+                                      onClick: {
+                                        action: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        card: undefined,
+                                        openDynamicLinkAction: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        openLink: {
+                                          onClose: 'Test string',
+                                          openAs: 'Test string',
+                                          url: 'Test string',
+                                        },
+                                      },
+                                      text: 'Test string',
+                                    },
+                                    endIcon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    icon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    onClick: {
+                                      action: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      card: undefined,
+                                      openDynamicLinkAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      openLink: {
+                                        onClose: 'Test string',
+                                        openAs: 'Test string',
+                                        url: 'Test string',
+                                      },
+                                    },
+                                    startIcon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    switchControl: {
+                                      controlType: 'Test string',
+                                      name: 'Test string',
+                                      onChangeAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      selected: true,
+                                      value: 'Test string',
+                                    },
+                                    text: 'Test string',
+                                    topLabel: 'Test string',
+                                    wrapText: true,
+                                  },
+                                  image: {
+                                    altText: 'Test string',
+                                    imageUrl: 'Test string',
+                                    onClick: {
+                                      action: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      card: undefined,
+                                      openDynamicLinkAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      openLink: {
+                                        onClose: 'Test string',
+                                        openAs: 'Test string',
+                                        url: 'Test string',
+                                      },
+                                    },
+                                  },
+                                  selectionInput: {
+                                    externalDataSource: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    items: [
+                                      {
+                                        bottomText: 'Test string',
+                                        selected: true,
+                                        startIconUri: 'Test string',
+                                        text: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    label: 'Test string',
+                                    multiSelectMaxSelectedItems: 42,
+                                    multiSelectMinQueryLength: 42,
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    platformDataSource: {
+                                      commonDataSource: 'Test string',
+                                      hostAppDataSource: {
+                                        chatDataSource: {
+                                          spaceDataSource: {
+                                            defaultToCurrentSpace: true,
+                                          },
+                                        },
+                                      },
+                                    },
+                                    type: 'Test string',
+                                  },
+                                  textInput: {
+                                    autoCompleteAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    hintText: 'Test string',
+                                    initialSuggestions: {
+                                      items: [
+                                        {
+                                          text: 'Test string',
+                                        },
+                                      ],
+                                    },
+                                    label: 'Test string',
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    placeholderText: 'Test string',
+                                    type: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                  textParagraph: {
+                                    text: 'Test string',
+                                  },
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        dateTimePicker: {
+                          label: 'Test string',
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          timezoneOffsetDate: 42,
+                          type: 'Test string',
+                          valueMsEpoch: 'Test string',
+                        },
+                        decoratedText: {
+                          bottomLabel: 'Test string',
+                          button: {
+                            altText: 'Test string',
+                            color: {
+                              alpha: 42,
+                              blue: 42,
+                              green: 42,
+                              red: 42,
+                            },
+                            disabled: true,
+                            icon: {
+                              altText: 'Test string',
+                              iconUrl: 'Test string',
+                              imageType: 'Test string',
+                              knownIcon: 'Test string',
+                            },
+                            onClick: {
+                              action: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              card: undefined,
+                              openDynamicLinkAction: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              openLink: {
+                                onClose: 'Test string',
+                                openAs: 'Test string',
+                                url: 'Test string',
+                              },
+                            },
+                            text: 'Test string',
+                          },
+                          endIcon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          icon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                          startIcon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          switchControl: {
+                            controlType: 'Test string',
+                            name: 'Test string',
+                            onChangeAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            selected: true,
+                            value: 'Test string',
+                          },
+                          text: 'Test string',
+                          topLabel: 'Test string',
+                          wrapText: true,
+                        },
+                        divider: {},
+                        grid: {
+                          borderStyle: {
+                            cornerRadius: 42,
+                            strokeColor: {
+                              alpha: 42,
+                              blue: 42,
+                              green: 42,
+                              red: 42,
+                            },
+                            type: 'Test string',
+                          },
+                          columnCount: 42,
+                          items: [
+                            {
+                              id: 'Test string',
+                              image: {
+                                altText: 'Test string',
+                                borderStyle: {
+                                  cornerRadius: 42,
+                                  strokeColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                  },
+                                  type: 'Test string',
+                                },
+                                cropStyle: {
+                                  aspectRatio: 42,
+                                  type: 'Test string',
+                                },
+                                imageUri: 'Test string',
+                              },
+                              layout: 'Test string',
+                              subtitle: 'Test string',
+                              title: 'Test string',
+                            },
+                          ],
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                          title: 'Test string',
+                        },
+                        horizontalAlignment: 'Test string',
+                        image: {
+                          altText: 'Test string',
+                          imageUrl: 'Test string',
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                        },
+                        selectionInput: {
+                          externalDataSource: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          items: [
+                            {
+                              bottomText: 'Test string',
+                              selected: true,
+                              startIconUri: 'Test string',
+                              text: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          label: 'Test string',
+                          multiSelectMaxSelectedItems: 42,
+                          multiSelectMinQueryLength: 42,
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          platformDataSource: {
+                            commonDataSource: 'Test string',
+                            hostAppDataSource: {
+                              chatDataSource: {
+                                spaceDataSource: {
+                                  defaultToCurrentSpace: true,
+                                },
+                              },
+                            },
+                          },
+                          type: 'Test string',
+                        },
+                        textInput: {
+                          autoCompleteAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          hintText: 'Test string',
+                          initialSuggestions: {
+                            items: [
+                              {
+                                text: 'Test string',
+                              },
+                            ],
+                          },
+                          label: 'Test string',
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          placeholderText: 'Test string',
+                          type: 'Test string',
+                          value: 'Test string',
+                        },
+                        textParagraph: {
+                          text: 'Test string',
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          },
+          type: 'Test string',
+          updatedWidget: {
+            suggestions: {
+              items: [
+                {
+                  bottomText: 'Test string',
+                  selected: true,
+                  startIconUri: 'Test string',
+                  text: 'Test string',
+                  value: 'Test string',
+                },
+              ],
+            },
+            widget: 'Test string',
+          },
+          url: 'Test string',
+        },
+        annotations: [
+          {
+            length: 42,
+            slashCommand: {
+              bot: {
+                displayName: 'Test string',
+                domainId: 'Test string',
+                isAnonymous: true,
+                name: 'Test string',
+                type: 'Test string',
+              },
+              commandId: 'Test string',
+              commandName: 'Test string',
+              triggersDialog: true,
+              type: 'Test string',
+            },
+            startIndex: 42,
+            type: 'Test string',
+            userMention: {
+              type: 'Test string',
+              user: {
+                displayName: 'Test string',
+                domainId: 'Test string',
+                isAnonymous: true,
+                name: 'Test string',
+                type: 'Test string',
+              },
+            },
+          },
+        ],
+        argumentText: 'Test string',
+        attachedGifs: [
+          {
+            uri: 'Test string',
+          },
+        ],
+        attachment: [
+          {
+            attachmentDataRef: {
+              attachmentUploadToken: 'Test string',
+              resourceName: 'Test string',
+            },
+            contentName: 'Test string',
+            contentType: 'Test string',
+            downloadUri: 'Test string',
+            driveDataRef: {
+              driveFileId: 'Test string',
+            },
+            name: 'Test string',
+            source: 'Test string',
+            thumbnailUri: 'Test string',
+          },
+        ],
+        cards: [
+          {
+            cardActions: [
+              {
+                actionLabel: 'Test string',
+                onClick: {
+                  action: {
+                    actionMethodName: 'Test string',
+                    parameters: [
+                      {
+                        key: 'Test string',
+                        value: 'Test string',
+                      },
+                    ],
+                  },
+                  openLink: {
+                    url: 'Test string',
+                  },
+                },
+              },
+            ],
+            header: {
+              imageStyle: 'Test string',
+              imageUrl: 'Test string',
+              subtitle: 'Test string',
+              title: 'Test string',
+            },
+            name: 'Test string',
+            sections: [
+              {
+                header: 'Test string',
+                widgets: [
+                  {
+                    buttons: [
+                      {
+                        imageButton: {
+                          icon: 'Test string',
+                          iconUrl: 'Test string',
+                          name: 'Test string',
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                        },
+                        textButton: {
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                          text: 'Test string',
+                        },
+                      },
+                    ],
+                    image: {
+                      aspectRatio: 42,
+                      imageUrl: 'Test string',
+                      onClick: {
+                        action: {
+                          actionMethodName: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                        },
+                        openLink: {
+                          url: 'Test string',
+                        },
+                      },
+                    },
+                    keyValue: {
+                      bottomLabel: 'Test string',
+                      button: {
+                        imageButton: {
+                          icon: 'Test string',
+                          iconUrl: 'Test string',
+                          name: 'Test string',
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                        },
+                        textButton: {
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                          text: 'Test string',
+                        },
+                      },
+                      content: 'Test string',
+                      contentMultiline: true,
+                      icon: 'Test string',
+                      iconUrl: 'Test string',
+                      onClick: {
+                        action: {
+                          actionMethodName: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                        },
+                        openLink: {
+                          url: 'Test string',
+                        },
+                      },
+                      topLabel: 'Test string',
+                    },
+                    textParagraph: {
+                      text: 'Test string',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        cardsV2: [
+          {
+            card: {
+              cardActions: [
+                {
+                  actionLabel: 'Test string',
+                  onClick: {
+                    action: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    card: undefined,
+                    openDynamicLinkAction: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    openLink: {
+                      onClose: 'Test string',
+                      openAs: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                },
+              ],
+              displayStyle: 'Test string',
+              fixedFooter: {
+                primaryButton: {
+                  altText: 'Test string',
+                  color: {
+                    alpha: 42,
+                    blue: 42,
+                    green: 42,
+                    red: 42,
+                  },
+                  disabled: true,
+                  icon: {
+                    altText: 'Test string',
+                    iconUrl: 'Test string',
+                    imageType: 'Test string',
+                    knownIcon: 'Test string',
+                  },
+                  onClick: {
+                    action: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    card: undefined,
+                    openDynamicLinkAction: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    openLink: {
+                      onClose: 'Test string',
+                      openAs: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                  text: 'Test string',
+                },
+                secondaryButton: {
+                  altText: 'Test string',
+                  color: {
+                    alpha: 42,
+                    blue: 42,
+                    green: 42,
+                    red: 42,
+                  },
+                  disabled: true,
+                  icon: {
+                    altText: 'Test string',
+                    iconUrl: 'Test string',
+                    imageType: 'Test string',
+                    knownIcon: 'Test string',
+                  },
+                  onClick: {
+                    action: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    card: undefined,
+                    openDynamicLinkAction: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    openLink: {
+                      onClose: 'Test string',
+                      openAs: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                  text: 'Test string',
+                },
+              },
+              header: {
+                imageAltText: 'Test string',
+                imageType: 'Test string',
+                imageUrl: 'Test string',
+                subtitle: 'Test string',
+                title: 'Test string',
+              },
+              name: 'Test string',
+              peekCardHeader: {
+                imageAltText: 'Test string',
+                imageType: 'Test string',
+                imageUrl: 'Test string',
+                subtitle: 'Test string',
+                title: 'Test string',
+              },
+              sectionDividerStyle: 'Test string',
+              sections: [
+                {
+                  collapsible: true,
+                  header: 'Test string',
+                  uncollapsibleWidgetsCount: 42,
+                  widgets: [
+                    {
+                      buttonList: {
+                        buttons: [
+                          {
+                            altText: 'Test string',
+                            color: {
+                              alpha: 42,
+                              blue: 42,
+                              green: 42,
+                              red: 42,
+                            },
+                            disabled: true,
+                            icon: {
+                              altText: 'Test string',
+                              iconUrl: 'Test string',
+                              imageType: 'Test string',
+                              knownIcon: 'Test string',
+                            },
+                            onClick: {
+                              action: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              card: undefined,
+                              openDynamicLinkAction: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              openLink: {
+                                onClose: 'Test string',
+                                openAs: 'Test string',
+                                url: 'Test string',
+                              },
+                            },
+                            text: 'Test string',
+                          },
+                        ],
+                      },
+                      columns: {
+                        columnItems: [
+                          {
+                            horizontalAlignment: 'Test string',
+                            horizontalSizeStyle: 'Test string',
+                            verticalAlignment: 'Test string',
+                            widgets: [
+                              {
+                                buttonList: {
+                                  buttons: [
+                                    {
+                                      altText: 'Test string',
+                                      color: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                      },
+                                      disabled: true,
+                                      icon: {
+                                        altText: 'Test string',
+                                        iconUrl: 'Test string',
+                                        imageType: 'Test string',
+                                        knownIcon: 'Test string',
+                                      },
+                                      onClick: {
+                                        action: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        card: undefined,
+                                        openDynamicLinkAction: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        openLink: {
+                                          onClose: 'Test string',
+                                          openAs: 'Test string',
+                                          url: 'Test string',
+                                        },
+                                      },
+                                      text: 'Test string',
+                                    },
+                                  ],
+                                },
+                                dateTimePicker: {
+                                  label: 'Test string',
+                                  name: 'Test string',
+                                  onChangeAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  timezoneOffsetDate: 42,
+                                  type: 'Test string',
+                                  valueMsEpoch: 'Test string',
+                                },
+                                decoratedText: {
+                                  bottomLabel: 'Test string',
+                                  button: {
+                                    altText: 'Test string',
+                                    color: {
+                                      alpha: 42,
+                                      blue: 42,
+                                      green: 42,
+                                      red: 42,
+                                    },
+                                    disabled: true,
+                                    icon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    onClick: {
+                                      action: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      card: undefined,
+                                      openDynamicLinkAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      openLink: {
+                                        onClose: 'Test string',
+                                        openAs: 'Test string',
+                                        url: 'Test string',
+                                      },
+                                    },
+                                    text: 'Test string',
+                                  },
+                                  endIcon: {
+                                    altText: 'Test string',
+                                    iconUrl: 'Test string',
+                                    imageType: 'Test string',
+                                    knownIcon: 'Test string',
+                                  },
+                                  icon: {
+                                    altText: 'Test string',
+                                    iconUrl: 'Test string',
+                                    imageType: 'Test string',
+                                    knownIcon: 'Test string',
+                                  },
+                                  onClick: {
+                                    action: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    card: undefined,
+                                    openDynamicLinkAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    openLink: {
+                                      onClose: 'Test string',
+                                      openAs: 'Test string',
+                                      url: 'Test string',
+                                    },
+                                  },
+                                  startIcon: {
+                                    altText: 'Test string',
+                                    iconUrl: 'Test string',
+                                    imageType: 'Test string',
+                                    knownIcon: 'Test string',
+                                  },
+                                  switchControl: {
+                                    controlType: 'Test string',
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    selected: true,
+                                    value: 'Test string',
+                                  },
+                                  text: 'Test string',
+                                  topLabel: 'Test string',
+                                  wrapText: true,
+                                },
+                                image: {
+                                  altText: 'Test string',
+                                  imageUrl: 'Test string',
+                                  onClick: {
+                                    action: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    card: undefined,
+                                    openDynamicLinkAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    openLink: {
+                                      onClose: 'Test string',
+                                      openAs: 'Test string',
+                                      url: 'Test string',
+                                    },
+                                  },
+                                },
+                                selectionInput: {
+                                  externalDataSource: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  items: [
+                                    {
+                                      bottomText: 'Test string',
+                                      selected: true,
+                                      startIconUri: 'Test string',
+                                      text: 'Test string',
+                                      value: 'Test string',
+                                    },
+                                  ],
+                                  label: 'Test string',
+                                  multiSelectMaxSelectedItems: 42,
+                                  multiSelectMinQueryLength: 42,
+                                  name: 'Test string',
+                                  onChangeAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  platformDataSource: {
+                                    commonDataSource: 'Test string',
+                                    hostAppDataSource: {
+                                      chatDataSource: {
+                                        spaceDataSource: {
+                                          defaultToCurrentSpace: true,
+                                        },
+                                      },
+                                    },
+                                  },
+                                  type: 'Test string',
+                                },
+                                textInput: {
+                                  autoCompleteAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  hintText: 'Test string',
+                                  initialSuggestions: {
+                                    items: [
+                                      {
+                                        text: 'Test string',
+                                      },
+                                    ],
+                                  },
+                                  label: 'Test string',
+                                  name: 'Test string',
+                                  onChangeAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  placeholderText: 'Test string',
+                                  type: 'Test string',
+                                  value: 'Test string',
+                                },
+                                textParagraph: {
+                                  text: 'Test string',
+                                },
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                      dateTimePicker: {
+                        label: 'Test string',
+                        name: 'Test string',
+                        onChangeAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        timezoneOffsetDate: 42,
+                        type: 'Test string',
+                        valueMsEpoch: 'Test string',
+                      },
+                      decoratedText: {
+                        bottomLabel: 'Test string',
+                        button: {
+                          altText: 'Test string',
+                          color: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          disabled: true,
+                          icon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                          text: 'Test string',
+                        },
+                        endIcon: {
+                          altText: 'Test string',
+                          iconUrl: 'Test string',
+                          imageType: 'Test string',
+                          knownIcon: 'Test string',
+                        },
+                        icon: {
+                          altText: 'Test string',
+                          iconUrl: 'Test string',
+                          imageType: 'Test string',
+                          knownIcon: 'Test string',
+                        },
+                        onClick: {
+                          action: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          card: undefined,
+                          openDynamicLinkAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          openLink: {
+                            onClose: 'Test string',
+                            openAs: 'Test string',
+                            url: 'Test string',
+                          },
+                        },
+                        startIcon: {
+                          altText: 'Test string',
+                          iconUrl: 'Test string',
+                          imageType: 'Test string',
+                          knownIcon: 'Test string',
+                        },
+                        switchControl: {
+                          controlType: 'Test string',
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          selected: true,
+                          value: 'Test string',
+                        },
+                        text: 'Test string',
+                        topLabel: 'Test string',
+                        wrapText: true,
+                      },
+                      divider: {},
+                      grid: {
+                        borderStyle: {
+                          cornerRadius: 42,
+                          strokeColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          type: 'Test string',
+                        },
+                        columnCount: 42,
+                        items: [
+                          {
+                            id: 'Test string',
+                            image: {
+                              altText: 'Test string',
+                              borderStyle: {
+                                cornerRadius: 42,
+                                strokeColor: {
+                                  alpha: 42,
+                                  blue: 42,
+                                  green: 42,
+                                  red: 42,
+                                },
+                                type: 'Test string',
+                              },
+                              cropStyle: {
+                                aspectRatio: 42,
+                                type: 'Test string',
+                              },
+                              imageUri: 'Test string',
+                            },
+                            layout: 'Test string',
+                            subtitle: 'Test string',
+                            title: 'Test string',
+                          },
+                        ],
+                        onClick: {
+                          action: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          card: undefined,
+                          openDynamicLinkAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          openLink: {
+                            onClose: 'Test string',
+                            openAs: 'Test string',
+                            url: 'Test string',
+                          },
+                        },
+                        title: 'Test string',
+                      },
+                      horizontalAlignment: 'Test string',
+                      image: {
+                        altText: 'Test string',
+                        imageUrl: 'Test string',
+                        onClick: {
+                          action: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          card: undefined,
+                          openDynamicLinkAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          openLink: {
+                            onClose: 'Test string',
+                            openAs: 'Test string',
+                            url: 'Test string',
+                          },
+                        },
+                      },
+                      selectionInput: {
+                        externalDataSource: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        items: [
+                          {
+                            bottomText: 'Test string',
+                            selected: true,
+                            startIconUri: 'Test string',
+                            text: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        label: 'Test string',
+                        multiSelectMaxSelectedItems: 42,
+                        multiSelectMinQueryLength: 42,
+                        name: 'Test string',
+                        onChangeAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        platformDataSource: {
+                          commonDataSource: 'Test string',
+                          hostAppDataSource: {
+                            chatDataSource: {
+                              spaceDataSource: {
+                                defaultToCurrentSpace: true,
+                              },
+                            },
+                          },
+                        },
+                        type: 'Test string',
+                      },
+                      textInput: {
+                        autoCompleteAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        hintText: 'Test string',
+                        initialSuggestions: {
+                          items: [
+                            {
+                              text: 'Test string',
+                            },
+                          ],
+                        },
+                        label: 'Test string',
+                        name: 'Test string',
+                        onChangeAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        placeholderText: 'Test string',
+                        type: 'Test string',
+                        value: 'Test string',
+                      },
+                      textParagraph: {
+                        text: 'Test string',
+                      },
+                    },
+                  ],
+                },
+              ],
+            },
+            cardId: 'Test string',
+          },
+        ],
+        clientAssignedMessageId: 'Test string',
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        deletionMetadata: {
+          deletionType: 'Test string',
+        },
+        emojiReactionSummaries: [
+          {
+            emoji: {
+              customEmoji: {
+                uid: 'Test string',
+              },
+              unicode: 'Test string',
+            },
+            reactionCount: 42,
+          },
+        ],
+        fallbackText: 'Test string',
+        formattedText: 'Test string',
+        lastUpdateTime: 'Test string',
+        matchedUrl: {
+          url: 'Test string',
+        },
+        name: 'Test string',
+        quotedMessageMetadata: {
+          lastUpdateTime: 'Test string',
+          name: 'Test string',
+        },
+        sender: {
+          displayName: 'Test string',
+          domainId: 'Test string',
+          isAnonymous: true,
+          name: 'Test string',
+          type: 'Test string',
+        },
+        slashCommand: {
+          commandId: 'Test string',
+        },
+        space: {
+          adminInstalled: true,
+          displayName: 'Test string',
+          externalUserAllowed: true,
+          name: 'Test string',
+          singleUserBotDm: true,
+          spaceDetails: {
+            description: 'Test string',
+            guidelines: 'Test string',
+          },
+          spaceHistoryState: 'Test string',
+          spaceThreadingState: 'Test string',
+          spaceType: 'Test string',
+          threaded: true,
+          type: 'Test string',
+        },
+        text: 'Test string',
+        thread: {
+          name: 'Test string',
+          threadKey: 'Test string',
+        },
+        threadReply: true,
+      }
+    );
+    /** Updates a message. There's a difference between the `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend using the `patch` method. For an example, see [Update a message](https://developers.google.com/chat/api/guides/v1/messages/update). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Supports [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts) and [user authentication](https://developers.google.com/chat/api/guides/auth/users). When using app authentication, requests can only update messages created by the calling Chat app. */
+    await gapi.client.chat.spaces.messages.update(
+      {
+        allowMissing: true,
+        name: 'Test string',
+        updateMask: 'Test string',
+      },
+      {
+        actionResponse: {
+          dialogAction: {
+            actionStatus: {
+              statusCode: 'Test string',
+              userFacingMessage: 'Test string',
+            },
+            dialog: {
+              body: {
+                cardActions: [
+                  {
+                    actionLabel: 'Test string',
+                    onClick: {
+                      action: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      card: undefined,
+                      openDynamicLinkAction: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      openLink: {
+                        onClose: 'Test string',
+                        openAs: 'Test string',
+                        url: 'Test string',
+                      },
+                    },
+                  },
+                ],
+                displayStyle: 'Test string',
+                fixedFooter: {
+                  primaryButton: {
+                    altText: 'Test string',
+                    color: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
+                    },
+                    disabled: true,
+                    icon: {
+                      altText: 'Test string',
+                      iconUrl: 'Test string',
+                      imageType: 'Test string',
+                      knownIcon: 'Test string',
+                    },
+                    onClick: {
+                      action: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      card: undefined,
+                      openDynamicLinkAction: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      openLink: {
+                        onClose: 'Test string',
+                        openAs: 'Test string',
+                        url: 'Test string',
+                      },
+                    },
+                    text: 'Test string',
+                  },
+                  secondaryButton: {
+                    altText: 'Test string',
+                    color: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
+                    },
+                    disabled: true,
+                    icon: {
+                      altText: 'Test string',
+                      iconUrl: 'Test string',
+                      imageType: 'Test string',
+                      knownIcon: 'Test string',
+                    },
+                    onClick: {
+                      action: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      card: undefined,
+                      openDynamicLinkAction: {
+                        function: 'Test string',
+                        interaction: 'Test string',
+                        loadIndicator: 'Test string',
+                        parameters: [
+                          {
+                            key: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        persistValues: true,
+                      },
+                      openLink: {
+                        onClose: 'Test string',
+                        openAs: 'Test string',
+                        url: 'Test string',
+                      },
+                    },
+                    text: 'Test string',
+                  },
+                },
+                header: {
+                  imageAltText: 'Test string',
+                  imageType: 'Test string',
+                  imageUrl: 'Test string',
+                  subtitle: 'Test string',
+                  title: 'Test string',
+                },
+                name: 'Test string',
+                peekCardHeader: {
+                  imageAltText: 'Test string',
+                  imageType: 'Test string',
+                  imageUrl: 'Test string',
+                  subtitle: 'Test string',
+                  title: 'Test string',
+                },
+                sectionDividerStyle: 'Test string',
+                sections: [
+                  {
+                    collapsible: true,
+                    header: 'Test string',
+                    uncollapsibleWidgetsCount: 42,
+                    widgets: [
+                      {
+                        buttonList: {
+                          buttons: [
+                            {
+                              altText: 'Test string',
+                              color: {
+                                alpha: 42,
+                                blue: 42,
+                                green: 42,
+                                red: 42,
+                              },
+                              disabled: true,
+                              icon: {
+                                altText: 'Test string',
+                                iconUrl: 'Test string',
+                                imageType: 'Test string',
+                                knownIcon: 'Test string',
+                              },
+                              onClick: {
+                                action: {
+                                  function: 'Test string',
+                                  interaction: 'Test string',
+                                  loadIndicator: 'Test string',
+                                  parameters: [
+                                    {
+                                      key: 'Test string',
+                                      value: 'Test string',
+                                    },
+                                  ],
+                                  persistValues: true,
+                                },
+                                card: undefined,
+                                openDynamicLinkAction: {
+                                  function: 'Test string',
+                                  interaction: 'Test string',
+                                  loadIndicator: 'Test string',
+                                  parameters: [
+                                    {
+                                      key: 'Test string',
+                                      value: 'Test string',
+                                    },
+                                  ],
+                                  persistValues: true,
+                                },
+                                openLink: {
+                                  onClose: 'Test string',
+                                  openAs: 'Test string',
+                                  url: 'Test string',
+                                },
+                              },
+                              text: 'Test string',
+                            },
+                          ],
+                        },
+                        columns: {
+                          columnItems: [
+                            {
+                              horizontalAlignment: 'Test string',
+                              horizontalSizeStyle: 'Test string',
+                              verticalAlignment: 'Test string',
+                              widgets: [
+                                {
+                                  buttonList: {
+                                    buttons: [
+                                      {
+                                        altText: 'Test string',
+                                        color: {
+                                          alpha: 42,
+                                          blue: 42,
+                                          green: 42,
+                                          red: 42,
+                                        },
+                                        disabled: true,
+                                        icon: {
+                                          altText: 'Test string',
+                                          iconUrl: 'Test string',
+                                          imageType: 'Test string',
+                                          knownIcon: 'Test string',
+                                        },
+                                        onClick: {
+                                          action: {
+                                            function: 'Test string',
+                                            interaction: 'Test string',
+                                            loadIndicator: 'Test string',
+                                            parameters: [
+                                              {
+                                                key: 'Test string',
+                                                value: 'Test string',
+                                              },
+                                            ],
+                                            persistValues: true,
+                                          },
+                                          card: undefined,
+                                          openDynamicLinkAction: {
+                                            function: 'Test string',
+                                            interaction: 'Test string',
+                                            loadIndicator: 'Test string',
+                                            parameters: [
+                                              {
+                                                key: 'Test string',
+                                                value: 'Test string',
+                                              },
+                                            ],
+                                            persistValues: true,
+                                          },
+                                          openLink: {
+                                            onClose: 'Test string',
+                                            openAs: 'Test string',
+                                            url: 'Test string',
+                                          },
+                                        },
+                                        text: 'Test string',
+                                      },
+                                    ],
+                                  },
+                                  dateTimePicker: {
+                                    label: 'Test string',
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    timezoneOffsetDate: 42,
+                                    type: 'Test string',
+                                    valueMsEpoch: 'Test string',
+                                  },
+                                  decoratedText: {
+                                    bottomLabel: 'Test string',
+                                    button: {
+                                      altText: 'Test string',
+                                      color: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                      },
+                                      disabled: true,
+                                      icon: {
+                                        altText: 'Test string',
+                                        iconUrl: 'Test string',
+                                        imageType: 'Test string',
+                                        knownIcon: 'Test string',
+                                      },
+                                      onClick: {
+                                        action: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        card: undefined,
+                                        openDynamicLinkAction: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        openLink: {
+                                          onClose: 'Test string',
+                                          openAs: 'Test string',
+                                          url: 'Test string',
+                                        },
+                                      },
+                                      text: 'Test string',
+                                    },
+                                    endIcon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    icon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    onClick: {
+                                      action: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      card: undefined,
+                                      openDynamicLinkAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      openLink: {
+                                        onClose: 'Test string',
+                                        openAs: 'Test string',
+                                        url: 'Test string',
+                                      },
+                                    },
+                                    startIcon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    switchControl: {
+                                      controlType: 'Test string',
+                                      name: 'Test string',
+                                      onChangeAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      selected: true,
+                                      value: 'Test string',
+                                    },
+                                    text: 'Test string',
+                                    topLabel: 'Test string',
+                                    wrapText: true,
+                                  },
+                                  image: {
+                                    altText: 'Test string',
+                                    imageUrl: 'Test string',
+                                    onClick: {
+                                      action: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      card: undefined,
+                                      openDynamicLinkAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      openLink: {
+                                        onClose: 'Test string',
+                                        openAs: 'Test string',
+                                        url: 'Test string',
+                                      },
+                                    },
+                                  },
+                                  selectionInput: {
+                                    externalDataSource: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    items: [
+                                      {
+                                        bottomText: 'Test string',
+                                        selected: true,
+                                        startIconUri: 'Test string',
+                                        text: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    label: 'Test string',
+                                    multiSelectMaxSelectedItems: 42,
+                                    multiSelectMinQueryLength: 42,
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    platformDataSource: {
+                                      commonDataSource: 'Test string',
+                                      hostAppDataSource: {
+                                        chatDataSource: {
+                                          spaceDataSource: {
+                                            defaultToCurrentSpace: true,
+                                          },
+                                        },
+                                      },
+                                    },
+                                    type: 'Test string',
+                                  },
+                                  textInput: {
+                                    autoCompleteAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    hintText: 'Test string',
+                                    initialSuggestions: {
+                                      items: [
+                                        {
+                                          text: 'Test string',
+                                        },
+                                      ],
+                                    },
+                                    label: 'Test string',
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    placeholderText: 'Test string',
+                                    type: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                  textParagraph: {
+                                    text: 'Test string',
+                                  },
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        dateTimePicker: {
+                          label: 'Test string',
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          timezoneOffsetDate: 42,
+                          type: 'Test string',
+                          valueMsEpoch: 'Test string',
+                        },
+                        decoratedText: {
+                          bottomLabel: 'Test string',
+                          button: {
+                            altText: 'Test string',
+                            color: {
+                              alpha: 42,
+                              blue: 42,
+                              green: 42,
+                              red: 42,
+                            },
+                            disabled: true,
+                            icon: {
+                              altText: 'Test string',
+                              iconUrl: 'Test string',
+                              imageType: 'Test string',
+                              knownIcon: 'Test string',
+                            },
+                            onClick: {
+                              action: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              card: undefined,
+                              openDynamicLinkAction: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              openLink: {
+                                onClose: 'Test string',
+                                openAs: 'Test string',
+                                url: 'Test string',
+                              },
+                            },
+                            text: 'Test string',
+                          },
+                          endIcon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          icon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                          startIcon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          switchControl: {
+                            controlType: 'Test string',
+                            name: 'Test string',
+                            onChangeAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            selected: true,
+                            value: 'Test string',
+                          },
+                          text: 'Test string',
+                          topLabel: 'Test string',
+                          wrapText: true,
+                        },
+                        divider: {},
+                        grid: {
+                          borderStyle: {
+                            cornerRadius: 42,
+                            strokeColor: {
+                              alpha: 42,
+                              blue: 42,
+                              green: 42,
+                              red: 42,
+                            },
+                            type: 'Test string',
+                          },
+                          columnCount: 42,
+                          items: [
+                            {
+                              id: 'Test string',
+                              image: {
+                                altText: 'Test string',
+                                borderStyle: {
+                                  cornerRadius: 42,
+                                  strokeColor: {
+                                    alpha: 42,
+                                    blue: 42,
+                                    green: 42,
+                                    red: 42,
+                                  },
+                                  type: 'Test string',
+                                },
+                                cropStyle: {
+                                  aspectRatio: 42,
+                                  type: 'Test string',
+                                },
+                                imageUri: 'Test string',
+                              },
+                              layout: 'Test string',
+                              subtitle: 'Test string',
+                              title: 'Test string',
+                            },
+                          ],
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                          title: 'Test string',
+                        },
+                        horizontalAlignment: 'Test string',
+                        image: {
+                          altText: 'Test string',
+                          imageUrl: 'Test string',
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                        },
+                        selectionInput: {
+                          externalDataSource: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          items: [
+                            {
+                              bottomText: 'Test string',
+                              selected: true,
+                              startIconUri: 'Test string',
+                              text: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          label: 'Test string',
+                          multiSelectMaxSelectedItems: 42,
+                          multiSelectMinQueryLength: 42,
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          platformDataSource: {
+                            commonDataSource: 'Test string',
+                            hostAppDataSource: {
+                              chatDataSource: {
+                                spaceDataSource: {
+                                  defaultToCurrentSpace: true,
+                                },
+                              },
+                            },
+                          },
+                          type: 'Test string',
+                        },
+                        textInput: {
+                          autoCompleteAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          hintText: 'Test string',
+                          initialSuggestions: {
+                            items: [
+                              {
+                                text: 'Test string',
+                              },
+                            ],
+                          },
+                          label: 'Test string',
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          placeholderText: 'Test string',
+                          type: 'Test string',
+                          value: 'Test string',
+                        },
+                        textParagraph: {
+                          text: 'Test string',
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          },
+          type: 'Test string',
+          updatedWidget: {
+            suggestions: {
+              items: [
+                {
+                  bottomText: 'Test string',
+                  selected: true,
+                  startIconUri: 'Test string',
+                  text: 'Test string',
+                  value: 'Test string',
+                },
+              ],
+            },
+            widget: 'Test string',
+          },
+          url: 'Test string',
+        },
+        annotations: [
+          {
+            length: 42,
+            slashCommand: {
+              bot: {
+                displayName: 'Test string',
+                domainId: 'Test string',
+                isAnonymous: true,
+                name: 'Test string',
+                type: 'Test string',
+              },
+              commandId: 'Test string',
+              commandName: 'Test string',
+              triggersDialog: true,
+              type: 'Test string',
+            },
+            startIndex: 42,
+            type: 'Test string',
+            userMention: {
+              type: 'Test string',
+              user: {
+                displayName: 'Test string',
+                domainId: 'Test string',
+                isAnonymous: true,
+                name: 'Test string',
+                type: 'Test string',
+              },
+            },
+          },
+        ],
+        argumentText: 'Test string',
+        attachedGifs: [
+          {
+            uri: 'Test string',
+          },
+        ],
+        attachment: [
+          {
+            attachmentDataRef: {
+              attachmentUploadToken: 'Test string',
+              resourceName: 'Test string',
+            },
+            contentName: 'Test string',
+            contentType: 'Test string',
+            downloadUri: 'Test string',
+            driveDataRef: {
+              driveFileId: 'Test string',
+            },
+            name: 'Test string',
+            source: 'Test string',
+            thumbnailUri: 'Test string',
+          },
+        ],
+        cards: [
+          {
+            cardActions: [
+              {
+                actionLabel: 'Test string',
+                onClick: {
+                  action: {
+                    actionMethodName: 'Test string',
+                    parameters: [
+                      {
+                        key: 'Test string',
+                        value: 'Test string',
+                      },
+                    ],
+                  },
+                  openLink: {
+                    url: 'Test string',
+                  },
+                },
+              },
+            ],
+            header: {
+              imageStyle: 'Test string',
+              imageUrl: 'Test string',
+              subtitle: 'Test string',
+              title: 'Test string',
+            },
+            name: 'Test string',
+            sections: [
+              {
+                header: 'Test string',
+                widgets: [
+                  {
+                    buttons: [
+                      {
+                        imageButton: {
+                          icon: 'Test string',
+                          iconUrl: 'Test string',
+                          name: 'Test string',
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                        },
+                        textButton: {
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                          text: 'Test string',
+                        },
+                      },
+                    ],
+                    image: {
+                      aspectRatio: 42,
+                      imageUrl: 'Test string',
+                      onClick: {
+                        action: {
+                          actionMethodName: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                        },
+                        openLink: {
+                          url: 'Test string',
+                        },
+                      },
+                    },
+                    keyValue: {
+                      bottomLabel: 'Test string',
+                      button: {
+                        imageButton: {
+                          icon: 'Test string',
+                          iconUrl: 'Test string',
+                          name: 'Test string',
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                        },
+                        textButton: {
+                          onClick: {
+                            action: {
+                              actionMethodName: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                            },
+                            openLink: {
+                              url: 'Test string',
+                            },
+                          },
+                          text: 'Test string',
+                        },
+                      },
+                      content: 'Test string',
+                      contentMultiline: true,
+                      icon: 'Test string',
+                      iconUrl: 'Test string',
+                      onClick: {
+                        action: {
+                          actionMethodName: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                        },
+                        openLink: {
+                          url: 'Test string',
+                        },
+                      },
+                      topLabel: 'Test string',
+                    },
+                    textParagraph: {
+                      text: 'Test string',
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        cardsV2: [
+          {
+            card: {
+              cardActions: [
+                {
+                  actionLabel: 'Test string',
+                  onClick: {
+                    action: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    card: undefined,
+                    openDynamicLinkAction: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    openLink: {
+                      onClose: 'Test string',
+                      openAs: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                },
+              ],
+              displayStyle: 'Test string',
+              fixedFooter: {
+                primaryButton: {
+                  altText: 'Test string',
+                  color: {
+                    alpha: 42,
+                    blue: 42,
+                    green: 42,
+                    red: 42,
+                  },
+                  disabled: true,
+                  icon: {
+                    altText: 'Test string',
+                    iconUrl: 'Test string',
+                    imageType: 'Test string',
+                    knownIcon: 'Test string',
+                  },
+                  onClick: {
+                    action: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    card: undefined,
+                    openDynamicLinkAction: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    openLink: {
+                      onClose: 'Test string',
+                      openAs: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                  text: 'Test string',
+                },
+                secondaryButton: {
+                  altText: 'Test string',
+                  color: {
+                    alpha: 42,
+                    blue: 42,
+                    green: 42,
+                    red: 42,
+                  },
+                  disabled: true,
+                  icon: {
+                    altText: 'Test string',
+                    iconUrl: 'Test string',
+                    imageType: 'Test string',
+                    knownIcon: 'Test string',
+                  },
+                  onClick: {
+                    action: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    card: undefined,
+                    openDynamicLinkAction: {
+                      function: 'Test string',
+                      interaction: 'Test string',
+                      loadIndicator: 'Test string',
+                      parameters: [
+                        {
+                          key: 'Test string',
+                          value: 'Test string',
+                        },
+                      ],
+                      persistValues: true,
+                    },
+                    openLink: {
+                      onClose: 'Test string',
+                      openAs: 'Test string',
+                      url: 'Test string',
+                    },
+                  },
+                  text: 'Test string',
+                },
+              },
+              header: {
+                imageAltText: 'Test string',
+                imageType: 'Test string',
+                imageUrl: 'Test string',
+                subtitle: 'Test string',
+                title: 'Test string',
+              },
+              name: 'Test string',
+              peekCardHeader: {
+                imageAltText: 'Test string',
+                imageType: 'Test string',
+                imageUrl: 'Test string',
+                subtitle: 'Test string',
+                title: 'Test string',
+              },
+              sectionDividerStyle: 'Test string',
+              sections: [
+                {
+                  collapsible: true,
+                  header: 'Test string',
+                  uncollapsibleWidgetsCount: 42,
+                  widgets: [
+                    {
+                      buttonList: {
+                        buttons: [
+                          {
+                            altText: 'Test string',
+                            color: {
+                              alpha: 42,
+                              blue: 42,
+                              green: 42,
+                              red: 42,
+                            },
+                            disabled: true,
+                            icon: {
+                              altText: 'Test string',
+                              iconUrl: 'Test string',
+                              imageType: 'Test string',
+                              knownIcon: 'Test string',
+                            },
+                            onClick: {
+                              action: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              card: undefined,
+                              openDynamicLinkAction: {
+                                function: 'Test string',
+                                interaction: 'Test string',
+                                loadIndicator: 'Test string',
+                                parameters: [
+                                  {
+                                    key: 'Test string',
+                                    value: 'Test string',
+                                  },
+                                ],
+                                persistValues: true,
+                              },
+                              openLink: {
+                                onClose: 'Test string',
+                                openAs: 'Test string',
+                                url: 'Test string',
+                              },
+                            },
+                            text: 'Test string',
+                          },
+                        ],
+                      },
+                      columns: {
+                        columnItems: [
+                          {
+                            horizontalAlignment: 'Test string',
+                            horizontalSizeStyle: 'Test string',
+                            verticalAlignment: 'Test string',
+                            widgets: [
+                              {
+                                buttonList: {
+                                  buttons: [
+                                    {
+                                      altText: 'Test string',
+                                      color: {
+                                        alpha: 42,
+                                        blue: 42,
+                                        green: 42,
+                                        red: 42,
+                                      },
+                                      disabled: true,
+                                      icon: {
+                                        altText: 'Test string',
+                                        iconUrl: 'Test string',
+                                        imageType: 'Test string',
+                                        knownIcon: 'Test string',
+                                      },
+                                      onClick: {
+                                        action: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        card: undefined,
+                                        openDynamicLinkAction: {
+                                          function: 'Test string',
+                                          interaction: 'Test string',
+                                          loadIndicator: 'Test string',
+                                          parameters: [
+                                            {
+                                              key: 'Test string',
+                                              value: 'Test string',
+                                            },
+                                          ],
+                                          persistValues: true,
+                                        },
+                                        openLink: {
+                                          onClose: 'Test string',
+                                          openAs: 'Test string',
+                                          url: 'Test string',
+                                        },
+                                      },
+                                      text: 'Test string',
+                                    },
+                                  ],
+                                },
+                                dateTimePicker: {
+                                  label: 'Test string',
+                                  name: 'Test string',
+                                  onChangeAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  timezoneOffsetDate: 42,
+                                  type: 'Test string',
+                                  valueMsEpoch: 'Test string',
+                                },
+                                decoratedText: {
+                                  bottomLabel: 'Test string',
+                                  button: {
+                                    altText: 'Test string',
+                                    color: {
+                                      alpha: 42,
+                                      blue: 42,
+                                      green: 42,
+                                      red: 42,
+                                    },
+                                    disabled: true,
+                                    icon: {
+                                      altText: 'Test string',
+                                      iconUrl: 'Test string',
+                                      imageType: 'Test string',
+                                      knownIcon: 'Test string',
+                                    },
+                                    onClick: {
+                                      action: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      card: undefined,
+                                      openDynamicLinkAction: {
+                                        function: 'Test string',
+                                        interaction: 'Test string',
+                                        loadIndicator: 'Test string',
+                                        parameters: [
+                                          {
+                                            key: 'Test string',
+                                            value: 'Test string',
+                                          },
+                                        ],
+                                        persistValues: true,
+                                      },
+                                      openLink: {
+                                        onClose: 'Test string',
+                                        openAs: 'Test string',
+                                        url: 'Test string',
+                                      },
+                                    },
+                                    text: 'Test string',
+                                  },
+                                  endIcon: {
+                                    altText: 'Test string',
+                                    iconUrl: 'Test string',
+                                    imageType: 'Test string',
+                                    knownIcon: 'Test string',
+                                  },
+                                  icon: {
+                                    altText: 'Test string',
+                                    iconUrl: 'Test string',
+                                    imageType: 'Test string',
+                                    knownIcon: 'Test string',
+                                  },
+                                  onClick: {
+                                    action: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    card: undefined,
+                                    openDynamicLinkAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    openLink: {
+                                      onClose: 'Test string',
+                                      openAs: 'Test string',
+                                      url: 'Test string',
+                                    },
+                                  },
+                                  startIcon: {
+                                    altText: 'Test string',
+                                    iconUrl: 'Test string',
+                                    imageType: 'Test string',
+                                    knownIcon: 'Test string',
+                                  },
+                                  switchControl: {
+                                    controlType: 'Test string',
+                                    name: 'Test string',
+                                    onChangeAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    selected: true,
+                                    value: 'Test string',
+                                  },
+                                  text: 'Test string',
+                                  topLabel: 'Test string',
+                                  wrapText: true,
+                                },
+                                image: {
+                                  altText: 'Test string',
+                                  imageUrl: 'Test string',
+                                  onClick: {
+                                    action: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    card: undefined,
+                                    openDynamicLinkAction: {
+                                      function: 'Test string',
+                                      interaction: 'Test string',
+                                      loadIndicator: 'Test string',
+                                      parameters: [
+                                        {
+                                          key: 'Test string',
+                                          value: 'Test string',
+                                        },
+                                      ],
+                                      persistValues: true,
+                                    },
+                                    openLink: {
+                                      onClose: 'Test string',
+                                      openAs: 'Test string',
+                                      url: 'Test string',
+                                    },
+                                  },
+                                },
+                                selectionInput: {
+                                  externalDataSource: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  items: [
+                                    {
+                                      bottomText: 'Test string',
+                                      selected: true,
+                                      startIconUri: 'Test string',
+                                      text: 'Test string',
+                                      value: 'Test string',
+                                    },
+                                  ],
+                                  label: 'Test string',
+                                  multiSelectMaxSelectedItems: 42,
+                                  multiSelectMinQueryLength: 42,
+                                  name: 'Test string',
+                                  onChangeAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  platformDataSource: {
+                                    commonDataSource: 'Test string',
+                                    hostAppDataSource: {
+                                      chatDataSource: {
+                                        spaceDataSource: {
+                                          defaultToCurrentSpace: true,
+                                        },
+                                      },
+                                    },
+                                  },
+                                  type: 'Test string',
+                                },
+                                textInput: {
+                                  autoCompleteAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  hintText: 'Test string',
+                                  initialSuggestions: {
+                                    items: [
+                                      {
+                                        text: 'Test string',
+                                      },
+                                    ],
+                                  },
+                                  label: 'Test string',
+                                  name: 'Test string',
+                                  onChangeAction: {
+                                    function: 'Test string',
+                                    interaction: 'Test string',
+                                    loadIndicator: 'Test string',
+                                    parameters: [
+                                      {
+                                        key: 'Test string',
+                                        value: 'Test string',
+                                      },
+                                    ],
+                                    persistValues: true,
+                                  },
+                                  placeholderText: 'Test string',
+                                  type: 'Test string',
+                                  value: 'Test string',
+                                },
+                                textParagraph: {
+                                  text: 'Test string',
+                                },
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                      dateTimePicker: {
+                        label: 'Test string',
+                        name: 'Test string',
+                        onChangeAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        timezoneOffsetDate: 42,
+                        type: 'Test string',
+                        valueMsEpoch: 'Test string',
+                      },
+                      decoratedText: {
+                        bottomLabel: 'Test string',
+                        button: {
+                          altText: 'Test string',
+                          color: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          disabled: true,
+                          icon: {
+                            altText: 'Test string',
+                            iconUrl: 'Test string',
+                            imageType: 'Test string',
+                            knownIcon: 'Test string',
+                          },
+                          onClick: {
+                            action: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            card: undefined,
+                            openDynamicLinkAction: {
+                              function: 'Test string',
+                              interaction: 'Test string',
+                              loadIndicator: 'Test string',
+                              parameters: [
+                                {
+                                  key: 'Test string',
+                                  value: 'Test string',
+                                },
+                              ],
+                              persistValues: true,
+                            },
+                            openLink: {
+                              onClose: 'Test string',
+                              openAs: 'Test string',
+                              url: 'Test string',
+                            },
+                          },
+                          text: 'Test string',
+                        },
+                        endIcon: {
+                          altText: 'Test string',
+                          iconUrl: 'Test string',
+                          imageType: 'Test string',
+                          knownIcon: 'Test string',
+                        },
+                        icon: {
+                          altText: 'Test string',
+                          iconUrl: 'Test string',
+                          imageType: 'Test string',
+                          knownIcon: 'Test string',
+                        },
+                        onClick: {
+                          action: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          card: undefined,
+                          openDynamicLinkAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          openLink: {
+                            onClose: 'Test string',
+                            openAs: 'Test string',
+                            url: 'Test string',
+                          },
+                        },
+                        startIcon: {
+                          altText: 'Test string',
+                          iconUrl: 'Test string',
+                          imageType: 'Test string',
+                          knownIcon: 'Test string',
+                        },
+                        switchControl: {
+                          controlType: 'Test string',
+                          name: 'Test string',
+                          onChangeAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          selected: true,
+                          value: 'Test string',
+                        },
+                        text: 'Test string',
+                        topLabel: 'Test string',
+                        wrapText: true,
+                      },
+                      divider: {},
+                      grid: {
+                        borderStyle: {
+                          cornerRadius: 42,
+                          strokeColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          type: 'Test string',
+                        },
+                        columnCount: 42,
+                        items: [
+                          {
+                            id: 'Test string',
+                            image: {
+                              altText: 'Test string',
+                              borderStyle: {
+                                cornerRadius: 42,
+                                strokeColor: {
+                                  alpha: 42,
+                                  blue: 42,
+                                  green: 42,
+                                  red: 42,
+                                },
+                                type: 'Test string',
+                              },
+                              cropStyle: {
+                                aspectRatio: 42,
+                                type: 'Test string',
+                              },
+                              imageUri: 'Test string',
+                            },
+                            layout: 'Test string',
+                            subtitle: 'Test string',
+                            title: 'Test string',
+                          },
+                        ],
+                        onClick: {
+                          action: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          card: undefined,
+                          openDynamicLinkAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          openLink: {
+                            onClose: 'Test string',
+                            openAs: 'Test string',
+                            url: 'Test string',
+                          },
+                        },
+                        title: 'Test string',
+                      },
+                      horizontalAlignment: 'Test string',
+                      image: {
+                        altText: 'Test string',
+                        imageUrl: 'Test string',
+                        onClick: {
+                          action: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          card: undefined,
+                          openDynamicLinkAction: {
+                            function: 'Test string',
+                            interaction: 'Test string',
+                            loadIndicator: 'Test string',
+                            parameters: [
+                              {
+                                key: 'Test string',
+                                value: 'Test string',
+                              },
+                            ],
+                            persistValues: true,
+                          },
+                          openLink: {
+                            onClose: 'Test string',
+                            openAs: 'Test string',
+                            url: 'Test string',
+                          },
+                        },
+                      },
+                      selectionInput: {
+                        externalDataSource: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        items: [
+                          {
+                            bottomText: 'Test string',
+                            selected: true,
+                            startIconUri: 'Test string',
+                            text: 'Test string',
+                            value: 'Test string',
+                          },
+                        ],
+                        label: 'Test string',
+                        multiSelectMaxSelectedItems: 42,
+                        multiSelectMinQueryLength: 42,
+                        name: 'Test string',
+                        onChangeAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        platformDataSource: {
+                          commonDataSource: 'Test string',
+                          hostAppDataSource: {
+                            chatDataSource: {
+                              spaceDataSource: {
+                                defaultToCurrentSpace: true,
+                              },
+                            },
+                          },
+                        },
+                        type: 'Test string',
+                      },
+                      textInput: {
+                        autoCompleteAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        hintText: 'Test string',
+                        initialSuggestions: {
+                          items: [
+                            {
+                              text: 'Test string',
+                            },
+                          ],
+                        },
+                        label: 'Test string',
+                        name: 'Test string',
+                        onChangeAction: {
+                          function: 'Test string',
+                          interaction: 'Test string',
+                          loadIndicator: 'Test string',
+                          parameters: [
+                            {
+                              key: 'Test string',
+                              value: 'Test string',
+                            },
+                          ],
+                          persistValues: true,
+                        },
+                        placeholderText: 'Test string',
+                        type: 'Test string',
+                        value: 'Test string',
+                      },
+                      textParagraph: {
+                        text: 'Test string',
+                      },
+                    },
+                  ],
+                },
+              ],
+            },
+            cardId: 'Test string',
+          },
+        ],
+        clientAssignedMessageId: 'Test string',
+        createTime: 'Test string',
+        deleteTime: 'Test string',
+        deletionMetadata: {
+          deletionType: 'Test string',
+        },
+        emojiReactionSummaries: [
+          {
+            emoji: {
+              customEmoji: {
+                uid: 'Test string',
+              },
+              unicode: 'Test string',
+            },
+            reactionCount: 42,
+          },
+        ],
+        fallbackText: 'Test string',
+        formattedText: 'Test string',
+        lastUpdateTime: 'Test string',
+        matchedUrl: {
+          url: 'Test string',
+        },
+        name: 'Test string',
+        quotedMessageMetadata: {
+          lastUpdateTime: 'Test string',
+          name: 'Test string',
+        },
+        sender: {
+          displayName: 'Test string',
+          domainId: 'Test string',
+          isAnonymous: true,
+          name: 'Test string',
+          type: 'Test string',
+        },
+        slashCommand: {
+          commandId: 'Test string',
+        },
+        space: {
+          adminInstalled: true,
+          displayName: 'Test string',
+          externalUserAllowed: true,
+          name: 'Test string',
+          singleUserBotDm: true,
+          spaceDetails: {
+            description: 'Test string',
+            guidelines: 'Test string',
+          },
+          spaceHistoryState: 'Test string',
+          spaceThreadingState: 'Test string',
+          spaceType: 'Test string',
+          threaded: true,
+          type: 'Test string',
+        },
+        text: 'Test string',
+        thread: {
+          name: 'Test string',
+          threadKey: 'Test string',
+        },
+        threadReply: true,
+      }
+    );
+    /** Gets the metadata of a message attachment. The attachment data is fetched using the [media API](https://developers.google.com/chat/api/reference/rest/v1/media/download). For an example, see [Get a message attachment](https://developers.google.com/chat/api/guides/v1/media-and-attachments/get). Requires [app authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). */
+    await gapi.client.chat.spaces.messages.attachments.get({
+      name: 'Test string',
+    });
+    /** Creates a reaction and adds it to a message. For an example, see [Create a reaction](https://developers.google.com/chat/api/guides/v1/reactions/create). Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users). Only unicode emoji are supported. */
+    await gapi.client.chat.spaces.messages.reactions.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        emoji: {
+          customEmoji: {
+            uid: 'Test string',
+          },
+          unicode: 'Test string',
+        },
+        name: 'Test string',
+        user: {
+          displayName: 'Test string',
+          domainId: 'Test string',
+          isAnonymous: true,
+          name: 'Test string',
+          type: 'Test string',
+        },
+      }
+    );
+    /** Deletes a reaction to a message. For an example, see [Delete a reaction](https://developers.google.com/chat/api/guides/v1/reactions/delete). Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.messages.reactions.delete({
+      name: 'Test string',
+    });
+    /** Lists reactions to a message. For an example, see [List reactions](https://developers.google.com/chat/api/guides/v1/reactions/list). Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users). */
+    await gapi.client.chat.spaces.messages.reactions.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+  }
 });

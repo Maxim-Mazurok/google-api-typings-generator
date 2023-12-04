@@ -25,10 +25,13 @@ gapi.load('client', () => {
 Then load api client wrapper:
 
 ```typescript
-gapi.client.load('https://adexperiencereport.googleapis.com/$discovery/rest?version=v1', () => {
-  // now we can use:
-  // gapi.client.adexperiencereport
-});
+gapi.client.load(
+  'https://adexperiencereport.googleapis.com/$discovery/rest?version=v1',
+  () => {
+    // now we can use:
+    // gapi.client.adexperiencereport
+  }
+);
 ```
 
 ```typescript
@@ -39,19 +42,16 @@ gapi.client.load('adexperiencereport', 'v1', () => {
 });
 ```
 
-
-
 After that you can use Ad Experience Report API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
 /*
 Gets a site's Ad Experience Report summary.
 */
-await gapi.client.adexperiencereport.sites.get({ name: "name",  });
+await gapi.client.adexperiencereport.sites.get({name: 'name'});
 
 /*
 Lists sites that are failing in the Ad Experience Report on at least one platform.
 */
-await gapi.client.adexperiencereport.violatingSites.list({  });
+await gapi.client.adexperiencereport.violatingSites.list({});
 ```

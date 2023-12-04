@@ -6,275 +6,272 @@
 // Revision: 20231106
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://workloadmanager.googleapis.com/$discovery/rest?version=v1');
-    /** now we can use gapi.client.workloadmanager */
+  await gapi.client.load(
+    'https://workloadmanager.googleapis.com/$discovery/rest?version=v1'
+  );
+  /** now we can use gapi.client.workloadmanager */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
-        'https://www.googleapis.com/auth/cloud-platform',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
-
-    async function run() {
-        /** Gets information about a location. */
-        await gapi.client.workloadmanager.projects.locations.get({
-            name: "Test string",
-        });
-        /** Lists information about the supported locations for this service. */
-        await gapi.client.workloadmanager.projects.locations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Creates a new Evaluation in a given project and location. */
-        await gapi.client.workloadmanager.projects.locations.evaluations.create({
-            evaluationId: "Test string",
-            parent: "Test string",
-            requestId: "Test string",
-        }, {
-            createTime: "Test string",
-            customRulesBucket: "Test string",
-            description: "Test string",
-            labels: {
-                A: "Test string"
-            },
-            name: "Test string",
-            resourceFilter: {
-                gceInstanceFilter: {
-                    serviceAccounts: [
-                        "Test string"
-                    ],
-                },
-                inclusionLabels: {
-                    A: "Test string"
-                },
-                resourceIdPatterns: [
-                    "Test string"
-                ],
-                scopes: [
-                    "Test string"
-                ],
-            },
-            resourceStatus: {
-                rulesNewerVersions: [
-                    "Test string"
-                ],
-                state: "Test string",
-            },
-            ruleNames: [
-                "Test string"
-            ],
-            ruleVersions: [
-                "Test string"
-            ],
-            schedule: "Test string",
-            updateTime: "Test string",
-        });
-        /** Gets details of a single Evaluation. */
-        await gapi.client.workloadmanager.projects.locations.evaluations.get({
-            name: "Test string",
-        });
-        /** Lists Evaluations in a given project and location. */
-        await gapi.client.workloadmanager.projects.locations.evaluations.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Gets details of a single Execution. */
-        await gapi.client.workloadmanager.projects.locations.evaluations.executions.get({
-            name: "Test string",
-        });
-        /** Lists Executions in a given project and location. */
-        await gapi.client.workloadmanager.projects.locations.evaluations.executions.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Creates a new Execution in a given project and location. */
-        await gapi.client.workloadmanager.projects.locations.evaluations.executions.run({
-            name: "Test string",
-        }, {
-            execution: {
-                endTime: "Test string",
-                evaluationId: "Test string",
-                inventoryTime: "Test string",
-                labels: {
-                    A: "Test string"
-                },
-                name: "Test string",
-                runType: "Test string",
-                startTime: "Test string",
-                state: "Test string",
-            },
-            executionId: "Test string",
-            requestId: "Test string",
-        });
-        /** List the running result of a single Execution. */
-        await gapi.client.workloadmanager.projects.locations.evaluations.executions.results.list({
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** List all scanned resources for a single Execution. */
-        await gapi.client.workloadmanager.projects.locations.evaluations.executions.scannedResources.list({
-            filter: "Test string",
-            orderBy: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            rule: "Test string",
-        });
-        /** Write the data insights to workload manager data warehouse. */
-        await gapi.client.workloadmanager.projects.locations.insights.writeInsight({
-            location: "Test string",
-        }, {
-            insight: {
-                instanceId: "Test string",
-                sapDiscovery: {
-                    applicationLayer: {
-                        applicationProperties: {
-                            applicationType: "Test string",
-                            ascsUri: "Test string",
-                            nfsUri: "Test string",
-                        },
-                        databaseProperties: {
-                            databaseType: "Test string",
-                            primaryInstanceUri: "Test string",
-                            sharedNfsUri: "Test string",
-                        },
-                        hostProject: "Test string",
-                        resources: [
-                            {
-                                relatedResources: [
-                                    "Test string"
-                                ],
-                                resourceKind: "Test string",
-                                resourceType: "Test string",
-                                resourceUri: "Test string",
-                                updateTime: "Test string",
-                            }
-                        ],
-                        sid: "Test string",
-                    },
-                    databaseLayer: {
-                        applicationProperties: {
-                            applicationType: "Test string",
-                            ascsUri: "Test string",
-                            nfsUri: "Test string",
-                        },
-                        databaseProperties: {
-                            databaseType: "Test string",
-                            primaryInstanceUri: "Test string",
-                            sharedNfsUri: "Test string",
-                        },
-                        hostProject: "Test string",
-                        resources: [
-                            {
-                                relatedResources: [
-                                    "Test string"
-                                ],
-                                resourceKind: "Test string",
-                                resourceType: "Test string",
-                                resourceUri: "Test string",
-                                updateTime: "Test string",
-                            }
-                        ],
-                        sid: "Test string",
-                    },
-                    metadata: {
-                        customerRegion: "Test string",
-                        definedSystem: "Test string",
-                        environmentType: "Test string",
-                        sapProduct: "Test string",
-                    },
-                    systemId: "Test string",
-                    updateTime: "Test string",
-                },
-                sapValidation: {
-                    validationDetails: [
-                        {
-                            details: {
-                                A: "Test string"
-                            },
-                            sapValidationType: "Test string",
-                        }
-                    ],
-                },
-                sentTime: "Test string",
-                sqlserverValidation: {
-                    agentVersion: "Test string",
-                    instance: "Test string",
-                    projectId: "Test string",
-                    validationDetails: [
-                        {
-                            details: [
-                                {
-                                    fields: {
-                                        A: "Test string"
-                                    },
-                                }
-                            ],
-                            type: "Test string",
-                        }
-                    ],
-                },
-            },
-            requestId: "Test string",
-        });
-        /**
-         * Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this
-         * method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation
-         * completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of
-         * 1, corresponding to `Code.CANCELLED`.
-         */
-        await gapi.client.workloadmanager.projects.locations.operations.cancel({
-            name: "Test string",
-        }, {
-        });
-        /**
-         * Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support
-         * this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
-         */
-        await gapi.client.workloadmanager.projects.locations.operations.delete({
-            name: "Test string",
-        });
-        /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
-        await gapi.client.workloadmanager.projects.locations.operations.get({
-            name: "Test string",
-        });
-        /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
-        await gapi.client.workloadmanager.projects.locations.operations.list({
-            filter: "Test string",
-            name: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-        });
-        /** Lists rules in a given project. */
-        await gapi.client.workloadmanager.projects.locations.rules.list({
-            customRulesBucket: "Test string",
-            filter: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account. */
+    'https://www.googleapis.com/auth/cloud-platform',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
     }
+  });
+
+  async function run() {
+    /** Gets information about a location. */
+    await gapi.client.workloadmanager.projects.locations.get({
+      name: 'Test string',
+    });
+    /** Lists information about the supported locations for this service. */
+    await gapi.client.workloadmanager.projects.locations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Creates a new Evaluation in a given project and location. */
+    await gapi.client.workloadmanager.projects.locations.evaluations.create(
+      {
+        evaluationId: 'Test string',
+        parent: 'Test string',
+        requestId: 'Test string',
+      },
+      {
+        createTime: 'Test string',
+        customRulesBucket: 'Test string',
+        description: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        resourceFilter: {
+          gceInstanceFilter: {
+            serviceAccounts: ['Test string'],
+          },
+          inclusionLabels: {
+            A: 'Test string',
+          },
+          resourceIdPatterns: ['Test string'],
+          scopes: ['Test string'],
+        },
+        resourceStatus: {
+          rulesNewerVersions: ['Test string'],
+          state: 'Test string',
+        },
+        ruleNames: ['Test string'],
+        ruleVersions: ['Test string'],
+        schedule: 'Test string',
+        updateTime: 'Test string',
+      }
+    );
+    /** Gets details of a single Evaluation. */
+    await gapi.client.workloadmanager.projects.locations.evaluations.get({
+      name: 'Test string',
+    });
+    /** Lists Evaluations in a given project and location. */
+    await gapi.client.workloadmanager.projects.locations.evaluations.list({
+      filter: 'Test string',
+      orderBy: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Gets details of a single Execution. */
+    await gapi.client.workloadmanager.projects.locations.evaluations.executions.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists Executions in a given project and location. */
+    await gapi.client.workloadmanager.projects.locations.evaluations.executions.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** Creates a new Execution in a given project and location. */
+    await gapi.client.workloadmanager.projects.locations.evaluations.executions.run(
+      {
+        name: 'Test string',
+      },
+      {
+        execution: {
+          endTime: 'Test string',
+          evaluationId: 'Test string',
+          inventoryTime: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          name: 'Test string',
+          runType: 'Test string',
+          startTime: 'Test string',
+          state: 'Test string',
+        },
+        executionId: 'Test string',
+        requestId: 'Test string',
+      }
+    );
+    /** List the running result of a single Execution. */
+    await gapi.client.workloadmanager.projects.locations.evaluations.executions.results.list(
+      {
+        filter: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+      }
+    );
+    /** List all scanned resources for a single Execution. */
+    await gapi.client.workloadmanager.projects.locations.evaluations.executions.scannedResources.list(
+      {
+        filter: 'Test string',
+        orderBy: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+        parent: 'Test string',
+        rule: 'Test string',
+      }
+    );
+    /** Write the data insights to workload manager data warehouse. */
+    await gapi.client.workloadmanager.projects.locations.insights.writeInsight(
+      {
+        location: 'Test string',
+      },
+      {
+        insight: {
+          instanceId: 'Test string',
+          sapDiscovery: {
+            applicationLayer: {
+              applicationProperties: {
+                applicationType: 'Test string',
+                ascsUri: 'Test string',
+                nfsUri: 'Test string',
+              },
+              databaseProperties: {
+                databaseType: 'Test string',
+                primaryInstanceUri: 'Test string',
+                sharedNfsUri: 'Test string',
+              },
+              hostProject: 'Test string',
+              resources: [
+                {
+                  relatedResources: ['Test string'],
+                  resourceKind: 'Test string',
+                  resourceType: 'Test string',
+                  resourceUri: 'Test string',
+                  updateTime: 'Test string',
+                },
+              ],
+              sid: 'Test string',
+            },
+            databaseLayer: {
+              applicationProperties: {
+                applicationType: 'Test string',
+                ascsUri: 'Test string',
+                nfsUri: 'Test string',
+              },
+              databaseProperties: {
+                databaseType: 'Test string',
+                primaryInstanceUri: 'Test string',
+                sharedNfsUri: 'Test string',
+              },
+              hostProject: 'Test string',
+              resources: [
+                {
+                  relatedResources: ['Test string'],
+                  resourceKind: 'Test string',
+                  resourceType: 'Test string',
+                  resourceUri: 'Test string',
+                  updateTime: 'Test string',
+                },
+              ],
+              sid: 'Test string',
+            },
+            metadata: {
+              customerRegion: 'Test string',
+              definedSystem: 'Test string',
+              environmentType: 'Test string',
+              sapProduct: 'Test string',
+            },
+            systemId: 'Test string',
+            updateTime: 'Test string',
+          },
+          sapValidation: {
+            validationDetails: [
+              {
+                details: {
+                  A: 'Test string',
+                },
+                sapValidationType: 'Test string',
+              },
+            ],
+          },
+          sentTime: 'Test string',
+          sqlserverValidation: {
+            agentVersion: 'Test string',
+            instance: 'Test string',
+            projectId: 'Test string',
+            validationDetails: [
+              {
+                details: [
+                  {
+                    fields: {
+                      A: 'Test string',
+                    },
+                  },
+                ],
+                type: 'Test string',
+              },
+            ],
+          },
+        },
+        requestId: 'Test string',
+      }
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.workloadmanager.projects.locations.operations.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.workloadmanager.projects.locations.operations.delete({
+      name: 'Test string',
+    });
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.workloadmanager.projects.locations.operations.get({
+      name: 'Test string',
+    });
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.workloadmanager.projects.locations.operations.list({
+      filter: 'Test string',
+      name: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+    });
+    /** Lists rules in a given project. */
+    await gapi.client.workloadmanager.projects.locations.rules.list({
+      customRulesBucket: 'Test string',
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+  }
 });

@@ -14,962 +14,596 @@
 /// <reference types="gapi.client" />
 
 declare namespace gapi.client {
-    /** Load Places API (New) v1 */
-    function load(urlOrObject: "https://places.googleapis.com/$discovery/rest?version=v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "places", version: "v1"): Promise<void>;
-    /** @deprecated Please load APIs with discovery documents. */
-    function load(name: "places", version: "v1", callback: () => any): void;
+  /** Load Places API (New) v1 */
+  function load(
+    urlOrObject: 'https://places.googleapis.com/$discovery/rest?version=v1'
+  ): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'places', version: 'v1'): Promise<void>;
+  /** @deprecated Please load APIs with discovery documents. */
+  function load(name: 'places', version: 'v1', callback: () => any): void;
 
-    namespace places {
-        interface GoogleGeoTypeViewport {
-            /** Required. The high point of the viewport. */
-            high?:
-                GoogleTypeLatLng;
-            /** Required. The low point of the viewport. */
-            low?:
-                GoogleTypeLatLng;
-        }
-        interface GoogleMapsPlacesV1AuthorAttribution {
-            /** Name of the author of the Photo or Review. */
-            displayName?:
-                string;
-            /** Profile photo URI of the author of the Photo or Review. */
-            photoUri?:
-                string;
-            /** URI of the author of the Photo or Review. */
-            uri?:
-                string;
-        }
-        interface GoogleMapsPlacesV1Circle {
-            /** Required. Center latitude and longitude. The range of latitude must be within [-90.0, 90.0]. The range of the longitude must be within [-180.0, 180.0]. */
-            center?:
-                GoogleTypeLatLng;
-            /** Required. Radius measured in meters. The radius must be within [0.0, 50000.0]. */
-            radius?:
-                number;
-        }
-        interface GoogleMapsPlacesV1EVChargeOptions {
-            /** A list of EV charging connector aggregations that contain connectors of the same type and same charge rate. */
-            connectorAggregation?:
-                GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation[];
-            /**
-             * Number of connectors at this station. However, because some ports can have multiple connectors but only be able to charge one car at a time (e.g.) the number of connectors may be
-             * greater than the total number of cars which can charge simultaneously.
-             */
-            connectorCount?:
-                number;
-        }
-        interface GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation {
-            /** The timestamp when the connector availability information in this aggregation was last updated. */
-            availabilityLastUpdateTime?:
-                string;
-            /** Number of connectors in this aggregation that are currently available. */
-            availableCount?:
-                number;
-            /** Number of connectors in this aggregation. */
-            count?:
-                number;
-            /** The static max charging rate in kw of each connector in the aggregation. */
-            maxChargeRateKw?:
-                number;
-            /** Number of connectors in this aggregation that are currently out of service. */
-            outOfServiceCount?:
-                number;
-            /** The connector type of this aggregation. */
-            type?:
-                string;
-        }
-        interface GoogleMapsPlacesV1FuelOptions {
-            /** The last known fuel price for each type of fuel this station has. There is one entry per fuel type this station has. Order is not important. */
-            fuelPrices?:
-                GoogleMapsPlacesV1FuelOptionsFuelPrice[];
-        }
-        interface GoogleMapsPlacesV1FuelOptionsFuelPrice {
-            /** The price of the fuel. */
-            price?:
-                GoogleTypeMoney;
-            /** The type of fuel. */
-            type?:
-                string;
-            /** The time the fuel price was last updated. */
-            updateTime?:
-                string;
-        }
-        interface GoogleMapsPlacesV1Photo {
-            /** This photo's authors. */
-            authorAttributions?:
-                GoogleMapsPlacesV1AuthorAttribution[];
-            /** The maximum available height, in pixels. */
-            heightPx?:
-                number;
-            /** Identifier. A reference representing this place photo which may be used to look up this place photo again (a.k.a. the API "resource" name: places/{place_id}/photos/{photo}). */
-            name?:
-                string;
-            /** The maximum available width, in pixels. */
-            widthPx?:
-                number;
-        }
-        interface GoogleMapsPlacesV1PhotoMedia {
-            /** The resource name of a photo media in the format: `places/place_id/photos/photo_reference/media`. */
-            name?:
-                string;
-            /** A short-lived uri that can be used to render the photo. */
-            photoUri?:
-                string;
-        }
-        interface GoogleMapsPlacesV1Place {
-            /** Information about the accessibility options a place offers. */
-            accessibilityOptions?:
-                GoogleMapsPlacesV1PlaceAccessibilityOptions;
-            /**
-             * Repeated components for each locality level. Note the following facts about the address_components[] array: - The array of address components may contain more components than the
-             * formatted_address. - The array does not necessarily include all the political entities that contain an address, apart from those included in the formatted_address. To retrieve all
-             * the political entities that contain a specific address, you should use reverse geocoding, passing the latitude/longitude of the address as a parameter to the request. - The format
-             * of the response is not guaranteed to remain the same between requests. In particular, the number of address_components varies based on the address requested and can change over time
-             * for the same address. A component can change position in the array. The type of the component can change. A particular component may be missing in a later response.
-             */
-            addressComponents?:
-                GoogleMapsPlacesV1PlaceAddressComponent[];
-            /** The place's address in adr microformat: http://microformats.org/wiki/adr. */
-            adrFormatAddress?:
-                string;
-            /** Place allows dogs. */
-            allowsDogs?:
-                boolean;
-            /** A set of data provider that must be shown with this result. */
-            attributions?:
-                GoogleMapsPlacesV1PlaceAttribution[];
-            /** The business status for the place. */
-            businessStatus?:
-                string;
-            /** Specifies if the business supports curbside pickup. */
-            curbsidePickup?:
-                boolean;
-            /**
-             * The hours of operation for the next seven days (including today). The time period starts at midnight on the date of the request and ends at 11:59 pm six days later. This field
-             * includes the special_days subfield of all hours, set for dates that have exceptional hours.
-             */
-            currentOpeningHours?:
-                GoogleMapsPlacesV1PlaceOpeningHours;
-            /**
-             * Contains an array of entries for the next seven days including information about secondary hours of a business. Secondary hours are different from a business's main hours. For
-             * example, a restaurant can specify drive through hours or delivery hours as its secondary hours. This field populates the type subfield, which draws from a predefined list of opening
-             * hours types (such as DRIVE_THROUGH, PICKUP, or TAKEOUT) based on the types of the place. This field includes the special_days subfield of all hours, set for dates that have
-             * exceptional hours.
-             */
-            currentSecondaryOpeningHours?:
-                GoogleMapsPlacesV1PlaceOpeningHours[];
-            /** Specifies if the business supports delivery. */
-            delivery?:
-                boolean;
-            /** Specifies if the business supports indoor or outdoor seating options. */
-            dineIn?:
-                boolean;
-            /** The localized name of the place, suitable as a short human-readable description. For example, "Google Sydney", "Starbucks", "Pyrmont", etc. */
-            displayName?:
-                GoogleTypeLocalizedText;
-            /**
-             * Contains a summary of the place. A summary is comprised of a textual overview, and also includes the language code for these if applicable. Summary text must be presented as-is and
-             * can not be modified or altered.
-             */
-            editorialSummary?:
-                GoogleTypeLocalizedText;
-            /** Information of ev charging options. */
-            evChargeOptions?:
-                GoogleMapsPlacesV1EVChargeOptions;
-            /** A full, human-readable address for this place. */
-            formattedAddress?:
-                string;
-            /** The most recent information about fuel options in a gas station. This information is updated regularly. */
-            fuelOptions?:
-                GoogleMapsPlacesV1FuelOptions;
-            /** Place is good for children. */
-            goodForChildren?:
-                boolean;
-            /** Place accommodates groups. */
-            goodForGroups?:
-                boolean;
-            /** Place is suitable for watching sports. */
-            goodForWatchingSports?:
-                boolean;
-            /** A URL providing more information about this place. */
-            googleMapsUri?:
-                string;
-            /** Background color for icon_mask in hex format, e.g. #909CE1. */
-            iconBackgroundColor?:
-                string;
-            /** A truncated URL to an icon mask. User can access different icon type by appending type suffix to the end (eg, ".svg" or ".png"). */
-            iconMaskBaseUri?:
-                string;
-            /** The unique identifier of a place. */
-            id?:
-                string;
-            /** A human-readable phone number for the place, in international format. */
-            internationalPhoneNumber?:
-                string;
-            /** Place provides live music. */
-            liveMusic?:
-                boolean;
-            /** The position of this place. */
-            location?:
-                GoogleTypeLatLng;
-            /** Place has a children's menu. */
-            menuForChildren?:
-                boolean;
-            /** An ID representing this place which may be used to look up this place again (a.k.a. the API "resource" name: places/place_id). */
-            name?:
-                string;
-            /** A human-readable phone number for the place, in national format. */
-            nationalPhoneNumber?:
-                string;
-            /** Place provides outdoor seating. */
-            outdoorSeating?:
-                boolean;
-            /** Options of parking provided by the place. */
-            parkingOptions?:
-                GoogleMapsPlacesV1PlaceParkingOptions;
-            /** Payment options the place accepts. If a payment option data is not available, the payment option field will be unset. */
-            paymentOptions?:
-                GoogleMapsPlacesV1PlacePaymentOptions;
-            /** Information (including references) about photos of this place. */
-            photos?:
-                GoogleMapsPlacesV1Photo[];
-            /** Plus code of the place location lat/long. */
-            plusCode?:
-                GoogleMapsPlacesV1PlacePlusCode;
-            /** Price level of the place. */
-            priceLevel?:
-                string;
-            /**
-             * The primary type of the given result. This type must one of the Places API supported types. For example, "restaurant", "cafe", "airport", etc. A place can only have a single primary
-             * type. For the complete list of possible values, see Table A and Table B at https://developers.google.com/maps/documentation/places/web-service/place-types
-             */
-            primaryType?:
-                string;
-            /**
-             * The display name of the primary type, localized to the request language if applicable. For the complete list of possible values, see Table A and Table B at
-             * https://developers.google.com/maps/documentation/places/web-service/place-types
-             */
-            primaryTypeDisplayName?:
-                GoogleTypeLocalizedText;
-            /** A rating between 1.0 and 5.0, based on user reviews of this place. */
-            rating?:
-                number;
-            /** The regular hours of operation. */
-            regularOpeningHours?:
-                GoogleMapsPlacesV1PlaceOpeningHours;
-            /**
-             * Contains an array of entries for information about regular secondary hours of a business. Secondary hours are different from a business's main hours. For example, a restaurant can
-             * specify drive through hours or delivery hours as its secondary hours. This field populates the type subfield, which draws from a predefined list of opening hours types (such as
-             * DRIVE_THROUGH, PICKUP, or TAKEOUT) based on the types of the place.
-             */
-            regularSecondaryOpeningHours?:
-                GoogleMapsPlacesV1PlaceOpeningHours[];
-            /** Specifies if the place supports reservations. */
-            reservable?:
-                boolean;
-            /** Place has restroom. */
-            restroom?:
-                boolean;
-            /** List of reviews about this place, sorted by relevance. */
-            reviews?:
-                GoogleMapsPlacesV1Review[];
-            /** Specifies if the place serves beer. */
-            servesBeer?:
-                boolean;
-            /** Specifies if the place serves breakfast. */
-            servesBreakfast?:
-                boolean;
-            /** Specifies if the place serves brunch. */
-            servesBrunch?:
-                boolean;
-            /** Place serves cocktails. */
-            servesCocktails?:
-                boolean;
-            /** Place serves coffee. */
-            servesCoffee?:
-                boolean;
-            /** Place serves dessert. */
-            servesDessert?:
-                boolean;
-            /** Specifies if the place serves dinner. */
-            servesDinner?:
-                boolean;
-            /** Specifies if the place serves lunch. */
-            servesLunch?:
-                boolean;
-            /** Specifies if the place serves vegetarian food. */
-            servesVegetarianFood?:
-                boolean;
-            /** Specifies if the place serves wine. */
-            servesWine?:
-                boolean;
-            /** A short, human-readable address for this place. */
-            shortFormattedAddress?:
-                string;
-            /** A list of sub destinations related to the place. */
-            subDestinations?:
-                GoogleMapsPlacesV1PlaceSubDestination[];
-            /** Specifies if the business supports takeout. */
-            takeout?:
-                boolean;
-            /**
-             * A set of type tags for this result. For example, "political" and "locality". For the complete list of possible values, see Table A and Table B at
-             * https://developers.google.com/maps/documentation/places/web-service/place-types
-             */
-            types?:
-                string[];
-            /** The total number of reviews (with or without text) for this place. */
-            userRatingCount?:
-                number;
-            /**
-             * Number of minutes this place's timezone is currently offset from UTC. This is expressed in minutes to support timezones that are offset by fractions of an hour, e.g. X hours and 15
-             * minutes.
-             */
-            utcOffsetMinutes?:
-                number;
-            /** A viewport suitable for displaying the place on an average-sized map. */
-            viewport?:
-                GoogleGeoTypeViewport;
-            /**
-             * The authoritative website for this place, e.g. a business' homepage. Note that for places that are part of a chain (e.g. an IKEA store), this will usually be the website for the
-             * individual store, not the overall chain.
-             */
-            websiteUri?:
-                string;
-        }
-        interface GoogleMapsPlacesV1PlaceAccessibilityOptions {
-            /** Places has wheelchair accessible entrance. */
-            wheelchairAccessibleEntrance?:
-                boolean;
-            /** Place offers wheelchair accessible parking. */
-            wheelchairAccessibleParking?:
-                boolean;
-            /** Place has wheelchair accessible restroom. */
-            wheelchairAccessibleRestroom?:
-                boolean;
-            /** Place has wheelchair accessible seating. */
-            wheelchairAccessibleSeating?:
-                boolean;
-        }
-        interface GoogleMapsPlacesV1PlaceAddressComponent {
-            /** The language used to format this components, in CLDR notation. */
-            languageCode?:
-                string;
-            /** The full text description or name of the address component. For example, an address component for the country Australia may have a long_name of "Australia". */
-            longText?:
-                string;
-            /** An abbreviated textual name for the address component, if available. For example, an address component for the country of Australia may have a short_name of "AU". */
-            shortText?:
-                string;
-            /** An array indicating the type(s) of the address component. */
-            types?:
-                string[];
-        }
-        interface GoogleMapsPlacesV1PlaceAttribution {
-            /** Name of the Place's data provider. */
-            provider?:
-                string;
-            /** URI to the Place's data provider. */
-            providerUri?:
-                string;
-        }
-        interface GoogleMapsPlacesV1PlaceOpeningHours {
-            /** Is this place open right now? Always present unless we lack time-of-day or timezone data for these opening hours. */
-            openNow?:
-                boolean;
-            /**
-             * The periods that this place is open during the week. The periods are in chronological order, starting with Sunday in the place-local timezone. An empty (but not absent) value
-             * indicates a place that is never open, e.g. because it is closed temporarily for renovations.
-             */
-            periods?:
-                GoogleMapsPlacesV1PlaceOpeningHoursPeriod[];
-            /** A type string used to identify the type of secondary hours. */
-            secondaryHoursType?:
-                string;
-            /**
-             * Structured information for special days that fall within the period that the returned opening hours cover. Special days are days that could impact the business hours of a place,
-             * e.g. Christmas day. Set for current_opening_hours and current_secondary_opening_hours if there are exceptional hours.
-             */
-            specialDays?:
-                GoogleMapsPlacesV1PlaceOpeningHoursSpecialDay[];
-            /**
-             * Localized strings describing the opening hours of this place, one string for each day of the week. Will be empty if the hours are unknown or could not be converted to localized
-             * text. Example: "Sun: 18:00–06:00"
-             */
-            weekdayDescriptions?:
-                string[];
-        }
-        interface GoogleMapsPlacesV1PlaceOpeningHoursPeriod {
-            /** The time that the place starts to be closed. */
-            close?:
-                GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint;
-            /** The time that the place starts to be open. */
-            open?:
-                GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint;
-        }
-        interface GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint {
-            /** Date in the local timezone for the place. */
-            date?:
-                GoogleTypeDate;
-            /** A day of the week, as an integer in the range 0-6. 0 is Sunday, 1 is Monday, etc. */
-            day?:
-                number;
-            /** The hour in 2 digits. Ranges from 00 to 23. */
-            hour?:
-                number;
-            /** The minute in 2 digits. Ranges from 00 to 59. */
-            minute?:
-                number;
-            /**
-             * Whether or not this endpoint was truncated. Truncation occurs when the real hours are outside the times we are willing to return hours between, so we truncate the hours back to
-             * these boundaries. This ensures that at most 24 * 7 hours from midnight of the day of the request are returned.
-             */
-            truncated?:
-                boolean;
-        }
-        interface GoogleMapsPlacesV1PlaceOpeningHoursSpecialDay {
-            /** The date of this special day. */
-            date?:
-                GoogleTypeDate;
-        }
-        interface GoogleMapsPlacesV1PlaceParkingOptions {
-            /** Place offers free garage parking. */
-            freeGarageParking?:
-                boolean;
-            /** Place offers free parking lots. */
-            freeParkingLot?:
-                boolean;
-            /** Place offers free street parking. */
-            freeStreetParking?:
-                boolean;
-            /** Place offers paid garage parking. */
-            paidGarageParking?:
-                boolean;
-            /** Place offers paid parking lots. */
-            paidParkingLot?:
-                boolean;
-            /** Place offers paid street parking. */
-            paidStreetParking?:
-                boolean;
-            /** Place offers valet parking. */
-            valetParking?:
-                boolean;
-        }
-        interface GoogleMapsPlacesV1PlacePaymentOptions {
-            /** Place accepts cash only as payment. Places with this attribute may still accept other payment methods. */
-            acceptsCashOnly?:
-                boolean;
-            /** Place accepts credit cards as payment. */
-            acceptsCreditCards?:
-                boolean;
-            /** Place accepts debit cards as payment. */
-            acceptsDebitCards?:
-                boolean;
-            /** Place accepts NFC payments. */
-            acceptsNfc?:
-                boolean;
-        }
-        interface GoogleMapsPlacesV1PlacePlusCode {
-            /** Place's compound code, such as "33GV+HQ, Ramberg, Norway", containing the suffix of the global code and replacing the prefix with a formatted name of a reference entity. */
-            compoundCode?:
-                string;
-            /** Place's global (full) code, such as "9FWM33GV+HQ", representing an 1/8000 by 1/8000 degree area (~14 by 14 meters). */
-            globalCode?:
-                string;
-        }
-        interface GoogleMapsPlacesV1PlaceSubDestination {
-            /** The place id of the sub destination. */
-            id?:
-                string;
-            /** The resource name of the sub destination. */
-            name?:
-                string;
-        }
-        interface GoogleMapsPlacesV1Review {
-            /** This review's author. */
-            authorAttribution?:
-                GoogleMapsPlacesV1AuthorAttribution;
-            /** A reference representing this place review which may be used to look up this place review again (also called the API "resource" name: places/place_id/reviews/review). */
-            name?:
-                string;
-            /** The review text in its original language. */
-            originalText?:
-                GoogleTypeLocalizedText;
-            /** Timestamp for the review. */
-            publishTime?:
-                string;
-            /** A number between 1.0 and 5.0, also called the number of stars. */
-            rating?:
-                number;
-            /** A string of formatted recent time, expressing the review time relative to the current time in a form appropriate for the language and country. */
-            relativePublishTimeDescription?:
-                string;
-            /** The localized text of the review. */
-            text?:
-                GoogleTypeLocalizedText;
-        }
-        interface GoogleMapsPlacesV1SearchNearbyRequest {
-            /**
-             * Excluded primary Place type (e.g. "restaurant" or "gas_station") from https://developers.google.com/maps/documentation/places/web-service/place-types. If there are any conflicting
-             * primary types, i.e. a type appears in both included_primary_types and excluded_primary_types, an INVALID_ARGUMENT error is returned. If a Place type is specified with multiple type
-             * restrictions, only places that satisfy all of the restrictions are returned. For example, if we have {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]}, the
-             * returned places provide "restaurant" related services but do not operate primarily as "restaurants".
-             */
-            excludedPrimaryTypes?:
-                string[];
-            /**
-             * Excluded Place type (eg, "restaurant" or "gas_station") from https://developers.google.com/maps/documentation/places/web-service/place-types. If the client provides both
-             * included_types (e.g. restaurant) and excluded_types (e.g. cafe), then the response should include places that are restaurant but not cafe. The response includes places that match at
-             * least one of the included_types and none of the excluded_types. If there are any conflicting types, i.e. a type appears in both included_types and excluded_types, an
-             * INVALID_ARGUMENT error is returned. If a Place type is specified with multiple type restrictions, only places that satisfy all of the restrictions are returned. For example, if we
-             * have {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]}, the returned places provide "restaurant" related services but do not operate primarily as
-             * "restaurants".
-             */
-            excludedTypes?:
-                string[];
-            /**
-             * Included primary Place type (e.g. "restaurant" or "gas_station") from https://developers.google.com/maps/documentation/places/web-service/place-types. A place can only have a single
-             * primary type from the supported types table associated with it. If there are any conflicting primary types, i.e. a type appears in both included_primary_types and
-             * excluded_primary_types, an INVALID_ARGUMENT error is returned. If a Place type is specified with multiple type restrictions, only places that satisfy all of the restrictions are
-             * returned. For example, if we have {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]}, the returned places provide "restaurant" related services but do not
-             * operate primarily as "restaurants".
-             */
-            includedPrimaryTypes?:
-                string[];
-            /**
-             * Included Place type (eg, "restaurant" or "gas_station") from https://developers.google.com/maps/documentation/places/web-service/place-types. If there are any conflicting types,
-             * i.e. a type appears in both included_types and excluded_types, an INVALID_ARGUMENT error is returned. If a Place type is specified with multiple type restrictions, only places that
-             * satisfy all of the restrictions are returned. For example, if we have {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]}, the returned places provide
-             * "restaurant" related services but do not operate primarily as "restaurants".
-             */
-            includedTypes?:
-                string[];
-            /**
-             * Place details will be displayed with the preferred language if available. If the language code is unspecified or unrecognized, place details of any language may be returned, with a
-             * preference for English if such details exist. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport.
-             */
-            languageCode?:
-                string;
-            /** Required. The region to search. */
-            locationRestriction?:
-                GoogleMapsPlacesV1SearchNearbyRequestLocationRestriction;
-            /**
-             * Maximum number of results to return. It must be between 1 and 20 (default), inclusively. If the number is unset, it falls back to the upper limit. If the number is set to negative
-             * or exceeds the upper limit, an INVALID_ARGUMENT error is returned.
-             */
-            maxResultCount?:
-                number;
-            /** How results will be ranked in the response. */
-            rankPreference?:
-                string;
-            /**
-             * The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if
-             * available. The parameter can affect results based on applicable law. For more information, see
-             * https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported.
-             */
-            regionCode?:
-                string;
-        }
-        interface GoogleMapsPlacesV1SearchNearbyRequestLocationRestriction {
-            /** A circle defined by center point and radius. */
-            circle?:
-                GoogleMapsPlacesV1Circle;
-        }
-        interface GoogleMapsPlacesV1SearchNearbyResponse {
-            /** A list of places that meets user's requirements like places types, number of places and specific location restriction. */
-            places?:
-                GoogleMapsPlacesV1Place[];
-        }
-        interface GoogleMapsPlacesV1SearchTextRequest {
-            /** The requested place type. Full list of types supported: https://developers.google.com/maps/documentation/places/web-service/place-types. Only support one included type. */
-            includedType?:
-                string;
-            /**
-             * Place details will be displayed with the preferred language if available. If the language code is unspecified or unrecognized, place details of any language may be returned, with a
-             * preference for English if such details exist. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport.
-             */
-            languageCode?:
-                string;
-            /** The region to search. This location serves as a bias which means results around given location might be returned. Cannot be set along with location_restriction. */
-            locationBias?:
-                GoogleMapsPlacesV1SearchTextRequestLocationBias;
-            /** The region to search. This location serves as a restriction which means results outside given location will not be returned. Cannot be set along with location_bias. */
-            locationRestriction?:
-                GoogleMapsPlacesV1SearchTextRequestLocationRestriction;
-            /**
-             * Maximum number of results to return. It must be between 1 and 20, inclusively. The default is 20. If the number is unset, it falls back to the upper limit. If the number is set to
-             * negative or exceeds the upper limit, an INVALID_ARGUMENT error is returned.
-             */
-            maxResultCount?:
-                number;
-            /**
-             * Filter out results whose average user rating is strictly less than this limit. A valid value must be a float between 0 and 5 (inclusively) at a 0.5 cadence i.e. [0, 0.5, 1.0, ... ,
-             * 5.0] inclusively. The input rating will round up to the nearest 0.5(ceiling). For instance, a rating of 0.6 will eliminate all results with a less than 1.0 rating.
-             */
-            minRating?:
-                number;
-            /** Used to restrict the search to places that are currently open. The default is false. */
-            openNow?:
-                boolean;
-            /** Used to restrict the search to places that are marked as certain price levels. Users can choose any combinations of price levels. Default to select all price levels. */
-            priceLevels?:
-                string[];
-            /** How results will be ranked in the response. */
-            rankPreference?:
-                string;
-            /**
-             * The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if
-             * available. The parameter can affect results based on applicable law. For more information, see
-             * https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported.
-             */
-            regionCode?:
-                string;
-            /** Used to set strict type filtering for included_type. If set to true, only results of the same type will be returned. Default to false. */
-            strictTypeFiltering?:
-                boolean;
-            /** Required. The text query for textual search. */
-            textQuery?:
-                string;
-        }
-        interface GoogleMapsPlacesV1SearchTextRequestLocationBias {
-            /** A circle defined by center point and radius. */
-            circle?:
-                GoogleMapsPlacesV1Circle;
-            /**
-             * A rectangle box defined by northeast and southwest corner. `rectangle.high()` must be the northeast point of the rectangle viewport. `rectangle.low()` must be the southwest point of
-             * the rectangle viewport.
-             */
-            rectangle?:
-                GoogleGeoTypeViewport;
-        }
-        interface GoogleMapsPlacesV1SearchTextRequestLocationRestriction {
-            /**
-             * A rectangle box defined by northeast and southwest corner. `rectangle.high()` must be the northeast point of the rectangle viewport. `rectangle.low()` must be the southwest point of
-             * the rectangle viewport.
-             */
-            rectangle?:
-                GoogleGeoTypeViewport;
-        }
-        interface GoogleMapsPlacesV1SearchTextResponse {
-            /** A list of places that meet the user's text search criteria. */
-            places?:
-                GoogleMapsPlacesV1Place[];
-        }
-        interface GoogleTypeDate {
-            /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
-            day?:
-                number;
-            /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
-            month?:
-                number;
-            /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
-            year?:
-                number;
-        }
-        interface GoogleTypeLatLng {
-            /** The latitude in degrees. It must be in the range [-90.0, +90.0]. */
-            latitude?:
-                number;
-            /** The longitude in degrees. It must be in the range [-180.0, +180.0]. */
-            longitude?:
-                number;
-        }
-        interface GoogleTypeLocalizedText {
-            /** The text's BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
-            languageCode?:
-                string;
-            /** Localized string in the language corresponding to language_code below. */
-            text?:
-                string;
-        }
-        interface GoogleTypeMoney {
-            /** The three-letter currency code defined in ISO 4217. */
-            currencyCode?:
-                string;
-            /**
-             * Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units`
-             * is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and
-             * `nanos`=-750,000,000.
-             */
-            nanos?:
-                number;
-            /** The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. */
-            units?:
-                string;
-        }
-        interface PhotosResource {
-            /** Get a photo media with a photo reference string. */
-            getMedia(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /**
-                 * Optional. Specifies the maximum desired height, in pixels, of the image. If the image is smaller than the values specified, the original image will be returned. If the image is
-                 * larger in either dimension, it will be scaled to match the smaller of the two dimensions, restricted to its original aspect ratio. Both the max_height_px and max_width_px
-                 * properties accept an integer between 1 and 4800, inclusively. If the value is not within the allowed range, an INVALID_ARGUMENT error will be returned. At least one of
-                 * max_height_px or max_width_px needs to be specified. If neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT error will be returned.
-                 */
-                maxHeightPx?:
-                    number;
-                /**
-                 * Optional. Specifies the maximum desired width, in pixels, of the image. If the image is smaller than the values specified, the original image will be returned. If the image is
-                 * larger in either dimension, it will be scaled to match the smaller of the two dimensions, restricted to its original aspect ratio. Both the max_height_px and max_width_px
-                 * properties accept an integer between 1 and 4800, inclusively. If the value is not within the allowed range, an INVALID_ARGUMENT error will be returned. At least one of
-                 * max_height_px or max_width_px needs to be specified. If neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT error will be returned.
-                 */
-                maxWidthPx?:
-                    number;
-                /**
-                 * Required. The resource name of a photo media in the format: `"places/place_id/photos/photo_reference/media"`. The resource name of a photo as returned in a Place object's
-                 * `photos.name` field comes with the format `"places/place_id/photos/photo_reference"`. You need to append `"/media"` at the end of the photo resource to get the photo media
-                 * resource name.
-                 */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. If set, skip the default HTTP redirect behavior and render a text format (for example, in JSON format for HTTP use case) response. If not set, an HTTP redirect will be
-                 * issued to redirect the call to the image media. This option is ignored for non-HTTP requests.
-                 */
-                skipHttpRedirect?:
-                    boolean;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleMapsPlacesV1PhotoMedia>;
-        }
-        interface PlacesResource {
-            /** Get place details with a place id (in a name) string. */
-            get(request?: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** Optional. Place details will be displayed with the preferred language if available. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport. */
-                languageCode?:
-                    string;
-                /** Required. A place ID returned in a Place (with "places/" prefix), or equivalently the name in the same Place. Format: places/*place_id*. */
-                name:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /**
-                 * Optional. The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific
-                 * place name, if available. The parameter can affect results based on applicable law. For more information, see
-                 * https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported.
-                 */
-                regionCode?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            }): Request<GoogleMapsPlacesV1Place>;
-            /** Search for places near locations. */
-            searchNearby(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleMapsPlacesV1SearchNearbyRequest;
-            }): Request<GoogleMapsPlacesV1SearchNearbyResponse>;
-            searchNearby(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleMapsPlacesV1SearchNearbyRequest): Request<GoogleMapsPlacesV1SearchNearbyResponse>;
-            /** Text query based place search. */
-            searchText(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-                /** Request body */
-                resource:
-                    GoogleMapsPlacesV1SearchTextRequest;
-            }): Request<GoogleMapsPlacesV1SearchTextResponse>;
-            searchText(request: {
-                /** V1 error format. */
-                "$.xgafv"?:
-                    string;
-                /** OAuth access token. */
-                access_token?:
-                    string;
-                /** Data format for response. */
-                alt?:
-                    string;
-                /** JSONP */
-                callback?:
-                    string;
-                /** Selector specifying which fields to include in a partial response. */
-                fields?:
-                    string;
-                /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-                key?:
-                    string;
-                /** OAuth 2.0 token for the current user. */
-                oauth_token?:
-                    string;
-                /** Returns response with indentations and line breaks. */
-                prettyPrint?:
-                    boolean;
-                /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-                quotaUser?:
-                    string;
-                /** Upload protocol for media (e.g. "raw", "multipart"). */
-                upload_protocol?:
-                    string;
-                /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-                uploadType?:
-                    string;
-            },
-            body: GoogleMapsPlacesV1SearchTextRequest): Request<GoogleMapsPlacesV1SearchTextResponse>;
-            photos:
-                PhotosResource;
-        }
-
-        const places: PlacesResource;
+  namespace places {
+    interface GoogleGeoTypeViewport {
+      /** Required. The high point of the viewport. */
+      high?: GoogleTypeLatLng;
+      /** Required. The low point of the viewport. */
+      low?: GoogleTypeLatLng;
     }
+    interface GoogleMapsPlacesV1AuthorAttribution {
+      /** Name of the author of the Photo or Review. */
+      displayName?: string;
+      /** Profile photo URI of the author of the Photo or Review. */
+      photoUri?: string;
+      /** URI of the author of the Photo or Review. */
+      uri?: string;
+    }
+    interface GoogleMapsPlacesV1Circle {
+      /** Required. Center latitude and longitude. The range of latitude must be within [-90.0, 90.0]. The range of the longitude must be within [-180.0, 180.0]. */
+      center?: GoogleTypeLatLng;
+      /** Required. Radius measured in meters. The radius must be within [0.0, 50000.0]. */
+      radius?: number;
+    }
+    interface GoogleMapsPlacesV1EVChargeOptions {
+      /** A list of EV charging connector aggregations that contain connectors of the same type and same charge rate. */
+      connectorAggregation?: GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation[];
+      /** Number of connectors at this station. However, because some ports can have multiple connectors but only be able to charge one car at a time (e.g.) the number of connectors may be greater than the total number of cars which can charge simultaneously. */
+      connectorCount?: number;
+    }
+    interface GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation {
+      /** The timestamp when the connector availability information in this aggregation was last updated. */
+      availabilityLastUpdateTime?: string;
+      /** Number of connectors in this aggregation that are currently available. */
+      availableCount?: number;
+      /** Number of connectors in this aggregation. */
+      count?: number;
+      /** The static max charging rate in kw of each connector in the aggregation. */
+      maxChargeRateKw?: number;
+      /** Number of connectors in this aggregation that are currently out of service. */
+      outOfServiceCount?: number;
+      /** The connector type of this aggregation. */
+      type?: string;
+    }
+    interface GoogleMapsPlacesV1FuelOptions {
+      /** The last known fuel price for each type of fuel this station has. There is one entry per fuel type this station has. Order is not important. */
+      fuelPrices?: GoogleMapsPlacesV1FuelOptionsFuelPrice[];
+    }
+    interface GoogleMapsPlacesV1FuelOptionsFuelPrice {
+      /** The price of the fuel. */
+      price?: GoogleTypeMoney;
+      /** The type of fuel. */
+      type?: string;
+      /** The time the fuel price was last updated. */
+      updateTime?: string;
+    }
+    interface GoogleMapsPlacesV1Photo {
+      /** This photo's authors. */
+      authorAttributions?: GoogleMapsPlacesV1AuthorAttribution[];
+      /** The maximum available height, in pixels. */
+      heightPx?: number;
+      /** Identifier. A reference representing this place photo which may be used to look up this place photo again (a.k.a. the API "resource" name: places/{place_id}/photos/{photo}). */
+      name?: string;
+      /** The maximum available width, in pixels. */
+      widthPx?: number;
+    }
+    interface GoogleMapsPlacesV1PhotoMedia {
+      /** The resource name of a photo media in the format: `places/place_id/photos/photo_reference/media`. */
+      name?: string;
+      /** A short-lived uri that can be used to render the photo. */
+      photoUri?: string;
+    }
+    interface GoogleMapsPlacesV1Place {
+      /** Information about the accessibility options a place offers. */
+      accessibilityOptions?: GoogleMapsPlacesV1PlaceAccessibilityOptions;
+      /** Repeated components for each locality level. Note the following facts about the address_components[] array: - The array of address components may contain more components than the formatted_address. - The array does not necessarily include all the political entities that contain an address, apart from those included in the formatted_address. To retrieve all the political entities that contain a specific address, you should use reverse geocoding, passing the latitude/longitude of the address as a parameter to the request. - The format of the response is not guaranteed to remain the same between requests. In particular, the number of address_components varies based on the address requested and can change over time for the same address. A component can change position in the array. The type of the component can change. A particular component may be missing in a later response. */
+      addressComponents?: GoogleMapsPlacesV1PlaceAddressComponent[];
+      /** The place's address in adr microformat: http://microformats.org/wiki/adr. */
+      adrFormatAddress?: string;
+      /** Place allows dogs. */
+      allowsDogs?: boolean;
+      /** A set of data provider that must be shown with this result. */
+      attributions?: GoogleMapsPlacesV1PlaceAttribution[];
+      /** The business status for the place. */
+      businessStatus?: string;
+      /** Specifies if the business supports curbside pickup. */
+      curbsidePickup?: boolean;
+      /** The hours of operation for the next seven days (including today). The time period starts at midnight on the date of the request and ends at 11:59 pm six days later. This field includes the special_days subfield of all hours, set for dates that have exceptional hours. */
+      currentOpeningHours?: GoogleMapsPlacesV1PlaceOpeningHours;
+      /** Contains an array of entries for the next seven days including information about secondary hours of a business. Secondary hours are different from a business's main hours. For example, a restaurant can specify drive through hours or delivery hours as its secondary hours. This field populates the type subfield, which draws from a predefined list of opening hours types (such as DRIVE_THROUGH, PICKUP, or TAKEOUT) based on the types of the place. This field includes the special_days subfield of all hours, set for dates that have exceptional hours. */
+      currentSecondaryOpeningHours?: GoogleMapsPlacesV1PlaceOpeningHours[];
+      /** Specifies if the business supports delivery. */
+      delivery?: boolean;
+      /** Specifies if the business supports indoor or outdoor seating options. */
+      dineIn?: boolean;
+      /** The localized name of the place, suitable as a short human-readable description. For example, "Google Sydney", "Starbucks", "Pyrmont", etc. */
+      displayName?: GoogleTypeLocalizedText;
+      /** Contains a summary of the place. A summary is comprised of a textual overview, and also includes the language code for these if applicable. Summary text must be presented as-is and can not be modified or altered. */
+      editorialSummary?: GoogleTypeLocalizedText;
+      /** Information of ev charging options. */
+      evChargeOptions?: GoogleMapsPlacesV1EVChargeOptions;
+      /** A full, human-readable address for this place. */
+      formattedAddress?: string;
+      /** The most recent information about fuel options in a gas station. This information is updated regularly. */
+      fuelOptions?: GoogleMapsPlacesV1FuelOptions;
+      /** Place is good for children. */
+      goodForChildren?: boolean;
+      /** Place accommodates groups. */
+      goodForGroups?: boolean;
+      /** Place is suitable for watching sports. */
+      goodForWatchingSports?: boolean;
+      /** A URL providing more information about this place. */
+      googleMapsUri?: string;
+      /** Background color for icon_mask in hex format, e.g. #909CE1. */
+      iconBackgroundColor?: string;
+      /** A truncated URL to an icon mask. User can access different icon type by appending type suffix to the end (eg, ".svg" or ".png"). */
+      iconMaskBaseUri?: string;
+      /** The unique identifier of a place. */
+      id?: string;
+      /** A human-readable phone number for the place, in international format. */
+      internationalPhoneNumber?: string;
+      /** Place provides live music. */
+      liveMusic?: boolean;
+      /** The position of this place. */
+      location?: GoogleTypeLatLng;
+      /** Place has a children's menu. */
+      menuForChildren?: boolean;
+      /** An ID representing this place which may be used to look up this place again (a.k.a. the API "resource" name: places/place_id). */
+      name?: string;
+      /** A human-readable phone number for the place, in national format. */
+      nationalPhoneNumber?: string;
+      /** Place provides outdoor seating. */
+      outdoorSeating?: boolean;
+      /** Options of parking provided by the place. */
+      parkingOptions?: GoogleMapsPlacesV1PlaceParkingOptions;
+      /** Payment options the place accepts. If a payment option data is not available, the payment option field will be unset. */
+      paymentOptions?: GoogleMapsPlacesV1PlacePaymentOptions;
+      /** Information (including references) about photos of this place. */
+      photos?: GoogleMapsPlacesV1Photo[];
+      /** Plus code of the place location lat/long. */
+      plusCode?: GoogleMapsPlacesV1PlacePlusCode;
+      /** Price level of the place. */
+      priceLevel?: string;
+      /** The primary type of the given result. This type must one of the Places API supported types. For example, "restaurant", "cafe", "airport", etc. A place can only have a single primary type. For the complete list of possible values, see Table A and Table B at https://developers.google.com/maps/documentation/places/web-service/place-types */
+      primaryType?: string;
+      /** The display name of the primary type, localized to the request language if applicable. For the complete list of possible values, see Table A and Table B at https://developers.google.com/maps/documentation/places/web-service/place-types */
+      primaryTypeDisplayName?: GoogleTypeLocalizedText;
+      /** A rating between 1.0 and 5.0, based on user reviews of this place. */
+      rating?: number;
+      /** The regular hours of operation. */
+      regularOpeningHours?: GoogleMapsPlacesV1PlaceOpeningHours;
+      /** Contains an array of entries for information about regular secondary hours of a business. Secondary hours are different from a business's main hours. For example, a restaurant can specify drive through hours or delivery hours as its secondary hours. This field populates the type subfield, which draws from a predefined list of opening hours types (such as DRIVE_THROUGH, PICKUP, or TAKEOUT) based on the types of the place. */
+      regularSecondaryOpeningHours?: GoogleMapsPlacesV1PlaceOpeningHours[];
+      /** Specifies if the place supports reservations. */
+      reservable?: boolean;
+      /** Place has restroom. */
+      restroom?: boolean;
+      /** List of reviews about this place, sorted by relevance. */
+      reviews?: GoogleMapsPlacesV1Review[];
+      /** Specifies if the place serves beer. */
+      servesBeer?: boolean;
+      /** Specifies if the place serves breakfast. */
+      servesBreakfast?: boolean;
+      /** Specifies if the place serves brunch. */
+      servesBrunch?: boolean;
+      /** Place serves cocktails. */
+      servesCocktails?: boolean;
+      /** Place serves coffee. */
+      servesCoffee?: boolean;
+      /** Place serves dessert. */
+      servesDessert?: boolean;
+      /** Specifies if the place serves dinner. */
+      servesDinner?: boolean;
+      /** Specifies if the place serves lunch. */
+      servesLunch?: boolean;
+      /** Specifies if the place serves vegetarian food. */
+      servesVegetarianFood?: boolean;
+      /** Specifies if the place serves wine. */
+      servesWine?: boolean;
+      /** A short, human-readable address for this place. */
+      shortFormattedAddress?: string;
+      /** A list of sub destinations related to the place. */
+      subDestinations?: GoogleMapsPlacesV1PlaceSubDestination[];
+      /** Specifies if the business supports takeout. */
+      takeout?: boolean;
+      /** A set of type tags for this result. For example, "political" and "locality". For the complete list of possible values, see Table A and Table B at https://developers.google.com/maps/documentation/places/web-service/place-types */
+      types?: string[];
+      /** The total number of reviews (with or without text) for this place. */
+      userRatingCount?: number;
+      /** Number of minutes this place's timezone is currently offset from UTC. This is expressed in minutes to support timezones that are offset by fractions of an hour, e.g. X hours and 15 minutes. */
+      utcOffsetMinutes?: number;
+      /** A viewport suitable for displaying the place on an average-sized map. */
+      viewport?: GoogleGeoTypeViewport;
+      /** The authoritative website for this place, e.g. a business' homepage. Note that for places that are part of a chain (e.g. an IKEA store), this will usually be the website for the individual store, not the overall chain. */
+      websiteUri?: string;
+    }
+    interface GoogleMapsPlacesV1PlaceAccessibilityOptions {
+      /** Places has wheelchair accessible entrance. */
+      wheelchairAccessibleEntrance?: boolean;
+      /** Place offers wheelchair accessible parking. */
+      wheelchairAccessibleParking?: boolean;
+      /** Place has wheelchair accessible restroom. */
+      wheelchairAccessibleRestroom?: boolean;
+      /** Place has wheelchair accessible seating. */
+      wheelchairAccessibleSeating?: boolean;
+    }
+    interface GoogleMapsPlacesV1PlaceAddressComponent {
+      /** The language used to format this components, in CLDR notation. */
+      languageCode?: string;
+      /** The full text description or name of the address component. For example, an address component for the country Australia may have a long_name of "Australia". */
+      longText?: string;
+      /** An abbreviated textual name for the address component, if available. For example, an address component for the country of Australia may have a short_name of "AU". */
+      shortText?: string;
+      /** An array indicating the type(s) of the address component. */
+      types?: string[];
+    }
+    interface GoogleMapsPlacesV1PlaceAttribution {
+      /** Name of the Place's data provider. */
+      provider?: string;
+      /** URI to the Place's data provider. */
+      providerUri?: string;
+    }
+    interface GoogleMapsPlacesV1PlaceOpeningHours {
+      /** Is this place open right now? Always present unless we lack time-of-day or timezone data for these opening hours. */
+      openNow?: boolean;
+      /** The periods that this place is open during the week. The periods are in chronological order, starting with Sunday in the place-local timezone. An empty (but not absent) value indicates a place that is never open, e.g. because it is closed temporarily for renovations. */
+      periods?: GoogleMapsPlacesV1PlaceOpeningHoursPeriod[];
+      /** A type string used to identify the type of secondary hours. */
+      secondaryHoursType?: string;
+      /** Structured information for special days that fall within the period that the returned opening hours cover. Special days are days that could impact the business hours of a place, e.g. Christmas day. Set for current_opening_hours and current_secondary_opening_hours if there are exceptional hours. */
+      specialDays?: GoogleMapsPlacesV1PlaceOpeningHoursSpecialDay[];
+      /** Localized strings describing the opening hours of this place, one string for each day of the week. Will be empty if the hours are unknown or could not be converted to localized text. Example: "Sun: 18:00–06:00" */
+      weekdayDescriptions?: string[];
+    }
+    interface GoogleMapsPlacesV1PlaceOpeningHoursPeriod {
+      /** The time that the place starts to be closed. */
+      close?: GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint;
+      /** The time that the place starts to be open. */
+      open?: GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint;
+    }
+    interface GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint {
+      /** Date in the local timezone for the place. */
+      date?: GoogleTypeDate;
+      /** A day of the week, as an integer in the range 0-6. 0 is Sunday, 1 is Monday, etc. */
+      day?: number;
+      /** The hour in 2 digits. Ranges from 00 to 23. */
+      hour?: number;
+      /** The minute in 2 digits. Ranges from 00 to 59. */
+      minute?: number;
+      /** Whether or not this endpoint was truncated. Truncation occurs when the real hours are outside the times we are willing to return hours between, so we truncate the hours back to these boundaries. This ensures that at most 24 * 7 hours from midnight of the day of the request are returned. */
+      truncated?: boolean;
+    }
+    interface GoogleMapsPlacesV1PlaceOpeningHoursSpecialDay {
+      /** The date of this special day. */
+      date?: GoogleTypeDate;
+    }
+    interface GoogleMapsPlacesV1PlaceParkingOptions {
+      /** Place offers free garage parking. */
+      freeGarageParking?: boolean;
+      /** Place offers free parking lots. */
+      freeParkingLot?: boolean;
+      /** Place offers free street parking. */
+      freeStreetParking?: boolean;
+      /** Place offers paid garage parking. */
+      paidGarageParking?: boolean;
+      /** Place offers paid parking lots. */
+      paidParkingLot?: boolean;
+      /** Place offers paid street parking. */
+      paidStreetParking?: boolean;
+      /** Place offers valet parking. */
+      valetParking?: boolean;
+    }
+    interface GoogleMapsPlacesV1PlacePaymentOptions {
+      /** Place accepts cash only as payment. Places with this attribute may still accept other payment methods. */
+      acceptsCashOnly?: boolean;
+      /** Place accepts credit cards as payment. */
+      acceptsCreditCards?: boolean;
+      /** Place accepts debit cards as payment. */
+      acceptsDebitCards?: boolean;
+      /** Place accepts NFC payments. */
+      acceptsNfc?: boolean;
+    }
+    interface GoogleMapsPlacesV1PlacePlusCode {
+      /** Place's compound code, such as "33GV+HQ, Ramberg, Norway", containing the suffix of the global code and replacing the prefix with a formatted name of a reference entity. */
+      compoundCode?: string;
+      /** Place's global (full) code, such as "9FWM33GV+HQ", representing an 1/8000 by 1/8000 degree area (~14 by 14 meters). */
+      globalCode?: string;
+    }
+    interface GoogleMapsPlacesV1PlaceSubDestination {
+      /** The place id of the sub destination. */
+      id?: string;
+      /** The resource name of the sub destination. */
+      name?: string;
+    }
+    interface GoogleMapsPlacesV1Review {
+      /** This review's author. */
+      authorAttribution?: GoogleMapsPlacesV1AuthorAttribution;
+      /** A reference representing this place review which may be used to look up this place review again (also called the API "resource" name: places/place_id/reviews/review). */
+      name?: string;
+      /** The review text in its original language. */
+      originalText?: GoogleTypeLocalizedText;
+      /** Timestamp for the review. */
+      publishTime?: string;
+      /** A number between 1.0 and 5.0, also called the number of stars. */
+      rating?: number;
+      /** A string of formatted recent time, expressing the review time relative to the current time in a form appropriate for the language and country. */
+      relativePublishTimeDescription?: string;
+      /** The localized text of the review. */
+      text?: GoogleTypeLocalizedText;
+    }
+    interface GoogleMapsPlacesV1SearchNearbyRequest {
+      /** Excluded primary Place type (e.g. "restaurant" or "gas_station") from https://developers.google.com/maps/documentation/places/web-service/place-types. If there are any conflicting primary types, i.e. a type appears in both included_primary_types and excluded_primary_types, an INVALID_ARGUMENT error is returned. If a Place type is specified with multiple type restrictions, only places that satisfy all of the restrictions are returned. For example, if we have {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]}, the returned places provide "restaurant" related services but do not operate primarily as "restaurants". */
+      excludedPrimaryTypes?: string[];
+      /** Excluded Place type (eg, "restaurant" or "gas_station") from https://developers.google.com/maps/documentation/places/web-service/place-types. If the client provides both included_types (e.g. restaurant) and excluded_types (e.g. cafe), then the response should include places that are restaurant but not cafe. The response includes places that match at least one of the included_types and none of the excluded_types. If there are any conflicting types, i.e. a type appears in both included_types and excluded_types, an INVALID_ARGUMENT error is returned. If a Place type is specified with multiple type restrictions, only places that satisfy all of the restrictions are returned. For example, if we have {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]}, the returned places provide "restaurant" related services but do not operate primarily as "restaurants". */
+      excludedTypes?: string[];
+      /** Included primary Place type (e.g. "restaurant" or "gas_station") from https://developers.google.com/maps/documentation/places/web-service/place-types. A place can only have a single primary type from the supported types table associated with it. If there are any conflicting primary types, i.e. a type appears in both included_primary_types and excluded_primary_types, an INVALID_ARGUMENT error is returned. If a Place type is specified with multiple type restrictions, only places that satisfy all of the restrictions are returned. For example, if we have {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]}, the returned places provide "restaurant" related services but do not operate primarily as "restaurants". */
+      includedPrimaryTypes?: string[];
+      /** Included Place type (eg, "restaurant" or "gas_station") from https://developers.google.com/maps/documentation/places/web-service/place-types. If there are any conflicting types, i.e. a type appears in both included_types and excluded_types, an INVALID_ARGUMENT error is returned. If a Place type is specified with multiple type restrictions, only places that satisfy all of the restrictions are returned. For example, if we have {included_types = ["restaurant"], excluded_primary_types = ["restaurant"]}, the returned places provide "restaurant" related services but do not operate primarily as "restaurants". */
+      includedTypes?: string[];
+      /** Place details will be displayed with the preferred language if available. If the language code is unspecified or unrecognized, place details of any language may be returned, with a preference for English if such details exist. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport. */
+      languageCode?: string;
+      /** Required. The region to search. */
+      locationRestriction?: GoogleMapsPlacesV1SearchNearbyRequestLocationRestriction;
+      /** Maximum number of results to return. It must be between 1 and 20 (default), inclusively. If the number is unset, it falls back to the upper limit. If the number is set to negative or exceeds the upper limit, an INVALID_ARGUMENT error is returned. */
+      maxResultCount?: number;
+      /** How results will be ranked in the response. */
+      rankPreference?: string;
+      /** The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if available. The parameter can affect results based on applicable law. For more information, see https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported. */
+      regionCode?: string;
+    }
+    interface GoogleMapsPlacesV1SearchNearbyRequestLocationRestriction {
+      /** A circle defined by center point and radius. */
+      circle?: GoogleMapsPlacesV1Circle;
+    }
+    interface GoogleMapsPlacesV1SearchNearbyResponse {
+      /** A list of places that meets user's requirements like places types, number of places and specific location restriction. */
+      places?: GoogleMapsPlacesV1Place[];
+    }
+    interface GoogleMapsPlacesV1SearchTextRequest {
+      /** The requested place type. Full list of types supported: https://developers.google.com/maps/documentation/places/web-service/place-types. Only support one included type. */
+      includedType?: string;
+      /** Place details will be displayed with the preferred language if available. If the language code is unspecified or unrecognized, place details of any language may be returned, with a preference for English if such details exist. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport. */
+      languageCode?: string;
+      /** The region to search. This location serves as a bias which means results around given location might be returned. Cannot be set along with location_restriction. */
+      locationBias?: GoogleMapsPlacesV1SearchTextRequestLocationBias;
+      /** The region to search. This location serves as a restriction which means results outside given location will not be returned. Cannot be set along with location_bias. */
+      locationRestriction?: GoogleMapsPlacesV1SearchTextRequestLocationRestriction;
+      /** Maximum number of results to return. It must be between 1 and 20, inclusively. The default is 20. If the number is unset, it falls back to the upper limit. If the number is set to negative or exceeds the upper limit, an INVALID_ARGUMENT error is returned. */
+      maxResultCount?: number;
+      /** Filter out results whose average user rating is strictly less than this limit. A valid value must be a float between 0 and 5 (inclusively) at a 0.5 cadence i.e. [0, 0.5, 1.0, ... , 5.0] inclusively. The input rating will round up to the nearest 0.5(ceiling). For instance, a rating of 0.6 will eliminate all results with a less than 1.0 rating. */
+      minRating?: number;
+      /** Used to restrict the search to places that are currently open. The default is false. */
+      openNow?: boolean;
+      /** Used to restrict the search to places that are marked as certain price levels. Users can choose any combinations of price levels. Default to select all price levels. */
+      priceLevels?: string[];
+      /** How results will be ranked in the response. */
+      rankPreference?: string;
+      /** The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if available. The parameter can affect results based on applicable law. For more information, see https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported. */
+      regionCode?: string;
+      /** Used to set strict type filtering for included_type. If set to true, only results of the same type will be returned. Default to false. */
+      strictTypeFiltering?: boolean;
+      /** Required. The text query for textual search. */
+      textQuery?: string;
+    }
+    interface GoogleMapsPlacesV1SearchTextRequestLocationBias {
+      /** A circle defined by center point and radius. */
+      circle?: GoogleMapsPlacesV1Circle;
+      /** A rectangle box defined by northeast and southwest corner. `rectangle.high()` must be the northeast point of the rectangle viewport. `rectangle.low()` must be the southwest point of the rectangle viewport. */
+      rectangle?: GoogleGeoTypeViewport;
+    }
+    interface GoogleMapsPlacesV1SearchTextRequestLocationRestriction {
+      /** A rectangle box defined by northeast and southwest corner. `rectangle.high()` must be the northeast point of the rectangle viewport. `rectangle.low()` must be the southwest point of the rectangle viewport. */
+      rectangle?: GoogleGeoTypeViewport;
+    }
+    interface GoogleMapsPlacesV1SearchTextResponse {
+      /** A list of places that meet the user's text search criteria. */
+      places?: GoogleMapsPlacesV1Place[];
+    }
+    interface GoogleTypeDate {
+      /** Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant. */
+      day?: number;
+      /** Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day. */
+      month?: number;
+      /** Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year. */
+      year?: number;
+    }
+    interface GoogleTypeLatLng {
+      /** The latitude in degrees. It must be in the range [-90.0, +90.0]. */
+      latitude?: number;
+      /** The longitude in degrees. It must be in the range [-180.0, +180.0]. */
+      longitude?: number;
+    }
+    interface GoogleTypeLocalizedText {
+      /** The text's BCP-47 language code, such as "en-US" or "sr-Latn". For more information, see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. */
+      languageCode?: string;
+      /** Localized string in the language corresponding to language_code below. */
+      text?: string;
+    }
+    interface GoogleTypeMoney {
+      /** The three-letter currency code defined in ISO 4217. */
+      currencyCode?: string;
+      /** Number of nano (10^-9) units of the amount. The value must be between -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos` must be positive or zero. If `units` is zero, `nanos` can be positive, zero, or negative. If `units` is negative, `nanos` must be negative or zero. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000. */
+      nanos?: number;
+      /** The whole units of the amount. For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar. */
+      units?: string;
+    }
+    interface PhotosResource {
+      /** Get a photo media with a photo reference string. */
+      getMedia(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Optional. Specifies the maximum desired height, in pixels, of the image. If the image is smaller than the values specified, the original image will be returned. If the image is larger in either dimension, it will be scaled to match the smaller of the two dimensions, restricted to its original aspect ratio. Both the max_height_px and max_width_px properties accept an integer between 1 and 4800, inclusively. If the value is not within the allowed range, an INVALID_ARGUMENT error will be returned. At least one of max_height_px or max_width_px needs to be specified. If neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT error will be returned. */
+        maxHeightPx?: number;
+        /** Optional. Specifies the maximum desired width, in pixels, of the image. If the image is smaller than the values specified, the original image will be returned. If the image is larger in either dimension, it will be scaled to match the smaller of the two dimensions, restricted to its original aspect ratio. Both the max_height_px and max_width_px properties accept an integer between 1 and 4800, inclusively. If the value is not within the allowed range, an INVALID_ARGUMENT error will be returned. At least one of max_height_px or max_width_px needs to be specified. If neither max_height_px nor max_width_px is specified, an INVALID_ARGUMENT error will be returned. */
+        maxWidthPx?: number;
+        /** Required. The resource name of a photo media in the format: `"places/place_id/photos/photo_reference/media"`. The resource name of a photo as returned in a Place object's `photos.name` field comes with the format `"places/place_id/photos/photo_reference"`. You need to append `"/media"` at the end of the photo resource to get the photo media resource name. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. If set, skip the default HTTP redirect behavior and render a text format (for example, in JSON format for HTTP use case) response. If not set, an HTTP redirect will be issued to redirect the call to the image media. This option is ignored for non-HTTP requests. */
+        skipHttpRedirect?: boolean;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleMapsPlacesV1PhotoMedia>;
+    }
+    interface PlacesResource {
+      /** Get place details with a place id (in a name) string. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Optional. Place details will be displayed with the preferred language if available. Current list of supported languages: https://developers.google.com/maps/faq#languagesupport. */
+        languageCode?: string;
+        /** Required. A place ID returned in a Place (with "places/" prefix), or equivalently the name in the same Place. Format: places/*place_id*. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Optional. The Unicode country/region code (CLDR) of the location where the request is coming from. This parameter is used to display the place details, like region-specific place name, if available. The parameter can affect results based on applicable law. For more information, see https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html. Note that 3-digit region codes are not currently supported. */
+        regionCode?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleMapsPlacesV1Place>;
+      /** Search for places near locations. */
+      searchNearby(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleMapsPlacesV1SearchNearbyRequest;
+      }): Request<GoogleMapsPlacesV1SearchNearbyResponse>;
+      searchNearby(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleMapsPlacesV1SearchNearbyRequest
+      ): Request<GoogleMapsPlacesV1SearchNearbyResponse>;
+      /** Text query based place search. */
+      searchText(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleMapsPlacesV1SearchTextRequest;
+      }): Request<GoogleMapsPlacesV1SearchTextResponse>;
+      searchText(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleMapsPlacesV1SearchTextRequest
+      ): Request<GoogleMapsPlacesV1SearchTextResponse>;
+      photos: PhotosResource;
+    }
+
+    const places: PlacesResource;
+  }
 }

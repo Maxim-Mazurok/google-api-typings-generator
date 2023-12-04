@@ -6,1067 +6,1072 @@
 // Revision: 20231127
 
 gapi.load('client', async () => {
-    /** now we can use gapi.client */
+  /** now we can use gapi.client */
 
-    await gapi.client.load('https://drivelabels.googleapis.com/$discovery/rest?version=v2beta');
-    /** now we can use gapi.client.drivelabels */
+  await gapi.client.load(
+    'https://drivelabels.googleapis.com/$discovery/rest?version=v2beta'
+  );
+  /** now we can use gapi.client.drivelabels */
 
-    /** don't forget to authenticate your client before sending any request to resources: */
-    /** declare client_id registered in Google Developers Console */
-    const client_id = '<<PUT YOUR CLIENT ID HERE>>';
-    const scope = [
-        /** See, edit, create, and delete all Google Drive labels in your organization, and see your organization's label-related admin policies */
-        'https://www.googleapis.com/auth/drive.admin.labels',
-        /** See all Google Drive labels and label-related admin policies in your organization */
-        'https://www.googleapis.com/auth/drive.admin.labels.readonly',
-        /** See, edit, create, and delete your Google Drive labels */
-        'https://www.googleapis.com/auth/drive.labels',
-        /** See your Google Drive labels */
-        'https://www.googleapis.com/auth/drive.labels.readonly',
-    ];
-    const immediate = false;
-    gapi.auth.authorize({ client_id, scope, immediate }, authResult => {
-        if (authResult && !authResult.error) {
-            /** handle successful authorization */
-            run();
-        } else {
-            /** handle authorization error */
-        }
-    });
+  /** don't forget to authenticate your client before sending any request to resources: */
+  /** declare client_id registered in Google Developers Console */
+  const client_id = '<<PUT YOUR CLIENT ID HERE>>';
+  const scope = [
+    /** See, edit, create, and delete all Google Drive labels in your organization, and see your organization's label-related admin policies */
+    'https://www.googleapis.com/auth/drive.admin.labels',
+    /** See all Google Drive labels and label-related admin policies in your organization */
+    'https://www.googleapis.com/auth/drive.admin.labels.readonly',
+    /** See, edit, create, and delete your Google Drive labels */
+    'https://www.googleapis.com/auth/drive.labels',
+    /** See your Google Drive labels */
+    'https://www.googleapis.com/auth/drive.labels.readonly',
+  ];
+  const immediate = false;
+  gapi.auth.authorize({client_id, scope, immediate}, authResult => {
+    if (authResult && !authResult.error) {
+      /** handle successful authorization */
+      void run();
+    } else {
+      /** handle authorization error */
+    }
+  });
 
-    async function run() {
-        /** Creates a new Label. */
-        await gapi.client.drivelabels.labels.create({
-            languageCode: "Test string",
-            useAdminAccess: true,
-        }, {
+  async function run() {
+    /** Creates a new Label. */
+    await gapi.client.drivelabels.labels.create(
+      {
+        languageCode: 'Test string',
+        useAdminAccess: true,
+      },
+      {
+        appliedCapabilities: {
+          canApply: true,
+          canRead: true,
+          canRemove: true,
+        },
+        appliedLabelPolicy: {
+          copyMode: 'Test string',
+        },
+        createTime: 'Test string',
+        creator: {
+          person: 'Test string',
+        },
+        customer: 'Test string',
+        disabler: {
+          person: 'Test string',
+        },
+        disableTime: 'Test string',
+        displayHints: {
+          disabled: true,
+          hiddenInSearch: true,
+          priority: 'Test string',
+          shownInApply: true,
+        },
+        fields: [
+          {
             appliedCapabilities: {
-                canApply: true,
-                canRead: true,
-                canRemove: true,
+              canRead: true,
+              canSearch: true,
+              canWrite: true,
             },
-            appliedLabelPolicy: {
-                copyMode: "Test string",
-            },
-            createTime: "Test string",
+            createTime: 'Test string',
             creator: {
-                person: "Test string",
+              person: 'Test string',
             },
-            customer: "Test string",
+            dateOptions: {
+              dateFormat: 'Test string',
+              dateFormatType: 'Test string',
+              maxValue: {
+                day: 42,
+                month: 42,
+                year: 42,
+              },
+              minValue: {
+                day: 42,
+                month: 42,
+                year: 42,
+              },
+            },
             disabler: {
-                person: "Test string",
+              person: 'Test string',
             },
-            disableTime: "Test string",
+            disableTime: 'Test string',
             displayHints: {
-                disabled: true,
-                hiddenInSearch: true,
-                priority: "Test string",
-                shownInApply: true,
+              disabled: true,
+              hiddenInSearch: true,
+              required: true,
+              shownInApply: true,
             },
-            fields: [
+            id: 'Test string',
+            integerOptions: {
+              maxValue: 'Test string',
+              minValue: 'Test string',
+            },
+            lifecycle: {
+              disabledPolicy: {
+                hideInSearch: true,
+                showInApply: true,
+              },
+              hasUnpublishedChanges: true,
+              state: 'Test string',
+            },
+            lockStatus: {
+              locked: true,
+            },
+            properties: {
+              displayName: 'Test string',
+              insertBeforeField: 'Test string',
+              required: true,
+            },
+            publisher: {
+              person: 'Test string',
+            },
+            queryKey: 'Test string',
+            schemaCapabilities: {
+              canDelete: true,
+              canDisable: true,
+              canEnable: true,
+              canUpdate: true,
+            },
+            selectionOptions: {
+              choices: [
                 {
-                    appliedCapabilities: {
+                  appliedCapabilities: {
+                    canRead: true,
+                    canSearch: true,
+                    canSelect: true,
+                  },
+                  createTime: 'Test string',
+                  creator: {
+                    person: 'Test string',
+                  },
+                  disabler: {
+                    person: 'Test string',
+                  },
+                  disableTime: 'Test string',
+                  displayHints: {
+                    badgeColors: {
+                      backgroundColor: {
+                        alpha: 42,
+                        blue: 42,
+                        green: 42,
+                        red: 42,
+                      },
+                      foregroundColor: {
+                        alpha: 42,
+                        blue: 42,
+                        green: 42,
+                        red: 42,
+                      },
+                      soloColor: {
+                        alpha: 42,
+                        blue: 42,
+                        green: 42,
+                        red: 42,
+                      },
+                    },
+                    badgePriority: 'Test string',
+                    darkBadgeColors: {
+                      backgroundColor: {
+                        alpha: 42,
+                        blue: 42,
+                        green: 42,
+                        red: 42,
+                      },
+                      foregroundColor: {
+                        alpha: 42,
+                        blue: 42,
+                        green: 42,
+                        red: 42,
+                      },
+                      soloColor: {
+                        alpha: 42,
+                        blue: 42,
+                        green: 42,
+                        red: 42,
+                      },
+                    },
+                    disabled: true,
+                    hiddenInSearch: true,
+                    shownInApply: true,
+                  },
+                  id: 'Test string',
+                  lifecycle: {
+                    disabledPolicy: {
+                      hideInSearch: true,
+                      showInApply: true,
+                    },
+                    hasUnpublishedChanges: true,
+                    state: 'Test string',
+                  },
+                  lockStatus: {
+                    locked: true,
+                  },
+                  properties: {
+                    badgeConfig: {
+                      color: {
+                        alpha: 42,
+                        blue: 42,
+                        green: 42,
+                        red: 42,
+                      },
+                      priorityOverride: 'Test string',
+                    },
+                    description: 'Test string',
+                    displayName: 'Test string',
+                    insertBeforeChoice: 'Test string',
+                  },
+                  publisher: {
+                    person: 'Test string',
+                  },
+                  publishTime: 'Test string',
+                  schemaCapabilities: {
+                    canDelete: true,
+                    canDisable: true,
+                    canEnable: true,
+                    canUpdate: true,
+                  },
+                  updater: {
+                    person: 'Test string',
+                  },
+                  updateTime: 'Test string',
+                },
+              ],
+              listOptions: {
+                maxEntries: 42,
+              },
+            },
+            textOptions: {
+              maxLength: 42,
+              minLength: 42,
+            },
+            updater: {
+              person: 'Test string',
+            },
+            updateTime: 'Test string',
+            userOptions: {
+              listOptions: {
+                maxEntries: 42,
+              },
+            },
+          },
+        ],
+        id: 'Test string',
+        labelType: 'Test string',
+        learnMoreUri: 'Test string',
+        lifecycle: {
+          disabledPolicy: {
+            hideInSearch: true,
+            showInApply: true,
+          },
+          hasUnpublishedChanges: true,
+          state: 'Test string',
+        },
+        lockStatus: {
+          locked: true,
+        },
+        name: 'Test string',
+        properties: {
+          description: 'Test string',
+          title: 'Test string',
+        },
+        publisher: {
+          person: 'Test string',
+        },
+        publishTime: 'Test string',
+        revisionCreateTime: 'Test string',
+        revisionCreator: {
+          person: 'Test string',
+        },
+        revisionId: 'Test string',
+        schemaCapabilities: {
+          canDelete: true,
+          canDisable: true,
+          canEnable: true,
+          canUpdate: true,
+        },
+      }
+    );
+    /** Permanently deletes a Label and related metadata on Drive Items. Once deleted, the Label and related Drive item metadata will be deleted. Only draft Labels, and disabled Labels may be deleted. */
+    await gapi.client.drivelabels.labels.delete({
+      name: 'Test string',
+      useAdminAccess: true,
+      'writeControl.requiredRevisionId': 'Test string',
+    });
+    /** Updates a single Label by applying a set of update requests resulting in a new draft revision. The batch update is all-or-nothing: If any of the update requests are invalid, no changes are applied. The resulting draft revision must be published before the changes may be used with Drive Items. */
+    await gapi.client.drivelabels.labels.delta(
+      {
+        name: 'Test string',
+      },
+      {
+        languageCode: 'Test string',
+        requests: [
+          {
+            createField: {
+              field: {
+                appliedCapabilities: {
+                  canRead: true,
+                  canSearch: true,
+                  canWrite: true,
+                },
+                createTime: 'Test string',
+                creator: {
+                  person: 'Test string',
+                },
+                dateOptions: {
+                  dateFormat: 'Test string',
+                  dateFormatType: 'Test string',
+                  maxValue: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                  },
+                  minValue: {
+                    day: 42,
+                    month: 42,
+                    year: 42,
+                  },
+                },
+                disabler: {
+                  person: 'Test string',
+                },
+                disableTime: 'Test string',
+                displayHints: {
+                  disabled: true,
+                  hiddenInSearch: true,
+                  required: true,
+                  shownInApply: true,
+                },
+                id: 'Test string',
+                integerOptions: {
+                  maxValue: 'Test string',
+                  minValue: 'Test string',
+                },
+                lifecycle: {
+                  disabledPolicy: {
+                    hideInSearch: true,
+                    showInApply: true,
+                  },
+                  hasUnpublishedChanges: true,
+                  state: 'Test string',
+                },
+                lockStatus: {
+                  locked: true,
+                },
+                properties: {
+                  displayName: 'Test string',
+                  insertBeforeField: 'Test string',
+                  required: true,
+                },
+                publisher: {
+                  person: 'Test string',
+                },
+                queryKey: 'Test string',
+                schemaCapabilities: {
+                  canDelete: true,
+                  canDisable: true,
+                  canEnable: true,
+                  canUpdate: true,
+                },
+                selectionOptions: {
+                  choices: [
+                    {
+                      appliedCapabilities: {
                         canRead: true,
                         canSearch: true,
-                        canWrite: true,
-                    },
-                    createTime: "Test string",
-                    creator: {
-                        person: "Test string",
-                    },
-                    dateOptions: {
-                        dateFormat: "Test string",
-                        dateFormatType: "Test string",
-                        maxValue: {
-                            day: 42,
-                            month: 42,
-                            year: 42,
+                        canSelect: true,
+                      },
+                      createTime: 'Test string',
+                      creator: {
+                        person: 'Test string',
+                      },
+                      disabler: {
+                        person: 'Test string',
+                      },
+                      disableTime: 'Test string',
+                      displayHints: {
+                        badgeColors: {
+                          backgroundColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          foregroundColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          soloColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
                         },
-                        minValue: {
-                            day: 42,
-                            month: 42,
-                            year: 42,
+                        badgePriority: 'Test string',
+                        darkBadgeColors: {
+                          backgroundColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          foregroundColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          soloColor: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
                         },
-                    },
-                    disabler: {
-                        person: "Test string",
-                    },
-                    disableTime: "Test string",
-                    displayHints: {
                         disabled: true,
                         hiddenInSearch: true,
-                        required: true,
                         shownInApply: true,
-                    },
-                    id: "Test string",
-                    integerOptions: {
-                        maxValue: "Test string",
-                        minValue: "Test string",
-                    },
-                    lifecycle: {
+                      },
+                      id: 'Test string',
+                      lifecycle: {
                         disabledPolicy: {
-                            hideInSearch: true,
-                            showInApply: true,
+                          hideInSearch: true,
+                          showInApply: true,
                         },
                         hasUnpublishedChanges: true,
-                        state: "Test string",
-                    },
-                    lockStatus: {
+                        state: 'Test string',
+                      },
+                      lockStatus: {
                         locked: true,
-                    },
-                    properties: {
-                        displayName: "Test string",
-                        insertBeforeField: "Test string",
-                        required: true,
-                    },
-                    publisher: {
-                        person: "Test string",
-                    },
-                    queryKey: "Test string",
-                    schemaCapabilities: {
+                      },
+                      properties: {
+                        badgeConfig: {
+                          color: {
+                            alpha: 42,
+                            blue: 42,
+                            green: 42,
+                            red: 42,
+                          },
+                          priorityOverride: 'Test string',
+                        },
+                        description: 'Test string',
+                        displayName: 'Test string',
+                        insertBeforeChoice: 'Test string',
+                      },
+                      publisher: {
+                        person: 'Test string',
+                      },
+                      publishTime: 'Test string',
+                      schemaCapabilities: {
                         canDelete: true,
                         canDisable: true,
                         canEnable: true,
                         canUpdate: true,
+                      },
+                      updater: {
+                        person: 'Test string',
+                      },
+                      updateTime: 'Test string',
                     },
-                    selectionOptions: {
-                        choices: [
-                            {
-                                appliedCapabilities: {
-                                    canRead: true,
-                                    canSearch: true,
-                                    canSelect: true,
-                                },
-                                createTime: "Test string",
-                                creator: {
-                                    person: "Test string",
-                                },
-                                disabler: {
-                                    person: "Test string",
-                                },
-                                disableTime: "Test string",
-                                displayHints: {
-                                    badgeColors: {
-                                        backgroundColor: {
-                                            alpha: 42,
-                                            blue: 42,
-                                            green: 42,
-                                            red: 42,
-                                        },
-                                        foregroundColor: {
-                                            alpha: 42,
-                                            blue: 42,
-                                            green: 42,
-                                            red: 42,
-                                        },
-                                        soloColor: {
-                                            alpha: 42,
-                                            blue: 42,
-                                            green: 42,
-                                            red: 42,
-                                        },
-                                    },
-                                    badgePriority: "Test string",
-                                    darkBadgeColors: {
-                                        backgroundColor: {
-                                            alpha: 42,
-                                            blue: 42,
-                                            green: 42,
-                                            red: 42,
-                                        },
-                                        foregroundColor: {
-                                            alpha: 42,
-                                            blue: 42,
-                                            green: 42,
-                                            red: 42,
-                                        },
-                                        soloColor: {
-                                            alpha: 42,
-                                            blue: 42,
-                                            green: 42,
-                                            red: 42,
-                                        },
-                                    },
-                                    disabled: true,
-                                    hiddenInSearch: true,
-                                    shownInApply: true,
-                                },
-                                id: "Test string",
-                                lifecycle: {
-                                    disabledPolicy: {
-                                        hideInSearch: true,
-                                        showInApply: true,
-                                    },
-                                    hasUnpublishedChanges: true,
-                                    state: "Test string",
-                                },
-                                lockStatus: {
-                                    locked: true,
-                                },
-                                properties: {
-                                    badgeConfig: {
-                                        color: {
-                                            alpha: 42,
-                                            blue: 42,
-                                            green: 42,
-                                            red: 42,
-                                        },
-                                        priorityOverride: "Test string",
-                                    },
-                                    description: "Test string",
-                                    displayName: "Test string",
-                                    insertBeforeChoice: "Test string",
-                                },
-                                publisher: {
-                                    person: "Test string",
-                                },
-                                publishTime: "Test string",
-                                schemaCapabilities: {
-                                    canDelete: true,
-                                    canDisable: true,
-                                    canEnable: true,
-                                    canUpdate: true,
-                                },
-                                updater: {
-                                    person: "Test string",
-                                },
-                                updateTime: "Test string",
-                            }
-                        ],
-                        listOptions: {
-                            maxEntries: 42,
-                        },
+                  ],
+                  listOptions: {
+                    maxEntries: 42,
+                  },
+                },
+                textOptions: {
+                  maxLength: 42,
+                  minLength: 42,
+                },
+                updater: {
+                  person: 'Test string',
+                },
+                updateTime: 'Test string',
+                userOptions: {
+                  listOptions: {
+                    maxEntries: 42,
+                  },
+                },
+              },
+            },
+            createSelectionChoice: {
+              choice: {
+                appliedCapabilities: {
+                  canRead: true,
+                  canSearch: true,
+                  canSelect: true,
+                },
+                createTime: 'Test string',
+                creator: {
+                  person: 'Test string',
+                },
+                disabler: {
+                  person: 'Test string',
+                },
+                disableTime: 'Test string',
+                displayHints: {
+                  badgeColors: {
+                    backgroundColor: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
                     },
-                    textOptions: {
-                        maxLength: 42,
-                        minLength: 42,
+                    foregroundColor: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
                     },
-                    updater: {
-                        person: "Test string",
+                    soloColor: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
                     },
-                    updateTime: "Test string",
-                    userOptions: {
-                        listOptions: {
-                            maxEntries: 42,
-                        },
+                  },
+                  badgePriority: 'Test string',
+                  darkBadgeColors: {
+                    backgroundColor: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
                     },
-                }
-            ],
-            id: "Test string",
-            labelType: "Test string",
-            learnMoreUri: "Test string",
-            lifecycle: {
-                disabledPolicy: {
+                    foregroundColor: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
+                    },
+                    soloColor: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
+                    },
+                  },
+                  disabled: true,
+                  hiddenInSearch: true,
+                  shownInApply: true,
+                },
+                id: 'Test string',
+                lifecycle: {
+                  disabledPolicy: {
                     hideInSearch: true,
                     showInApply: true,
+                  },
+                  hasUnpublishedChanges: true,
+                  state: 'Test string',
                 },
-                hasUnpublishedChanges: true,
-                state: "Test string",
+                lockStatus: {
+                  locked: true,
+                },
+                properties: {
+                  badgeConfig: {
+                    color: {
+                      alpha: 42,
+                      blue: 42,
+                      green: 42,
+                      red: 42,
+                    },
+                    priorityOverride: 'Test string',
+                  },
+                  description: 'Test string',
+                  displayName: 'Test string',
+                  insertBeforeChoice: 'Test string',
+                },
+                publisher: {
+                  person: 'Test string',
+                },
+                publishTime: 'Test string',
+                schemaCapabilities: {
+                  canDelete: true,
+                  canDisable: true,
+                  canEnable: true,
+                  canUpdate: true,
+                },
+                updater: {
+                  person: 'Test string',
+                },
+                updateTime: 'Test string',
+              },
+              fieldId: 'Test string',
             },
-            lockStatus: {
-                locked: true,
+            deleteField: {
+              id: 'Test string',
             },
-            name: "Test string",
-            properties: {
-                description: "Test string",
-                title: "Test string",
+            deleteSelectionChoice: {
+              fieldId: 'Test string',
+              id: 'Test string',
             },
-            publisher: {
-                person: "Test string",
-            },
-            publishTime: "Test string",
-            revisionCreateTime: "Test string",
-            revisionCreator: {
-                person: "Test string",
-            },
-            revisionId: "Test string",
-            schemaCapabilities: {
-                canDelete: true,
-                canDisable: true,
-                canEnable: true,
-                canUpdate: true,
-            },
-        });
-        /**
-         * Permanently deletes a Label and related metadata on Drive Items. Once deleted, the Label and related Drive item metadata will be deleted. Only draft Labels, and disabled Labels may be
-         * deleted.
-         */
-        await gapi.client.drivelabels.labels.delete({
-            name: "Test string",
-            useAdminAccess: true,
-            "writeControl.requiredRevisionId": "Test string",
-        });
-        /**
-         * Updates a single Label by applying a set of update requests resulting in a new draft revision. The batch update is all-or-nothing: If any of the update requests are invalid, no changes
-         * are applied. The resulting draft revision must be published before the changes may be used with Drive Items.
-         */
-        await gapi.client.drivelabels.labels.delta({
-            name: "Test string",
-        }, {
-            languageCode: "Test string",
-            requests: [
-                {
-                    createField: {
-                        field: {
-                            appliedCapabilities: {
-                                canRead: true,
-                                canSearch: true,
-                                canWrite: true,
-                            },
-                            createTime: "Test string",
-                            creator: {
-                                person: "Test string",
-                            },
-                            dateOptions: {
-                                dateFormat: "Test string",
-                                dateFormatType: "Test string",
-                                maxValue: {
-                                    day: 42,
-                                    month: 42,
-                                    year: 42,
-                                },
-                                minValue: {
-                                    day: 42,
-                                    month: 42,
-                                    year: 42,
-                                },
-                            },
-                            disabler: {
-                                person: "Test string",
-                            },
-                            disableTime: "Test string",
-                            displayHints: {
-                                disabled: true,
-                                hiddenInSearch: true,
-                                required: true,
-                                shownInApply: true,
-                            },
-                            id: "Test string",
-                            integerOptions: {
-                                maxValue: "Test string",
-                                minValue: "Test string",
-                            },
-                            lifecycle: {
-                                disabledPolicy: {
-                                    hideInSearch: true,
-                                    showInApply: true,
-                                },
-                                hasUnpublishedChanges: true,
-                                state: "Test string",
-                            },
-                            lockStatus: {
-                                locked: true,
-                            },
-                            properties: {
-                                displayName: "Test string",
-                                insertBeforeField: "Test string",
-                                required: true,
-                            },
-                            publisher: {
-                                person: "Test string",
-                            },
-                            queryKey: "Test string",
-                            schemaCapabilities: {
-                                canDelete: true,
-                                canDisable: true,
-                                canEnable: true,
-                                canUpdate: true,
-                            },
-                            selectionOptions: {
-                                choices: [
-                                    {
-                                        appliedCapabilities: {
-                                            canRead: true,
-                                            canSearch: true,
-                                            canSelect: true,
-                                        },
-                                        createTime: "Test string",
-                                        creator: {
-                                            person: "Test string",
-                                        },
-                                        disabler: {
-                                            person: "Test string",
-                                        },
-                                        disableTime: "Test string",
-                                        displayHints: {
-                                            badgeColors: {
-                                                backgroundColor: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                foregroundColor: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                soloColor: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                            },
-                                            badgePriority: "Test string",
-                                            darkBadgeColors: {
-                                                backgroundColor: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                foregroundColor: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                soloColor: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                            },
-                                            disabled: true,
-                                            hiddenInSearch: true,
-                                            shownInApply: true,
-                                        },
-                                        id: "Test string",
-                                        lifecycle: {
-                                            disabledPolicy: {
-                                                hideInSearch: true,
-                                                showInApply: true,
-                                            },
-                                            hasUnpublishedChanges: true,
-                                            state: "Test string",
-                                        },
-                                        lockStatus: {
-                                            locked: true,
-                                        },
-                                        properties: {
-                                            badgeConfig: {
-                                                color: {
-                                                    alpha: 42,
-                                                    blue: 42,
-                                                    green: 42,
-                                                    red: 42,
-                                                },
-                                                priorityOverride: "Test string",
-                                            },
-                                            description: "Test string",
-                                            displayName: "Test string",
-                                            insertBeforeChoice: "Test string",
-                                        },
-                                        publisher: {
-                                            person: "Test string",
-                                        },
-                                        publishTime: "Test string",
-                                        schemaCapabilities: {
-                                            canDelete: true,
-                                            canDisable: true,
-                                            canEnable: true,
-                                            canUpdate: true,
-                                        },
-                                        updater: {
-                                            person: "Test string",
-                                        },
-                                        updateTime: "Test string",
-                                    }
-                                ],
-                                listOptions: {
-                                    maxEntries: 42,
-                                },
-                            },
-                            textOptions: {
-                                maxLength: 42,
-                                minLength: 42,
-                            },
-                            updater: {
-                                person: "Test string",
-                            },
-                            updateTime: "Test string",
-                            userOptions: {
-                                listOptions: {
-                                    maxEntries: 42,
-                                },
-                            },
-                        },
-                    },
-                    createSelectionChoice: {
-                        choice: {
-                            appliedCapabilities: {
-                                canRead: true,
-                                canSearch: true,
-                                canSelect: true,
-                            },
-                            createTime: "Test string",
-                            creator: {
-                                person: "Test string",
-                            },
-                            disabler: {
-                                person: "Test string",
-                            },
-                            disableTime: "Test string",
-                            displayHints: {
-                                badgeColors: {
-                                    backgroundColor: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    foregroundColor: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    soloColor: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                },
-                                badgePriority: "Test string",
-                                darkBadgeColors: {
-                                    backgroundColor: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    foregroundColor: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    soloColor: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                },
-                                disabled: true,
-                                hiddenInSearch: true,
-                                shownInApply: true,
-                            },
-                            id: "Test string",
-                            lifecycle: {
-                                disabledPolicy: {
-                                    hideInSearch: true,
-                                    showInApply: true,
-                                },
-                                hasUnpublishedChanges: true,
-                                state: "Test string",
-                            },
-                            lockStatus: {
-                                locked: true,
-                            },
-                            properties: {
-                                badgeConfig: {
-                                    color: {
-                                        alpha: 42,
-                                        blue: 42,
-                                        green: 42,
-                                        red: 42,
-                                    },
-                                    priorityOverride: "Test string",
-                                },
-                                description: "Test string",
-                                displayName: "Test string",
-                                insertBeforeChoice: "Test string",
-                            },
-                            publisher: {
-                                person: "Test string",
-                            },
-                            publishTime: "Test string",
-                            schemaCapabilities: {
-                                canDelete: true,
-                                canDisable: true,
-                                canEnable: true,
-                                canUpdate: true,
-                            },
-                            updater: {
-                                person: "Test string",
-                            },
-                            updateTime: "Test string",
-                        },
-                        fieldId: "Test string",
-                    },
-                    deleteField: {
-                        id: "Test string",
-                    },
-                    deleteSelectionChoice: {
-                        fieldId: "Test string",
-                        id: "Test string",
-                    },
-                    disableField: {
-                        disabledPolicy: {
-                            hideInSearch: true,
-                            showInApply: true,
-                        },
-                        id: "Test string",
-                        updateMask: "Test string",
-                    },
-                    disableSelectionChoice: {
-                        disabledPolicy: {
-                            hideInSearch: true,
-                            showInApply: true,
-                        },
-                        fieldId: "Test string",
-                        id: "Test string",
-                        updateMask: "Test string",
-                    },
-                    enableField: {
-                        id: "Test string",
-                    },
-                    enableSelectionChoice: {
-                        fieldId: "Test string",
-                        id: "Test string",
-                    },
-                    updateField: {
-                        id: "Test string",
-                        properties: {
-                            displayName: "Test string",
-                            insertBeforeField: "Test string",
-                            required: true,
-                        },
-                        updateMask: "Test string",
-                    },
-                    updateFieldType: {
-                        dateOptions: {
-                            dateFormat: "Test string",
-                            dateFormatType: "Test string",
-                            maxValue: {
-                                day: 42,
-                                month: 42,
-                                year: 42,
-                            },
-                            minValue: {
-                                day: 42,
-                                month: 42,
-                                year: 42,
-                            },
-                        },
-                        id: "Test string",
-                        integerOptions: {
-                            maxValue: "Test string",
-                            minValue: "Test string",
-                        },
-                        longTextOptions: {
-                            maxLength: 42,
-                            minLength: 42,
-                        },
-                        selectionOptions: {
-                            choices: [
-                                {
-                                    appliedCapabilities: {
-                                        canRead: true,
-                                        canSearch: true,
-                                        canSelect: true,
-                                    },
-                                    createTime: "Test string",
-                                    creator: {
-                                        person: "Test string",
-                                    },
-                                    disabler: {
-                                        person: "Test string",
-                                    },
-                                    disableTime: "Test string",
-                                    displayHints: {
-                                        badgeColors: {
-                                            backgroundColor: {
-                                                alpha: 42,
-                                                blue: 42,
-                                                green: 42,
-                                                red: 42,
-                                            },
-                                            foregroundColor: {
-                                                alpha: 42,
-                                                blue: 42,
-                                                green: 42,
-                                                red: 42,
-                                            },
-                                            soloColor: {
-                                                alpha: 42,
-                                                blue: 42,
-                                                green: 42,
-                                                red: 42,
-                                            },
-                                        },
-                                        badgePriority: "Test string",
-                                        darkBadgeColors: {
-                                            backgroundColor: {
-                                                alpha: 42,
-                                                blue: 42,
-                                                green: 42,
-                                                red: 42,
-                                            },
-                                            foregroundColor: {
-                                                alpha: 42,
-                                                blue: 42,
-                                                green: 42,
-                                                red: 42,
-                                            },
-                                            soloColor: {
-                                                alpha: 42,
-                                                blue: 42,
-                                                green: 42,
-                                                red: 42,
-                                            },
-                                        },
-                                        disabled: true,
-                                        hiddenInSearch: true,
-                                        shownInApply: true,
-                                    },
-                                    id: "Test string",
-                                    lifecycle: {
-                                        disabledPolicy: {
-                                            hideInSearch: true,
-                                            showInApply: true,
-                                        },
-                                        hasUnpublishedChanges: true,
-                                        state: "Test string",
-                                    },
-                                    lockStatus: {
-                                        locked: true,
-                                    },
-                                    properties: {
-                                        badgeConfig: {
-                                            color: {
-                                                alpha: 42,
-                                                blue: 42,
-                                                green: 42,
-                                                red: 42,
-                                            },
-                                            priorityOverride: "Test string",
-                                        },
-                                        description: "Test string",
-                                        displayName: "Test string",
-                                        insertBeforeChoice: "Test string",
-                                    },
-                                    publisher: {
-                                        person: "Test string",
-                                    },
-                                    publishTime: "Test string",
-                                    schemaCapabilities: {
-                                        canDelete: true,
-                                        canDisable: true,
-                                        canEnable: true,
-                                        canUpdate: true,
-                                    },
-                                    updater: {
-                                        person: "Test string",
-                                    },
-                                    updateTime: "Test string",
-                                }
-                            ],
-                            listOptions: {
-                                maxEntries: 42,
-                            },
-                        },
-                        textOptions: {
-                            maxLength: 42,
-                            minLength: 42,
-                        },
-                        updateMask: "Test string",
-                        userOptions: {
-                            listOptions: {
-                                maxEntries: 42,
-                            },
-                        },
-                    },
-                    updateLabel: {
-                        properties: {
-                            description: "Test string",
-                            title: "Test string",
-                        },
-                        updateMask: "Test string",
-                    },
-                    updateSelectionChoiceProperties: {
-                        fieldId: "Test string",
-                        id: "Test string",
-                        properties: {
-                            badgeConfig: {
-                                color: {
-                                    alpha: 42,
-                                    blue: 42,
-                                    green: 42,
-                                    red: 42,
-                                },
-                                priorityOverride: "Test string",
-                            },
-                            description: "Test string",
-                            displayName: "Test string",
-                            insertBeforeChoice: "Test string",
-                        },
-                        updateMask: "Test string",
-                    },
-                }
-            ],
-            useAdminAccess: true,
-            view: "Test string",
-            writeControl: {
-                requiredRevisionId: "Test string",
-            },
-        });
-        /**
-         * Disable a published Label. Disabling a Label will result in a new disabled published revision based on the current published revision. If there is a draft revision, a new disabled draft
-         * revision will be created based on the latest draft revision. Older draft revisions will be deleted. Once disabled, a label may be deleted with `DeleteLabel`.
-         */
-        await gapi.client.drivelabels.labels.disable({
-            name: "Test string",
-        }, {
-            disabledPolicy: {
+            disableField: {
+              disabledPolicy: {
                 hideInSearch: true,
                 showInApply: true,
+              },
+              id: 'Test string',
+              updateMask: 'Test string',
             },
-            languageCode: "Test string",
-            updateMask: "Test string",
-            useAdminAccess: true,
-            writeControl: {
-                requiredRevisionId: "Test string",
+            disableSelectionChoice: {
+              disabledPolicy: {
+                hideInSearch: true,
+                showInApply: true,
+              },
+              fieldId: 'Test string',
+              id: 'Test string',
+              updateMask: 'Test string',
             },
-        });
-        /**
-         * Enable a disabled Label and restore it to its published state. This will result in a new published revision based on the current disabled published revision. If there is an existing
-         * disabled draft revision, a new revision will be created based on that draft and will be enabled.
-         */
-        await gapi.client.drivelabels.labels.enable({
-            name: "Test string",
-        }, {
-            languageCode: "Test string",
-            useAdminAccess: true,
-            writeControl: {
-                requiredRevisionId: "Test string",
+            enableField: {
+              id: 'Test string',
             },
-        });
-        /**
-         * Get a label by its resource name. Resource name may be any of: * `labels/{id}` - See `labels/{id}@latest` * `labels/{id}@latest` - Gets the latest revision of the label. *
-         * `labels/{id}@published` - Gets the current published revision of the label. * `labels/{id}@{revision_id}` - Gets the label at the specified revision ID.
-         */
-        await gapi.client.drivelabels.labels.get({
-            languageCode: "Test string",
-            name: "Test string",
-            useAdminAccess: true,
-            view: "Test string",
-        });
-        /** List labels. */
-        await gapi.client.drivelabels.labels.list({
-            customer: "Test string",
-            languageCode: "Test string",
-            minimumRole: "Test string",
-            pageSize: 42,
-            pageToken: "Test string",
-            publishedOnly: true,
-            useAdminAccess: true,
-            view: "Test string",
-        });
-        /**
-         * Publish all draft changes to the Label. Once published, the Label may not return to its draft state. See `google.apps.drive.labels.v2.Lifecycle` for more information. Publishing a Label
-         * will result in a new published revision. All previous draft revisions will be deleted. Previous published revisions will be kept but are subject to automated deletion as needed. Once
-         * published, some changes are no longer permitted. Generally, any change that would invalidate or cause new restrictions on existing metadata related to the Label will be rejected. For
-         * example, the following changes to a Label will be rejected after the Label is published: * The label cannot be directly deleted. It must be disabled first, then deleted. *
-         * Field.FieldType cannot be changed. * Changes to Field validation options cannot reject something that was previously accepted. * Reducing the max entries.
-         */
-        await gapi.client.drivelabels.labels.publish({
-            name: "Test string",
-        }, {
-            languageCode: "Test string",
-            useAdminAccess: true,
-            writeControl: {
-                requiredRevisionId: "Test string",
+            enableSelectionChoice: {
+              fieldId: 'Test string',
+              id: 'Test string',
             },
-        });
-        /** Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do not require publishing, and take effect immediately. */
-        await gapi.client.drivelabels.labels.updateLabelCopyMode({
-            name: "Test string",
-        }, {
-            copyMode: "Test string",
-            languageCode: "Test string",
-            useAdminAccess: true,
-            view: "Test string",
-        });
-        /**
-         * Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions
-         * affect the Label resource as a whole, are not revisioned, and do not require publishing.
-         */
-        await gapi.client.drivelabels.labels.updatePermissions({
-            parent: "Test string",
-            useAdminAccess: true,
-        }, {
-            audience: "Test string",
-            email: "Test string",
-            group: "Test string",
-            name: "Test string",
-            person: "Test string",
-            role: "Test string",
-        });
-        /** Lists the LabelLocks on a Label. */
-        await gapi.client.drivelabels.labels.locks.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Deletes Label permissions. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
-        await gapi.client.drivelabels.labels.permissions.batchDelete({
-            parent: "Test string",
-        }, {
-            requests: [
-                {
-                    name: "Test string",
-                    useAdminAccess: true,
-                }
-            ],
-            useAdminAccess: true,
-        });
-        /**
-         * Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect
-         * the Label resource as a whole, are not revisioned, and do not require publishing.
-         */
-        await gapi.client.drivelabels.labels.permissions.batchUpdate({
-            parent: "Test string",
-        }, {
-            requests: [
-                {
-                    labelPermission: {
-                        audience: "Test string",
-                        email: "Test string",
-                        group: "Test string",
-                        name: "Test string",
-                        person: "Test string",
-                        role: "Test string",
+            updateField: {
+              id: 'Test string',
+              properties: {
+                displayName: 'Test string',
+                insertBeforeField: 'Test string',
+                required: true,
+              },
+              updateMask: 'Test string',
+            },
+            updateFieldType: {
+              dateOptions: {
+                dateFormat: 'Test string',
+                dateFormatType: 'Test string',
+                maxValue: {
+                  day: 42,
+                  month: 42,
+                  year: 42,
+                },
+                minValue: {
+                  day: 42,
+                  month: 42,
+                  year: 42,
+                },
+              },
+              id: 'Test string',
+              integerOptions: {
+                maxValue: 'Test string',
+                minValue: 'Test string',
+              },
+              longTextOptions: {
+                maxLength: 42,
+                minLength: 42,
+              },
+              selectionOptions: {
+                choices: [
+                  {
+                    appliedCapabilities: {
+                      canRead: true,
+                      canSearch: true,
+                      canSelect: true,
                     },
-                    parent: "Test string",
-                    useAdminAccess: true,
-                }
-            ],
-            useAdminAccess: true,
-        });
-        /**
-         * Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions
-         * affect the Label resource as a whole, are not revisioned, and do not require publishing.
-         */
-        await gapi.client.drivelabels.labels.permissions.create({
-            parent: "Test string",
-            useAdminAccess: true,
-        }, {
-            audience: "Test string",
-            email: "Test string",
-            group: "Test string",
-            name: "Test string",
-            person: "Test string",
-            role: "Test string",
-        });
-        /** Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
-        await gapi.client.drivelabels.labels.permissions.delete({
-            name: "Test string",
-            useAdminAccess: true,
-        });
-        /** Lists a Label's permissions. */
-        await gapi.client.drivelabels.labels.permissions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-            useAdminAccess: true,
-        });
-        /**
-         * Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions
-         * affect the Label resource as a whole, are not revisioned, and do not require publishing.
-         */
-        await gapi.client.drivelabels.labels.revisions.updatePermissions({
-            parent: "Test string",
-            useAdminAccess: true,
-        }, {
-            audience: "Test string",
-            email: "Test string",
-            group: "Test string",
-            name: "Test string",
-            person: "Test string",
-            role: "Test string",
-        });
-        /** Lists the LabelLocks on a Label. */
-        await gapi.client.drivelabels.labels.revisions.locks.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
-        });
-        /** Deletes Label permissions. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
-        await gapi.client.drivelabels.labels.revisions.permissions.batchDelete({
-            parent: "Test string",
-        }, {
-            requests: [
-                {
-                    name: "Test string",
-                    useAdminAccess: true,
-                }
-            ],
-            useAdminAccess: true,
-        });
-        /**
-         * Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect
-         * the Label resource as a whole, are not revisioned, and do not require publishing.
-         */
-        await gapi.client.drivelabels.labels.revisions.permissions.batchUpdate({
-            parent: "Test string",
-        }, {
-            requests: [
-                {
-                    labelPermission: {
-                        audience: "Test string",
-                        email: "Test string",
-                        group: "Test string",
-                        name: "Test string",
-                        person: "Test string",
-                        role: "Test string",
+                    createTime: 'Test string',
+                    creator: {
+                      person: 'Test string',
                     },
-                    parent: "Test string",
-                    useAdminAccess: true,
-                }
-            ],
+                    disabler: {
+                      person: 'Test string',
+                    },
+                    disableTime: 'Test string',
+                    displayHints: {
+                      badgeColors: {
+                        backgroundColor: {
+                          alpha: 42,
+                          blue: 42,
+                          green: 42,
+                          red: 42,
+                        },
+                        foregroundColor: {
+                          alpha: 42,
+                          blue: 42,
+                          green: 42,
+                          red: 42,
+                        },
+                        soloColor: {
+                          alpha: 42,
+                          blue: 42,
+                          green: 42,
+                          red: 42,
+                        },
+                      },
+                      badgePriority: 'Test string',
+                      darkBadgeColors: {
+                        backgroundColor: {
+                          alpha: 42,
+                          blue: 42,
+                          green: 42,
+                          red: 42,
+                        },
+                        foregroundColor: {
+                          alpha: 42,
+                          blue: 42,
+                          green: 42,
+                          red: 42,
+                        },
+                        soloColor: {
+                          alpha: 42,
+                          blue: 42,
+                          green: 42,
+                          red: 42,
+                        },
+                      },
+                      disabled: true,
+                      hiddenInSearch: true,
+                      shownInApply: true,
+                    },
+                    id: 'Test string',
+                    lifecycle: {
+                      disabledPolicy: {
+                        hideInSearch: true,
+                        showInApply: true,
+                      },
+                      hasUnpublishedChanges: true,
+                      state: 'Test string',
+                    },
+                    lockStatus: {
+                      locked: true,
+                    },
+                    properties: {
+                      badgeConfig: {
+                        color: {
+                          alpha: 42,
+                          blue: 42,
+                          green: 42,
+                          red: 42,
+                        },
+                        priorityOverride: 'Test string',
+                      },
+                      description: 'Test string',
+                      displayName: 'Test string',
+                      insertBeforeChoice: 'Test string',
+                    },
+                    publisher: {
+                      person: 'Test string',
+                    },
+                    publishTime: 'Test string',
+                    schemaCapabilities: {
+                      canDelete: true,
+                      canDisable: true,
+                      canEnable: true,
+                      canUpdate: true,
+                    },
+                    updater: {
+                      person: 'Test string',
+                    },
+                    updateTime: 'Test string',
+                  },
+                ],
+                listOptions: {
+                  maxEntries: 42,
+                },
+              },
+              textOptions: {
+                maxLength: 42,
+                minLength: 42,
+              },
+              updateMask: 'Test string',
+              userOptions: {
+                listOptions: {
+                  maxEntries: 42,
+                },
+              },
+            },
+            updateLabel: {
+              properties: {
+                description: 'Test string',
+                title: 'Test string',
+              },
+              updateMask: 'Test string',
+            },
+            updateSelectionChoiceProperties: {
+              fieldId: 'Test string',
+              id: 'Test string',
+              properties: {
+                badgeConfig: {
+                  color: {
+                    alpha: 42,
+                    blue: 42,
+                    green: 42,
+                    red: 42,
+                  },
+                  priorityOverride: 'Test string',
+                },
+                description: 'Test string',
+                displayName: 'Test string',
+                insertBeforeChoice: 'Test string',
+              },
+              updateMask: 'Test string',
+            },
+          },
+        ],
+        useAdminAccess: true,
+        view: 'Test string',
+        writeControl: {
+          requiredRevisionId: 'Test string',
+        },
+      }
+    );
+    /** Disable a published Label. Disabling a Label will result in a new disabled published revision based on the current published revision. If there is a draft revision, a new disabled draft revision will be created based on the latest draft revision. Older draft revisions will be deleted. Once disabled, a label may be deleted with `DeleteLabel`. */
+    await gapi.client.drivelabels.labels.disable(
+      {
+        name: 'Test string',
+      },
+      {
+        disabledPolicy: {
+          hideInSearch: true,
+          showInApply: true,
+        },
+        languageCode: 'Test string',
+        updateMask: 'Test string',
+        useAdminAccess: true,
+        writeControl: {
+          requiredRevisionId: 'Test string',
+        },
+      }
+    );
+    /** Enable a disabled Label and restore it to its published state. This will result in a new published revision based on the current disabled published revision. If there is an existing disabled draft revision, a new revision will be created based on that draft and will be enabled. */
+    await gapi.client.drivelabels.labels.enable(
+      {
+        name: 'Test string',
+      },
+      {
+        languageCode: 'Test string',
+        useAdminAccess: true,
+        writeControl: {
+          requiredRevisionId: 'Test string',
+        },
+      }
+    );
+    /** Get a label by its resource name. Resource name may be any of: * `labels/{id}` - See `labels/{id}@latest` * `labels/{id}@latest` - Gets the latest revision of the label. * `labels/{id}@published` - Gets the current published revision of the label. * `labels/{id}@{revision_id}` - Gets the label at the specified revision ID. */
+    await gapi.client.drivelabels.labels.get({
+      languageCode: 'Test string',
+      name: 'Test string',
+      useAdminAccess: true,
+      view: 'Test string',
+    });
+    /** List labels. */
+    await gapi.client.drivelabels.labels.list({
+      customer: 'Test string',
+      languageCode: 'Test string',
+      minimumRole: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      publishedOnly: true,
+      useAdminAccess: true,
+      view: 'Test string',
+    });
+    /** Publish all draft changes to the Label. Once published, the Label may not return to its draft state. See `google.apps.drive.labels.v2.Lifecycle` for more information. Publishing a Label will result in a new published revision. All previous draft revisions will be deleted. Previous published revisions will be kept but are subject to automated deletion as needed. Once published, some changes are no longer permitted. Generally, any change that would invalidate or cause new restrictions on existing metadata related to the Label will be rejected. For example, the following changes to a Label will be rejected after the Label is published: * The label cannot be directly deleted. It must be disabled first, then deleted. * Field.FieldType cannot be changed. * Changes to Field validation options cannot reject something that was previously accepted. * Reducing the max entries. */
+    await gapi.client.drivelabels.labels.publish(
+      {
+        name: 'Test string',
+      },
+      {
+        languageCode: 'Test string',
+        useAdminAccess: true,
+        writeControl: {
+          requiredRevisionId: 'Test string',
+        },
+      }
+    );
+    /** Updates a Label's `CopyMode`. Changes to this policy are not revisioned, do not require publishing, and take effect immediately. */
+    await gapi.client.drivelabels.labels.updateLabelCopyMode(
+      {
+        name: 'Test string',
+      },
+      {
+        copyMode: 'Test string',
+        languageCode: 'Test string',
+        useAdminAccess: true,
+        view: 'Test string',
+      }
+    );
+    /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.updatePermissions(
+      {
+        parent: 'Test string',
+        useAdminAccess: true,
+      },
+      {
+        audience: 'Test string',
+        email: 'Test string',
+        group: 'Test string',
+        name: 'Test string',
+        person: 'Test string',
+        role: 'Test string',
+      }
+    );
+    /** Lists the LabelLocks on a Label. */
+    await gapi.client.drivelabels.labels.locks.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Deletes Label permissions. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.permissions.batchDelete(
+      {
+        parent: 'Test string',
+      },
+      {
+        requests: [
+          {
+            name: 'Test string',
             useAdminAccess: true,
-        });
-        /**
-         * Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions
-         * affect the Label resource as a whole, are not revisioned, and do not require publishing.
-         */
-        await gapi.client.drivelabels.labels.revisions.permissions.create({
-            parent: "Test string",
+          },
+        ],
+        useAdminAccess: true,
+      }
+    );
+    /** Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.permissions.batchUpdate(
+      {
+        parent: 'Test string',
+      },
+      {
+        requests: [
+          {
+            labelPermission: {
+              audience: 'Test string',
+              email: 'Test string',
+              group: 'Test string',
+              name: 'Test string',
+              person: 'Test string',
+              role: 'Test string',
+            },
+            parent: 'Test string',
             useAdminAccess: true,
-        }, {
-            audience: "Test string",
-            email: "Test string",
-            group: "Test string",
-            name: "Test string",
-            person: "Test string",
-            role: "Test string",
-        });
-        /** Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
-        await gapi.client.drivelabels.labels.revisions.permissions.delete({
-            name: "Test string",
+          },
+        ],
+        useAdminAccess: true,
+      }
+    );
+    /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.permissions.create(
+      {
+        parent: 'Test string',
+        useAdminAccess: true,
+      },
+      {
+        audience: 'Test string',
+        email: 'Test string',
+        group: 'Test string',
+        name: 'Test string',
+        person: 'Test string',
+        role: 'Test string',
+      }
+    );
+    /** Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.permissions.delete({
+      name: 'Test string',
+      useAdminAccess: true,
+    });
+    /** Lists a Label's permissions. */
+    await gapi.client.drivelabels.labels.permissions.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      useAdminAccess: true,
+    });
+    /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.revisions.updatePermissions(
+      {
+        parent: 'Test string',
+        useAdminAccess: true,
+      },
+      {
+        audience: 'Test string',
+        email: 'Test string',
+        group: 'Test string',
+        name: 'Test string',
+        person: 'Test string',
+        role: 'Test string',
+      }
+    );
+    /** Lists the LabelLocks on a Label. */
+    await gapi.client.drivelabels.labels.revisions.locks.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
+    /** Deletes Label permissions. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.revisions.permissions.batchDelete(
+      {
+        parent: 'Test string',
+      },
+      {
+        requests: [
+          {
+            name: 'Test string',
             useAdminAccess: true,
-        });
-        /** Lists a Label's permissions. */
-        await gapi.client.drivelabels.labels.revisions.permissions.list({
-            pageSize: 42,
-            pageToken: "Test string",
-            parent: "Test string",
+          },
+        ],
+        useAdminAccess: true,
+      }
+    );
+    /** Updates Label permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.revisions.permissions.batchUpdate(
+      {
+        parent: 'Test string',
+      },
+      {
+        requests: [
+          {
+            labelPermission: {
+              audience: 'Test string',
+              email: 'Test string',
+              group: 'Test string',
+              name: 'Test string',
+              person: 'Test string',
+              role: 'Test string',
+            },
+            parent: 'Test string',
             useAdminAccess: true,
-        });
-        /** Get the constraints on the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title. */
-        await gapi.client.drivelabels.limits.getLabel({
-            name: "Test string",
-        });
-        /** Gets the user capabilities. */
-        await gapi.client.drivelabels.users.getCapabilities({
-            customer: "Test string",
-            name: "Test string",
-        });
-    }
+          },
+        ],
+        useAdminAccess: true,
+      }
+    );
+    /** Updates a Label's permissions. If a permission for the indicated principal doesn't exist, a new Label Permission is created, otherwise the existing permission is updated. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.revisions.permissions.create(
+      {
+        parent: 'Test string',
+        useAdminAccess: true,
+      },
+      {
+        audience: 'Test string',
+        email: 'Test string',
+        group: 'Test string',
+        name: 'Test string',
+        person: 'Test string',
+        role: 'Test string',
+      }
+    );
+    /** Deletes a Label's permission. Permissions affect the Label resource as a whole, are not revisioned, and do not require publishing. */
+    await gapi.client.drivelabels.labels.revisions.permissions.delete({
+      name: 'Test string',
+      useAdminAccess: true,
+    });
+    /** Lists a Label's permissions. */
+    await gapi.client.drivelabels.labels.revisions.permissions.list({
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+      useAdminAccess: true,
+    });
+    /** Get the constraints on the structure of a Label; such as, the maximum number of Fields allowed and maximum length of the label title. */
+    await gapi.client.drivelabels.limits.getLabel({
+      name: 'Test string',
+    });
+    /** Gets the user capabilities. */
+    await gapi.client.drivelabels.users.getCapabilities({
+      customer: 'Test string',
+      name: 'Test string',
+    });
+  }
 });
