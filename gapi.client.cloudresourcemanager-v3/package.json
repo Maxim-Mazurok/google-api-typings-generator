@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudresourcemanager-v3",
-  "version": "0.0.20231203",
+  "version": "0.0.20231102",
   "description": "TypeScript typings for Cloud Resource Manager API v3",
   "repository": {
     "type": "git",
