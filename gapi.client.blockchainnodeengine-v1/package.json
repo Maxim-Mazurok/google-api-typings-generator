@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.blockchainnodeengine-v1",
-  "version": "0.0.20231108",
+  "version": "0.0.20231129",
   "description": "TypeScript typings for Blockchain Node Engine API v1",
   "repository": {
     "type": "git",
