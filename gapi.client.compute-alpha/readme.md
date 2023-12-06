@@ -1101,7 +1101,7 @@ Lists all errors thrown by actions on instances for a given managed instance gro
 await gapi.client.compute.instanceGroupManagers.listErrors({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous action failed, the list displays the errors for that failed action. The orderBy query parameter is not supported. The `pageToken` query parameter is supported only if the group's `listManagedInstancesResults` field is set to `PAGINATED`.
+Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous action failed, the list displays the errors for that failed action. The orderBy query parameter is not supported. The `pageToken` query parameter is supported only in the alpha and beta API and only if the group's `listManagedInstancesResults` field is set to `PAGINATED`.
 */
 await gapi.client.compute.instanceGroupManagers.listManagedInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
@@ -1239,11 +1239,6 @@ await gapi.client.compute.instanceGroups.testIamPermissions({ project: "project"
 Adds an access config to an instance's network interface.
 */
 await gapi.client.compute.instances.addAccessConfig({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
-
-/*
-Adds a network interface to an instance.
-*/
-await gapi.client.compute.instances.addNetworkInterface({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
 Adds existing resource policies to an instance. You can only add one policy right now which will be applied to this instance for scheduling live migrations.
@@ -2876,7 +2871,7 @@ Lists all errors thrown by actions on instances for a given regional managed ins
 await gapi.client.compute.regionInstanceGroupManagers.listErrors({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
-Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group has scheduled for its instances. The orderBy query parameter is not supported. The `pageToken` query parameter is supported only if the group's `listManagedInstancesResults` field is set to `PAGINATED`.
+Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group has scheduled for its instances. The orderBy query parameter is not supported. The `pageToken` query parameter is supported only in the alpha and beta API and only if the group's `listManagedInstancesResults` field is set to `PAGINATED`.
 */
 await gapi.client.compute.regionInstanceGroupManagers.listManagedInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
@@ -4371,7 +4366,7 @@ Changes SslCertificates for TargetSslProxy.
 await gapi.client.compute.targetSslProxies.setSslCertificates({ project: "project", targetSslProxy: "targetSslProxy",  });
 
 /*
-Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the load balancer. They do not affect the connection between the load balancer and the backends.
+Sets the SSL policy for TargetSslProxy. The SSL policy specifies the server-side support for SSL features. This affects connections between clients and the SSL proxy load balancer. They do not affect the connection between the load balancer and the backends.
 */
 await gapi.client.compute.targetSslProxies.setSslPolicy({ project: "project", targetSslProxy: "targetSslProxy",  });
 
