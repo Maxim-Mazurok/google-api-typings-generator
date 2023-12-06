@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.biglake-v1",
-  "version": "0.0.20231129",
+  "version": "0.0.20231109",
   "description": "TypeScript typings for BigLake API v1",
   "repository": {
     "type": "git",
