@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.testing-v1",
-  "version": "0.0.20231201",
+  "version": "0.0.20231205",
   "description": "TypeScript typings for Cloud Testing API v1",
   "repository": {
     "type": "git",
