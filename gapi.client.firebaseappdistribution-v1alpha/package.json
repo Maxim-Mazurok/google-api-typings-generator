@@ -1,0 +1,20 @@
+{
+  "name": "@maxim_mazurok/gapi.client.firebaseappdistribution-v1alpha",
+  "version": "0.0.20231207",
+  "description": "TypeScript typings for Firebase App Distribution API v1alpha",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Maxim Mazurok",
+    "email": "maxim@mazurok.com",
+    "url": "https://maxim.mazurok.com"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery-v1": "*"
+  }
+}
