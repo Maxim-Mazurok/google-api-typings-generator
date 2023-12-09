@@ -14,3 +14,27 @@ updates:
       day: 'saturday'
       time: '10:00'
       timezone: 'Australia/Sydney'
+groups:
+  dedent:
+    patterns:
+      - 'dedent'
+      - '@types/dedent'
+  dot:
+    patterns:
+      - 'dot'
+      - '@types/dot'
+  lodash:
+    patterns:
+      - 'lodash'
+      - '@types/lodash'
+  n-readlines:
+    patterns:
+      - 'n-readlines'
+      - '@types/n-readlines'
+  validate-npm-package-name:
+    patterns:
+      - 'validate-npm-package-name'
+      - '@types/validate-npm-package-name'
+  dt-stuff:
+    patterns:
+      - '@definitelytyped/*'
