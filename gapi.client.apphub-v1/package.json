@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.storage-v1",
-  "version": "0.0.20231202",
-  "description": "TypeScript typings for Cloud Storage JSON API v1",
+  "name": "@maxim_mazurok/gapi.client.apphub-v1",
+  "version": "0.0.20231208",
+  "description": "TypeScript typings for App Hub API v1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
