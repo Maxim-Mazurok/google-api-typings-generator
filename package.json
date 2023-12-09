@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@definitelytyped/dtslint": "^0.0.199",
-    "@definitelytyped/eslint-plugin": "^0.0.195",
+    "@definitelytyped/eslint-plugin": "^0.0.197",
     "@expo/spawn-async": "^1.7.2",
     "@octokit/rest": "^20.0.2",
     "@types/dedent": "^0.7.2",
@@ -74,7 +74,11 @@
     "vitest": "^1.0.2"
   },
   "engines": {
-    "node": "18.2.0",
-    "npm": "8.9.0"
+    "node": "20.10.0",
+    "npm": "10.2.3"
+  },
+  "dependencyComments": {
+    "@definitelytyped/dtslint": "relies on @definitelytyped/eslint-plugin, update them together",
+    "@definitelytyped/eslint-plugin": "needed for @definitelytyped/dtslint, update them together"
   }
 }
