@@ -35,8 +35,8 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@definitelytyped/dtslint": "^0.0.197",
-    "@definitelytyped/eslint-plugin": "^0.0.195",
+    "@definitelytyped/dtslint": "^0.0.199",
+    "@definitelytyped/eslint-plugin": "^0.0.197",
     "@expo/spawn-async": "^1.7.2",
     "@octokit/rest": "^20.0.2",
     "@types/dedent": "^0.7.2",
@@ -45,8 +45,6 @@
     "@types/lodash": "^4.14.202",
     "@types/n-readlines": "^1.0.6",
     "@types/node": "^20.10.4",
-    "@types/request": "2.48.12",
-    "@types/sinon": "^17.0.2",
     "@types/validate-npm-package-name": "^4.0.2",
     "commander": "^11.1.0",
     "dedent": "^1.5.1",
@@ -66,15 +64,17 @@
     "patch-package": "^8.0.0",
     "prettier-plugin-packagejson": "^2.4.6",
     "semver": "^7.5.4",
-    "sinon": "^17.0.1",
-    "strip-json-comments": "^5.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "validate-npm-package-name": "^5.0.0",
     "vitest": "^1.0.2"
   },
   "engines": {
-    "node": "18.2.0",
-    "npm": "8.9.0"
+    "node": "20.10.0",
+    "npm": "10.2.3"
+  },
+  "dependencyComments": {
+    "@definitelytyped/dtslint": "relies on @definitelytyped/eslint-plugin, update them together",
+    "@definitelytyped/eslint-plugin": "needed for @definitelytyped/dtslint, update them together"
   }
 }

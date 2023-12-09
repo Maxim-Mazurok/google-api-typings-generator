@@ -1,5 +1,7 @@
+See https://github.com/microsoft/DefinitelyTyped-tools/issues/850
+
 diff --git a/node_modules/@definitelytyped/dtslint/dist/index.js b/node_modules/@definitelytyped/dtslint/dist/index.js
-index 5850463..d8eb7aa 100755
+index 5850463..bdad22a 100755
 --- a/node_modules/@definitelytyped/dtslint/dist/index.js
 +++ b/node_modules/@definitelytyped/dtslint/dist/index.js
 @@ -123,10 +123,7 @@ async function runTests(dirPath, onlyTestTsNext, expectOnly, tsLocal) {
