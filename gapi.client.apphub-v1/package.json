@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.composer-v1",
-  "version": "0.0.20231205",
-  "description": "TypeScript typings for Cloud Composer API v1",
+  "name": "@maxim_mazurok/gapi.client.apphub-v1",
+  "version": "0.0.20231208",
+  "description": "TypeScript typings for App Hub API v1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
