@@ -160,6 +160,27 @@ Updates access for the user to the given package.
 await gapi.client.androidpublisher.grants.patch({name: 'name'});
 
 /*
+Deletes in-app products (managed products or subscriptions). Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. This method should not be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
+*/
+await gapi.client.androidpublisher.inappproducts.batchDelete({
+  packageName: 'packageName',
+});
+
+/*
+Reads multiple in-app products, which can be managed products or subscriptions. This method should not be used to retrieve subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
+*/
+await gapi.client.androidpublisher.inappproducts.batchGet({
+  packageName: 'packageName',
+});
+
+/*
+Updates or inserts one or more in-app products (managed products or subscriptions). Set the latencyTolerance field on nested requests to PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT to achieve maximum update throughput. This method should no longer be used to update subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
+*/
+await gapi.client.androidpublisher.inappproducts.batchUpdate({
+  packageName: 'packageName',
+});
+
+/*
 Deletes an in-app product (a managed product or a subscription). This method should no longer be used to delete subscriptions. See [this article](https://android-developers.googleblog.com/2023/06/changes-to-google-play-developer-api-june-2023.html) for more information.
 */
 await gapi.client.androidpublisher.inappproducts.delete({
