@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.migrationcenter-v1",
-  "version": "0.0.20231201",
+  "version": "0.0.20231208",
   "description": "TypeScript typings for Migration Center API v1",
   "repository": {
     "type": "git",
