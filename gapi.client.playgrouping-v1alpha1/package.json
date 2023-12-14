@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.playgrouping-v1alpha1",
-  "version": "0.0.20231212",
+  "version": "0.0.20231213",
   "description": "TypeScript typings for Google Play Grouping API v1alpha1",
   "repository": {
     "type": "git",
