@@ -134,14 +134,4 @@ await gapi.client.accesscontextmanager.operations.get({name: 'name'});
 Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
 */
 await gapi.client.accesscontextmanager.operations.list({name: 'name'});
-
-/*
-Returns a VPC-SC supported service based on the service name.
-*/
-await gapi.client.accesscontextmanager.services.get({name: 'name'});
-
-/*
-Lists all VPC-SC supported services.
-*/
-await gapi.client.accesscontextmanager.services.list({});
 ```

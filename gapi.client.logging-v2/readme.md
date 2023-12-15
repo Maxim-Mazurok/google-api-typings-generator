@@ -147,7 +147,7 @@ Gets the settings for the given resource.Note: Settings can be retrieved for Goo
 await gapi.client.logging.folders.getSettings({name: 'name'});
 
 /*
-Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings fails when any of the following are true: The value of storage_location either isn't supported by Logging or violates the location OrgPolicy. The default_sink_config field is set, but it has an unspecified filter write mode. The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information.
+Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings will fail if 1) kms_key_name is invalid, 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, 3) access to the key is disabled, 4) storage_location is not supported by Logging, 5) storage_location violates the location OrgPolicy, or 6) default_sink_config is set but has an unspecified filter write mode.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information.
 */
 await gapi.client.logging.folders.updateSettings({name: 'name'});
 
@@ -187,12 +187,12 @@ Gets the settings for the given resource.Note: Settings can be retrieved for Goo
 await gapi.client.logging.organizations.getSettings({name: 'name'});
 
 /*
-Updates the Log Router CMEK settings for the given resource.Note: CMEK for the Log Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.UpdateCmekSettings fails when any of the following are true: The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+Updates the Log Router CMEK settings for the given resource.Note: CMEK for the Log Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
 */
 await gapi.client.logging.organizations.updateCmekSettings({name: 'name'});
 
 /*
-Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings fails when any of the following are true: The value of storage_location either isn't supported by Logging or violates the location OrgPolicy. The default_sink_config field is set, but it has an unspecified filter write mode. The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information.
+Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings will fail if 1) kms_key_name is invalid, 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, 3) access to the key is disabled, 4) storage_location is not supported by Logging, 5) storage_location violates the location OrgPolicy, or 6) default_sink_config is set but has an unspecified filter write mode.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information.
 */
 await gapi.client.logging.organizations.updateSettings({name: 'name'});
 
@@ -227,7 +227,7 @@ Lists sinks.
 await gapi.client.logging.sinks.list({parent: 'parent'});
 
 /*
-Updates a sink. This method replaces the values of the destination and filter fields of the existing sink with the corresponding values from the new sink.The updated sink might also have a new writer_identity; see the unique_writer_identity field.
+Updates a sink. This method replaces the following fields in the existing sink with values from the new sink: destination, and filter.The updated sink might also have a new writer_identity; see the unique_writer_identity field.
 */
 await gapi.client.logging.sinks.update({sinkName: 'sinkName'});
 
@@ -242,12 +242,12 @@ Gets the settings for the given resource.Note: Settings can be retrieved for Goo
 await gapi.client.logging.getSettings({name: 'name'});
 
 /*
-Updates the Log Router CMEK settings for the given resource.Note: CMEK for the Log Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.UpdateCmekSettings fails when any of the following are true: The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
+Updates the Log Router CMEK settings for the given resource.Note: CMEK for the Log Router can currently only be configured for Google Cloud organizations. Once configured, it applies to all projects and folders in the Google Cloud organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3) access to the key is disabled.See Enabling CMEK for Log Router (https://cloud.google.com/logging/docs/routing/managed-encryption) for more information.
 */
 await gapi.client.logging.updateCmekSettings({name: 'name'});
 
 /*
-Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings fails when any of the following are true: The value of storage_location either isn't supported by Logging or violates the location OrgPolicy. The default_sink_config field is set, but it has an unspecified filter write mode. The value of kms_key_name is invalid. The associated service account doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access to the key is disabled.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information.
+Updates the settings for the given resource. This method applies to all feature configurations for organization and folders.UpdateSettings will fail if 1) kms_key_name is invalid, 2) the associated service account does not have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, 3) access to the key is disabled, 4) storage_location is not supported by Logging, 5) storage_location violates the location OrgPolicy, or 6) default_sink_config is set but has an unspecified filter write mode.See Configure default settings for organizations and folders (https://cloud.google.com/logging/docs/default-settings) for more information.
 */
 await gapi.client.logging.updateSettings({name: 'name'});
 ```
