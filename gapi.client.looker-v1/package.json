@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.looker-v1",
-  "version": "0.0.20231207",
+  "version": "0.0.20231109",
   "description": "TypeScript typings for Looker (Google Cloud core) API v1",
   "repository": {
     "type": "git",
