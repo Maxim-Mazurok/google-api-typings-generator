@@ -55,14 +55,14 @@ jobs:
         run: cp ${{ runner.temp }}/${{ steps.lint.outputs.FAILED_TYPE }}.json types/${{ steps.lint.outputs.FAILED_TYPE }}
 
       - name: Upload type that failed to generate
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure() && steps.generate.outputs.FAILED_TYPE != ''
         with:
           name: ${{ steps.generate.outputs.FAILED_TYPE }}
           path: types/${{ steps.generate.outputs.FAILED_TYPE }}
 
       - name: Upload type that failed to lint
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure() && steps.lint.outputs.FAILED_TYPE != ''
         with:
           name: ${{ steps.lint.outputs.FAILED_TYPE }}
