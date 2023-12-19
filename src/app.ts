@@ -131,7 +131,7 @@ class TypescriptTextWriter implements TypescriptTextWriter {
 
   constructor(
     private readonly writer: IndentedTextWriter,
-    private readonly bannedTypes: string[]
+    private readonly bannedTypes: Readonly<string[]>
   ) {}
 
   private braces(
@@ -465,7 +465,7 @@ export interface Configuration {
   discoveryJsonDirectory?: string; // temporary directory to cache discovery service JSON
   proxy?: ProxySetting;
   typesDirectory: string;
-  bannedTypes: string[];
+  bannedTypes: Readonly<string[]>;
   owners: string[];
 }
 

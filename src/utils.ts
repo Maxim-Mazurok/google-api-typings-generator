@@ -49,11 +49,18 @@ export function ensureDirectoryExists(directory: string) {
 /**
  * Loads default tslint config to get banned types from `ban-types` rule
  */
-export async function getBannedTypes(): Promise<string[]> {
-  // eslint-disable-next-line node/no-extraneous-import
-  const tslintAll = await import('tslint/lib/configs/all.js');
-  const options = tslintAll.rules['ban-types'].options;
-  return options.length || options[0].length ? options.map(x => x[0]) : [];
+export function getBannedTypes() {
+  return [
+    // copied from https://github.com/typescript-eslint/typescript-eslint/blob/6128a02cb15d500fe22fe265c83e4d7a73ae52c3/packages/eslint-plugin/src/rules/ban-types.ts#L56-L112
+    'String',
+    'Boolean',
+    'Number',
+    'Symbol',
+    'BigInt',
+    'Function',
+    'Object',
+    // '{}', // disabled in https://github.com/microsoft/DefinitelyTyped-tools/blob/HEAD/packages/eslint-plugin/src/configs/all.ts#L159
+  ] as const;
 }
 
 export async function request<T extends object | string>(

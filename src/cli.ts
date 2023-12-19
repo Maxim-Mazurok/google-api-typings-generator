@@ -43,7 +43,7 @@ void (async () => {
     discoveryJsonDirectory: options.cacheDiscoveryJson,
     proxy,
     typesDirectory: options.out,
-    bannedTypes: await getBannedTypes(),
+    bannedTypes: getBannedTypes(),
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
       'Nick Amoscato <https://github.com/namoscato>',

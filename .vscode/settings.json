@@ -1,5 +1,12 @@
 {
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.importModuleSpecifierEnding": "js",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "terminal.integrated.profiles.linux": {
+    "GAPI bash": {
+      "path": "bash",
+      "args": ["--init-file", "bash-init.sh"]
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "GAPI bash"
 }
