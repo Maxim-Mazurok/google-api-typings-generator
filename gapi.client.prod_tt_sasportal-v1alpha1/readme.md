@@ -87,11 +87,6 @@ Returns a list of requested customers.
 await gapi.client.prod_tt_sasportal.customers.list({});
 
 /*
-Checks whether account is legacy.
-*/
-await gapi.client.prod_tt_sasportal.customers.listLegacyOrganizations({});
-
-/*
 Migrates a SAS organization to the cloud. This will create GCP projects for each deployment and associate them. The SAS Organization is linked to the gcp project that called the command. go/sas-legacy-customer-migration
 */
 await gapi.client.prod_tt_sasportal.customers.migrateOrganization({});
