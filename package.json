@@ -44,7 +44,7 @@
     "@types/gapi.client.discovery-v1": "^0.0.4",
     "@types/lodash": "^4.14.202",
     "@types/n-readlines": "^1.0.6",
-    "@types/node": "^20.10.4",
+    "@types/node": "^20.10.5",
     "@types/validate-npm-package-name": "^4.0.2",
     "commander": "^11.1.0",
     "dedent": "^1.5.1",
