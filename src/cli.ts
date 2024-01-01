@@ -1,7 +1,7 @@
 import {program} from 'commander';
 import {App} from './app';
 import {getRestDescription} from './discovery';
-import {getBannedTypes, getProxy} from './utils';
+import {bannedTypes, getProxy} from './utils';
 
 process.on('unhandledRejection', reason => {
   throw reason;
@@ -43,7 +43,7 @@ void (async () => {
     discoveryJsonDirectory: options.cacheDiscoveryJson,
     proxy,
     typesDirectory: options.out,
-    bannedTypes: await getBannedTypes(),
+    bannedTypes,
     owners: [
       'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
       'Nick Amoscato <https://github.com/namoscato>',
