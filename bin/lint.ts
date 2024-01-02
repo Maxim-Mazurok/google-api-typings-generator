@@ -1,4 +1,4 @@
-import {readdirSync} from 'node:fs';
+import {readFileSync, readdirSync, writeFileSync} from 'node:fs';
 import {cpus} from 'node:os';
 import {basename, join} from 'node:path';
 import runAll from 'npm-run-all';
@@ -36,6 +36,13 @@ console.log(
   `Linting ${scripts.length} projects in ${MAX_PARALLEL} parallel processes...`
 );
 
+// remove `types/` from .eslintignore file, otherwise new eslint-based dtslint won't be able to lint the files
+const eslintIgnorePath = join(__dirname, '..', '.eslintignore');
+const originalEslintIgnore = readFileSync(eslintIgnorePath, 'utf8');
+const newEslintIgnore = originalEslintIgnore.replace('types/', '');
+console.log(`Updating ${eslintIgnorePath}...`);
+writeFileSync(eslintIgnorePath, newEslintIgnore);
+
 runAll([scripts.shift()], options) // run first synchronously to install TypeScript
   .then(() => runAll(scripts, options))
   .catch(error => {
@@ -60,4 +67,8 @@ runAll([scripts.shift()], options) // run first synchronously to install TypeScr
     }
 
     throw error;
+  })
+  .finally(() => {
+    console.log(`Restoring ${eslintIgnorePath}...`);
+    writeFileSync(eslintIgnorePath, originalEslintIgnore);
   });
