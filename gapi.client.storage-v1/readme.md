@@ -279,35 +279,6 @@ await gapi.client.storage.defaultObjectAccessControls.update({
 });
 
 /*
-Permanently deletes a folder. Only applicable to buckets with hierarchical namespace enabled.
-*/
-await gapi.client.storage.folders.delete({bucket: 'bucket', folder: 'folder'});
-
-/*
-Returns metadata for the specified folder. Only applicable to buckets with hierarchical namespace enabled.
-*/
-await gapi.client.storage.folders.get({bucket: 'bucket', folder: 'folder'});
-
-/*
-Creates a new folder. Only applicable to buckets with hierarchical namespace enabled.
-*/
-await gapi.client.storage.folders.insert({bucket: 'bucket'});
-
-/*
-Retrieves a list of folders matching the criteria. Only applicable to buckets with hierarchical namespace enabled.
-*/
-await gapi.client.storage.folders.list({bucket: 'bucket'});
-
-/*
-Renames a source folder to a destination folder. Only applicable to buckets with hierarchical namespace enabled.
-*/
-await gapi.client.storage.folders.rename({
-  bucket: 'bucket',
-  destinationFolder: 'destinationFolder',
-  sourceFolder: 'sourceFolder',
-});
-
-/*
 Permanently deletes a managed folder.
 */
 await gapi.client.storage.managedFolders.delete({
