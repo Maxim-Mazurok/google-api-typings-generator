@@ -122,6 +122,11 @@ Uploads an attachment. For an example, see [Upload media as a file attachment](h
 await gapi.client.chat.media.upload({parent: 'parent'});
 
 /*
+Completes the [import process](https://developers.google.com/chat/api/guides/import-data) for the specified space and makes it visible to users. Requires app authentication and domain-wide delegation. For more information, see [Authorize Google Chat apps to import data](https://developers.google.com/chat/api/guides/authorize-import).
+*/
+await gapi.client.chat.spaces.completeImport({name: 'name'});
+
+/*
 Creates a named space. Spaces grouped by topics aren't supported. For an example, see [Create a space](https://developers.google.com/chat/api/guides/v1/spaces/create). If you receive the error message `ALREADY_EXISTS` when creating a space, try a different `displayName`. An existing space within the Google Workspace organization might already use this display name. Requires [user authentication](https://developers.google.com/chat/api/guides/auth/users).
 */
 await gapi.client.chat.spaces.create({});
