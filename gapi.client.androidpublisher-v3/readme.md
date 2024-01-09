@@ -70,6 +70,44 @@ After that you can use Google Play Android Developer API resources: <!-- TODO: m
 
 ```typescript
 /*
+Incrementally update targeting for a recovery action. Note that only the criteria selected during the creation of recovery action can be expanded.
+*/
+await gapi.client.androidpublisher.apprecovery.addTargeting({
+  appRecoveryId: 'appRecoveryId',
+  packageName: 'packageName',
+});
+
+/*
+List all app recovery action resources associated with a particular package name and app version.
+*/
+await gapi.client.androidpublisher.apprecovery.appRecoveries({
+  packageName: 'packageName',
+});
+
+/*
+Cancel an already executing app recovery action. Note that this action changes status of the recovery action to CANCELED.
+*/
+await gapi.client.androidpublisher.apprecovery.cancel({
+  appRecoveryId: 'appRecoveryId',
+  packageName: 'packageName',
+});
+
+/*
+Create an app recovery action with recovery status as DRAFT. Note that this action does not execute the recovery action.
+*/
+await gapi.client.androidpublisher.apprecovery.create({
+  packageName: 'packageName',
+});
+
+/*
+Deploy an already created app recovery action with recovery status DRAFT. Note that this action activates the recovery action for all targeted users and changes its status to ACTIVE.
+*/
+await gapi.client.androidpublisher.apprecovery.deploy({
+  appRecoveryId: 'appRecoveryId',
+  packageName: 'packageName',
+});
+
+/*
 Commits an app edit.
 */
 await gapi.client.androidpublisher.edits.commit({
