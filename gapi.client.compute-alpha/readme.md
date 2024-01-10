@@ -3326,16 +3326,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Get region snapshot settings.
-*/
-await gapi.client.compute.regionSnapshotSettings.get({ project: "project", region: "region",  });
-
-/*
-Patch region snapshot settings.
-*/
-await gapi.client.compute.regionSnapshotSettings.patch({ project: "project", region: "region",  });
-
-/*
 Deletes the specified SslCertificate resource in the region.
 */
 await gapi.client.compute.regionSslCertificates.delete({ project: "project", region: "region", sslCertificate: "sslCertificate",  });
