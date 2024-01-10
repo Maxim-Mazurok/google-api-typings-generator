@@ -5182,64 +5182,6 @@ declare namespace gapi.client {
         },
         body: GoogleCloudDialogflowCxV3beta1MatchIntentRequest
       ): Request<GoogleCloudDialogflowCxV3beta1MatchIntentResponse>;
-      /** Processes a natural language query and returns structured, actionable data as a result through server-side streaming. Server-side streaming allows Dialogflow to send [partial responses](https://cloud.google.com/dialogflow/cx/docs/concept/fulfillment#partial-response) earlier in a single request. */
-      serverStreamingDetectIntent(request: {
-        /** V1 error format. */
-        '$.xgafv'?: string;
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The name of the session this query is sent to. Format: `projects//locations//agents//sessions/` or `projects//locations//agents//environments//sessions/`. If `Environment ID` is not specified, we assume default 'draft' environment. It's up to the API caller to choose an appropriate `Session ID`. It can be a random number or some type of session identifiers (preferably hashed). The length of the `Session ID` must not exceed 36 characters. For more information, see the [sessions guide](https://cloud.google.com/dialogflow/cx/docs/concept/session). Note: Always use agent versions for production traffic. See [Versions and environments](https://cloud.google.com/dialogflow/cx/docs/concept/version). */
-        session: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudDialogflowCxV3beta1DetectIntentRequest;
-      }): Request<GoogleCloudDialogflowCxV3beta1DetectIntentResponse>;
-      serverStreamingDetectIntent(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: string;
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The name of the session this query is sent to. Format: `projects//locations//agents//sessions/` or `projects//locations//agents//environments//sessions/`. If `Environment ID` is not specified, we assume default 'draft' environment. It's up to the API caller to choose an appropriate `Session ID`. It can be a random number or some type of session identifiers (preferably hashed). The length of the `Session ID` must not exceed 36 characters. For more information, see the [sessions guide](https://cloud.google.com/dialogflow/cx/docs/concept/session). Note: Always use agent versions for production traffic. See [Versions and environments](https://cloud.google.com/dialogflow/cx/docs/concept/version). */
-          session: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudDialogflowCxV3beta1DetectIntentRequest
-      ): Request<GoogleCloudDialogflowCxV3beta1DetectIntentResponse>;
       entityTypes: EntityTypesResource;
     }
     interface EnvironmentsResource {
@@ -7790,64 +7732,6 @@ declare namespace gapi.client {
         },
         body: GoogleCloudDialogflowCxV3beta1MatchIntentRequest
       ): Request<GoogleCloudDialogflowCxV3beta1MatchIntentResponse>;
-      /** Processes a natural language query and returns structured, actionable data as a result through server-side streaming. Server-side streaming allows Dialogflow to send [partial responses](https://cloud.google.com/dialogflow/cx/docs/concept/fulfillment#partial-response) earlier in a single request. */
-      serverStreamingDetectIntent(request: {
-        /** V1 error format. */
-        '$.xgafv'?: string;
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Required. The name of the session this query is sent to. Format: `projects//locations//agents//sessions/` or `projects//locations//agents//environments//sessions/`. If `Environment ID` is not specified, we assume default 'draft' environment. It's up to the API caller to choose an appropriate `Session ID`. It can be a random number or some type of session identifiers (preferably hashed). The length of the `Session ID` must not exceed 36 characters. For more information, see the [sessions guide](https://cloud.google.com/dialogflow/cx/docs/concept/session). Note: Always use agent versions for production traffic. See [Versions and environments](https://cloud.google.com/dialogflow/cx/docs/concept/version). */
-        session: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudDialogflowCxV3beta1DetectIntentRequest;
-      }): Request<GoogleCloudDialogflowCxV3beta1DetectIntentResponse>;
-      serverStreamingDetectIntent(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: string;
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Required. The name of the session this query is sent to. Format: `projects//locations//agents//sessions/` or `projects//locations//agents//environments//sessions/`. If `Environment ID` is not specified, we assume default 'draft' environment. It's up to the API caller to choose an appropriate `Session ID`. It can be a random number or some type of session identifiers (preferably hashed). The length of the `Session ID` must not exceed 36 characters. For more information, see the [sessions guide](https://cloud.google.com/dialogflow/cx/docs/concept/session). Note: Always use agent versions for production traffic. See [Versions and environments](https://cloud.google.com/dialogflow/cx/docs/concept/version). */
-          session: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudDialogflowCxV3beta1DetectIntentRequest
-      ): Request<GoogleCloudDialogflowCxV3beta1DetectIntentResponse>;
       /** Updates the feedback received from the user for a single turn of the bot response. */
       submitAnswerFeedback(request: {
         /** V1 error format. */
