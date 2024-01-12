@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.servicedirectory-v1beta1",
-  "version": "0.0.20240101",
+  "version": "0.0.20240107",
   "description": "TypeScript typings for Service Directory API v1beta1",
   "repository": {
     "type": "git",
