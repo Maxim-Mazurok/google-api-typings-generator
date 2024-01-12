@@ -1316,6 +1316,11 @@ Retrieves a list of resources that refer to the VM instance specified in the req
 await gapi.client.compute.instances.listReferrers({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
+Perform a manual maintenance on the instance.
+*/
+await gapi.client.compute.instances.performMaintenance({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Removes resource policies from an instance.
 */
 await gapi.client.compute.instances.removeResourcePolicies({ instance: "instance", project: "project", zone: "zone",  });
