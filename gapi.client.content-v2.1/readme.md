@@ -1019,7 +1019,7 @@ await gapi.client.content.regions.patch({
 });
 
 /*
-Retrieves merchant performance mertrics matching the search query and optionally segmented by selected dimensions.
+Retrieves merchant performance metrics matching the search query and optionally segmented by selected dimensions.
 */
 await gapi.client.content.reports.search({merchantId: 'merchantId'});
 
