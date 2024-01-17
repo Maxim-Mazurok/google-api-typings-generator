@@ -87,7 +87,12 @@ Returns a list of requested customers.
 await gapi.client.prod_tt_sasportal.customers.list({});
 
 /*
-Checks whether account is legacy.
+Returns a list of SAS deployments associated with current GCP project. Includes whether SAS analytics has been enabled or not.
+*/
+await gapi.client.prod_tt_sasportal.customers.listGcpProjectDeployments({});
+
+/*
+Returns a list of legacy organizations.
 */
 await gapi.client.prod_tt_sasportal.customers.listLegacyOrganizations({});
 
