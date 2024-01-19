@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.libraryagent-v1",
-  "version": "0.0.20240115",
+  "version": "0.0.20240118",
   "description": "TypeScript typings for Library Agent API v1",
   "repository": {
     "type": "git",
