@@ -72,11 +72,6 @@ After that you can use SAS Portal API (Testing) resources: <!-- TODO: make this 
 
 ```typescript
 /*
-Checks whether a SAS deployment for the authentication context exists.
-*/
-await gapi.client.prod_tt_sasportal.customers.checkHasProvisionedDeployment({});
-
-/*
 Returns a requested customer.
 */
 await gapi.client.prod_tt_sasportal.customers.get({name: 'name'});
