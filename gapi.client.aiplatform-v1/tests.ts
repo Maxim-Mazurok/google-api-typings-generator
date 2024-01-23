@@ -2060,6 +2060,22 @@ gapi.load('client', async () => {
         ],
       }
     );
+    await gapi.client.aiplatform.projects.locations.endpoints.streamRawPredict(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        httpBody: {
+          contentType: 'Test string',
+          data: 'Test string',
+          extensions: [
+            {
+              A: 42,
+            },
+          ],
+        },
+      }
+    );
     /** Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using. */
     await gapi.client.aiplatform.projects.locations.endpoints.undeployModel(
       {
@@ -6441,6 +6457,11 @@ gapi.load('client', async () => {
         },
         reservedIpRanges: ['Test string'],
         runtimeConfig: {
+          defaultRuntime: {
+            persistentResourceRuntimeDetail: {
+              persistentResourceName: 'Test string',
+            },
+          },
           failurePolicy: 'Test string',
           gcsOutputDirectory: 'Test string',
           inputArtifacts: {
@@ -6720,6 +6741,22 @@ gapi.load('client', async () => {
         ],
       }
     );
+    await gapi.client.aiplatform.projects.locations.publishers.models.streamRawPredict(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        httpBody: {
+          contentType: 'Test string',
+          data: 'Test string',
+          extensions: [
+            {
+              A: 42,
+            },
+          ],
+        },
+      }
+    );
     /** Creates a Schedule. */
     await gapi.client.aiplatform.projects.locations.schedules.create(
       {
@@ -6904,6 +6941,11 @@ gapi.load('client', async () => {
             },
             reservedIpRanges: ['Test string'],
             runtimeConfig: {
+              defaultRuntime: {
+                persistentResourceRuntimeDetail: {
+                  persistentResourceName: 'Test string',
+                },
+              },
               failurePolicy: 'Test string',
               gcsOutputDirectory: 'Test string',
               inputArtifacts: {
@@ -7155,6 +7197,11 @@ gapi.load('client', async () => {
             },
             reservedIpRanges: ['Test string'],
             runtimeConfig: {
+              defaultRuntime: {
+                persistentResourceRuntimeDetail: {
+                  persistentResourceName: 'Test string',
+                },
+              },
               failurePolicy: 'Test string',
               gcsOutputDirectory: 'Test string',
               inputArtifacts: {

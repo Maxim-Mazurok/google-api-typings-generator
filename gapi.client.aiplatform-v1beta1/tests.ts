@@ -7448,6 +7448,11 @@ gapi.load('client', async () => {
         },
         reservedIpRanges: ['Test string'],
         runtimeConfig: {
+          defaultRuntime: {
+            persistentResourceRuntimeDetail: {
+              persistentResourceName: 'Test string',
+            },
+          },
           failurePolicy: 'Test string',
           gcsOutputDirectory: 'Test string',
           inputArtifacts: {
@@ -7952,6 +7957,11 @@ gapi.load('client', async () => {
             },
             reservedIpRanges: ['Test string'],
             runtimeConfig: {
+              defaultRuntime: {
+                persistentResourceRuntimeDetail: {
+                  persistentResourceName: 'Test string',
+                },
+              },
               failurePolicy: 'Test string',
               gcsOutputDirectory: 'Test string',
               inputArtifacts: {
@@ -8203,6 +8213,11 @@ gapi.load('client', async () => {
             },
             reservedIpRanges: ['Test string'],
             runtimeConfig: {
+              defaultRuntime: {
+                persistentResourceRuntimeDetail: {
+                  persistentResourceName: 'Test string',
+                },
+              },
               failurePolicy: 'Test string',
               gcsOutputDirectory: 'Test string',
               inputArtifacts: {

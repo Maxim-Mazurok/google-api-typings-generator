@@ -241,7 +241,7 @@ declare namespace gapi.client {
       /** Whether the text should be filtered and not shown to the end user. This is determined based on a combination of `triggered_recitation`, `triggered_blocklist`, `language_filter_result`, and `triggered_safety_filter`. */
       filtered?: boolean;
       /** Language filter result from SAFT LangId. */
-      languageFilterResult?: LearningServingLlmLanguageFilterResult;
+      languageFilterResult?: LearningGenaiRootLanguageFilterResult;
       /** The RAI signals for the text. */
       raiSignals?: CloudAiNlLlmProtoServiceRaiSignal[];
       /** Whether the text triggered the blocklist. */
@@ -2857,7 +2857,7 @@ declare namespace gapi.client {
       metadataArtifact?: string;
       /** Immutable. Points to a YAML file stored on Google Cloud Storage describing additional information about the Model, that is specific to it. Unset if the Model does not have any additional information. The schema is defined as an OpenAPI 3.0.2 [Schema Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#schemaObject). AutoML Models always have this field populated by Vertex AI, if no additional metadata is needed, this field is set to an empty string. Note: The URI given on output will be immutable and probably different, including the URI scheme, than the one given on input. The output URI will point to a location where the user only has a read access. */
       metadataSchemaUri?: string;
-      /** Output only. Source of a model. It can either be automl training pipeline, custom training pipeline, BigQuery ML, or existing Vertex AI Model. */
+      /** Output only. Source of a model. It can either be automl training pipeline, custom training pipeline, BigQuery ML, or saved and tuned from Genie or Model Garden. */
       modelSourceInfo?: GoogleCloudAiplatformV1ModelSourceInfo;
       /** The resource name of the Model. */
       name?: string;
@@ -3539,6 +3539,8 @@ declare namespace gapi.client {
       taskDetails?: GoogleCloudAiplatformV1PipelineTaskDetail[];
     }
     interface GoogleCloudAiplatformV1PipelineJobRuntimeConfig {
+      /** Optional. The default runtime for the PipelineJob. If not provided, Vertex Custom Job is used as the runtime. For Vertex Custom Job, please refer to https://cloud.google.com/vertex-ai/docs/training/overview */
+      defaultRuntime?: GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime;
       /** Represents the failure policy of a pipeline. Currently, the default of a pipeline is that the pipeline will continue to run until no more tasks can be executed, also known as PIPELINE_FAILURE_POLICY_FAIL_SLOW. However, if a pipeline is set to PIPELINE_FAILURE_POLICY_FAIL_FAST, it will stop scheduling any new tasks when a task has failed. Any scheduled tasks will continue to completion. */
       failurePolicy?: string;
       /** Required. A path in a Cloud Storage bucket, which will be treated as the root output directory of the pipeline. It is used by the system to generate the paths of output artifacts. The artifact paths are generated with a sub-path pattern `{job_id}/{task_id}/{output_key}` under the specified output directory. The service account specified in this pipeline must have the `storage.objects.get` and `storage.objects.create` permissions for this bucket. */
@@ -3552,9 +3554,17 @@ declare namespace gapi.client {
       /** The runtime parameters of the PipelineJob. The parameters will be passed into PipelineJob.pipeline_spec to replace the placeholders at runtime. This field is used by pipelines built using `PipelineJob.pipeline_spec.schema_version` 2.1.0, such as pipelines built using Kubeflow Pipelines SDK 1.9 or higher and the v2 DSL. */
       parameterValues?: {[P in string]: any};
     }
+    interface GoogleCloudAiplatformV1PipelineJobRuntimeConfigDefaultRuntime {
+      /** Persistent resource based runtime detail. */
+      persistentResourceRuntimeDetail?: GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail;
+    }
     interface GoogleCloudAiplatformV1PipelineJobRuntimeConfigInputArtifact {
       /** Artifact resource id from MLMD. Which is the last portion of an artifact resource name: `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`. The artifact must stay within the same project, location and default metadatastore as the pipeline. */
       artifactId?: string;
+    }
+    interface GoogleCloudAiplatformV1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail {
+      /** Persistent resource name. Format: `projects/{project}/locations/{location}/persistentResources/{persistent_resource}` */
+      persistentResourceName?: string;
     }
     interface GoogleCloudAiplatformV1PipelineTaskDetail {
       /** Output only. Task create time. */
@@ -5511,6 +5521,10 @@ declare namespace gapi.client {
       /** Required. Selector choosing Features of the target EntityType. Feature IDs will be deduplicated. */
       featureSelector?: GoogleCloudAiplatformV1FeatureSelector;
     }
+    interface GoogleCloudAiplatformV1StreamRawPredictRequest {
+      /** The prediction input. Supports HTTP headers and arbitrary data payload. */
+      httpBody?: GoogleApiHttpBody;
+    }
     interface GoogleCloudAiplatformV1StringArray {
       /** A list of string values. */
       values?: string[];
@@ -6282,6 +6296,8 @@ declare namespace gapi.client {
       arxivId?: string;
       author?: string;
       bibkey?: string;
+      /** ID of the paper in bioarxiv like ddoi.org/{biorxiv_id} eg: https://doi.org/10.1101/343517 */
+      biorxivId?: string;
       bookTitle?: string;
       /** The Oceanographers full-view books dataset uses a 'volume id' as the unique ID of a book. There is a deterministic function from a volume id to a URL under the books.google.com domain. Marked as 'optional' since a volume ID of zero is potentially possible and we want to distinguish that from the volume ID not being set. */
       bookVolumeId?: string;
@@ -6314,6 +6330,8 @@ declare namespace gapi.client {
       volumeId?: string;
       /** Wikipedia article title. The Wikipedia TFDS dataset includes article titles but not URLs. While a URL is to the best of our knowledge a deterministic function of the title, we store the original title to reflect the information in the original dataset. */
       wikipediaArticleTitle?: string;
+      /** The unique video id from Youtube. Example: AkoGsW52Ir0 */
+      youtubeVideoId?: string;
     }
     interface LanguageLabsAidaTrustRecitationProtoRecitationResult {
       dynamicSegmentResults?: LanguageLabsAidaTrustRecitationProtoSegmentResult[];
@@ -6352,6 +6370,8 @@ declare namespace gapi.client {
       arxivId?: string;
       author?: string;
       bibkey?: string;
+      /** ID of the paper in bioarxiv like ddoi.org/{biorxiv_id} eg: https://doi.org/10.1101/343517 */
+      biorxivId?: string;
       bookTitle?: string;
       /** The Oceanographers full-view books dataset uses a 'volume id' as the unique ID of a book. There is a deterministic function from a volume id to a URL under the books.google.com domain. Marked as 'optional' since a volume ID of zero is potentially possible and we want to distinguish that from the volume ID not being set. */
       bookVolumeId?: string;
@@ -6384,6 +6404,7 @@ declare namespace gapi.client {
       volumeId?: string;
       /** Wikipedia article title. The Wikipedia TFDS dataset includes article titles but not URLs. While a URL is to the best of our knowledge a deterministic function of the title, we store the original title to reflect the information in the original dataset. */
       wikipediaArticleTitle?: string;
+      youtubeVideoId?: string;
     }
     interface LearningGenaiRecitationRecitationResult {
       dynamicSegmentResults?: LearningGenaiRecitationSegmentResult[];
@@ -6454,7 +6475,7 @@ declare namespace gapi.client {
     interface LearningGenaiRootFilterMetadataFilterDebugInfo {
       classifierOutput?: LearningGenaiRootClassifierOutput;
       defaultMetadata?: string;
-      languageFilterResult?: LearningServingLlmLanguageFilterResult;
+      languageFilterResult?: LearningGenaiRootLanguageFilterResult;
       /** Safety filter output information for LLM Root RAI harm check. */
       raiOutput?: LearningGenaiRootRAIOutput;
       raiResult?: CloudAiNlLlmProtoServiceRaiResult;
@@ -6462,6 +6483,22 @@ declare namespace gapi.client {
       streamRecitationResult?: LanguageLabsAidaTrustRecitationProtoStreamRecitationResult;
       takedownResult?: LearningGenaiRootTakedownResult;
       toxicityResult?: LearningGenaiRootToxicityResult;
+    }
+    interface LearningGenaiRootGroundingMetadata {
+      citations?: LearningGenaiRootGroundingMetadataCitation[];
+      /** True if grounding is cancelled, for example, no facts being retrieved. */
+      groundingCancelled?: boolean;
+      searchQueries?: string[];
+    }
+    interface LearningGenaiRootGroundingMetadataCitation {
+      /** Index in the prediction output where the citation ends (exclusive). Must be > start_index and < len(output). */
+      endIndex?: number;
+      /** Index of the fact supporting this claim. Should be within the range of the `world_facts` in the GenerateResponse. */
+      factIndex?: number;
+      /** Confidence score of this entailment. Value is [0,1] with 1 is the most confidence. */
+      score?: number;
+      /** Index in the prediction output where the citation starts (inclusive). Must be >= 0 and < end_index. */
+      startIndex?: number;
     }
     interface LearningGenaiRootHarm {
       /** Please do not use, this is still under development. */
@@ -6501,6 +6538,14 @@ declare namespace gapi.client {
     }
     interface LearningGenaiRootInternalMetadata {
       scoredTokens?: LearningGenaiRootScoredToken[];
+    }
+    interface LearningGenaiRootLanguageFilterResult {
+      /** False when query or response should be filtered out due to unsupported language. */
+      allowed?: boolean;
+      /** Language of the query or response. */
+      detectedLanguage?: string;
+      /** Probability of the language predicted as returned by LangID. */
+      detectedLanguageProbability?: number;
     }
     interface LearningGenaiRootMetricOutput {
       debug?: string;
@@ -6636,14 +6681,6 @@ declare namespace gapi.client {
       label?: string;
       score?: number;
     }
-    interface LearningServingLlmLanguageFilterResult {
-      /** False when query or response should be filtered out due to unsupported language. */
-      allowed?: boolean;
-      /** Language of the query or response. */
-      detectedLanguage?: string;
-      /** Probability of the language predicted as returned by LangID. */
-      detectedLanguageProbability?: number;
-    }
     interface LearningServingLlmMessageMetadata {
       /** Summary of classifier output. We attach this to all messages regardless of whether classification rules triggered or not. */
       classifierSummary?: LearningGenaiRootClassifierOutputSummary;
@@ -6656,6 +6693,7 @@ declare namespace gapi.client {
       finalMessageScore?: LearningGenaiRootScore;
       /** NOT YET IMPLEMENTED. */
       finishReason?: string;
+      groundingMetadata?: LearningGenaiRootGroundingMetadata;
       /** Applies to Response message only. Indicates whether the message is a fallback and the response would have otherwise been empty. */
       isFallback?: boolean;
       /** Result from nlp_saft DetectLanguage method. Currently the predicted language code and language probability is used. */
@@ -10441,6 +10479,63 @@ declare namespace gapi.client {
         },
         body: GoogleCloudAiplatformV1GenerateContentRequest
       ): Request<GoogleCloudAiplatformV1GenerateContentResponse>;
+      streamRawPredict(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. The name of the Endpoint requested to serve the prediction. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+        endpoint: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1StreamRawPredictRequest;
+      }): Request<GoogleApiHttpBody>;
+      streamRawPredict(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. The name of the Endpoint requested to serve the prediction. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+          endpoint: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1StreamRawPredictRequest
+      ): Request<GoogleApiHttpBody>;
       /** Undeploys a Model from an Endpoint, removing a DeployedModel from it, and freeing all resources it's using. */
       undeployModel(request: {
         /** V1 error format. */
@@ -11832,7 +11927,7 @@ declare namespace gapi.client {
         key?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
-        /** Required. The resource name of the Location to create FeatureOnlineStores. Format: `projects/{project}/locations/{location}'` */
+        /** Required. The resource name of the Location to create FeatureOnlineStores. Format: `projects/{project}/locations/{location}` */
         parent: string;
         /** Returns response with indentations and line breaks. */
         prettyPrint?: boolean;
@@ -11863,7 +11958,7 @@ declare namespace gapi.client {
           key?: string;
           /** OAuth 2.0 token for the current user. */
           oauth_token?: string;
-          /** Required. The resource name of the Location to create FeatureOnlineStores. Format: `projects/{project}/locations/{location}'` */
+          /** Required. The resource name of the Location to create FeatureOnlineStores. Format: `projects/{project}/locations/{location}` */
           parent: string;
           /** Returns response with indentations and line breaks. */
           prettyPrint?: boolean;
@@ -20767,6 +20862,63 @@ declare namespace gapi.client {
         },
         body: GoogleCloudAiplatformV1GenerateContentRequest
       ): Request<GoogleCloudAiplatformV1GenerateContentResponse>;
+      streamRawPredict(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. The name of the Endpoint requested to serve the prediction. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+        endpoint: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1StreamRawPredictRequest;
+      }): Request<GoogleApiHttpBody>;
+      streamRawPredict(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. The name of the Endpoint requested to serve the prediction. Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` */
+          endpoint: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1StreamRawPredictRequest
+      ): Request<GoogleApiHttpBody>;
     }
     interface PublishersResource {
       models: ModelsResource;
