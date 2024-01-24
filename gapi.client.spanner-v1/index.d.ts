@@ -486,8 +486,6 @@ declare namespace gapi.client {
       replicas?: ReplicaInfo[];
       /** Output only. The current instance config state. Applicable only for USER_MANAGED configs. */
       state?: string;
-      /** Output only. The storage limit in bytes per processing unit. */
-      storageLimitPerProcessingUnit?: string;
     }
     interface InstanceOperationProgress {
       /** If set, the time at which this operation failed or was completed successfully. */
