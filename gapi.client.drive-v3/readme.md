@@ -54,9 +54,6 @@ var client_id = '',
     // See, create, and delete its own configuration data in your Google Drive
     'https://www.googleapis.com/auth/drive.appdata',
 
-    // View your Google Drive apps
-    'https://www.googleapis.com/auth/drive.apps.readonly',
-
     // See, edit, create, and delete only the specific Google Drive files you use with this app
     'https://www.googleapis.com/auth/drive.file',
 
@@ -98,16 +95,6 @@ After that you can use Google Drive API resources: <!-- TODO: make this work for
 Gets information about the user, the user's Drive, and system capabilities.
 */
 await gapi.client.drive.about.get({  });
-
-/*
-Gets a specific app.
-*/
-await gapi.client.drive.apps.get({ appId: "appId",  });
-
-/*
-Lists a user's installed apps.
-*/
-await gapi.client.drive.apps.list({  });
 
 /*
 Gets the starting pageToken for listing future changes.
