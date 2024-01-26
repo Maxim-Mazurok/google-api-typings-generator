@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.cloudscheduler-v1beta1",
-  "version": "0.0.20240118",
+  "version": "0.0.20240105",
   "description": "TypeScript typings for Cloud Scheduler API v1beta1",
   "repository": {
     "type": "git",
