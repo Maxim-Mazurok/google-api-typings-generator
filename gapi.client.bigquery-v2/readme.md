@@ -109,22 +109,14 @@ Creates a new empty dataset.
 await gapi.client.bigquery.datasets.insert({projectId: 'projectId'});
 
 /*
-Lists all datasets in the specified project to which the user has been granted the READER dataset role.
+Lists all datasets in the specified project to which you have been granted the READER dataset role.
 */
 await gapi.client.bigquery.datasets.list({projectId: 'projectId'});
 
 /*
-Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. This method supports RFC5789 patch semantics.
+Updates information in an existing dataset. The update method replaces the entire dataset resource, whereas the patch method only replaces fields that are provided in the submitted dataset resource. This method supports patch semantics.
 */
 await gapi.client.bigquery.datasets.patch({
-  datasetId: 'datasetId',
-  projectId: 'projectId',
-});
-
-/*
-Undeletes a dataset which is within time travel window based on datasetId. If a time is specified, the dataset version deleted at that time is undeleted, else the last live version is undeleted.
-*/
-await gapi.client.bigquery.datasets.undelete({
   datasetId: 'datasetId',
   projectId: 'projectId',
 });
@@ -159,7 +151,7 @@ Returns information about a specific job. Job information is available for a six
 await gapi.client.bigquery.jobs.get({jobId: 'jobId', projectId: 'projectId'});
 
 /*
-RPC to get the results of a query job.
+Retrieves the results of a query job.
 */
 await gapi.client.bigquery.jobs.getQueryResults({
   jobId: 'jobId',
@@ -167,7 +159,7 @@ await gapi.client.bigquery.jobs.getQueryResults({
 });
 
 /*
-Starts a new asynchronous job. This API has two different kinds of endpoint URIs, as this method supports a variety of use cases. * The *Metadata* URI is used for most interactions, as it accepts the job configuration directly. * The *Upload* URI is ONLY for the case when you're sending both a load job configuration and a data stream together. In this case, the Upload URI accepts the job configuration and the data as two distinct multipart MIME parts.
+Starts a new asynchronous job. Requires the Can View project role.
 */
 await gapi.client.bigquery.jobs.insert({projectId: 'projectId'});
 
@@ -217,12 +209,12 @@ await gapi.client.bigquery.models.patch({
 });
 
 /*
-RPC to get the service account for a project used for interactions with Google Cloud KMS
+Returns the email address of the service account for your project used for interactions with Google Cloud KMS.
 */
 await gapi.client.bigquery.projects.getServiceAccount({projectId: 'projectId'});
 
 /*
-RPC to list projects to which the user has been granted any project role. Users of this method are encouraged to consider the [Resource Manager](https://cloud.google.com/resource-manager/docs/) API, which provides the underlying data for this method and has more capabilities.
+Lists all projects to which you have been granted any project role.
 */
 await gapi.client.bigquery.projects.list({});
 
@@ -293,7 +285,7 @@ await gapi.client.bigquery.rowAccessPolicies.testIamPermissions({
 });
 
 /*
-Streams data into BigQuery one record at a time without needing to run a load job.
+Streams data into BigQuery one record at a time without needing to run a load job. Requires the WRITER dataset role.
 */
 await gapi.client.bigquery.tabledata.insertAll({
   datasetId: 'datasetId',
@@ -302,7 +294,7 @@ await gapi.client.bigquery.tabledata.insertAll({
 });
 
 /*
-List the content of a table in rows.
+Retrieves table data from a specified set of rows. Requires the READER dataset role.
 */
 await gapi.client.bigquery.tabledata.list({
   datasetId: 'datasetId',
@@ -350,7 +342,7 @@ await gapi.client.bigquery.tables.list({
 });
 
 /*
-Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. This method supports RFC5789 patch semantics.
+Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource. This method supports patch semantics.
 */
 await gapi.client.bigquery.tables.patch({
   datasetId: 'datasetId',
@@ -369,7 +361,7 @@ Returns permissions that a caller has on the specified resource. If the resource
 await gapi.client.bigquery.tables.testIamPermissions({resource: 'resource'});
 
 /*
-Updates information in an existing table. The update method replaces the entire Table resource, whereas the patch method only replaces fields that are provided in the submitted Table resource.
+Updates information in an existing table. The update method replaces the entire table resource, whereas the patch method only replaces fields that are provided in the submitted table resource.
 */
 await gapi.client.bigquery.tables.update({
   datasetId: 'datasetId',
