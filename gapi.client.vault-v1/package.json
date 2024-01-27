@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.vault-v1",
-  "version": "0.0.20240117",
+  "version": "0.0.20240124",
   "description": "TypeScript typings for Google Vault API v1",
   "repository": {
     "type": "git",
