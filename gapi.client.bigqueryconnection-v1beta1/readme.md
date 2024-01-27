@@ -1,7 +1,7 @@
 # TypeScript typings for BigQuery Connection API v1beta1
 
 Allows users to manage BigQuery connections to external data sources.
-For detailed description please check [documentation](https://cloud.google.com/bigquery/).
+For detailed description please check [documentation](https://cloud.google.com/bigquery/docs/connections-api-intro).
 
 ## Installing
 
