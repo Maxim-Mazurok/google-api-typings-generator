@@ -70,6 +70,13 @@ After that you can use Google Play Android Developer API resources: <!-- TODO: m
 
 ```typescript
 /*
+Writes the Safety Labels declaration of an app.
+*/
+await gapi.client.androidpublisher.applications.dataSafety({
+  packageName: 'packageName',
+});
+
+/*
 Incrementally update targeting for a recovery action. Note that only the criteria selected during the creation of recovery action can be expanded.
 */
 await gapi.client.androidpublisher.apprecovery.addTargeting({
