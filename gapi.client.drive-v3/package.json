@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.drive-v3",
-  "version": "0.0.20240123",
+  "version": "0.0.20240126",
   "description": "TypeScript typings for Google Drive API v3",
   "repository": {
     "type": "git",
