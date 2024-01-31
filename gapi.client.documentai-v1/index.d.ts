@@ -353,7 +353,7 @@ declare namespace gapi.client {
       documentOutputConfig?: GoogleCloudDocumentaiV1DocumentOutputConfig;
       /** The input documents for the BatchProcessDocuments method. */
       inputDocuments?: GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
-      /** Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. */
+      /** Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. */
       labels?: {[P in string]: string};
       /** Inference-time options for the process API */
       processOptions?: GoogleCloudDocumentaiV1ProcessOptions;
@@ -2362,7 +2362,7 @@ declare namespace gapi.client {
       gcsDocument?: GoogleCloudDocumentaiV1GcsDocument;
       /** An inline document proto. */
       inlineDocument?: GoogleCloudDocumentaiV1Document;
-      /** Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. */
+      /** Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. */
       labels?: {[P in string]: string};
       /** Inference-time options for the process API */
       processOptions?: GoogleCloudDocumentaiV1ProcessOptions;
