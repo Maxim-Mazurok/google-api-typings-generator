@@ -1379,7 +1379,7 @@ declare namespace gapi.client {
       inputConfigs?: GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchInputConfig[];
       /** The input documents for the BatchProcessDocuments method. */
       inputDocuments?: GoogleCloudDocumentaiV1beta3BatchDocumentsInputConfig;
-      /** Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. */
+      /** Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. */
       labels?: {[P in string]: string};
       /** The overall output config for batch process. */
       outputConfig?: GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchOutputConfig;
@@ -2358,7 +2358,7 @@ declare namespace gapi.client {
       gcsDocument?: GoogleCloudDocumentaiV1beta3GcsDocument;
       /** An inline document proto. */
       inlineDocument?: GoogleCloudDocumentaiV1beta3Document;
-      /** Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints), can only contain lowercase letters, numeric characters, underscores and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. */
+      /** Optional. The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter. */
       labels?: {[P in string]: string};
       /** Inference-time options for the process API */
       processOptions?: GoogleCloudDocumentaiV1beta3ProcessOptions;
