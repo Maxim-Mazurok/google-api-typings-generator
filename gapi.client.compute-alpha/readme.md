@@ -3636,6 +3636,11 @@ Deletes the specified Router resource.
 await gapi.client.compute.routers.delete({ project: "project", region: "region", router: "router",  });
 
 /*
+Deletes Named Set
+*/
+await gapi.client.compute.routers.deleteNamedSet({ project: "project", region: "region", router: "router",  });
+
+/*
 Deletes Route Policy
 */
 await gapi.client.compute.routers.deleteRoutePolicy({ project: "project", region: "region", router: "router",  });
@@ -3644,6 +3649,11 @@ await gapi.client.compute.routers.deleteRoutePolicy({ project: "project", region
 Returns the specified Router resource.
 */
 await gapi.client.compute.routers.get({ project: "project", region: "region", router: "router",  });
+
+/*
+Returns specified Named Set
+*/
+await gapi.client.compute.routers.getNamedSet({ project: "project", region: "region", router: "router",  });
 
 /*
 Retrieves runtime NAT IP information.
@@ -3681,6 +3691,11 @@ Retrieves a list of router bgp routes available to the specified project.
 await gapi.client.compute.routers.listBgpRoutes({ project: "project", region: "region", router: "router",  });
 
 /*
+Retrieves a list of router named set subresources available to the specified project.
+*/
+await gapi.client.compute.routers.listNamedSets({ project: "project", region: "region", router: "router",  });
+
+/*
 Retrieves a list of router route policy subresources available to the specified project.
 */
 await gapi.client.compute.routers.listRoutePolicies({ project: "project", region: "region", router: "router",  });
@@ -3704,6 +3719,11 @@ await gapi.client.compute.routers.testIamPermissions({ project: "project", regio
 Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message payload.
 */
 await gapi.client.compute.routers.update({ project: "project", region: "region", router: "router",  });
+
+/*
+Updates or creates new Named Set
+*/
+await gapi.client.compute.routers.updateNamedSet({ project: "project", region: "region", router: "router",  });
 
 /*
 Updates or creates new Route Policy
