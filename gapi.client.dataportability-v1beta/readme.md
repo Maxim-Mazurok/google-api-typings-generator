@@ -51,6 +51,30 @@ var client_id = '',
     // Move a copy of messages between you and the businesses you have conversations with.
     'https://www.googleapis.com/auth/dataportability.businessmessaging.conversations',
 
+    // Move a copy of your pinned trips on Maps.
+    'https://www.googleapis.com/auth/dataportability.maps.commute_routes',
+
+    // Move a copy of your commute settings on Maps.
+    'https://www.googleapis.com/auth/dataportability.maps.commute_settings',
+
+    // Move a copy of your electric vehicle profile on Maps.
+    'https://www.googleapis.com/auth/dataportability.maps.ev_profile',
+
+    // Move a copy of your updates to places on Maps.
+    'https://www.googleapis.com/auth/dataportability.maps.offering_contributions',
+
+    // Move a copy of the photos and videos you posted on Maps.
+    'https://www.googleapis.com/auth/dataportability.maps.photos_videos',
+
+    // Move a copy of your reviews and posts on Maps.
+    'https://www.googleapis.com/auth/dataportability.maps.reviews',
+
+    // Move a copy of your Starred places list on Maps.
+    'https://www.googleapis.com/auth/dataportability.maps.starred_places',
+
+    // Move a copy of your Maps activity.
+    'https://www.googleapis.com/auth/dataportability.myactivity.maps',
+
     // Move a copy of your search activity.
     'https://www.googleapis.com/auth/dataportability.myactivity.search',
 
@@ -66,40 +90,40 @@ var client_id = '',
     // Move a copy of reviews you wrote about products or online stores.
     'https://www.googleapis.com/auth/dataportability.shopping.reviews',
 
-    // Move a copy of information about your channel.
+    // Move a copy of information about your YouTube channel.
     'https://www.googleapis.com/auth/dataportability.youtube.channel',
 
-    // Move a copy of your comments.
+    // Move a copy of your YouTube comments.
     'https://www.googleapis.com/auth/dataportability.youtube.comments',
 
-    // Move a copy of your messages in live chat.
+    // Move a copy of your YouTube messages in live chat.
     'https://www.googleapis.com/auth/dataportability.youtube.live_chat',
 
-    // Move a copy of your uploaded YouTube Music tracks and your YouTube Music library.
+    // Move a copy of your uploaded YouTube music tracks and your YouTube music library.
     'https://www.googleapis.com/auth/dataportability.youtube.music',
 
-    // Move a copy of your private playlists.
+    // Move a copy of your YouTube private playlists.
     'https://www.googleapis.com/auth/dataportability.youtube.private_playlists',
 
-    // Move a copy of your private videos and information about them.
+    // Move a copy of your private YouTube videos and information about them.
     'https://www.googleapis.com/auth/dataportability.youtube.private_videos',
 
-    // Move a copy of your public playlists.
+    // Move a copy of your public YouTube playlists.
     'https://www.googleapis.com/auth/dataportability.youtube.public_playlists',
 
-    // Move a copy of your public videos and information about them.
+    // Move a copy of your public YouTube videos and information about them.
     'https://www.googleapis.com/auth/dataportability.youtube.public_videos',
 
-    // Move a copy of YouTube Shopping Wishlists, and wishlist items.
+    // Move a copy of your YouTube shopping wishlists, and wishlist items.
     'https://www.googleapis.com/auth/dataportability.youtube.shopping',
 
-    // Move a copy of your channel subscriptions, even if they're private.
+    // Move a copy of your YouTube channel subscriptions, even if they're private.
     'https://www.googleapis.com/auth/dataportability.youtube.subscriptions',
 
-    // Move a copy of your unlisted playlists.
+    // Move a copy of your unlisted YouTube playlists.
     'https://www.googleapis.com/auth/dataportability.youtube.unlisted_playlists',
 
-    // Move a copy of your unlisted videos and information about them.
+    // Move a copy of your unlisted YouTube videos and information about them.
     'https://www.googleapis.com/auth/dataportability.youtube.unlisted_videos',
   ],
   immediate = true;
