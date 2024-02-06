@@ -72,11 +72,6 @@ After that you can use SAS Portal API resources: <!-- TODO: make this work for m
 
 ```typescript
 /*
-Checks whether a SAS deployment for the authentication context exists.
-*/
-await gapi.client.sasportal.customers.checkHasProvisionedDeployment({});
-
-/*
 Returns a requested customer.
 */
 await gapi.client.sasportal.customers.get({name: 'name'});
@@ -87,7 +82,12 @@ Returns a list of requested customers.
 await gapi.client.sasportal.customers.list({});
 
 /*
-Checks whether account is legacy.
+Returns a list of SAS deployments associated with current GCP project. Includes whether SAS analytics has been enabled or not.
+*/
+await gapi.client.sasportal.customers.listGcpProjectDeployments({});
+
+/*
+Returns a list of legacy organizations.
 */
 await gapi.client.sasportal.customers.listLegacyOrganizations({});
 
