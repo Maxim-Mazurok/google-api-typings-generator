@@ -321,38 +321,11 @@ gapi.load('client', async () => {
       force: true,
       name: 'Test string',
     });
-    /** Exports the selected entity types. */
-    await gapi.client.dialogflow.projects.locations.agents.entityTypes.export(
-      {
-        parent: 'Test string',
-      },
-      {
-        dataFormat: 'Test string',
-        entityTypes: ['Test string'],
-        entityTypesContentInline: true,
-        entityTypesUri: 'Test string',
-        languageCode: 'Test string',
-      }
-    );
     /** Retrieves the specified entity type. */
     await gapi.client.dialogflow.projects.locations.agents.entityTypes.get({
       languageCode: 'Test string',
       name: 'Test string',
     });
-    /** Imports the specified entitytypes into the agent. */
-    await gapi.client.dialogflow.projects.locations.agents.entityTypes.import(
-      {
-        parent: 'Test string',
-      },
-      {
-        entityTypesContent: {
-          content: 'Test string',
-        },
-        entityTypesUri: 'Test string',
-        mergeOption: 'Test string',
-        targetEntityType: 'Test string',
-      }
-    );
     /** Returns the list of all entity types in the specified agent. */
     await gapi.client.dialogflow.projects.locations.agents.entityTypes.list({
       languageCode: 'Test string',
