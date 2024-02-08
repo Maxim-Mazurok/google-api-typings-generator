@@ -3057,6 +3057,9 @@ gapi.load('client', async () => {
               startTimestamp: 'Test string',
               submitTimestamp: 'Test string',
               summaryText: 'Test string',
+              textSections: {
+                A: 'Test string',
+              },
             },
           },
           clicked: true,
@@ -6884,6 +6887,9 @@ gapi.load('client', async () => {
               startTimestamp: 'Test string',
               submitTimestamp: 'Test string',
               summaryText: 'Test string',
+              textSections: {
+                A: 'Test string',
+              },
             },
           },
           clicked: true,
