@@ -1,11 +1,11 @@
-# TypeScript typings for Cloud Data Loss Prevention (DLP) v2
+# TypeScript typings for Sensitive Data Protection (DLP) v2
 
-Provides methods for detection, risk analysis, and de-identification of privacy-sensitive fragments in text, images, and Google Cloud Platform storage repositories.
+Discover and protect your sensitive data. A fully managed service designed to help you discover, classify, and protect your valuable data assets with ease.
 For detailed description please check [documentation](https://cloud.google.com/dlp/docs/).
 
 ## Installing
 
-Install typings for Cloud Data Loss Prevention (DLP):
+Install typings for Sensitive Data Protection (DLP):
 
 ```
 npm install @types/gapi.client.dlp-v2 --save-dev
@@ -66,7 +66,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Cloud Data Loss Prevention (DLP) resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Sensitive Data Protection (DLP) resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 /*
