@@ -336,13 +336,6 @@ declare namespace gapi.client {
       /** Commit SHA of the git push. This field is populated if `git_destination` is specified in ExportAgentRequest. */
       commitSha?: string;
     }
-    interface GoogleCloudDialogflowCxV3beta1ExportEntityTypesMetadata {}
-    interface GoogleCloudDialogflowCxV3beta1ExportEntityTypesResponse {
-      /** Uncompressed byte content for entity types. This field is populated only if `entity_types_content_inline` is set to true in ExportEntityTypesRequest. */
-      entityTypesContent?: GoogleCloudDialogflowCxV3beta1InlineDestination;
-      /** The URI to a file containing the exported entity types. This field is populated only if `entity_types_uri` is specified in ExportEntityTypesRequest. */
-      entityTypesUri?: string;
-    }
     interface GoogleCloudDialogflowCxV3beta1ExportFlowResponse {
       /** Uncompressed raw byte content for flow. */
       flowContent?: string;
@@ -446,19 +439,6 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowCxV3beta1ImportDocumentsResponse {
       /** Includes details about skipped documents or any other warnings. */
       warnings?: GoogleRpcStatus[];
-    }
-    interface GoogleCloudDialogflowCxV3beta1ImportEntityTypesMetadata {}
-    interface GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponse {
-      /** Info which resources have conflicts when REPORT_CONFLICT merge_option is set in ImportEntityTypesRequest. */
-      conflictingResources?: GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources;
-      /** The unique identifier of the imported entity types. Format: `projects//locations//agents//entity_types/`. */
-      entityTypes?: string[];
-    }
-    interface GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources {
-      /** Display names of conflicting entities. */
-      entityDisplayNames?: string[];
-      /** Display names of conflicting entity types. */
-      entityTypeDisplayNames?: string[];
     }
     interface GoogleCloudDialogflowCxV3beta1ImportFlowResponse {
       /** The unique identifier of the new flow. Format: `projects//locations//agents//flows/`. */
@@ -1300,25 +1280,6 @@ declare namespace gapi.client {
       /** Commit SHA of the git push. This field is populated if `git_destination` is specified in ExportAgentRequest. */
       commitSha?: string;
     }
-    interface GoogleCloudDialogflowCxV3ExportEntityTypesMetadata {}
-    interface GoogleCloudDialogflowCxV3ExportEntityTypesRequest {
-      /** Optional. The data format of the exported entity types. If not specified, `BLOB` is assumed. */
-      dataFormat?: string;
-      /** Required. The name of the entity types to export. Format: `projects//locations//agents//entityTypes/`. */
-      entityTypes?: string[];
-      /** Optional. The option to return the serialized entity types inline. */
-      entityTypesContentInline?: boolean;
-      /** Optional. The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to export the entity types to. The format of this URI must be `gs:///`. Dialogflow performs a write operation for the Cloud Storage object on the caller's behalf, so your request authentication must have write permissions for the object. For more information, see [Dialogflow access control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage). */
-      entityTypesUri?: string;
-      /** Optional. The language to retrieve the entity type for. The following fields are language dependent: * `EntityType.entities.value` * `EntityType.entities.synonyms` * `EntityType.excluded_phrases.value` If not specified, all language dependent fields will be retrieved. [Many languages](https://cloud.google.com/dialogflow/docs/reference/language) are supported. Note: languages must be enabled in the agent before they can be used. */
-      languageCode?: string;
-    }
-    interface GoogleCloudDialogflowCxV3ExportEntityTypesResponse {
-      /** Uncompressed byte content for entity types. This field is populated only if `entity_types_content_inline` is set to true in ExportEntityTypesRequest. */
-      entityTypesContent?: GoogleCloudDialogflowCxV3InlineDestination;
-      /** The URI to a file containing the exported entity types. This field is populated only if `entity_types_uri` is specified in ExportEntityTypesRequest. */
-      entityTypesUri?: string;
-    }
     interface GoogleCloudDialogflowCxV3ExportFlowRequest {
       /** Optional. The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to export the flow to. The format of this URI must be `gs:///`. If left unspecified, the serialized flow is returned inline. Dialogflow performs a write operation for the Cloud Storage object on the caller's behalf, so your request authentication must have write permissions for the object. For more information, see [Dialogflow access control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage). */
       flowUri?: string;
@@ -1558,29 +1519,6 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowCxV3ImportDocumentsResponse {
       /** Includes details about skipped documents or any other warnings. */
       warnings?: GoogleRpcStatus[];
-    }
-    interface GoogleCloudDialogflowCxV3ImportEntityTypesMetadata {}
-    interface GoogleCloudDialogflowCxV3ImportEntityTypesRequest {
-      /** Uncompressed byte content of entity types. */
-      entityTypesContent?: GoogleCloudDialogflowCxV3InlineSource;
-      /** The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to import entity types from. The format of this URI must be `gs:///`. Dialogflow performs a read operation for the Cloud Storage object on the caller's behalf, so your request authentication must have read permissions for the object. For more information, see [Dialogflow access control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage). */
-      entityTypesUri?: string;
-      /** Required. Merge option for importing entity types. */
-      mergeOption?: string;
-      /** Optional. The target entity type to import into. Format: `projects//locations//agents//entity_types/`. If set, there should be only one entity type included in entity_types, of which the type should match the type of the target entity type. All entities in the imported entity type will be added to the target entity type. */
-      targetEntityType?: string;
-    }
-    interface GoogleCloudDialogflowCxV3ImportEntityTypesResponse {
-      /** Info which resources have conflicts when REPORT_CONFLICT merge_option is set in ImportEntityTypesRequest. */
-      conflictingResources?: GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources;
-      /** The unique identifier of the imported entity types. Format: `projects//locations//agents//entity_types/`. */
-      entityTypes?: string[];
-    }
-    interface GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources {
-      /** Display names of conflicting entities. */
-      entityDisplayNames?: string[];
-      /** Display names of conflicting entity types. */
-      entityTypeDisplayNames?: string[];
     }
     interface GoogleCloudDialogflowCxV3ImportFlowRequest {
       /** Uncompressed raw byte content for flow. */
@@ -4317,64 +4255,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<{}>;
-      /** Exports the selected entity types. */
-      export(request: {
-        /** V1 error format. */
-        '$.xgafv'?: string;
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The name of the parent agent to export entity types. Format: `projects//locations//agents/`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudDialogflowCxV3ExportEntityTypesRequest;
-      }): Request<GoogleLongrunningOperation>;
-      export(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: string;
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The name of the parent agent to export entity types. Format: `projects//locations//agents/`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudDialogflowCxV3ExportEntityTypesRequest
-      ): Request<GoogleLongrunningOperation>;
       /** Retrieves the specified entity type. */
       get(request?: {
         /** V1 error format. */
@@ -4404,64 +4284,6 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<GoogleCloudDialogflowCxV3EntityType>;
-      /** Imports the specified entitytypes into the agent. */
-      import(request: {
-        /** V1 error format. */
-        '$.xgafv'?: string;
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Required. The agent to import the entity types into. Format: `projects//locations//agents/`. */
-        parent: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: GoogleCloudDialogflowCxV3ImportEntityTypesRequest;
-      }): Request<GoogleLongrunningOperation>;
-      import(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: string;
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Required. The agent to import the entity types into. Format: `projects//locations//agents/`. */
-          parent: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: GoogleCloudDialogflowCxV3ImportEntityTypesRequest
-      ): Request<GoogleLongrunningOperation>;
       /** Returns the list of all entity types in the specified agent. */
       list(request?: {
         /** V1 error format. */

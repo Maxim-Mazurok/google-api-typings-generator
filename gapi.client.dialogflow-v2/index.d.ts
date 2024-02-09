@@ -244,13 +244,6 @@ declare namespace gapi.client {
       /** Commit SHA of the git push. This field is populated if `git_destination` is specified in ExportAgentRequest. */
       commitSha?: string;
     }
-    interface GoogleCloudDialogflowCxV3beta1ExportEntityTypesMetadata {}
-    interface GoogleCloudDialogflowCxV3beta1ExportEntityTypesResponse {
-      /** Uncompressed byte content for entity types. This field is populated only if `entity_types_content_inline` is set to true in ExportEntityTypesRequest. */
-      entityTypesContent?: GoogleCloudDialogflowCxV3beta1InlineDestination;
-      /** The URI to a file containing the exported entity types. This field is populated only if `entity_types_uri` is specified in ExportEntityTypesRequest. */
-      entityTypesUri?: string;
-    }
     interface GoogleCloudDialogflowCxV3beta1ExportFlowResponse {
       /** Uncompressed raw byte content for flow. */
       flowContent?: string;
@@ -354,19 +347,6 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowCxV3beta1ImportDocumentsResponse {
       /** Includes details about skipped documents or any other warnings. */
       warnings?: GoogleRpcStatus[];
-    }
-    interface GoogleCloudDialogflowCxV3beta1ImportEntityTypesMetadata {}
-    interface GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponse {
-      /** Info which resources have conflicts when REPORT_CONFLICT merge_option is set in ImportEntityTypesRequest. */
-      conflictingResources?: GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources;
-      /** The unique identifier of the imported entity types. Format: `projects//locations//agents//entity_types/`. */
-      entityTypes?: string[];
-    }
-    interface GoogleCloudDialogflowCxV3beta1ImportEntityTypesResponseConflictingResources {
-      /** Display names of conflicting entities. */
-      entityDisplayNames?: string[];
-      /** Display names of conflicting entity types. */
-      entityTypeDisplayNames?: string[];
     }
     interface GoogleCloudDialogflowCxV3beta1ImportFlowResponse {
       /** The unique identifier of the new flow. Format: `projects//locations//agents//flows/`. */
@@ -986,13 +966,6 @@ declare namespace gapi.client {
       /** Commit SHA of the git push. This field is populated if `git_destination` is specified in ExportAgentRequest. */
       commitSha?: string;
     }
-    interface GoogleCloudDialogflowCxV3ExportEntityTypesMetadata {}
-    interface GoogleCloudDialogflowCxV3ExportEntityTypesResponse {
-      /** Uncompressed byte content for entity types. This field is populated only if `entity_types_content_inline` is set to true in ExportEntityTypesRequest. */
-      entityTypesContent?: GoogleCloudDialogflowCxV3InlineDestination;
-      /** The URI to a file containing the exported entity types. This field is populated only if `entity_types_uri` is specified in ExportEntityTypesRequest. */
-      entityTypesUri?: string;
-    }
     interface GoogleCloudDialogflowCxV3ExportFlowResponse {
       /** Uncompressed raw byte content for flow. */
       flowContent?: string;
@@ -1096,19 +1069,6 @@ declare namespace gapi.client {
     interface GoogleCloudDialogflowCxV3ImportDocumentsResponse {
       /** Includes details about skipped documents or any other warnings. */
       warnings?: GoogleRpcStatus[];
-    }
-    interface GoogleCloudDialogflowCxV3ImportEntityTypesMetadata {}
-    interface GoogleCloudDialogflowCxV3ImportEntityTypesResponse {
-      /** Info which resources have conflicts when REPORT_CONFLICT merge_option is set in ImportEntityTypesRequest. */
-      conflictingResources?: GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources;
-      /** The unique identifier of the imported entity types. Format: `projects//locations//agents//entity_types/`. */
-      entityTypes?: string[];
-    }
-    interface GoogleCloudDialogflowCxV3ImportEntityTypesResponseConflictingResources {
-      /** Display names of conflicting entities. */
-      entityDisplayNames?: string[];
-      /** Display names of conflicting entity types. */
-      entityTypeDisplayNames?: string[];
     }
     interface GoogleCloudDialogflowCxV3ImportFlowResponse {
       /** The unique identifier of the new flow. Format: `projects//locations//agents//flows/`. */
@@ -1645,8 +1605,6 @@ declare namespace gapi.client {
       submitTime?: string;
       /** Text of actual submitted summary. */
       summaryText?: string;
-      /** Optional. Actual text sections of submitted summary. */
-      textSections?: {[P in string]: string};
     }
     interface GoogleCloudDialogflowV2AgentAssistantRecord {
       /** Output only. The article suggestion answer. */
