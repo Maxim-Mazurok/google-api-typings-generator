@@ -1,7 +1,7 @@
 {
   "name": "@maxim_mazurok/gapi.client.dlp-v2",
-  "version": "0.0.20240128",
-  "description": "TypeScript typings for Cloud Data Loss Prevention (DLP) v2",
+  "version": "0.0.20240204",
+  "description": "TypeScript typings for Sensitive Data Protection (DLP) v2",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
