@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@definitelytyped/dtslint": "^0.2.1",
-    "@definitelytyped/eslint-plugin": "^0.1.2",
+    "@definitelytyped/eslint-plugin": "^0.1.4",
     "@expo/spawn-async": "^1.7.2",
     "@octokit/rest": "^20.0.2",
     "@types/dedent": "^0.7.2",
