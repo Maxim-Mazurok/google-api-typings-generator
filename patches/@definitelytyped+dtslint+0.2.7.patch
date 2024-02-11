@@ -1,10 +1,10 @@
 See https://github.com/microsoft/DefinitelyTyped-tools/issues/850
 
 diff --git a/node_modules/@definitelytyped/dtslint/dist/index.js b/node_modules/@definitelytyped/dtslint/dist/index.js
-index 217981f..077e9a8 100755
+index d40f0dd..d6c9049 100755
 --- a/node_modules/@definitelytyped/dtslint/dist/index.js
 +++ b/node_modules/@definitelytyped/dtslint/dist/index.js
-@@ -109,10 +109,7 @@ async function runTests(dirPath, onlyTestTsNext, expectOnly, tsLocal) {
+@@ -131,10 +131,7 @@ async function runTests(dirPath, onlyTestTsNext, expectOnly, npmChecks, tsLocal)
      assertPathIsNotBanned(packageName);
      assertPackageIsNotDeprecated(packageName, await fs_1.default.promises.readFile((0, path_1.join)(dtRoot, "notNeededPackages.json"), "utf-8"));
      const typesVersions = (0, header_parser_1.getTypesVersions)(dirPath);
@@ -12,7 +12,7 @@ index 217981f..077e9a8 100755
 -    if (Array.isArray(packageJson)) {
 -        throw new Error("\n\t* " + packageJson.join("\n\t* "));
 -    }
-+    const packageJson = {};
++    const packageJson = {nonNpm:true};
      await assertNpmIgnoreExpected(dirPath);
      assertNoOtherFiles(dirPath);
-     const minVersion = maxVersion(packageJson.minimumTypeScriptVersion, typescript_versions_1.TypeScriptVersion.lowest);
+     let implementationPackage;
