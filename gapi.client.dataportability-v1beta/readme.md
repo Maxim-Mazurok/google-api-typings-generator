@@ -48,7 +48,7 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-    // Move a copy of messages between you and the businesses you have conversations with.
+    // Move a copy of messages between you and the businesses you have conversations with across Google services.
     'https://www.googleapis.com/auth/dataportability.businessmessaging.conversations',
 
     // Move a copy of your pinned trips on Maps.
@@ -75,7 +75,7 @@ var client_id = '',
     // Move a copy of your Maps activity.
     'https://www.googleapis.com/auth/dataportability.myactivity.maps',
 
-    // Move a copy of your search activity.
+    // Move a copy of your Google Search activity.
     'https://www.googleapis.com/auth/dataportability.myactivity.search',
 
     // Move a copy of your Shopping activity.
@@ -84,10 +84,10 @@ var client_id = '',
     // Move a copy of your YouTube activity.
     'https://www.googleapis.com/auth/dataportability.myactivity.youtube',
 
-    // Move a copy of your shipping information.
+    // Move a copy of your shipping information on Shopping.
     'https://www.googleapis.com/auth/dataportability.shopping.addresses',
 
-    // Move a copy of reviews you wrote about products or online stores.
+    // Move a copy of reviews you wrote about products or online stores on Google Search.
     'https://www.googleapis.com/auth/dataportability.shopping.reviews',
 
     // Move a copy of information about your YouTube channel.
