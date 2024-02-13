@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.language-v2",
-  "version": "0.0.20240203",
+  "version": "0.0.20240210",
   "description": "TypeScript typings for Cloud Natural Language API v2",
   "repository": {
     "type": "git",
