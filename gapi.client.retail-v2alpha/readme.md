@@ -1,11 +1,11 @@
-# TypeScript typings for Retail API v2alpha
+# TypeScript typings for Vertex AI Search for Retail API v2alpha
 
-Cloud Retail service enables customers to build end-to-end personalized recommendation systems without requiring a high level of expertise in machine learning, recommendation system, or Google Cloud.
+Vertex AI Search for Retail API is made up of Retail Search, Browse and Recommendations. These discovery AI solutions help you implement personalized search, browse and recommendations, based on machine learning models, across your websites and mobile applications.
 For detailed description please check [documentation](https://cloud.google.com/recommendations).
 
 ## Installing
 
-Install typings for Retail API:
+Install typings for Vertex AI Search for Retail API:
 
 ```
 npm install @types/gapi.client.retail-v2alpha --save-dev
@@ -66,7 +66,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Retail API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Vertex AI Search for Retail API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 /*
