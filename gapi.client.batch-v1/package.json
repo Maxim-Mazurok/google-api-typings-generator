@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.batch-v1",
-  "version": "0.0.20240206",
+  "version": "0.0.20240202",
   "description": "TypeScript typings for Batch API v1",
   "repository": {
     "type": "git",
