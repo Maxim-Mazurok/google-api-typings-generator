@@ -46,7 +46,7 @@ After that you can use Safe Browsing API resources: <!-- TODO: make this work fo
 
 ```typescript
 /*
-Search for full hashes matching the specified prefixes. This is a custom method as described by guidance at https://google.aip.dev/136
+Search for full hashes matching the specified prefixes. This is a custom method as defined by https://google.aip.dev/136 (the custom method refers to this method having a custom name within Google's general API development nomenclature; it does not refer to using a custom HTTP method).
 */
 await gapi.client.safebrowsing.hashes.search({});
 ```
