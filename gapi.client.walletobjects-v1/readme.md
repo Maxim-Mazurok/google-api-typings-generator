@@ -217,6 +217,13 @@ Updates the flight object referenced by the given object ID.
 await gapi.client.walletobjects.flightobject.update({resourceId: 'resourceId'});
 
 /*
+Adds a message to the generic class referenced by the given class ID.
+*/
+await gapi.client.walletobjects.genericclass.addmessage({
+  resourceId: 'resourceId',
+});
+
+/*
 Returns the generic class with the given class ID.
 */
 await gapi.client.walletobjects.genericclass.get({resourceId: 'resourceId'});

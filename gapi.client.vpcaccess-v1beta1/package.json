@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.vpcaccess-v1beta1",
-  "version": "0.0.20240118",
+  "version": "0.0.20240111",
   "description": "TypeScript typings for Serverless VPC Access API v1beta1",
   "repository": {
     "type": "git",
