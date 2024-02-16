@@ -86,7 +86,7 @@ await gapi.client.displayvideo.advertisers.audit({
 });
 
 /*
-Creates a new advertiser. Returns the newly created advertiser if successful. This method can take up to 180 seconds to complete.
+Creates a new advertiser. Returns the newly created advertiser if successful. **This method regularly experiences high latency.** We recommend [increasing your default timeout](/display-video/api/guides/best-practices/timeouts#client_library_timeout) to avoid errors.
 */
 await gapi.client.displayvideo.advertisers.create({});
 
