@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.workflows-v1",
-  "version": "0.0.20240131",
+  "version": "0.0.20240207",
   "description": "TypeScript typings for Workflows API v1",
   "repository": {
     "type": "git",

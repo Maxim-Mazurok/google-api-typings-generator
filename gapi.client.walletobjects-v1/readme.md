@@ -249,6 +249,13 @@ Updates the Generic class referenced by the given class ID.
 await gapi.client.walletobjects.genericclass.update({resourceId: 'resourceId'});
 
 /*
+Adds a message to the generic object referenced by the given object ID.
+*/
+await gapi.client.walletobjects.genericobject.addmessage({
+  resourceId: 'resourceId',
+});
+
+/*
 Returns the generic object with the given object ID.
 */
 await gapi.client.walletobjects.genericobject.get({resourceId: 'resourceId'});
