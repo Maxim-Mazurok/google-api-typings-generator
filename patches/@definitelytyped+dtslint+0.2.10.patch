@@ -1,7 +1,7 @@
 See https://github.com/microsoft/DefinitelyTyped-tools/issues/850
 
 diff --git a/node_modules/@definitelytyped/dtslint/dist/index.js b/node_modules/@definitelytyped/dtslint/dist/index.js
-index d40f0dd..d6c9049 100755
+index 10ad089..c7cb896 100755
 --- a/node_modules/@definitelytyped/dtslint/dist/index.js
 +++ b/node_modules/@definitelytyped/dtslint/dist/index.js
 @@ -131,10 +131,7 @@ async function runTests(dirPath, onlyTestTsNext, expectOnly, npmChecks, tsLocal)
@@ -13,6 +13,6 @@ index d40f0dd..d6c9049 100755
 -        throw new Error("\n\t* " + packageJson.join("\n\t* "));
 -    }
 +    const packageJson = {nonNpm:true};
-     await assertNpmIgnoreExpected(dirPath);
-     assertNoOtherFiles(dirPath);
+     const warnings = [];
+     const errors = [];
      let implementationPackage;

@@ -890,7 +890,6 @@ export class App {
         '.npmrc',
         '.npmIgnore'.toLowerCase(),
         '.eslintrc.json',
-        'tslint.json',
         'tsconfig.json',
       ].map(fileName =>
         copyFile(
