@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.analyticsadmin-v1alpha",
-  "version": "0.0.20240219",
+  "version": "0.0.20240220",
   "description": "TypeScript typings for Google Analytics Admin API v1alpha",
   "repository": {
     "type": "git",
