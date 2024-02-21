@@ -86,7 +86,7 @@ After that you can use Compute Engine API resources: <!-- TODO: make this work f
 ```typescript
 
 /*
-Retrieves an aggregated list of accelerator types.
+Retrieves an aggregated list of accelerator types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.acceleratorTypes.aggregatedList({ project: "project",  });
 
@@ -101,7 +101,7 @@ Retrieves a list of accelerator types that are available to the specified projec
 await gapi.client.compute.acceleratorTypes.list({ project: "project", zone: "zone",  });
 
 /*
-Retrieves an aggregated list of addresses.
+Retrieves an aggregated list of addresses. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.addresses.aggregatedList({ project: "project",  });
 
@@ -141,7 +141,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.addresses.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of autoscalers.
+Retrieves an aggregated list of autoscalers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.autoscalers.aggregatedList({ project: "project",  });
 
@@ -246,7 +246,7 @@ Adds a key for validating requests with signed URLs for this backend service.
 await gapi.client.compute.backendServices.addSignedUrlKey({ backendService: "backendService", project: "project",  });
 
 /*
-Retrieves the list of all BackendService resources, regional and global, available to the specified project.
+Retrieves the list of all BackendService resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.backendServices.aggregatedList({ project: "project",  });
 
@@ -326,7 +326,7 @@ Adds existing resource policies to a disk. You can only add one policy which wil
 await gapi.client.compute.disks.addResourcePolicies({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
-Retrieves an aggregated list of persistent disks.
+Retrieves an aggregated list of persistent disks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.disks.aggregatedList({ project: "project",  });
 
@@ -411,7 +411,7 @@ Updates the specified disk with the data included in the request. The update is 
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
-Retrieves an aggregated list of disk types.
+Retrieves an aggregated list of disk types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.diskTypes.aggregatedList({ project: "project",  });
 
@@ -581,7 +581,7 @@ Updates the specified firewall rule with the data included in the request. Note 
 await gapi.client.compute.firewalls.update({ firewall: "firewall", project: "project",  });
 
 /*
-Retrieves an aggregated list of forwarding rules.
+Retrieves an aggregated list of forwarding rules. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.forwardingRules.aggregatedList({ project: "project",  });
 
@@ -626,7 +626,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.forwardingRules.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of future reservations.
+Retrieves an aggregated list of future reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.futureReservations.aggregatedList({ project: "project",  });
 
@@ -771,7 +771,7 @@ Lists the network endpoints in the specified network endpoint group.
 await gapi.client.compute.globalNetworkEndpointGroups.listNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project",  });
 
 /*
-Retrieves an aggregated list of all operations.
+Retrieves an aggregated list of all operations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.globalOperations.aggregatedList({ project: "project",  });
 
@@ -836,7 +836,7 @@ Patches the specified global PublicDelegatedPrefix resource with the data includ
 await gapi.client.compute.globalPublicDelegatedPrefixes.patch({ project: "project", publicDelegatedPrefix: "publicDelegatedPrefix",  });
 
 /*
-Retrieves the list of all HealthCheck resources, regional and global, available to the specified project.
+Retrieves the list of all HealthCheck resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.healthChecks.aggregatedList({ project: "project",  });
 
@@ -1036,7 +1036,7 @@ Flags the specified instances to be removed from the managed instance group. Aba
 await gapi.client.compute.instanceGroupManagers.abandonInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
-Retrieves the list of managed instance groups and groups them by zone.
+Retrieves the list of managed instance groups and groups them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.instanceGroupManagers.aggregatedList({ project: "project",  });
 
@@ -1176,7 +1176,7 @@ Adds a list of instances to the specified instance group. All of the instances i
 await gapi.client.compute.instanceGroups.addInstances({ instanceGroup: "instanceGroup", project: "project", zone: "zone",  });
 
 /*
-Retrieves the list of instance groups and sorts them by zone.
+Retrieves the list of instance groups and sorts them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.instanceGroups.aggregatedList({ project: "project",  });
 
@@ -1231,7 +1231,7 @@ Adds existing resource policies to an instance. You can only add one policy righ
 await gapi.client.compute.instances.addResourcePolicies({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
-Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances.
+Retrieves an aggregated list of all of the instances in your project across all regions and zones. The performance of this method degrades when a filter is specified on a project that has a very large number of instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.instances.aggregatedList({ project: "project",  });
 
@@ -1486,7 +1486,7 @@ Patch Instance settings
 await gapi.client.compute.instanceSettings.patch({ project: "project", zone: "zone",  });
 
 /*
-Retrieves the list of all InstanceTemplates resources, regional and global, available to the specified project.
+Retrieves the list of all InstanceTemplates resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.instanceTemplates.aggregatedList({ project: "project",  });
 
@@ -1526,7 +1526,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.instanceTemplates.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of instantSnapshots.
+Retrieves an aggregated list of instantSnapshots. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.instantSnapshots.aggregatedList({ project: "project",  });
 
@@ -1571,7 +1571,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.instantSnapshots.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
-Retrieves an aggregated list of interconnect attachments.
+Retrieves an aggregated list of interconnect attachments. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.interconnectAttachments.aggregatedList({ project: "project",  });
 
@@ -1756,7 +1756,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.machineImages.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of machine types.
+Retrieves an aggregated list of machine types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.machineTypes.aggregatedList({ project: "project",  });
 
@@ -1771,7 +1771,7 @@ Retrieves a list of machine types available to the specified project.
 await gapi.client.compute.machineTypes.list({ project: "project", zone: "zone",  });
 
 /*
-Retrieves the list of all NetworkAttachment resources, regional and global, available to the specified project.
+Retrieves the list of all NetworkAttachment resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.networkAttachments.aggregatedList({ project: "project",  });
 
@@ -1816,7 +1816,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.networkAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project.
+Retrieves the list of all NetworkEdgeSecurityService resources available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.networkEdgeSecurityServices.aggregatedList({ project: "project",  });
 
@@ -1841,7 +1841,7 @@ Patches the specified policy with the data included in the request.
 await gapi.client.compute.networkEdgeSecurityServices.patch({ networkEdgeSecurityService: "networkEdgeSecurityService", project: "project", region: "region",  });
 
 /*
-Retrieves the list of network endpoint groups and sorts them by zone.
+Retrieves the list of network endpoint groups and sorts them by zone. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.networkEndpointGroups.aggregatedList({ project: "project",  });
 
@@ -2031,7 +2031,7 @@ Adds specified number of nodes to the node group.
 await gapi.client.compute.nodeGroups.addNodes({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
 
 /*
-Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes for more details about each group.
+Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes for more details about each group. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.nodeGroups.aggregatedList({ project: "project",  });
 
@@ -2101,7 +2101,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.nodeGroups.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
-Retrieves an aggregated list of node templates.
+Retrieves an aggregated list of node templates. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.nodeTemplates.aggregatedList({ project: "project",  });
 
@@ -2141,7 +2141,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.nodeTemplates.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of node types.
+Retrieves an aggregated list of node types. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.nodeTypes.aggregatedList({ project: "project",  });
 
@@ -2231,7 +2231,7 @@ Deletes a rule at the specified priority.
 await gapi.client.compute.organizationSecurityPolicies.removeRule({ securityPolicy: "securityPolicy",  });
 
 /*
-Retrieves an aggregated list of packetMirrorings.
+Retrieves an aggregated list of packetMirrorings. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.packetMirrorings.aggregatedList({ project: "project",  });
 
@@ -2316,6 +2316,11 @@ Moves an instance and its attached persistent disks from one zone to another. *N
 await gapi.client.compute.projects.moveInstance({ project: "project",  });
 
 /*
+Sets the Cloud Armor tier of the project. To set ENTERPRISE or above the billing account of the project must be subscribed to Cloud Armor Enterprise. See Subscribing to Cloud Armor Enterprise for more information.
+*/
+await gapi.client.compute.projects.setCloudArmorTier({ project: "project",  });
+
+/*
 Sets metadata common to all instances within the specified project using the data included in the request.
 */
 await gapi.client.compute.projects.setCommonInstanceMetadata({ project: "project",  });
@@ -2371,7 +2376,7 @@ Withdraws the specified PublicAdvertisedPrefix
 await gapi.client.compute.publicAdvertisedPrefixes.withdraw({ project: "project", publicAdvertisedPrefix: "publicAdvertisedPrefix",  });
 
 /*
-Lists all PublicDelegatedPrefix resources owned by the specific project across all scopes.
+Lists all PublicDelegatedPrefix resources owned by the specific project across all scopes. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.publicDelegatedPrefixes.aggregatedList({ project: "project",  });
 
@@ -2506,7 +2511,7 @@ Updates the specified regional BackendService resource with the data included in
 await gapi.client.compute.regionBackendServices.update({ backendService: "backendService", project: "project", region: "region",  });
 
 /*
-Retrieves an aggregated list of commitments by region.
+Retrieves an aggregated list of commitments by region. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.regionCommitments.aggregatedList({ project: "project",  });
 
@@ -3351,7 +3356,7 @@ Retrieves the list of Zone resources under the specific region available to the 
 await gapi.client.compute.regionZones.list({ project: "project", region: "region",  });
 
 /*
-Retrieves an aggregated list of reservations.
+Retrieves an aggregated list of reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.reservations.aggregatedList({ project: "project",  });
 
@@ -3401,7 +3406,7 @@ Update share settings of the reservation.
 await gapi.client.compute.reservations.update({ project: "project", reservation: "reservation", zone: "zone",  });
 
 /*
-Retrieves an aggregated list of resource policies.
+Retrieves an aggregated list of resource policies. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.resourcePolicies.aggregatedList({ project: "project",  });
 
@@ -3446,7 +3451,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.resourcePolicies.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of routers.
+Retrieves an aggregated list of routers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.routers.aggregatedList({ project: "project",  });
 
@@ -3536,7 +3541,7 @@ Inserts a rule into a security policy.
 await gapi.client.compute.securityPolicies.addRule({ project: "project", securityPolicy: "securityPolicy",  });
 
 /*
-Retrieves the list of all SecurityPolicy resources, regional and global, available to the specified project.
+Retrieves the list of all SecurityPolicy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.securityPolicies.aggregatedList({ project: "project",  });
 
@@ -3596,7 +3601,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.securityPolicies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves the list of all ServiceAttachment resources, regional and global, available to the specified project.
+Retrieves the list of all ServiceAttachment resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.serviceAttachments.aggregatedList({ project: "project",  });
 
@@ -3691,7 +3696,7 @@ Patch snapshot settings.
 await gapi.client.compute.snapshotSettings.patch({ project: "project",  });
 
 /*
-Retrieves the list of all SslCertificate resources, regional and global, available to the specified project.
+Retrieves the list of all SslCertificate resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.sslCertificates.aggregatedList({ project: "project",  });
 
@@ -3721,7 +3726,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.sslCertificates.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves the list of all SslPolicy resources, regional and global, available to the specified project.
+Retrieves the list of all SslPolicy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.sslPolicies.aggregatedList({ project: "project",  });
 
@@ -3761,7 +3766,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.sslPolicies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of subnetworks.
+Retrieves an aggregated list of subnetworks. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.subnetworks.aggregatedList({ project: "project",  });
 
@@ -3851,7 +3856,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.targetGrpcProxies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves the list of all TargetHttpProxy resources, regional and global, available to the specified project.
+Retrieves the list of all TargetHttpProxy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.targetHttpProxies.aggregatedList({ project: "project",  });
 
@@ -3891,7 +3896,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.targetHttpProxies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves the list of all TargetHttpsProxy resources, regional and global, available to the specified project.
+Retrieves the list of all TargetHttpsProxy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.targetHttpsProxies.aggregatedList({ project: "project",  });
 
@@ -3951,7 +3956,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.targetHttpsProxies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of target instances.
+Retrieves an aggregated list of target instances. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.targetInstances.aggregatedList({ project: "project",  });
 
@@ -3996,7 +4001,7 @@ Adds an instance to a target pool.
 await gapi.client.compute.targetPools.addInstance({ project: "project", region: "region", targetPool: "targetPool",  });
 
 /*
-Retrieves an aggregated list of target pools.
+Retrieves an aggregated list of target pools. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.targetPools.aggregatedList({ project: "project",  });
 
@@ -4101,7 +4106,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.targetSslProxies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves the list of all TargetTcpProxy resources, regional and global, available to the specified project.
+Retrieves the list of all TargetTcpProxy resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.targetTcpProxies.aggregatedList({ project: "project",  });
 
@@ -4141,7 +4146,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.targetTcpProxies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of target VPN gateways.
+Retrieves an aggregated list of target VPN gateways. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.targetVpnGateways.aggregatedList({ project: "project",  });
 
@@ -4176,7 +4181,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.targetVpnGateways.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves the list of all UrlMap resources, regional and global, available to the specified project.
+Retrieves the list of all UrlMap resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.urlMaps.aggregatedList({ project: "project",  });
 
@@ -4226,7 +4231,7 @@ Runs static validation for the UrlMap. In particular, the tests of the provided 
 await gapi.client.compute.urlMaps.validate({ project: "project", urlMap: "urlMap",  });
 
 /*
-Retrieves an aggregated list of VPN gateways.
+Retrieves an aggregated list of VPN gateways. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.vpnGateways.aggregatedList({ project: "project",  });
 
@@ -4266,7 +4271,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.vpnGateways.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Retrieves an aggregated list of VPN tunnels.
+Retrieves an aggregated list of VPN tunnels. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.vpnTunnels.aggregatedList({ project: "project",  });
 

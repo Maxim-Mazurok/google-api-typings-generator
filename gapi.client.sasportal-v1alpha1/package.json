@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.sasportal-v1alpha1",
-  "version": "0.0.20240218",
+  "version": "0.0.20240215",
   "description": "TypeScript typings for SAS Portal API v1alpha1",
   "repository": {
     "type": "git",
