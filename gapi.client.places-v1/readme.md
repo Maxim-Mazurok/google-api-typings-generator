@@ -53,6 +53,9 @@ var client_id = '',
     // Private Service: https://www.googleapis.com/auth/maps-platform.places
     'https://www.googleapis.com/auth/maps-platform.places',
 
+    // Private Service: https://www.googleapis.com/auth/maps-platform.places.autocomplete
+    'https://www.googleapis.com/auth/maps-platform.places.autocomplete',
+
     // Private Service: https://www.googleapis.com/auth/maps-platform.places.details
     'https://www.googleapis.com/auth/maps-platform.places.details',
 
@@ -80,6 +83,11 @@ gapi.auth.authorize(
 After that you can use Places API (New) resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+/*
+Returns predictions for the given input.
+*/
+await gapi.client.places.places.autocomplete({});
+
 /*
 Get the details of a place based on its resource name, which is a string in the `places/{place_id}` format.
 */
