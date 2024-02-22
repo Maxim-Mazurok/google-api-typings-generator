@@ -145,7 +145,7 @@ After that you can use Data Portability API resources: <!-- TODO: make this work
 
 ```typescript
 /*
-Retrieves the state of a Takeout Archive job for the Portability API.
+Retrieves the state of an Archive job for the Portability API.
 */
 await gapi.client.dataportability.archiveJobs.getPortabilityArchiveState({
   name: 'name',
@@ -157,12 +157,12 @@ Retries a failed Portability Archive job.
 await gapi.client.dataportability.archiveJobs.retry({name: 'name'});
 
 /*
-Revokes OAuth tokens and resets exhausted scopes for a user/project pair. This method allows you to initiate a Takeout request after a new consent is granted. This method also indicates that previous archives can be garbage collected. You should call this method when all jobs are complete and all archives are downloaded. Do not call it only when you start a new job.
+Revokes OAuth tokens and resets exhausted scopes for a user/project pair. This method allows you to initiate a request after a new consent is granted. This method also indicates that previous archives can be garbage collected. You should call this method when all jobs are complete and all archives are downloaded. Do not call it only when you start a new job.
 */
 await gapi.client.dataportability.authorization.reset({});
 
 /*
-Initiates a new Takeout Archive job for the Portability API.
+Initiates a new Archive job for the Portability API.
 */
 await gapi.client.dataportability.portabilityArchive.initiate({});
 ```
