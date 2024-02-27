@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.integrations-v1alpha",
-  "version": "0.0.20240225",
+  "version": "0.0.20240125",
   "description": "TypeScript typings for Application Integration API v1alpha",
   "repository": {
     "type": "git",
