@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.tasks-v1",
-  "version": "0.0.20240225",
+  "version": "0.0.20240227",
   "description": "TypeScript typings for Google Tasks API v1",
   "repository": {
     "type": "git",
