@@ -352,7 +352,7 @@ declare namespace gapi.client {
     }
     interface TextConfig {}
     interface Topic {
-      /** Optional. Settings for managed ingestion from a data source into this topic. */
+      /** Optional. Settings for ingestion from a data source into this topic. */
       ingestionDataSourceSettings?: IngestionDataSourceSettings;
       /** Optional. The resource name of the Cloud KMS CryptoKey to be used to protect access to messages published on this topic. The expected format is `projects/*‍/locations/*‍/keyRings/*‍/cryptoKeys/*`. */
       kmsKeyName?: string;
