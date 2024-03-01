@@ -1,7 +1,7 @@
 # TypeScript typings for Sensitive Data Protection (DLP) v2
 
 Discover and protect your sensitive data. A fully managed service designed to help you discover, classify, and protect your valuable data assets with ease.
-For detailed description please check [documentation](https://cloud.google.com/dlp/docs/).
+For detailed description please check [documentation](https://cloud.google.com/sensitive-data-protection/docs/).
 
 ## Installing
 
@@ -70,7 +70,7 @@ After that you can use Sensitive Data Protection (DLP) resources: <!-- TODO: mak
 
 ```typescript
 /*
-Returns a list of the sensitive information types that DLP API supports. See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
+Returns a list of the sensitive information types that DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
 */
 await gapi.client.dlp.infoTypes.list({});
 ```
