@@ -51,6 +51,27 @@ var client_id = '',
     // Move a copy of messages between you and the businesses you have conversations with across Google services.
     'https://www.googleapis.com/auth/dataportability.businessmessaging.conversations',
 
+    // Move a copy of the information you entered into online forms in Chrome.
+    'https://www.googleapis.com/auth/dataportability.chrome.autofill',
+
+    // Move a copy of pages you bookmarked in Chrome.
+    'https://www.googleapis.com/auth/dataportability.chrome.bookmarks',
+
+    // Move a copy of words you added to Chrome's dictionary.
+    'https://www.googleapis.com/auth/dataportability.chrome.dictionary',
+
+    // Move a copy of extensions you installed from the Chrome Web Store.
+    'https://www.googleapis.com/auth/dataportability.chrome.extensions',
+
+    // Move a copy of sites you visited in Chrome.
+    'https://www.googleapis.com/auth/dataportability.chrome.history',
+
+    // Move a copy of pages you added to your reading list in Chrome.
+    'https://www.googleapis.com/auth/dataportability.chrome.reading_list',
+
+    // Move a copy of your settings in Chrome.
+    'https://www.googleapis.com/auth/dataportability.chrome.settings',
+
     // Move a copy of your pinned trips on Maps.
     'https://www.googleapis.com/auth/dataportability.maps.commute_routes',
 
@@ -84,6 +105,9 @@ var client_id = '',
     // Move a copy of your YouTube activity.
     'https://www.googleapis.com/auth/dataportability.myactivity.youtube',
 
+    // Move a copy of your saved links, images, places, and collections from your use of Google services.
+    'https://www.googleapis.com/auth/dataportability.saved.collections',
+
     // Move a copy of your shipping information on Shopping.
     'https://www.googleapis.com/auth/dataportability.shopping.addresses',
 
@@ -101,6 +125,12 @@ var client_id = '',
 
     // Move a copy of your uploaded YouTube music tracks and your YouTube music library.
     'https://www.googleapis.com/auth/dataportability.youtube.music',
+
+    // Move a copy of your YouTube playables saved game progress files.
+    'https://www.googleapis.com/auth/dataportability.youtube.playable',
+
+    // Move a copy of your YouTube posts.
+    'https://www.googleapis.com/auth/dataportability.youtube.posts',
 
     // Move a copy of your YouTube private playlists.
     'https://www.googleapis.com/auth/dataportability.youtube.private_playlists',
