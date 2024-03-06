@@ -73,6 +73,11 @@ After that you can use Artifact Registry API resources: <!-- TODO: make this wor
 
 ```typescript
 /*
+Download a file.
+*/
+await gapi.client.artifactregistry.media.download({name: 'name'});
+
+/*
 Retrieves the Settings for the Project.
 */
 await gapi.client.artifactregistry.projects.getProjectSettings({name: 'name'});
