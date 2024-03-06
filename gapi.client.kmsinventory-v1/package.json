@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.kmsinventory-v1",
-  "version": "0.0.20240225",
+  "version": "0.0.20240303",
   "description": "TypeScript typings for KMS Inventory API v1",
   "repository": {
     "type": "git",
