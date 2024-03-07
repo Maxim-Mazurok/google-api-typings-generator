@@ -74,6 +74,12 @@ var client_id = '',
 
     // View chat and spaces in Google Chat
     'https://www.googleapis.com/auth/chat.spaces.readonly',
+
+    // Create, edit, and see information about your Google Meet conferences created by the app.
+    'https://www.googleapis.com/auth/meetings.space.created',
+
+    // Read information about any of your Google Meet conferences
+    'https://www.googleapis.com/auth/meetings.space.readonly',
   ],
   immediate = true;
 // ...
