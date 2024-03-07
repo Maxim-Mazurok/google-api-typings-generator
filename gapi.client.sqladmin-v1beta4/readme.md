@@ -177,14 +177,6 @@ Lists all available database flags for Cloud SQL instances.
 await gapi.client.sql.flags.list({});
 
 /*
-Acquire a lease for the setup of SQL Server Reporting Services (SSRS).
-*/
-await gapi.client.sql.instances.acquireSsrsLease({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
 Add a new trusted Certificate Authority (CA) version for the specified instance. Required to prepare for a certificate rotation. If a CA version was previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one CA version waiting to be rotated in.
 */
 await gapi.client.sql.instances.addServerCa({
@@ -291,14 +283,6 @@ await gapi.client.sql.instances.promoteReplica({
 Reencrypt CMEK instance with latest key version.
 */
 await gapi.client.sql.instances.reencrypt({
-  instance: 'instance',
-  project: 'project',
-});
-
-/*
-Release a lease for the setup of SQL Server Reporting Services (SSRS).
-*/
-await gapi.client.sql.instances.releaseSsrsLease({
   instance: 'instance',
   project: 'project',
 });
