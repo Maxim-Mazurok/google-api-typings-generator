@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.datamigration-v1",
-  "version": "0.0.20240228",
+  "version": "0.0.20240221",
   "description": "TypeScript typings for Database Migration API v1",
   "repository": {
     "type": "git",
