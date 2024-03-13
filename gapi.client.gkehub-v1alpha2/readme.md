@@ -1,14 +1,13 @@
-# TypeScript typings for Secret Manager API v1beta2
+# TypeScript typings for GKE Hub API v1alpha2
 
-Stores sensitive data such as API keys, passwords, and certificates. Provides convenience while improving security.
-For detailed description please check [documentation](https://cloud.google.com/secret-manager/).
+For detailed description please check [documentation](https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster).
 
 ## Installing
 
-Install typings for Secret Manager API:
+Install typings for GKE Hub API:
 
 ```
-npm install @types/gapi.client.secretmanager-v1beta2 --save-dev
+npm install @types/gapi.client.gkehub-v1alpha2 --save-dev
 ```
 
 ## Usage
@@ -26,19 +25,19 @@ Then load api client wrapper:
 
 ```typescript
 gapi.client.load(
-  'https://secretmanager.googleapis.com/$discovery/rest?version=v1beta2',
+  'https://gkehub.googleapis.com/$discovery/rest?version=v1alpha2',
   () => {
     // now we can use:
-    // gapi.client.secretmanager
+    // gapi.client.gkehub
   }
 );
 ```
 
 ```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
-gapi.client.load('secretmanager', 'v1beta2', () => {
+gapi.client.load('gkehub', 'v1alpha2', () => {
   // now we can use:
-  // gapi.client.secretmanager
+  // gapi.client.gkehub
 });
 ```
 
@@ -66,7 +65,7 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Secret Manager API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use GKE Hub API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
 
