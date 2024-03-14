@@ -1,0 +1,20 @@
+{
+  "name": "@maxim_mazurok/gapi.client.gkehub-v1alpha2",
+  "version": "0.0.20240229",
+  "description": "TypeScript typings for GKE Hub API v1alpha2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Maxim Mazurok",
+    "email": "maxim@mazurok.com",
+    "url": "https://maxim.mazurok.com"
+  },
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/gapi.client": "*",
+    "@types/gapi.client.discovery-v1": "*"
+  }
+}
