@@ -926,31 +926,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.images.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Cancels the specified resize request and removes it from the queue. Cancelled resize request does no longer wait for the resources to be provisioned. Cancel is only possible for requests that are accepted in the queue.
-*/
-await gapi.client.compute.instanceGroupManagerResizeRequests.cancel({ instanceGroupManager: "instanceGroupManager", project: "project", resizeRequest: "resizeRequest", zone: "zone",  });
-
-/*
-Deletes the specified, inactive resize request. Requests that are still active cannot be deleted. Deleting request does not delete instances that were provisioned previously.
-*/
-await gapi.client.compute.instanceGroupManagerResizeRequests.delete({ instanceGroupManager: "instanceGroupManager", project: "project", resizeRequest: "resizeRequest", zone: "zone",  });
-
-/*
-Returns all of the details about the specified resize request.
-*/
-await gapi.client.compute.instanceGroupManagerResizeRequests.get({ instanceGroupManager: "instanceGroupManager", project: "project", resizeRequest: "resizeRequest", zone: "zone",  });
-
-/*
-Creates a new resize request that starts provisioning VMs immediately or queues VM creation.
-*/
-await gapi.client.compute.instanceGroupManagerResizeRequests.insert({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
-
-/*
-Retrieves a list of resize requests that are contained in the managed instance group.
-*/
-await gapi.client.compute.instanceGroupManagerResizeRequests.list({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
-
-/*
 Flags the specified instances to be removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.instanceGroupManagers.abandonInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
