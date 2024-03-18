@@ -13505,13 +13505,6 @@ exports[`admin works 8`] = `
 "
 `;
 
-exports[`admin works 9`] = `
-"{
-  "extends": "@definitelytyped/dtslint/dt.json"
-}
-"
-`;
-
 exports[`calendar DT works 1`] = `
 "// Type definitions for non-npm package Calendar API v3 0.0
 // Project: https://developers.google.com/google-apps/calendar/firstapp
@@ -18223,13 +18216,6 @@ exports[`calendar works 8`] = `
     "strictFunctionTypes": true
   },
   "files": ["index.d.ts", "tests.ts"]
-}
-"
-`;
-
-exports[`calendar works 9`] = `
-"{
-  "extends": "@definitelytyped/dtslint/dt.json"
 }
 "
 `;
@@ -23767,13 +23753,6 @@ exports[`drive works 8`] = `
     "strictFunctionTypes": true
   },
   "files": ["index.d.ts", "tests.ts"]
-}
-"
-`;
-
-exports[`drive works 9`] = `
-"{
-  "extends": "@definitelytyped/dtslint/dt.json"
 }
 "
 `;
@@ -42553,13 +42532,6 @@ exports[`integrations works 8`] = `
 "
 `;
 
-exports[`integrations works 9`] = `
-"{
-  "extends": "@definitelytyped/dtslint/dt.json"
-}
-"
-`;
-
 exports[`sheets DT works 1`] = `
 "// Type definitions for non-npm package Google Sheets API v4 0.0
 // Project: https://developers.google.com/sheets/
@@ -59318,13 +59290,6 @@ exports[`sheets works 8`] = `
 "
 `;
 
-exports[`sheets works 9`] = `
-"{
-  "extends": "@definitelytyped/dtslint/dt.json"
-}
-"
-`;
-
 exports[`uses method ID instead of resource name/key 1`] = `
 "{
   "extends": ["plugin:@definitelytyped/all"],
@@ -59505,13 +59470,6 @@ exports[`uses method ID instead of resource name/key 8`] = `
     "strictFunctionTypes": true
   },
   "files": ["index.d.ts", "tests.ts"]
-}
-"
-`;
-
-exports[`uses method ID instead of resource name/key 9`] = `
-"{
-  "extends": "@definitelytyped/dtslint/dt.json"
 }
 "
 `;
