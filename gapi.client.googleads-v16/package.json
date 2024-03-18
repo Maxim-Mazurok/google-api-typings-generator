@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.oslogin-v1",
-  "version": "0.0.20240303",
-  "description": "TypeScript typings for Cloud OS Login API v1",
+  "name": "@maxim_mazurok/gapi.client.googleads-v16",
+  "version": "0.0.20240220",
+  "description": "TypeScript typings for Google Ads API v16",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
