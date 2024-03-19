@@ -1,6 +1,6 @@
 # TypeScript typings for Identity and Access Management (IAM) API v2beta
 
-Manages identity and access control for Google Cloud Platform resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls.
+Manages identity and access control for Google Cloud resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls. Enabling this API also enables the IAM Service Account Credentials API (iamcredentials.googleapis.com). However, disabling this API doesn't disable the IAM Service Account Credentials API.
 For detailed description please check [documentation](https://cloud.google.com/iam/).
 
 ## Installing
