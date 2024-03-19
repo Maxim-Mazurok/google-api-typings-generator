@@ -1,7 +1,7 @@
 # TypeScript typings for Cloud Testing API v1
 
 Allows developers to run automated tests for their mobile applications on Google infrastructure.
-For detailed description please check [documentation](https://developers.google.com/cloud-test-lab/).
+For detailed description please check [documentation](https://firebase.google.com/docs/test-lab/).
 
 ## Installing
 
