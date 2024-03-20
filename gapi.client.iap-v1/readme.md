@@ -95,7 +95,7 @@ Updates the IAP settings on a particular IAP protected resource. It replaces all
 await gapi.client.iap.updateIapSettings({name: 'name'});
 
 /*
-Validates a given CEL expression conforms to IAP restrictions.
+Validates that a given CEL expression conforms to IAP restrictions.
 */
 await gapi.client.iap.validateAttributeExpression({name: 'name'});
 ```
