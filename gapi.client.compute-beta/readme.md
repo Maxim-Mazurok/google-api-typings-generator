@@ -1281,6 +1281,11 @@ Gets the access control policy for a resource. May be empty if no such policy or
 await gapi.client.compute.instances.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
+Gets partner metadata of the specified instance and namespaces.
+*/
+await gapi.client.compute.instances.getPartnerMetadata({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
 Returns the screenshot from the specified instance.
 */
 await gapi.client.compute.instances.getScreenshot({ instance: "instance", project: "project", zone: "zone",  });
@@ -1314,6 +1319,11 @@ await gapi.client.compute.instances.list({ project: "project", zone: "zone",  })
 Retrieves a list of resources that refer to the VM instance specified in the request. For example, if the VM instance is part of a managed or unmanaged instance group, the referrers list includes the instance group. For more information, read Viewing referrers to VM instances.
 */
 await gapi.client.compute.instances.listReferrers({ instance: "instance", project: "project", zone: "zone",  });
+
+/*
+Patches partner metadata of the specified instance.
+*/
+await gapi.client.compute.instances.patchPartnerMetadata({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
 Perform a manual maintenance on the instance.
@@ -3461,6 +3471,11 @@ Deletes the specified Router resource.
 await gapi.client.compute.routers.delete({ project: "project", region: "region", router: "router",  });
 
 /*
+Deletes Route Policy
+*/
+await gapi.client.compute.routers.deleteRoutePolicy({ project: "project", region: "region", router: "router",  });
+
+/*
 Returns the specified Router resource.
 */
 await gapi.client.compute.routers.get({ project: "project", region: "region", router: "router",  });
@@ -3476,6 +3491,11 @@ Retrieves runtime Nat mapping information of VM endpoints.
 await gapi.client.compute.routers.getNatMappingInfo({ project: "project", region: "region", router: "router",  });
 
 /*
+Returns specified Route Policy
+*/
+await gapi.client.compute.routers.getRoutePolicy({ project: "project", region: "region", router: "router",  });
+
+/*
 Retrieves runtime information of the specified router.
 */
 await gapi.client.compute.routers.getRouterStatus({ project: "project", region: "region", router: "router",  });
@@ -3489,6 +3509,16 @@ await gapi.client.compute.routers.insert({ project: "project", region: "region",
 Retrieves a list of Router resources available to the specified project.
 */
 await gapi.client.compute.routers.list({ project: "project", region: "region",  });
+
+/*
+Retrieves a list of router bgp routes available to the specified project.
+*/
+await gapi.client.compute.routers.listBgpRoutes({ project: "project", region: "region", router: "router",  });
+
+/*
+Retrieves a list of router route policy subresources available to the specified project.
+*/
+await gapi.client.compute.routers.listRoutePolicies({ project: "project", region: "region", router: "router",  });
 
 /*
 Patches the specified Router resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
@@ -3509,6 +3539,11 @@ await gapi.client.compute.routers.testIamPermissions({ project: "project", regio
 Updates the specified Router resource with the data included in the request. This method conforms to PUT semantics, which requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message payload.
 */
 await gapi.client.compute.routers.update({ project: "project", region: "region", router: "router",  });
+
+/*
+Updates or creates new Route Policy
+*/
+await gapi.client.compute.routers.updateRoutePolicy({ project: "project", region: "region", router: "router",  });
 
 /*
 Deletes the specified Route resource.
