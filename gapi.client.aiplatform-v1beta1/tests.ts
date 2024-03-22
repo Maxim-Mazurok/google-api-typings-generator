@@ -1884,40 +1884,6 @@ gapi.load('client', async () => {
             threshold: 'Test string',
           },
         ],
-        systemInstructions: [
-          {
-            parts: [
-              {
-                fileData: {
-                  fileUri: 'Test string',
-                  mimeType: 'Test string',
-                },
-                functionCall: {
-                  args: {
-                    A: 42,
-                  },
-                  name: 'Test string',
-                },
-                functionResponse: {
-                  name: 'Test string',
-                  response: {
-                    A: 42,
-                  },
-                },
-                inlineData: {
-                  data: 'Test string',
-                  mimeType: 'Test string',
-                },
-                text: 'Test string',
-                videoMetadata: {
-                  endOffset: 'Test string',
-                  startOffset: 'Test string',
-                },
-              },
-            ],
-            role: 'Test string',
-          },
-        ],
         tools: [
           {
             functionDeclarations: [
@@ -1925,14 +1891,25 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
+                  default: 42,
                   description: 'Test string',
                   enum: ['Test string'],
                   example: 42,
                   format: 'Test string',
                   items: undefined,
+                  maximum: 42,
+                  maxItems: 'Test string',
+                  maxLength: 'Test string',
+                  maxProperties: 'Test string',
+                  minimum: 42,
+                  minItems: 'Test string',
+                  minLength: 'Test string',
+                  minProperties: 'Test string',
                   nullable: true,
+                  pattern: 'Test string',
                   properties: undefined,
                   required: ['Test string'],
+                  title: 'Test string',
                   type: 'Test string',
                 },
               },
@@ -2438,40 +2415,6 @@ gapi.load('client', async () => {
             threshold: 'Test string',
           },
         ],
-        systemInstructions: [
-          {
-            parts: [
-              {
-                fileData: {
-                  fileUri: 'Test string',
-                  mimeType: 'Test string',
-                },
-                functionCall: {
-                  args: {
-                    A: 42,
-                  },
-                  name: 'Test string',
-                },
-                functionResponse: {
-                  name: 'Test string',
-                  response: {
-                    A: 42,
-                  },
-                },
-                inlineData: {
-                  data: 'Test string',
-                  mimeType: 'Test string',
-                },
-                text: 'Test string',
-                videoMetadata: {
-                  endOffset: 'Test string',
-                  startOffset: 'Test string',
-                },
-              },
-            ],
-            role: 'Test string',
-          },
-        ],
         tools: [
           {
             functionDeclarations: [
@@ -2479,14 +2422,25 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
+                  default: 42,
                   description: 'Test string',
                   enum: ['Test string'],
                   example: 42,
                   format: 'Test string',
                   items: undefined,
+                  maximum: 42,
+                  maxItems: 'Test string',
+                  maxLength: 'Test string',
+                  maxProperties: 'Test string',
+                  minimum: 42,
+                  minItems: 'Test string',
+                  minLength: 'Test string',
+                  minProperties: 'Test string',
                   nullable: true,
+                  pattern: 'Test string',
                   properties: undefined,
                   required: ['Test string'],
+                  title: 'Test string',
                   type: 'Test string',
                 },
               },
@@ -2681,6 +2635,7 @@ gapi.load('client', async () => {
           },
           oidcConfig: {
             idToken: 'Test string',
+            serviceAccount: 'Test string',
           },
         },
       }
@@ -2705,14 +2660,25 @@ gapi.load('client', async () => {
               description: 'Test string',
               name: 'Test string',
               parameters: {
+                default: 42,
                 description: 'Test string',
                 enum: ['Test string'],
                 example: 42,
                 format: 'Test string',
                 items: undefined,
+                maximum: 42,
+                maxItems: 'Test string',
+                maxLength: 'Test string',
+                maxProperties: 'Test string',
+                minimum: 42,
+                minItems: 'Test string',
+                minLength: 'Test string',
+                minProperties: 'Test string',
                 nullable: true,
+                pattern: 'Test string',
                 properties: undefined,
                 required: ['Test string'],
+                title: 'Test string',
                 type: 'Test string',
               },
             },
@@ -2744,6 +2710,7 @@ gapi.load('client', async () => {
             },
             oidcConfig: {
               idToken: 'Test string',
+              serviceAccount: 'Test string',
             },
           },
           description: 'Test string',
@@ -2796,14 +2763,25 @@ gapi.load('client', async () => {
               description: 'Test string',
               name: 'Test string',
               parameters: {
+                default: 42,
                 description: 'Test string',
                 enum: ['Test string'],
                 example: 42,
                 format: 'Test string',
                 items: undefined,
+                maximum: 42,
+                maxItems: 'Test string',
+                maxLength: 'Test string',
+                maxProperties: 'Test string',
+                minimum: 42,
+                minItems: 'Test string',
+                minLength: 'Test string',
+                minProperties: 'Test string',
                 nullable: true,
+                pattern: 'Test string',
                 properties: undefined,
                 required: ['Test string'],
+                title: 'Test string',
                 type: 'Test string',
               },
             },
@@ -2835,6 +2813,7 @@ gapi.load('client', async () => {
             },
             oidcConfig: {
               idToken: 'Test string',
+              serviceAccount: 'Test string',
             },
           },
           description: 'Test string',
@@ -2860,6 +2839,52 @@ gapi.load('client', async () => {
           },
         ],
         updateTime: 'Test string',
+      }
+    );
+    /** Queries an extension with a default controller. */
+    await gapi.client.aiplatform.projects.locations.extensions.query(
+      {
+        name: 'Test string',
+      },
+      {
+        contents: [
+          {
+            parts: [
+              {
+                fileData: {
+                  fileUri: 'Test string',
+                  mimeType: 'Test string',
+                },
+                functionCall: {
+                  args: {
+                    A: 42,
+                  },
+                  name: 'Test string',
+                },
+                functionResponse: {
+                  name: 'Test string',
+                  response: {
+                    A: 42,
+                  },
+                },
+                inlineData: {
+                  data: 'Test string',
+                  mimeType: 'Test string',
+                },
+                text: 'Test string',
+                videoMetadata: {
+                  endOffset: 'Test string',
+                  startOffset: 'Test string',
+                },
+              },
+            ],
+            role: 'Test string',
+          },
+        ],
+        query: {
+          query: 'Test string',
+        },
+        useFunctionCall: true,
       }
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
@@ -3507,6 +3532,23 @@ gapi.load('client', async () => {
           etag: 'Test string',
           version: 42,
         },
+      }
+    );
+    /** Bidirectional streaming RPC to fetch feature values under a FeatureView. Requests may not have a one-to-one mapping to responses and responses may be returned out-of-order to reduce latency. */
+    await gapi.client.aiplatform.projects.locations.featureOnlineStores.featureViews.streamingFetchFeatureValues(
+      {
+        featureView: 'Test string',
+      },
+      {
+        dataFormat: 'Test string',
+        dataKeys: [
+          {
+            compositeKey: {
+              parts: ['Test string'],
+            },
+            key: 'Test string',
+          },
+        ],
       }
     );
     /** Triggers on-demand sync for the FeatureView. */
@@ -7758,6 +7800,13 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
       }
     );
+    /** Reboots a PersistentResource. */
+    await gapi.client.aiplatform.projects.locations.persistentResources.reboot(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
     await gapi.client.aiplatform.projects.locations.persistentResources.operations.cancel(
       {
@@ -8186,40 +8235,6 @@ gapi.load('client', async () => {
             threshold: 'Test string',
           },
         ],
-        systemInstructions: [
-          {
-            parts: [
-              {
-                fileData: {
-                  fileUri: 'Test string',
-                  mimeType: 'Test string',
-                },
-                functionCall: {
-                  args: {
-                    A: 42,
-                  },
-                  name: 'Test string',
-                },
-                functionResponse: {
-                  name: 'Test string',
-                  response: {
-                    A: 42,
-                  },
-                },
-                inlineData: {
-                  data: 'Test string',
-                  mimeType: 'Test string',
-                },
-                text: 'Test string',
-                videoMetadata: {
-                  endOffset: 'Test string',
-                  startOffset: 'Test string',
-                },
-              },
-            ],
-            role: 'Test string',
-          },
-        ],
         tools: [
           {
             functionDeclarations: [
@@ -8227,14 +8242,25 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
+                  default: 42,
                   description: 'Test string',
                   enum: ['Test string'],
                   example: 42,
                   format: 'Test string',
                   items: undefined,
+                  maximum: 42,
+                  maxItems: 'Test string',
+                  maxLength: 'Test string',
+                  maxProperties: 'Test string',
+                  minimum: 42,
+                  minItems: 'Test string',
+                  minLength: 'Test string',
+                  minProperties: 'Test string',
                   nullable: true,
+                  pattern: 'Test string',
                   properties: undefined,
                   required: ['Test string'],
+                  title: 'Test string',
                   type: 'Test string',
                 },
               },
@@ -8383,40 +8409,6 @@ gapi.load('client', async () => {
             threshold: 'Test string',
           },
         ],
-        systemInstructions: [
-          {
-            parts: [
-              {
-                fileData: {
-                  fileUri: 'Test string',
-                  mimeType: 'Test string',
-                },
-                functionCall: {
-                  args: {
-                    A: 42,
-                  },
-                  name: 'Test string',
-                },
-                functionResponse: {
-                  name: 'Test string',
-                  response: {
-                    A: 42,
-                  },
-                },
-                inlineData: {
-                  data: 'Test string',
-                  mimeType: 'Test string',
-                },
-                text: 'Test string',
-                videoMetadata: {
-                  endOffset: 'Test string',
-                  startOffset: 'Test string',
-                },
-              },
-            ],
-            role: 'Test string',
-          },
-        ],
         tools: [
           {
             functionDeclarations: [
@@ -8424,14 +8416,25 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
+                  default: 42,
                   description: 'Test string',
                   enum: ['Test string'],
                   example: 42,
                   format: 'Test string',
                   items: undefined,
+                  maximum: 42,
+                  maxItems: 'Test string',
+                  maxLength: 'Test string',
+                  maxProperties: 'Test string',
+                  minimum: 42,
+                  minItems: 'Test string',
+                  minLength: 'Test string',
+                  minProperties: 'Test string',
                   nullable: true,
+                  pattern: 'Test string',
                   properties: undefined,
                   required: ['Test string'],
+                  title: 'Test string',
                   type: 'Test string',
                 },
               },

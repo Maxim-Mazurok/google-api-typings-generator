@@ -476,7 +476,7 @@ declare namespace gapi.client {
       oidcConfig?: GoogleCloudAiplatformV1beta1AuthConfigOidcConfig;
     }
     interface GoogleCloudAiplatformV1beta1AuthConfigApiKeyConfig {
-      /** Required. The name of the SecretManager secret version resource storing the API key. Format: `projects/{project}/secrets/{secrete}/versions/{version}` */
+      /** Required. The name of the SecretManager secret version resource storing the API key. Format: `projects/{project}/secrets/{secrete}/versions/{version}` - If specified, the `secretmanager.versions.access` permission should be granted to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the specified resource. */
       apiKeySecret?: string;
       /** Required. The location of the API key. */
       httpElementLocation?: string;
@@ -484,23 +484,25 @@ declare namespace gapi.client {
       name?: string;
     }
     interface GoogleCloudAiplatformV1beta1AuthConfigGoogleServiceAccountConfig {
-      /** Optional. The service account that the extension execution service runs as. - If it is not specified, the Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) will be used. - If the service account is provided, the service account should grant Vertex AI Extension Service Agent `iam.serviceAccounts.getAccessToken` permission. */
+      /** Optional. The service account that the extension execution service runs as. - If the service account is specified, the `iam.serviceAccounts.getAccessToken` permission should be granted to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the specified service account. - If not specified, the Vertex AI Extension Service Agent will be used to execute the Extension. */
       serviceAccount?: string;
     }
     interface GoogleCloudAiplatformV1beta1AuthConfigHttpBasicAuthConfig {
-      /** Required. The name of the SecretManager secret version resource storing the base64 encoded credentials. Format: `projects/{project}/secrets/{secrete}/versions/{version}` */
+      /** Required. The name of the SecretManager secret version resource storing the base64 encoded credentials. Format: `projects/{project}/secrets/{secrete}/versions/{version}` - If specified, the `secretmanager.versions.access` permission should be granted to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the specified resource. */
       credentialSecret?: string;
     }
     interface GoogleCloudAiplatformV1beta1AuthConfigNoAuth {}
     interface GoogleCloudAiplatformV1beta1AuthConfigOauthConfig {
-      /** Access token for extension endpoint. Only used to propagate token from ExecuteExtensionRequest.runtime_auth_config at request time. */
+      /** Access token for extension endpoint. Only used to propagate token from [[ExecuteExtensionRequest.runtime_auth_config]] at request time. */
       accessToken?: string;
-      /** The service account that the extension execution service will use to query extension. Used for generating OAuth token on behalf of provided service account. - If the service account is provided, the service account should grant Vertex AI Service Agent `iam.serviceAccounts.getAccessToken` permission. */
+      /** The service account used to generate access tokens for executing the Extension. - If the service account is specified, the `iam.serviceAccounts.getAccessToken` permission should be granted to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents) on the provided service account. */
       serviceAccount?: string;
     }
     interface GoogleCloudAiplatformV1beta1AuthConfigOidcConfig {
-      /** OpenID Connect formatted ID token for extension endpoint. Only used to propagate token from ExecuteExtensionRequest.runtime_auth_config at request time. */
+      /** OpenID Connect formatted ID token for extension endpoint. Only used to propagate token from [[ExecuteExtensionRequest.runtime_auth_config]] at request time. */
       idToken?: string;
+      /** The service account used to generate an OpenID Connect (OIDC)-compatible JWT token signed by the Google OIDC Provider (accounts.google.com) for extension endpoint (https://cloud.google.com/iam/docs/create-short-lived-credentials-direct#sa-credentials-oidc). - The audience for the token will be set to the URL in the server url defined in the OpenApi spec. - If the service account is provided, the service account should grant `iam.serviceAccounts.getOpenIdToken` permission to Vertex AI Extension Service Agent (https://cloud.google.com/vertex-ai/docs/general/access-control#service-agents). */
+      serviceAccount?: string;
     }
     interface GoogleCloudAiplatformV1beta1AutomaticResources {
       /** Immutable. The maximum number of replicas this DeployedModel may be deployed on when the traffic against it increases. If the requested value is too large, the deployment will error, but if deployment succeeds then the ability to scale the model to that many replicas is guaranteed (barring service outages). If traffic against the DeployedModel increases beyond what its replicas at maximum may handle, a portion of the traffic will be dropped. If this value is not provided, a no upper bound for scaling under heavy traffic will be assume, though Vertex AI may be unable to scale beyond certain replica number. */
@@ -785,6 +787,10 @@ declare namespace gapi.client {
       index?: number;
       /** Output only. List of ratings for the safety of a response candidate. There is at most one rating per category. */
       safetyRatings?: GoogleCloudAiplatformV1beta1SafetyRating[];
+    }
+    interface GoogleCloudAiplatformV1beta1CheckPoint {
+      /** Required. encoded checkpoint */
+      content?: string;
     }
     interface GoogleCloudAiplatformV1beta1CheckTrialEarlyStoppingStateMetatdata {
       /** Operation metadata for suggesting Trials. */
@@ -1582,7 +1588,7 @@ declare namespace gapi.client {
       namespaceName?: string;
     }
     interface GoogleCloudAiplatformV1beta1ExecuteExtensionRequest {
-      /** Required. The operation to be executed in this extension as defined in ExtensionOperation.operation_id. */
+      /** Required. The desired ID of the operation to be executed in this extension as defined in ExtensionOperation.operation_id. */
       operationId?: string;
       /** Optional. Request parameters that will be used for executing this operation. The struct should be in a form of map with param name as the key and actual param value as the value. E.g. If this operation requires a param "name" to be set to "abc". you can set this to something like {"name": "abc"}. */
       operationParams?: {[P in string]: any};
@@ -1592,8 +1598,6 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1ExecuteExtensionResponse {
       /** Response content from the extension. The content should be conformant to the response.content schema in the extension's manifest/OpenAPI spec. */
       content?: string;
-      /** Output from the extension. The output should be conformant to the extension's manifest/OpenAPI spec. The output can contain values for keys like "content", "headers", etc. This field is deprecated, please use content field below for the extension execution result. */
-      output?: {[P in string]: any};
     }
     interface GoogleCloudAiplatformV1beta1Execution {
       /** Output only. Timestamp when this Execution was created. */
@@ -1619,6 +1623,23 @@ declare namespace gapi.client {
       /** Output only. Timestamp when this Execution was last updated. */
       updateTime?: string;
     }
+    interface GoogleCloudAiplatformV1beta1ExecutionPlan {
+      /** Required. Sequence of steps to execute a request. */
+      steps?: GoogleCloudAiplatformV1beta1ExecutionPlanStep[];
+    }
+    interface GoogleCloudAiplatformV1beta1ExecutionPlanStep {
+      /** Extension execution step. */
+      extensionExecution?: GoogleCloudAiplatformV1beta1ExecutionPlanStepExtensionExecution;
+      /** Respond to user step. */
+      respondToUser?: any;
+    }
+    interface GoogleCloudAiplatformV1beta1ExecutionPlanStepExtensionExecution {
+      /** Required. extension resource name */
+      extension?: string;
+      /** Required. the operation id */
+      operationId?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1ExecutionPlanStepRespondToUser {}
     interface GoogleCloudAiplatformV1beta1ExplainRequest {
       /** Optional. This field is the same as the one above, but supports multiple explanations to occur in parallel. The key can be any string. Each override will be run against the model, then its explanations will be grouped together. Note - these explanations are run **In Addition** to the default Explanation in the deployed model. */
       concurrentExplanationSpecOverride?: {
@@ -2248,6 +2269,8 @@ declare namespace gapi.client {
       id?: string;
     }
     interface GoogleCloudAiplatformV1beta1FetchFeatureValuesResponse {
+      /** The data key associated with this response. Will only be populated for FeatureOnlineStoreService.StreamingFetchFeatureValues RPCs. */
+      dataKey?: GoogleCloudAiplatformV1beta1FeatureViewDataKey;
       /** Feature values in KeyValue format. */
       keyValues?: GoogleCloudAiplatformV1beta1FetchFeatureValuesResponseFeatureNameValuePairList;
       /** Feature values in proto Struct format. */
@@ -2370,8 +2393,6 @@ declare namespace gapi.client {
       generationConfig?: GoogleCloudAiplatformV1beta1GenerationConfig;
       /** Optional. Per request settings for blocking unsafe content. Enforced on GenerateContentResponse.candidates. */
       safetySettings?: GoogleCloudAiplatformV1beta1SafetySetting[];
-      /** Optional. The user provided system instructions for the model. */
-      systemInstructions?: GoogleCloudAiplatformV1beta1Content[];
       /** Optional. A list of `Tools` the model may use to generate the next response. A `Tool` is a piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model. */
       tools?: GoogleCloudAiplatformV1beta1Tool[];
     }
@@ -4181,6 +4202,8 @@ declare namespace gapi.client {
       deploy?: GoogleCloudAiplatformV1beta1PublisherModelCallToActionDeploy;
       /** Optional. Deploy PublisherModel to Google Kubernetes Engine. */
       deployGke?: GoogleCloudAiplatformV1beta1PublisherModelCallToActionDeployGke;
+      /** Optional. Multiple setups to deploy the PublisherModel to Vertex Endpoint. */
+      multiDeployVertex?: GoogleCloudAiplatformV1beta1PublisherModelCallToActionDeployVertex;
       /** Optional. Open evaluation pipeline of the PublisherModel. */
       openEvaluationPipeline?: GoogleCloudAiplatformV1beta1PublisherModelCallToActionRegionalResourceReferences;
       /** Optional. Open fine-tuning pipeline of the PublisherModel. */
@@ -4225,6 +4248,10 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1PublisherModelCallToActionDeployGke {
       /** Optional. GKE deployment configuration in yaml format. */
       gkeYamlConfigs?: string[];
+    }
+    interface GoogleCloudAiplatformV1beta1PublisherModelCallToActionDeployVertex {
+      /** Optional. One click deployment configurations. */
+      multiDeployVertex?: GoogleCloudAiplatformV1beta1PublisherModelCallToActionDeploy[];
     }
     interface GoogleCloudAiplatformV1beta1PublisherModelCallToActionOpenFineTuningPipelines {
       /** Required. Regional resource references to fine tuning pipelines. */
@@ -4348,6 +4375,57 @@ declare namespace gapi.client {
       /** The total number of Endpoints that have DeployedModels on this DeploymentResourcePool. */
       totalEndpointCount?: number;
     }
+    interface GoogleCloudAiplatformV1beta1QueryExtensionRequest {
+      /** Required. The content of the current conversation with the model. For single-turn queries, this is a single instance. For multi-turn queries, this is a repeated field that contains conversation history + latest request. */
+      contents?: GoogleCloudAiplatformV1beta1Content[];
+      /** Required. User provided input query message. */
+      query?: GoogleCloudAiplatformV1beta1QueryRequestQuery;
+      /** Optional. Experiment control on whether to use function call. */
+      useFunctionCall?: boolean;
+    }
+    interface GoogleCloudAiplatformV1beta1QueryExtensionResponse {
+      /** Failure message if any. */
+      failureMessage?: string;
+      /** Metadata related to the query execution. */
+      metadata?: GoogleCloudAiplatformV1beta1QueryResponseResponseMetadata;
+      queryResponseMetadata?: GoogleCloudAiplatformV1beta1QueryResponseQueryResponseMetadata;
+      /** Response to the user's query. */
+      response?: string;
+      /** Steps of extension or LLM interaction, can contain function call, function response, or text response. The last step contains the final response to the query. */
+      steps?: GoogleCloudAiplatformV1beta1Content[];
+    }
+    interface GoogleCloudAiplatformV1beta1QueryRequestQuery {
+      /** Required. The query from user. */
+      query?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1QueryResponseQueryResponseMetadata {
+      /** ReAgent execution steps. */
+      steps?: GoogleCloudAiplatformV1beta1QueryResponseQueryResponseMetadataReAgentSteps[];
+      /** Whether the reasoning agent used creativity (instead of extensions provided) to build the response. */
+      useCreativity?: boolean;
+    }
+    interface GoogleCloudAiplatformV1beta1QueryResponseQueryResponseMetadataReAgentSteps {
+      /** Error messages from the extension or during response parsing. */
+      error?: string;
+      /** Planner's instruction to the extension. */
+      extensionInstruction?: string;
+      /** Planner's choice of extension to invoke. */
+      extensionInvoked?: string;
+      /** Response of the extension. */
+      response?: string;
+      /** When set to False, either the extension fails to execute or the response cannot be summarized. */
+      success?: boolean;
+      /** Planner's thought. */
+      thought?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1QueryResponseResponseMetadata {
+      /** Optional. Checkpoint to restore a request */
+      checkpoint?: GoogleCloudAiplatformV1beta1CheckPoint;
+      /** Optional. Execution plan for the request. */
+      executionPlan?: GoogleCloudAiplatformV1beta1ExecutionPlan;
+      /** To surface the v2 flow output. */
+      flowOutputs?: {[P in string]: any};
+    }
     interface GoogleCloudAiplatformV1beta1RawPredictRequest {
       /** The prediction input. Supports HTTP headers and arbitrary data payload. A DeployedModel may have an upper limit on the number of instances it supports per request. When this limit it is exceeded for an AutoML model, the RawPredict method returns an error. When this limit is exceeded for a custom-trained model, the behavior varies depending on the model. You can specify the schema for each instance in the predict_schemata.instance_schema_uri field when you create a Model. This schema applies when you deploy the `Model` as a `DeployedModel` to an Endpoint and use the `RawPredict` method. */
       httpBody?: GoogleApiHttpBody;
@@ -4444,6 +4522,7 @@ declare namespace gapi.client {
       /** Progress Message for Reboot LRO */
       progressMessage?: string;
     }
+    interface GoogleCloudAiplatformV1beta1RebootPersistentResourceRequest {}
     interface GoogleCloudAiplatformV1beta1RemoveContextChildrenRequest {
       /** The resource names of the child Contexts. */
       childContexts?: string[];
@@ -4651,22 +4730,44 @@ declare namespace gapi.client {
       timeout?: string;
     }
     interface GoogleCloudAiplatformV1beta1Schema {
+      /** Optional. Default value of the data. */
+      default?: any;
       /** Optional. The description of the data. */
       description?: string;
       /** Optional. Possible values of the element of Type.STRING with enum format. For example we can define an Enum Direction as : {type:STRING, format:enum, enum:["EAST", NORTH", "SOUTH", "WEST"]} */
       enum?: string[];
       /** Optional. Example of the object. Will only populated when the object is the root. */
       example?: any;
-      /** Optional. The format of the data. Supported formats: for NUMBER type: float, double for INTEGER type: int32, int64 */
+      /** Optional. The format of the data. Supported formats: for NUMBER type: "float", "double" for INTEGER type: "int32", "int64" for STRING type: "email", "byte", etc */
       format?: string;
-      /** Optional. Schema of the elements of Type.ARRAY. */
+      /** Optional. SCHEMA FIELDS FOR TYPE ARRAY Schema of the elements of Type.ARRAY. */
       items?: GoogleCloudAiplatformV1beta1Schema;
+      /** Optional. Maximum value of the Type.INTEGER and Type.NUMBER */
+      maximum?: number;
+      /** Optional. Maximum number of the elements for Type.ARRAY. */
+      maxItems?: string;
+      /** Optional. Maximum length of the Type.STRING */
+      maxLength?: string;
+      /** Optional. Maximum number of the properties for Type.OBJECT. */
+      maxProperties?: string;
+      /** Optional. SCHEMA FIELDS FOR TYPE INTEGER and NUMBER Minimum value of the Type.INTEGER and Type.NUMBER */
+      minimum?: number;
+      /** Optional. Minimum number of the elements for Type.ARRAY. */
+      minItems?: string;
+      /** Optional. SCHEMA FIELDS FOR TYPE STRING Minimum length of the Type.STRING */
+      minLength?: string;
+      /** Optional. Minimum number of the properties for Type.OBJECT. */
+      minProperties?: string;
       /** Optional. Indicates if the value may be null. */
       nullable?: boolean;
-      /** Optional. Properties of Type.OBJECT. */
+      /** Optional. Pattern of the Type.STRING to restrict a string to a regular expression. */
+      pattern?: string;
+      /** Optional. SCHEMA FIELDS FOR TYPE OBJECT Properties of Type.OBJECT. */
       properties?: {[P in string]: GoogleCloudAiplatformV1beta1Schema};
       /** Optional. Required properties of Type.OBJECT. */
       required?: string[];
+      /** Optional. The title of the Schema. */
+      title?: string;
       /** Optional. The type of the data. */
       type?: string;
     }
@@ -6028,6 +6129,17 @@ declare namespace gapi.client {
       /** The fraction of the input data that is to be used to validate the Model. */
       validationFraction?: number;
     }
+    interface GoogleCloudAiplatformV1beta1StreamingFetchFeatureValuesRequest {
+      /** Specify response data format. If not set, KeyValue format will be used. */
+      dataFormat?: string;
+      dataKeys?: GoogleCloudAiplatformV1beta1FeatureViewDataKey[];
+    }
+    interface GoogleCloudAiplatformV1beta1StreamingFetchFeatureValuesResponse {
+      data?: GoogleCloudAiplatformV1beta1FetchFeatureValuesResponse[];
+      dataKeysWithError?: GoogleCloudAiplatformV1beta1FeatureViewDataKey[];
+      /** Response status. If OK, then StreamingFetchFeatureValuesResponse.data will be populated. Otherwise StreamingFetchFeatureValuesResponse.data_keys_with_error will be populated with the appropriate data keys. The error only applies to the listed data keys - the stream will remain open for further FeatureOnlineStoreService.StreamingFetchFeatureValuesRequest requests. */
+      status?: GoogleRpcStatus;
+    }
     interface GoogleCloudAiplatformV1beta1StreamingPredictRequest {
       /** The prediction input. */
       inputs?: GoogleCloudAiplatformV1beta1Tensor[];
@@ -6687,7 +6799,7 @@ declare namespace gapi.client {
       stringValue?: string;
     }
     interface GoogleCloudAiplatformV1beta1VertexAISearch {
-      /** Required. Fully-qualified Vertex AI Search's datastore resource ID. projects/<>/locations/<>/collections/<>/dataStores/<> */
+      /** Required. Fully-qualified Vertex AI Search's datastore resource ID. Format: projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore} */
       datastore?: string;
     }
     interface GoogleCloudAiplatformV1beta1VideoMetadata {
@@ -7113,7 +7225,7 @@ declare namespace gapi.client {
       searchQueries?: string[];
     }
     interface LearningGenaiRootGroundingMetadataCitation {
-      /** Index in the prediction output where the citation ends (exclusive). Must be > start_index and < len(output). */
+      /** Index in the prediction output where the citation ends (exclusive). Must be > start_index and <= len(output). */
       endIndex?: number;
       /** Index of the fact supporting this claim. Should be within the range of the `world_facts` in the GenerateResponse. */
       factIndex?: number;
@@ -10964,7 +11076,7 @@ declare namespace gapi.client {
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        /** Optional. An expression for filtering the results of the request. For field names both snake_case and camelCase are supported. * `endpoint` supports = and !=. `endpoint` represents the Endpoint ID, i.e. the last segment of the Endpoint's resource name. * `display_name` supports = and, != * `labels` supports general map functions that is: * `labels.key=value` - key:value equality * `labels.key:* or labels:key - key existence * A key including a space must be quoted. `labels."a key"`. * `base_model_name` only supports = Some examples: * `endpoint=1` * `displayName="myDisplayName"` * `labels.myKey="myValue"` * `baseModelName="text-bison"` */
+        /** Optional. An expression for filtering the results of the request. For field names both snake_case and camelCase are supported. * `endpoint` supports `=` and `!=`. `endpoint` represents the Endpoint ID, i.e. the last segment of the Endpoint's resource name. * `display_name` supports `=` and `!=`. * `labels` supports general map functions that is: * `labels.key=value` - key:value equality * `labels.key:*` or `labels:key` - key existence * A key including a space must be quoted. `labels."a key"`. * `base_model_name` only supports `=`. Some examples: * `endpoint=1` * `displayName="myDisplayName"` * `labels.myKey="myValue"` * `baseModelName="text-bison"` */
         filter?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
@@ -12396,7 +12508,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        /** Required. Mask specifying which fields to update. Supported fields: * `display_name` * `description` */
+        /** Required. Mask specifying which fields to update. Supported fields: * `display_name` * `description` * `tool_use_examples` */
         updateMask?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
@@ -12427,7 +12539,7 @@ declare namespace gapi.client {
           prettyPrint?: boolean;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
-          /** Required. Mask specifying which fields to update. Supported fields: * `display_name` * `description` */
+          /** Required. Mask specifying which fields to update. Supported fields: * `display_name` * `description` * `tool_use_examples` */
           updateMask?: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
@@ -12436,6 +12548,64 @@ declare namespace gapi.client {
         },
         body: GoogleCloudAiplatformV1beta1Extension
       ): Request<GoogleCloudAiplatformV1beta1Extension>;
+      /** Queries an extension with a default controller. */
+      query(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. Name (identifier) of the extension; Format: `projects/{project}/locations/{location}/extensions/{extension}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1QueryExtensionRequest;
+      }): Request<GoogleCloudAiplatformV1beta1QueryExtensionResponse>;
+      query(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. Name (identifier) of the extension; Format: `projects/{project}/locations/{location}/extensions/{extension}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1QueryExtensionRequest
+      ): Request<GoogleCloudAiplatformV1beta1QueryExtensionResponse>;
       deployments: DeploymentsResource;
       operations: OperationsResource;
     }
@@ -13689,6 +13859,64 @@ declare namespace gapi.client {
         },
         body: GoogleIamV1SetIamPolicyRequest
       ): Request<GoogleIamV1Policy>;
+      /** Bidirectional streaming RPC to fetch feature values under a FeatureView. Requests may not have a one-to-one mapping to responses and responses may be returned out-of-order to reduce latency. */
+      streamingFetchFeatureValues(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Required. FeatureView resource format `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}` */
+        featureView: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1StreamingFetchFeatureValuesRequest;
+      }): Request<GoogleCloudAiplatformV1beta1StreamingFetchFeatureValuesResponse>;
+      streamingFetchFeatureValues(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Required. FeatureView resource format `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}` */
+          featureView: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1StreamingFetchFeatureValuesRequest
+      ): Request<GoogleCloudAiplatformV1beta1StreamingFetchFeatureValuesResponse>;
       /** Triggers on-demand sync for the FeatureView. */
       sync(request: {
         /** V1 error format. */
@@ -23053,6 +23281,64 @@ declare namespace gapi.client {
           uploadType?: string;
         },
         body: GoogleCloudAiplatformV1beta1PersistentResource
+      ): Request<GoogleLongrunningOperation>;
+      /** Reboots a PersistentResource. */
+      reboot(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the PersistentResource resource. Format: `projects/{project_id_or_number}/locations/{location_id}/persistentResources/{persistent_resource_id}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1RebootPersistentResourceRequest;
+      }): Request<GoogleLongrunningOperation>;
+      reboot(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the PersistentResource resource. Format: `projects/{project_id_or_number}/locations/{location_id}/persistentResources/{persistent_resource_id}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1RebootPersistentResourceRequest
       ): Request<GoogleLongrunningOperation>;
       operations: OperationsResource;
     }
