@@ -1336,16 +1336,6 @@ Updates the Shielded Instance config for an instance. You can only use this meth
 await gapi.client.compute.instances.updateShieldedInstanceConfig({ instance: "instance", project: "project", zone: "zone",  });
 
 /*
-Get Instance settings.
-*/
-await gapi.client.compute.instanceSettings.get({ project: "project", zone: "zone",  });
-
-/*
-Patch Instance settings
-*/
-await gapi.client.compute.instanceSettings.patch({ project: "project", zone: "zone",  });
-
-/*
 Retrieves the list of all InstanceTemplates resources, regional and global, available to the specified project. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.instanceTemplates.aggregatedList({ project: "project",  });
