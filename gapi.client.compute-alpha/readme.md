@@ -2046,16 +2046,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.networkFirewallPolicies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Returns the specified network placement.
-*/
-await gapi.client.compute.networkPlacements.get({ networkPlacement: "networkPlacement", project: "project",  });
-
-/*
-Retrieves a list of network placements available to the specified project.
-*/
-await gapi.client.compute.networkPlacements.list({ project: "project",  });
-
-/*
 Adds a peering to the specified network.
 */
 await gapi.client.compute.networks.addPeering({ network: "network", project: "project",  });
