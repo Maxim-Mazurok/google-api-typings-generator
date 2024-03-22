@@ -1,6 +1,6 @@
 # TypeScript typings for Batch API v1
 
-An API to manage the running of Batch resources on Google Cloud Platform.
+An API to manage the running of batch resources on Google Cloud Platform.
 For detailed description please check [documentation](https://cloud.google.com/batch/).
 
 ## Installing
