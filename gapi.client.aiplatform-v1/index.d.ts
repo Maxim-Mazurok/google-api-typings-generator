@@ -1023,6 +1023,8 @@ declare namespace gapi.client {
       models?: string[];
       /** Optional. The full name of the Compute Engine [network](/compute/docs/networks-and-firewalls#networks) to which the Job should be peered. For example, `projects/12345/global/networks/myVPC`. [Format](/compute/docs/reference/rest/v1/networks/insert) is of the form `projects/{project}/global/networks/{network}`. Where {project} is a project number, as in `12345`, and {network} is a network name. To specify this field, you must have already [configured VPC Network Peering for Vertex AI](https://cloud.google.com/vertex-ai/docs/general/vpc-peering). If this field is left unspecified, the job is not peered with any network. */
       network?: string;
+      /** Optional. The ID of the PersistentResource in the same Project and Location which to run If this is specified, the job will be run on existing machines held by the PersistentResource instead of on-demand short-live machines. The network and CMEK configs on the job should be consistent with those on the PersistentResource, otherwise, the job will be rejected. */
+      persistentResourceId?: string;
       /** The ID of the location to store protected artifacts. e.g. us-central1. Populate only when the location is different than CustomJob location. List of supported locations: https://cloud.google.com/vertex-ai/docs/general/locations */
       protectedArtifactLocationId?: string;
       /** Optional. A list of names for the reserved ip ranges under the VPC network that can be used for this job. If set, we will deploy the job within the provided ip ranges. Otherwise, the job will be deployed to any ip ranges under the provided VPC network. Example: ['vertex-ai-ip-range']. */
@@ -2063,6 +2065,8 @@ declare namespace gapi.client {
       dataKey?: GoogleCloudAiplatformV1FeatureViewDataKey;
     }
     interface GoogleCloudAiplatformV1FetchFeatureValuesResponse {
+      /** The data key associated with this response. Will only be populated for FeatureOnlineStoreService.StreamingFetchFeatureValues RPCs. */
+      dataKey?: GoogleCloudAiplatformV1FeatureViewDataKey;
       /** Feature values in KeyValue format. */
       keyValues?: GoogleCloudAiplatformV1FetchFeatureValuesResponseFeatureNameValuePairList;
       /** Feature values in proto Struct format. */
@@ -2171,8 +2175,6 @@ declare namespace gapi.client {
       generationConfig?: GoogleCloudAiplatformV1GenerationConfig;
       /** Optional. Per request settings for blocking unsafe content. Enforced on GenerateContentResponse.candidates. */
       safetySettings?: GoogleCloudAiplatformV1SafetySetting[];
-      /** Optional. The user provided system instructions for the model. */
-      systemInstructions?: GoogleCloudAiplatformV1Content[];
       /** Optional. A list of `Tools` the model may use to generate the next response. A `Tool` is a piece of code that enables the system to interact with external systems to perform an action, or set of actions, outside of knowledge and scope of the model. */
       tools?: GoogleCloudAiplatformV1Tool[];
     }
@@ -3956,6 +3958,8 @@ declare namespace gapi.client {
       deploy?: GoogleCloudAiplatformV1PublisherModelCallToActionDeploy;
       /** Optional. Deploy PublisherModel to Google Kubernetes Engine. */
       deployGke?: GoogleCloudAiplatformV1PublisherModelCallToActionDeployGke;
+      /** Optional. Multiple setups to deploy the PublisherModel to Vertex Endpoint. */
+      multiDeployVertex?: GoogleCloudAiplatformV1PublisherModelCallToActionDeployVertex;
       /** Optional. Open evaluation pipeline of the PublisherModel. */
       openEvaluationPipeline?: GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences;
       /** Optional. Open fine-tuning pipeline of the PublisherModel. */
@@ -4000,6 +4004,10 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1PublisherModelCallToActionDeployGke {
       /** Optional. GKE deployment configuration in yaml format. */
       gkeYamlConfigs?: string[];
+    }
+    interface GoogleCloudAiplatformV1PublisherModelCallToActionDeployVertex {
+      /** Optional. One click deployment configurations. */
+      multiDeployVertex?: GoogleCloudAiplatformV1PublisherModelCallToActionDeploy[];
     }
     interface GoogleCloudAiplatformV1PublisherModelCallToActionOpenFineTuningPipelines {
       /** Required. Regional resource references to fine tuning pipelines. */
@@ -4213,6 +4221,7 @@ declare namespace gapi.client {
       /** Progress Message for Reboot LRO */
       progressMessage?: string;
     }
+    interface GoogleCloudAiplatformV1RebootPersistentResourceRequest {}
     interface GoogleCloudAiplatformV1RemoveContextChildrenRequest {
       /** The resource names of the child Contexts. */
       childContexts?: string[];
@@ -4395,22 +4404,44 @@ declare namespace gapi.client {
       timeout?: string;
     }
     interface GoogleCloudAiplatformV1Schema {
+      /** Optional. Default value of the data. */
+      default?: any;
       /** Optional. The description of the data. */
       description?: string;
       /** Optional. Possible values of the element of Type.STRING with enum format. For example we can define an Enum Direction as : {type:STRING, format:enum, enum:["EAST", NORTH", "SOUTH", "WEST"]} */
       enum?: string[];
       /** Optional. Example of the object. Will only populated when the object is the root. */
       example?: any;
-      /** Optional. The format of the data. Supported formats: for NUMBER type: float, double for INTEGER type: int32, int64 */
+      /** Optional. The format of the data. Supported formats: for NUMBER type: "float", "double" for INTEGER type: "int32", "int64" for STRING type: "email", "byte", etc */
       format?: string;
-      /** Optional. Schema of the elements of Type.ARRAY. */
+      /** Optional. SCHEMA FIELDS FOR TYPE ARRAY Schema of the elements of Type.ARRAY. */
       items?: GoogleCloudAiplatformV1Schema;
+      /** Optional. Maximum value of the Type.INTEGER and Type.NUMBER */
+      maximum?: number;
+      /** Optional. Maximum number of the elements for Type.ARRAY. */
+      maxItems?: string;
+      /** Optional. Maximum length of the Type.STRING */
+      maxLength?: string;
+      /** Optional. Maximum number of the properties for Type.OBJECT. */
+      maxProperties?: string;
+      /** Optional. SCHEMA FIELDS FOR TYPE INTEGER and NUMBER Minimum value of the Type.INTEGER and Type.NUMBER */
+      minimum?: number;
+      /** Optional. Minimum number of the elements for Type.ARRAY. */
+      minItems?: string;
+      /** Optional. SCHEMA FIELDS FOR TYPE STRING Minimum length of the Type.STRING */
+      minLength?: string;
+      /** Optional. Minimum number of the properties for Type.OBJECT. */
+      minProperties?: string;
       /** Optional. Indicates if the value may be null. */
       nullable?: boolean;
-      /** Optional. Properties of Type.OBJECT. */
+      /** Optional. Pattern of the Type.STRING to restrict a string to a regular expression. */
+      pattern?: string;
+      /** Optional. SCHEMA FIELDS FOR TYPE OBJECT Properties of Type.OBJECT. */
       properties?: {[P in string]: GoogleCloudAiplatformV1Schema};
       /** Optional. Required properties of Type.OBJECT. */
       required?: string[];
+      /** Optional. The title of the Schema. */
+      title?: string;
       /** Optional. The type of the data. */
       type?: string;
     }
@@ -6427,7 +6458,7 @@ declare namespace gapi.client {
       stringValue?: string;
     }
     interface GoogleCloudAiplatformV1VertexAISearch {
-      /** Required. Fully-qualified Vertex AI Search's datastore resource ID. projects/<>/locations/<>/collections/<>/dataStores/<> */
+      /** Required. Fully-qualified Vertex AI Search's datastore resource ID. Format: projects/{project}/locations/{location}/collections/{collection}/dataStores/{dataStore} */
       datastore?: string;
     }
     interface GoogleCloudAiplatformV1VideoMetadata {
@@ -6841,7 +6872,7 @@ declare namespace gapi.client {
       searchQueries?: string[];
     }
     interface LearningGenaiRootGroundingMetadataCitation {
-      /** Index in the prediction output where the citation ends (exclusive). Must be > start_index and < len(output). */
+      /** Index in the prediction output where the citation ends (exclusive). Must be > start_index and <= len(output). */
       endIndex?: number;
       /** Index of the fact supporting this claim. Should be within the range of the `world_facts` in the GenerateResponse. */
       factIndex?: number;
@@ -10515,7 +10546,7 @@ declare namespace gapi.client {
         callback?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
-        /** Optional. An expression for filtering the results of the request. For field names both snake_case and camelCase are supported. * `endpoint` supports = and !=. `endpoint` represents the Endpoint ID, i.e. the last segment of the Endpoint's resource name. * `display_name` supports = and, != * `labels` supports general map functions that is: * `labels.key=value` - key:value equality * `labels.key:* or labels:key - key existence * A key including a space must be quoted. `labels."a key"`. * `base_model_name` only supports = Some examples: * `endpoint=1` * `displayName="myDisplayName"` * `labels.myKey="myValue"` * `baseModelName="text-bison"` */
+        /** Optional. An expression for filtering the results of the request. For field names both snake_case and camelCase are supported. * `endpoint` supports `=` and `!=`. `endpoint` represents the Endpoint ID, i.e. the last segment of the Endpoint's resource name. * `display_name` supports `=` and `!=`. * `labels` supports general map functions that is: * `labels.key=value` - key:value equality * `labels.key:*` or `labels:key` - key existence * A key including a space must be quoted. `labels."a key"`. * `base_model_name` only supports `=`. Some examples: * `endpoint=1` * `displayName="myDisplayName"` * `labels.myKey="myValue"` * `baseModelName="text-bison"` */
         filter?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
@@ -20714,6 +20745,151 @@ declare namespace gapi.client {
         uploadType?: string;
       }): Request<GoogleLongrunningOperation>;
     }
+    interface OperationsResource {
+      /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+      cancel(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be cancelled. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+      delete(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to be deleted. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<{}>;
+      /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+      get(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleLongrunningOperation>;
+      /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+      list(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** The standard list filter. */
+        filter?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation's parent resource. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** The standard list page size. */
+        pageSize?: number;
+        /** The standard list page token. */
+        pageToken?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleLongrunningListOperationsResponse>;
+      /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+      wait(request?: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** The name of the operation resource to wait on. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** The maximum duration to wait before timing out. If left blank, the wait will be at most the time permitted by the underlying HTTP/RPC protocol. If RPC context deadline is also specified, the shorter one will be used. */
+        timeout?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+      }): Request<GoogleLongrunningOperation>;
+    }
     interface PersistentResourcesResource {
       /** Creates a PersistentResource. */
       create(request: {
@@ -20924,6 +21100,65 @@ declare namespace gapi.client {
         },
         body: GoogleCloudAiplatformV1PersistentResource
       ): Request<GoogleLongrunningOperation>;
+      /** Reboots a PersistentResource. */
+      reboot(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the PersistentResource resource. Format: `projects/{project_id_or_number}/locations/{location_id}/persistentResources/{persistent_resource_id}` */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1RebootPersistentResourceRequest;
+      }): Request<GoogleLongrunningOperation>;
+      reboot(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the PersistentResource resource. Format: `projects/{project_id_or_number}/locations/{location_id}/persistentResources/{persistent_resource_id}` */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1RebootPersistentResourceRequest
+      ): Request<GoogleLongrunningOperation>;
+      operations: OperationsResource;
     }
     interface OperationsResource {
       /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */

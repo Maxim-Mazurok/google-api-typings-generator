@@ -348,6 +348,7 @@ gapi.load('client', async () => {
           experimentRun: 'Test string',
           models: ['Test string'],
           network: 'Test string',
+          persistentResourceId: 'Test string',
           protectedArtifactLocationId: 'Test string',
           reservedIpRanges: ['Test string'],
           scheduling: {
@@ -1642,40 +1643,6 @@ gapi.load('client', async () => {
             threshold: 'Test string',
           },
         ],
-        systemInstructions: [
-          {
-            parts: [
-              {
-                fileData: {
-                  fileUri: 'Test string',
-                  mimeType: 'Test string',
-                },
-                functionCall: {
-                  args: {
-                    A: 42,
-                  },
-                  name: 'Test string',
-                },
-                functionResponse: {
-                  name: 'Test string',
-                  response: {
-                    A: 42,
-                  },
-                },
-                inlineData: {
-                  data: 'Test string',
-                  mimeType: 'Test string',
-                },
-                text: 'Test string',
-                videoMetadata: {
-                  endOffset: 'Test string',
-                  startOffset: 'Test string',
-                },
-              },
-            ],
-            role: 'Test string',
-          },
-        ],
         tools: [
           {
             functionDeclarations: [
@@ -1683,14 +1650,25 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
+                  default: 42,
                   description: 'Test string',
                   enum: ['Test string'],
                   example: 42,
                   format: 'Test string',
                   items: undefined,
+                  maximum: 42,
+                  maxItems: 'Test string',
+                  maxLength: 'Test string',
+                  maxProperties: 'Test string',
+                  minimum: 42,
+                  minItems: 'Test string',
+                  minLength: 'Test string',
+                  minProperties: 'Test string',
                   nullable: true,
+                  pattern: 'Test string',
                   properties: undefined,
                   required: ['Test string'],
+                  title: 'Test string',
                   type: 'Test string',
                 },
               },
@@ -2160,40 +2138,6 @@ gapi.load('client', async () => {
             threshold: 'Test string',
           },
         ],
-        systemInstructions: [
-          {
-            parts: [
-              {
-                fileData: {
-                  fileUri: 'Test string',
-                  mimeType: 'Test string',
-                },
-                functionCall: {
-                  args: {
-                    A: 42,
-                  },
-                  name: 'Test string',
-                },
-                functionResponse: {
-                  name: 'Test string',
-                  response: {
-                    A: 42,
-                  },
-                },
-                inlineData: {
-                  data: 'Test string',
-                  mimeType: 'Test string',
-                },
-                text: 'Test string',
-                videoMetadata: {
-                  endOffset: 'Test string',
-                  startOffset: 'Test string',
-                },
-              },
-            ],
-            role: 'Test string',
-          },
-        ],
         tools: [
           {
             functionDeclarations: [
@@ -2201,14 +2145,25 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
+                  default: 42,
                   description: 'Test string',
                   enum: ['Test string'],
                   example: 42,
                   format: 'Test string',
                   items: undefined,
+                  maximum: 42,
+                  maxItems: 'Test string',
+                  maxLength: 'Test string',
+                  maxProperties: 'Test string',
+                  minimum: 42,
+                  minItems: 'Test string',
+                  minLength: 'Test string',
+                  minProperties: 'Test string',
                   nullable: true,
+                  pattern: 'Test string',
                   properties: undefined,
                   required: ['Test string'],
+                  title: 'Test string',
                   type: 'Test string',
                 },
               },
@@ -3611,6 +3566,7 @@ gapi.load('client', async () => {
           experimentRun: 'Test string',
           models: ['Test string'],
           network: 'Test string',
+          persistentResourceId: 'Test string',
           protectedArtifactLocationId: 'Test string',
           reservedIpRanges: ['Test string'],
           scheduling: {
@@ -6182,6 +6138,7 @@ gapi.load('client', async () => {
                 experimentRun: 'Test string',
                 models: ['Test string'],
                 network: 'Test string',
+                persistentResourceId: 'Test string',
                 protectedArtifactLocationId: 'Test string',
                 reservedIpRanges: ['Test string'],
                 scheduling: {
@@ -6251,6 +6208,7 @@ gapi.load('client', async () => {
                 experimentRun: 'Test string',
                 models: ['Test string'],
                 network: 'Test string',
+                persistentResourceId: 'Test string',
                 protectedArtifactLocationId: 'Test string',
                 reservedIpRanges: ['Test string'],
                 scheduling: {
@@ -6717,6 +6675,47 @@ gapi.load('client', async () => {
         updateTime: 'Test string',
       }
     );
+    /** Reboots a PersistentResource. */
+    await gapi.client.aiplatform.projects.locations.persistentResources.reboot(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.persistentResources.operations.cancel(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.persistentResources.operations.delete(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service. */
+    await gapi.client.aiplatform.projects.locations.persistentResources.operations.get(
+      {
+        name: 'Test string',
+      }
+    );
+    /** Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. */
+    await gapi.client.aiplatform.projects.locations.persistentResources.operations.list(
+      {
+        filter: 'Test string',
+        name: 'Test string',
+        pageSize: 42,
+        pageToken: 'Test string',
+      }
+    );
+    /** Waits until the specified long-running operation is done or reaches at most a specified timeout, returning the latest state. If the operation is already done, the latest state is immediately returned. If the timeout specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If the server does not support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort basis. It may return the latest state before the specified timeout (including immediately), meaning even an immediate response is no guarantee that the operation is done. */
+    await gapi.client.aiplatform.projects.locations.persistentResources.operations.wait(
+      {
+        name: 'Test string',
+        timeout: 'Test string',
+      }
+    );
     /** Batch cancel PipelineJobs. Firstly the server will check if all the jobs are in non-terminal states, and skip the jobs that are already terminated. If the operation failed, none of the pipeline jobs are cancelled. The server will poll the states of all the pipeline jobs periodically to check the cancellation status. This operation will return an LRO. */
     await gapi.client.aiplatform.projects.locations.pipelineJobs.batchCancel(
       {
@@ -7110,40 +7109,6 @@ gapi.load('client', async () => {
             threshold: 'Test string',
           },
         ],
-        systemInstructions: [
-          {
-            parts: [
-              {
-                fileData: {
-                  fileUri: 'Test string',
-                  mimeType: 'Test string',
-                },
-                functionCall: {
-                  args: {
-                    A: 42,
-                  },
-                  name: 'Test string',
-                },
-                functionResponse: {
-                  name: 'Test string',
-                  response: {
-                    A: 42,
-                  },
-                },
-                inlineData: {
-                  data: 'Test string',
-                  mimeType: 'Test string',
-                },
-                text: 'Test string',
-                videoMetadata: {
-                  endOffset: 'Test string',
-                  startOffset: 'Test string',
-                },
-              },
-            ],
-            role: 'Test string',
-          },
-        ],
         tools: [
           {
             functionDeclarations: [
@@ -7151,14 +7116,25 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
+                  default: 42,
                   description: 'Test string',
                   enum: ['Test string'],
                   example: 42,
                   format: 'Test string',
                   items: undefined,
+                  maximum: 42,
+                  maxItems: 'Test string',
+                  maxLength: 'Test string',
+                  maxProperties: 'Test string',
+                  minimum: 42,
+                  minItems: 'Test string',
+                  minLength: 'Test string',
+                  minProperties: 'Test string',
                   nullable: true,
+                  pattern: 'Test string',
                   properties: undefined,
                   required: ['Test string'],
+                  title: 'Test string',
                   type: 'Test string',
                 },
               },
@@ -7300,40 +7276,6 @@ gapi.load('client', async () => {
             threshold: 'Test string',
           },
         ],
-        systemInstructions: [
-          {
-            parts: [
-              {
-                fileData: {
-                  fileUri: 'Test string',
-                  mimeType: 'Test string',
-                },
-                functionCall: {
-                  args: {
-                    A: 42,
-                  },
-                  name: 'Test string',
-                },
-                functionResponse: {
-                  name: 'Test string',
-                  response: {
-                    A: 42,
-                  },
-                },
-                inlineData: {
-                  data: 'Test string',
-                  mimeType: 'Test string',
-                },
-                text: 'Test string',
-                videoMetadata: {
-                  endOffset: 'Test string',
-                  startOffset: 'Test string',
-                },
-              },
-            ],
-            role: 'Test string',
-          },
-        ],
         tools: [
           {
             functionDeclarations: [
@@ -7341,14 +7283,25 @@ gapi.load('client', async () => {
                 description: 'Test string',
                 name: 'Test string',
                 parameters: {
+                  default: 42,
                   description: 'Test string',
                   enum: ['Test string'],
                   example: 42,
                   format: 'Test string',
                   items: undefined,
+                  maximum: 42,
+                  maxItems: 'Test string',
+                  maxLength: 'Test string',
+                  maxProperties: 'Test string',
+                  minimum: 42,
+                  minItems: 'Test string',
+                  minLength: 'Test string',
+                  minProperties: 'Test string',
                   nullable: true,
+                  pattern: 'Test string',
                   properties: undefined,
                   required: ['Test string'],
+                  title: 'Test string',
                   type: 'Test string',
                 },
               },
