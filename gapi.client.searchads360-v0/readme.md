@@ -82,7 +82,7 @@ await gapi.client.searchads360.searchAds360Fields.get({
 });
 
 /*
-Returns all fields that match the search query. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]()
+Returns all fields that match the search [query](/search-ads/reporting/concepts/field-service#use_a_query_to_get_field_details). List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QueryError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.searchads360.searchAds360Fields.search({});
 ```
