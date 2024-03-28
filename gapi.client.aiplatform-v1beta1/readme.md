@@ -72,8 +72,5 @@ gapi.auth.authorize(
 After that you can use Vertex AI API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-/*
-Upload a file into a RagCorpus.
-*/
-await gapi.client.aiplatform.media.upload({parent: 'parent'});
+
 ```
