@@ -69,6 +69,11 @@ After that you can use Fact Check Tools API resources: <!-- TODO: make this work
 
 ```typescript
 /*
+Search through fact-checked claims using an image as the query.
+*/
+await gapi.client.factchecktools.claims.imageSearch({});
+
+/*
 Search through fact-checked claims.
 */
 await gapi.client.factchecktools.claims.search({});
