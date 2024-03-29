@@ -208,8 +208,6 @@ declare namespace gapi.client {
       version_module?: boolean;
     }
     interface RestMethod {
-      /** The API Version of this method, as passed in via the `X-Goog-Api-Version` header or `$apiVersion` query parameter. */
-      apiVersion?: string;
       /** Whether this method is deprecated. */
       deprecated?: boolean;
       /** Description of this method. */
