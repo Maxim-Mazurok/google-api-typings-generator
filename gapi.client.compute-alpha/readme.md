@@ -471,11 +471,6 @@ Inserts an association for the specified firewall policy.
 await gapi.client.compute.firewallPolicies.addAssociation({ firewallPolicy: "firewallPolicy",  });
 
 /*
-Inserts a packet mirroring rule into a firewall policy.
-*/
-await gapi.client.compute.firewallPolicies.addPacketMirroringRule({ firewallPolicy: "firewallPolicy",  });
-
-/*
 Inserts a rule into a firewall policy.
 */
 await gapi.client.compute.firewallPolicies.addRule({ firewallPolicy: "firewallPolicy",  });
@@ -504,11 +499,6 @@ await gapi.client.compute.firewallPolicies.getAssociation({ firewallPolicy: "fir
 Gets the access control policy for a resource. May be empty if no such policy or resource exists.
 */
 await gapi.client.compute.firewallPolicies.getIamPolicy({ resource: "resource",  });
-
-/*
-Gets a packet mirroring rule of the specified priority.
-*/
-await gapi.client.compute.firewallPolicies.getPacketMirroringRule({ firewallPolicy: "firewallPolicy",  });
 
 /*
 Gets a rule of the specified priority.
@@ -541,11 +531,6 @@ Patches the specified policy with the data included in the request.
 await gapi.client.compute.firewallPolicies.patch({ firewallPolicy: "firewallPolicy",  });
 
 /*
-Patches a packet mirroring rule of the specified priority.
-*/
-await gapi.client.compute.firewallPolicies.patchPacketMirroringRule({ firewallPolicy: "firewallPolicy",  });
-
-/*
 Patches a rule of the specified priority.
 */
 await gapi.client.compute.firewallPolicies.patchRule({ firewallPolicy: "firewallPolicy",  });
@@ -554,11 +539,6 @@ await gapi.client.compute.firewallPolicies.patchRule({ firewallPolicy: "firewall
 Removes an association for the specified firewall policy.
 */
 await gapi.client.compute.firewallPolicies.removeAssociation({ firewallPolicy: "firewallPolicy",  });
-
-/*
-Deletes a packet mirroring rule of the specified priority.
-*/
-await gapi.client.compute.firewallPolicies.removePacketMirroringRule({ firewallPolicy: "firewallPolicy",  });
 
 /*
 Deletes a rule of the specified priority.
@@ -1986,11 +1966,6 @@ Inserts an association for the specified firewall policy.
 await gapi.client.compute.networkFirewallPolicies.addAssociation({ firewallPolicy: "firewallPolicy", project: "project",  });
 
 /*
-Inserts a packet mirroring rule into a firewall policy.
-*/
-await gapi.client.compute.networkFirewallPolicies.addPacketMirroringRule({ firewallPolicy: "firewallPolicy", project: "project",  });
-
-/*
 Inserts a rule into a firewall policy.
 */
 await gapi.client.compute.networkFirewallPolicies.addRule({ firewallPolicy: "firewallPolicy", project: "project",  });
@@ -2021,11 +1996,6 @@ Gets the access control policy for a resource. May be empty if no such policy or
 await gapi.client.compute.networkFirewallPolicies.getIamPolicy({ project: "project", resource: "resource",  });
 
 /*
-Gets a packet mirroring rule of the specified priority.
-*/
-await gapi.client.compute.networkFirewallPolicies.getPacketMirroringRule({ firewallPolicy: "firewallPolicy", project: "project",  });
-
-/*
 Gets a rule of the specified priority.
 */
 await gapi.client.compute.networkFirewallPolicies.getRule({ firewallPolicy: "firewallPolicy", project: "project",  });
@@ -2051,11 +2021,6 @@ Updates an association for the specified network firewall policy.
 await gapi.client.compute.networkFirewallPolicies.patchAssociation({ firewallPolicy: "firewallPolicy", project: "project",  });
 
 /*
-Patches a packet mirroring rule of the specified priority.
-*/
-await gapi.client.compute.networkFirewallPolicies.patchPacketMirroringRule({ firewallPolicy: "firewallPolicy", project: "project",  });
-
-/*
 Patches a rule of the specified priority.
 */
 await gapi.client.compute.networkFirewallPolicies.patchRule({ firewallPolicy: "firewallPolicy", project: "project",  });
@@ -2064,11 +2029,6 @@ await gapi.client.compute.networkFirewallPolicies.patchRule({ firewallPolicy: "f
 Removes an association for the specified firewall policy.
 */
 await gapi.client.compute.networkFirewallPolicies.removeAssociation({ firewallPolicy: "firewallPolicy", project: "project",  });
-
-/*
-Deletes a packet mirroring rule of the specified priority.
-*/
-await gapi.client.compute.networkFirewallPolicies.removePacketMirroringRule({ firewallPolicy: "firewallPolicy", project: "project",  });
 
 /*
 Deletes a rule of the specified priority.
