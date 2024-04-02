@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.dataportability-v1beta",
-  "version": "0.0.20240331",
+  "version": "0.0.20240401",
   "description": "TypeScript typings for Data Portability API v1beta",
   "repository": {
     "type": "git",
