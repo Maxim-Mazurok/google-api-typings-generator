@@ -68,6 +68,20 @@ gapi.load('client', async () => {
         },
       }
     );
+    /** Gets a GenAI cache config. */
+    await gapi.client.aiplatform.projects.getCacheConfig({
+      name: 'Test string',
+    });
+    /** Updates a cache config. */
+    await gapi.client.aiplatform.projects.updateCacheConfig(
+      {
+        name: 'Test string',
+      },
+      {
+        disableCache: true,
+        name: 'Test string',
+      }
+    );
     /** Evaluates instances based on a given metric. */
     await gapi.client.aiplatform.projects.locations.evaluateInstances(
       {
@@ -197,24 +211,6 @@ gapi.load('client', async () => {
           },
           metricSpec: {
             useReference: true,
-            version: 42,
-          },
-        },
-        ragContextRecallInput: {
-          instance: {
-            context: 'Test string',
-            reference: 'Test string',
-          },
-          metricSpec: {
-            version: 42,
-          },
-        },
-        responseRecallInput: {
-          instance: {
-            prediction: 'Test string',
-            reference: 'Test string',
-          },
-          metricSpec: {
             version: 42,
           },
         },
@@ -2171,6 +2167,7 @@ gapi.load('client', async () => {
           frequencyPenalty: 42,
           maxOutputTokens: 42,
           presencePenalty: 42,
+          responseMimeType: 'Test string',
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -2768,6 +2765,7 @@ gapi.load('client', async () => {
           frequencyPenalty: 42,
           maxOutputTokens: 42,
           presencePenalty: 42,
+          responseMimeType: 'Test string',
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -2904,6 +2902,21 @@ gapi.load('client', async () => {
         trafficSplit: {
           A: 42,
         },
+      }
+    );
+    /** Exposes an OpenAI-compatible endpoint for chat completions. */
+    await gapi.client.aiplatform.projects.locations.endpoints.chat.completions(
+      {
+        endpoint: 'Test string',
+      },
+      {
+        contentType: 'Test string',
+        data: 'Test string',
+        extensions: [
+          {
+            A: 42,
+          },
+        ],
       }
     );
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
@@ -3168,6 +3181,21 @@ gapi.load('client', async () => {
           name: 'Test string',
         },
         name: 'Test string',
+        privateServiceConnectConfig: {
+          serviceDirectory: 'Test string',
+        },
+        runtimeConfig: {
+          codeInterpreterRuntimeConfig: {
+            fileInputGcsBucket: 'Test string',
+            fileOutputGcsBucket: 'Test string',
+          },
+          defaultParams: {
+            A: 42,
+          },
+          vertexAiSearchRuntimeConfig: {
+            servingConfigName: 'Test string',
+          },
+        },
         toolUseExamples: [
           {
             displayName: 'Test string',
@@ -3293,6 +3321,21 @@ gapi.load('client', async () => {
           name: 'Test string',
         },
         name: 'Test string',
+        privateServiceConnectConfig: {
+          serviceDirectory: 'Test string',
+        },
+        runtimeConfig: {
+          codeInterpreterRuntimeConfig: {
+            fileInputGcsBucket: 'Test string',
+            fileOutputGcsBucket: 'Test string',
+          },
+          defaultParams: {
+            A: 42,
+          },
+          vertexAiSearchRuntimeConfig: {
+            servingConfigName: 'Test string',
+          },
+        },
         toolUseExamples: [
           {
             displayName: 'Test string',
@@ -8716,6 +8759,7 @@ gapi.load('client', async () => {
           frequencyPenalty: 42,
           maxOutputTokens: 42,
           presencePenalty: 42,
+          responseMimeType: 'Test string',
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -8956,6 +9000,7 @@ gapi.load('client', async () => {
           frequencyPenalty: 42,
           maxOutputTokens: 42,
           presencePenalty: 42,
+          responseMimeType: 'Test string',
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,

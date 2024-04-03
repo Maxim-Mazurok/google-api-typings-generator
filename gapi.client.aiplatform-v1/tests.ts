@@ -1635,6 +1635,7 @@ gapi.load('client', async () => {
           frequencyPenalty: 42,
           maxOutputTokens: 42,
           presencePenalty: 42,
+          responseMimeType: 'Test string',
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -2166,6 +2167,7 @@ gapi.load('client', async () => {
           frequencyPenalty: 42,
           maxOutputTokens: 42,
           presencePenalty: 42,
+          responseMimeType: 'Test string',
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -6661,23 +6663,9 @@ gapi.load('client', async () => {
             usedReplicaCount: 'Test string',
           },
         ],
-        resourceRuntime: {
-          accessUris: {
-            A: 'Test string',
-          },
-          notebookRuntimeTemplate: 'Test string',
-        },
+        resourceRuntime: {},
         resourceRuntimeSpec: {
-          raySpec: {
-            headNodeResourcePoolId: 'Test string',
-            imageUri: 'Test string',
-            rayMetricSpec: {
-              disabled: true,
-            },
-            resourcePoolImages: {
-              A: 'Test string',
-            },
-          },
+          raySpec: {},
           serviceAccountSpec: {
             enableCustomServiceAccount: true,
             serviceAccount: 'Test string',
@@ -6750,23 +6738,9 @@ gapi.load('client', async () => {
             usedReplicaCount: 'Test string',
           },
         ],
-        resourceRuntime: {
-          accessUris: {
-            A: 'Test string',
-          },
-          notebookRuntimeTemplate: 'Test string',
-        },
+        resourceRuntime: {},
         resourceRuntimeSpec: {
-          raySpec: {
-            headNodeResourcePoolId: 'Test string',
-            imageUri: 'Test string',
-            rayMetricSpec: {
-              disabled: true,
-            },
-            resourcePoolImages: {
-              A: 'Test string',
-            },
-          },
+          raySpec: {},
           serviceAccountSpec: {
             enableCustomServiceAccount: true,
             serviceAccount: 'Test string',
@@ -7201,6 +7175,7 @@ gapi.load('client', async () => {
           frequencyPenalty: 42,
           maxOutputTokens: 42,
           presencePenalty: 42,
+          responseMimeType: 'Test string',
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -7402,6 +7377,7 @@ gapi.load('client', async () => {
           frequencyPenalty: 42,
           maxOutputTokens: 42,
           presencePenalty: 42,
+          responseMimeType: 'Test string',
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -9326,6 +9302,157 @@ gapi.load('client', async () => {
         timeout: 'Test string',
       }
     );
+    /** Cancels a TuningJob. Starts asynchronous cancellation on the TuningJob. The server makes a best effort to cancel the job, but success is not guaranteed. Clients can use GenAiTuningService.GetTuningJob or other methods to check whether the cancellation succeeded or whether the job completed despite cancellation. On successful cancellation, the TuningJob is not deleted; instead it becomes a job with a TuningJob.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and TuningJob.state is set to `CANCELLED`. */
+    await gapi.client.aiplatform.projects.locations.tuningJobs.cancel(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Creates a TuningJob. A created TuningJob right away will be attempted to be run. */
+    await gapi.client.aiplatform.projects.locations.tuningJobs.create(
+      {
+        parent: 'Test string',
+      },
+      {
+        baseModel: 'Test string',
+        createTime: 'Test string',
+        description: 'Test string',
+        endTime: 'Test string',
+        error: {
+          code: 42,
+          details: [
+            {
+              A: 42,
+            },
+          ],
+          message: 'Test string',
+        },
+        experiment: 'Test string',
+        labels: {
+          A: 'Test string',
+        },
+        name: 'Test string',
+        startTime: 'Test string',
+        state: 'Test string',
+        supervisedTuningSpec: {
+          hyperParameters: {
+            adapterSize: 'Test string',
+            epochCount: 'Test string',
+            learningRateMultiplier: 42,
+          },
+          trainingDatasetUri: 'Test string',
+          validationDatasetUri: 'Test string',
+        },
+        tunedModel: {
+          endpoint: 'Test string',
+          model: 'Test string',
+        },
+        tunedModelDisplayName: 'Test string',
+        tuningDataStats: {
+          supervisedTuningDataStats: {
+            totalBillableCharacterCount: 'Test string',
+            totalTuningCharacterCount: 'Test string',
+            tuningDatasetExampleCount: 'Test string',
+            tuningStepCount: 'Test string',
+            userDatasetExamples: [
+              {
+                parts: [
+                  {
+                    fileData: {
+                      fileUri: 'Test string',
+                      mimeType: 'Test string',
+                    },
+                    functionCall: {
+                      args: {
+                        A: 42,
+                      },
+                      name: 'Test string',
+                    },
+                    functionResponse: {
+                      name: 'Test string',
+                      response: {
+                        A: 42,
+                      },
+                    },
+                    inlineData: {
+                      data: 'Test string',
+                      mimeType: 'Test string',
+                    },
+                    text: 'Test string',
+                    videoMetadata: {
+                      endOffset: 'Test string',
+                      startOffset: 'Test string',
+                    },
+                  },
+                ],
+                role: 'Test string',
+              },
+            ],
+            userInputTokenDistribution: {
+              buckets: [
+                {
+                  count: 42,
+                  left: 42,
+                  right: 42,
+                },
+              ],
+              max: 42,
+              mean: 42,
+              median: 42,
+              min: 42,
+              p5: 42,
+              p95: 42,
+              sum: 'Test string',
+            },
+            userMessagePerExampleDistribution: {
+              buckets: [
+                {
+                  count: 42,
+                  left: 42,
+                  right: 42,
+                },
+              ],
+              max: 42,
+              mean: 42,
+              median: 42,
+              min: 42,
+              p5: 42,
+              p95: 42,
+              sum: 'Test string',
+            },
+            userOutputTokenDistribution: {
+              buckets: [
+                {
+                  count: 42,
+                  left: 42,
+                  right: 42,
+                },
+              ],
+              max: 42,
+              mean: 42,
+              median: 42,
+              min: 42,
+              p5: 42,
+              p95: 42,
+              sum: 'Test string',
+            },
+          },
+        },
+        updateTime: 'Test string',
+      }
+    );
+    /** Gets a TuningJob. */
+    await gapi.client.aiplatform.projects.locations.tuningJobs.get({
+      name: 'Test string',
+    });
+    /** Lists TuningJobs in a Location. */
+    await gapi.client.aiplatform.projects.locations.tuningJobs.list({
+      filter: 'Test string',
+      pageSize: 42,
+      pageToken: 'Test string',
+      parent: 'Test string',
+    });
     /** Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`. */
     await gapi.client.aiplatform.projects.locations.tuningJobs.operations.cancel(
       {
