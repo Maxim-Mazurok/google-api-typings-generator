@@ -105,9 +105,6 @@ var client_id = '',
     // Move a copy of the photos and videos you posted on Maps.
     'https://www.googleapis.com/auth/dataportability.maps.photos_videos',
 
-    // Move a copy of feedback you gave after completing trips using Maps directions.
-    'https://www.googleapis.com/auth/dataportability.maps.post_trip_feedback',
-
     // Move a copy of the questions and answers you posted on Maps.
     'https://www.googleapis.com/auth/dataportability.maps.questions_answers',
 
