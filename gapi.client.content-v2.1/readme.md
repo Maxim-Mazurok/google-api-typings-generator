@@ -547,6 +547,13 @@ await gapi.client.content.merchantsupport.renderproductissues({
 });
 
 /*
+Start an action. The action can be requested by merchants in third-party application. Before merchants can request the action, the third-party application needs to show them action specific content and display a user input form. The action can be successfully started only once all `required` inputs are provided. If any `required` input is missing, or invalid value was provided, the service will return 400 error. Validation errors will contain Ids for all problematic field together with translated, human readable error messages that can be shown to the user.
+*/
+await gapi.client.content.merchantsupport.triggeraction({
+  merchantId: 'merchantId',
+});
+
+/*
 Creates a charge invoice for a shipment group, and triggers a charge capture for orderinvoice enabled orders.
 */
 await gapi.client.content.orderinvoices.createchargeinvoice({
