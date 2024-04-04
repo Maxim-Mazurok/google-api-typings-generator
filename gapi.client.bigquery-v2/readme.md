@@ -245,6 +245,11 @@ await gapi.client.bigquery.routines.get({
 });
 
 /*
+Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.
+*/
+await gapi.client.bigquery.routines.getIamPolicy({resource: 'resource'});
+
+/*
 Creates a new routine in the dataset.
 */
 await gapi.client.bigquery.routines.insert({
@@ -259,6 +264,11 @@ await gapi.client.bigquery.routines.list({
   datasetId: 'datasetId',
   projectId: 'projectId',
 });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+*/
+await gapi.client.bigquery.routines.setIamPolicy({resource: 'resource'});
 
 /*
 Updates information in an existing routine. The update method replaces the entire Routine resource.
