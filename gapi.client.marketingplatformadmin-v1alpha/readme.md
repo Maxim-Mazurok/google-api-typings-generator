@@ -72,5 +72,8 @@ gapi.auth.authorize(
 After that you can use Google Marketing Platform Admin API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
+/*
+Lookup for a single organization.
+*/
+await gapi.client.marketingplatformadmin.organizations.get({name: 'name'});
 ```
