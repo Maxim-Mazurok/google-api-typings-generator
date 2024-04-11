@@ -48,9 +48,6 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-    // Move a copy of the Google Alerts subscriptions you created.
-    'https://www.googleapis.com/auth/dataportability.alerts.subscriptions',
-
     // Move a copy of messages between you and the businesses you have conversations with across Google services.
     'https://www.googleapis.com/auth/dataportability.businessmessaging.conversations',
 
