@@ -96,4 +96,21 @@ Performs a search. Similar to the SearchService.Search method, but a widget vers
 await gapi.client.discoveryengine.locations.widgetSearch({
   location: 'location',
 });
+
+/*
+Gets a Project. Returns NOT_FOUND when the project is not yet created.
+*/
+await gapi.client.discoveryengine.projects.get({name: 'name'});
+
+/*
+Provisions the project resource. During the process, related systems will get prepared and initialized. Caller must read the [Terms for data use](https://cloud.google.com/retail/data-use-terms), and optionally specify in request to provide consent to that service terms.
+*/
+await gapi.client.discoveryengine.projects.provision({name: 'name'});
+
+/*
+Updates service terms for this project. This method can be used to retroactively accept the latest terms. Terms available for update: * [Terms for data use](https://cloud.google.com/retail/data-use-terms)
+*/
+await gapi.client.discoveryengine.projects.reportConsentChange({
+  project: 'project',
+});
 ```
