@@ -140,7 +140,7 @@ await gapi.client.androidenterprise.enterprises.createEnrollmentToken({
 });
 
 /*
-Returns a unique token to access an embeddable UI. To generate a web UI, pass the generated token into the managed Google Play javascript API. Each token may only be used to start one UI session. See the javascript API documentation for further information.
+Returns a unique token to access an embeddable UI. To generate a web UI, pass the generated token into the managed Google Play javascript API. Each token may only be used to start one UI session. See the JavaScript API documentation for further information.
 */
 await gapi.client.androidenterprise.enterprises.createWebToken({
   enterpriseId: 'enterpriseId',
