@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.appengine-v1alpha",
-  "version": "0.0.20240325",
-  "description": "TypeScript typings for App Engine Admin API v1alpha",
+  "name": "@maxim_mazurok/gapi.client.config-v1",
+  "version": "0.0.20240410",
+  "description": "TypeScript typings for Infrastructure Manager API v1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
