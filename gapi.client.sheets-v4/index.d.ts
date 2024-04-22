@@ -1920,7 +1920,7 @@ declare namespace gapi.client {
       autoRecalc?: string;
       /** The default format of all cells in the spreadsheet. CellData.effectiveFormat will not be set if the cell's format is equal to this default format. This field is read-only. */
       defaultFormat?: CellFormat;
-      /** Whether to allow external URL access for image and import functions. Read only when true. When false, you can set to true. */
+      /** Whether to allow external url access for image and import functions. Read only when true. When false, you can set to true. */
       importFunctionsExternalUrlAccessAllowed?: boolean;
       /** Determines whether and how circular references are resolved with iterative calculation. Absence of this field means that circular references result in calculation errors. */
       iterativeCalculationSettings?: IterativeCalculationSettings;
