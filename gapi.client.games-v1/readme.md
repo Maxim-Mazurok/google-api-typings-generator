@@ -195,6 +195,13 @@ Get the collection of players for the currently authenticated user.
 await gapi.client.games.players.list({collection: 'collection'});
 
 /*
+Retrieve the last Recall token from all developer games that is associated with the PGS Player principal encoded in the provided recall session id. The API is only available for users that have active PGS Player profile.
+*/
+await gapi.client.games.recall.lastTokenFromAllDeveloperGames({
+  sessionId: 'sessionId',
+});
+
+/*
 Associate the PGS Player principal encoded in the provided recall session id with an in-game account
 */
 await gapi.client.games.recall.linkPersona({});
