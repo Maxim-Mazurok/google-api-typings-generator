@@ -118,12 +118,12 @@ Returns the specified task.
 await gapi.client.tasks.tasks.get({task: 'task', tasklist: 'tasklist'});
 
 /*
-Creates a new task on the specified task list. A user can have up to 20,000 uncompleted tasks per list and up to 100,000 tasks in total at a time.
+Creates a new task on the specified task list. A user can have up to 20,000 non-hidden tasks per list and up to 100,000 tasks in total at a time.
 */
 await gapi.client.tasks.tasks.insert({tasklist: 'tasklist'});
 
 /*
-Returns all tasks in the specified task list. A user can have up to 20,000 uncompleted tasks per list and up to 100,000 tasks in total at a time.
+Returns all tasks in the specified task list. A user can have up to 20,000 non-hidden tasks per list and up to 100,000 tasks in total at a time.
 */
 await gapi.client.tasks.tasks.list({tasklist: 'tasklist'});
 
