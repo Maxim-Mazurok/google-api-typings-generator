@@ -220,8 +220,7 @@ await gapi.client.calendar.events.get({
 });
 
 /*
-Imports an event. This operation is used to add a private copy of an existing event to a calendar. Only events with an eventType of default may be imported.
-Deprecated behavior: If a non-default event is imported, its type will be changed to default and any event-type-specific properties it may have will be dropped.
+Imports an event. This operation is used to add a private copy of an existing event to a calendar.
 */
 await gapi.client.calendar.events.import({calendarId: 'calendarId'});
 
