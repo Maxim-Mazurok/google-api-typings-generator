@@ -51,7 +51,7 @@ var client_id = '',
     // Private Service: https://www.googleapis.com/auth/chat.bot
     'https://www.googleapis.com/auth/chat.bot',
 
-    // View, add, update, and remove members from conversations in Google Chat
+    // View, add, and remove members from conversations in Google Chat
     'https://www.googleapis.com/auth/chat.memberships',
 
     // View members in Google Chat conversations.
