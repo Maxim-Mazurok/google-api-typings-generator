@@ -103,7 +103,7 @@ Sends an out-of-band confirmation code for an account. Requests from a authentic
 await gapi.client.identitytoolkit.accounts.sendOobCode({});
 
 /*
-Sends a SMS verification code for phone number sign-in. To localize the text of the SMS sent to the user, set the HTTP header `X-Firebase-Locale` to the language code that corresponds with the user's locale. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project.
+Sends a SMS verification code for phone number sign-in. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project.
 */
 await gapi.client.identitytoolkit.accounts.sendVerificationCode({});
 
@@ -133,7 +133,7 @@ Signs in a user with email and password. If the sign-in succeeds, a new Identity
 await gapi.client.identitytoolkit.accounts.signInWithPassword({});
 
 /*
-Completes a phone number authentication attempt. If a user already exists with the given phone number, an ID token is minted for that user. Otherwise, a new user is created and associated with the phone number. This method may also be used to link a phone number to an existing user. To localize the text of the SMS sent to the user, set the HTTP header `X-Firebase-Locale` to the language code that corresponds with the user's locale. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project.
+Completes a phone number authentication attempt. If a user already exists with the given phone number, an ID token is minted for that user. Otherwise, a new user is created and associated with the phone number. This method may also be used to link a phone number to an existing user. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project.
 */
 await gapi.client.identitytoolkit.accounts.signInWithPhoneNumber({});
 
