@@ -57,7 +57,7 @@ var client_id = '',
     // Import spaces, messages, and memberships into Google Chat.
     'https://www.googleapis.com/auth/chat.import',
 
-    // View, add, update, and remove members from conversations in Google Chat
+    // View, add, and remove members from conversations in Google Chat
     'https://www.googleapis.com/auth/chat.memberships',
 
     // Add and remove itself from conversations in Google Chat
