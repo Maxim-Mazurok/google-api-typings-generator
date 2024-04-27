@@ -3761,16 +3761,6 @@ Patches the specified Router resource with the data included in the request. Thi
 await gapi.client.compute.routers.patch({ project: "project", region: "region", router: "router",  });
 
 /*
-Patches Named Set
-*/
-await gapi.client.compute.routers.patchNamedSet({ project: "project", region: "region", router: "router",  });
-
-/*
-Patches Route Policy
-*/
-await gapi.client.compute.routers.patchRoutePolicy({ project: "project", region: "region", router: "router",  });
-
-/*
 Preview fields auto-generated during router create and update operations. Calling this method does NOT create or update the router.
 */
 await gapi.client.compute.routers.preview({ project: "project", region: "region", router: "router",  });
