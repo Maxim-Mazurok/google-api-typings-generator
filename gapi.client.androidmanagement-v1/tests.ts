@@ -667,6 +667,14 @@ gapi.load('client', async () => {
           tetheringSettings: 'Test string',
           usbDataAccess: 'Test string',
           wifiDirectSettings: 'Test string',
+          wifiSsidPolicy: {
+            wifiSsidPolicyType: 'Test string',
+            wifiSsids: [
+              {
+                wifiSsid: 'Test string',
+              },
+            ],
+          },
         },
         deviceOwnerLockScreenInfo: {
           defaultMessage: 'Test string',
