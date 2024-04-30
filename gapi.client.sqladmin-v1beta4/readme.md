@@ -280,7 +280,7 @@ await gapi.client.sql.instances.patch({
 });
 
 /*
-Promotes the read replica instance to be an independent Cloud SQL primary instance. Using this operation might cause your instance to restart.
+Promotes the read replica instance to be a stand-alone Cloud SQL instance. Using this operation might cause your instance to restart.
 */
 await gapi.client.sql.instances.promoteReplica({
   instance: 'instance',
@@ -352,7 +352,7 @@ await gapi.client.sql.instances.stopReplica({
 });
 
 /*
-Switches over from the primary instance to the designated DR replica instance.
+Switches over from the primary instance to a replica instance.
 */
 await gapi.client.sql.instances.switchover({
   instance: 'instance',
