@@ -1921,11 +1921,6 @@ Updates the specified node group.
 await gapi.client.compute.nodeGroups.patch({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
 
 /*
-Perform maintenance on a subset of nodes in the node group.
-*/
-await gapi.client.compute.nodeGroups.performMaintenance({ nodeGroup: "nodeGroup", project: "project", zone: "zone",  });
-
-/*
 Sets the access control policy on the specified resource. Replaces any existing policy.
 */
 await gapi.client.compute.nodeGroups.setIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
