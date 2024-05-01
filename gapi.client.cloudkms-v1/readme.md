@@ -72,20 +72,5 @@ gapi.auth.authorize(
 After that you can use Cloud Key Management Service (KMS) API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-/*
-Returns the AutokeyConfig for a folder.
-*/
-await gapi.client.cloudkms.folders.getAutokeyConfig({name: 'name'});
 
-/*
-Updates the AutokeyConfig for a folder. The caller must have both `cloudkms.autokeyConfigs.update` permission on the parent folder and `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. An empty key project may be provided to clear the configuration.
-*/
-await gapi.client.cloudkms.folders.updateAutokeyConfig({name: 'name'});
-
-/*
-Returns the effective Cloud KMS Autokey configuration for a given project.
-*/
-await gapi.client.cloudkms.projects.showEffectiveAutokeyConfig({
-  parent: 'parent',
-});
 ```
