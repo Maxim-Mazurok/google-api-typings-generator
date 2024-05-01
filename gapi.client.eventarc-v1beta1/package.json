@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.cloudresourcemanager-v3",
-  "version": "0.0.20240428",
-  "description": "TypeScript typings for Cloud Resource Manager API v3",
+  "name": "@maxim_mazurok/gapi.client.eventarc-v1beta1",
+  "version": "0.0.20240417",
+  "description": "TypeScript typings for Eventarc API v1beta1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
