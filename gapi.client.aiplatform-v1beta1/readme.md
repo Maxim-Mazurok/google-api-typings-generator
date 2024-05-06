@@ -73,6 +73,11 @@ After that you can use Vertex AI API resources: <!-- TODO: make this work for mu
 
 ```typescript
 /*
+Upload a file into a RagCorpus.
+*/
+await gapi.client.aiplatform.media.upload({parent: 'parent'});
+
+/*
 Gets a GenAI cache config.
 */
 await gapi.client.aiplatform.projects.getCacheConfig({name: 'name'});
