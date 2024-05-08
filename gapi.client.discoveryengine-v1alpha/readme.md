@@ -70,6 +70,41 @@ After that you can use Discovery Engine API resources: <!-- TODO: make this work
 
 ```typescript
 /*
+Gets the Widget Config using the uuid.
+*/
+await gapi.client.discoveryengine.locations.lookupWidgetConfig({
+  location: 'location',
+});
+
+/*
+Answer query with Widget.
+*/
+await gapi.client.discoveryengine.locations.widgetAnswerQuery({
+  location: 'location',
+});
+
+/*
+Performs a user input completion with keyword suggestion. Similar to the CompletionService.CompleteQuery method, but a widget version that allows CompleteQuery without API Key. It supports CompleteQuery with or without JWT token.
+*/
+await gapi.client.discoveryengine.locations.widgetCompleteQuery({
+  location: 'location',
+});
+
+/*
+Converse a conversation with Widget.
+*/
+await gapi.client.discoveryengine.locations.widgetConverseConversation({
+  location: 'location',
+});
+
+/*
+Performs a search. Similar to the SearchService.Search method, but a widget version that allows search without API Key. It supports search with or without JWT token.
+*/
+await gapi.client.discoveryengine.locations.widgetSearch({
+  location: 'location',
+});
+
+/*
 Gets a Project. Returns NOT_FOUND when the project is not yet created.
 */
 await gapi.client.discoveryengine.projects.get({name: 'name'});
