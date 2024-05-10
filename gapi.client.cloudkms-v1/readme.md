@@ -78,7 +78,7 @@ Returns the AutokeyConfig for a folder.
 await gapi.client.cloudkms.folders.getAutokeyConfig({name: 'name'});
 
 /*
-Updates the AutokeyConfig for a folder. The caller must have both `cloudkms.autokeyConfigs.update` permission on the parent folder and `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. An empty key project may be provided to clear the configuration.
+Updates the AutokeyConfig for a folder. The caller must have both `cloudkms.autokeyConfigs.update` permission on the parent folder and `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A KeyHandle creation in the folder's descendant projects will use this configuration to determine where to create the resulting CryptoKey.
 */
 await gapi.client.cloudkms.folders.updateAutokeyConfig({name: 'name'});
 
