@@ -278,6 +278,11 @@ await gapi.client.youtube.liveChatMessages.list({
 });
 
 /*
+Transition a durable chat event.
+*/
+await gapi.client.youtube.liveChatMessages.transition({});
+
+/*
 Deletes a chat moderator.
 */
 await gapi.client.youtube.liveChatModerators.delete({id: 'id'});
