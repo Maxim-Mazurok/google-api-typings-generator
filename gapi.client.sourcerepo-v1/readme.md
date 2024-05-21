@@ -1,7 +1,7 @@
 # TypeScript typings for Cloud Source Repositories API v1
 
-Accesses source code repositories hosted by Google.
-For detailed description please check [documentation](https://cloud.google.com/source-repositories/docs/apis).
+Accesses source code repositories hosted by Google. Important: Cloud Source Repositories is scheduled for end of sales starting June 17, 2024. Customers who have enabled the API prior to this date will not be affected and can continue to use Cloud Source Repositories. Organizations or projects who have not previously enabled the API cannot use Cloud Source Repositories after this date. View Cloud Source Repositories documentation for more info.
+For detailed description please check [documentation](https://cloud.google.com/source-repositories/docs).
 
 ## Installing
 
