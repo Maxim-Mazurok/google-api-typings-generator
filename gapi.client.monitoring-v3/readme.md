@@ -104,7 +104,7 @@ Update this Service.
 await gapi.client.monitoring.services.patch({name: 'name'});
 
 /*
-Returns the list of IP addresses that checkers run from
+Returns the list of IP addresses that checkers run from.
 */
 await gapi.client.monitoring.uptimeCheckIps.list({});
 ```
