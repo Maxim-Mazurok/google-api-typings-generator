@@ -69,5 +69,8 @@ gapi.auth.authorize(
 After that you can use Discovery Engine API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-
+/*
+Provisions the project resource. During the process, related systems will get prepared and initialized. Caller must read the [Terms for data use](https://cloud.google.com/retail/data-use-terms), and optionally specify in request to provide consent to that service terms.
+*/
+await gapi.client.discoveryengine.projects.provision({name: 'name'});
 ```
