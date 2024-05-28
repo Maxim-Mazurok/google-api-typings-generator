@@ -189,11 +189,6 @@ Returns an IAM policy for the specified bucket.
 await gapi.client.storage.buckets.getIamPolicy({bucket: 'bucket'});
 
 /*
-Returns the storage layout configuration for the specified bucket. Note that this operation requires storage.objects.list permission.
-*/
-await gapi.client.storage.buckets.getStorageLayout({bucket: 'bucket'});
-
-/*
 Creates a new bucket.
 */
 await gapi.client.storage.buckets.insert({project: 'project'});
