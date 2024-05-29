@@ -2011,7 +2011,7 @@ Lists the peering routes exchanged over peering connection.
 await gapi.client.compute.networks.listPeeringRoutes({ network: "network", project: "project",  });
 
 /*
-Patches the specified network with the data included in the request. Only routingConfig can be modified.
+Patches the specified network with the data included in the request. Only the following fields can be modified: routingConfig.routingMode.
 */
 await gapi.client.compute.networks.patch({ network: "network", project: "project",  });
 
@@ -3111,7 +3111,7 @@ Returns the specified Region resource. To decrease latency for this method, you 
 await gapi.client.compute.regions.get({ project: "project", region: "region",  });
 
 /*
-Retrieves the list of region resources available to the specified project. To decrease latency for this method, you can optionally omit any unneeded information from the response by using a field mask. This practice is especially recommended for unused quota information (the `items.quotas` field). To exclude one or more fields, set your request's `fields` query parameter to only include the fields you need. For example, to only include the `id` and `selfLink` fields, add the query parameter `?fields=id,selfLink` to your request. This method fails if the quota information is unavailable for the region and if the organization policy constraint compute.requireBasicQuotaInResponse is enforced. This constraint, when enforced, disables the fail-open behaviour when quota information (the `items.quotas` field) is unavailable for the region. It is recommended to use the default setting for the constraint unless your application requires the fail-closed behaviour for this method.
+Retrieves the list of region resources available to the specified project. To decrease latency for this method, you can optionally omit any unneeded information from the response by using a field mask. This practice is especially recommended for unused quota information (the `items.quotas` field). To exclude one or more fields, set your request's `fields` query parameter to only include the fields you need. For example, to only include the `id` and `selfLink` fields, add the query parameter `?fields=id,selfLink` to your request.
 */
 await gapi.client.compute.regions.list({ project: "project",  });
 
