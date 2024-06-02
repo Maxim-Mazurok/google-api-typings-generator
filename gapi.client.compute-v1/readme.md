@@ -1851,7 +1851,7 @@ Lists the peering routes exchanged over peering connection.
 await gapi.client.compute.networks.listPeeringRoutes({ network: "network", project: "project",  });
 
 /*
-Patches the specified network with the data included in the request. Only the following fields can be modified: routingConfig.routingMode.
+Patches the specified network with the data included in the request. Only routingConfig can be modified.
 */
 await gapi.client.compute.networks.patch({ network: "network", project: "project",  });
 
