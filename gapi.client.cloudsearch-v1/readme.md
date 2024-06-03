@@ -104,6 +104,11 @@ Gets the latest state of a long-running operation. Clients can use this method t
 await gapi.client.cloudsearch.operations.get({name: 'name'});
 
 /*
+Returns Debug information for Cloud Search Query API provides the search method. **Note:** This API requires a standard end user account to execute. A service account can't perform Query API requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+*/
+await gapi.client.cloudsearch.query.debugSearch({});
+
+/*
 Provides functionality to remove logged activity for a user. Currently to be used only for Chat 1p clients **Note:** This API requires a standard end user account to execute. A service account can't perform Remove Activity requests directly; to use a service account to perform queries, set up [Google Workspace domain-wide delegation of authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
 */
 await gapi.client.cloudsearch.query.removeActivity({});
