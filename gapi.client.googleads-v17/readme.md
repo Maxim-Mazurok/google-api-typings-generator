@@ -1,4 +1,4 @@
-# TypeScript typings for Google Ads API v13
+# TypeScript typings for Google Ads API v17
 
 Manage your Google Ads accounts, campaigns, and reports with this API.
 For detailed description please check [documentation](https://developers.google.com/google-ads/api/).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://developers.google.
 Install typings for Google Ads API:
 
 ```
-npm install @types/gapi.client.googleads-v13 --save-dev
+npm install @types/gapi.client.googleads-v17 --save-dev
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Then load api client wrapper:
 
 ```typescript
 gapi.client.load(
-  'https://googleads.googleapis.com/$discovery/rest?version=v13',
+  'https://googleads.googleapis.com/$discovery/rest?version=v17',
   () => {
     // now we can use:
     // gapi.client.googleads
@@ -36,7 +36,7 @@ gapi.client.load(
 
 ```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
-gapi.client.load('googleads', 'v13', () => {
+gapi.client.load('googleads', 'v17', () => {
   // now we can use:
   // gapi.client.googleads
 });
@@ -103,6 +103,13 @@ await gapi.client.googleads.customers.generateInsightsFinderReport({
 });
 
 /*
+Returns metrics (such as impressions, clicks, total cost) of a keyword forecast for the given campaign. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateKeywordForecastMetrics({
+  customerId: 'customerId',
+});
+
+/*
 Returns a list of keyword historical metrics. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [CollectionSizeError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.googleads.customers.generateKeywordHistoricalMetrics({
@@ -124,6 +131,20 @@ await gapi.client.googleads.customers.generateReachForecast({
 });
 
 /*
+Returns a collection of targeting insights (e.g. targetable audiences) that are relevant to the requested audience. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateSuggestedTargetingInsights({
+  customerId: 'customerId',
+});
+
+/*
+Returns Identity Verification information. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.getIdentityVerification({
+  customerId: 'customerId',
+});
+
+/*
 Returns resource names of customers directly accessible by the user authenticating the call. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
 */
 await gapi.client.googleads.customers.listAccessibleCustomers({});
@@ -139,6 +160,18 @@ Searches for audience attributes that can be used to generate insights. List of 
 await gapi.client.googleads.customers.searchAudienceInsightsAttributes({
   customerId: 'customerId',
 });
+
+/*
+Starts Identity Verification for a given verification program type. Statuses are returned. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [HeaderError]() [InternalError]() [QuotaError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.startIdentityVerification({
+  customerId: 'customerId',
+});
+
+/*
+Rpc to return a list of matching brands based on a prefix for this customer.
+*/
+await gapi.client.googleads.customers.suggestBrands({customerId: 'customerId'});
 
 /*
 Suggests keyword themes to advertise on.
