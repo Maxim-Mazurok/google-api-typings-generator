@@ -48,6 +48,21 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+    // Delete conversations and spaces owned by your organization and remove access to associated files in Google Chat
+    'https://www.googleapis.com/auth/chat.admin.delete',
+
+    // View, add, update and remove members and managers in conversations owned by your organization
+    'https://www.googleapis.com/auth/chat.admin.memberships',
+
+    // View members and managers in conversations owned by your organization
+    'https://www.googleapis.com/auth/chat.admin.memberships.readonly',
+
+    // View or edit display name, description, and other metadata for all Google Chat conversations owned by your organization
+    'https://www.googleapis.com/auth/chat.admin.spaces',
+
+    // View display name, description, and other metadata for all Google Chat conversations owned by your organization
+    'https://www.googleapis.com/auth/chat.admin.spaces.readonly',
+
     // Private Service: https://www.googleapis.com/auth/chat.bot
     'https://www.googleapis.com/auth/chat.bot',
 
@@ -153,7 +168,7 @@ Returns details about a space. For an example, see [Get details about a space](h
 await gapi.client.chat.spaces.get({name: 'name'});
 
 /*
-Lists spaces the caller is a member of. Group chats and DMs aren't listed until the first message is sent. For an example, see [List spaces](https://developers.google.com/workspace/chat/list-spaces). Requires [authentication](https://developers.google.com/workspace/chat/authenticate-authorize). Supports [app authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) and [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user). Lists spaces visible to the caller or authenticated user. Group chats and DMs aren't listed until the first message is sent. To list all named spaces by Google Workspace organization, use the `spaces.search()` method using Workspace administrator privileges instead.
+Lists spaces the caller is a member of. Group chats and DMs aren't listed until the first message is sent. For an example, see [List spaces](https://developers.google.com/workspace/chat/list-spaces). Requires [authentication](https://developers.google.com/workspace/chat/authenticate-authorize). Supports [app authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app) and [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user). Lists spaces visible to the caller or authenticated user. Group chats and DMs aren't listed until the first message is sent. To list all named spaces by Google Workspace organization, use the [`spaces.search()`](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces/search) method using Workspace administrator privileges instead.
 */
 await gapi.client.chat.spaces.list({});
 
