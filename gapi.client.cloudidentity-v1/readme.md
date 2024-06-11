@@ -160,7 +160,7 @@ Update Security Settings
 await gapi.client.cloudidentity.groups.updateSecuritySettings({name: 'name'});
 
 /*
-Creates an InboundSamlSsoProfile for a customer.
+Creates an InboundSamlSsoProfile for a customer. When the target customer has enabled [Multi-party approval for sensitive actions](https://support.google.com/a/answer/13790448), the `Operation` in the response will have `"done": false`, it will not have a response, and the metadata will have `"state": "awaiting-multi-party-approval"`.
 */
 await gapi.client.cloudidentity.inboundSamlSsoProfiles.create({});
 
@@ -180,7 +180,7 @@ Lists InboundSamlSsoProfiles for a customer.
 await gapi.client.cloudidentity.inboundSamlSsoProfiles.list({});
 
 /*
-Updates an InboundSamlSsoProfile.
+Updates an InboundSamlSsoProfile. When the target customer has enabled [Multi-party approval for sensitive actions](https://support.google.com/a/answer/13790448), the `Operation` in the response will have `"done": false`, it will not have a response, and the metadata will have `"state": "awaiting-multi-party-approval"`.
 */
 await gapi.client.cloudidentity.inboundSamlSsoProfiles.patch({name: 'name'});
 
