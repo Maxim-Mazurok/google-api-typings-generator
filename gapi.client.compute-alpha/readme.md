@@ -2096,16 +2096,6 @@ Retrieves a list of network placements available to the specified project.
 await gapi.client.compute.networkPlacements.list({ project: "project",  });
 
 /*
-Returns the specified network profile.
-*/
-await gapi.client.compute.networkProfiles.get({ networkProfile: "networkProfile", project: "project",  });
-
-/*
-Retrieves a list of network profiles available to the specified project.
-*/
-await gapi.client.compute.networkProfiles.list({ project: "project",  });
-
-/*
 Adds a peering to the specified network.
 */
 await gapi.client.compute.networks.addPeering({ network: "network", project: "project",  });
