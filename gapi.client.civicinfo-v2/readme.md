@@ -58,7 +58,7 @@ await gapi.client.civicinfo.elections.electionQuery({});
 /*
 Looks up information relevant to a voter based on the voter's registered address.
 */
-await gapi.client.civicinfo.elections.voterInfoQuery({address: 'address'});
+await gapi.client.civicinfo.elections.voterInfoQuery({});
 
 /*
 Looks up political geography and representative information for a single address.
