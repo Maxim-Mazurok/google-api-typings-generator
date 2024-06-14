@@ -159,7 +159,7 @@ await gapi.client.dfareporting.accountUserProfiles.list({
 });
 
 /*
-Updates an existing user role. This method supports patch semantics.
+Updates an existing account user profile. This method supports patch semantics.
 */
 await gapi.client.dfareporting.accountUserProfiles.patch({
   id: 'id',
@@ -189,7 +189,7 @@ Retrieves a list of ads, possibly filtered. This method supports paging.
 await gapi.client.dfareporting.ads.list({profileId: 'profileId'});
 
 /*
-Updates an existing event tag. This method supports patch semantics.
+Updates an existing ad. This method supports patch semantics.
 */
 await gapi.client.dfareporting.ads.patch({id: 'id', profileId: 'profileId'});
 
@@ -272,7 +272,7 @@ await gapi.client.dfareporting.advertiserLandingPages.list({
 });
 
 /*
-Updates an existing advertiser. This method supports patch semantics.
+Updates an existing landing page. This method supports patch semantics.
 */
 await gapi.client.dfareporting.advertiserLandingPages.patch({
   id: 'id',
@@ -399,7 +399,7 @@ Retrieves a list of campaigns, possibly filtered. This method supports paging.
 await gapi.client.dfareporting.campaigns.list({profileId: 'profileId'});
 
 /*
-Updates an existing creative. This method supports patch semantics.
+Updates an existing campaign. This method supports patch semantics.
 */
 await gapi.client.dfareporting.campaigns.patch({
   id: 'id',
@@ -809,7 +809,7 @@ await gapi.client.dfareporting.floodlightActivities.list({
 });
 
 /*
-Updates an existing event tag. This method supports patch semantics.
+Updates an existing floodlight activity. This method supports patch semantics.
 */
 await gapi.client.dfareporting.floodlightActivities.patch({
   id: 'id',
@@ -846,7 +846,7 @@ await gapi.client.dfareporting.floodlightActivityGroups.list({
 });
 
 /*
-Updates an existing event tag. This method supports patch semantics.
+Updates an existing floodlight activity group. This method supports patch semantics.
 */
 await gapi.client.dfareporting.floodlightActivityGroups.patch({
   id: 'id',
@@ -876,7 +876,7 @@ await gapi.client.dfareporting.floodlightConfigurations.list({
 });
 
 /*
-Updates an existing event tag. This method supports patch semantics.
+Updates an existing floodlight configuration. This method supports patch semantics.
 */
 await gapi.client.dfareporting.floodlightConfigurations.patch({
   id: 'id',
@@ -1167,7 +1167,7 @@ await gapi.client.dfareporting.remarketingLists.list({
 });
 
 /*
-Updates an existing RemarketingList. This method supports patch semantics.
+Updates an existing remarketing list. This method supports patch semantics.
 */
 await gapi.client.dfareporting.remarketingLists.patch({
   id: 'id',
@@ -1190,7 +1190,7 @@ await gapi.client.dfareporting.remarketingListShares.get({
 });
 
 /*
-Updates an existing RemarketingListShare. This method supports patch semantics.
+Updates an existing remarketing list share. This method supports patch semantics.
 */
 await gapi.client.dfareporting.remarketingListShares.patch({
   id: 'id',
