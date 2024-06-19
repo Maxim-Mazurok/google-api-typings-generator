@@ -76,6 +76,16 @@ After that you can use Google Play Game Services resources: <!-- TODO: make this
 
 ```typescript
 /*
+Generates a Play Grouping API token for the PGS user identified by the attached credential.
+*/
+await gapi.client.games.accesstokens.generatePlayGroupingApiToken({});
+
+/*
+Generates a Play Grouping API token for the PGS user identified by the Recall session ID provided in the request.
+*/
+await gapi.client.games.accesstokens.generateRecallPlayGroupingApiToken({});
+
+/*
 Lists all the achievement definitions for your application.
 */
 await gapi.client.games.achievementDefinitions.list({});
