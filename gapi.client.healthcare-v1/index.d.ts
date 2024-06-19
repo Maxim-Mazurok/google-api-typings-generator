@@ -182,9 +182,11 @@ declare namespace gapi.client {
       kmsWrapped?: KmsWrappedCryptoKey;
     }
     interface Dataset {
+      /** Optional. Customer-managed encryption key spec for a Dataset. If set, this Dataset and all of its sub-resources will be secured by this key. If empty, the Dataset is secured by the default Google encryption key. */
+      encryptionSpec?: EncryptionSpec;
       /** Identifier. Resource name of the dataset, of the form `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`. */
       name?: string;
-      /** The default timezone used by this dataset. Must be a either a valid IANA time zone name such as "America/New_York" or empty, which defaults to UTC. This is used for parsing times in resources, such as HL7 messages, where no explicit timezone is specified. */
+      /** Optional. The default timezone used by this dataset. Must be a either a valid IANA time zone name such as "America/New_York" or empty, which defaults to UTC. This is used for parsing times in resources, such as HL7 messages, where no explicit timezone is specified. */
       timeZone?: string;
     }
     interface DateShiftConfig {
@@ -281,6 +283,10 @@ declare namespace gapi.client {
       studyCount?: string;
     }
     interface Empty {}
+    interface EncryptionSpec {
+      /** Required. The resource name of customer-managed encryption key that is used to secure a resource and its sub-resources. Only the key in the same location as this Dataset is allowed to be used for encryption. Format is: `projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}` */
+      kmsKeyName?: string;
+    }
     interface Entity {
       /** entity_id is a first class field entity_id uniquely identifies this concept and its meta-vocabulary. For example, "UMLS/C0000970". */
       entityId?: string;

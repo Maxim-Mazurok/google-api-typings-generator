@@ -51,6 +51,9 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
         name: 'Test string',
         timeZone: 'Test string',
       }
@@ -243,6 +246,9 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
+        encryptionSpec: {
+          kmsKeyName: 'Test string',
+        },
         name: 'Test string',
         timeZone: 'Test string',
       }
