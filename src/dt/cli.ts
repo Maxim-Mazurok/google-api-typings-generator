@@ -37,9 +37,18 @@ void (async () => {
     proxy,
     dtTypesDirectory: options.out,
     owners: [
-      'Maxim Mazurok <https://github.com/Maxim-Mazurok>',
-      'Nick Amoscato <https://github.com/namoscato>',
-      'Declan Vong <https://github.com/declanvong>',
+      {
+        name: 'Maxim Mazurok',
+        githubUsername: 'Maxim-Mazurok',
+      },
+      {
+        name: 'Nick Amoscato',
+        githubUsername: 'namoscato', // cspell:words namoscato
+      },
+      {
+        name: 'Declan Vong',
+        githubUsername: 'declanvong',
+      },
     ],
   });
 

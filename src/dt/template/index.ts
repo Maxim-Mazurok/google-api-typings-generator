@@ -7,7 +7,7 @@ type RestDescription = gapi.client.discovery.RestDescription;
 export interface DtTemplateData {
   restDescription: RestDescription;
   packageName: string;
-  owners: string[];
+  owners: {name: string; githubUsername: string}[];
   majorAndMinorVersion: string;
 }
 

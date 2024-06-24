@@ -25,7 +25,7 @@ const indexDTsTpl = new Template('index-d-ts.dot');
 export interface Configuration {
   proxy?: ProxySetting;
   dtTypesDirectory: string;
-  owners: string[];
+  owners: {name: string; githubUsername: string}[];
 }
 
 export class App {
@@ -82,7 +82,7 @@ export class App {
     );
 
     await Promise.all(
-      ['tslint.json', 'tsconfig.json'].map(fileName =>
+      ['tsconfig.json', '.npmIgnore'.toLowerCase()].map(fileName =>
         copyFile(
           path.join(
             __dirname,

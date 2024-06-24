@@ -8,5 +8,5 @@ indent_style = space
 trim_trailing_whitespace = true
 end_of_line = lf
 
-[{tslint,tsconfig}.dot]
+[src/dt/template/{*.dot,template.*}]
 indent_size = 4

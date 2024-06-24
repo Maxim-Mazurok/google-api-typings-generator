@@ -1,6 +1,23 @@
 {
-  "private": true,
-  "dependencies": {
-    "@maxim_mazurok/{{=it.packageName}}": "latest"
-  }
+    "private": true,
+    "name": "@types/{{=it.packageName}}",
+    "version": "0.0.9999",
+    "nonNpm": true,
+    "nonNpmDescription": "{{=it.restDescription.title}} {{=it.restDescription.version}}",
+    "projects": [
+        "{{=it.restDescription.documentationLink}}"
+    ],
+    "dependencies": {
+        "@maxim_mazurok/{{=it.packageName}}": "latest"
+    },
+    "devDependencies": {
+        "@types/{{=it.packageName}}": "workspace:."
+    },
+    "owners": [
+        {{~it.owners :owner:index}}{
+            "name": "{{=owner.name}}",
+            "githubUsername": "{{=owner.githubUsername}}"
+        }{{? index < it.owners.length - 1 }},
+        {{?}}{{~}}
+    ]
 }
