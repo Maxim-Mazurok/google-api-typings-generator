@@ -55,8 +55,6 @@ declare namespace gapi.client {
       pointsEarned?: number;
       /** Submission state of add-on attachment's parent post (i.e. assignment). */
       postSubmissionState?: string;
-      /** Identifier for the student that owns this submission. This field is part of an experimental API change and is populated only if sufficient scopes are granted. */
-      userId?: string;
     }
     interface AddOnContext {
       /** Immutable. Identifier of the course. */
