@@ -41,7 +41,11 @@ const typesMap: {[key: string]: string} = {
 };
 
 export const excludedRestDescriptionIds: NonNullable<RestDescription['id']>[] =
-  ['apigee:v1', 'clouddebugger:v2']; // cspell:words clouddebugger
+  [
+    'apigee:v1',
+    'clouddebugger:v2', // cspell:words clouddebugger
+    'poly:v1', // Google Poly was shut down on June 30, 2021; The Discovery API returns 5xx error
+  ];
 
 const generatedDisclaimer = [
   'IMPORTANT',
