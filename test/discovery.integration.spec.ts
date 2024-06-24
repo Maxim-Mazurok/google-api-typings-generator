@@ -1,7 +1,7 @@
 import {ProxySetting} from 'get-proxy-settings';
 import _ from 'lodash';
 import assert from 'node:assert';
-import {existsSync, readFileSync, writeFileSync} from 'node:fs';
+import {existsSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import http, {Server} from 'node:http';
 import {join} from 'node:path';
 import {
@@ -82,7 +82,10 @@ describe('discovery items', () => {
 
   beforeAll(async () => {
     const cacheFilePath = join(__dirname, 'discovery-items-cache.json');
-    if (existsSync(cacheFilePath)) {
+    if (
+      existsSync(cacheFilePath) &&
+      Date.now() - statSync(cacheFilePath).mtimeMs < 60 * 60 * 1000 // 1 hour
+    ) {
       discoveryItems = JSON.parse(readFileSync(cacheFilePath, 'utf-8'));
     } else {
       discoveryItems = await getAllDiscoveryItems(proxy);
@@ -137,18 +140,21 @@ describe('discovery items', () => {
   });
 
   it('version patterns match', () => {
-    // cspell:words abcdefghijklmnopqrstuwxyz
+    // cspell:words abcdefghijklmnopqrstuvwxyz
     const versions: string[] = [];
     discoveryItems.forEach(({version}) => {
+      const originalVersion = version;
       if (version?.includes('*') || version?.includes('xxx'))
         throw '* or xxx in version';
 
       version = version?.replace(/\d+/g, '1');
       version = version?.replace(/alpha/g, '*');
       version = version?.replace(/beta/g, '*');
-      version = version?.replace(/[abcdefghijklmnopqrstuwxyz]{2,}/g, 'xxx');
-      if (!versions.includes(version as string))
+      version = version?.replace(/[abcdefghijklmnopqrstuvwxyz]{2,}/g, 'xxx');
+      if (!versions.includes(version as string)) {
+        console.log({version, originalVersion});
         versions.push(version as string);
+      }
 
       // v1
       // v4.1
@@ -156,6 +162,7 @@ describe('discovery items', () => {
       // v1beta
       // v1beta1
       // directory_v1
+      // accounts_v1beta
       // v1p1beta1
       // v1beta1a
       // v1configuration
@@ -176,6 +183,7 @@ describe('discovery items', () => {
       'v1p1*1',
       'v1xxx',
       'xxx_v1',
+      'xxx_v1*',
     ]);
   });
 
@@ -191,6 +199,7 @@ describe('discovery items', () => {
       'v1p1*1': 0,
       v1xxx: 0,
       xxx_v1: 0,
+      'xxx_v1*': 0,
     };
     const examples: {
       [key: string]: string[];
@@ -205,6 +214,7 @@ describe('discovery items', () => {
       'v1p1*1': [],
       v1xxx: [],
       xxx_v1: [],
+      'xxx_v1*': [],
     };
 
     /*
@@ -267,7 +277,19 @@ describe('discovery items', () => {
       "datatransfer_v1", // cspell:words datatransfer
       "directory_v1",
       "reports_v1"
-    ]
+    ],
+    "xxx_v1*": [
+      "accounts_v1beta",
+      "conversions_v1beta",
+      "datasources_v1beta", // cspell:words datasources
+      "inventories_v1beta",
+      "lfp_v1beta",
+      "notifications_v1beta",
+      "products_v1beta",
+      "promotions_v1beta",
+      "quota_v1beta",
+      "reports_v1beta"
+    ],
     */
 
     discoveryItems.forEach(({version}) => {
@@ -285,6 +307,9 @@ describe('discovery items', () => {
       } else if (/^[a-z]+_v\d+$/.test(version)) {
         options['xxx_v1']++;
         examples['xxx_v1'].push(version);
+      } else if (/^[a-z]{2,}_v\d+(alpha|beta)$/.test(version)) {
+        options['xxx_v1*']++;
+        examples['xxx_v1*'].push(version);
       } else if (/^v\d+\.\d+$/.test(version)) {
         options['v1.1']++;
         examples['v1.1'].push(version);
