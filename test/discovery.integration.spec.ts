@@ -1,13 +1,7 @@
 import {ProxySetting} from 'get-proxy-settings';
 import _ from 'lodash';
 import assert from 'node:assert';
-import {
-  existsSync,
-  fstatSync,
-  readFileSync,
-  statSync,
-  writeFileSync,
-} from 'node:fs';
+import {existsSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import http, {Server} from 'node:http';
 import {join} from 'node:path';
 import {
