@@ -1,7 +1,13 @@
 import {ProxySetting} from 'get-proxy-settings';
 import _ from 'lodash';
 import assert from 'node:assert';
-import {existsSync, readFileSync, writeFileSync} from 'node:fs';
+import {
+  existsSync,
+  fstatSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
 import http, {Server} from 'node:http';
 import {join} from 'node:path';
 import {
@@ -82,7 +88,10 @@ describe('discovery items', () => {
 
   beforeAll(async () => {
     const cacheFilePath = join(__dirname, 'discovery-items-cache.json');
-    if (existsSync(cacheFilePath)) {
+    if (
+      existsSync(cacheFilePath) &&
+      Date.now() - statSync(cacheFilePath).mtimeMs < 60 * 60 * 1000 // 1 hour
+    ) {
       discoveryItems = JSON.parse(readFileSync(cacheFilePath, 'utf-8'));
     } else {
       discoveryItems = await getAllDiscoveryItems(proxy);
