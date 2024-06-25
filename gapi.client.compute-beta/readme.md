@@ -3846,7 +3846,7 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.storagePools.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
-Updates the specified storagePool with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: pool_provisioned_capacity_gb, pool_provisioned_iops and pool_provisioned_throughput.
+Updates the specified storagePool with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: size_tb and provisioned_iops.
 */
 await gapi.client.compute.storagePools.update({ project: "project", storagePool: "storagePool", zone: "zone",  });
 
