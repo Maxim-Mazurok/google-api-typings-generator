@@ -47,6 +47,9 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+    // Read, create, update, and delete your ClaimReview data.
+    'https://www.googleapis.com/auth/factchecktools',
+
     // See your primary Google Account email address
     'https://www.googleapis.com/auth/userinfo.email',
   ],
