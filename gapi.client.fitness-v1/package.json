@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.dialogflow-v2beta1",
-  "version": "0.0.20240614",
-  "description": "TypeScript typings for Dialogflow API v2beta1",
+  "name": "@maxim_mazurok/gapi.client.fitness-v1",
+  "version": "0.0.20240627",
+  "description": "TypeScript typings for Fitness API v1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
