@@ -127,9 +127,10 @@ gapi.load('client', async () => {
       pageToken: 'Test string',
       parent: 'Test string',
     });
-    /** Looks up a Container by destination ID. */
+    /** Looks up a Container by destination ID or tag ID. */
     await gapi.client.tagmanager.accounts.containers.lookup({
       destinationId: 'Test string',
+      tagId: 'Test string',
     });
     /** Move Tag ID out of a Container. */
     await gapi.client.tagmanager.accounts.containers.move_tag_id({

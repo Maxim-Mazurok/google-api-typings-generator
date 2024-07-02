@@ -4425,7 +4425,7 @@ declare namespace gapi.client {
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
         uploadType?: string;
       }): Request<ListContainersResponse>;
-      /** Looks up a Container by destination ID. */
+      /** Looks up a Container by destination ID or tag ID. */
       lookup(request?: {
         /** V1 error format. */
         '$.xgafv'?: string;
@@ -4435,7 +4435,7 @@ declare namespace gapi.client {
         alt?: string;
         /** JSONP */
         callback?: string;
-        /** Destination ID linked to a GTM Container, e.g. AW-123456789. Example: accounts/containers:lookup?destination_id={destination_id}. */
+        /** Destination ID linked to a GTM Container, e.g. AW-123456789. Example: accounts/containers:lookup?destination_id={destination_id}. Only one of destination_id or tag_id should be set. */
         destinationId?: string;
         /** Selector specifying which fields to include in a partial response. */
         fields?: string;
@@ -4447,6 +4447,8 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
+        /** Tag ID for a GTM Container, e.g. GTM-123456789. Example: accounts/containers:lookup?tag_id={tag_id}. Only one of destination_id or tag_id should be set. */
+        tagId?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
         /** Legacy upload protocol for media (e.g. "media", "multipart"). */
