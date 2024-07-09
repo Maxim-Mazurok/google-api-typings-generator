@@ -1,7 +1,7 @@
 # TypeScript typings for Google Search Console API v1
 
 The Search Console API provides access to both Search Console data (verified users only) and to public information on an URL basis (anyone)
-For detailed description please check [documentation](https://developers.google.com/webmaster-tools/search-console-api/).
+For detailed description please check [documentation](https://developers.google.com/webmaster-tools/about).
 
 ## Installing
 
