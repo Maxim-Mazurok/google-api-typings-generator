@@ -85,13 +85,6 @@ await gapi.client.androidpublisher.apprecovery.addTargeting({
 });
 
 /*
-List all app recovery action resources associated with a particular package name and app version.
-*/
-await gapi.client.androidpublisher.apprecovery.appRecoveries({
-  packageName: 'packageName',
-});
-
-/*
 Cancel an already executing app recovery action. Note that this action changes status of the recovery action to CANCELED.
 */
 await gapi.client.androidpublisher.apprecovery.cancel({
@@ -111,6 +104,13 @@ Deploy an already created app recovery action with recovery status DRAFT. Note t
 */
 await gapi.client.androidpublisher.apprecovery.deploy({
   appRecoveryId: 'appRecoveryId',
+  packageName: 'packageName',
+});
+
+/*
+List all app recovery action resources associated with a particular package name and app version.
+*/
+await gapi.client.androidpublisher.apprecovery.list({
   packageName: 'packageName',
 });
 
