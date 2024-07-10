@@ -85,26 +85,6 @@ Retrieves an account from your Merchant Center account. After inserting, updatin
 await gapi.client.merchantapi.accounts.get({name: 'name'});
 
 /*
-Retrieves the business identity of an account.
-*/
-await gapi.client.merchantapi.accounts.getBusinessIdentity({name: 'name'});
-
-/*
-Retrieves the business info of an account.
-*/
-await gapi.client.merchantapi.accounts.getBusinessInfo({name: 'name'});
-
-/*
-Retrieves a store's homepage.
-*/
-await gapi.client.merchantapi.accounts.getHomepage({name: 'name'});
-
-/*
-Retrieve shipping setting information.
-*/
-await gapi.client.merchantapi.accounts.getShippingSettings({name: 'name'});
-
-/*
 Lists accounts accessible to the calling user and matching the constraints of the request such as page size or filters. This is not just listing the sub-accounts of an MCA, but all accounts the calling user has access to including other MCAs, linked accounts, standalone accounts and so on.
 */
 await gapi.client.merchantapi.accounts.list({});
@@ -118,21 +98,6 @@ await gapi.client.merchantapi.accounts.listSubaccounts({provider: 'provider'});
 Updates an account regardless of its type: standalone, MCA or sub-account. Executing this method requires admin access.
 */
 await gapi.client.merchantapi.accounts.patch({name: 'name'});
-
-/*
-Updates the business identity of an account. Executing this method requires admin access.
-*/
-await gapi.client.merchantapi.accounts.updateBusinessIdentity({name: 'name'});
-
-/*
-Updates the business info of an account. Executing this method requires admin access.
-*/
-await gapi.client.merchantapi.accounts.updateBusinessInfo({name: 'name'});
-
-/*
-Updates a store's homepage. Executing this method requires admin access.
-*/
-await gapi.client.merchantapi.accounts.updateHomepage({name: 'name'});
 
 /*
 Accepts a `TermsOfService`. Executing this method requires admin access.
