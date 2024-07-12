@@ -70,6 +70,13 @@ After that you can use Google Play Integrity API resources: <!-- TODO: make this
 
 ```typescript
 /*
+Writes recall bits for the device where Play Integrity API token is obtained. The endpoint is available to select Play partners in an early access program (EAP).
+*/
+await gapi.client.playintegrity.deviceRecall.write({
+  packageName: 'packageName',
+});
+
+/*
 Decodes the integrity token and returns the token payload.
 */
 await gapi.client.playintegrity.decodeIntegrityToken({
