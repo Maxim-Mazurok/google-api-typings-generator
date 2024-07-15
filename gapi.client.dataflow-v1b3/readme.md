@@ -53,9 +53,6 @@ var client_id = '',
 
     // View and manage your Google Compute Engine resources
     'https://www.googleapis.com/auth/compute',
-
-    // View your Google Compute Engine resources
-    'https://www.googleapis.com/auth/compute.readonly',
   ],
   immediate = true;
 // ...
