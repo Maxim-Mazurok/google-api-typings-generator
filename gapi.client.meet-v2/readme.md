@@ -88,17 +88,17 @@ Creates a space.
 await gapi.client.meet.spaces.create({});
 
 /*
-Ends an active conference (if there's one).
+Ends an active conference (if there's one). For an example, see [End active conference](https://developers.google.com/meet/api/guides/meeting-spaces#end-active-conference).
 */
 await gapi.client.meet.spaces.endActiveConference({name: 'name'});
 
 /*
-Gets a space by `space_id` or `meeting_code`.
+Gets details about a meeting space. For an example, see [Get a meeting space](https://developers.google.com/meet/api/guides/meeting-spaces#get-meeting-space).
 */
 await gapi.client.meet.spaces.get({name: 'name'});
 
 /*
-Updates a space.
+Updates details about a meeting space. For an example, see [Update a meeting space](https://developers.google.com/meet/api/guides/meeting-spaces#update-meeting-space).
 */
 await gapi.client.meet.spaces.patch({name: 'name'});
 ```
