@@ -1581,26 +1581,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.instanceTemplates.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-deletes a Zonal InstantSnapshotGroup resource
-*/
-await gapi.client.compute.instantSnapshotGroups.delete({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", zone: "zone",  });
-
-/*
-returns the specified InstantSnapshotGroup resource in the specified zone.
-*/
-await gapi.client.compute.instantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", zone: "zone",  });
-
-/*
-inserts a Zonal InstantSnapshotGroup resource
-*/
-await gapi.client.compute.instantSnapshotGroups.insert({ project: "project", zone: "zone",  });
-
-/*
-retrieves the list of InstantSnapshotGroup resources contained within the specified zone.
-*/
-await gapi.client.compute.instantSnapshotGroups.list({ project: "project", zone: "zone",  });
-
-/*
 Retrieves an aggregated list of instantSnapshots. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.instantSnapshots.aggregatedList({ project: "project",  });
@@ -2906,16 +2886,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionHealthCheckServices.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Returns all of the details about the specified resize request.
-*/
-await gapi.client.compute.regionInstanceGroupManagerResizeRequests.get({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
-
-/*
-Creates a new Resize Request that starts provisioning VMs immediately or queues VM creation.
-*/
-await gapi.client.compute.regionInstanceGroupManagerResizeRequests.insert({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
-
-/*
 Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
 */
 await gapi.client.compute.regionInstanceGroupManagers.abandonInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
@@ -3099,26 +3069,6 @@ await gapi.client.compute.regionInstanceTemplates.insert({ project: "project", r
 Retrieves a list of instance templates that are contained within the specified project and region.
 */
 await gapi.client.compute.regionInstanceTemplates.list({ project: "project", region: "region",  });
-
-/*
-deletes a Regional InstantSnapshotGroup resource
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.delete({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", region: "region",  });
-
-/*
-returns the specified InstantSnapshotGroup resource in the specified region.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.get({ instantSnapshot: "instantSnapshot", project: "project", region: "region",  });
-
-/*
-creates a Regional InstantSnapshotGroup resource
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.insert({ project: "project", region: "region",  });
-
-/*
-retrieves the list of InstantSnapshotGroup resources contained within the specified region.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.list({ project: "project", region: "region",  });
 
 /*
 Deletes the specified InstantSnapshot resource. Keep in mind that deleting a single instantSnapshot might not necessarily delete all the data on that instantSnapshot. If any data on the instantSnapshot that is marked for deletion is needed for subsequent instantSnapshots, the data will be moved to the next corresponding instantSnapshot. For more information, see Deleting instantSnapshots.
