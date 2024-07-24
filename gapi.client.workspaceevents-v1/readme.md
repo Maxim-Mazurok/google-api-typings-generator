@@ -51,25 +51,25 @@ var client_id = '',
     // Private Service: https://www.googleapis.com/auth/chat.bot
     'https://www.googleapis.com/auth/chat.bot',
 
-    // See, add, update, and remove members from conversations and spaces in Google Chat
+    // View, add, update, and remove members from conversations in Google Chat
     'https://www.googleapis.com/auth/chat.memberships',
 
     // View members in Google Chat conversations.
     'https://www.googleapis.com/auth/chat.memberships.readonly',
 
-    // See, compose, send, update, and delete messages and their associated attachments, and add, see, and delete reactions to messages.
+    // View, compose, send, update, and delete messages, and add, view, and delete reactions to messages.
     'https://www.googleapis.com/auth/chat.messages',
 
-    // See, add, and delete reactions to messages in Google Chat
+    // View, add, and delete reactions to messages in Google Chat
     'https://www.googleapis.com/auth/chat.messages.reactions',
 
     // View reactions to messages in Google Chat
     'https://www.googleapis.com/auth/chat.messages.reactions.readonly',
 
-    // See messages and their associated reactions and attachments in Google Chat
+    // View messages and reactions in Google Chat
     'https://www.googleapis.com/auth/chat.messages.readonly',
 
-    // Create conversations and spaces and see or update metadata (including history settings and access settings) in Google Chat
+    // Create conversations and spaces and see or edit metadata (including history settings and access settings) in Google Chat
     'https://www.googleapis.com/auth/chat.spaces',
 
     // View chat and spaces in Google Chat
