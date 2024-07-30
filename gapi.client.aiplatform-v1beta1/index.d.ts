@@ -39,6 +39,8 @@ declare namespace gapi.client {
     interface CloudAiLargeModelsVisionImage {
       /** Image encoding, encoded as "image/png" or "image/jpg". */
       encoding?: string;
+      /** Generation seed for the sampled image. This parameter is exposed to the user only if one of the following is true: 1. The user specified per-example seeds in the request. 2. The user doesn't specify the generation seed in the request. */
+      generationSeed?: number;
       /** Raw bytes. */
       image?: string;
       /** RAI scores for generated image. */
@@ -457,6 +459,10 @@ declare namespace gapi.client {
       partialFailures?: GoogleRpcStatus[];
       /** Output only. Information about resources that had been consumed by this job. Provided in real time at best effort basis, as well as a final value once the job completes. Note: This field currently may be not populated for batch predictions that use AutoML Models. */
       resourcesConsumed?: GoogleCloudAiplatformV1beta1ResourcesConsumed;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** The service account that the DeployedModel's container runs as. If not specified, a system generated one will be used, which has minimal permissions and the custom container, if used, may not have enough permission to access other Google Cloud resources. Users deploying the Model must have the `iam.serviceAccounts.actAs` permission on this service account. */
       serviceAccount?: string;
       /** Output only. Time when the BatchPredictionJob for the first time entered the `JOB_STATE_RUNNING` state. */
@@ -636,8 +642,6 @@ declare namespace gapi.client {
       index?: number;
       /** Output only. List of ratings for the safety of a response candidate. There is at most one rating per category. */
       safetyRatings?: GoogleCloudAiplatformV1beta1SafetyRating[];
-      /** Output only. Confidence score of the candidate. */
-      score?: number;
     }
     interface GoogleCloudAiplatformV1beta1CheckTrialEarlyStoppingStateMetatdata {
       /** Operation metadata for suggesting Trials. */
@@ -1027,6 +1031,10 @@ declare namespace gapi.client {
       name?: string;
       /** Required. The data that the DataItem represents (for example, an image or a text snippet). The schema of the payload is stored in the parent Dataset's metadata schema's dataItemSchemaUri field. */
       payload?: any;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** Output only. Timestamp when this DataItem was last updated. */
       updateTime?: string;
     }
@@ -1101,10 +1109,58 @@ declare namespace gapi.client {
       modelReference?: string;
       /** Output only. Identifier. The resource name of the Dataset. */
       name?: string;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** All SavedQueries belong to the Dataset will be returned in List/Get Dataset response. The annotation_specs field will not be populated except for UI cases which will only use annotation_spec_count. In CreateDataset request, a SavedQuery is created together if this field is set, up to one SavedQuery can be set in CreateDatasetRequest. The SavedQuery should not contain any AnnotationSpec. */
       savedQueries?: GoogleCloudAiplatformV1beta1SavedQuery[];
       /** Output only. Timestamp when this Dataset was last updated. */
       updateTime?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1DatasetDistribution {
+      /** Output only. Defines the histogram bucket. */
+      buckets?: GoogleCloudAiplatformV1beta1DatasetDistributionDistributionBucket[];
+      /** Output only. The maximum of the population values. */
+      max?: number;
+      /** Output only. The arithmetic mean of the values in the population. */
+      mean?: number;
+      /** Output only. The median of the values in the population. */
+      median?: number;
+      /** Output only. The minimum of the population values. */
+      min?: number;
+      /** Output only. The 5th percentile of the values in the population. */
+      p5?: number;
+      /** Output only. The 95th percentile of the values in the population. */
+      p95?: number;
+      /** Output only. Sum of a given population of values. */
+      sum?: number;
+    }
+    interface GoogleCloudAiplatformV1beta1DatasetDistributionDistributionBucket {
+      /** Output only. Number of values in the bucket. */
+      count?: string;
+      /** Output only. Left bound of the bucket. */
+      left?: number;
+      /** Output only. Right bound of the bucket. */
+      right?: number;
+    }
+    interface GoogleCloudAiplatformV1beta1DatasetStats {
+      /** Output only. Number of billable characters in the tuning dataset. */
+      totalBillableCharacterCount?: string;
+      /** Output only. Number of tuning characters in the tuning dataset. */
+      totalTuningCharacterCount?: string;
+      /** Output only. Number of examples in the tuning dataset. */
+      tuningDatasetExampleCount?: string;
+      /** Output only. Number of tuning steps for this Tuning Job. */
+      tuningStepCount?: string;
+      /** Output only. Sample user messages in the training dataset uri. */
+      userDatasetExamples?: GoogleCloudAiplatformV1beta1Content[];
+      /** Output only. Dataset distributions for the user input tokens. */
+      userInputTokenDistribution?: GoogleCloudAiplatformV1beta1DatasetDistribution;
+      /** Output only. Dataset distributions for the messages per example. */
+      userMessagePerExampleDistribution?: GoogleCloudAiplatformV1beta1DatasetDistribution;
+      /** Output only. Dataset distributions for the user output tokens. */
+      userOutputTokenDistribution?: GoogleCloudAiplatformV1beta1DatasetDistribution;
     }
     interface GoogleCloudAiplatformV1beta1DatasetVersion {
       /** Output only. Name of the associated BigQuery dataset. */
@@ -1121,6 +1177,10 @@ declare namespace gapi.client {
       modelReference?: string;
       /** Output only. Identifier. The resource name of the DatasetVersion. */
       name?: string;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** Output only. Timestamp when this DatasetVersion was last updated. */
       updateTime?: string;
     }
@@ -1289,6 +1349,10 @@ declare namespace gapi.client {
       encryptionSpec?: GoogleCloudAiplatformV1beta1EncryptionSpec;
       /** Immutable. The resource name of the DeploymentResourcePool. Format: `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}` */
       name?: string;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** The service account that the DeploymentResourcePool's container(s) run as. Specify the email address of the service account. If this service account is not specified, the container(s) run as a service account that doesn't have access to the resource project. Users deploying the Models to this DeploymentResourcePool must have the `iam.serviceAccounts.actAs` permission on this service account. */
       serviceAccount?: string;
     }
@@ -1345,6 +1409,34 @@ declare namespace gapi.client {
       /** Type of the boot disk (default is "pd-ssd"). Valid values: "pd-ssd" (Persistent Disk Solid State Drive) or "pd-standard" (Persistent Disk Hard Disk Drive). */
       bootDiskType?: string;
     }
+    interface GoogleCloudAiplatformV1beta1DistillationDataStats {
+      /** Output only. Statistics computed for the training dataset. */
+      trainingDatasetStats?: GoogleCloudAiplatformV1beta1DatasetStats;
+    }
+    interface GoogleCloudAiplatformV1beta1DistillationHyperParameters {
+      /** Optional. Adapter size for distillation. */
+      adapterSize?: string;
+      /** Optional. Number of complete passes the model makes over the entire training dataset during training. */
+      epochCount?: string;
+      /** Optional. Multiplier for adjusting the default learning rate. */
+      learningRateMultiplier?: number;
+    }
+    interface GoogleCloudAiplatformV1beta1DistillationSpec {
+      /** The base teacher model that is being distilled, e.g., "gemini-1.0-pro-002". */
+      baseTeacherModel?: string;
+      /** Optional. Hyperparameters for Distillation. */
+      hyperParameters?: GoogleCloudAiplatformV1beta1DistillationHyperParameters;
+      /** Required. A path in a Cloud Storage bucket, which will be treated as the root output directory of the distillation pipeline. It is used by the system to generate the paths of output artifacts. */
+      pipelineRootDirectory?: string;
+      /** The student model that is being tuned, e.g., "google/gemma-2b-1.1-it". */
+      studentModel?: string;
+      /** Required. Cloud Storage path to file containing training dataset for tuning. The dataset must be formatted as a JSONL file. */
+      trainingDatasetUri?: string;
+      /** The resource name of the Tuned teacher model. Format: `projects/{project}/locations/{location}/models/{model}`. */
+      tunedTeacherModelSource?: string;
+      /** Optional. Cloud Storage path to file containing validation dataset for tuning. The dataset must be formatted as a JSONL file. */
+      validationDatasetUri?: string;
+    }
     interface GoogleCloudAiplatformV1beta1DoubleArray {
       /** A list of double values. */
       values?: number[];
@@ -1384,6 +1476,10 @@ declare namespace gapi.client {
       predictRequestResponseLoggingConfig?: GoogleCloudAiplatformV1beta1PredictRequestResponseLoggingConfig;
       /** Optional. Configuration for private service connect. network and private_service_connect_config are mutually exclusive. */
       privateServiceConnectConfig?: GoogleCloudAiplatformV1beta1PrivateServiceConnectConfig;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** A map from a DeployedModel's ID to the percentage of this Endpoint's traffic that should be forwarded to that DeployedModel. If a DeployedModel's ID is not listed in this map, then it receives no traffic. The traffic percentage values must add up to 100, or map must be empty if the Endpoint is to not accept any traffic at a moment. */
       trafficSplit?: {[P in string]: number};
       /** Output only. Timestamp when this Endpoint was last updated. */
@@ -2534,6 +2630,14 @@ declare namespace gapi.client {
       promptTokenCount?: number;
       totalTokenCount?: number;
     }
+    interface GoogleCloudAiplatformV1beta1GenerateVideoResponse {
+      /** The cloud storage uris of the generated videos. */
+      generatedSamples?: string[];
+      /** Returns if any videos were filtered due to RAI policies. */
+      raiMediaFilteredCount?: number;
+      /** Returns rai failure reasons if any. */
+      raiMediaFilteredReasons?: string[];
+    }
     interface GoogleCloudAiplatformV1beta1GenerationConfig {
       /** Optional. Number of candidates to generate. */
       candidateCount?: number;
@@ -2547,6 +2651,8 @@ declare namespace gapi.client {
       responseMimeType?: string;
       /** Optional. The `Schema` object allows the definition of input and output data types. These types can be objects, but also primitives and arrays. Represents a select subset of an [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema). If set, a compatible response_mime_type must also be set. Compatible mimetypes: `application/json`: Schema for JSON response. */
       responseSchema?: GoogleCloudAiplatformV1beta1Schema;
+      /** Optional. Seed. */
+      seed?: number;
       /** Optional. Stop sequences. */
       stopSequences?: string[];
       /** Optional. Controls the randomness of predictions. */
@@ -4793,6 +4899,11 @@ declare namespace gapi.client {
       /** Required. The key is a name of one of the Dataset's data columns. The value of the key (either the label's value or value in the column) must be one of {`training`, `validation`, `test`}, and it defines to which set the given piece of data is assigned. If for a piece of data the key is not present or has an invalid value, that piece is ignored by the pipeline. */
       key?: string;
     }
+    interface GoogleCloudAiplatformV1beta1PredictLongRunningMetadata {}
+    interface GoogleCloudAiplatformV1beta1PredictLongRunningResponse {
+      /** The response of the video generation prediction. */
+      generateVideoResponse?: GoogleCloudAiplatformV1beta1GenerateVideoResponse;
+    }
     interface GoogleCloudAiplatformV1beta1PredictRequest {
       /** Required. The instances that are the input to the prediction call. A DeployedModel may have an upper limit on the number of instances it supports per request, and when it is exceeded the prediction call errors in case of AutoML Models, or, in case of customer created Models, the behaviour is as documented by that Model. The schema of any single instance may be specified via Endpoint's DeployedModels' Model's PredictSchemata's instance_schema_uri. */
       instances?: any[];
@@ -4952,6 +5063,8 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1PublisherModelCallToActionDeployDeployMetadata {
       /** Optional. Labels for the deployment. For managing deployment config like verifying, source of deployment config, etc. */
       labels?: {[P in string]: string};
+      /** Optional. Sample request for deployed endpoint. */
+      sampleRequest?: string;
     }
     interface GoogleCloudAiplatformV1beta1PublisherModelCallToActionDeployGke {
       /** Optional. GKE deployment configuration in yaml format. */
@@ -8044,6 +8157,8 @@ declare namespace gapi.client {
       model?: string;
     }
     interface GoogleCloudAiplatformV1beta1TuningDataStats {
+      /** Output only. Statistics for distillation. */
+      distillationDataStats?: GoogleCloudAiplatformV1beta1DistillationDataStats;
       /** The SFT Tuning data stats. */
       supervisedTuningDataStats?: GoogleCloudAiplatformV1beta1SupervisedTuningDataStats;
     }
@@ -8054,6 +8169,8 @@ declare namespace gapi.client {
       createTime?: string;
       /** Optional. The description of the TuningJob. */
       description?: string;
+      /** Tuning Spec for Distillation. */
+      distillationSpec?: GoogleCloudAiplatformV1beta1DistillationSpec;
       /** Customer-managed encryption key options for a TuningJob. If this is set, then all resources created by the TuningJob will be encrypted with the provided encryption key. */
       encryptionSpec?: GoogleCloudAiplatformV1beta1EncryptionSpec;
       /** Output only. Time when the TuningJob entered any of the following JobStates: `JOB_STATE_SUCCEEDED`, `JOB_STATE_FAILED`, `JOB_STATE_CANCELLED`, `JOB_STATE_EXPIRED`. */
@@ -8066,6 +8183,8 @@ declare namespace gapi.client {
       labels?: {[P in string]: string};
       /** Output only. Identifier. Resource name of a TuningJob. Format: `projects/{project}/locations/{location}/tuningJobs/{tuning_job}` */
       name?: string;
+      /** Output only. The resource name of the PipelineJob associated with the TuningJob. Format: `projects/{project}/locations/{location}/pipelineJobs/{pipeline_job}`. */
+      pipelineJob?: string;
       /** Output only. Time when the TuningJob for the first time entered the `JOB_STATE_RUNNING` state. */
       startTime?: string;
       /** Output only. The detailed state of the job. */

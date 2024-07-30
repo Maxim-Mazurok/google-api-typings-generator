@@ -742,6 +742,8 @@ gapi.load('client', async () => {
         resourcesConsumed: {
           replicaHours: 42,
         },
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         serviceAccount: 'Test string',
         startTime: 'Test string',
         state: 'Test string',
@@ -1430,6 +1432,8 @@ gapi.load('client', async () => {
         metadataSchemaUri: 'Test string',
         modelReference: 'Test string',
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         savedQueries: [
           {
             annotationFilter: 'Test string',
@@ -1529,6 +1533,8 @@ gapi.load('client', async () => {
         metadataSchemaUri: 'Test string',
         modelReference: 'Test string',
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         savedQueries: [
           {
             annotationFilter: 'Test string',
@@ -1705,6 +1711,8 @@ gapi.load('client', async () => {
         metadata: 42,
         modelReference: 'Test string',
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         updateTime: 'Test string',
       }
     );
@@ -1746,6 +1754,8 @@ gapi.load('client', async () => {
         metadata: 42,
         modelReference: 'Test string',
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         updateTime: 'Test string',
       }
     );
@@ -1857,6 +1867,8 @@ gapi.load('client', async () => {
             kmsKeyName: 'Test string',
           },
           name: 'Test string',
+          satisfiesPzi: true,
+          satisfiesPzs: true,
           serviceAccount: 'Test string',
         },
         deploymentResourcePoolId: 'Test string',
@@ -1911,6 +1923,8 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         serviceAccount: 'Test string',
       }
     );
@@ -2355,6 +2369,8 @@ gapi.load('client', async () => {
           enablePrivateServiceConnect: true,
           projectAllowlist: ['Test string'],
         },
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         trafficSplit: {
           A: 42,
         },
@@ -2813,6 +2829,7 @@ gapi.load('client', async () => {
             title: 'Test string',
             type: 'Test string',
           },
+          seed: 42,
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -3277,6 +3294,8 @@ gapi.load('client', async () => {
           enablePrivateServiceConnect: true,
           projectAllowlist: ['Test string'],
         },
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         trafficSplit: {
           A: 42,
         },
@@ -3445,6 +3464,7 @@ gapi.load('client', async () => {
             title: 'Test string',
             type: 'Test string',
           },
+          seed: 42,
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -10721,6 +10741,7 @@ gapi.load('client', async () => {
             title: 'Test string',
             type: 'Test string',
           },
+          seed: 42,
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -10990,6 +11011,7 @@ gapi.load('client', async () => {
             title: 'Test string',
             type: 'Test string',
           },
+          seed: 42,
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -13930,6 +13952,19 @@ gapi.load('client', async () => {
         baseModel: 'Test string',
         createTime: 'Test string',
         description: 'Test string',
+        distillationSpec: {
+          baseTeacherModel: 'Test string',
+          hyperParameters: {
+            adapterSize: 'Test string',
+            epochCount: 'Test string',
+            learningRateMultiplier: 42,
+          },
+          pipelineRootDirectory: 'Test string',
+          studentModel: 'Test string',
+          trainingDatasetUri: 'Test string',
+          tunedTeacherModelSource: 'Test string',
+          validationDatasetUri: 'Test string',
+        },
         encryptionSpec: {
           kmsKeyName: 'Test string',
         },
@@ -13948,6 +13983,7 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
+        pipelineJob: 'Test string',
         startTime: 'Test string',
         state: 'Test string',
         supervisedTuningSpec: {
@@ -13965,6 +14001,96 @@ gapi.load('client', async () => {
         },
         tunedModelDisplayName: 'Test string',
         tuningDataStats: {
+          distillationDataStats: {
+            trainingDatasetStats: {
+              totalBillableCharacterCount: 'Test string',
+              totalTuningCharacterCount: 'Test string',
+              tuningDatasetExampleCount: 'Test string',
+              tuningStepCount: 'Test string',
+              userDatasetExamples: [
+                {
+                  parts: [
+                    {
+                      fileData: {
+                        fileUri: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      functionCall: {
+                        args: {
+                          A: 42,
+                        },
+                        name: 'Test string',
+                      },
+                      functionResponse: {
+                        name: 'Test string',
+                        response: {
+                          A: 42,
+                        },
+                      },
+                      inlineData: {
+                        data: 'Test string',
+                        mimeType: 'Test string',
+                      },
+                      text: 'Test string',
+                      videoMetadata: {
+                        endOffset: 'Test string',
+                        startOffset: 'Test string',
+                      },
+                    },
+                  ],
+                  role: 'Test string',
+                },
+              ],
+              userInputTokenDistribution: {
+                buckets: [
+                  {
+                    count: 'Test string',
+                    left: 42,
+                    right: 42,
+                  },
+                ],
+                max: 42,
+                mean: 42,
+                median: 42,
+                min: 42,
+                p5: 42,
+                p95: 42,
+                sum: 42,
+              },
+              userMessagePerExampleDistribution: {
+                buckets: [
+                  {
+                    count: 'Test string',
+                    left: 42,
+                    right: 42,
+                  },
+                ],
+                max: 42,
+                mean: 42,
+                median: 42,
+                min: 42,
+                p5: 42,
+                p95: 42,
+                sum: 42,
+              },
+              userOutputTokenDistribution: {
+                buckets: [
+                  {
+                    count: 'Test string',
+                    left: 42,
+                    right: 42,
+                  },
+                ],
+                max: 42,
+                mean: 42,
+                median: 42,
+                min: 42,
+                p5: 42,
+                p95: 42,
+                sum: 42,
+              },
+            },
+          },
           supervisedTuningDataStats: {
             totalBillableCharacterCount: 'Test string',
             totalBillableTokenCount: 'Test string',
