@@ -69,13 +69,5 @@ gapi.auth.authorize(
 After that you can use Vertex AI Search for Retail API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-/*
-Get the AlertConfig of the requested project.
-*/
-await gapi.client.retail.projects.getAlertConfig({name: 'name'});
 
-/*
-Update the alert config of the requested project.
-*/
-await gapi.client.retail.projects.updateAlertConfig({name: 'name'});
 ```
