@@ -35,6 +35,8 @@ declare namespace gapi.client {
     interface CloudAiLargeModelsVisionImage {
       /** Image encoding, encoded as "image/png" or "image/jpg". */
       encoding?: string;
+      /** Generation seed for the sampled image. This parameter is exposed to the user only if one of the following is true: 1. The user specified per-example seeds in the request. 2. The user doesn't specify the generation seed in the request. */
+      generationSeed?: number;
       /** Raw bytes. */
       image?: string;
       /** RAI scores for generated image. */
@@ -393,6 +395,10 @@ declare namespace gapi.client {
       partialFailures?: GoogleRpcStatus[];
       /** Output only. Information about resources that had been consumed by this job. Provided in real time at best effort basis, as well as a final value once the job completes. Note: This field currently may be not populated for batch predictions that use AutoML Models. */
       resourcesConsumed?: GoogleCloudAiplatformV1ResourcesConsumed;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** The service account that the DeployedModel's container runs as. If not specified, a system generated one will be used, which has minimal permissions and the custom container, if used, may not have enough permission to access other Google Cloud resources. Users deploying the Model must have the `iam.serviceAccounts.actAs` permission on this service account. */
       serviceAccount?: string;
       /** Output only. Time when the BatchPredictionJob for the first time entered the `JOB_STATE_RUNNING` state. */
@@ -542,8 +548,6 @@ declare namespace gapi.client {
       index?: number;
       /** Output only. List of ratings for the safety of a response candidate. There is at most one rating per category. */
       safetyRatings?: GoogleCloudAiplatformV1SafetyRating[];
-      /** Output only. Confidence score of the candidate. */
-      score?: number;
     }
     interface GoogleCloudAiplatformV1CheckTrialEarlyStoppingStateMetatdata {
       /** Operation metadata for suggesting Trials. */
@@ -905,6 +909,10 @@ declare namespace gapi.client {
       name?: string;
       /** Required. The data that the DataItem represents (for example, an image or a text snippet). The schema of the payload is stored in the parent Dataset's metadata schema's dataItemSchemaUri field. */
       payload?: any;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** Output only. Timestamp when this DataItem was last updated. */
       updateTime?: string;
     }
@@ -979,6 +987,10 @@ declare namespace gapi.client {
       modelReference?: string;
       /** Output only. Identifier. The resource name of the Dataset. */
       name?: string;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** All SavedQueries belong to the Dataset will be returned in List/Get Dataset response. The annotation_specs field will not be populated except for UI cases which will only use annotation_spec_count. In CreateDataset request, a SavedQuery is created together if this field is set, up to one SavedQuery can be set in CreateDatasetRequest. The SavedQuery should not contain any AnnotationSpec. */
       savedQueries?: GoogleCloudAiplatformV1SavedQuery[];
       /** Output only. Timestamp when this Dataset was last updated. */
@@ -999,6 +1011,10 @@ declare namespace gapi.client {
       modelReference?: string;
       /** Output only. Identifier. The resource name of the DatasetVersion. */
       name?: string;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** Output only. Timestamp when this DatasetVersion was last updated. */
       updateTime?: string;
     }
@@ -1167,6 +1183,10 @@ declare namespace gapi.client {
       encryptionSpec?: GoogleCloudAiplatformV1EncryptionSpec;
       /** Immutable. The resource name of the DeploymentResourcePool. Format: `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}` */
       name?: string;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** The service account that the DeploymentResourcePool's container(s) run as. Specify the email address of the service account. If this service account is not specified, the container(s) run as a service account that doesn't have access to the resource project. Users deploying the Models to this DeploymentResourcePool must have the `iam.serviceAccounts.actAs` permission on this service account. */
       serviceAccount?: string;
     }
@@ -1257,6 +1277,10 @@ declare namespace gapi.client {
       predictRequestResponseLoggingConfig?: GoogleCloudAiplatformV1PredictRequestResponseLoggingConfig;
       /** Optional. Configuration for private service connect. network and private_service_connect_config are mutually exclusive. */
       privateServiceConnectConfig?: GoogleCloudAiplatformV1PrivateServiceConnectConfig;
+      /** Output only. Reserved for future use. */
+      satisfiesPzi?: boolean;
+      /** Output only. Reserved for future use. */
+      satisfiesPzs?: boolean;
       /** A map from a DeployedModel's ID to the percentage of this Endpoint's traffic that should be forwarded to that DeployedModel. If a DeployedModel's ID is not listed in this map, then it receives no traffic. The traffic percentage values must add up to 100, or map must be empty if the Endpoint is to not accept any traffic at a moment. */
       trafficSplit?: {[P in string]: number};
       /** Output only. Timestamp when this Endpoint was last updated. */
@@ -2301,6 +2325,8 @@ declare namespace gapi.client {
       responseMimeType?: string;
       /** Optional. The `Schema` object allows the definition of input and output data types. These types can be objects, but also primitives and arrays. Represents a select subset of an [OpenAPI 3.0 schema object](https://spec.openapis.org/oas/v3.0.3#schema). If set, a compatible response_mime_type must also be set. Compatible mimetypes: `application/json`: Schema for JSON response. */
       responseSchema?: GoogleCloudAiplatformV1Schema;
+      /** Optional. Seed. */
+      seed?: number;
       /** Optional. Stop sequences. */
       stopSequences?: string[];
       /** Optional. Controls the randomness of predictions. */
@@ -3988,8 +4014,6 @@ declare namespace gapi.client {
       name?: string;
       /** Optional. The full name of the Compute Engine [network](/compute/docs/networks-and-firewalls#networks) to peered with Vertex AI to host the persistent resources. For example, `projects/12345/global/networks/myVPC`. [Format](/compute/docs/reference/rest/v1/networks/insert) is of the form `projects/{project}/global/networks/{network}`. Where {project} is a project number, as in `12345`, and {network} is a network name. To specify this field, you must have already [configured VPC Network Peering for Vertex AI](https://cloud.google.com/vertex-ai/docs/general/vpc-peering). If this field is left unspecified, the resources aren't peered with any network. */
       network?: string;
-      /** Optional. Configuration for PSC-I for PersistentResource. */
-      pscInterfaceConfig?: GoogleCloudAiplatformV1PscInterfaceConfig;
       /** Optional. A list of names for the reserved IP ranges under the VPC network that can be used for this persistent resource. If set, we will deploy the persistent resource within the provided IP ranges. Otherwise, the persistent resource is deployed to any IP ranges under the provided VPC network. Example: ['vertex-ai-ip-range']. */
       reservedIpRanges?: string[];
       /** Required. The spec of the pools of different resources. */
@@ -4229,10 +4253,6 @@ declare namespace gapi.client {
       /** Corresponding project_id in pscAutomationConfigs */
       projectId?: string;
     }
-    interface GoogleCloudAiplatformV1PscInterfaceConfig {
-      /** Optional. The full name of the Compute Engine [network attachment](https://cloud.google.com/vpc/docs/about-network-attachments) to attach to the resource. For example, `projects/12345/regions/us-central1/networkAttachments/myNA`. is of the form `projects/{project}/regions/{region}/networkAttachments/{networkAttachment}`. Where {project} is a project number, as in `12345`, and {networkAttachment} is a network attachment name. To specify this field, you must have already [created a network attachment] (https://cloud.google.com/vpc/docs/create-manage-network-attachments#create-network-attachments). This field is only used for resources using PSC-I. */
-      networkAttachment?: string;
-    }
     interface GoogleCloudAiplatformV1PublisherModel {
       /** Optional. Additional information about the model's Frameworks. */
       frameworks?: string[];
@@ -4308,6 +4328,8 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata {
       /** Optional. Labels for the deployment. For managing deployment config like verifying, source of deployment config, etc. */
       labels?: {[P in string]: string};
+      /** Optional. Sample request for deployed endpoint. */
+      sampleRequest?: string;
     }
     interface GoogleCloudAiplatformV1PublisherModelCallToActionDeployGke {
       /** Optional. GKE deployment configuration in yaml format. */

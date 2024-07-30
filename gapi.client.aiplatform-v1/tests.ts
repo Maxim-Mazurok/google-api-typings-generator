@@ -472,6 +472,8 @@ gapi.load('client', async () => {
         resourcesConsumed: {
           replicaHours: 42,
         },
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         serviceAccount: 'Test string',
         startTime: 'Test string',
         state: 'Test string',
@@ -827,6 +829,8 @@ gapi.load('client', async () => {
         metadataSchemaUri: 'Test string',
         modelReference: 'Test string',
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         savedQueries: [
           {
             annotationFilter: 'Test string',
@@ -934,6 +938,8 @@ gapi.load('client', async () => {
         metadataSchemaUri: 'Test string',
         modelReference: 'Test string',
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         savedQueries: [
           {
             annotationFilter: 'Test string',
@@ -1110,6 +1116,8 @@ gapi.load('client', async () => {
         metadata: 42,
         modelReference: 'Test string',
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         updateTime: 'Test string',
       }
     );
@@ -1151,6 +1159,8 @@ gapi.load('client', async () => {
         metadata: 42,
         modelReference: 'Test string',
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         updateTime: 'Test string',
       }
     );
@@ -1262,6 +1272,8 @@ gapi.load('client', async () => {
             kmsKeyName: 'Test string',
           },
           name: 'Test string',
+          satisfiesPzi: true,
+          satisfiesPzs: true,
           serviceAccount: 'Test string',
         },
         deploymentResourcePoolId: 'Test string',
@@ -1316,6 +1328,8 @@ gapi.load('client', async () => {
           kmsKeyName: 'Test string',
         },
         name: 'Test string',
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         serviceAccount: 'Test string',
       }
     );
@@ -1692,6 +1706,8 @@ gapi.load('client', async () => {
           enablePrivateServiceConnect: true,
           projectAllowlist: ['Test string'],
         },
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         trafficSplit: {
           A: 42,
         },
@@ -2059,6 +2075,7 @@ gapi.load('client', async () => {
             title: 'Test string',
             type: 'Test string',
           },
+          seed: 42,
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -2480,6 +2497,8 @@ gapi.load('client', async () => {
           enablePrivateServiceConnect: true,
           projectAllowlist: ['Test string'],
         },
+        satisfiesPzi: true,
+        satisfiesPzs: true,
         trafficSplit: {
           A: 42,
         },
@@ -2623,6 +2642,7 @@ gapi.load('client', async () => {
             title: 'Test string',
             type: 'Test string',
           },
+          seed: 42,
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -7374,9 +7394,6 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         network: 'Test string',
-        pscInterfaceConfig: {
-          networkAttachment: 'Test string',
-        },
         reservedIpRanges: ['Test string'],
         resourcePools: [
           {
@@ -7468,9 +7485,6 @@ gapi.load('client', async () => {
         },
         name: 'Test string',
         network: 'Test string',
-        pscInterfaceConfig: {
-          networkAttachment: 'Test string',
-        },
         reservedIpRanges: ['Test string'],
         resourcePools: [
           {
@@ -8076,6 +8090,7 @@ gapi.load('client', async () => {
             title: 'Test string',
             type: 'Test string',
           },
+          seed: 42,
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
@@ -8304,6 +8319,7 @@ gapi.load('client', async () => {
             title: 'Test string',
             type: 'Test string',
           },
+          seed: 42,
           stopSequences: ['Test string'],
           temperature: 42,
           topK: 42,
