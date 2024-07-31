@@ -216,6 +216,11 @@ Retrieves the list of BackendBucket resources available to the specified project
 await gapi.client.compute.backendBuckets.list({ project: "project",  });
 
 /*
+Retrieves a list of all usable backend buckets in the specified project.
+*/
+await gapi.client.compute.backendBuckets.listUsable({ project: "project",  });
+
+/*
 Updates the specified BackendBucket resource with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
 */
 await gapi.client.compute.backendBuckets.patch({ backendBucket: "backendBucket", project: "project",  });
