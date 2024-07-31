@@ -1301,30 +1301,6 @@ declare namespace gapi.client {
       /** The name of the FHIR store to rollback, in the format of "projects/{project_id}/locations/{location_id}/datasets/{dataset_id} /fhirStores/{fhir_store_id}". */
       fhirStore?: string;
     }
-    interface RollbackHL7MessagesFilteringFields {
-      /** Optional. A list of operation IDs to roll back. */
-      operationIds?: string[];
-    }
-    interface RollbackHl7V2MessagesRequest {
-      /** Optional. CREATE/UPDATE/DELETE/ALL for reverting all txns of a certain type. */
-      changeType?: string;
-      /** Optional. Specifies whether to exclude earlier rollbacks. */
-      excludeRollbacks?: boolean;
-      /** Optional. Parameters for filtering. */
-      filteringFields?: RollbackHL7MessagesFilteringFields;
-      /** Optional. When enabled, changes will be reverted without explicit confirmation. */
-      force?: boolean;
-      /** Optional. Cloud storage object containing list of {resourceId} lines, identifying resources to be reverted */
-      inputGcsObject?: string;
-      /** Required. Bucket to deposit result */
-      resultGcsBucket?: string;
-      /** Required. Times point to rollback to. */
-      rollbackTime?: string;
-    }
-    interface RollbackHl7V2MessagesResponse {
-      /** The name of the HL7 store to rollback, in the format of "projects/{project_id}/locations/{location_id}/datasets/{dataset_id} /hl7v2Stores/{fhir_store_id}". */
-      hl7v2Store?: string;
-    }
     interface SchemaConfig {
       /** The configuration for exported BigQuery tables to be partitioned by FHIR resource's last updated time column. */
       lastUpdatedPartitionConfig?: TimePartitioning;
@@ -7779,64 +7755,6 @@ declare namespace gapi.client {
         },
         body: Hl7V2Store
       ): Request<Hl7V2Store>;
-      /** Rolls back messages from the HL7 store to the specified time. This method returns an Operation that can be used to track the status of the rollback by calling GetOperation. Immediate fatal errors appear in the error field, errors are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Otherwise, when the operation finishes, a detailed response of type RollbackHl7V2MessagesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata. */
-      rollback(request: {
-        /** V1 error format. */
-        '$.xgafv'?: string;
-        /** OAuth access token. */
-        access_token?: string;
-        /** Data format for response. */
-        alt?: string;
-        /** JSONP */
-        callback?: string;
-        /** Selector specifying which fields to include in a partial response. */
-        fields?: string;
-        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-        key?: string;
-        /** Required. The name of the HL7v2 store to rollback, in the format of "projects/{project_id}/locations/{location_id}/datasets/{dataset_id} /hl7V2Stores/{hl7v2_store_id}". */
-        name: string;
-        /** OAuth 2.0 token for the current user. */
-        oauth_token?: string;
-        /** Returns response with indentations and line breaks. */
-        prettyPrint?: boolean;
-        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-        quotaUser?: string;
-        /** Upload protocol for media (e.g. "raw", "multipart"). */
-        upload_protocol?: string;
-        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-        uploadType?: string;
-        /** Request body */
-        resource: RollbackHl7V2MessagesRequest;
-      }): Request<Operation>;
-      rollback(
-        request: {
-          /** V1 error format. */
-          '$.xgafv'?: string;
-          /** OAuth access token. */
-          access_token?: string;
-          /** Data format for response. */
-          alt?: string;
-          /** JSONP */
-          callback?: string;
-          /** Selector specifying which fields to include in a partial response. */
-          fields?: string;
-          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
-          key?: string;
-          /** Required. The name of the HL7v2 store to rollback, in the format of "projects/{project_id}/locations/{location_id}/datasets/{dataset_id} /hl7V2Stores/{hl7v2_store_id}". */
-          name: string;
-          /** OAuth 2.0 token for the current user. */
-          oauth_token?: string;
-          /** Returns response with indentations and line breaks. */
-          prettyPrint?: boolean;
-          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
-          quotaUser?: string;
-          /** Upload protocol for media (e.g. "raw", "multipart"). */
-          upload_protocol?: string;
-          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
-          uploadType?: string;
-        },
-        body: RollbackHl7V2MessagesRequest
-      ): Request<Operation>;
       /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
       setIamPolicy(
         request: {
