@@ -2079,23 +2079,6 @@ gapi.load('client', async () => {
         rejectDuplicateMessage: true,
       }
     );
-    /** Rolls back messages from the HL7 store to the specified time. This method returns an Operation that can be used to track the status of the rollback by calling GetOperation. Immediate fatal errors appear in the error field, errors are also logged to Cloud Logging (see [Viewing error logs in Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). Otherwise, when the operation finishes, a detailed response of type RollbackHl7V2MessagesResponse is returned in the response field. The metadata field type for this operation is OperationMetadata. */
-    await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.rollback(
-      {
-        name: 'Test string',
-      },
-      {
-        changeType: 'Test string',
-        excludeRollbacks: true,
-        filteringFields: {
-          operationIds: ['Test string'],
-        },
-        force: true,
-        inputGcsObject: 'Test string',
-        resultGcsBucket: 'Test string',
-        rollbackTime: 'Test string',
-      }
-    );
     /** Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors. */
     await gapi.client.healthcare.projects.locations.datasets.hl7V2Stores.setIamPolicy(
       {
