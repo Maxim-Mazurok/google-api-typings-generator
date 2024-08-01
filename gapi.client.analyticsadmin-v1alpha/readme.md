@@ -150,11 +150,6 @@ Create a roll-up property and all roll-up property source links.
 await gapi.client.analyticsadmin.properties.createRollupProperty({});
 
 /*
-Create a subproperty and a subproperty event filter that applies to the created subproperty.
-*/
-await gapi.client.analyticsadmin.properties.createSubproperty({});
-
-/*
 Marks target Property as soft-deleted (ie: "trashed") and returns it. This API does not have a method to restore soft-deleted properties. However, they can be restored using the Trash Can UI. If the properties are not restored before the expiration time, the Property and all child resources (eg: GoogleAdsLinks, Streams, AccessBindings) will be permanently purged. https://support.google.com/analytics/answer/6154772 Returns an error if the target is not found, or is not a GA4 Property.
 */
 await gapi.client.analyticsadmin.properties.delete({name: 'name'});
@@ -216,6 +211,11 @@ await gapi.client.analyticsadmin.properties.listConnectedSiteTags({});
 Updates a property.
 */
 await gapi.client.analyticsadmin.properties.patch({name: 'name'});
+
+/*
+Create a subproperty and a subproperty event filter that applies to the created subproperty.
+*/
+await gapi.client.analyticsadmin.properties.provisionSubproperty({});
 
 /*
 Returns a customized report of data access records. The report provides records of each time a user reads Google Analytics reporting data. Access records are retained for up to 2 years. Data Access Reports can be requested for a property. Reports may be requested for any property, but dimensions that aren't related to quota can only be requested on Google Analytics 360 properties. This method is only available to Administrators. These data access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API, and other products like Firebase & Admob that can retrieve data from Google Analytics through a linkage. These records don't include property configuration changes like adding a stream or changing a property's time zone. For configuration change history, see [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
