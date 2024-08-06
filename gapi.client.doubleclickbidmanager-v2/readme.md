@@ -70,12 +70,12 @@ After that you can use DoubleClick Bid Manager API resources: <!-- TODO: make th
 
 ```typescript
 /*
-Creates a query.
+Creates a new query.
 */
 await gapi.client.doubleclickbidmanager.queries.create({});
 
 /*
-Deletes a query as well as the associated reports.
+Deletes an existing query as well as its generated reports.
 */
 await gapi.client.doubleclickbidmanager.queries.delete({queryId: 'queryId'});
 
@@ -90,7 +90,7 @@ Lists queries created by the current user.
 await gapi.client.doubleclickbidmanager.queries.list({});
 
 /*
-Runs a stored query to generate a report.
+Runs an existing query to generate a report.
 */
 await gapi.client.doubleclickbidmanager.queries.run({queryId: 'queryId'});
 ```
