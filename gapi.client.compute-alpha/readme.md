@@ -3113,7 +3113,7 @@ await gapi.client.compute.regionInstantSnapshotGroups.delete({ instantSnapshotGr
 /*
 returns the specified InstantSnapshotGroup resource in the specified region.
 */
-await gapi.client.compute.regionInstantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", region: "region",  });
+await gapi.client.compute.regionInstantSnapshotGroups.get({ instantSnapshot: "instantSnapshot", project: "project", region: "region",  });
 
 /*
 creates a Regional InstantSnapshotGroup resource
