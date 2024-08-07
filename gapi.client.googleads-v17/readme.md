@@ -96,6 +96,13 @@ await gapi.client.googleads.customers.generateAudienceCompositionInsights({
 });
 
 /*
+Returns a collection of audience attributes along with estimates of the overlap between their potential YouTube reach and that of a given input attribute. List of thrown errors: [AudienceInsightsError]() [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
+*/
+await gapi.client.googleads.customers.generateAudienceOverlapInsights({
+  customerId: 'customerId',
+});
+
+/*
 Creates a saved report that can be viewed in the Insights Finder tool. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [RequestError]()
 */
 await gapi.client.googleads.customers.generateInsightsFinderReport({
@@ -127,6 +134,13 @@ await gapi.client.googleads.customers.generateKeywordIdeas({
 Generates a reach forecast for a given targeting / product mix. List of thrown errors: [AuthenticationError]() [AuthorizationError]() [FieldError]() [HeaderError]() [InternalError]() [QuotaError]() [RangeError]() [ReachPlanError]() [RequestError]()
 */
 await gapi.client.googleads.customers.generateReachForecast({
+  customerId: 'customerId',
+});
+
+/*
+Returns the requested Shareable Preview.
+*/
+await gapi.client.googleads.customers.generateShareablePreviews({
   customerId: 'customerId',
 });
 
