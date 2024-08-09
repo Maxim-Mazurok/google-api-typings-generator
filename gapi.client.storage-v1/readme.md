@@ -174,7 +174,7 @@ await gapi.client.storage.bucketAccessControls.update({
 });
 
 /*
-Permanently deletes an empty bucket.
+Deletes an empty bucket. Deletions are permanent unless soft delete is enabled on the bucket.
 */
 await gapi.client.storage.buckets.delete({bucket: 'bucket'});
 
@@ -215,6 +215,14 @@ await gapi.client.storage.buckets.lockRetentionPolicy({
 Patches a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.
 */
 await gapi.client.storage.buckets.patch({bucket: 'bucket'});
+
+/*
+Restores a soft-deleted bucket.
+*/
+await gapi.client.storage.buckets.restore({
+  bucket: 'bucket',
+  generation: 'generation',
+});
 
 /*
 Updates an IAM policy for the specified bucket.
