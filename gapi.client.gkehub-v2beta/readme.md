@@ -1,4 +1,4 @@
-# TypeScript typings for GKE Hub API v2
+# TypeScript typings for GKE Hub API v2beta
 
 For detailed description please check [documentation](https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster).
 
@@ -7,7 +7,7 @@ For detailed description please check [documentation](https://cloud.google.com/a
 Install typings for GKE Hub API:
 
 ```
-npm install @types/gapi.client.gkehub-v2 --save-dev
+npm install @types/gapi.client.gkehub-v2beta --save-dev
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ Then load api client wrapper:
 
 ```typescript
 gapi.client.load(
-  'https://gkehub.googleapis.com/$discovery/rest?version=v2',
+  'https://gkehub.googleapis.com/$discovery/rest?version=v2beta',
   () => {
     // now we can use:
     // gapi.client.gkehub
@@ -35,7 +35,7 @@ gapi.client.load(
 
 ```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
-gapi.client.load('gkehub', 'v2', () => {
+gapi.client.load('gkehub', 'v2beta', () => {
   // now we can use:
   // gapi.client.gkehub
 });
