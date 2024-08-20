@@ -1564,6 +1564,8 @@ declare namespace gapi.client {
       documentsMetadata?: GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata[];
     }
     interface GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata {
+      /** The data ingestion source of the Document. Allowed values are: * `batch`: Data ingested via Batch API, e.g., ImportDocuments. * `streaming` Data ingested via Streaming API, e.g., FHIR streaming. */
+      dataIngestionSource?: string;
       /** The timestamp of the last time the Document was last indexed. */
       lastRefreshedTime?: string;
       /** The value of the matcher that was used to match the Document. */
@@ -1572,6 +1574,8 @@ declare namespace gapi.client {
       status?: string;
     }
     interface GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadataMatcherValue {
+      /** Required. Format: projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}/fhir/{resource_type}/{fhir_resource_id} */
+      fhirResource?: string;
       /** If match by URI, the URI of the Document. */
       uri?: string;
     }
@@ -3571,7 +3575,7 @@ declare namespace gapi.client {
       mode?: string;
     }
     interface GoogleCloudDiscoveryengineV1SearchResponse {
-      /** A unique search token. This should be included in the UserEvent logs resulting from this search, which enables accurate attribution of search model performance. */
+      /** A unique search token. This should be included in the UserEvent logs resulting from this search, which enables accurate attribution of search model performance. This also helps to identify a request during the customer support scenarios. */
       attributionToken?: string;
       /** Contains the spell corrected query, if found. If the spell correction type is AUTOMATIC, then the search results are based on corrected_query. Otherwise the original query is used for search. */
       correctedQuery?: string;
@@ -4453,6 +4457,8 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
+        /** Required. The FHIR resources to match by. Format: projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}/fhir/{resource_type}/{fhir_resource_id} */
+        'matcher.fhirMatcher.fhirResources'?: string | string[];
         /** The exact URIs to match by. */
         'matcher.urisMatcher.uris'?: string | string[];
         /** OAuth 2.0 token for the current user. */
@@ -8969,6 +8975,8 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
+        /** Required. The FHIR resources to match by. Format: projects/{project}/locations/{location}/datasets/{dataset}/fhirStores/{fhir_store}/fhir/{resource_type}/{fhir_resource_id} */
+        'matcher.fhirMatcher.fhirResources'?: string | string[];
         /** The exact URIs to match by. */
         'matcher.urisMatcher.uris'?: string | string[];
         /** OAuth 2.0 token for the current user. */

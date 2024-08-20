@@ -237,6 +237,7 @@ gapi.load('client', async () => {
     /** Gets index freshness metadata for Documents. Supported for website search only. */
     await gapi.client.discoveryengine.projects.locations.collections.dataStores.branches.batchGetDocumentsMetadata(
       {
+        'matcher.fhirMatcher.fhirResources': 'Test string',
         'matcher.urisMatcher.uris': 'Test string',
         parent: 'Test string',
       }
@@ -3091,6 +3092,7 @@ gapi.load('client', async () => {
     /** Gets index freshness metadata for Documents. Supported for website search only. */
     await gapi.client.discoveryengine.projects.locations.dataStores.branches.batchGetDocumentsMetadata(
       {
+        'matcher.fhirMatcher.fhirResources': 'Test string',
         'matcher.urisMatcher.uris': 'Test string',
         parent: 'Test string',
       }
