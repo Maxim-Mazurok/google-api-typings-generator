@@ -73,14 +73,14 @@ After that you can use Google Analytics Data API resources: <!-- TODO: make this
 
 ```typescript
 /*
-Returns multiple pivot reports in a batch. All reports must be for the same GA4 Property.
+Returns multiple pivot reports in a batch. All reports must be for the same Google Analytics property.
 */
 await gapi.client.analyticsdata.properties.batchRunPivotReports({
   property: 'property',
 });
 
 /*
-Returns multiple reports in a batch. All reports must be for the same GA4 Property.
+Returns multiple reports in a batch. All reports must be for the same Google Analytics property.
 */
 await gapi.client.analyticsdata.properties.batchRunReports({
   property: 'property',
@@ -94,7 +94,7 @@ await gapi.client.analyticsdata.properties.checkCompatibility({
 });
 
 /*
-Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. In this method, a Google Analytics GA4 Property Identifier is specified in the request, and the metadata response includes Custom dimensions and metrics as well as Universal metadata. For example if a custom metric with parameter name `levels_unlocked` is registered to a property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
+Returns metadata for dimensions and metrics available in reporting methods. Used to explore the dimensions and metrics. In this method, a Google Analytics property identifier is specified in the request, and the metadata response includes Custom dimensions and metrics as well as Universal metadata. For example if a custom metric with parameter name `levels_unlocked` is registered to a property, the Metadata response will contain `customEvent:levels_unlocked`. Universal metadata are dimensions and metrics applicable to any property such as `country` and `totalUsers`.
 */
 await gapi.client.analyticsdata.properties.getMetadata({name: 'name'});
 
