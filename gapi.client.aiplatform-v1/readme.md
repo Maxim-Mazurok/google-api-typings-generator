@@ -72,5 +72,48 @@ gapi.auth.authorize(
 After that you can use Vertex AI API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+/*
+Creates a Dataset.
+*/
+await gapi.client.aiplatform.datasets.create({});
 
+/*
+Deletes a Dataset.
+*/
+await gapi.client.aiplatform.datasets.delete({name: 'name'});
+
+/*
+Gets a Dataset.
+*/
+await gapi.client.aiplatform.datasets.get({name: 'name'});
+
+/*
+Lists Datasets in a Location.
+*/
+await gapi.client.aiplatform.datasets.list({});
+
+/*
+Updates a Dataset.
+*/
+await gapi.client.aiplatform.datasets.patch({name: 'name'});
+
+/*
+Return a list of tokens based on the input text.
+*/
+await gapi.client.aiplatform.endpoints.computeTokens({endpoint: 'endpoint'});
+
+/*
+Perform a token counting.
+*/
+await gapi.client.aiplatform.endpoints.countTokens({endpoint: 'endpoint'});
+
+/*
+Generate content with multimodal inputs.
+*/
+await gapi.client.aiplatform.endpoints.generateContent({model: 'model'});
+
+/*
+Generate content with multimodal inputs with streaming support.
+*/
+await gapi.client.aiplatform.endpoints.streamGenerateContent({model: 'model'});
 ```
