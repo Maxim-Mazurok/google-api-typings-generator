@@ -119,6 +119,8 @@ gapi.load('client', async () => {
     'https://www.googleapis.com/auth/dataportability.streetview.imagery',
     /** Move a copy of information about your YouTube channel. */
     'https://www.googleapis.com/auth/dataportability.youtube.channel',
+    /** Move a copy of your YouTube clips metadata. */
+    'https://www.googleapis.com/auth/dataportability.youtube.clips',
     /** Move a copy of your YouTube comments. */
     'https://www.googleapis.com/auth/dataportability.youtube.comments',
     /** Move a copy of your YouTube messages in live chat. */
