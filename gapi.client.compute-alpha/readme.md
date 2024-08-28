@@ -2111,16 +2111,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.networkFirewallPolicies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Returns the specified network placement.
-*/
-await gapi.client.compute.networkPlacements.get({ networkPlacement: "networkPlacement", project: "project",  });
-
-/*
-Retrieves a list of network placements available to the specified project.
-*/
-await gapi.client.compute.networkPlacements.list({ project: "project",  });
-
-/*
 Returns the specified network profile.
 */
 await gapi.client.compute.networkProfiles.get({ networkProfile: "networkProfile", project: "project",  });
@@ -2919,6 +2909,11 @@ await gapi.client.compute.regionInstanceGroupManagerResizeRequests.get({ instanc
 Creates a new Resize Request that starts provisioning VMs immediately or queues VM creation.
 */
 await gapi.client.compute.regionInstanceGroupManagerResizeRequests.insert({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
+
+/*
+Retrieves a list of Resize Requests that are contained in the managed instance group.
+*/
+await gapi.client.compute.regionInstanceGroupManagerResizeRequests.list({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
 Flags the specified instances to be immediately removed from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is removed or deleted. You can specify a maximum of 1000 instances with this method per request.
