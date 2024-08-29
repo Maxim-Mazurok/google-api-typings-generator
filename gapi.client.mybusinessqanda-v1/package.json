@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.mybusinessqanda-v1",
-  "version": "0.0.20240826",
+  "version": "0.0.20240827",
   "description": "TypeScript typings for My Business Q&A API v1",
   "repository": {
     "type": "git",
