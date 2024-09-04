@@ -2901,6 +2901,16 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionHealthCheckServices.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Cancels the specified resize request. Cancelled resize request no longer waits for the resources to be provisioned. Cancel is only possible for requests that are in accepted state.
+*/
+await gapi.client.compute.regionInstanceGroupManagerResizeRequests.cancel({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
+
+/*
+Deletes the specified, inactive resize request. Requests that are still active cannot be deleted. Deleting request does not delete instances that were provisioned previously.
+*/
+await gapi.client.compute.regionInstanceGroupManagerResizeRequests.delete({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
+
+/*
 Returns all of the details about the specified resize request.
 */
 await gapi.client.compute.regionInstanceGroupManagerResizeRequests.get({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", resizeRequest: "resizeRequest",  });
@@ -3644,6 +3654,16 @@ await gapi.client.compute.regionUrlMaps.validate({ project: "project", region: "
 Retrieves the list of Zone resources under the specific region available to the specified project.
 */
 await gapi.client.compute.regionZones.list({ project: "project", region: "region",  });
+
+/*
+Retrieves information about the specified reservation block.
+*/
+await gapi.client.compute.reservationBlocks.get({ project: "project", reservation: "reservation", reservationBlock: "reservationBlock", zone: "zone",  });
+
+/*
+Retrieves a list of reservation blocks under a single reservation.
+*/
+await gapi.client.compute.reservationBlocks.list({ project: "project", reservation: "reservation", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
