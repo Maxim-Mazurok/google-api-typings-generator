@@ -208,6 +208,11 @@ Permanently deletes a file owned by the user without moving it to the trash. If 
 await gapi.client.drive.files.delete({ fileId: "fileId",  });
 
 /*
+Downloads content of a file. Operations are valid for 24 hours from the time of creation.
+*/
+await gapi.client.drive.files.download({ fileId: "fileId",  });
+
+/*
 Permanently deletes all of the user's trashed files.
 */
 await gapi.client.drive.files.emptyTrash({  });
@@ -251,6 +256,26 @@ await gapi.client.drive.files.update({ fileId: "fileId",  });
 Subscribes to changes to a file.
 */
 await gapi.client.drive.files.watch({ fileId: "fileId",  });
+
+/*
+Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On successful cancellation, the operation is not deleted; instead, it becomes an operation with an Operation.error value with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+*/
+await gapi.client.drive.operation.cancel({ name: "name",  });
+
+/*
+Deletes a long-running operation. This method indicates that the client is no longer interested in the operation result. It does not cancel the operation. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`.
+*/
+await gapi.client.drive.operation.delete({ name: "name",  });
+
+/*
+Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
+*/
+await gapi.client.drive.operations.get({ name: "name",  });
+
+/*
+Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.
+*/
+await gapi.client.drive.operations.list({  });
 
 /*
 Creates a permission for a file or shared drive. **Warning:** Concurrent permissions operations on the same file are not supported; only the last update is applied.
