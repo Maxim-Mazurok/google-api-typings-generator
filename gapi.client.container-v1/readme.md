@@ -1,7 +1,7 @@
 # TypeScript typings for Kubernetes Engine API v1
 
 Builds and manages container-based applications, powered by the open source Kubernetes technology.
-For detailed description please check [documentation](https://cloud.google.com/container-engine/).
+For detailed description please check [documentation](https://cloud.google.com/kubernetes-engine/docs/).
 
 ## Installing
 
