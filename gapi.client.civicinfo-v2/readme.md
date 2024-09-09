@@ -46,6 +46,11 @@ After that you can use Google Civic Information API resources: <!-- TODO: make t
 
 ```typescript
 /*
+Lookup OCDIDs and names for divisions related to an address.
+*/
+await gapi.client.civicinfo.divisions.queryDivisionByAddress({});
+
+/*
 Searches for political divisions by their natural name or OCD ID.
 */
 await gapi.client.civicinfo.divisions.search({});
