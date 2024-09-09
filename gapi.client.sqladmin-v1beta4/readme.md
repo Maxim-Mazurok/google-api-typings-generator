@@ -193,6 +193,14 @@ await gapi.client.sql.instances.addServerCa({
 });
 
 /*
+Add a new trusted server certificate version for the specified instance using Certificate Authority Service (CAS) server CA. Required to prepare for a certificate rotation. If a server certificate version was previously added but never used in a certificate rotation, this operation replaces that version. There cannot be more than one certificate version waiting to be rotated in. For instances not using CAS server CA, please use AddServerCa instead.
+*/
+await gapi.client.sql.instances.addServerCertificate({
+  instance: 'instance',
+  project: 'project',
+});
+
+/*
 Creates a Cloud SQL instance as a clone of the source instance. Using this operation might cause your instance to restart.
 */
 await gapi.client.sql.instances.clone({
@@ -272,6 +280,14 @@ await gapi.client.sql.instances.listServerCas({
 });
 
 /*
+Lists all versions of server certificates and certificate authorities (CAs) for the specified instance. There can be up to three sets of certs listed: the certificate that is currently in use, a future that has been added but not yet used to sign a certificate, and a certificate that has been rotated out.
+*/
+await gapi.client.sql.instances.ListServerCertificates({
+  instance: 'instance',
+  project: 'project',
+});
+
+/*
 Partially updates settings of a Cloud SQL instance by merging the request with the current configuration. This method supports patch semantics.
 */
 await gapi.client.sql.instances.patch({
@@ -331,6 +347,14 @@ await gapi.client.sql.instances.restoreBackup({
 Rotates the server certificate to one signed by the Certificate Authority (CA) version previously added with the addServerCA method. For instances that have enabled Certificate Authority Service (CAS) based server CA, please use RotateServerCertificate to rotate the server certificate.
 */
 await gapi.client.sql.instances.rotateServerCa({
+  instance: 'instance',
+  project: 'project',
+});
+
+/*
+Rotates the server certificate version to one previously added with the addServerCertificate method. For instances not using Certificate Authority Service (CAS) server CA, please use RotateServerCa instead.
+*/
+await gapi.client.sql.instances.RotateServerCertificate({
   instance: 'instance',
   project: 'project',
 });
