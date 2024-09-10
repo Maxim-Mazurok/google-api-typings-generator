@@ -1,7 +1,7 @@
 # TypeScript typings for Discovery Engine API v1
 
 Discovery Engine API.
-For detailed description please check [documentation](https://cloud.google.com/discovery-engine/docs).
+For detailed description please check [documentation](https://cloud.google.com/generative-ai-app-builder/docs/).
 
 ## Installing
 
