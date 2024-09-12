@@ -291,7 +291,7 @@ Retrieves the list of BackendService resources available to the specified projec
 await gapi.client.compute.backendServices.list({ project: "project",  });
 
 /*
-Retrieves a list of all usable backend services in the specified project.
+Retrieves an aggregated list of all usable backend services in the specified project.
 */
 await gapi.client.compute.backendServices.listUsable({ project: "project",  });
 
@@ -1596,11 +1596,6 @@ returns the specified InstantSnapshotGroup resource in the specified zone.
 await gapi.client.compute.instantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", zone: "zone",  });
 
 /*
-Gets the access control policy for a resource. May be empty if no such policy or resource exists.
-*/
-await gapi.client.compute.instantSnapshotGroups.getIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
-
-/*
 inserts a Zonal InstantSnapshotGroup resource
 */
 await gapi.client.compute.instantSnapshotGroups.insert({ project: "project", zone: "zone",  });
@@ -1609,16 +1604,6 @@ await gapi.client.compute.instantSnapshotGroups.insert({ project: "project", zon
 retrieves the list of InstantSnapshotGroup resources contained within the specified zone.
 */
 await gapi.client.compute.instantSnapshotGroups.list({ project: "project", zone: "zone",  });
-
-/*
-Sets the access control policy on the specified resource. Replaces any existing policy.
-*/
-await gapi.client.compute.instantSnapshotGroups.setIamPolicy({ project: "project", resource: "resource", zone: "zone",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.instantSnapshotGroups.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of instantSnapshots. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
@@ -2666,7 +2651,7 @@ Retrieves the list of regional BackendService resources available to the specifi
 await gapi.client.compute.regionBackendServices.list({ project: "project", region: "region",  });
 
 /*
-Retrieves a list of all usable backend services in the specified project in the given region.
+Retrieves an aggregated list of all usable backend services in the specified project in the given region.
 */
 await gapi.client.compute.regionBackendServices.listUsable({ project: "project", region: "region",  });
 
@@ -3136,11 +3121,6 @@ returns the specified InstantSnapshotGroup resource in the specified region.
 await gapi.client.compute.regionInstantSnapshotGroups.get({ instantSnapshotGroup: "instantSnapshotGroup", project: "project", region: "region",  });
 
 /*
-Gets the access control policy for a resource. May be empty if no such policy or resource exists.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
 creates a Regional InstantSnapshotGroup resource
 */
 await gapi.client.compute.regionInstantSnapshotGroups.insert({ project: "project", region: "region",  });
@@ -3149,16 +3129,6 @@ await gapi.client.compute.regionInstantSnapshotGroups.insert({ project: "project
 retrieves the list of InstantSnapshotGroup resources contained within the specified region.
 */
 await gapi.client.compute.regionInstantSnapshotGroups.list({ project: "project", region: "region",  });
-
-/*
-Sets the access control policy on the specified resource. Replaces any existing policy.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.setIamPolicy({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Returns permissions that a caller has on the specified resource.
-*/
-await gapi.client.compute.regionInstantSnapshotGroups.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified InstantSnapshot resource. Keep in mind that deleting a single instantSnapshot might not necessarily delete all the data on that instantSnapshot. If any data on the instantSnapshot that is marked for deletion is needed for subsequent instantSnapshots, the data will be moved to the next corresponding instantSnapshot. For more information, see Deleting instantSnapshots.
