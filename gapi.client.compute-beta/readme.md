@@ -286,7 +286,7 @@ Retrieves the list of BackendService resources available to the specified projec
 await gapi.client.compute.backendServices.list({ project: "project",  });
 
 /*
-Retrieves an aggregated list of all usable backend services in the specified project.
+Retrieves a list of all usable backend services in the specified project.
 */
 await gapi.client.compute.backendServices.listUsable({ project: "project",  });
 
@@ -2531,7 +2531,7 @@ Retrieves the list of regional BackendService resources available to the specifi
 await gapi.client.compute.regionBackendServices.list({ project: "project", region: "region",  });
 
 /*
-Retrieves an aggregated list of all usable backend services in the specified project in the given region.
+Retrieves a list of all usable backend services in the specified project in the given region.
 */
 await gapi.client.compute.regionBackendServices.listUsable({ project: "project", region: "region",  });
 
