@@ -160,7 +160,7 @@ Completes the [import process](https://developers.google.com/workspace/chat/impo
 await gapi.client.chat.spaces.completeImport({name: 'name'});
 
 /*
-Creates a named space. Spaces grouped by topics aren't supported. For an example, see [Create a space](https://developers.google.com/workspace/chat/create-spaces). If you receive the error message `ALREADY_EXISTS` when creating a space, try a different `displayName`. An existing space within the Google Workspace organization might already use this display name. Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
+Creates a space with no members. Can be used to create a named space. Spaces grouped by topics aren't supported. For an example, see [Create a space](https://developers.google.com/workspace/chat/create-spaces). If you receive the error message `ALREADY_EXISTS` when creating a space, try a different `displayName`. An existing space within the Google Workspace organization might already use this display name. If you're a member of the [Developer Preview program](https://developers.google.com/workspace/preview), you can create a group chat in import mode using `spaceType.GROUP_CHAT`. Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
 */
 await gapi.client.chat.spaces.create({});
 
@@ -190,7 +190,7 @@ Updates a space. For an example, see [Update a space](https://developers.google.
 await gapi.client.chat.spaces.patch({name: 'name'});
 
 /*
-[Developer Preview](https://developers.google.com/workspace/preview). Returns a list of spaces based on a user's search. Requires [user authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user). The user must be an administrator for the Google Workspace organization. In the request, set `use_admin_access` to `true`.
+Returns a list of spaces in a Google Workspace organization based on an administrator's search. Requires [user authentication with administrator privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges). In the request, set `use_admin_access` to `true`.
 */
 await gapi.client.chat.spaces.search({});
 
