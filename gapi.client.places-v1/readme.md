@@ -59,6 +59,9 @@ var client_id = '',
     // Private Service: https://www.googleapis.com/auth/maps-platform.places.details
     'https://www.googleapis.com/auth/maps-platform.places.details',
 
+    // Private Service: https://www.googleapis.com/auth/maps-platform.places.getphotomedia
+    'https://www.googleapis.com/auth/maps-platform.places.getphotomedia',
+
     // Private Service: https://www.googleapis.com/auth/maps-platform.places.nearbysearch
     'https://www.googleapis.com/auth/maps-platform.places.nearbysearch',
 
