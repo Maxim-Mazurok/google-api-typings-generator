@@ -2414,7 +2414,7 @@ declare namespace gapi.client {
         fields?: string;
         /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
         key?: string;
-        /** The Kind this terms of service version applies to. */
+        /** Required. The Kind this terms of service version applies to. */
         kind?: string;
         /** OAuth 2.0 token for the current user. */
         oauth_token?: string;
@@ -2422,7 +2422,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        /** Region code as defined by [CLDR](https://cldr.unicode.org/). This is either a country when the ToS applies specifically to that country or 001 when it applies globally. */
+        /** Required. Region code as defined by [CLDR](https://cldr.unicode.org/). This is either a country when the ToS applies specifically to that country or 001 when it applies globally. */
         regionCode?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
