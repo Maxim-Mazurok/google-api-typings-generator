@@ -1,6 +1,6 @@
 # TypeScript typings for Oracle Database@Google Cloud API v1
 
-The Oracle Database@Google Cloud API provides a set of APIs to manage Oracle database services, such as Exadata and Autonomous Databases.
+The Oracle Database@Google Cloud API provides set of APIs to manage Oracle databases such as Exadata and Autonomous Databases.
 For detailed description please check [documentation](https://cloud.google.com/oracle/database/docs).
 
 ## Installing
