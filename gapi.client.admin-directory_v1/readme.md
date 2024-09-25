@@ -62,10 +62,10 @@ var client_id = '',
     // View customer related information
     'https://www.googleapis.com/auth/admin.directory.customer.readonly',
 
-    // View and manage your ChromeOS devices' metadata
+    // View and manage your Chrome OS devices' metadata
     'https://www.googleapis.com/auth/admin.directory.device.chromeos',
 
-    // View your ChromeOS devices' metadata
+    // View your Chrome OS devices' metadata
     'https://www.googleapis.com/auth/admin.directory.device.chromeos.readonly',
 
     // View and manage your mobile devices' metadata
