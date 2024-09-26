@@ -1379,6 +1379,21 @@ await gapi.client.dfareporting.targetingTemplates.update({
 });
 
 /*
+Gets one TvCampaignDetail by ID.
+*/
+await gapi.client.dfareporting.tvCampaignDetails.get({
+  id: 'id',
+  profileId: 'profileId',
+});
+
+/*
+Retrieves a list of TV campaign summaries.
+*/
+await gapi.client.dfareporting.tvCampaignSummaries.list({
+  profileId: 'profileId',
+});
+
+/*
 Gets one user profile by ID.
 */
 await gapi.client.dfareporting.userProfiles.get({profileId: 'profileId'});
