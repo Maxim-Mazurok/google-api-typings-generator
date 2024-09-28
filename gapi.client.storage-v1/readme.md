@@ -217,6 +217,11 @@ Patches a bucket. Changes to the bucket will be readable immediately after writi
 await gapi.client.storage.buckets.patch({bucket: 'bucket'});
 
 /*
+Initiates a long-running Relocate Bucket operation on the specified bucket.
+*/
+await gapi.client.storage.buckets.relocate({bucket: 'bucket'});
+
+/*
 Restores a soft-deleted bucket.
 */
 await gapi.client.storage.buckets.restore({
