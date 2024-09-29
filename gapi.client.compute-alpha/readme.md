@@ -1671,6 +1671,46 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.instantSnapshots.testIamPermissions({ project: "project", resource: "resource", zone: "zone",  });
 
 /*
+Deletes the specified InterconnectAttachmentGroup in the given scope
+*/
+await gapi.client.compute.interconnectAttachmentGroups.delete({ interconnectAttachmentGroup: "interconnectAttachmentGroup", project: "project",  });
+
+/*
+Returns the specified InterconnectAttachmentGroup resource in the given scope.
+*/
+await gapi.client.compute.interconnectAttachmentGroups.get({ interconnectAttachmentGroup: "interconnectAttachmentGroup", project: "project",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.interconnectAttachmentGroups.getIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Creates a InterconnectAttachmentGroup in the specified project in the given scope using the parameters that are included in the request.
+*/
+await gapi.client.compute.interconnectAttachmentGroups.insert({ project: "project",  });
+
+/*
+Lists the InterconnectAttachmentGroups for a project in the given scope.
+*/
+await gapi.client.compute.interconnectAttachmentGroups.list({ project: "project",  });
+
+/*
+Patches the specified InterconnectAttachmentGroup resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.interconnectAttachmentGroups.patch({ interconnectAttachmentGroup: "interconnectAttachmentGroup", project: "project",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.interconnectAttachmentGroups.setIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.interconnectAttachmentGroups.testIamPermissions({ project: "project", resource: "resource",  });
+
+/*
 Retrieves an aggregated list of interconnect attachments. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.interconnectAttachments.aggregatedList({ project: "project",  });
@@ -1719,6 +1759,46 @@ await gapi.client.compute.interconnectAttachments.setLabels({ project: "project"
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.interconnectAttachments.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
+
+/*
+Deletes the specified InterconnectGroup in the given scope
+*/
+await gapi.client.compute.interconnectGroups.delete({ interconnectGroup: "interconnectGroup", project: "project",  });
+
+/*
+Returns the specified InterconnectGroup resource in the given scope.
+*/
+await gapi.client.compute.interconnectGroups.get({ interconnectGroup: "interconnectGroup", project: "project",  });
+
+/*
+Gets the access control policy for a resource. May be empty if no such policy or resource exists.
+*/
+await gapi.client.compute.interconnectGroups.getIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Creates a InterconnectGroup in the specified project in the given scope using the parameters that are included in the request.
+*/
+await gapi.client.compute.interconnectGroups.insert({ project: "project",  });
+
+/*
+Lists the InterconnectGroups for a project in the given scope.
+*/
+await gapi.client.compute.interconnectGroups.list({ project: "project",  });
+
+/*
+Patches the specified InterconnectGroup resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
+*/
+await gapi.client.compute.interconnectGroups.patch({ interconnectGroup: "interconnectGroup", project: "project",  });
+
+/*
+Sets the access control policy on the specified resource. Replaces any existing policy.
+*/
+await gapi.client.compute.interconnectGroups.setIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Returns permissions that a caller has on the specified resource.
+*/
+await gapi.client.compute.interconnectGroups.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
 Returns the details for the specified interconnect location. Gets a list of available interconnect locations by making a list() request.
