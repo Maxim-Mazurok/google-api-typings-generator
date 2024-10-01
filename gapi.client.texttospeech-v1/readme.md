@@ -85,6 +85,11 @@ Synthesizes speech synchronously: receive results after all text input has been 
 await gapi.client.texttospeech.text.synthesize({});
 
 /*
+Generates voice clone key given a short voice prompt. This method validates the voice prompts with a series of checks against the voice talent statement to verify the voice clone is safe to generate.
+*/
+await gapi.client.texttospeech.voices.generateVoiceCloningKey({});
+
+/*
 Returns a list of Voice supported for synthesis.
 */
 await gapi.client.texttospeech.voices.list({});
