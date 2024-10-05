@@ -48,10 +48,10 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
-    // See, edit, create or delete policies applied to Chrome OS and Chrome Browsers managed within your organization
+    // See, edit, create or delete policies applied to ChromeOS and Chrome Browsers managed within your organization
     'https://www.googleapis.com/auth/chrome.management.policy',
 
-    // See policies applied to Chrome OS and Chrome Browsers managed within your organization
+    // See policies applied to ChromeOS and Chrome Browsers managed within your organization
     'https://www.googleapis.com/auth/chrome.management.policy.readonly',
   ],
   immediate = true;
