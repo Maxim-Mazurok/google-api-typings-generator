@@ -557,14 +557,6 @@ Watch for changes on all objects in a bucket.
 await gapi.client.storage.objects.watchAll({bucket: 'bucket'});
 
 /*
-Starts asynchronous advancement of the relocate bucket operation in the case of required write downtime, to allow it to lock the bucket at the source location, and proceed with the bucket location swap. The server makes a best effort to advance the relocate bucket operation, but success is not guaranteed.
-*/
-await gapi.client.storage.buckets.operations.advanceRelocateBucket({
-  bucket: 'bucket',
-  operationId: 'operationId',
-});
-
-/*
 Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed.
 */
 await gapi.client.storage.buckets.operations.cancel({
