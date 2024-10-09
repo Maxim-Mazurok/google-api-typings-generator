@@ -3286,26 +3286,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.regionInstantSnapshots.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
-Deletes a multi-MIG in the specified project.
-*/
-await gapi.client.compute.regionMultiMigs.delete({ multiMig: "multiMig", project: "project", region: "region",  });
-
-/*
-Returns the specified multi-MIG resource.
-*/
-await gapi.client.compute.regionMultiMigs.get({ multiMig: "multiMig", project: "project", region: "region",  });
-
-/*
-Creates a multi-MIG in the specified project.
-*/
-await gapi.client.compute.regionMultiMigs.insert({ project: "project", region: "region",  });
-
-/*
-Retrieves a list of multi-MIGs in a project and region.
-*/
-await gapi.client.compute.regionMultiMigs.list({ project: "project", region: "region",  });
-
-/*
 Attach a list of network endpoints to the specified network endpoint group.
 */
 await gapi.client.compute.regionNetworkEndpointGroups.attachNetworkEndpoints({ networkEndpointGroup: "networkEndpointGroup", project: "project", region: "region",  });
