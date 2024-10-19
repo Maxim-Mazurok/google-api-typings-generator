@@ -326,31 +326,6 @@ Updates the specified BackendService resource with the data included in the requ
 await gapi.client.compute.backendServices.update({ backendService: "backendService", project: "project",  });
 
 /*
-Deletes the specified cross-site network in the given scope.
-*/
-await gapi.client.compute.crossSiteNetworks.delete({ crossSiteNetwork: "crossSiteNetwork", project: "project",  });
-
-/*
-Returns the specified cross-site network in the given scope.
-*/
-await gapi.client.compute.crossSiteNetworks.get({ crossSiteNetwork: "crossSiteNetwork", project: "project",  });
-
-/*
-Creates a cross-site network in the specified project in the given scope using the parameters that are included in the request.
-*/
-await gapi.client.compute.crossSiteNetworks.insert({ project: "project",  });
-
-/*
-Lists the cross-site networks for a project in the given scope.
-*/
-await gapi.client.compute.crossSiteNetworks.list({ project: "project",  });
-
-/*
-Updates the specified cross-site network with the data included in the request. This method supports PATCH semantics and uses the JSON merge patch format and processing rules.
-*/
-await gapi.client.compute.crossSiteNetworks.patch({ crossSiteNetwork: "crossSiteNetwork", project: "project",  });
-
-/*
 Adds existing resource policies to a disk. You can only add one policy which will be applied to this disk for scheduling snapshot creation.
 */
 await gapi.client.compute.disks.addResourcePolicies({ disk: "disk", project: "project", zone: "zone",  });
@@ -379,11 +354,6 @@ await gapi.client.compute.disks.delete({ disk: "disk", project: "project", zone:
 Returns the specified persistent disk.
 */
 await gapi.client.compute.disks.get({ disk: "disk", project: "project", zone: "zone",  });
-
-/*
-Gets the status of current async replication for a given device.
-*/
-await gapi.client.compute.disks.getAsyncReplicationStatus({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
 Gets the access control policy for a resource. May be empty if no such policy or resource exists.
@@ -444,11 +414,6 @@ await gapi.client.compute.disks.testIamPermissions({ project: "project", resourc
 Updates the specified disk with the data included in the request. The update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license.
 */
 await gapi.client.compute.disks.update({ disk: "disk", project: "project", zone: "zone",  });
-
-/*
-Wait for replication to catch up on the secondary disk.
-*/
-await gapi.client.compute.disks.waitForReplicationCatchUp({ disk: "disk", project: "project", zone: "zone",  });
 
 /*
 Get Zonal Disk Settings.
@@ -2886,11 +2851,6 @@ Returns a specified regional persistent disk.
 await gapi.client.compute.regionDisks.get({ disk: "disk", project: "project", region: "region",  });
 
 /*
-Gets the status of current async replication for a given device.
-*/
-await gapi.client.compute.regionDisks.getAsyncReplicationStatus({ disk: "disk", project: "project", region: "region",  });
-
-/*
 Gets the access control policy for a resource. May be empty if no such policy or resource exists.
 */
 await gapi.client.compute.regionDisks.getIamPolicy({ project: "project", region: "region", resource: "resource",  });
@@ -2949,11 +2909,6 @@ await gapi.client.compute.regionDisks.testIamPermissions({ project: "project", r
 Update the specified disk with the data included in the request. Update is performed only on selected fields included as part of update-mask. Only the following fields can be modified: user_license.
 */
 await gapi.client.compute.regionDisks.update({ disk: "disk", project: "project", region: "region",  });
-
-/*
-Wait for replication to catch up on the secondary disk.
-*/
-await gapi.client.compute.regionDisks.waitForReplicationCatchUp({ disk: "disk", project: "project", region: "region",  });
 
 /*
 Get Regional Disk Settings.
@@ -3336,7 +3291,7 @@ Deletes a multi-MIG in the specified project.
 await gapi.client.compute.regionMultiMigs.delete({ multiMig: "multiMig", project: "project", region: "region",  });
 
 /*
-Returns all the details of a specific multi-MIG.
+Returns the specified multi-MIG resource.
 */
 await gapi.client.compute.regionMultiMigs.get({ multiMig: "multiMig", project: "project", region: "region",  });
 
@@ -4924,31 +4879,6 @@ await gapi.client.compute.vpnTunnels.setLabels({ project: "project", region: "re
 Returns permissions that a caller has on the specified resource.
 */
 await gapi.client.compute.vpnTunnels.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
-
-/*
-Deletes the specified wire group in the given scope.
-*/
-await gapi.client.compute.wireGroups.delete({ crossSiteNetwork: "crossSiteNetwork", project: "project", wireGroup: "wireGroup",  });
-
-/*
-Gets the specified wire group resource in the given scope.
-*/
-await gapi.client.compute.wireGroups.get({ crossSiteNetwork: "crossSiteNetwork", project: "project", wireGroup: "wireGroup",  });
-
-/*
-Creates a wire group in the specified project in the given scope using the parameters that are included in the request.
-*/
-await gapi.client.compute.wireGroups.insert({ crossSiteNetwork: "crossSiteNetwork", project: "project",  });
-
-/*
-Lists the wire groups for a project in the given scope.
-*/
-await gapi.client.compute.wireGroups.list({ crossSiteNetwork: "crossSiteNetwork", project: "project",  });
-
-/*
-Updates the specified wire group resource with the data included in the request. This method supports PATCH semantics and uses JSON merge patch format and processing rules.
-*/
-await gapi.client.compute.wireGroups.patch({ crossSiteNetwork: "crossSiteNetwork", project: "project", wireGroup: "wireGroup",  });
 
 /*
 Deletes the specified zone-specific Operations resource.
