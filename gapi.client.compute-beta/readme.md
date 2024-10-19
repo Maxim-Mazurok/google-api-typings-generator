@@ -3021,7 +3021,7 @@ Deletes a multi-MIG in the specified project.
 await gapi.client.compute.regionMultiMigs.delete({ multiMig: "multiMig", project: "project", region: "region",  });
 
 /*
-Returns all the details of a specific multi-MIG.
+Returns the specified multi-MIG resource.
 */
 await gapi.client.compute.regionMultiMigs.get({ multiMig: "multiMig", project: "project", region: "region",  });
 
