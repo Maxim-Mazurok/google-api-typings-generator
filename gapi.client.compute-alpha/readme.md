@@ -2506,6 +2506,11 @@ Lists associations of a specified target, i.e., organization or folder.
 await gapi.client.compute.organizationSecurityPolicies.listAssociations({  });
 
 /*
+Gets the current list of preconfigured Web Application Firewall (WAF) expressions.
+*/
+await gapi.client.compute.organizationSecurityPolicies.listPreconfiguredExpressionSets({  });
+
+/*
 Moves the specified security policy.
 */
 await gapi.client.compute.organizationSecurityPolicies.move({ securityPolicy: "securityPolicy",  });
