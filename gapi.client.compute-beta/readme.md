@@ -2266,6 +2266,11 @@ Lists associations of a specified target, i.e., organization or folder.
 await gapi.client.compute.organizationSecurityPolicies.listAssociations({  });
 
 /*
+Gets the current list of preconfigured Web Application Firewall (WAF) expressions.
+*/
+await gapi.client.compute.organizationSecurityPolicies.listPreconfiguredExpressionSets({  });
+
+/*
 Moves the specified security policy.
 */
 await gapi.client.compute.organizationSecurityPolicies.move({ securityPolicy: "securityPolicy",  });
@@ -3459,6 +3464,16 @@ await gapi.client.compute.regionUrlMaps.validate({ project: "project", region: "
 Retrieves the list of Zone resources under the specific region available to the specified project.
 */
 await gapi.client.compute.regionZones.list({ project: "project", region: "region",  });
+
+/*
+Retrieves information about the specified reservation block.
+*/
+await gapi.client.compute.reservationBlocks.get({ project: "project", reservation: "reservation", reservationBlock: "reservationBlock", zone: "zone",  });
+
+/*
+Retrieves a list of reservation blocks under a single reservation.
+*/
+await gapi.client.compute.reservationBlocks.list({ project: "project", reservation: "reservation", zone: "zone",  });
 
 /*
 Retrieves an aggregated list of reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
