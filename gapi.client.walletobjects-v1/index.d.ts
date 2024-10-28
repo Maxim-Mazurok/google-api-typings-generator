@@ -1427,7 +1427,7 @@ declare namespace gapi.client {
       notificationType?: string;
       /** The Scotty request ID. */
       requestId?: string;
-      /** The partition of the Scotty server handling this request. type is uploader_service.RequestReceivedParamsServingInfo LINT.IfChange(request_received_params_serving_info_annotations) */
+      /** The partition of the Scotty server handling this request. type is uploader_service.RequestReceivedParamsServingInfo LINT.IfChange(request_received_params_serving_info_annotations) LINT.ThenChange() */
       requestReceivedParamsServingInfo?: string;
       /** The total size of the file. */
       totalBytes?: string;
