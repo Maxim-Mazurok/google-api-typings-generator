@@ -1448,7 +1448,6 @@ gapi.load('client', async () => {
           network: 'Test string',
           persistentResourceId: 'Test string',
           protectedArtifactLocationId: 'Test string',
-          pscInterfaceConfig: {},
           reservedIpRanges: ['Test string'],
           scheduling: {
             disableRetries: true,
@@ -2516,6 +2515,9 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
+        clientConnectionConfig: {
+          inferenceTimeout: 'Test string',
+        },
         createTime: 'Test string',
         dedicatedEndpointDns: 'Test string',
         dedicatedEndpointEnabled: true,
@@ -2661,6 +2663,9 @@ gapi.load('client', async () => {
             },
             serviceAccount: 'Test string',
             sharedResources: 'Test string',
+            systemLabels: {
+              A: 'Test string',
+            },
           },
         ],
         description: 'Test string',
@@ -2847,6 +2852,9 @@ gapi.load('client', async () => {
           },
           serviceAccount: 'Test string',
           sharedResources: 'Test string',
+          systemLabels: {
+            A: 'Test string',
+          },
         },
         trafficSplit: {
           A: 42,
@@ -3373,6 +3381,9 @@ gapi.load('client', async () => {
           },
           serviceAccount: 'Test string',
           sharedResources: 'Test string',
+          systemLabels: {
+            A: 'Test string',
+          },
         },
         updateMask: 'Test string',
       }
@@ -3384,6 +3395,9 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
+        clientConnectionConfig: {
+          inferenceTimeout: 'Test string',
+        },
         createTime: 'Test string',
         dedicatedEndpointDns: 'Test string',
         dedicatedEndpointEnabled: true,
@@ -3529,6 +3543,9 @@ gapi.load('client', async () => {
             },
             serviceAccount: 'Test string',
             sharedResources: 'Test string',
+            systemLabels: {
+              A: 'Test string',
+            },
           },
         ],
         description: 'Test string',
@@ -4357,6 +4374,12 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
+        optimizedConfig: {
+          automaticResources: {
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+          },
+        },
         satisfiesPzi: true,
         satisfiesPzs: true,
         syncConfig: {
@@ -4451,6 +4474,12 @@ gapi.load('client', async () => {
           A: 'Test string',
         },
         name: 'Test string',
+        optimizedConfig: {
+          automaticResources: {
+            maxReplicaCount: 42,
+            minReplicaCount: 42,
+          },
+        },
         satisfiesPzi: true,
         satisfiesPzs: true,
         syncConfig: {
@@ -5474,7 +5503,6 @@ gapi.load('client', async () => {
           network: 'Test string',
           persistentResourceId: 'Test string',
           protectedArtifactLocationId: 'Test string',
-          pscInterfaceConfig: {},
           reservedIpRanges: ['Test string'],
           scheduling: {
             disableRetries: true,
@@ -8136,7 +8164,6 @@ gapi.load('client', async () => {
                 network: 'Test string',
                 persistentResourceId: 'Test string',
                 protectedArtifactLocationId: 'Test string',
-                pscInterfaceConfig: {},
                 reservedIpRanges: ['Test string'],
                 scheduling: {
                   disableRetries: true,
@@ -8214,7 +8241,6 @@ gapi.load('client', async () => {
                 network: 'Test string',
                 persistentResourceId: 'Test string',
                 protectedArtifactLocationId: 'Test string',
-                pscInterfaceConfig: {},
                 reservedIpRanges: ['Test string'],
                 scheduling: {
                   disableRetries: true,
@@ -8479,6 +8505,13 @@ gapi.load('client', async () => {
     });
     /** Starts a NotebookRuntime. */
     await gapi.client.aiplatform.projects.locations.notebookRuntimes.start(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
+    /** Stops a NotebookRuntime. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimes.stop(
       {
         name: 'Test string',
       },

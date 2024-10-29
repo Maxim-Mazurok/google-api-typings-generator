@@ -745,6 +745,16 @@ declare namespace gapi.client {
       /** Index in the input text where the claim starts (inclusive). */
       startIndex?: number;
     }
+    interface GoogleCloudAiplatformV1beta1ClientConnectionConfig {
+      /** Customizable online prediction request timeout. */
+      inferenceTimeout?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1CodeExecutionResult {
+      /** Required. Outcome of the code execution. */
+      outcome?: string;
+      /** Optional. Contains stdout when code execution is successful, stderr or other description otherwise. */
+      output?: string;
+    }
     interface GoogleCloudAiplatformV1beta1CoherenceInput {
       /** Required. Coherence instance. */
       instance?: GoogleCloudAiplatformV1beta1CoherenceInstance;
@@ -1424,6 +1434,8 @@ declare namespace gapi.client {
       serviceAccount?: string;
       /** The resource name of the shared DeploymentResourcePool to deploy on. Format: `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}` */
       sharedResources?: string;
+      /** System labels to apply to Model Garden deployments. System labels are managed by Google for internal use only. */
+      systemLabels?: {[P in string]: string};
     }
     interface GoogleCloudAiplatformV1beta1DeployedModelRef {
       /** Immutable. An ID of a DeployedModel in the above Endpoint. */
@@ -1559,6 +1571,8 @@ declare namespace gapi.client {
       kmsKeyName?: string;
     }
     interface GoogleCloudAiplatformV1beta1Endpoint {
+      /** Configurations that are applied to the endpoint for online prediction. */
+      clientConnectionConfig?: GoogleCloudAiplatformV1beta1ClientConnectionConfig;
       /** Output only. Timestamp when this Endpoint was created. */
       createTime?: string;
       /** Output only. DNS of the dedicated endpoint. Will only be populated if dedicated_endpoint_enabled is true. Format: `https://{endpoint_id}.{region}-{project_number}.prediction.vertexai.goog`. */
@@ -1836,6 +1850,12 @@ declare namespace gapi.client {
       deny?: string[];
       /** The namespace name. */
       namespaceName?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1ExecutableCode {
+      /** Required. The code to be executed. */
+      code?: string;
+      /** Required. Programming language of the `code`. */
+      language?: string;
     }
     interface GoogleCloudAiplatformV1beta1ExecuteExtensionRequest {
       /** Required. The desired ID of the operation to be executed in this extension as defined in ExtensionOperation.operation_id. */
@@ -2134,7 +2154,7 @@ declare namespace gapi.client {
       manifest?: GoogleCloudAiplatformV1beta1ExtensionManifest;
       /** Identifier. The resource name of the Extension. */
       name?: string;
-      /** Optional. The PrivateServiceConnect config for the extension. If specified, the service endpoints associated with the Extension should be registered with private network access in the provided Service Directory (https://cloud.google.com/service-directory/docs/configuring-private-network-access). If the service contains more than one endpoint with a network, the service will arbitrarilty choose one of the endpoints to use for extension execution. */
+      /** Optional. The PrivateServiceConnect config for the extension. If specified, the service endpoints associated with the Extension should be [registered with private network access in the provided Service Directory](https://cloud.google.com/service-directory/docs/configuring-private-network-access). If the service contains more than one endpoint with a network, the service will arbitrarilty choose one of the endpoints to use for extension execution. */
       privateServiceConnectConfig?: GoogleCloudAiplatformV1beta1ExtensionPrivateServiceConnectConfig;
       /** Optional. Runtime config controlling the runtime behavior of this Extension. */
       runtimeConfig?: GoogleCloudAiplatformV1beta1RuntimeConfig;
@@ -2935,6 +2955,8 @@ declare namespace gapi.client {
       web?: GoogleCloudAiplatformV1beta1GroundingChunkWeb;
     }
     interface GoogleCloudAiplatformV1beta1GroundingChunkRetrievedContext {
+      /** Text of the attribution. */
+      text?: string;
       /** Title of the attribution. */
       title?: string;
       /** URI reference of the attribution. */
@@ -3097,9 +3119,9 @@ declare namespace gapi.client {
       jiraSource?: GoogleCloudAiplatformV1beta1JiraSource;
       /** Optional. The max number of queries per minute that this job is allowed to make to the embedding model specified on the corpus. This value is specific to this job and not shared across other import jobs. Consult the Quotas page on the project to set an appropriate value here. If unspecified, a default value of 1,000 QPM would be used. */
       maxEmbeddingRequestsPerMin?: number;
-      /** The BigQuery destination to write partial failures to. It should be a bigquery table resource name (e.g. "bq://projectId.bqDatasetId.bqTableId"). If the dataset id does not exist, it will be created. If the table does not exist, it will be created with the expected schema. If the table exists, the schema will be validated and data will be added to this existing table. */
+      /** The BigQuery destination to write partial failures to. It should be a bigquery table resource name (e.g. "bq://projectId.bqDatasetId.bqTableId"). The dataset must exist. If the table does not exist, it will be created with the expected schema. If the table exists, the schema will be validated and data will be added to this existing table. Deprecated. Prefer to use `import_result_bq_sink`. */
       partialFailureBigquerySink?: GoogleCloudAiplatformV1beta1BigQueryDestination;
-      /** The Cloud Storage path to write partial failures to. */
+      /** The Cloud Storage path to write partial failures to. Deprecated. Prefer to use `import_result_gcs_sink`. */
       partialFailureGcsSink?: GoogleCloudAiplatformV1beta1GcsDestination;
       /** Specifies the size and overlap of chunks after importing RagFiles. */
       ragFileChunkingConfig?: GoogleCloudAiplatformV1beta1RagFileChunkingConfig;
@@ -3289,7 +3311,7 @@ declare namespace gapi.client {
       jiraQueries?: GoogleCloudAiplatformV1beta1JiraSourceJiraQueries[];
     }
     interface GoogleCloudAiplatformV1beta1JiraSourceJiraQueries {
-      /** Required. The SecretManager secret version resource name (e.g. projects/{project}/secrets/{secret}/versions/{version}) storing the Jira API key (https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/). */
+      /** Required. The SecretManager secret version resource name (e.g. projects/{project}/secrets/{secret}/versions/{version}) storing the Jira API key. See [Manage API tokens for your Atlassian account](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/). */
       apiKeyConfig?: GoogleCloudAiplatformV1beta1ApiAuthApiKeyConfig;
       /** A list of custom Jira queries to import. For information about JQL (Jira Query Language), see https://support.atlassian.com/jira-service-management-cloud/docs/use-advanced-search-with-jira-query-language-jql/ */
       customQueries?: string[];
@@ -4987,6 +5009,10 @@ declare namespace gapi.client {
       version?: number;
     }
     interface GoogleCloudAiplatformV1beta1Part {
+      /** Optional. Result of executing the [ExecutableCode]. */
+      codeExecutionResult?: GoogleCloudAiplatformV1beta1CodeExecutionResult;
+      /** Optional. Code generated by the model that is meant to be executed. */
+      executableCode?: GoogleCloudAiplatformV1beta1ExecutableCode;
       /** Optional. URI based data. */
       fileData?: GoogleCloudAiplatformV1beta1FileData;
       /** Optional. A predicted [FunctionCall] returned from the model that contains a string representing the [FunctionDeclaration.name] with the parameters and their values. */
@@ -5113,6 +5139,8 @@ declare namespace gapi.client {
       taskDetails?: GoogleCloudAiplatformV1beta1PipelineTaskDetail[];
     }
     interface GoogleCloudAiplatformV1beta1PipelineJobRuntimeConfig {
+      /** Optional. The default runtime for the PipelineJob. If not provided, Vertex Custom Job(on demand) is used as the runtime. For Vertex Custom Job, please refer to https://cloud.google.com/vertex-ai/docs/training/overview. */
+      defaultRuntime?: GoogleCloudAiplatformV1beta1PipelineJobRuntimeConfigDefaultRuntime;
       /** Represents the failure policy of a pipeline. Currently, the default of a pipeline is that the pipeline will continue to run until no more tasks can be executed, also known as PIPELINE_FAILURE_POLICY_FAIL_SLOW. However, if a pipeline is set to PIPELINE_FAILURE_POLICY_FAIL_FAST, it will stop scheduling any new tasks when a task has failed. Any scheduled tasks will continue to completion. */
       failurePolicy?: string;
       /** Required. A path in a Cloud Storage bucket, which will be treated as the root output directory of the pipeline. It is used by the system to generate the paths of output artifacts. The artifact paths are generated with a sub-path pattern `{job_id}/{task_id}/{output_key}` under the specified output directory. The service account specified in this pipeline must have the `storage.objects.get` and `storage.objects.create` permissions for this bucket. */
@@ -5126,9 +5154,21 @@ declare namespace gapi.client {
       /** The runtime parameters of the PipelineJob. The parameters will be passed into PipelineJob.pipeline_spec to replace the placeholders at runtime. This field is used by pipelines built using `PipelineJob.pipeline_spec.schema_version` 2.1.0, such as pipelines built using Kubeflow Pipelines SDK 1.9 or higher and the v2 DSL. */
       parameterValues?: {[P in string]: any};
     }
+    interface GoogleCloudAiplatformV1beta1PipelineJobRuntimeConfigDefaultRuntime {
+      /** Persistent resource based runtime detail. */
+      persistentResourceRuntimeDetail?: GoogleCloudAiplatformV1beta1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail;
+    }
     interface GoogleCloudAiplatformV1beta1PipelineJobRuntimeConfigInputArtifact {
       /** Artifact resource id from MLMD. Which is the last portion of an artifact resource name: `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`. The artifact must stay within the same project, location and default metadatastore as the pipeline. */
       artifactId?: string;
+    }
+    interface GoogleCloudAiplatformV1beta1PipelineJobRuntimeConfigPersistentResourceRuntimeDetail {
+      /** Persistent resource name. Format: `projects/{project}/locations/{location}/persistentResources/{persistent_resource}` */
+      persistentResourceName?: string;
+      /** Specifies the behavior to take if the timeout is reached. */
+      taskResourceUnavailableTimeoutBehavior?: string;
+      /** The max time a pipeline task waits for the required CPU, memory, or accelerator resource to become available from the specified persistent resource. Default wait time is 0. */
+      taskResourceUnavailableWaitTimeMs?: string;
     }
     interface GoogleCloudAiplatformV1beta1PipelineTaskDetail {
       /** Output only. Task create time. */
@@ -5346,7 +5386,7 @@ declare namespace gapi.client {
       projectId?: string;
     }
     interface GoogleCloudAiplatformV1beta1PscInterfaceConfig {
-      /** Optional. The full name of the Compute Engine [network attachment](https://cloud.google.com/vpc/docs/about-network-attachments) to attach to the resource. For example, `projects/12345/regions/us-central1/networkAttachments/myNA`. is of the form `projects/{project}/regions/{region}/networkAttachments/{networkAttachment}`. Where {project} is a project number, as in `12345`, and {networkAttachment} is a network attachment name. To specify this field, you must have already [created a network attachment] (https://cloud.google.com/vpc/docs/create-manage-network-attachments#create-network-attachments). This field is only used for resources using PSC-I. */
+      /** Optional. The name of the Compute Engine [network attachment](https://cloud.google.com/vpc/docs/about-network-attachments) to attach to the resource within the region and user project. To specify this field, you must have already [created a network attachment] (https://cloud.google.com/vpc/docs/create-manage-network-attachments#create-network-attachments). This field is only used for resources using PSC-I. */
       networkAttachment?: string;
     }
     interface GoogleCloudAiplatformV1beta1PublisherModel {
@@ -5426,7 +5466,7 @@ declare namespace gapi.client {
       title?: string;
     }
     interface GoogleCloudAiplatformV1beta1PublisherModelCallToActionDeployDeployMetadata {
-      /** Optional. Labels for the deployment. For managing deployment config like verifying, source of deployment config, etc. */
+      /** Optional. Labels for the deployment config. For managing deployment config like verifying, source of deployment config, etc. */
       labels?: {[P in string]: string};
       /** Optional. Sample request for deployed endpoint. */
       sampleRequest?: string;
@@ -5867,6 +5907,8 @@ declare namespace gapi.client {
       headNodeResourcePoolId?: string;
       /** Optional. Default image for user to choose a preferred ML framework (for example, TensorFlow or Pytorch) by choosing from [Vertex prebuilt images](https://cloud.google.com/vertex-ai/docs/training/pre-built-containers). Either this or the resource_pool_images is required. Use this field if you need all the resource pools to have the same Ray image. Otherwise, use the {@code resource_pool_images} field. */
       imageUri?: string;
+      /** Optional. Use if you want to mount to any NFS storages. */
+      nfsMounts?: GoogleCloudAiplatformV1beta1NfsMount[];
       /** Optional. OSS Ray logging configurations. */
       rayLogsSpec?: GoogleCloudAiplatformV1beta1RayLogsSpec;
       /** Optional. Ray metrics configurations. */
@@ -5963,7 +6005,7 @@ declare namespace gapi.client {
       updateTime?: string;
     }
     interface GoogleCloudAiplatformV1beta1ReasoningEngineSpec {
-      /** Optional. Declarations for object class methods. */
+      /** Optional. Declarations for object class methods in OpenAPI specification format. */
       classMethods?: Array<{[P in string]: any}>;
       /** Required. User provided package spec of the ReasoningEngine. */
       packageSpec?: GoogleCloudAiplatformV1beta1ReasoningEngineSpecPackageSpec;
@@ -7053,10 +7095,16 @@ declare namespace gapi.client {
       context?: GoogleCloudAiplatformV1beta1Content;
       /** Preamble: A set of examples for expected model response. */
       examples?: GoogleCloudAiplatformV1beta1SchemaPromptSpecPartList[];
+      /** Preamble: For infill prompt, the prefix before expected model response. */
+      infillPrefix?: string;
+      /** Preamble: For infill prompt, the suffix after expected model response. */
+      infillSuffix?: string;
       /** Preamble: The input prefixes before each example input. */
       inputPrefixes?: string[];
       /** Preamble: The output prefixes before each example output. */
       outputPrefixes?: string[];
+      /** Preamble: The input test data for prediction. Each PartList in this field represents one text-only input set for a single model request. */
+      predictionInputs?: GoogleCloudAiplatformV1beta1SchemaPromptSpecPartList[];
       /** The prompt message. */
       promptMessage?: GoogleCloudAiplatformV1beta1SchemaPromptSpecPromptMessage;
     }
@@ -7966,6 +8014,7 @@ declare namespace gapi.client {
       progressMessage?: string;
     }
     interface GoogleCloudAiplatformV1beta1StartNotebookRuntimeRequest {}
+    interface GoogleCloudAiplatformV1beta1StopNotebookRuntimeRequest {}
     interface GoogleCloudAiplatformV1beta1StopTrialRequest {}
     interface GoogleCloudAiplatformV1beta1StratifiedSplit {
       /** Required. The key is a name of one of the Dataset's data columns. The key provided must be for a categorical column. */
@@ -8576,6 +8625,8 @@ declare namespace gapi.client {
       tokens?: string[];
     }
     interface GoogleCloudAiplatformV1beta1Tool {
+      /** Optional. CodeExecution tool type. Enables the model to execute code as part of generation. This field is only used by the Gemini Developer API services. */
+      codeExecution?: any;
       /** Optional. Function tool type. One or more function declarations to be passed to the model along with the current user query. Model may decide to call a subset of these functions by populating FunctionCall in the response. User should provide a FunctionResponse for each function call in the next turn. Based on the function responses, Model will generate the final response back to the user. Maximum 128 function declarations can be provided. */
       functionDeclarations?: GoogleCloudAiplatformV1beta1FunctionDeclaration[];
       /** Optional. GoogleSearchRetrieval tool type. Specialized retrieval tool that is powered by Google search. */
@@ -8604,6 +8655,7 @@ declare namespace gapi.client {
       toolCallValidMetricValues?: GoogleCloudAiplatformV1beta1ToolCallValidMetricValue[];
     }
     interface GoogleCloudAiplatformV1beta1ToolCallValidSpec {}
+    interface GoogleCloudAiplatformV1beta1ToolCodeExecution {}
     interface GoogleCloudAiplatformV1beta1ToolConfig {
       /** Optional. Function calling config. */
       functionCallingConfig?: GoogleCloudAiplatformV1beta1FunctionCallingConfig;
@@ -8869,6 +8921,10 @@ declare namespace gapi.client {
     interface GoogleCloudAiplatformV1beta1UpdateDeploymentResourcePoolOperationMetadata {
       /** The operation generic information. */
       genericMetadata?: GoogleCloudAiplatformV1beta1GenericOperationMetadata;
+    }
+    interface GoogleCloudAiplatformV1beta1UpdateEndpointLongRunningRequest {
+      /** Required. The Endpoint which replaces the resource on the server. Currently we only support updating the `client_connection_config` field, all the other fields' update will be blocked. */
+      endpoint?: GoogleCloudAiplatformV1beta1Endpoint;
     }
     interface GoogleCloudAiplatformV1beta1UpdateExplanationDatasetOperationMetadata {
       /** The common part of the operation metadata. */
@@ -14746,6 +14802,64 @@ declare namespace gapi.client {
         },
         body: GoogleCloudAiplatformV1beta1UndeployModelRequest
       ): Request<GoogleLongrunningOperation>;
+      /** Updates an Endpoint with a long running operation. */
+      update(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Output only. The resource name of the Endpoint. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1UpdateEndpointLongRunningRequest;
+      }): Request<GoogleLongrunningOperation>;
+      update(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Output only. The resource name of the Endpoint. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1UpdateEndpointLongRunningRequest
+      ): Request<GoogleLongrunningOperation>;
       chat: ChatResource;
       operations: OperationsResource;
     }
@@ -16819,7 +16933,7 @@ declare namespace gapi.client {
         prettyPrint?: boolean;
         /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
         quotaUser?: string;
-        /** Field mask is used to specify the fields to be overwritten in the FeatureView resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten. Set the update_mask to `*` to override all fields. Updatable fields: * `labels` * `service_agent_type` * `big_query_source` * `big_query_source.uri` * `big_query_source.entity_id_columns` * `feature_registry_source` * `feature_registry_source.feature_groups` * `sync_config` * `sync_config.cron` */
+        /** Field mask is used to specify the fields to be overwritten in the FeatureView resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten. Set the update_mask to `*` to override all fields. Updatable fields: * `labels` * `service_agent_type` * `big_query_source` * `big_query_source.uri` * `big_query_source.entity_id_columns` * `feature_registry_source` * `feature_registry_source.feature_groups` * `sync_config` * `sync_config.cron` * `optimized_config.automatic_resources` */
         updateMask?: string;
         /** Upload protocol for media (e.g. "raw", "multipart"). */
         upload_protocol?: string;
@@ -16850,7 +16964,7 @@ declare namespace gapi.client {
           prettyPrint?: boolean;
           /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
           quotaUser?: string;
-          /** Field mask is used to specify the fields to be overwritten in the FeatureView resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten. Set the update_mask to `*` to override all fields. Updatable fields: * `labels` * `service_agent_type` * `big_query_source` * `big_query_source.uri` * `big_query_source.entity_id_columns` * `feature_registry_source` * `feature_registry_source.feature_groups` * `sync_config` * `sync_config.cron` */
+          /** Field mask is used to specify the fields to be overwritten in the FeatureView resource by the update. The fields specified in the update_mask are relative to the resource, not the full request. A field will be overwritten if it is in the mask. If the user does not provide a mask then only the non-empty fields present in the request will be overwritten. Set the update_mask to `*` to override all fields. Updatable fields: * `labels` * `service_agent_type` * `big_query_source` * `big_query_source.uri` * `big_query_source.entity_id_columns` * `feature_registry_source` * `feature_registry_source.feature_groups` * `sync_config` * `sync_config.cron` * `optimized_config.automatic_resources` */
           updateMask?: string;
           /** Upload protocol for media (e.g. "raw", "multipart"). */
           upload_protocol?: string;
@@ -26498,6 +26612,64 @@ declare namespace gapi.client {
           uploadType?: string;
         },
         body: GoogleCloudAiplatformV1beta1StartNotebookRuntimeRequest
+      ): Request<GoogleLongrunningOperation>;
+      /** Stops a NotebookRuntime. */
+      stop(request: {
+        /** V1 error format. */
+        '$.xgafv'?: string;
+        /** OAuth access token. */
+        access_token?: string;
+        /** Data format for response. */
+        alt?: string;
+        /** JSONP */
+        callback?: string;
+        /** Selector specifying which fields to include in a partial response. */
+        fields?: string;
+        /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+        key?: string;
+        /** Required. The name of the NotebookRuntime resource to be stopped. Instead of checking whether the name is in valid NotebookRuntime resource name format, directly throw NotFound exception if there is no such NotebookRuntime in spanner. */
+        name: string;
+        /** OAuth 2.0 token for the current user. */
+        oauth_token?: string;
+        /** Returns response with indentations and line breaks. */
+        prettyPrint?: boolean;
+        /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+        quotaUser?: string;
+        /** Upload protocol for media (e.g. "raw", "multipart"). */
+        upload_protocol?: string;
+        /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+        uploadType?: string;
+        /** Request body */
+        resource: GoogleCloudAiplatformV1beta1StopNotebookRuntimeRequest;
+      }): Request<GoogleLongrunningOperation>;
+      stop(
+        request: {
+          /** V1 error format. */
+          '$.xgafv'?: string;
+          /** OAuth access token. */
+          access_token?: string;
+          /** Data format for response. */
+          alt?: string;
+          /** JSONP */
+          callback?: string;
+          /** Selector specifying which fields to include in a partial response. */
+          fields?: string;
+          /** API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token. */
+          key?: string;
+          /** Required. The name of the NotebookRuntime resource to be stopped. Instead of checking whether the name is in valid NotebookRuntime resource name format, directly throw NotFound exception if there is no such NotebookRuntime in spanner. */
+          name: string;
+          /** OAuth 2.0 token for the current user. */
+          oauth_token?: string;
+          /** Returns response with indentations and line breaks. */
+          prettyPrint?: boolean;
+          /** Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. */
+          quotaUser?: string;
+          /** Upload protocol for media (e.g. "raw", "multipart"). */
+          upload_protocol?: string;
+          /** Legacy upload protocol for media (e.g. "media", "multipart"). */
+          uploadType?: string;
+        },
+        body: GoogleCloudAiplatformV1beta1StopNotebookRuntimeRequest
       ): Request<GoogleLongrunningOperation>;
       /** Upgrades a NotebookRuntime. */
       upgrade(request: {

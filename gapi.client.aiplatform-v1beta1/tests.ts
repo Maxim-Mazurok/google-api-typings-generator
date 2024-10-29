@@ -203,6 +203,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -247,6 +255,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -329,6 +345,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -360,6 +384,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -452,6 +477,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -542,6 +575,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -579,6 +620,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -671,6 +713,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -761,6 +811,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -798,6 +856,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -988,6 +1047,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -1044,6 +1111,14 @@ gapi.load('client', async () => {
         content: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -1823,6 +1898,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -1861,6 +1944,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -1898,6 +1989,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -2013,6 +2105,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -2051,6 +2151,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -2088,6 +2196,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -3067,6 +3176,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -3111,6 +3228,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -3193,6 +3318,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -3224,6 +3357,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -3312,6 +3446,9 @@ gapi.load('client', async () => {
         parent: 'Test string',
       },
       {
+        clientConnectionConfig: {
+          inferenceTimeout: 'Test string',
+        },
         createTime: 'Test string',
         dedicatedEndpointDns: 'Test string',
         dedicatedEndpointEnabled: true,
@@ -3460,6 +3597,9 @@ gapi.load('client', async () => {
             },
             serviceAccount: 'Test string',
             sharedResources: 'Test string',
+            systemLabels: {
+              A: 'Test string',
+            },
           },
         ],
         description: 'Test string',
@@ -3650,6 +3790,9 @@ gapi.load('client', async () => {
           },
           serviceAccount: 'Test string',
           sharedResources: 'Test string',
+          systemLabels: {
+            A: 'Test string',
+          },
         },
         trafficSplit: {
           A: 42,
@@ -3896,6 +4039,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -3986,6 +4137,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -4023,6 +4182,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -4271,6 +4431,9 @@ gapi.load('client', async () => {
           },
           serviceAccount: 'Test string',
           sharedResources: 'Test string',
+          systemLabels: {
+            A: 'Test string',
+          },
         },
         updateMask: 'Test string',
       }
@@ -4282,6 +4445,9 @@ gapi.load('client', async () => {
         updateMask: 'Test string',
       },
       {
+        clientConnectionConfig: {
+          inferenceTimeout: 'Test string',
+        },
         createTime: 'Test string',
         dedicatedEndpointDns: 'Test string',
         dedicatedEndpointEnabled: true,
@@ -4430,6 +4596,9 @@ gapi.load('client', async () => {
             },
             serviceAccount: 'Test string',
             sharedResources: 'Test string',
+            systemLabels: {
+              A: 'Test string',
+            },
           },
         ],
         description: 'Test string',
@@ -4570,6 +4739,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -4660,6 +4837,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -4697,6 +4882,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -4811,6 +4997,204 @@ gapi.load('client', async () => {
         deployedModelId: 'Test string',
         trafficSplit: {
           A: 42,
+        },
+      }
+    );
+    /** Updates an Endpoint with a long running operation. */
+    await gapi.client.aiplatform.projects.locations.endpoints.update(
+      {
+        name: 'Test string',
+      },
+      {
+        endpoint: {
+          clientConnectionConfig: {
+            inferenceTimeout: 'Test string',
+          },
+          createTime: 'Test string',
+          dedicatedEndpointDns: 'Test string',
+          dedicatedEndpointEnabled: true,
+          deployedModels: [
+            {
+              automaticResources: {
+                maxReplicaCount: 42,
+                minReplicaCount: 42,
+              },
+              createTime: 'Test string',
+              dedicatedResources: {
+                autoscalingMetricSpecs: [
+                  {
+                    metricName: 'Test string',
+                    target: 42,
+                  },
+                ],
+                machineSpec: {
+                  acceleratorCount: 42,
+                  acceleratorType: 'Test string',
+                  machineType: 'Test string',
+                  reservationAffinity: {
+                    key: 'Test string',
+                    reservationAffinityType: 'Test string',
+                    values: ['Test string'],
+                  },
+                  tpuTopology: 'Test string',
+                },
+                maxReplicaCount: 42,
+                minReplicaCount: 42,
+                spot: true,
+              },
+              disableExplanations: true,
+              displayName: 'Test string',
+              enableAccessLogging: true,
+              enableContainerLogging: true,
+              explanationSpec: {
+                metadata: {
+                  featureAttributionsSchemaUri: 'Test string',
+                  inputs: {
+                    A: {
+                      denseShapeTensorName: 'Test string',
+                      encodedBaselines: [42],
+                      encodedTensorName: 'Test string',
+                      encoding: 'Test string',
+                      featureValueDomain: {
+                        maxValue: 42,
+                        minValue: 42,
+                        originalMean: 42,
+                        originalStddev: 42,
+                      },
+                      groupName: 'Test string',
+                      indexFeatureMapping: ['Test string'],
+                      indicesTensorName: 'Test string',
+                      inputBaselines: [42],
+                      inputTensorName: 'Test string',
+                      modality: 'Test string',
+                      visualization: {
+                        clipPercentLowerbound: 42,
+                        clipPercentUpperbound: 42,
+                        colorMap: 'Test string',
+                        overlayType: 'Test string',
+                        polarity: 'Test string',
+                        type: 'Test string',
+                      },
+                    },
+                  },
+                  latentSpaceSource: 'Test string',
+                  outputs: {
+                    A: {
+                      displayNameMappingKey: 'Test string',
+                      indexDisplayNameMapping: 42,
+                      outputTensorName: 'Test string',
+                    },
+                  },
+                },
+                parameters: {
+                  examples: {
+                    exampleGcsSource: {
+                      dataFormat: 'Test string',
+                      gcsSource: {
+                        uris: ['Test string'],
+                      },
+                    },
+                    gcsSource: {
+                      uris: ['Test string'],
+                    },
+                    nearestNeighborSearchConfig: 42,
+                    neighborCount: 42,
+                    presets: {
+                      modality: 'Test string',
+                      query: 'Test string',
+                    },
+                  },
+                  integratedGradientsAttribution: {
+                    blurBaselineConfig: {
+                      maxBlurSigma: 42,
+                    },
+                    smoothGradConfig: {
+                      featureNoiseSigma: {
+                        noiseSigma: [
+                          {
+                            name: 'Test string',
+                            sigma: 42,
+                          },
+                        ],
+                      },
+                      noiseSigma: 42,
+                      noisySampleCount: 42,
+                    },
+                    stepCount: 42,
+                  },
+                  outputIndices: [42],
+                  sampledShapleyAttribution: {
+                    pathCount: 42,
+                  },
+                  topK: 42,
+                  xraiAttribution: {
+                    blurBaselineConfig: {
+                      maxBlurSigma: 42,
+                    },
+                    smoothGradConfig: {
+                      featureNoiseSigma: {
+                        noiseSigma: [
+                          {
+                            name: 'Test string',
+                            sigma: 42,
+                          },
+                        ],
+                      },
+                      noiseSigma: 42,
+                      noisySampleCount: 42,
+                    },
+                    stepCount: 42,
+                  },
+                },
+              },
+              id: 'Test string',
+              model: 'Test string',
+              modelVersionId: 'Test string',
+              privateEndpoints: {
+                explainHttpUri: 'Test string',
+                healthHttpUri: 'Test string',
+                predictHttpUri: 'Test string',
+                serviceAttachment: 'Test string',
+              },
+              serviceAccount: 'Test string',
+              sharedResources: 'Test string',
+              systemLabels: {
+                A: 'Test string',
+              },
+            },
+          ],
+          description: 'Test string',
+          displayName: 'Test string',
+          enablePrivateServiceConnect: true,
+          encryptionSpec: {
+            kmsKeyName: 'Test string',
+          },
+          etag: 'Test string',
+          labels: {
+            A: 'Test string',
+          },
+          modelDeploymentMonitoringJob: 'Test string',
+          name: 'Test string',
+          network: 'Test string',
+          predictRequestResponseLoggingConfig: {
+            bigqueryDestination: {
+              outputUri: 'Test string',
+            },
+            enabled: true,
+            samplingRate: 42,
+          },
+          privateServiceConnectConfig: {
+            enablePrivateServiceConnect: true,
+            enableSecurePrivateServiceConnect: true,
+            projectAllowlist: ['Test string'],
+            serviceAttachment: 'Test string',
+          },
+          satisfiesPzi: true,
+          satisfiesPzs: true,
+          trafficSplit: {
+            A: 42,
+          },
+          updateTime: 'Test string',
         },
       }
     );
@@ -5284,6 +5668,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -11146,6 +11538,13 @@ gapi.load('client', async () => {
       },
       {}
     );
+    /** Stops a NotebookRuntime. */
+    await gapi.client.aiplatform.projects.locations.notebookRuntimes.stop(
+      {
+        name: 'Test string',
+      },
+      {}
+    );
     /** Upgrades a NotebookRuntime. */
     await gapi.client.aiplatform.projects.locations.notebookRuntimes.upgrade(
       {
@@ -11484,6 +11883,13 @@ gapi.load('client', async () => {
           raySpec: {
             headNodeResourcePoolId: 'Test string',
             imageUri: 'Test string',
+            nfsMounts: [
+              {
+                mountPoint: 'Test string',
+                path: 'Test string',
+                server: 'Test string',
+              },
+            ],
             rayLogsSpec: {
               disabled: true,
             },
@@ -11586,6 +11992,13 @@ gapi.load('client', async () => {
           raySpec: {
             headNodeResourcePoolId: 'Test string',
             imageUri: 'Test string',
+            nfsMounts: [
+              {
+                mountPoint: 'Test string',
+                path: 'Test string',
+                server: 'Test string',
+              },
+            ],
             rayLogsSpec: {
               disabled: true,
             },
@@ -11905,6 +12318,13 @@ gapi.load('client', async () => {
         },
         reservedIpRanges: ['Test string'],
         runtimeConfig: {
+          defaultRuntime: {
+            persistentResourceRuntimeDetail: {
+              persistentResourceName: 'Test string',
+              taskResourceUnavailableTimeoutBehavior: 'Test string',
+              taskResourceUnavailableWaitTimeMs: 'Test string',
+            },
+          },
           failurePolicy: 'Test string',
           gcsOutputDirectory: 'Test string',
           inputArtifacts: {
@@ -11997,6 +12417,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -12041,6 +12469,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -12123,6 +12559,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -12154,6 +12598,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -12246,6 +12691,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -12336,6 +12789,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -12373,6 +12834,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -12541,6 +13003,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -12631,6 +13101,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -12668,6 +13146,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -13741,6 +14220,13 @@ gapi.load('client', async () => {
             },
             reservedIpRanges: ['Test string'],
             runtimeConfig: {
+              defaultRuntime: {
+                persistentResourceRuntimeDetail: {
+                  persistentResourceName: 'Test string',
+                  taskResourceUnavailableTimeoutBehavior: 'Test string',
+                  taskResourceUnavailableWaitTimeMs: 'Test string',
+                },
+              },
               failurePolicy: 'Test string',
               gcsOutputDirectory: 'Test string',
               inputArtifacts: {
@@ -14378,6 +14864,13 @@ gapi.load('client', async () => {
             },
             reservedIpRanges: ['Test string'],
             runtimeConfig: {
+              defaultRuntime: {
+                persistentResourceRuntimeDetail: {
+                  persistentResourceName: 'Test string',
+                  taskResourceUnavailableTimeoutBehavior: 'Test string',
+                  taskResourceUnavailableWaitTimeMs: 'Test string',
+                },
+              },
               failurePolicy: 'Test string',
               gcsOutputDirectory: 'Test string',
               inputArtifacts: {
@@ -15873,6 +16366,14 @@ gapi.load('client', async () => {
                 {
                   parts: [
                     {
+                      codeExecutionResult: {
+                        outcome: 'Test string',
+                        output: 'Test string',
+                      },
+                      executableCode: {
+                        code: 'Test string',
+                        language: 'Test string',
+                      },
                       fileData: {
                         fileUri: 'Test string',
                         mimeType: 'Test string',
@@ -15965,6 +16466,14 @@ gapi.load('client', async () => {
               {
                 parts: [
                   {
+                    codeExecutionResult: {
+                      outcome: 'Test string',
+                      output: 'Test string',
+                    },
+                    executableCode: {
+                      code: 'Test string',
+                      language: 'Test string',
+                    },
                     fileData: {
                       fileUri: 'Test string',
                       mimeType: 'Test string',
@@ -16147,6 +16656,14 @@ gapi.load('client', async () => {
                   {
                     parts: [
                       {
+                        codeExecutionResult: {
+                          outcome: 'Test string',
+                          output: 'Test string',
+                        },
+                        executableCode: {
+                          code: 'Test string',
+                          language: 'Test string',
+                        },
                         fileData: {
                           fileUri: 'Test string',
                           mimeType: 'Test string',
@@ -16239,6 +16756,14 @@ gapi.load('client', async () => {
                 {
                   parts: [
                     {
+                      codeExecutionResult: {
+                        outcome: 'Test string',
+                        output: 'Test string',
+                      },
+                      executableCode: {
+                        code: 'Test string',
+                        language: 'Test string',
+                      },
                       fileData: {
                         fileUri: 'Test string',
                         mimeType: 'Test string',
@@ -16342,6 +16867,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -16386,6 +16919,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -16468,6 +17009,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -16499,6 +17048,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -16591,6 +17141,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -16681,6 +17239,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -16718,6 +17284,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
@@ -16828,6 +17395,14 @@ gapi.load('client', async () => {
           {
             parts: [
               {
+                codeExecutionResult: {
+                  outcome: 'Test string',
+                  output: 'Test string',
+                },
+                executableCode: {
+                  code: 'Test string',
+                  language: 'Test string',
+                },
                 fileData: {
                   fileUri: 'Test string',
                   mimeType: 'Test string',
@@ -16918,6 +17493,14 @@ gapi.load('client', async () => {
         systemInstruction: {
           parts: [
             {
+              codeExecutionResult: {
+                outcome: 'Test string',
+                output: 'Test string',
+              },
+              executableCode: {
+                code: 'Test string',
+                language: 'Test string',
+              },
               fileData: {
                 fileUri: 'Test string',
                 mimeType: 'Test string',
@@ -16955,6 +17538,7 @@ gapi.load('client', async () => {
         },
         tools: [
           {
+            codeExecution: {},
             functionDeclarations: [
               {
                 description: 'Test string',
