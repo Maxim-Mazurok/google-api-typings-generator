@@ -75,6 +75,21 @@ var client_id = '',
     // View chat and spaces in Google Chat
     'https://www.googleapis.com/auth/chat.spaces.readonly',
 
+    // See, edit, create, and delete all of your Google Drive files
+    'https://www.googleapis.com/auth/drive',
+
+    // See, edit, create, and delete only the specific Google Drive files you use with this app
+    'https://www.googleapis.com/auth/drive.file',
+
+    // View and manage metadata of files in your Google Drive
+    'https://www.googleapis.com/auth/drive.metadata',
+
+    // See information about your Google Drive files
+    'https://www.googleapis.com/auth/drive.metadata.readonly',
+
+    // See and download all your Google Drive files
+    'https://www.googleapis.com/auth/drive.readonly',
+
     // Create, edit, and see information about your Google Meet conferences created by the app.
     'https://www.googleapis.com/auth/meetings.space.created',
 
@@ -130,7 +145,7 @@ await gapi.client.workspaceevents.subscriptions.list({});
 await gapi.client.workspaceevents.subscriptions.patch({name: 'name'});
 
 /*
-[Developer Preview](https://developers.google.com/workspace/preview): Reactivates a suspended Google Workspace subscription. This method resets your subscription's `State` field to `ACTIVE`. Before you use this method, you must fix the error that suspended the subscription. To learn how to use this method, see [Reactivate a Google Workspace subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
+[Developer Preview](https://developers.google.com/workspace/preview): Reactivates a suspended Google Workspace subscription. This method resets your subscription's `State` field to `ACTIVE`. Before you use this method, you must fix the error that suspended the subscription. This method will ignore or reject any subscription that isn't currently in a suspended state. To learn how to use this method, see [Reactivate a Google Workspace subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
 */
 await gapi.client.workspaceevents.subscriptions.reactivate({name: 'name'});
 ```
