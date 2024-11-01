@@ -70,7 +70,7 @@ After that you can use Sensitive Data Protection (DLP) resources: <!-- TODO: mak
 
 ```typescript
 /*
-Returns a list of the sensitive information types that the DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
+Returns a list of the sensitive information types that DLP API supports. See https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference to learn more.
 */
 await gapi.client.dlp.infoTypes.list({});
 ```
