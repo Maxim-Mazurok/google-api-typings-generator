@@ -116,4 +116,14 @@ await gapi.client.aiplatform.endpoints.generateContent({model: 'model'});
 Generate content with multimodal inputs with streaming support.
 */
 await gapi.client.aiplatform.endpoints.streamGenerateContent({model: 'model'});
+
+/*
+Gets a GenAI cache config.
+*/
+await gapi.client.aiplatform.projects.getCacheConfig({name: 'name'});
+
+/*
+Updates a cache config.
+*/
+await gapi.client.aiplatform.projects.updateCacheConfig({name: 'name'});
 ```
