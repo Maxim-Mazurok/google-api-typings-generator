@@ -1301,7 +1301,7 @@ Adds an access config to an instance's network interface.
 await gapi.client.compute.instances.addAccessConfig({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
 
 /*
-Adds a network interface to an instance.
+Adds one dynamic network interface to an active instance.
 */
 await gapi.client.compute.instances.addNetworkInterface({ instance: "instance", project: "project", zone: "zone",  });
 
@@ -1336,7 +1336,7 @@ Deletes an access config from an instance's network interface.
 await gapi.client.compute.instances.deleteAccessConfig({ accessConfig: "accessConfig", instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
 
 /*
-Deletes one network interface from an active instance. InstancesDeleteNetworkInterfaceRequest indicates: - instance from which to delete, using project+zone+resource_id fields; - network interface to be deleted, using network_interface_name field; Only VLAN interface deletion is supported for now.
+Deletes one dynamic network interface from an active instance. InstancesDeleteNetworkInterfaceRequest indicates: - instance from which to delete, using project+zone+resource_id fields; - dynamic network interface to be deleted, using network_interface_name field;
 */
 await gapi.client.compute.instances.deleteNetworkInterface({ instance: "instance", networkInterfaceName: "networkInterfaceName", project: "project", zone: "zone",  });
 
