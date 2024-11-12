@@ -103,6 +103,21 @@ Gets information about the user, the user's Drive, and system capabilities.
 await gapi.client.drive.about.get({  });
 
 /*
+Retrieves an AccessProposal by ID.
+*/
+await gapi.client.drive.accessproposals.get({ fileId: "fileId", proposalId: "proposalId",  });
+
+/*
+List the AccessProposals on a file. Note: Only approvers are able to list AccessProposals on a file. If the user is not an approver, returns a 403.
+*/
+await gapi.client.drive.accessproposals.list({ fileId: "fileId",  });
+
+/*
+Used to approve or deny an Access Proposal.
+*/
+await gapi.client.drive.accessproposals.resolve({ fileId: "fileId", proposalId: "proposalId",  });
+
+/*
 Gets a specific app.
 */
 await gapi.client.drive.apps.get({ appId: "appId",  });
