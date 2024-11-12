@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.firebaseml-v2beta",
-  "version": "0.0.20241108",
+  "version": "0.0.20241110",
   "description": "TypeScript typings for Firebase ML API v2beta",
   "repository": {
     "type": "git",
