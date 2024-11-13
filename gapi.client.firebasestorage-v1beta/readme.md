@@ -72,13 +72,5 @@ gapi.auth.authorize(
 After that you can use Cloud Storage for Firebase API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
-/*
-Unlinks and deletes the default bucket.
-*/
-await gapi.client.firebasestorage.projects.deleteDefaultBucket({name: 'name'});
 
-/*
-Gets the default bucket.
-*/
-await gapi.client.firebasestorage.projects.getDefaultBucket({name: 'name'});
 ```
