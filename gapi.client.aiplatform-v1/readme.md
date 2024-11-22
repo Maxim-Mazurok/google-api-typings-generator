@@ -118,6 +118,11 @@ Generate content with multimodal inputs with streaming support.
 await gapi.client.aiplatform.endpoints.streamGenerateContent({model: 'model'});
 
 /*
+Upload a file into a RagCorpus.
+*/
+await gapi.client.aiplatform.media.upload({parent: 'parent'});
+
+/*
 Gets a GenAI cache config.
 */
 await gapi.client.aiplatform.projects.getCacheConfig({name: 'name'});
