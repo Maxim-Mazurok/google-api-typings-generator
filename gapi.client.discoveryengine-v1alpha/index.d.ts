@@ -869,6 +869,8 @@ declare namespace gapi.client {
       filterAction?: GoogleCloudDiscoveryengineV1alphaControlFilterAction;
       /** Immutable. Fully qualified name `projects/*‍/locations/global/dataStore/*‍/controls/*` */
       name?: string;
+      /** Promote certain links based on predefined trigger queries. This now only supports basic site search. */
+      promoteAction?: GoogleCloudDiscoveryengineV1alphaControlPromoteAction;
       /** Defines a redirect-type control. */
       redirectAction?: GoogleCloudDiscoveryengineV1alphaControlRedirectAction;
       /** Required. Immutable. What solution the control belongs to. Must be compatible with vertical of resource. Otherwise an INVALID ARGUMENT error is thrown. */
@@ -891,6 +893,12 @@ declare namespace gapi.client {
       dataStore?: string;
       /** Required. A filter to apply on the matching condition results. Required Syntax documentation: https://cloud.google.com/retail/docs/filter-and-order Maximum length is 5000 characters. Otherwise an INVALID ARGUMENT error is thrown. */
       filter?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1alphaControlPromoteAction {
+      /** Required. Data store with which this promotion is attached to. */
+      dataStore?: string;
+      /** Required. Promotion attached to this action. */
+      searchLinkPromotion?: GoogleCloudDiscoveryengineV1alphaSearchLinkPromotion;
     }
     interface GoogleCloudDiscoveryengineV1alphaControlRedirectAction {
       /** Required. The URI to which the shopper will be redirected. Required. URI must have length equal or less than 2000 characters. Otherwise an INVALID ARGUMENT error is thrown. */
@@ -2235,6 +2243,18 @@ declare namespace gapi.client {
       /** The user's search query. See SearchRequest.query for definition. The value must be a UTF-8 encoded string with a length limit of 5,000 characters. Otherwise, an `INVALID_ARGUMENT` error is returned. At least one of search_query or PageInfo.page_category is required for `search` events. Other event types should not set this field. Otherwise, an `INVALID_ARGUMENT` error is returned. */
       searchQuery?: string;
     }
+    interface GoogleCloudDiscoveryengineV1alphaSearchLinkPromotion {
+      /** Optional. The Promotion description. Maximum length: 200 characters. */
+      description?: string;
+      /** Optional. The enabled promotion will be returned for any serving configs associated with the parent of the control this promotion is attached to. This flag is used for basic site search only. */
+      enabled?: boolean;
+      /** Optional. The promotion thumbnail image url. */
+      imageUri?: string;
+      /** Required. The title of the promotion. Maximum length: 160 characters. */
+      title?: string;
+      /** Required. The URL for the page the user wants to promote. */
+      uri?: string;
+    }
     interface GoogleCloudDiscoveryengineV1alphaSearchRequest {
       /** Boost specification to boost certain documents. For more information on boosting, see [Boosting](https://cloud.google.com/generative-ai-app-builder/docs/boost-search-results) */
       boostSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestBoostSpec;
@@ -2721,6 +2741,8 @@ declare namespace gapi.client {
       onewaySynonymsControlIds?: string[];
       /** The specification for personalization spec. Notice that if both ServingConfig.personalization_spec and SearchRequest.personalization_spec are set, SearchRequest.personalization_spec overrides ServingConfig.personalization_spec. */
       personalizationSpec?: GoogleCloudDiscoveryengineV1alphaSearchRequestPersonalizationSpec;
+      /** Condition promote specifications. Maximum number of specifications is 100. */
+      promoteControlIds?: string[];
       /** The ranking expression controls the customized ranking on retrieval documents. To leverage this, document embedding is required. The ranking expression setting in ServingConfig applies to all search requests served by the serving config. However, if SearchRequest.ranking_expression is specified, it overrides the ServingConfig ranking expression. The ranking expression is a single function or multiple functions that are joined by "+". * ranking_expression = function, { " + ", function }; Supported functions: * double * relevance_score * double * dotProduct(embedding_field_path) Function variables: * `relevance_score`: pre-defined keywords, used for measure relevance between query and document. * `embedding_field_path`: the document embedding field used with query embedding vector. * `dotProduct`: embedding function between embedding_field_path and query embedding vector. Example ranking expression: If document has an embedding field doc_embedding, the ranking expression could be `0.5 * relevance_score + 0.3 * dotProduct(doc_embedding)`. */
       rankingExpression?: string;
       /** IDs of the redirect controls. Only the first triggered redirect action is applied, even if multiple apply. Maximum number of specifications is 100. Can only be set if SolutionType is SOLUTION_TYPE_SEARCH. */
@@ -3067,6 +3089,8 @@ declare namespace gapi.client {
       filterAction?: GoogleCloudDiscoveryengineV1betaControlFilterAction;
       /** Immutable. Fully qualified name `projects/*‍/locations/global/dataStore/*‍/controls/*` */
       name?: string;
+      /** Promote certain links based on predefined trigger queries. This now only supports basic site search. */
+      promoteAction?: GoogleCloudDiscoveryengineV1betaControlPromoteAction;
       /** Defines a redirect-type control. */
       redirectAction?: GoogleCloudDiscoveryengineV1betaControlRedirectAction;
       /** Required. Immutable. What solution the control belongs to. Must be compatible with vertical of resource. Otherwise an INVALID ARGUMENT error is thrown. */
@@ -3089,6 +3113,12 @@ declare namespace gapi.client {
       dataStore?: string;
       /** Required. A filter to apply on the matching condition results. Required Syntax documentation: https://cloud.google.com/retail/docs/filter-and-order Maximum length is 5000 characters. Otherwise an INVALID ARGUMENT error is thrown. */
       filter?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1betaControlPromoteAction {
+      /** Required. Data store with which this promotion is attached to. */
+      dataStore?: string;
+      /** Required. Promotion attached to this action. */
+      searchLinkPromotion?: GoogleCloudDiscoveryengineV1betaSearchLinkPromotion;
     }
     interface GoogleCloudDiscoveryengineV1betaControlRedirectAction {
       /** Required. The URI to which the shopper will be redirected. Required. URI must have length equal or less than 2000 characters. Otherwise an INVALID ARGUMENT error is thrown. */
@@ -3578,6 +3608,18 @@ declare namespace gapi.client {
       /** The structured representation of the schema. */
       structSchema?: {[P in string]: any};
     }
+    interface GoogleCloudDiscoveryengineV1betaSearchLinkPromotion {
+      /** Optional. The Promotion description. Maximum length: 200 characters. */
+      description?: string;
+      /** Optional. The enabled promotion will be returned for any serving configs associated with the parent of the control this promotion is attached to. This flag is used for basic site search only. */
+      enabled?: boolean;
+      /** Optional. The promotion thumbnail image url. */
+      imageUri?: string;
+      /** Required. The title of the promotion. Maximum length: 160 characters. */
+      title?: string;
+      /** Required. The URL for the page the user wants to promote. */
+      uri?: string;
+    }
     interface GoogleCloudDiscoveryengineV1betaSearchRequest {
       /** Boost specification to boost certain documents. For more information on boosting, see [Boosting](https://cloud.google.com/generative-ai-app-builder/docs/boost-search-results) */
       boostSpec?: GoogleCloudDiscoveryengineV1betaSearchRequestBoostSpec;
@@ -3958,6 +4000,8 @@ declare namespace gapi.client {
       filterAction?: GoogleCloudDiscoveryengineV1ControlFilterAction;
       /** Immutable. Fully qualified name `projects/*‍/locations/global/dataStore/*‍/controls/*` */
       name?: string;
+      /** Promote certain links based on predefined trigger queries. This now only supports basic site search. */
+      promoteAction?: GoogleCloudDiscoveryengineV1ControlPromoteAction;
       /** Defines a redirect-type control. */
       redirectAction?: GoogleCloudDiscoveryengineV1ControlRedirectAction;
       /** Required. Immutable. What solution the control belongs to. Must be compatible with vertical of resource. Otherwise an INVALID ARGUMENT error is thrown. */
@@ -3980,6 +4024,12 @@ declare namespace gapi.client {
       dataStore?: string;
       /** Required. A filter to apply on the matching condition results. Required Syntax documentation: https://cloud.google.com/retail/docs/filter-and-order Maximum length is 5000 characters. Otherwise an INVALID ARGUMENT error is thrown. */
       filter?: string;
+    }
+    interface GoogleCloudDiscoveryengineV1ControlPromoteAction {
+      /** Required. Data store with which this promotion is attached to. */
+      dataStore?: string;
+      /** Required. Promotion attached to this action. */
+      searchLinkPromotion?: GoogleCloudDiscoveryengineV1SearchLinkPromotion;
     }
     interface GoogleCloudDiscoveryengineV1ControlRedirectAction {
       /** Required. The URI to which the shopper will be redirected. Required. URI must have length equal or less than 2000 characters. Otherwise an INVALID ARGUMENT error is thrown. */
@@ -4341,6 +4391,18 @@ declare namespace gapi.client {
       name?: string;
       /** The structured representation of the schema. */
       structSchema?: {[P in string]: any};
+    }
+    interface GoogleCloudDiscoveryengineV1SearchLinkPromotion {
+      /** Optional. The Promotion description. Maximum length: 200 characters. */
+      description?: string;
+      /** Optional. The enabled promotion will be returned for any serving configs associated with the parent of the control this promotion is attached to. This flag is used for basic site search only. */
+      enabled?: boolean;
+      /** Optional. The promotion thumbnail image url. */
+      imageUri?: string;
+      /** Required. The title of the promotion. Maximum length: 160 characters. */
+      title?: string;
+      /** Required. The URL for the page the user wants to promote. */
+      uri?: string;
     }
     interface GoogleCloudDiscoveryengineV1SiteVerificationInfo {
       /** Site verification state indicating the ownership and validity. */

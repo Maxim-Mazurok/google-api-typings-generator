@@ -936,6 +936,16 @@ gapi.load('client', async () => {
           filter: 'Test string',
         },
         name: 'Test string',
+        promoteAction: {
+          dataStore: 'Test string',
+          searchLinkPromotion: {
+            description: 'Test string',
+            enabled: true,
+            imageUri: 'Test string',
+            title: 'Test string',
+            uri: 'Test string',
+          },
+        },
         redirectAction: {
           redirectUri: 'Test string',
         },
@@ -1003,6 +1013,16 @@ gapi.load('client', async () => {
           filter: 'Test string',
         },
         name: 'Test string',
+        promoteAction: {
+          dataStore: 'Test string',
+          searchLinkPromotion: {
+            description: 'Test string',
+            enabled: true,
+            imageUri: 'Test string',
+            title: 'Test string',
+            uri: 'Test string',
+          },
+        },
         redirectAction: {
           redirectUri: 'Test string',
         },
@@ -1653,6 +1673,7 @@ gapi.load('client', async () => {
         personalizationSpec: {
           mode: 'Test string',
         },
+        promoteControlIds: ['Test string'],
         rankingExpression: 'Test string',
         redirectControlIds: ['Test string'],
         replacementControlIds: ['Test string'],
@@ -3065,6 +3086,16 @@ gapi.load('client', async () => {
           filter: 'Test string',
         },
         name: 'Test string',
+        promoteAction: {
+          dataStore: 'Test string',
+          searchLinkPromotion: {
+            description: 'Test string',
+            enabled: true,
+            imageUri: 'Test string',
+            title: 'Test string',
+            uri: 'Test string',
+          },
+        },
         redirectAction: {
           redirectUri: 'Test string',
         },
@@ -3132,6 +3163,16 @@ gapi.load('client', async () => {
           filter: 'Test string',
         },
         name: 'Test string',
+        promoteAction: {
+          dataStore: 'Test string',
+          searchLinkPromotion: {
+            description: 'Test string',
+            enabled: true,
+            imageUri: 'Test string',
+            title: 'Test string',
+            uri: 'Test string',
+          },
+        },
         redirectAction: {
           redirectUri: 'Test string',
         },
@@ -3666,6 +3707,7 @@ gapi.load('client', async () => {
         personalizationSpec: {
           mode: 'Test string',
         },
+        promoteControlIds: ['Test string'],
         rankingExpression: 'Test string',
         redirectControlIds: ['Test string'],
         replacementControlIds: ['Test string'],
@@ -5139,6 +5181,16 @@ gapi.load('client', async () => {
           filter: 'Test string',
         },
         name: 'Test string',
+        promoteAction: {
+          dataStore: 'Test string',
+          searchLinkPromotion: {
+            description: 'Test string',
+            enabled: true,
+            imageUri: 'Test string',
+            title: 'Test string',
+            uri: 'Test string',
+          },
+        },
         redirectAction: {
           redirectUri: 'Test string',
         },
@@ -5206,6 +5258,16 @@ gapi.load('client', async () => {
           filter: 'Test string',
         },
         name: 'Test string',
+        promoteAction: {
+          dataStore: 'Test string',
+          searchLinkPromotion: {
+            description: 'Test string',
+            enabled: true,
+            imageUri: 'Test string',
+            title: 'Test string',
+            uri: 'Test string',
+          },
+        },
         redirectAction: {
           redirectUri: 'Test string',
         },
@@ -5835,6 +5897,7 @@ gapi.load('client', async () => {
         personalizationSpec: {
           mode: 'Test string',
         },
+        promoteControlIds: ['Test string'],
         rankingExpression: 'Test string',
         redirectControlIds: ['Test string'],
         replacementControlIds: ['Test string'],
