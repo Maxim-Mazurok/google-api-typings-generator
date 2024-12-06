@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.oslogin-v1alpha",
-  "version": "0.0.20241102",
-  "description": "TypeScript typings for Cloud OS Login API v1alpha",
+  "name": "@maxim_mazurok/gapi.client.metastore-v2alpha",
+  "version": "0.0.20241203",
+  "description": "TypeScript typings for Dataproc Metastore API v2alpha",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"
