@@ -1,4 +1,4 @@
-# TypeScript typings for Dataproc Metastore API v2beta
+# TypeScript typings for Dataproc Metastore API v2alpha
 
 The Dataproc Metastore API is used to manage the lifecycle and configuration of metastore services.
 For detailed description please check [documentation](https://cloud.google.com/dataproc-metastore/docs).
@@ -8,7 +8,7 @@ For detailed description please check [documentation](https://cloud.google.com/d
 Install typings for Dataproc Metastore API:
 
 ```
-npm install @types/gapi.client.metastore-v2beta --save-dev
+npm install @types/gapi.client.metastore-v2alpha --save-dev
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Then load api client wrapper:
 
 ```typescript
 gapi.client.load(
-  'https://metastore.googleapis.com/$discovery/rest?version=v2beta',
+  'https://metastore.googleapis.com/$discovery/rest?version=v2alpha',
   () => {
     // now we can use:
     // gapi.client.metastore
@@ -36,7 +36,7 @@ gapi.client.load(
 
 ```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
-gapi.client.load('metastore', 'v2beta', () => {
+gapi.client.load('metastore', 'v2alpha', () => {
   // now we can use:
   // gapi.client.metastore
 });
