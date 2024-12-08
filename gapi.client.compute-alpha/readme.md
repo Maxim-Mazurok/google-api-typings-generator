@@ -271,11 +271,6 @@ Returns the specified BackendService resource.
 await gapi.client.compute.backendServices.get({ backendService: "backendService", project: "project",  });
 
 /*
-Returns effective security policies applied to this backend service.
-*/
-await gapi.client.compute.backendServices.getEffectiveSecurityPolicies({ backendService: "backendService", project: "project",  });
-
-/*
 Gets the most recent health check results for this BackendService. Example request body: { "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
 */
 await gapi.client.compute.backendServices.getHealth({ backendService: "backendService", project: "project",  });
@@ -1306,7 +1301,7 @@ Adds an access config to an instance's network interface.
 await gapi.client.compute.instances.addAccessConfig({ instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
 
 /*
-Adds one dynamic network interface to an active instance.
+Adds a network interface to an instance.
 */
 await gapi.client.compute.instances.addNetworkInterface({ instance: "instance", project: "project", zone: "zone",  });
 
@@ -1341,7 +1336,7 @@ Deletes an access config from an instance's network interface.
 await gapi.client.compute.instances.deleteAccessConfig({ accessConfig: "accessConfig", instance: "instance", networkInterface: "networkInterface", project: "project", zone: "zone",  });
 
 /*
-Deletes one dynamic network interface from an active instance. InstancesDeleteNetworkInterfaceRequest indicates: - instance from which to delete, using project+zone+resource_id fields; - dynamic network interface to be deleted, using network_interface_name field;
+Deletes one network interface from an active instance. InstancesDeleteNetworkInterfaceRequest indicates: - instance from which to delete, using project+zone+resource_id fields; - network interface to be deleted, using network_interface_name field; Only VLAN interface deletion is supported for now.
 */
 await gapi.client.compute.instances.deleteNetworkInterface({ instance: "instance", networkInterfaceName: "networkInterfaceName", project: "project", zone: "zone",  });
 
@@ -1979,11 +1974,6 @@ await gapi.client.compute.licenses.setIamPolicy({ project: "project", resource: 
 Returns permissions that a caller has on the specified resource. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
 */
 await gapi.client.compute.licenses.testIamPermissions({ project: "project", resource: "resource",  });
-
-/*
-Updates a License resource in the specified project. *Caution* This resource is intended for use only by third-party partners who are creating Cloud Marketplace images.
-*/
-await gapi.client.compute.licenses.update({ license: "license", project: "project",  });
 
 /*
 Deletes the specified machine image. Deleting a machine image is permanent and cannot be undone.
@@ -3596,11 +3586,6 @@ Deletes a rule at the specified priority.
 await gapi.client.compute.regionSecurityPolicies.removeRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
 
 /*
-Sets the labels on a security policy. To learn more about labels, read the Labeling Resources documentation.
-*/
-await gapi.client.compute.regionSecurityPolicies.setLabels({ project: "project", region: "region", resource: "resource",  });
-
-/*
 Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot. For more information, see Deleting snapshots.
 */
 await gapi.client.compute.regionSnapshots.delete({ project: "project", region: "region", snapshot: "snapshot",  });
@@ -3866,11 +3851,6 @@ Retrieves a list of reservation blocks under a single reservation.
 await gapi.client.compute.reservationBlocks.list({ project: "project", reservation: "reservation", zone: "zone",  });
 
 /*
-Allows customers to perform maintenance on a reservation block
-*/
-await gapi.client.compute.reservationBlocks.performMaintenance({ project: "project", reservation: "reservation", reservationBlock: "reservationBlock", zone: "zone",  });
-
-/*
 Retrieves an aggregated list of reservations. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.reservations.aggregatedList({ project: "project",  });
@@ -3899,11 +3879,6 @@ await gapi.client.compute.reservations.insert({ project: "project", zone: "zone"
 A list of all the reservations that have been configured for the specified project in specified zone.
 */
 await gapi.client.compute.reservations.list({ project: "project", zone: "zone",  });
-
-/*
-Perform maintenance on an extended reservation
-*/
-await gapi.client.compute.reservations.performMaintenance({ project: "project", reservation: "reservation", zone: "zone",  });
 
 /*
 Resizes the reservation (applicable to standalone reservations only). For more information, read Modifying reservations.
