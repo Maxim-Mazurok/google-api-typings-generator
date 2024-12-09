@@ -506,15 +506,6 @@ Retrieves a list of objects matching the criteria.
 await gapi.client.storage.objects.list({bucket: 'bucket'});
 
 /*
-Moves the source object to the destination object in the same bucket.
-*/
-await gapi.client.storage.objects.move({
-  bucket: 'bucket',
-  destinationObject: 'destinationObject',
-  sourceObject: 'sourceObject',
-});
-
-/*
 Patches an object's metadata.
 */
 await gapi.client.storage.objects.patch({bucket: 'bucket', object: 'object'});
