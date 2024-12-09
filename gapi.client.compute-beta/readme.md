@@ -266,11 +266,6 @@ Returns the specified BackendService resource.
 await gapi.client.compute.backendServices.get({ backendService: "backendService", project: "project",  });
 
 /*
-Returns effective security policies applied to this backend service.
-*/
-await gapi.client.compute.backendServices.getEffectiveSecurityPolicies({ backendService: "backendService", project: "project",  });
-
-/*
 Gets the most recent health check results for this BackendService. Example request body: { "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
 */
 await gapi.client.compute.backendServices.getHealth({ backendService: "backendService", project: "project",  });
@@ -3264,11 +3259,6 @@ await gapi.client.compute.regionSecurityPolicies.patchRule({ project: "project",
 Deletes a rule at the specified priority.
 */
 await gapi.client.compute.regionSecurityPolicies.removeRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
-
-/*
-Sets the labels on a security policy. To learn more about labels, read the Labeling Resources documentation.
-*/
-await gapi.client.compute.regionSecurityPolicies.setLabels({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified SslCertificate resource in the region.
