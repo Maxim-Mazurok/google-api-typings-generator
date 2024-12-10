@@ -1,6 +1,6 @@
 # TypeScript typings for Google Play Game Management v1management
 
-The Google Play Game Management API allows developers to manage resources from the Google Play Game service.
+The Google Play Games Management API allows developers to manage resources from the Google Play Game service.
 For detailed description please check [documentation](https://developers.google.com/games/).
 
 ## Installing
