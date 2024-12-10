@@ -69,12 +69,6 @@ var client_id = '',
     // See all of the Inbound SSO profiles and their assignments to any Org Units or Google Groups in your Cloud Identity Organization.
     'https://www.googleapis.com/auth/cloud-identity.inboundsso.readonly',
 
-    // See and edit policies in your Cloud Identity Organization.
-    'https://www.googleapis.com/auth/cloud-identity.policies',
-
-    // See policies in your Cloud Identity Organization.
-    'https://www.googleapis.com/auth/cloud-identity.policies.readonly',
-
     // See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account.
     'https://www.googleapis.com/auth/cloud-platform',
   ],
@@ -220,14 +214,4 @@ await gapi.client.cloudidentity.inboundSsoAssignments.list({});
 Updates an InboundSsoAssignment. The body of this request is the `inbound_sso_assignment` field and the `update_mask` is relative to that. For example: a PATCH to `/v1/inboundSsoAssignments/0abcdefg1234567&update_mask=rank` with a body of `{ "rank": 1 }` moves that (presumably group-targeted) SSO assignment to the highest priority and shifts any other group-targeted assignments down in priority.
 */
 await gapi.client.cloudidentity.inboundSsoAssignments.patch({name: 'name'});
-
-/*
-Get a Policy
-*/
-await gapi.client.cloudidentity.policies.get({name: 'name'});
-
-/*
-List Policies
-*/
-await gapi.client.cloudidentity.policies.list({});
 ```
