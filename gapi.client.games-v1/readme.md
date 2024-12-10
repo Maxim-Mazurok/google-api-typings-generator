@@ -1,6 +1,6 @@
 # TypeScript typings for Google Play Game Services v1
 
-The Google Play Games Service allows developers to enhance games with social leaderboards, achievements, game state, sign-in with Google, and more.
+The Google Play games service allows developers to enhance games with social leaderboards, achievements, game state, sign-in with Google, and more.
 For detailed description please check [documentation](https://developers.google.com/games/).
 
 ## Installing
