@@ -69,12 +69,6 @@ var client_id = '',
     // See all of the Inbound SSO profiles and their assignments to any Org Units or Google Groups in your Cloud Identity Organization.
     'https://www.googleapis.com/auth/cloud-identity.inboundsso.readonly',
 
-    // List, Move orgmembers of an OrgUnit in your Cloud Identity Organization.
-    'https://www.googleapis.com/auth/cloud-identity.orgunits',
-
-    // List org members of an OrgUnit in your Cloud Identity Organization.
-    'https://www.googleapis.com/auth/cloud-identity.orgunits.readonly',
-
     // See and edit policies in your Cloud Identity Organization.
     'https://www.googleapis.com/auth/cloud-identity.policies',
 
