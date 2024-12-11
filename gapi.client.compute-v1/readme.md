@@ -1036,11 +1036,6 @@ Resizes the managed instance group. If you increase the size, the group creates 
 await gapi.client.compute.instanceGroupManagers.resize({ instanceGroupManager: "instanceGroupManager", project: "project", size: 1, zone: "zone",  });
 
 /*
-Flags the specified instances in the managed instance group to be resumed. This method increases the targetSize and decreases the targetSuspendedSize of the managed instance group by the number of instances that you resume. The resumeInstances operation is marked DONE if the resumeInstances request is successful. The underlying actions take additional time. You must separately verify the status of the RESUMING action with the listmanagedinstances method. In this request, you can only specify instances that are suspended. For example, if an instance was previously suspended using the suspendInstances method, it can be resumed using the resumeInstances method. If a health check is attached to the managed instance group, the specified instances will be verified as healthy after they are resumed. You can specify a maximum of 1000 instances with this method per request.
-*/
-await gapi.client.compute.instanceGroupManagers.resumeInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
-
-/*
 Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you run recreateInstances, run applyUpdatesToInstances, or set the group's updatePolicy.type to PROACTIVE.
 */
 await gapi.client.compute.instanceGroupManagers.setInstanceTemplate({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
@@ -1049,21 +1044,6 @@ await gapi.client.compute.instanceGroupManagers.setInstanceTemplate({ instanceGr
 Modifies the target pools to which all instances in this managed instance group are assigned. The target pools automatically apply to all of the instances in the managed instance group. This operation is marked DONE when you make the request even if the instances have not yet been added to their target pools. The change might take some time to apply to all of the instances in the group depending on the size of the group.
 */
 await gapi.client.compute.instanceGroupManagers.setTargetPools({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
-
-/*
-Flags the specified instances in the managed instance group to be started. This method increases the targetSize and decreases the targetStoppedSize of the managed instance group by the number of instances that you start. The startInstances operation is marked DONE if the startInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STARTING action with the listmanagedinstances method. In this request, you can only specify instances that are stopped. For example, if an instance was previously stopped using the stopInstances method, it can be started using the startInstances method. If a health check is attached to the managed instance group, the specified instances will be verified as healthy after they are started. You can specify a maximum of 1000 instances with this method per request.
-*/
-await gapi.client.compute.instanceGroupManagers.startInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
-
-/*
-Flags the specified instances in the managed instance group to be immediately stopped. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetStoppedSize of the managed instance group by the number of instances that you stop. The stopInstances operation is marked DONE if the stopInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STOPPING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays stopping the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is stopped. Stopped instances can be started using the startInstances method. You can specify a maximum of 1000 instances with this method per request.
-*/
-await gapi.client.compute.instanceGroupManagers.stopInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
-
-/*
-Flags the specified instances in the managed instance group to be immediately suspended. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetSuspendedSize of the managed instance group by the number of instances that you suspend. The suspendInstances operation is marked DONE if the suspendInstances request is successful. The underlying actions take additional time. You must separately verify the status of the SUSPENDING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays suspension of the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is suspended. Suspended instances can be resumed using the resumeInstances method. You can specify a maximum of 1000 instances with this method per request.
-*/
-await gapi.client.compute.instanceGroupManagers.suspendInstances({ instanceGroupManager: "instanceGroupManager", project: "project", zone: "zone",  });
 
 /*
 Inserts or updates per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
@@ -1836,16 +1816,6 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.networkFirewallPolicies.testIamPermissions({ project: "project", resource: "resource",  });
 
 /*
-Returns the specified network profile.
-*/
-await gapi.client.compute.networkProfiles.get({ networkProfile: "networkProfile", project: "project",  });
-
-/*
-Retrieves a list of network profiles available to the specified project.
-*/
-await gapi.client.compute.networkProfiles.list({ project: "project",  });
-
-/*
 Adds a peering to the specified network.
 */
 await gapi.client.compute.networks.addPeering({ network: "network", project: "project",  });
@@ -2556,11 +2526,6 @@ Changes the intended size of the managed instance group. If you increase the siz
 await gapi.client.compute.regionInstanceGroupManagers.resize({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region", size: 1,  });
 
 /*
-Flags the specified instances in the managed instance group to be resumed. This method increases the targetSize and decreases the targetSuspendedSize of the managed instance group by the number of instances that you resume. The resumeInstances operation is marked DONE if the resumeInstances request is successful. The underlying actions take additional time. You must separately verify the status of the RESUMING action with the listmanagedinstances method. In this request, you can only specify instances that are suspended. For example, if an instance was previously suspended using the suspendInstances method, it can be resumed using the resumeInstances method. If a health check is attached to the managed instance group, the specified instances will be verified as healthy after they are resumed. You can specify a maximum of 1000 instances with this method per request.
-*/
-await gapi.client.compute.regionInstanceGroupManagers.resumeInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
-
-/*
 Sets the instance template to use when creating new instances or recreating instances in this group. Existing instances are not affected.
 */
 await gapi.client.compute.regionInstanceGroupManagers.setInstanceTemplate({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
@@ -2569,21 +2534,6 @@ await gapi.client.compute.regionInstanceGroupManagers.setInstanceTemplate({ inst
 Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected.
 */
 await gapi.client.compute.regionInstanceGroupManagers.setTargetPools({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
-
-/*
-Flags the specified instances in the managed instance group to be started. This method increases the targetSize and decreases the targetStoppedSize of the managed instance group by the number of instances that you start. The startInstances operation is marked DONE if the startInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STARTING action with the listmanagedinstances method. In this request, you can only specify instances that are stopped. For example, if an instance was previously stopped using the stopInstances method, it can be started using the startInstances method. If a health check is attached to the managed instance group, the specified instances will be verified as healthy after they are started. You can specify a maximum of 1000 instances with this method per request.
-*/
-await gapi.client.compute.regionInstanceGroupManagers.startInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
-
-/*
-Flags the specified instances in the managed instance group to be immediately stopped. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetStoppedSize of the managed instance group by the number of instances that you stop. The stopInstances operation is marked DONE if the stopInstances request is successful. The underlying actions take additional time. You must separately verify the status of the STOPPING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays stopping the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is stopped. Stopped instances can be started using the startInstances method. You can specify a maximum of 1000 instances with this method per request.
-*/
-await gapi.client.compute.regionInstanceGroupManagers.stopInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
-
-/*
-Flags the specified instances in the managed instance group to be immediately suspended. You can only specify instances that are running in this request. This method reduces the targetSize and increases the targetSuspendedSize of the managed instance group by the number of instances that you suspend. The suspendInstances operation is marked DONE if the suspendInstances request is successful. The underlying actions take additional time. You must separately verify the status of the SUSPENDING action with the listmanagedinstances method. If the standbyPolicy.initialDelaySec field is set, the group delays suspension of the instances until initialDelaySec have passed from instance.creationTimestamp (that is, when the instance was created). This delay gives your application time to set itself up and initialize on the instance. If more than initialDelaySec seconds have passed since instance.creationTimestamp when this method is called, there will be zero delay. If the group is part of a backend service that has enabled connection draining, it can take up to 60 seconds after the connection draining duration has elapsed before the VM instance is suspended. Suspended instances can be resumed using the resumeInstances method. You can specify a maximum of 1000 instances with this method per request.
-*/
-await gapi.client.compute.regionInstanceGroupManagers.suspendInstances({ instanceGroupManager: "instanceGroupManager", project: "project", region: "region",  });
 
 /*
 Inserts or updates per-instance configurations for the managed instance group. perInstanceConfig.name serves as a key used to distinguish whether to perform insert or patch.
@@ -2889,11 +2839,6 @@ await gapi.client.compute.regionSecurityPolicies.patchRule({ project: "project",
 Deletes a rule at the specified priority.
 */
 await gapi.client.compute.regionSecurityPolicies.removeRule({ project: "project", region: "region", securityPolicy: "securityPolicy",  });
-
-/*
-Sets the labels on a security policy. To learn more about labels, read the Labeling Resources documentation.
-*/
-await gapi.client.compute.regionSecurityPolicies.setLabels({ project: "project", region: "region", resource: "resource",  });
 
 /*
 Deletes the specified SslCertificate resource in the region.
