@@ -1,6 +1,6 @@
 # TypeScript typings for Parallelstore API v1
 
-For detailed description please check [documentation](https://cloud.google.com/).
+For detailed description please check [documentation](https://cloud.google.com/parallelstore).
 
 ## Installing
 
