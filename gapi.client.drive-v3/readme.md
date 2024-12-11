@@ -98,7 +98,7 @@ After that you can use Google Drive API resources: <!-- TODO: make this work for
 ```typescript
 
 /*
-Gets information about the user, the user's Drive, and system capabilities. For more information, see [Return user info](https://developers.google.com/drive/api/guides/user-info). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/drive/api/guides/fields-parameter).
+Gets information about the user, the user's Drive, and system capabilities.
 */
 await gapi.client.drive.about.get({  });
 
@@ -118,57 +118,57 @@ Used to approve or deny an Access Proposal.
 await gapi.client.drive.accessproposals.resolve({ fileId: "fileId", proposalId: "proposalId",  });
 
 /*
-Gets a specific app. For more information, see [Return user info](https://developers.google.com/drive/api/guides/user-info).
+Gets a specific app.
 */
 await gapi.client.drive.apps.get({ appId: "appId",  });
 
 /*
-Lists a user's installed apps. For more information, see [Return user info](https://developers.google.com/drive/api/guides/user-info).
+Lists a user's installed apps.
 */
 await gapi.client.drive.apps.list({  });
 
 /*
-Gets the starting pageToken for listing future changes. For more information, see [Retrieve changes](https://developers.google.com/drive/api/guides/manage-changes).
+Gets the starting pageToken for listing future changes.
 */
 await gapi.client.drive.changes.getStartPageToken({  });
 
 /*
-Lists the changes for a user or shared drive. For more information, see [Retrieve changes](https://developers.google.com/drive/api/guides/manage-changes).
+Lists the changes for a user or shared drive.
 */
 await gapi.client.drive.changes.list({ pageToken: "pageToken",  });
 
 /*
-Subscribes to changes for a user. For more information, see [Notifications for resource changes](https://developers.google.com/drive/api/guides/push).
+Subscribes to changes for a user.
 */
 await gapi.client.drive.changes.watch({ pageToken: "pageToken",  });
 
 /*
-Stops watching resources through this channel. For more information, see [Notifications for resource changes](https://developers.google.com/drive/api/guides/push).
+Stops watching resources through this channel.
 */
 await gapi.client.drive.channels.stop({  });
 
 /*
-Creates a comment on a file. For more information, see [Manage comments and replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/drive/api/guides/fields-parameter).
+Creates a comment on a file.
 */
 await gapi.client.drive.comments.create({ fileId: "fileId",  });
 
 /*
-Deletes a comment. For more information, see [Manage comments and replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/drive/api/guides/fields-parameter).
+Deletes a comment.
 */
 await gapi.client.drive.comments.delete({ commentId: "commentId", fileId: "fileId",  });
 
 /*
-Gets a comment by ID. For more information, see [Manage comments and replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/drive/api/guides/fields-parameter).
+Gets a comment by ID.
 */
 await gapi.client.drive.comments.get({ commentId: "commentId", fileId: "fileId",  });
 
 /*
-Lists a file's comments. For more information, see [Manage comments and replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/drive/api/guides/fields-parameter).
+Lists a file's comments.
 */
 await gapi.client.drive.comments.list({ fileId: "fileId",  });
 
 /*
-Updates a comment with patch semantics. For more information, see [Manage comments and replies](https://developers.google.com/drive/api/guides/manage-comments). Required: The `fields` parameter must be set. To return the exact fields you need, see [Return specific fields](https://developers.google.com/drive/api/guides/fields-parameter).
+Updates a comment with patch semantics.
 */
 await gapi.client.drive.comments.update({ commentId: "commentId", fileId: "fileId",  });
 
