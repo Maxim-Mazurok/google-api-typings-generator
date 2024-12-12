@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.firebasedataconnect-v1beta",
-  "version": "0.0.20241108",
+  "version": "0.0.20241208",
   "description": "TypeScript typings for Firebase Data Connect API v1beta",
   "repository": {
     "type": "git",
