@@ -376,7 +376,7 @@ await gapi.client.sql.instances.stopReplica({
 });
 
 /*
-Switches over from the primary instance to the DR replica instance.
+Switches over from the primary instance to the designated DR replica instance.
 */
 await gapi.client.sql.instances.switchover({
   instance: 'instance',
