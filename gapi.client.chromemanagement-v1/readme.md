@@ -1,7 +1,7 @@
 # TypeScript typings for Chrome Management API v1
 
 The Chrome Management API is a suite of services that allows Chrome administrators to view, manage and gain insights on their Chrome OS and Chrome Browser devices.
-For detailed description please check [documentation](http://developers.google.com/chrome/management/).
+For detailed description please check [documentation](https://developers.google.com/chrome/management/).
 
 ## Installing
 
