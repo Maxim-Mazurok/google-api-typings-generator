@@ -116,7 +116,7 @@ Returns a customized report of data access records. The report provides records 
 await gapi.client.analyticsadmin.accounts.runAccessReport({entity: 'entity'});
 
 /*
-Searches through all changes to an account or its children given the specified set of filters.
+Searches through all changes to an account or its children given the specified set of filters. Only returns the subset of changes supported by the API. The UI may return additional changes.
 */
 await gapi.client.analyticsadmin.accounts.searchChangeHistoryEvents({
   account: 'account',
