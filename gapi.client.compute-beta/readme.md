@@ -1936,6 +1936,11 @@ Inserts a rule into a firewall policy.
 await gapi.client.compute.networkFirewallPolicies.addRule({ firewallPolicy: "firewallPolicy", project: "project",  });
 
 /*
+Retrieves an aggregated list of network firewall policies, listing network firewall policies from all applicable scopes (global and regional) and grouping the results per scope. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+*/
+await gapi.client.compute.networkFirewallPolicies.aggregatedList({ project: "project",  });
+
+/*
 Copies rules to the specified firewall policy.
 */
 await gapi.client.compute.networkFirewallPolicies.cloneRules({ firewallPolicy: "firewallPolicy", project: "project",  });
