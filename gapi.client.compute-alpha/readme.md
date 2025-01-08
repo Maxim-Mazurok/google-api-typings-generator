@@ -141,6 +141,11 @@ Returns permissions that a caller has on the specified resource.
 await gapi.client.compute.addresses.testIamPermissions({ project: "project", region: "region", resource: "resource",  });
 
 /*
+Advise how, where and when to create the requested amount of instances with specified accelerators, within the specified time and location limits. The method recommends creating future reservations for the requested resources.
+*/
+await gapi.client.compute.advice.calendarMode({ project: "project", region: "region",  });
+
+/*
 Retrieves an aggregated list of autoscalers. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
 */
 await gapi.client.compute.autoscalers.aggregatedList({ project: "project",  });
@@ -1726,6 +1731,11 @@ Gets the access control policy for a resource. May be empty if no such policy or
 await gapi.client.compute.interconnectAttachmentGroups.getIamPolicy({ project: "project", resource: "resource",  });
 
 /*
+Returns the InterconnectAttachmentStatuses for the specified InterconnectAttachmentGroup resource.
+*/
+await gapi.client.compute.interconnectAttachmentGroups.getOperationalStatus({ interconnectAttachmentGroup: "interconnectAttachmentGroup", project: "project",  });
+
+/*
 Creates a InterconnectAttachmentGroup in the specified project in the given scope using the parameters that are included in the request.
 */
 await gapi.client.compute.interconnectAttachmentGroups.insert({ project: "project",  });
@@ -1814,6 +1824,11 @@ await gapi.client.compute.interconnectGroups.get({ interconnectGroup: "interconn
 Gets the access control policy for a resource. May be empty if no such policy or resource exists.
 */
 await gapi.client.compute.interconnectGroups.getIamPolicy({ project: "project", resource: "resource",  });
+
+/*
+Returns the interconnectStatuses for the specified InterconnectGroup.
+*/
+await gapi.client.compute.interconnectGroups.getOperationalStatus({ interconnectGroup: "interconnectGroup", project: "project",  });
 
 /*
 Creates a InterconnectGroup in the specified project in the given scope using the parameters that are included in the request.
@@ -2164,6 +2179,11 @@ await gapi.client.compute.networkFirewallPolicies.addPacketMirroringRule({ firew
 Inserts a rule into a firewall policy.
 */
 await gapi.client.compute.networkFirewallPolicies.addRule({ firewallPolicy: "firewallPolicy", project: "project",  });
+
+/*
+Retrieves an aggregated list of network firewall policies, listing network firewall policies from all applicable scopes (global and regional) and grouping the results per scope. To prevent failure, Google recommends that you set the `returnPartialSuccess` parameter to `true`.
+*/
+await gapi.client.compute.networkFirewallPolicies.aggregatedList({ project: "project",  });
 
 /*
 Copies rules to the specified firewall policy.
