@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.parallelstore-v1beta",
-  "version": "0.0.20250102",
+  "version": "0.0.20241211",
   "description": "TypeScript typings for Parallelstore API v1beta",
   "repository": {
     "type": "git",
