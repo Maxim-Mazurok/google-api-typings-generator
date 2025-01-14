@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.websecurityscanner-v1beta",
-  "version": "0.0.20241117",
+  "version": "0.0.20250105",
   "description": "TypeScript typings for Web Security Scanner API v1beta",
   "repository": {
     "type": "git",
