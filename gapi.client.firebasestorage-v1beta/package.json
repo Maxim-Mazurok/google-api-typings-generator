@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.firebasestorage-v1beta",
-  "version": "0.0.20241218",
+  "version": "0.0.20250110",
   "description": "TypeScript typings for Cloud Storage for Firebase API v1beta",
   "repository": {
     "type": "git",
