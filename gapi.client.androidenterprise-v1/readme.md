@@ -123,6 +123,13 @@ await gapi.client.androidenterprise.devices.update({
 });
 
 /*
+Returns a token for device enrollment. The DPC can encode this token within the QR/NFC/zero-touch enrollment payload or fetch it before calling the on-device API to authenticate the user. The token can be generated for each device or reused across multiple devices.
+*/
+await gapi.client.androidenterprise.enrollmentTokens.create({
+  enterpriseId: 'enterpriseId',
+});
+
+/*
 Acknowledges notifications that were received from Enterprises.PullNotificationSet to prevent subsequent calls from returning the same notifications.
 */
 await gapi.client.androidenterprise.enterprises.acknowledgeNotificationSet({});
@@ -131,13 +138,6 @@ await gapi.client.androidenterprise.enterprises.acknowledgeNotificationSet({});
 Completes the signup flow, by specifying the Completion token and Enterprise token. This request must not be called multiple times for a given Enterprise Token.
 */
 await gapi.client.androidenterprise.enterprises.completeSignup({});
-
-/*
-Returns a token for device enrollment. The DPC can encode this token within the QR/NFC/zero-touch enrollment payload or fetch it before calling the on-device API to authenticate the user. The token can be generated for each device or reused across multiple devices.
-*/
-await gapi.client.androidenterprise.enterprises.createEnrollmentToken({
-  enterpriseId: 'enterpriseId',
-});
 
 /*
 Returns a unique token to access an embeddable UI. To generate a web UI, pass the generated token into the managed Google Play javascript API. Each token may only be used to start one UI session. See the JavaScript API documentation for further information.
