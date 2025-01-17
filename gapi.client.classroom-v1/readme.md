@@ -48,6 +48,12 @@ Don't forget to authenticate your client before sending any request to resources
 // declare client_id registered in Google Developers Console
 var client_id = '',
   scope = [
+    // See and update its own attachments to posts in Google Classroom
+    'https://www.googleapis.com/auth/classroom.addons.student',
+
+    // See, create, and update its own attachments to posts in classes you teach in Google Classroom
+    'https://www.googleapis.com/auth/classroom.addons.teacher',
+
     // View and manage announcements in Google Classroom
     'https://www.googleapis.com/auth/classroom.announcements',
 
