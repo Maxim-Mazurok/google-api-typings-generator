@@ -1,6 +1,6 @@
 {
   "name": "@maxim_mazurok/gapi.client.pollen-v1",
-  "version": "0.0.20250119",
+  "version": "0.0.20250120",
   "description": "TypeScript typings for Pollen API v1",
   "repository": {
     "type": "git",
