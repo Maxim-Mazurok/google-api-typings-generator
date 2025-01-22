@@ -1,7 +1,7 @@
 {
-  "name": "@maxim_mazurok/gapi.client.resourcesettings-v1",
+  "name": "@maxim_mazurok/gapi.client.libraryagent-v1",
   "version": "0.0.20250120",
-  "description": "TypeScript typings for Resource Settings API v1",
+  "description": "TypeScript typings for Library Agent API v1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Maxim-Mazurok/google-api-typings-generator.git"

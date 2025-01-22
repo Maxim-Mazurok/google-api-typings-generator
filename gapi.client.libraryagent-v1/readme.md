@@ -1,14 +1,14 @@
-# TypeScript typings for Resource Settings API v1
+# TypeScript typings for Library Agent API v1
 
-The Resource Settings API allows users to control and modify the behavior of their GCP resources (e.g., VM, firewall, Project, etc.) across the Cloud Resource Hierarchy.
-For detailed description please check [documentation](https://cloud.google.com/resource-manager/docs/resource-settings/overview).
+A simple Google Example Library API.
+For detailed description please check [documentation](https://cloud.google.com/docs/quota).
 
 ## Installing
 
-Install typings for Resource Settings API:
+Install typings for Library Agent API:
 
 ```
-npm install @types/gapi.client.resourcesettings-v1 --save-dev
+npm install @types/gapi.client.libraryagent-v1 --save-dev
 ```
 
 ## Usage
@@ -26,19 +26,19 @@ Then load api client wrapper:
 
 ```typescript
 gapi.client.load(
-  'https://resourcesettings.googleapis.com/$discovery/rest?version=v1',
+  'https://libraryagent.googleapis.com/$discovery/rest?version=v1',
   () => {
     // now we can use:
-    // gapi.client.resourcesettings
+    // gapi.client.libraryagent
   }
 );
 ```
 
 ```typescript
 // Deprecated, use discovery document URL, see https://github.com/google/google-api-javascript-client/blob/master/docs/reference.md#----gapiclientloadname----version----callback--
-gapi.client.load('resourcesettings', 'v1', () => {
+gapi.client.load('libraryagent', 'v1', () => {
   // now we can use:
-  // gapi.client.resourcesettings
+  // gapi.client.libraryagent
 });
 ```
 
@@ -66,8 +66,16 @@ gapi.auth.authorize(
 );
 ```
 
-After that you can use Resource Settings API resources: <!-- TODO: make this work for multiple namespaces -->
+After that you can use Library Agent API resources: <!-- TODO: make this work for multiple namespaces -->
 
 ```typescript
+/*
+Gets a shelf. Returns NOT_FOUND if the shelf does not exist.
+*/
+await gapi.client.libraryagent.shelves.get({name: 'name'});
 
+/*
+Lists shelves. The order is unspecified but deterministic. Newly created shelves will not necessarily be added to the end of this list.
+*/
+await gapi.client.libraryagent.shelves.list({});
 ```
