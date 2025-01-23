@@ -1428,10 +1428,6 @@ declare namespace gapi.client {
     interface GoogleCloudDocumentaiV1ProcessOptionsLayoutConfig {
       /** Optional. Config for chunking in layout parser processor. */
       chunkingConfig?: GoogleCloudDocumentaiV1ProcessOptionsLayoutConfigChunkingConfig;
-      /** Optional. Whether to include bounding boxes in layout parser processor response. */
-      returnBoundingBoxes?: boolean;
-      /** Optional. Whether to include images in layout parser processor response. */
-      returnImages?: boolean;
     }
     interface GoogleCloudDocumentaiV1ProcessOptionsLayoutConfigChunkingConfig {
       /** Optional. The chunk sizes to use when splitting documents, in order of level. */
