@@ -494,6 +494,11 @@ Updates an existing resource.
 await gapi.client.youtube.videos.update({part: 'part'});
 
 /*
+Returns the trainability status of a video.
+*/
+await gapi.client.youtube.videoTrainability.get({});
+
+/*
 Allows upload of watermark image and setting it for a channel.
 */
 await gapi.client.youtube.watermarks.set({channelId: 'channelId'});
