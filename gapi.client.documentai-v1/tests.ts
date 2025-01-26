@@ -108,6 +108,8 @@ gapi.load('client', async () => {
               chunkSize: 42,
               includeAncestorHeadings: true,
             },
+            returnBoundingBoxes: true,
+            returnImages: true,
           },
           ocrConfig: {
             advancedOcrOptions: ['Test string'],
@@ -1151,6 +1153,8 @@ gapi.load('client', async () => {
               chunkSize: 42,
               includeAncestorHeadings: true,
             },
+            returnBoundingBoxes: true,
+            returnImages: true,
           },
           ocrConfig: {
             advancedOcrOptions: ['Test string'],
@@ -2211,6 +2215,8 @@ gapi.load('client', async () => {
               chunkSize: 42,
               includeAncestorHeadings: true,
             },
+            returnBoundingBoxes: true,
+            returnImages: true,
           },
           ocrConfig: {
             advancedOcrOptions: ['Test string'],
@@ -3250,6 +3256,8 @@ gapi.load('client', async () => {
               chunkSize: 42,
               includeAncestorHeadings: true,
             },
+            returnBoundingBoxes: true,
+            returnImages: true,
           },
           ocrConfig: {
             advancedOcrOptions: ['Test string'],
