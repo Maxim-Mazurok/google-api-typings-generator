@@ -8,13 +8,13 @@ import {
   fallbackDocumentationLinks,
   revisionPrefix,
   zeroWidthJoinerCharacter,
-} from './constants';
+} from './constants.js';
 import {
   getAllDiscoveryItems,
   getRestDescriptionIfPossible,
   getRestDescriptionsForService,
-} from './discovery';
-import {Template, TemplateData} from './template/index';
+} from './discovery.js';
+import {Template, TemplateData} from './template/index.js';
 import {
   checkExists,
   ensureDirectoryExists,
@@ -25,8 +25,8 @@ import {
   getRevision,
   sameNamespace,
   setOutputGHActions,
-} from './utils';
-import {StreamWriter, TextWriter} from './writer';
+} from './utils.js';
+import {StreamWriter, TextWriter} from './writer.js';
 
 type JsonSchema = gapi.client.discovery.JsonSchema;
 type RestResource = gapi.client.discovery.RestResource;

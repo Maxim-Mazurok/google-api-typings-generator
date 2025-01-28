@@ -4,11 +4,10 @@ import _ from 'lodash';
 import LineByLine from 'n-readlines';
 import fs, {appendFileSync, PathLike} from 'node:fs';
 import {EOL} from 'node:os';
-import {pathToFileURL, URL} from 'node:url';
-import semverPatch from 'semver/functions/patch';
+import {URL} from 'node:url';
 import validateNpmPackageName from 'validate-npm-package-name';
-import {revisionPrefix} from './constants';
-import {RestDescription} from './discovery';
+import {revisionPrefix} from './constants.js';
+import {RestDescription} from './discovery.js';
 
 type RestResource = gapi.client.discovery.RestResource;
 type RestMethod = gapi.client.discovery.RestMethod;
@@ -263,6 +262,7 @@ export const getChangedTypes = async (
         }
         throw e;
       }
+      const semverPatch = await require('semver/functions/patch');
       const latestPublishedRevision = semverPatch(latestPackageVersion);
       if (newRevision > latestPublishedRevision) {
         changedTypes.push(packageName);
@@ -272,7 +272,7 @@ export const getChangedTypes = async (
   return changedTypes;
 };
 
-const importMetaUrl = pathToFileURL(__filename).toString();
+const importMetaUrl = import.meta.url;
 export const rootFolder = new URL('../', importMetaUrl);
 
 export const getMajorAndMinorVersion = (packageName: string) => {

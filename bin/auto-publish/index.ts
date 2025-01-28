@@ -1,8 +1,8 @@
 import {join} from 'node:path';
-import {getChangedTypes} from '../../src/utils';
-import {Git, Settings as GitSettings} from './git';
-import {Helpers} from './helpers';
-import {SH} from './sh';
+import {getChangedTypes} from '../../src/utils.js';
+import {Git, Settings as GitSettings} from './git.js';
+import {Helpers} from './helpers.js';
+import {SH} from './sh.js';
 
 if (!process.env.NPM_PUBLISH_AUTOMATION_TOKEN) {
   throw new Error('Please, set env var: NPM_PUBLISH_AUTOMATION_TOKEN');

@@ -1,9 +1,9 @@
 // Use this script to generate "shadow" types for DT that reference "real" types published to @maxim_mazurok/gapi.client.*
 
 import {Option, program} from 'commander';
-import {App} from './app';
-import {getProxy} from '../utils';
-import {getRestDescription} from '../discovery';
+import {App} from './app.js';
+import {getProxy} from '../utils.js';
+import {getRestDescription} from '../discovery.js';
 
 process.on('unhandledRejection', reason => {
   throw reason;

@@ -7,10 +7,10 @@ import {
   hasOwnProperty,
   rootFolder,
   sleep,
-} from '../../src/utils';
-import {Git, Settings as GitSettings} from './git';
-import {Settings} from './index';
-import {SH} from './sh';
+} from '../../src/utils.js';
+import {Git, Settings as GitSettings} from './git.js';
+import {Settings} from './index.js';
+import {SH} from './sh.js';
 
 export const createOctokit = ({auth, user, thisRepo}: GitSettings) =>
   new Octokit({

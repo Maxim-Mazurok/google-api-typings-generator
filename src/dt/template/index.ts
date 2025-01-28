@@ -1,7 +1,7 @@
 import doT, {RenderFunction} from 'dot';
 import fs from 'node:fs';
 import path from 'node:path';
-import {StreamWriter} from '../../writer';
+import {StreamWriter} from '../../writer.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 export interface DtTemplateData {

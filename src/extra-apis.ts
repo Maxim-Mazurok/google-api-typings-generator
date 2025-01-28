@@ -2,7 +2,7 @@ import {ProxySetting} from 'get-proxy-settings';
 import {
   getRestDescriptionIfPossible,
   RestDescriptionExtended,
-} from './discovery';
+} from './discovery.js';
 
 export const startingVersion = 13; // v4-v12 return 404 since 18-Mar-2024; see https://developers.google.com/google-ads/api/docs/sunset-dates
 

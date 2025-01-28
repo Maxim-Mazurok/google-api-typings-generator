@@ -9,9 +9,9 @@ import {
   getAllDiscoveryItems,
   getExtraRestDescriptions,
   getRestDescriptionIfPossible,
-} from '../src/discovery';
-import {getGoogleAdsRestDescription} from '../src/extra-apis';
-import {getPackageNameFromRestDescription, getProxy} from '../src/utils';
+} from '../src/discovery.js';
+import {getGoogleAdsRestDescription} from '../src/extra-apis.js';
+import {getPackageNameFromRestDescription, getProxy} from '../src/utils.js';
 
 let proxy: ProxySetting | undefined;
 

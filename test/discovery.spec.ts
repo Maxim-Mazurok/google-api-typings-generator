@@ -1,5 +1,8 @@
 import nock from 'nock';
-import {getGoogleAdsRestDescription, startingVersion} from '../src/extra-apis';
+import {
+  getGoogleAdsRestDescription,
+  startingVersion,
+} from '../src/extra-apis.js';
 
 describe('discovery', () => {
   it('getGoogleAdsRestDescription works', async () => {

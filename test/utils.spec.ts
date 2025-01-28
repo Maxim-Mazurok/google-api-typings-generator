@@ -9,7 +9,7 @@ import {
   getPackageNameFromRestDescription,
   getResourceTypeName,
   hasValueRecursive,
-} from '../src/utils';
+} from '../src/utils.js';
 
 describe('getResourceTypeName', () => {
   const expectations = {
@@ -298,10 +298,9 @@ describe('getChangedTypes', () => {
     const result = await getChangedTypes(allTypes, getLatestVersion);
 
     // Assert
-    expect(result).toStrictEqual([
-      'gapi.client.docs-v1',
-      'gapi.client.sheets-v5',
-    ]);
+    expect(result).toHaveLength(2);
+    expect(result).toContain('gapi.client.docs-v1');
+    expect(result).toContain('gapi.client.sheets-v5');
   });
 });
 

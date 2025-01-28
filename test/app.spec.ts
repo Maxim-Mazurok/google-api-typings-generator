@@ -2,7 +2,7 @@
 // import {createServer} from 'node:http';
 // import {dirname, join} from 'node:path';
 // import {fileURLToPath} from 'node:url';
-// import {request} from '../../src/utils';
+// import {request} from '../../src/utils.js';
 
 // before(() => {
 //   createServer((request, response) => {

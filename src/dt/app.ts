@@ -2,20 +2,20 @@ import sortObject from 'deep-sort-object';
 import {ProxySetting} from 'get-proxy-settings';
 import {copyFile} from 'node:fs/promises';
 import path from 'node:path';
-import {excludedRestDescriptionIds} from '../app';
-import {fallbackDocumentationLinks} from '../constants';
+import {excludedRestDescriptionIds} from '../app.js';
+import {fallbackDocumentationLinks} from '../constants.js';
 import {
   getAllDiscoveryItems,
   getRestDescriptionIfPossible,
   getRestDescriptionsForService,
-} from '../discovery';
+} from '../discovery.js';
 import {
   checkExists,
   ensureDirectoryExists,
   getMajorAndMinorVersion,
   getPackageNameFromRestDescription,
-} from '../utils';
-import {DtTemplateData, Template} from './template/index';
+} from '../utils.js';
+import {DtTemplateData, Template} from './template/index.js';
 
 type RestDescription = gapi.client.discovery.RestDescription;
 

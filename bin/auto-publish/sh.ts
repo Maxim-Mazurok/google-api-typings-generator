@@ -1,5 +1,5 @@
 import spawnAsync, {SpawnResult} from '@expo/spawn-async';
-import {hasOwnProperty} from '../../src/utils';
+import {hasOwnProperty} from '../../src/utils.js';
 
 export class SH {
   readonly cwd: string;

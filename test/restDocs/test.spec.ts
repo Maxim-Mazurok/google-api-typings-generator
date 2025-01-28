@@ -1,9 +1,9 @@
 import {readdirSync, readFileSync, rmSync} from 'node:fs';
 import {join} from 'node:path';
-import {App} from '../../src/app';
-import {RestDescription} from '../../src/discovery';
-import {App as DtApp} from '../../src/dt/app';
-import {getPackageNameFromRestDescription} from '../../src/utils';
+import {App} from '../../src/app.js';
+import {RestDescription} from '../../src/discovery.js';
+import {App as DtApp} from '../../src/dt/app.js';
+import {getPackageNameFromRestDescription} from '../../src/utils.js';
 
 const readFileSyncAsUTF8 = (path: string) => readFileSync(path, 'utf-8');
 

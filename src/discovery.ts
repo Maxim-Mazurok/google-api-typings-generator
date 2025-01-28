@@ -1,6 +1,6 @@
 import {ProxySetting} from 'get-proxy-settings';
-import {allExtraApiGenerators} from './extra-apis';
-import {ArrayElement, checkExists, request} from './utils';
+import {allExtraApiGenerators} from './extra-apis.js';
+import {ArrayElement, checkExists, request} from './utils.js';
 
 export type DiscoveryItem = ArrayElement<
   NonNullable<gapi.client.discovery.DirectoryList['items']>

@@ -1,7 +1,7 @@
-import {SH} from './sh';
+import {SH} from './sh.js';
 import {Octokit} from '@octokit/rest';
-import {createOctokit} from './helpers';
-import {sleep} from '../../src/utils';
+import {createOctokit} from './helpers.js';
+import {sleep} from '../../src/utils.js';
 
 export interface Settings {
   user: string; // user who commits

@@ -1,7 +1,7 @@
 import {program} from 'commander';
-import {App} from './app';
-import {getRestDescription} from './discovery';
-import {bannedTypes, getProxy} from './utils';
+import {App} from './app.js';
+import {getRestDescription} from './discovery.js';
+import {bannedTypes, getProxy} from './utils.js';
 
 process.on('unhandledRejection', reason => {
   throw reason;

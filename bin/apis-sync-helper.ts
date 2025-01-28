@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import fs, {readdirSync} from 'node:fs';
-import {excludedRestDescriptionIds} from '../src/app';
-import {getAllDiscoveryItems} from '../src/discovery';
+import {excludedRestDescriptionIds} from '../src/app.js';
+import {getAllDiscoveryItems} from '../src/discovery.js';
 import {
   NPM_ORGANIZATION,
   TYPE_PREFIX,
@@ -12,7 +12,7 @@ import {
   getProxy,
   request,
   rootFolder,
-} from '../src/utils';
+} from '../src/utils.js';
 
 const prefix = `@${NPM_ORGANIZATION}/${TYPE_PREFIX}`;
 const homePath = new URL('..', rootFolder);

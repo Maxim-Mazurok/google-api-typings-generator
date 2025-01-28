@@ -2,7 +2,7 @@ import dedent from 'dedent';
 import doT from 'dot';
 import {readFileSync} from 'node:fs';
 import {join} from 'node:path';
-import {TemplateData} from '../src/template/index';
+import {TemplateData} from '../src/template/index.js';
 
 beforeAll(() => {
   doT.templateSettings.strip = false;

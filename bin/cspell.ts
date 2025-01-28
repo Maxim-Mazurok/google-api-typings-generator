@@ -1,4 +1,4 @@
-import {SH} from './auto-publish/sh';
+import {SH} from './auto-publish/sh.js';
 
 const sh = new SH();
 
